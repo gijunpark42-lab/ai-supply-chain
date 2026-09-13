@@ -81,12 +81,14 @@ export const maxDuration = 300;
 
 const BUDGET_MS = (maxDuration - 10) * 1000; // leave 10 s of headroom before Vercel's cut-off
 const LOCAL_HEALTH_TIMEOUT_MS = 3_000; // "is the PC on?"
-// Opus at max effort needs 15–60 s for an English question and up to ~90 s for
-// a Korean ranking; the owner wants Opus first, so wait up to 3 minutes before
-// giving up on it (the runner itself kills a process after ASK_TIMEOUT_MS).
-const LOCAL_ANSWER_TIMEOUT_MS = 180_000;
+// Opus at max effort needs 15–60 s for an English question and 3–4+ minutes
+// for a Korean answer over 20+ snippets; the owner wants Opus at max, so wait
+// nearly the whole Vercel budget (300 s on Hobby) before giving up. The runner's
+// own ASK_TIMEOUT_MS is 300 s (local-ask/.env). The deadline math below caps the
+// real wait at the budget minus the reserve (~285 s): Vercel kills the function at 300 s.
+const LOCAL_ANSWER_TIMEOUT_MS = 300_000;
 const LOCAL_MIN_ANSWER_MS = 10_000; // below this the local engine is not worth trying
-const API_RESERVE_MS = 25_000; // always keep this much for the API fallback
+const API_RESERVE_MS = 5_000; // headroom after the local wait (there is no API fallback in practice)
 const API_FETCH_TIMEOUT_MS = 60_000; // one API call, including reading the stream
 const API_MAX_RETRIES = 3; // after the first attempt: waits of 1 s, 2 s, 4 s (+ jitter)
 const API_MIN_ATTEMPT_MS = 8_000; // do not start an attempt with less than this left
