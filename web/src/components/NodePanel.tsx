@@ -10,6 +10,7 @@ import { yahooSymbol } from "@/lib/yahoo";
 import ReportView from "./ReportView";
 import TradingViewChart from "./TradingViewChart";
 import LiveQuote from "./LiveQuote";
+import Fundamentals from "./Fundamentals";
 import { EvidenceButton } from "./Evidence";
 import "./NodePanel.css";
 
@@ -526,6 +527,7 @@ export default function NodePanel({
         ) : node.ticker ? (
           <LiveQuote ticker={node.ticker} exchange={node.exchange} />
         ) : null}
+        {node.ticker && <Fundamentals ticker={node.ticker} exchange={node.exchange} />}
 
         <div className="panel-btns">
           {node.hasReport && (

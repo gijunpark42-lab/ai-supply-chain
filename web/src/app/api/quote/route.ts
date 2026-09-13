@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { yahooSymbol } from "@/lib/yahoo";
 
 export const runtime = "nodejs";
-export const revalidate = 600; // cache 10 min
+export const revalidate = 30; // cache 30 s (panel polls every 30 s for live updates)
 
 interface YResult {
   meta?: any;
@@ -22,7 +22,7 @@ async function yahooChart(symbol: string, range: string, interval: string): Prom
   try {
     const res = await fetch(url, {
       headers: { "User-Agent": "Mozilla/5.0 (compatible; supply-chain-app/1.0)" },
-      next: { revalidate: 600 },
+      next: { revalidate: 30 },
     });
     if (!res.ok) return null;
     const j = await res.json();
@@ -53,12 +53,19 @@ export async function GET(req: NextRequest) {
   );
   if (!symbol) return NextResponse.json({ error: "no symbol" }, { status: 400 });
 
-  const [r1d, r1w, rDaily, rWeekly] = await Promise.all([
-    yahooChart(symbol, "1d", "5m"),
-    yahooChart(symbol, "5d", "30m"),
-    yahooChart(symbol, "1y", "1d"),
-    yahooChart(symbol, "max", "1wk"),
-  ]);
+  const charts = (sym: string) =>
+    Promise.all([
+      yahooChart(sym, "1d", "5m"),
+      yahooChart(sym, "5d", "30m"),
+      yahooChart(sym, "1y", "1d"),
+      yahooChart(sym, "max", "1wk"),
+    ]);
+  let [r1d, r1w, rDaily, rWeekly] = await charts(symbol);
+  // Taiwan OTC names (Phison 8299, GlobalWafers 6488, ...) are stored as ".TW" in our
+  // metadata but live under ".TWO" on Yahoo. If ".TW" returns nothing, retry ".TWO".
+  if (!r1d && !r1w && !rDaily && !rWeekly && symbol.endsWith(".TW")) {
+    [r1d, r1w, rDaily, rWeekly] = await charts(symbol.replace(/\.TW$/, ".TWO"));
+  }
 
   const s1d = toSeries(r1d);
   const s1w = toSeries(r1w);

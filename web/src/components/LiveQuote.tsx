@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { LiveQuote as LQ } from "@/lib/types";
 
 const RANGES = ["1D", "1W", "1M", "YTD", "1Y", "5Y", "All"];
+const REFRESH_MS = 30_000; // auto-refresh interval while the panel is open
 const CUR: Record<string, string> = {
   USD: "$", EUR: "€", GBP: "£", JPY: "¥", KRW: "₩", TWD: "NT$", HKD: "HK$", CNY: "¥",
 };
@@ -37,16 +38,28 @@ export default function LiveQuote({
     setState("loading");
     setData(null);
     const q = new URLSearchParams({ ticker, ...(exchange ? { exchange } : {}) });
-    fetch(`/api/quote?${q}`)
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((d: LQ) => {
-        setData(d);
-        setState("ok");
-        // default to 1Y if present, else first available range
-        const avail = RANGES.filter((r) => d.series[r]?.length >= 2);
-        setRange(avail.includes("1Y") ? "1Y" : avail[avail.length - 1] || "1Y");
-      })
-      .catch(() => setState("err"));
+    let alive = true;
+    let first = true;
+    const load = () =>
+      fetch(`/api/quote?${q}`)
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then((d: LQ) => {
+          if (!alive) return;
+          setData(d);
+          setState("ok");
+          if (first) {
+            first = false;
+            // default to 1Y if present, else first available range (first load only —
+            // later refreshes must not reset the range the user picked)
+            const avail = RANGES.filter((r) => d.series[r]?.length >= 2);
+            setRange(avail.includes("1Y") ? "1Y" : avail[avail.length - 1] || "1Y");
+          }
+        })
+        .catch(() => { if (alive && first) setState("err"); });
+    load();
+    // Live refresh every 30 s while the panel is open.
+    const timer = setInterval(load, REFRESH_MS);
+    return () => { alive = false; clearInterval(timer); };
   }, [ticker, exchange]);
 
   const sym = CUR[data?.currency || "USD"] || (data?.currency ? data.currency + " " : "$");

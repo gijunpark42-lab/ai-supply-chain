@@ -188,3 +188,26 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   the commit/push succeeded, and no manual cleanup was attempted. Left open: no UI release work;
   original conference/EDGAR/routine queues in §4 remain untouched. This completion record is included
   in a follow-up documentation commit/push so Claude and other checkouts receive it.
+
+- **2026-09-12 (Claude)** — Asked: free API for basic valuation metrics (P/E, Fwd P/E, P/B ...) since the
+  app only showed price. Done: `web/src/app/api/fundamentals/route.ts` (Yahoo quoteSummary via cookie+crumb
+  handshake, module-level session cache, 60 s fetch revalidate, no key, zero LLM cost) + `Fundamentals.tsx`
+  strip (P/E, Fwd P/E, PEG, P/B, P/S, EV/EBITDA, ROE, rev growth, GM, OPM, div, analyst target) mounted in
+  `NodePanel` under the chart for every node with a ticker (US and non-US). Verified: tsc clean, `next build`
+  ok, route returns data for NVDA / 000660.KS / 2330.TW / 6857.T. Decisions: Alpha Vantage OVERVIEW rejected
+  (US-only, 25/day shared with transcript sync). Known gaps: some KR names return null trailing P/E and P/B;
+  ADR P/B can be broken (ASML) — prefer the home-exchange ticker. Follow-up same day: user wants LIVE
+  refresh → `Fundamentals` and `LiveQuote` now poll every 30 s while the panel is open; `/api/quote` and
+  `/api/fundamentals` server cache cut to 30 s (was 10 min / 60 s). Then diversified by market
+  (`web/src/lib/fundamentals.ts`): Korea → Naver Finance mobile JSON (PER, 추정PER=forward, PBR, EPS,
+  target), Japan → Yahoo Finance Japan page JSON (PER 会社予想 = guidance-based forward, PBR, ROE), Taiwan →
+  TWSE/TPEx official open-data tables (PER/PBR/yield), everything else + gap-fill → Yahoo Finance; strip
+  shows `sources`. Taiwan OTC names stored as ".TW" (8299, 6488, 3105, 5274, 3529...) are ".TWO" on Yahoo —
+  both `/api/quote` (price was silently empty for them before) and fundamentals now retry ".TWO".
+  ALSO: user asked to merge Samsung Foundry into Samsung (same 005930.KS). New tool
+  `utils/merge_company.py --from "Samsung Foundry" --into "Samsung"` (dry-run first): 2 chain files,
+  2 players + 25 edge targets renamed, 1 duplicate edge collapsed, 1 self-loop kept in file (1 contract;
+  graph_build skips self-loops), metadata entry dropped, screener baseline block folded. Graph 352→351 nodes,
+  1,359→1,357 edges; verify_graph.py output byte-identical to before. naming_rules.md (docs + memory) updated.
+  Uncommitted: yes (not deployed). Note: unrelated uncommitted edits by another session were present
+  (CLAUDE.md, AGENTS.md, local-ask/*, ask-server skill) — not touched.

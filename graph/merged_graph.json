@@ -2980,12 +2980,14 @@
       "id": "Samsung",
       "layers": [
         "memory",
+        "foundry",
         "advanced_packaging"
       ],
       "domains": [],
       "sectors": [
         "HBM",
         "LPDDR",
+        "Leading-Edge Logic Foundry (2nm/3nm)",
         "NAND Flash",
         "Wafer-Level Packaging (CoWoS, SoIC)"
       ],
@@ -3096,6 +3098,14 @@
           "product": "DDR5 and LPDDR5X memory"
         },
         {
+          "chain": "cpu_datacenter",
+          "layer": "foundry",
+          "domain": null,
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "sub_sector": null,
+          "product": "advanced node logic wafers (select ARM SoCs)"
+        },
+        {
           "chain": "hbm_memory",
           "layer": "memory",
           "domain": null,
@@ -3126,6 +3136,14 @@
           "sector": "HBM",
           "sub_sector": null,
           "product": "HBM3E memory stacks"
+        },
+        {
+          "chain": "foundry",
+          "layer": "foundry",
+          "domain": null,
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "sub_sector": null,
+          "product": "leading-edge wafer fab (SF3/SF2 GAA logic dies)"
         },
         {
           "chain": "packaging_substrate",
@@ -3218,6 +3236,51 @@
           "signal": "Samsung Electronics using NVIDIA cuLitho to achieve up to 20x greater computational-lithography performance.",
           "figure": "up to 20x cuLitho",
           "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "Samsung Q2 FY2026 (08-14-2026)",
+          "signal": "Half-year report (filed 08-14-2026): foundry is reported inside the DS division (H1 2026 DS revenue KRW 209,231,714M, +294.7% YoY; DS operating profit KRW 142,859,293M; foundry P&L not broken out). Market view in the filing: foundry-market growth in Q2 2026 was driven by full-scale mass production of 2nm mobile products and continued migration of premium AI/HPC products to leading-edge nodes; in H2 2026 leading-edge growth continues on strong AI/HPC demand and Chinese domestic-sourcing demand persists; mainstream nodes are expected to grow more slowly but benefit from pricing as some competitors cut capacity. Samsung's own outlook: leading-edge revenue growth expected on solid demand, led by the 2nm 2nd-generation mobile product entering mass production in H2 2026 and the full ramp of 4nm AI/HPC products; on 2nm the company is EXPANDING ORDERS FROM LARGE DATA-CENTER CUSTOMERS to strengthen its mid-to-long-term growth engine; mainstream nodes are securing specialty process technologies and diversifying customer orders for higher-value products, profitability improvement and long node lifetimes. Strategy statement: node- and application-specific plans to strengthen technology/development, manufacturing and business competitiveness, and end-to-end development/order/production/supply capability. Foundry is described as a market where ~5 large-capacity players hold most of the market after many IDMs went fabless.",
+          "figure": "Foundry inside DS (H1 DS rev KRW 209.2T, +295% YoY); 2nm 2nd-gen mobile mass production H2 2026; 4nm AI/HPC ramp; expanding 2nm orders from large data-center customers",
+          "topics": [
+            "foundry",
+            "transitions"
+          ],
+          "slot": "revenue_growth",
+          "chain": "cpu_datacenter"
+        },
+        {
+          "quarter": "Samsung Q2 FY2026 (08-14-2026)",
+          "signal": "Half-year report (08-14-2026), disclosed foundry order book (section II.4 and XI.1): the only itemised foundry order is the Tesla, Inc. semiconductor contract-manufacturing (foundry) supply contract - DS division Foundry business, signed 07-26-2025, contract end date 12-31-2033, total order value USD 16,544M; the filing notes the amount and end date may change with customer demand and business progress, and omits quantities, amounts delivered to date and remaining backlog as trade secrets. Beyond Tesla, the 2nm node is winning expanded orders from large data-center customers, and 4nm HPC-dedicated production (4th-generation 4nm process, mass production since 11-2024, supporting 2.5D/3D advanced packaging) is ramping for AI/HPC customers; the HBM4 base die is produced on Samsung's 4nm logic process for the memory business (logic-memory-foundry-packaging 'one-stop solution'). Separate-entity note: no other long-term supply contracts material to the financial statements existed at 06-30-2026.",
+          "figure": "Tesla foundry contract USD 16,544M (signed 07-26-2025, runs to 12-31-2033); 2nm data-center customer orders expanding; backlog not disclosed",
+          "topics": [
+            "foundry"
+          ],
+          "slot": "backlog_or_b2b",
+          "chain": "cpu_datacenter"
+        },
+        {
+          "quarter": "Samsung Q2 FY2026 (08-14-2026)",
+          "signal": "Half-year report (08-14-2026), capacity and capex: DS division facility investment KRW 25,603.0B in H1 2026 (group total KRW 27,986.4B) centred on advanced-process expansion/conversion and infrastructure; the filing states system semiconductors are 'investing to secure ADVANCED-NODE CAPA'. The Management Committee approved 'Foundry investment' resolutions on 05-15-2026 and 05-28-2026 (alongside seven memory-investment resolutions Feb-May 2026 and a GPU investment on 04-14-2026); independent directors visited the new HPC sites at the Giheung and Hwaseong campuses on 10-30-2025 for a Foundry business review. US: Samsung Austin Semiconductor LLC (SAS, semiconductor production, Austin/Taylor Texas) had total assets KRW 36,260,678M and liabilities KRW 24,144,525M at 06-30-2026 (up from KRW 29,787,509M / 18,505,380M at year-end), H1 revenue KRW 1,864,817M and a net loss of KRW 5,641M; a USD 6,435,000K parent guarantee (Samsung Electronics America to the US Government, from 12-20-2024, open-ended) backs SAS's obligation to repay CHIPS Act subsidies if the subsidy agreement is not fulfilled, and SAS has a USD 275,000K guarantee to Epcor (utility). Government grants received KRW 1,592,914M in H1 2026 (consolidated cash flow). A new production subsidiary, Samsung Vietnam Semiconductor (SVS), was established 03-2026 in Thai Nguyen. DS raw materials: wafers KRW 1,150.0B in H1 from Siltronic and SK Siltron (price -10% YoY), chemicals KRW 1,697.5B from Soulbrain and Dongwoo Fine-Chem. Consolidated purchase commitments for PP&E/intangibles not yet incurred KRW 30,543,192M.",
+          "figure": "DS capex KRW 25.6T in H1 2026; two Foundry investment resolutions (05-15-2026, 05-28-2026); SAS (Austin/Taylor) assets KRW 36.3T, H1 rev KRW 1.86T; USD 6.435B CHIPS-subsidy guarantee",
+          "topics": [
+            "foundry",
+            "supply_tightness"
+          ],
+          "slot": "supply_status",
+          "chain": "cpu_datacenter"
+        },
+        {
+          "quarter": "Samsung Q2 FY2026 (08-14-2026)",
+          "signal": "Half-year report (08-14-2026), process roadmap and product milestones (R&D detail table): 4nm 4th-generation HPC-dedicated process in mass production since 11-2024 (high-speed transistors, improved BEOL for lower RC delay, 2.5D/3D advanced-packaging support); 3nm 2nd-generation GAA in mass production since 03-2025 (vs 5nm: 35% smaller area, 40%+ lower power, up to 30% faster; flagship 5G mobile plus AI/HPC); 2nm 1st-generation GAA (mobile-optimised) in mass production since 09-2025 (vs 3nm 2nd gen: +5% performance, +8% power efficiency, -5% area, DTCO); 2nm 2nd-generation mobile product mass production scheduled for H2 2026 and 4nm AI/HPC product mass production in full ramp. Internal anchor products: Exynos 2600 - the industry's first mobile AP on a 2nm GAA process (CPU +39%, GPU ray tracing +50%, NPU AI +113% vs Exynos 2500, first mobile SoC with a heat-path block); Exynos 2500 on 3nm GAA with FOWLP packaging; Exynos W1000 wearable SoC on 3nm with FO-PLP/SiP/ePoP packaging; Exynos 1480 on 4nm; the HBM4 base die (4nm) and the PCIe 6.0 SSD PM1763 controller (4nm) are also produced on Samsung logic nodes. System LSI is pursuing new Custom SoC business for Agentic AI and the SoC business entered the Galaxy Flip 8. The company's 2026 history highlights list the world-first HBM4E 12-high sample shipment and world-first HBM4 mass-production shipment (both foundry-enabled via the 4nm base die). Governance: the DS division's incoming board member Kim Yong-kwan (appointed 03-18-2026) is charged with external cooperation and investor communication for the expanding AI/robot market; independent-director sessions on 01-28-2026 covered a semiconductor technology-leak follow-up and on 06-23-2026 next-generation strategic products and new-business progress.",
+          "figure": "2nm GAA 1st gen in MP since 09-2025 (Exynos 2600 first 2nm mobile AP); 2nm 2nd gen H2 2026; 3nm 2nd gen GAA since 03-2025; 4nm HPC 4th gen since 11-2024; HBM4 base die on 4nm",
+          "topics": [
+            "foundry",
+            "product_launches",
+            "transitions",
+            "hbm"
+          ],
+          "slot": "next_catalyst",
+          "chain": "cpu_datacenter"
         },
         {
           "quarter": "Samsung Q1 FY2026 (04-30-2026)",
@@ -3358,6 +3421,72 @@
           "signal": "NVIDIA's CMX architecture (proposed at GTC) extends AI inference data storage beyond HBM to NAND-based storage, driving demand for TLC-based PCIe Gen 6 SSDs",
           "figure": "NAND storage tier for AI inference",
           "chain": "nand_flash"
+        },
+        {
+          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
+          "signal": "Foundry delivered double-digit YoY revenue growth in Q1; advanced nodes expected at full utilization in Q2; targeting double-digit full-year revenue growth",
+          "figure": "foundry double-digit YoY growth",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
+          "signal": "2nm: active engagement with multiple large AI/HPC customers; 2nd-generation 2nm mass production starting 2H 2026; 1.4nm development on plan",
+          "figure": "2nd-gen 2nm MP in 2H 2026",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
+          "signal": "HBM4 base die built on 4nm gaining recognition and leading 4nm demand; expanding 4nm for memory and APU/AI applications; rising demand for turnkey memory+foundry solutions",
+          "figure": "HBM4 base die on 4nm",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
+          "signal": "Silicon photonics milestone — secured a strategic project from a leading optical communication module player; developing CPO (co-packaged optics) on advanced processes + 3D packaging, with mass production for a major optical-module player starting 2H 2026",
+          "figure": "silicon photonics / CPO MP 2H 2026",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
+          "signal": "Taylor Fab (US): Fab 1 equipment move-in (Apr 23), operations 2026 / mass production 2027; Fab 2 in early review; KRW 110T corporate value plan (Pyeongtaek, Taylor, Yongin cluster)",
+          "figure": "Taylor Fab MP 2027",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "TSMC Q1 FY2026 (04-16-2026)",
+          "signal": "Notable competitive datapoint from TSMC's call: the analyst noted NVIDIA's recently added LPU in the Vera Rubin SuperPOD (an acquired business) is manufactured at SAMSUNG FOUNDRY — framed as Samsung Foundry's 'first true inroads into AI'. C.C. Wei responded TSMC is 'working with our customers for their NEXT-generation LPU'.",
+          "figure": "NVIDIA LPU made at Samsung Foundry; TSMC chasing next-gen",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "TSMC Q2 FY2026 (07-16-2026)",
+          "signal": "Q2 2026: revenue $40.2B at the HIGH END of guidance; gross margin 67.7% (+150bps QoQ, slightly ahead of guidance) on cost improvement and higher utilization, partly offset by overseas-fab dilution. Wafer revenue by node: 2nm 3% (first meaningful contribution), 3nm 30%, 5nm 33%, 7nm 11% — ADVANCED (7nm and below) = 77% of wafer revenue. By platform: HPC +20% QoQ to 66% OF REVENUE; smartphone -4% (22%); IoT 5%; automotive +15% (4%); DCE 1%. Q2 capex $15.7B; cash + marketable securities $110B; inventory days +7 to 87 on the N2 ramp. Q3 2026 GUIDANCE: revenue $44.6-45.8B (+12% QoQ, +37% YoY at midpoint), gross margin 65-67%, operating margin 56-58%. FY2026 revenue growth now expected SLIGHTLY ABOVE 40% YoY in USD (raised). Margin bridge: the steep 2nm ramp dilutes gross margin by ~3-4 percentage points in H2, and overseas-fab dilution is forecast at 2-3% in early stages widening to 3-4% later. Dividends rising from TWD 18/share (2025) to TWD 24/share (2026), +33%.",
+          "figure": "Q2 rev $40.2B, GM 67.7%; HPC 66% of revenue; Q3 $44.6-45.8B (+37% YoY); FY26 growth >40%",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "TSMC Q2 FY2026 (07-16-2026)",
+          "signal": "CAPEX AND CAPACITY STEP-UP: FY2026 capital budget RAISED to $60-64 BILLION (from the prior high end of $52-56B) citing 'continued strong structural demand from our customers, including the newly emerging AGENTIC AI market'. Allocation: 70-80% advanced process technologies, ~10% specialty, and 10-20% ADVANCED PACKAGING, TESTING AND MASK MAKING. Announced an ADDITIONAL $100 BILLION INVESTMENT IN ARIZONA to build several more logic fabs for 2nm and below PLUS ADVANCED PACKAGING FABS, supporting 'strong multi-year demand from our leading U.S. customers'; separately building 13 leading-edge and advanced-packaging fabs in Taiwan over the next several years. N3 expansion executing on three additional 3nm fabs (one Taiwan, one Arizona, one Japan) while converting 5nm tools to 3nm capacity in Taiwan, plus flexible across-node capacity support among N7/N5/N3. Management sees NO BOTTLENECKS to capacity expansion, collaborating with tool suppliers well in advance. Mature nodes: increasing capacity only in higher-value segments (JASM Fab 1 Japan for CMOS image sensors, ESMC Germany for automotive/industrial) as commodity mature demand stays soft outside PMIC and CIS.",
+          "figure": "FY26 capex raised to $60-64B; +$100B Arizona (fabs + adv packaging); 13 Taiwan fabs; 3 new N3 fabs",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "TSMC Q2 FY2026 (07-16-2026)",
+          "signal": "A14 FAMILY ROADMAP DETAILED: A14 (second-generation nanosheet) delivers, versus N2, a 10-15% speed improvement at the same power OR 25-30% power improvement at the same speed, plus close to 20% chip density gain. Development 'on track and progressing well' — internal product vehicle demonstrating close to 90% device performance and close to 90% 256Mb SRAM yield, with customer tape-out activity ONGOING AND AHEAD OF SCHEDULE; PRE-PRODUCTION IN 2027 AND VOLUME PRODUCTION IN 2028. Two derivatives introduced: A13 achieves over 6% die-area saving through an innovative 97% optical shrink with design rules BACKWARD COMPATIBLE with A14 for smooth IP migration; A12 brings SUPER POWER RAIL to the A14 platform. Both A13 and A12 are scheduled for VOLUME PRODUCTION IN 2029. TSMC expects the A14 family to be an even larger and longer-lasting node than N2 (just as N2 is larger and longer-lasting than N3). Lead time to develop a node, build capacity and ramp now takes FIVE TO SEVEN YEARS — 'there are no shortcuts'.",
+          "figure": "A14: +10-15% speed / -25-30% power / ~20% density vs N2; pre-prod 2027, VP 2028; A13+A12 VP 2029",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "TSMC Q2 FY2026 (07-16-2026)",
+          "signal": "AGENTIC AI SHIFTS THE CPU/ACCELERATOR MIX: CEO C.C. Wei says 'the emergence of AGENTIC AI is leading to a RESURGENCE IN THE ROLE OF CPUs in AI data centers, which drive more silicon demand IN ADDITION TO AI accelerators.' TSMC calls this a positive because 'no matter what CPU approach is taken, whether it's x86, Arm-based, or RISC-V architecture, they are almost all TSMC's customers' — and TSMC is working with customers to ALLOCATE WAFER SUPPLY to balance the CPU / GPU / XPU ratio. AI-related demand described as 'extremely robust' with cloud-service-provider customers and their customers providing 'very strong signal and positive outlook', keeping conviction in the multi-year AI megatrend 'very high'. Counterpoint flagged: consumer and price-sensitive end-market segments 'are being challenged due to the impact of RISING COMPONENT PRICES and macroeconomic uncertainties', so TSMC is being prudent in business planning.",
+          "figure": "Agentic AI = CPU resurgence (x86/Arm/RISC-V all TSMC); wafer allocated across CPU/GPU/XPU",
+          "chain": "foundry"
+        },
+        {
+          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
+          "signal": "Secured a strategic SILICON-PHOTONICS project from 'a leading optical communication module player' — mass production starts H2 2026 on advanced processes with CPO and 3D packaging (milestone for the SiPho business). Taylor Fab 1: equipment move-in ceremony April 23, operations 2026, mass production 2027 (Fab 2 in early review). Advanced nodes reaching FULL utilization in Q2 on HBM4 base-die (4nm) demand; 2nd-gen 2nm mass production H2 2026 with active talks at multiple large AI/HPC customers; TURNKEY memory+foundry demand rising; 1.4nm on plan.",
+          "figure": "SiPho/CPO MP H2 2026; Taylor ops 2026/MP 2027; turnkey memory+foundry",
+          "chain": "foundry"
         }
       ],
       "ticker": "005930.KS",
@@ -16741,155 +16870,6 @@
       "ticker": "INTC",
       "exchange": "NASDAQ",
       "country": "US",
-      "status": "public"
-    },
-    {
-      "id": "Samsung Foundry",
-      "layers": [
-        "foundry"
-      ],
-      "domains": [],
-      "sectors": [
-        "Leading-Edge Logic Foundry (2nm/3nm)"
-      ],
-      "chains": [
-        "cpu_datacenter",
-        "foundry"
-      ],
-      "products": [
-        {
-          "chain": "cpu_datacenter",
-          "layer": "foundry",
-          "domain": null,
-          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
-          "sub_sector": null,
-          "product": "advanced node logic wafers (select ARM SoCs)"
-        },
-        {
-          "chain": "foundry",
-          "layer": "foundry",
-          "domain": null,
-          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
-          "sub_sector": null,
-          "product": "leading-edge wafer fab (SF3/SF2 GAA logic dies)"
-        }
-      ],
-      "quarterly_data": [
-        {
-          "quarter": "Samsung Q2 FY2026 (08-14-2026)",
-          "signal": "Half-year report (filed 08-14-2026): foundry is reported inside the DS division (H1 2026 DS revenue KRW 209,231,714M, +294.7% YoY; DS operating profit KRW 142,859,293M; foundry P&L not broken out). Market view in the filing: foundry-market growth in Q2 2026 was driven by full-scale mass production of 2nm mobile products and continued migration of premium AI/HPC products to leading-edge nodes; in H2 2026 leading-edge growth continues on strong AI/HPC demand and Chinese domestic-sourcing demand persists; mainstream nodes are expected to grow more slowly but benefit from pricing as some competitors cut capacity. Samsung's own outlook: leading-edge revenue growth expected on solid demand, led by the 2nm 2nd-generation mobile product entering mass production in H2 2026 and the full ramp of 4nm AI/HPC products; on 2nm the company is EXPANDING ORDERS FROM LARGE DATA-CENTER CUSTOMERS to strengthen its mid-to-long-term growth engine; mainstream nodes are securing specialty process technologies and diversifying customer orders for higher-value products, profitability improvement and long node lifetimes. Strategy statement: node- and application-specific plans to strengthen technology/development, manufacturing and business competitiveness, and end-to-end development/order/production/supply capability. Foundry is described as a market where ~5 large-capacity players hold most of the market after many IDMs went fabless.",
-          "figure": "Foundry inside DS (H1 DS rev KRW 209.2T, +295% YoY); 2nm 2nd-gen mobile mass production H2 2026; 4nm AI/HPC ramp; expanding 2nm orders from large data-center customers",
-          "topics": [
-            "foundry",
-            "transitions"
-          ],
-          "slot": "revenue_growth",
-          "chain": "cpu_datacenter"
-        },
-        {
-          "quarter": "Samsung Q2 FY2026 (08-14-2026)",
-          "signal": "Half-year report (08-14-2026), disclosed foundry order book (section II.4 and XI.1): the only itemised foundry order is the Tesla, Inc. semiconductor contract-manufacturing (foundry) supply contract - DS division Foundry business, signed 07-26-2025, contract end date 12-31-2033, total order value USD 16,544M; the filing notes the amount and end date may change with customer demand and business progress, and omits quantities, amounts delivered to date and remaining backlog as trade secrets. Beyond Tesla, the 2nm node is winning expanded orders from large data-center customers, and 4nm HPC-dedicated production (4th-generation 4nm process, mass production since 11-2024, supporting 2.5D/3D advanced packaging) is ramping for AI/HPC customers; the HBM4 base die is produced on Samsung's 4nm logic process for the memory business (logic-memory-foundry-packaging 'one-stop solution'). Separate-entity note: no other long-term supply contracts material to the financial statements existed at 06-30-2026.",
-          "figure": "Tesla foundry contract USD 16,544M (signed 07-26-2025, runs to 12-31-2033); 2nm data-center customer orders expanding; backlog not disclosed",
-          "topics": [
-            "foundry"
-          ],
-          "slot": "backlog_or_b2b",
-          "chain": "cpu_datacenter"
-        },
-        {
-          "quarter": "Samsung Q2 FY2026 (08-14-2026)",
-          "signal": "Half-year report (08-14-2026), capacity and capex: DS division facility investment KRW 25,603.0B in H1 2026 (group total KRW 27,986.4B) centred on advanced-process expansion/conversion and infrastructure; the filing states system semiconductors are 'investing to secure ADVANCED-NODE CAPA'. The Management Committee approved 'Foundry investment' resolutions on 05-15-2026 and 05-28-2026 (alongside seven memory-investment resolutions Feb-May 2026 and a GPU investment on 04-14-2026); independent directors visited the new HPC sites at the Giheung and Hwaseong campuses on 10-30-2025 for a Foundry business review. US: Samsung Austin Semiconductor LLC (SAS, semiconductor production, Austin/Taylor Texas) had total assets KRW 36,260,678M and liabilities KRW 24,144,525M at 06-30-2026 (up from KRW 29,787,509M / 18,505,380M at year-end), H1 revenue KRW 1,864,817M and a net loss of KRW 5,641M; a USD 6,435,000K parent guarantee (Samsung Electronics America to the US Government, from 12-20-2024, open-ended) backs SAS's obligation to repay CHIPS Act subsidies if the subsidy agreement is not fulfilled, and SAS has a USD 275,000K guarantee to Epcor (utility). Government grants received KRW 1,592,914M in H1 2026 (consolidated cash flow). A new production subsidiary, Samsung Vietnam Semiconductor (SVS), was established 03-2026 in Thai Nguyen. DS raw materials: wafers KRW 1,150.0B in H1 from Siltronic and SK Siltron (price -10% YoY), chemicals KRW 1,697.5B from Soulbrain and Dongwoo Fine-Chem. Consolidated purchase commitments for PP&E/intangibles not yet incurred KRW 30,543,192M.",
-          "figure": "DS capex KRW 25.6T in H1 2026; two Foundry investment resolutions (05-15-2026, 05-28-2026); SAS (Austin/Taylor) assets KRW 36.3T, H1 rev KRW 1.86T; USD 6.435B CHIPS-subsidy guarantee",
-          "topics": [
-            "foundry",
-            "supply_tightness"
-          ],
-          "slot": "supply_status",
-          "chain": "cpu_datacenter"
-        },
-        {
-          "quarter": "Samsung Q2 FY2026 (08-14-2026)",
-          "signal": "Half-year report (08-14-2026), process roadmap and product milestones (R&D detail table): 4nm 4th-generation HPC-dedicated process in mass production since 11-2024 (high-speed transistors, improved BEOL for lower RC delay, 2.5D/3D advanced-packaging support); 3nm 2nd-generation GAA in mass production since 03-2025 (vs 5nm: 35% smaller area, 40%+ lower power, up to 30% faster; flagship 5G mobile plus AI/HPC); 2nm 1st-generation GAA (mobile-optimised) in mass production since 09-2025 (vs 3nm 2nd gen: +5% performance, +8% power efficiency, -5% area, DTCO); 2nm 2nd-generation mobile product mass production scheduled for H2 2026 and 4nm AI/HPC product mass production in full ramp. Internal anchor products: Exynos 2600 - the industry's first mobile AP on a 2nm GAA process (CPU +39%, GPU ray tracing +50%, NPU AI +113% vs Exynos 2500, first mobile SoC with a heat-path block); Exynos 2500 on 3nm GAA with FOWLP packaging; Exynos W1000 wearable SoC on 3nm with FO-PLP/SiP/ePoP packaging; Exynos 1480 on 4nm; the HBM4 base die (4nm) and the PCIe 6.0 SSD PM1763 controller (4nm) are also produced on Samsung logic nodes. System LSI is pursuing new Custom SoC business for Agentic AI and the SoC business entered the Galaxy Flip 8. The company's 2026 history highlights list the world-first HBM4E 12-high sample shipment and world-first HBM4 mass-production shipment (both foundry-enabled via the 4nm base die). Governance: the DS division's incoming board member Kim Yong-kwan (appointed 03-18-2026) is charged with external cooperation and investor communication for the expanding AI/robot market; independent-director sessions on 01-28-2026 covered a semiconductor technology-leak follow-up and on 06-23-2026 next-generation strategic products and new-business progress.",
-          "figure": "2nm GAA 1st gen in MP since 09-2025 (Exynos 2600 first 2nm mobile AP); 2nm 2nd gen H2 2026; 3nm 2nd gen GAA since 03-2025; 4nm HPC 4th gen since 11-2024; HBM4 base die on 4nm",
-          "topics": [
-            "foundry",
-            "product_launches",
-            "transitions",
-            "hbm"
-          ],
-          "slot": "next_catalyst",
-          "chain": "cpu_datacenter"
-        },
-        {
-          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
-          "signal": "Foundry delivered double-digit YoY revenue growth in Q1; advanced nodes expected at full utilization in Q2; targeting double-digit full-year revenue growth",
-          "figure": "foundry double-digit YoY growth",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
-          "signal": "2nm: active engagement with multiple large AI/HPC customers; 2nd-generation 2nm mass production starting 2H 2026; 1.4nm development on plan",
-          "figure": "2nd-gen 2nm MP in 2H 2026",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
-          "signal": "HBM4 base die built on 4nm gaining recognition and leading 4nm demand; expanding 4nm for memory and APU/AI applications; rising demand for turnkey memory+foundry solutions",
-          "figure": "HBM4 base die on 4nm",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
-          "signal": "Silicon photonics milestone — secured a strategic project from a leading optical communication module player; developing CPO (co-packaged optics) on advanced processes + 3D packaging, with mass production for a major optical-module player starting 2H 2026",
-          "figure": "silicon photonics / CPO MP 2H 2026",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
-          "signal": "Taylor Fab (US): Fab 1 equipment move-in (Apr 23), operations 2026 / mass production 2027; Fab 2 in early review; KRW 110T corporate value plan (Pyeongtaek, Taylor, Yongin cluster)",
-          "figure": "Taylor Fab MP 2027",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "TSMC Q1 FY2026 (04-16-2026)",
-          "signal": "Notable competitive datapoint from TSMC's call: the analyst noted NVIDIA's recently added LPU in the Vera Rubin SuperPOD (an acquired business) is manufactured at SAMSUNG FOUNDRY — framed as Samsung Foundry's 'first true inroads into AI'. C.C. Wei responded TSMC is 'working with our customers for their NEXT-generation LPU'.",
-          "figure": "NVIDIA LPU made at Samsung Foundry; TSMC chasing next-gen",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "TSMC Q2 FY2026 (07-16-2026)",
-          "signal": "Q2 2026: revenue $40.2B at the HIGH END of guidance; gross margin 67.7% (+150bps QoQ, slightly ahead of guidance) on cost improvement and higher utilization, partly offset by overseas-fab dilution. Wafer revenue by node: 2nm 3% (first meaningful contribution), 3nm 30%, 5nm 33%, 7nm 11% — ADVANCED (7nm and below) = 77% of wafer revenue. By platform: HPC +20% QoQ to 66% OF REVENUE; smartphone -4% (22%); IoT 5%; automotive +15% (4%); DCE 1%. Q2 capex $15.7B; cash + marketable securities $110B; inventory days +7 to 87 on the N2 ramp. Q3 2026 GUIDANCE: revenue $44.6-45.8B (+12% QoQ, +37% YoY at midpoint), gross margin 65-67%, operating margin 56-58%. FY2026 revenue growth now expected SLIGHTLY ABOVE 40% YoY in USD (raised). Margin bridge: the steep 2nm ramp dilutes gross margin by ~3-4 percentage points in H2, and overseas-fab dilution is forecast at 2-3% in early stages widening to 3-4% later. Dividends rising from TWD 18/share (2025) to TWD 24/share (2026), +33%.",
-          "figure": "Q2 rev $40.2B, GM 67.7%; HPC 66% of revenue; Q3 $44.6-45.8B (+37% YoY); FY26 growth >40%",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "TSMC Q2 FY2026 (07-16-2026)",
-          "signal": "CAPEX AND CAPACITY STEP-UP: FY2026 capital budget RAISED to $60-64 BILLION (from the prior high end of $52-56B) citing 'continued strong structural demand from our customers, including the newly emerging AGENTIC AI market'. Allocation: 70-80% advanced process technologies, ~10% specialty, and 10-20% ADVANCED PACKAGING, TESTING AND MASK MAKING. Announced an ADDITIONAL $100 BILLION INVESTMENT IN ARIZONA to build several more logic fabs for 2nm and below PLUS ADVANCED PACKAGING FABS, supporting 'strong multi-year demand from our leading U.S. customers'; separately building 13 leading-edge and advanced-packaging fabs in Taiwan over the next several years. N3 expansion executing on three additional 3nm fabs (one Taiwan, one Arizona, one Japan) while converting 5nm tools to 3nm capacity in Taiwan, plus flexible across-node capacity support among N7/N5/N3. Management sees NO BOTTLENECKS to capacity expansion, collaborating with tool suppliers well in advance. Mature nodes: increasing capacity only in higher-value segments (JASM Fab 1 Japan for CMOS image sensors, ESMC Germany for automotive/industrial) as commodity mature demand stays soft outside PMIC and CIS.",
-          "figure": "FY26 capex raised to $60-64B; +$100B Arizona (fabs + adv packaging); 13 Taiwan fabs; 3 new N3 fabs",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "TSMC Q2 FY2026 (07-16-2026)",
-          "signal": "A14 FAMILY ROADMAP DETAILED: A14 (second-generation nanosheet) delivers, versus N2, a 10-15% speed improvement at the same power OR 25-30% power improvement at the same speed, plus close to 20% chip density gain. Development 'on track and progressing well' — internal product vehicle demonstrating close to 90% device performance and close to 90% 256Mb SRAM yield, with customer tape-out activity ONGOING AND AHEAD OF SCHEDULE; PRE-PRODUCTION IN 2027 AND VOLUME PRODUCTION IN 2028. Two derivatives introduced: A13 achieves over 6% die-area saving through an innovative 97% optical shrink with design rules BACKWARD COMPATIBLE with A14 for smooth IP migration; A12 brings SUPER POWER RAIL to the A14 platform. Both A13 and A12 are scheduled for VOLUME PRODUCTION IN 2029. TSMC expects the A14 family to be an even larger and longer-lasting node than N2 (just as N2 is larger and longer-lasting than N3). Lead time to develop a node, build capacity and ramp now takes FIVE TO SEVEN YEARS — 'there are no shortcuts'.",
-          "figure": "A14: +10-15% speed / -25-30% power / ~20% density vs N2; pre-prod 2027, VP 2028; A13+A12 VP 2029",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "TSMC Q2 FY2026 (07-16-2026)",
-          "signal": "AGENTIC AI SHIFTS THE CPU/ACCELERATOR MIX: CEO C.C. Wei says 'the emergence of AGENTIC AI is leading to a RESURGENCE IN THE ROLE OF CPUs in AI data centers, which drive more silicon demand IN ADDITION TO AI accelerators.' TSMC calls this a positive because 'no matter what CPU approach is taken, whether it's x86, Arm-based, or RISC-V architecture, they are almost all TSMC's customers' — and TSMC is working with customers to ALLOCATE WAFER SUPPLY to balance the CPU / GPU / XPU ratio. AI-related demand described as 'extremely robust' with cloud-service-provider customers and their customers providing 'very strong signal and positive outlook', keeping conviction in the multi-year AI megatrend 'very high'. Counterpoint flagged: consumer and price-sensitive end-market segments 'are being challenged due to the impact of RISING COMPONENT PRICES and macroeconomic uncertainties', so TSMC is being prudent in business planning.",
-          "figure": "Agentic AI = CPU resurgence (x86/Arm/RISC-V all TSMC); wafer allocated across CPU/GPU/XPU",
-          "chain": "foundry"
-        },
-        {
-          "quarter": "Samsung Q1 FY2026 (04-30-2026)",
-          "signal": "Secured a strategic SILICON-PHOTONICS project from 'a leading optical communication module player' — mass production starts H2 2026 on advanced processes with CPO and 3D packaging (milestone for the SiPho business). Taylor Fab 1: equipment move-in ceremony April 23, operations 2026, mass production 2027 (Fab 2 in early review). Advanced nodes reaching FULL utilization in Q2 on HBM4 base-die (4nm) demand; 2nd-gen 2nm mass production H2 2026 with active talks at multiple large AI/HPC customers; TURNKEY memory+foundry demand rising; 1.4nm on plan.",
-          "figure": "SiPho/CPO MP H2 2026; Taylor ops 2026/MP 2027; turnkey memory+foundry",
-          "chain": "foundry"
-        }
-      ],
-      "ticker": "005930.KS",
-      "exchange": "KOSPI",
-      "country": "KR",
       "status": "public"
     },
     {
@@ -49525,7 +49505,7 @@
       "chain": "cpu_datacenter"
     },
     {
-      "source": "Samsung Foundry",
+      "source": "Samsung",
       "target": "ASE Group",
       "relationship": "logic dies for packaging",
       "contracts": [],
@@ -49568,7 +49548,7 @@
     },
     {
       "source": "ASML",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "EUV scanners for Axion/Cobalt fab nodes",
       "contracts": [],
       "chain": "cpu_datacenter"
@@ -49589,7 +49569,7 @@
     },
     {
       "source": "Applied Materials",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "fab process tools",
       "contracts": [],
       "chain": "cpu_datacenter"
@@ -49603,7 +49583,7 @@
     },
     {
       "source": "Tokyo Electron",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "track and etch tools",
       "contracts": [],
       "chain": "cpu_datacenter"
@@ -49652,7 +49632,7 @@
     },
     {
       "source": "Shin-Etsu Chemical",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "silicon wafers",
       "contracts": [],
       "chain": "cpu_datacenter"
@@ -49680,7 +49660,7 @@
     },
     {
       "source": "JSR Corporation",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "photoresist supply",
       "contracts": [],
       "chain": "cpu_datacenter"
@@ -57903,14 +57883,14 @@
     },
     {
       "source": "Gaonchips",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "ASIC designs manufactured at Samsung Foundry",
       "contracts": [],
       "chain": "foundry"
     },
     {
       "source": "AD Technology",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "ASIC designs manufactured at Samsung Foundry",
       "contracts": [],
       "chain": "foundry"
@@ -58274,21 +58254,21 @@
       "chain": "foundry"
     },
     {
-      "source": "Samsung Foundry",
+      "source": "Samsung",
       "target": "Google",
       "relationship": "fabricates Tensor/TPU-related silicon",
       "contracts": [],
       "chain": "foundry"
     },
     {
-      "source": "Samsung Foundry",
+      "source": "Samsung",
       "target": "AMD",
       "relationship": "alternate-source fab capacity",
       "contracts": [],
       "chain": "foundry"
     },
     {
-      "source": "Samsung Foundry",
+      "source": "Samsung",
       "target": "Tesla",
       "relationship": "contract manufacturing (foundry) of Tesla AI/automotive chips",
       "contracts": [
@@ -58311,26 +58291,6 @@
           "date_signed": "not stated",
           "type": "capacity investment / foundry supply",
           "topics": [
-            "foundry"
-          ]
-        }
-      ],
-      "chain": "foundry"
-    },
-    {
-      "source": "Samsung Foundry",
-      "target": "Samsung",
-      "relationship": "4nm logic base dies for Samsung HBM4/HBM4E and 4nm SSD controllers (in-house one-stop solution)",
-      "contracts": [
-        {
-          "source": "Samsung Q2 FY2026 (08-14-2026)",
-          "signal": "Half-year report (08-14-2026), R&D detail: HBM4 in mass-production shipment since 02-2026 uses 1c DRAM with a 4nm base die made in Samsung's foundry; HBM4E 12-high samples shipped 05-2026 on the same logic-memory-foundry-packaging one-stop solution; the PCIe 6.0 server SSD PM1763 uses a 4nm controller. The 4nm HPC-dedicated 4th-generation process has been in mass production since 11-2024.",
-          "units": "HBM4 base dies (4nm) from 02-2026; HBM4E samples 05-2026",
-          "value": "no specific figure",
-          "date_signed": "not stated",
-          "type": "supply agreement",
-          "topics": [
-            "hbm",
             "foundry"
           ]
         }
@@ -58376,7 +58336,7 @@
     },
     {
       "source": "ASML",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "EUV scanners for SF3/SF2",
       "contracts": [],
       "chain": "foundry"
@@ -58417,7 +58377,7 @@
     },
     {
       "source": "Lasertec",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "EUV mask inspection",
       "contracts": [],
       "chain": "foundry"
@@ -58447,7 +58407,7 @@
     },
     {
       "source": "Applied Materials",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "deposition & CMP tools",
       "contracts": [],
       "chain": "foundry"
@@ -58475,7 +58435,7 @@
     },
     {
       "source": "Lam Research",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "etch & deposition systems",
       "contracts": [],
       "chain": "foundry"
@@ -58496,7 +58456,7 @@
     },
     {
       "source": "Tokyo Electron",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "coater/developer & cleaning tools",
       "contracts": [],
       "chain": "foundry"
@@ -58517,7 +58477,7 @@
     },
     {
       "source": "ASM International",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "ALD/epi tools for leading-edge nodes",
       "contracts": [],
       "chain": "foundry"
@@ -58538,7 +58498,7 @@
     },
     {
       "source": "SCREEN Holdings",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "single-wafer cleaning tools",
       "contracts": [],
       "chain": "foundry"
@@ -58662,7 +58622,7 @@
     },
     {
       "source": "KLA",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "inspection & metrology tools",
       "contracts": [],
       "chain": "foundry"
@@ -58867,7 +58827,7 @@
     },
     {
       "source": "Shin-Etsu Chemical",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "silicon wafers & photoresist",
       "contracts": [],
       "chain": "foundry"
@@ -58888,7 +58848,7 @@
     },
     {
       "source": "SUMCO",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "silicon substrate wafers",
       "contracts": [],
       "chain": "foundry"
@@ -58902,7 +58862,7 @@
     },
     {
       "source": "Siltronic",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "300mm silicon wafers for Samsung DS fabs (memory and foundry)",
       "contracts": [
         {
@@ -58921,7 +58881,7 @@
     },
     {
       "source": "SK Siltron",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "300mm silicon wafers for Samsung DS fabs (memory and foundry)",
       "contracts": [
         {
@@ -58947,7 +58907,7 @@
     },
     {
       "source": "JSR Corporation",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "EUV photoresist",
       "contracts": [],
       "chain": "foundry"
@@ -58968,7 +58928,7 @@
     },
     {
       "source": "Tokyo Ohka Kogyo",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "EUV photoresist",
       "contracts": [],
       "chain": "foundry"
@@ -58982,15 +58942,8 @@
     },
     {
       "source": "Dongjin Semichem",
-      "target": "Samsung Foundry",
-      "relationship": "photoresist supply",
-      "contracts": [],
-      "chain": "foundry"
-    },
-    {
-      "source": "Dongjin Semichem",
       "target": "Samsung",
-      "relationship": "photoresist, BARC/SOC, CMP slurry and wet chemicals for memory/logic fabs and Samsung Display panels",
+      "relationship": "photoresist supply / photoresist, BARC/SOC, CMP slurry and wet chemicals for memory/logic fabs and Samsung Display panels",
       "contracts": [
         {
           "source": "Dongjin Semichem Q2 FY2026 (08-14-2026)",
@@ -59045,7 +58998,7 @@
     },
     {
       "source": "Entegris",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "contamination control & materials handling",
       "contracts": [],
       "chain": "foundry"
@@ -59085,7 +59038,7 @@
     },
     {
       "source": "Soulbrain",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "wafer-process chemicals for Samsung DS fabs (memory and foundry)",
       "contracts": [
         {
@@ -59104,7 +59057,7 @@
     },
     {
       "source": "Dongwoo Fine-Chem",
-      "target": "Samsung Foundry",
+      "target": "Samsung",
       "relationship": "wafer-process chemicals for Samsung DS fabs (memory and foundry)",
       "contracts": [
         {

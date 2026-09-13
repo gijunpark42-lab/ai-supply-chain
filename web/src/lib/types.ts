@@ -79,6 +79,33 @@ export interface LiveQuote {
   as_of: string;
 }
 
+// /api/fundamentals response — valuation ratios (Naver / Yahoo Japan / TWSE / Yahoo Finance).
+// Ratios are plain multiples (27.6 = 27.6x); roe / margins / growth / yield are
+// fractions (0.39 = 39%). null = Yahoo has no value for that field.
+export interface Fundamentals {
+  symbol: string;
+  trailing_pe: number | null;
+  forward_pe: number | null;
+  peg: number | null;
+  pb: number | null;
+  ps: number | null;
+  ev_ebitda: number | null;
+  ev_revenue: number | null;
+  trailing_eps: number | null;
+  forward_eps: number | null;
+  roe: number | null;
+  revenue_growth: number | null;
+  gross_margin: number | null;
+  op_margin: number | null;
+  dividend_yield: number | null;
+  target_mean: number | null;
+  analysts: number | null;
+  market_cap: number | null;
+  currency: string | null;
+  sources: string[]; // who supplied the numbers, e.g. ["Naver Finance", "Yahoo Finance"]
+  as_of: string;
+}
+
 // ── The node object we feed into the 3D graph / panel (enriched at load time) ──
 export interface VizNode extends GraphNode {
   primary: string;

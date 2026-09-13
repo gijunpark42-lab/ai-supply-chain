@@ -45,7 +45,7 @@ Vertically integrated companies (Samsung, SK Hynix, Micron, NVIDIA, Intel) appea
 
 - **Sandisk** (SNDK, NASDAQ) — WD spun off its NAND/flash business in early 2025. WD kept HDDs. Use "Sandisk" in NAND chain, NOT "Western Digital".
 - **Intel Foundry** — Intel's foundry services arm (separate from Intel the CPU brand but same ticker INTC). Both "Intel" and "Intel Foundry" are valid as separate nodes when they play different roles.
-- **Samsung Foundry** — Samsung's contract foundry arm. Can appear alongside "Samsung" when playing a distinct role.
+- **Samsung Foundry** — MERGED INTO `Samsung` on 2026-09-12 (user request; both are 005930.KS). Do NOT create a "Samsung Foundry" node again — foundry-role players and edge targets are `Samsung`. Source labels like "Samsung Foundry Q2 FY2026 (…)" may still exist on the Samsung node; leave them (verify_graph maps them to the shared filing). Tool: `utils/merge_company.py --from X --into Y`.
 
 ## How to rename a node in this repo (done 2026-09-10 for Everpure and Cipher Digital; verified)
 

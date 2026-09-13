@@ -80,7 +80,8 @@ REPORT_MONTH = {1: "03", 2: "06", 3: "09", 4: "12"}
 def universe():
     """Korean companies from company_metadata.json, one entry per stock code.
 
-    Samsung and Samsung Foundry share 005930 -- the filing is the same, so we
+    If two names ever share one stock code (Samsung Foundry used to sit beside
+    Samsung on 005930 before they were merged), the filing is the same, so we
     keep the first canonical name per code and skip the duplicate.
     """
     meta = json.loads(METADATA.read_text(encoding="utf-8"))

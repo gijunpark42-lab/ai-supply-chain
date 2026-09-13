@@ -1478,6 +1478,38 @@ table.data th.active .sort-arrow {
   font-size: 0.8rem;
   margin-top: 2px;
 }
+/* ── Fundamentals strip (PE / Fwd PE / PB / EV/EBITDA ...) under the price chart ── */
+.fund {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin: 0.2rem 0 0.7rem;
+  font-size: 0.78rem;
+}
+.fund-cell {
+  display: flex;
+  flex-direction: column;
+  min-width: 52px;
+  padding: 4px 8px;
+  background: var(--ap-surface2);
+  border: 1px solid var(--ap-border);
+  border-radius: 8px;
+}
+.fund-k {
+  color: var(--ap-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+}
+.fund-v {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+.fund-src {
+  width: 100%;
+  color: var(--ap-muted);
+  font-size: 0.68rem;
+}
+
 .lq-ranges {
   display: flex;
   gap: 4px;
