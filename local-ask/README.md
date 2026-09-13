@@ -47,7 +47,18 @@ in line, anything beyond that gets **429**; a process running longer than
 **200 s** (`ASK_TIMEOUT_MS`) is killed and the request gets **504**; when the
 Vercel route hangs up (its own 3-minute limit) the process is killed too.
 
-## One command: `node up.mjs` (what "ask 실행" runs)
+## How it is exposed since 2026-09-13: Tailscale Funnel (fixed address)
+
+**Do NOT run `node local-ask/up.mjs`** (or `down.mjs`). Since 2026-09-13 the runner is reached through a FIXED Tailscale Funnel address (`https://gijun-pc.tail362ef7.ts.net`) that is already set as `LOCAL_ASK_URL` on Vercel; `up.mjs` would overwrite it with a throwaway trycloudflare address and break Ask. The runner autostarts at logon (scheduled task "local-ask runner"); the desktop `Ask Switch.cmd` (repo copy: `local-ask/switch/`) shows ON/OFF and flips the runner.
+
+- Public address: `https://gijun-pc.tail362ef7.ts.net` → `http://127.0.0.1:8787` (`tailscale funnel status`).
+  Tailscale runs as a Windows service and reconnects on any network, including ones that block
+  cloudflared's port 7844 (campus Wi-Fi). Free personal plan.
+- Runner autostart: Windows scheduled task "local-ask runner" (at logon, `node server.mjs` in this folder).
+- Re-enable the funnel if it ever disappears: `"C:\Program Files\Tailscale\tailscale.exe" funnel --bg 8787`.
+- "ask 실행" is now the health-check procedure in `.claude/skills/ask-server/SKILL.md`.
+
+## Legacy: `node up.mjs` (Cloudflare quick tunnel — DO NOT RUN unless the Funnel is gone for good)
 
 ```bat
 cd local-ask

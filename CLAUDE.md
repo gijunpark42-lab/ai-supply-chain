@@ -348,7 +348,7 @@ and follow it — do not improvise the procedure from this table.**
 | `enrich tw` | `enrich` → `references/tw.md` | Workflow 2e — Taiwan Chinese-language 法說會 via video + whisper (`tw.py`). |
 | `enrich edgar` | `enrich` → `references/edgar.md` | Workflow 2f — US names via SEC EDGAR (`edgar_pull.py` → queue → done): 8-Ks with every exhibit whole, 10-K/10-Q customer + supplier/backlog paragraphs + XBRL. COMPLETENESS CONTRACT: every filing read once to the last page (`utils/show_filing.py`), enriched files immutable (re-pull → delta only), `utils/check_edgar_patch.py` pre-flight, enricher + independent verifier, settled rulings. |
 | `enrich conference` | `enrich` → `references/conferences.md` | Workflow 2g — investor-conference fireside chats (all listed names, US too) via `investing.py conferences`; only what the call did not say; multi-agent enrich + verify, `graph_build.py --sync`, verification loop, memory update. |
-| `ask 실행` / `ask up` / `ask 종료` / `ask down` | `ask-server` | Workflow 3 — local Opus engine + Cloudflare tunnel behind the live Ask tab. |
+| `ask 실행` / `ask up` / `ask 종료` / `ask down` | `ask-server` | Workflow 3 — check/restart the local Opus engine behind the live Ask tab (fixed Tailscale address). **Never run `local-ask/up.mjs`** — it overwrites `LOCAL_ASK_URL` on Vercel with a throwaway Cloudflare address. |
 
 Nothing was dropped when these moved out of this file — each skill holds the original text verbatim.
 

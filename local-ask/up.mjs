@@ -44,6 +44,19 @@ const STATE_FILE = path.join(LOG_DIR, "state.json");
 const FORCE = process.argv.includes("--force");
 const NO_VERCEL = process.argv.includes("--no-vercel");
 
+// 2026-09-13: the runner is reached through a FIXED Tailscale Funnel address
+// (https://gijun-pc.tail362ef7.ts.net) that is already set as LOCAL_ASK_URL on
+// Vercel. This script would overwrite it with a throwaway trycloudflare address
+// and break Ask. Refuse unless the caller explicitly opts back into Cloudflare.
+if (!process.argv.includes("--cloudflare")) {
+  console.error(
+    "✗ Not running: Ask uses the fixed Tailscale Funnel address now (see local-ask/README.md).\n" +
+      "  Check/restart with the ask-server skill or the desktop 'Ask Switch'.\n" +
+      "  Only if the Funnel is gone for good: node up.mjs --cloudflare"
+  );
+  process.exit(1);
+}
+
 if (SECRET.length < 16) {
   console.error("ASK_SHARED_SECRET is missing in local-ask/.env — see local-ask/README.md.");
   process.exit(1);

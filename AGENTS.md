@@ -35,6 +35,10 @@ skeleton for X", "Transcript:<company>", ...), follow the matching skill file ve
 - All user-facing web-app text is English. The user chats in Korean; answer in Korean, short and casual.
 - New Python is explicit and commented in English (the user is learning Python through this project).
 - Do not build future phases (scheduler, new pipelines) unless asked.
+- NEVER run `node local-ask/up.mjs` or `down.mjs`. The live Ask tab reaches this PC through a fixed Tailscale
+  Funnel address already set on Vercel; `up.mjs` would overwrite it with a throwaway Cloudflare address.
+  "ask 실행" = the `ask-server` skill (health checks only). The website has no API fallback (no Gemini, no
+  Anthropic API) — Claude answers come only from this PC.
 
 ## Running things on this machine (Windows 11)
 
