@@ -1,0 +1,75 @@
+{
+  "source": "Navitas Citi’s Global TMT Conference 2026 (09-08-2026)",
+  "chains": {
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "Navitas",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "sub_sector": null,
+          "quarterly_data": [
+            {
+              "quarter": "Navitas Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "CEO put hard CONTENT-PER-MEGAWATT numbers behind the 800V story for the first time: inside the data center GaN is worth about $15,000 per megawatt (silicon replacement), SiC for AC-DC conversion plus the JFET for power protection is about $10,000 per megawatt, and grid modernisation (2,000-volt / 3,000-volt class solid-state transformer work) adds another 10, maybe up to 15 in the long run — roughly 25-ish in total against total power content per megawatt of probably 100, 250. The model assumes data-center deployment between now and 2030 of 220 gigawatts to 300 gigawatts and management says 'It's getting closer to 300' by the day.",
+              "figure": "GaN $15,000 per megawatt; SiC about $10,000 per megawatt in the data center; another 10, maybe up to 15 for grid modernization; 25-ish total versus total power content probably 100, 250; 220 gigawatts to 300 gigawatts deployed by 2030",
+              "topics": ["power_cooling"],
+              "slot": null
+            },
+            {
+              "quarter": "Navitas Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "SAM math updated and broken into three pieces: on a 220 gigawatts deployment assumption, GaN plus SiC for data center and the grid — excluding EV and excluding China — is about $3.5 billion in 2030; adding a billion for the JFET (SiC circuit protection / ORing circuit breakers, where it competes with onsemi and Infineon) takes it to 3.5 to 4.5; and the IVR/VPD step (the 'last centimeters' to the XPU) adds as much again, doubling the SAM. Management's argument: a vendor that participates in only one conversion stage 'is not going to sit at the big table' because architects buy the whole 35,000 volt to 1 volt path.",
+              "figure": "GaN+SiC data center and grid SAM about $3.5 billion in 2030 (ex-EV, ex-China); plus a billion for the JFET takes it to 3.5 to 4.5; $4.5 billion doubled by IVR/VPD",
+              "topics": ["power_cooling"],
+              "slot": null
+            },
+            {
+              "quarter": "Navitas Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "New detail on the pending Claros acquisition: the close is now targeted 'around the beginning of Q4. October timeframe' (tighter than the previously stated before-year-end). Claros' part is an IVR with a 3.3 volt entry, sub 1 volt output, 40 amp per chip, no caps and no inductors, arranged as an IVR array with current sensing — 'if you need 2,000 amps, you put 50 of them. If you need 4,000 amps, you put 100 of them'. Big VPD modules are shipping now, but the tiny IVR chips (Claros, Empower) are 'happening in 2028'; Claros' lead customer is an XPU customer ramping in 2028, so the deal does not change the organic 2026/2027 plan. Management cites ADI's Empower acquisition as the same move.",
+              "figure": "Claros close targeted around the beginning of Q4 (October); IVR 3.3 volt entry, sub 1 volt output, 40 amp; 2,000 amps, you put 50 of them, 4,000 amps, you put 100 of them; IVR chips happening in 2028",
+              "topics": ["power_cooling", "transitions"],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "Navitas Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "Full fabless 'foundry plus' map named for the first time: 'We work with Global. We used to work with TSMC. We're now moving to Global on the GaN side. We work with X-FAB on the SiC side, and Claros is working on the 14nm with Samsung.' Management defends staying fabless against the IDM competitors — keep the process/device moat on top of the foundry baseline, but invest capital into securing and expanding foundry capacity so customers get guarantee of supply, yield and quality control without Navitas owning a fab.",
+              "figure": "GaN moving from TSMC to GlobalFoundries; SiC at X-FAB; Claros on 14nm with Samsung",
+              "topics": ["foundry"],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Navitas Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "Go-to-market named end to end: Navitas sells both to the hyperscalers and XPU vendors that spec the design (management groups NVIDIA with Google as the vertically integrated rack designers, and separates Microsoft, Meta and Amazon) and to the merchant power companies that are 'basically the buying customers' — 'the Deltas, the Flex. The Light On, the Vertiv. The Eaton.' — and says both sides have to be convinced. The reason the customer set cares: the 'power wall' is now the bottleneck after compute and memory, with many XPU companies 'underclocking their processor because they can't get enough power delivered to the processor'. Data-center SiC is a different competitive set from EV SiC because data center runs at 1.2 kV and above.",
+              "figure": "no specific figure",
+              "topics": ["power_cooling"],
+              "slot": null
+            }
+          ]
+        },
+        {
+          "company": "X-Fab",
+          "layer": "foundry",
+          "sector": "Compound Semi Foundry (GaN/SiC/InP)",
+          "sub_sector": null,
+          "connects_to": [
+            {
+              "company": "Navitas",
+              "relationship": "SiC foundry wafer supply for Navitas high-voltage / ultra-high-voltage SiC",
+              "contracts": [
+                {
+                  "source": "Navitas Citi’s Global TMT Conference 2026 (09-08-2026)",
+                  "signal": "Navitas' CEO named X-FAB as its SiC foundry partner while describing the fabless foundry-plus model: 'We work with X-FAB on the SiC side' (GaN moving to GlobalFoundries from TSMC), with Navitas investing capital into securing and expanding foundry capacity and keeping its own device/process differentiation on top of the foundry baseline.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "foundry supply relationship",
+                  "topics": ["foundry"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

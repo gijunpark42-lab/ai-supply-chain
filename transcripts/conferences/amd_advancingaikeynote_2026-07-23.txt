@@ -1,0 +1,661 @@
+SOURCE: Investing.com conference transcript -- https://www.investing.com/news/transcripts/amd-at-advancing-ai-2026-keynote-a-bigger-bet-on-scale-93CH-4809800
+TITLE: AMD at Advancing AI 2026 keynote: a bigger bet on scale
+EVENT: Advancing AI keynote 2026
+DATE: 07-23-2026  (article publish date = event day)
+# source label: AMD Advancing AI keynote 2026 (07-23-2026)
+# speakers: Lisa Su, CEO, AMD; Tom Brown, Co-founder and Chief Compute Officer, Anthropic; Sachin Katti, Head of Infrastructure, OpenAI; Santosh Janardhan, Head of Infrastructure, Meta; Andrew Feldman, Co-founder and CEO, Cerebras; Vamsi Boppana, Senior Vice President of AI, AMD; Philippe Tillet, Creator of Triton, OpenAI; Jeremy Legg, Chief Technology Officer, AT&T
+# paragraphs: 326   characters: 121,564
+# note: no 'Full transcript' marker in the article -- summary and transcript saved together
+
+---
+On Thursday, 23 July 2026, AMD (AMD) used its Advancing AI 2026 Keynote to present a broad plan to win more of the fast-growing artificial intelligence market, from data centers to personal devices and robotics.
+
+The company paired new products and major customer commitments with a bullish view of future demand, while also acknowledging the hard limits of power, cooling and execution in a crowded field.
+
+AMD did not report quarterly earnings at the event, but it spent much of the keynote on market size and demand trends. The message was that AI infrastructure spending is still early in its cycle and could grow much larger than many investors expect.
+
+AMD also pointed to its own momentum in servers. It said EPYC server CPU market share reached a record 46% in the latest quarter, and more than 60% of Fortune 100 companies now use AMD EPYC processors. Public-cloud virtual machine consumption has grown at a 76% compound annual rate over the past three years, the company said.
+
+At the same time, the stock market appeared cautious. AMD shares were last at $533.7, down 3.37% from the previous close of $552.33. The stock remains near the top of its 52-week range of $149.22 to $584.73. The company’s market capitalization stands at $870 billion, reflecting its position as a prominent player in the semiconductor industry. However, InvestingPro analysis suggests the stock appears overvalued relative to its Fair Value estimate, placing it among companies on the Most Overvalued list. The stock trades at a P/E ratio of 178 and a PEG ratio of 1.49, reflecting high investor expectations for future growth.
+
+AMD&rsquo;s product announcements were designed to show that it is building for the full AI stack, not just individual chips. The centerpiece was Helios, a rack-scale system aimed at frontier-model training and inference.
+
+Helios AI rack system
+
+MI455 GPU accelerator
+
+6th-generation EPYC Venice CPUs
+
+Roadmap beyond 2026
+
+AMD said the hardware story depends on software, and it used the keynote to show how it is trying to make its platform easier to use for developers and large customers.
+
+AMD introduced ROCm AI, which it described as an agentic AI platform for AI-assisted GPU programming. The system is designed to work with coding tools such as Cursor, Claude and Codex, and uses HyperLoom to analyze workloads, tune kernels and improve parallelism.
+
+OpenAI&rsquo;s Philippe Tillet said agents are now capable of writing GPU kernels at a high level of quality, changing how developers work with low-level code. AMD said this is part of a broader move to make its software stack more open and more accessible to AI tools.
+
+AMD also used the event to show that it wants to serve more than hyperscale data centers. The company introduced products for enterprise servers, personal AI machines and robotics.
+
+Enterprise AI
+
+Personal AI
+
+Physical AI and robotics
+
+AMD&rsquo;s keynote leaned heavily on customer endorsements, which it used to show that its products are moving from lab tests to production plans.
+
+Anthropic
+
+OpenAI
+
+Meta
+
+Cerebras
+
+AT&T
+
+Cisco
+
+AMD&rsquo;s broader argument was that AI is entering a new phase. The company said the industry is moving from millions of agents to billions, and that these systems will need many reasoning steps, tool calls and data lookups. That, in AMD&rsquo;s view, will push compute demand much higher than the chatbot wave did.
+
+AMD&rsquo;s full transcript offers more detail on the company&rsquo;s product plans, customer deals and market view.
+
+Readers can refer to the transcript below for the complete discussion.
+
+Lisa Su, CEO, AMD: Good morning. How about let’s try one more? Good morning. Good morning. Welcome to Advancing AI 2026. It’s so great to be back here in San Francisco and to see so many friends and partners and customers, and especially all the developers that are here with us today. I want to say a big welcome to everyone who’s joining us online from around the world. This is my absolute favorite event of the year. It’s where we bring the entire AI ecosystem together to show what we’ve been building and where we’re going next. This year, this is our biggest show ever because we have so much to tell you. Let’s go ahead and get started. At AMD, our mission is to push the boundaries of high performance in AI computing to help solve the world’s most important challenges.
+
+I often say AI is the most important technology of the last 50 years. Frankly, the progress that we’re seeing in the industry is just incredible. Every few months, we see something new that was far beyond our imagination. You can already see the impact across every industry. In healthcare, AI is helping researchers identify new drug candidates faster. In science, we’re solving problems that we didn’t think were possible a few years ago. Across every industry, AI is changing the way we get work done. The most important thing is we’re still in the very early innings of what’s possible. Just take a look at some of these charts. We look at these every year. You kind of see the rate and pace of AI growth. A couple of years ago, we were just starting.
+
+People were experimenting with chatbots. It was really cool. If you look at today, we’re really seeing more than 35 quadrillion tokens consumed every single month. That’s increase of nearly 160 times in just two years. That curve is actually just getting steeper. You’re going to hear a lot about that today. Just looking at where is all that demand, obviously training remains incredibly important and foundational. Over the last four or five years, we see the compute that’s used for training advanced models continuing to increase by, let’s call it, roughly 5x every year. Those models are getting better. We’re all experiencing that. We’re seeing better reasoning. We’re seeing new capabilities. We’re now seeing a growing number of specialized models. One of the things that I really believe in is there is no one perfect model.
+
+I think we’re all going to use a slew of different models depending on what task you’re trying to solve and which industry you’re in. The bigger shift is actually in inference. We expected this. We expected that inference would grow faster than training. We can say that in 2026, for the first time, the world is using more AI compute to run models than to train them. We’ve seen that to a point where we think this year, roughly 60% of the global AI compute capacity will be used for inference. The reason for that is actually pretty simple. As billions of people every day use AI, the workloads shifts from building models to putting them to work. Actually, we’re going to talk a lot today about agentic AI. That’s accelerating the shift even faster.
+
+If you think about all of this, we see agents as the next big step for AI. The most interesting thing is this has really just started accelerating over the last, I would say, five or six months this year. When we started with LLMs, they were great to answer questions, we found that to really get the power of AI, you want agents to be able to really answer full questions. You give it a goal. It keeps working until it’s solved the problem. What that means for us in the compute industry, it means that compute demand is growing at an incredible pace.
+
+We’re actually seeing a step change in compute demand because when you ask the agent to do something, it actually has dozens of steps, it has to reason, it has to call tools, it has to access data, it has to keep doing it over and over until it’s solved the problem. You need lots of GPUs to do all that reasoning. Importantly, you also need a lot of CPUs to orchestrate every step around it. When you look at just what that means from a market standpoint, it’s really hard to put this market data up because I feel like every few months we’re changing the perspective based on what our customers are saying. What we’re seeing is that the shift to agentic AI is certainly growing the AI accelerator market very significantly.
+
+It was actually last year at this event that we called the AI accelerator market at about $500 billion by 2028. At that time, it actually felt like a very big number. Didn’t you think it was a big number? Oh, yeah. Honestly, you look at it today and it looks conservative because the AI demand is just continuing to accelerate, you can see it, right? Better models, more usage. More usage requires more compute, more compute actually builds better models. We’re now expecting that by 2030, the AI accelerator market is going to reach about $1.4 trillion by 2030. What do you think about that? Is that a big number? What that means is by the end of the decade, the AI accelerator market is going to approach the size of the entire semiconductor market today.
+
+Although there will be many different types of accelerators, I’m a big believer in there’s no one size fits all as it comes to chips. We do expect that GPUs are going to make up the vast majority of that market because the algorithms are still very much in their infancy, we’re still continuing to see the workloads change, that favors programmability in the overall silicon ecosystem. Now, perhaps the most interesting part of the last six months has been GPUs are only part of this story. What we’re actually seeing is agentic AI is creating an entirely new growth vector for server CPUs. Now, I’ve updated this number a lot also over the last six to eight months, look, we call it like we see it, we were early.
+
+We saw from our largest hyperscale customers, and you’re going to see some of them here today, who said, "Look, as AI inference is going up, we need more server CPUs." We saw growth in the server CPU market, and we said last year we thought it might grow, let’s call it 18%-20% CAGR to an overall market size of $60 billion. Frankly, what we’re seeing is that the rate and pace of agentic AI adoption is much, much faster than any of us thought. We’re talking about agents going from millions to billions. We’re able to increase all of our productivity, and that requires a tremendous amount of CPU infrastructure. Every customer conversation is telling us that this build-out is just beginning.
+
+Based on what we’re seeing today, and we’re going to talk more about how agentic AI is evolving with CPUs, we now expect the server CPU market to grow by over 50% to over $200 billion by 2030. That’s starting from today, a $25 billion market going to over $200 billion. There’s a lot of excitement about CPUs as well. Probably one of the things that is differentiating AMD in how we think about the market is this is not just a data center opportunity. As AI becomes a larger part of our daily lives, we want the intelligence to run right where the work happens.
+
+That means cloud is super important, but the devices that we use every day are going to be extremely important, and that means that we’re going to do a lot more at the edge as well with autonomous machines that sense and act in real time. We really believe that you need AI to be infused everywhere, and that’s exactly what we’re focused on at AMD. Putting all of that together, we actually expect that the market for our high-performance and adaptive computing products to grow at roughly a 40% CAGR over the next several years, approaching a $2 trillion market by 2030. Frankly, the only way you’re going to be able to service a market like that is for us to work together as an ecosystem. There’s no one company that can solve it all.
+
+This is the opportunity to bring the best and brightest together, and we have never been in a better position to lead. We have the broadest product portfolio, we have the strongest roadmaps we’ve ever had, and the thing that I’m most proud of is we have the deepest partnerships with the companies that are building this future. A little bit about our strategy. I think we’ve been very consistent. We’ve talked about our multi-year strategy, and it’s really built around three priorities. The first is just compute leadership. We’re building the broadest set of compute engines in the industry so that we have the right compute for the right workload. Second, it’s going to be about open platforms. We want everyone to come together in an open ecosystem.
+
+We believe an open ecosystem is essential to the future of AI, that’s how we get the force multiplier of everyone coming together. That’s open on hardware in terms of hardware standards, as well as open on software, that’s why we’re investing so heavily in our ROCm software. You’re going to see that AI has been a tremendous multiplier in this rate and pace of progress that we’re making in ROCm and in software. It really means that if we put all of this together, we can have our customers deploy on AMD hardware faster than ever. The third piece is we’re going to get a chance to talk to you about powering AI everywhere. That’s AI in enterprise, that’s AI at the PC, that’s AI in the physical world, that’s adding new capabilities across all of our products.
+
+Today, you’re going to see all of that in action. We’re going to start with compute for the agentic era. I’m going to show you a lot of hardware, then we’re going to talk about some software, then our overall products from a platform standpoint. We’re honored to have some really special guests that are going to join us to really help bring the technology to life. Let’s start with the data center. Today, AMD EPYC runs on the most important workloads in the world. We power the largest cloud providers, we power the digital platforms that billions of people use every day, the most important critical systems that are used by the largest businesses, including more than 60% of the Fortune 100 are using AMD EPYC, that momentum is just building.
+
+Last quarter, we reached a record 46% revenue share in the server market, we’re continuing to see every major customer move more workloads to EPYC. On the GPU side, our Instinct adoption has also accelerated. We have a broad set of customers across the largest AI labs, cloud providers, leading AI startups, as well as some of the national labs and sovereign AI opportunities are being built on AMD Instinct, we really appreciate that opportunity. AI compute’s becoming a lot more complicated. What we’re seeing with frontier AI is it’s really raising the bar for what infrastructure needs to do. It takes more than a single chip or a single server.
+
+You actually have to design the entire rack as one system, that requires leading CPUs, that requires leading GPUs, that requires high-speed networking that connects everything inside the rack and across the data center. Just as importantly, this is about making these systems super easy to use. They need to be easy to deploy, easy to service, and very reliable. That is exactly what we built with Helios. Today, I’m super excited to launch Helios, the industry’s highest performance AI rack. Helios is built to train and run the most demanding frontier models in the world at massive scale. I have a lot of show and tell for you. For those of you who know me, you know that I love holding up chips. I call myself sometimes the Vanna White of chips.
+
+It turns out with Helios, there are lots and lots of components. You can see, these are the chips inside the Helios rack. These are the Instinct. Thank you. This is Instinct, EPYC, and then the Pensando chips for networking that are inside each rack. Every one of these chips is part of the system. MI455 is the engine. It’s the highest performance GPU in the industry. Venice, what drives it, is the world’s fastest CPU cores. Pensando DPUs and NICs actually connect them with leadership programmability and scale-out bandwidth. I have a few more props to show you. Let’s take a look at how these things fit into the overall system. First, this is now the MI455 accelerator, which is mounted on what we call an enhanced accelerator module, or EAM.
+
+It’s a production module that goes into Helios, it is much more than the GPU package. The EAM actually integrates the GPU, memory, power delivery, high speed interfaces, system management, cold plates for liquid cooling, all into one compact serviceable module. Pretty cool, right?
+
+Yeah.
+
+If I just give you some of the specs, we’re talking about 320 billion transistors. This is built with TSMC’s leading 2 nanometer and 3 nanometer process technology. Most importantly, it brings together nearly a decade of AMD chiplet innovation. It allows us to combine 12 compute and IO chiplets with 432 gigabytes of memory, all connected by leading industry’s 3D chip stacking packaging. I can say for sure, it’s the highest performance AI accelerator in the industry.
+
+Yeah.
+
+This is the CPU board that’s inside the Helios compute tray, I’m going to talk a lot about CPUs later. Just to give you a high level view, it’s a high speed 96 core EPYC processor, DDR5 memory, all the IO that’s needed to feed the GPUs, all in a single motherboard. We also have our Salina DPU. This is a critical part of the networking infrastructure, it really allows us to deliver both a front end as well as the scale out and scale across bandwidth overall. This is our Vulcano AI NIC. You can see, this actually allows us to really have up to 6 Vulcano NICs on a board, and it uses the open Ultra Ethernet standard.
+
+Each Helios compute tray includes two of these Vulcano boards, that allows us to have the scale out and the scale-up networking overall. You put all that inside the rack, we have an additional six dedicated networking trays that handle the scale-up networking, those are all connecting 75 GPUs together with UALink over Ethernet with Silicon from our partners. That’s what we mean by an open ecosystem. When you bring this all together, I want to say Helios is simply the best AI rack in the world. Now, let’s take a look at some numbers. Clearly, it’s a very competitive world out there. When you compare Helios to the competition, we’re delivering 15% more compute, 50% more HBM4 memory capacity and memory bandwidth, and 50% more scale-out bandwidth.
+
+What that means is that every Helios can deliver more performance for the largest models, more capacity for longer context, and the bandwidth to scale across thousands of racks. Now we can come over here and take a look at another very large piece of hardware. This is now the production hardware that customers are deploying, you can see more of that as you go through the exhibit center. Each one of these weighs more than 160 pounds and stands less than two inches tall. That’s just an extraordinary amount of technology when you look at what’s in one of these trays. When you bring these things together, the numbers are just incredible. More than 18,000 CDNA five GPU compute units, over 4,600 Zen 6 CPU cores, and 31 terabytes of HBM4 memory, all in a single rack.
+
+That’s what it takes to run agentic AI at scale. Today, I’m excited to announce that Helios is in full production. We have shipments on track to start at the end of the third quarter and ramping into the fourth quarter in the second half of the year. I can tell you, customer demand for Helios is extremely strong, we’re extremely proud of the work that we have done across the leading AI labs to adopt Helios. Let’s start with some of our guests. Today, I’m excited to be joined by our newest Instinct partner and one of the leaders in frontier AI. To share more about what we’re doing together, please welcome Anthropic Co-founder and Chief Compute Officer, Tom Brown.
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: Good to see you, Lisa.
+
+Lisa Su, CEO, AMD: Hello, Tom. It is so great to have you here.
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: Nice to be here.
+
+Lisa Su, CEO, AMD: It is really such an honor to be working with Anthropic. We had a big week this week.
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: We did, yeah.
+
+Lisa Su, CEO, AMD: Look, Anthropic has just had incredible success over the last few years. Claude has made such a big impact on the overall industry. Compute is such an important factor in the progress. Can you just talk a little bit about your compute strategy and just how things have been evolving?
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: Yeah. First, thank you so much. A hard act to follow with Helios. Amazing. With Anthropic, as you mentioned, the scale that we’re growing at just as an industry is enormous. We have been working to make sure that we have the best different chips, and we can use the best chips for the best workloads.
+
+Lisa Su, CEO, AMD: Yeah. Look, I think you’ve been really leading in that area, and I’m happy to say that I’ve always wanted to be a part of your infrastructure. I remember the early times we talked as you were starting Anthropic. We had a big announcement this week. We’re honored that you will be deploying up to 2 gigawatts of Helios. Why now? What was the key reason?
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: Yeah. I think that the first thing was just Helios is an amazing machine. It’s absolutely fantastic.
+
+Lisa Su, CEO, AMD: Do we like that? Does that work for us?
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: I think the thing that we were thinking about originally was whenever we’re bringing up a new hardware platform, it’s a big effort. It’s a huge thing. As we were thinking about this, we started doing our own evaluation of MI355X. You guys generously got us a rack to start working, and we expected this to be a big process. Our actual experience was we had one engineer who started doing it. They connected it to Claude, asked it, "Hey, bring up this machine." Left it going over the weekend, and we ended up with a graph of the actual performance of our leading model on it, just going up and up and up over the weekend.
+
+Lisa Su, CEO, AMD: Nice.
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: Yeah. I think that that’s a testament to the open platform that you guys have made, where anyone, human or AI, can now build real models on your platform.
+
+Lisa Su, CEO, AMD: Tom, I kid you not, when my team told me that you had an engineer working on MI355X, I said, "Hey, are we making sure we help them?" They’re like, "They say they don’t need any help." They got it all covered. I was like, "Hey." That’s a wonderful story. Thank you for that. Now, we’re also super excited about the work we’re doing together because one of the most valuable parts of this partnership is Claude and using Claude within AMD. We’re big believers in the fact that AI is this force multiplier, and the more we’re able to have the leading foundational models really familiar with the AMD architecture, the better we’re going to be able to service the overall market. Can you just talk a little bit about how you’re seeing Claude really evolve in these types of highly engineering-specific workloads?
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: Yeah. I think this is a great place for collaboration, where the bread and butter of Claude is doing software engineering. Now more and more, we’re seeing it help out with the type of workloads that you guys are doing also, like design, layout, which is not quite the normal software engineering, but is adjacent. I do think that is the place where we can work together to make the next generation of chips even better.
+
+Lisa Su, CEO, AMD: Yeah. Also on the software side, I think the work that we’ve seen with Claude and the kernel development has been just incredible. Tom, one of the things for our audience here, we like to talk about the present, but it’s actually most of us are working on the future. This is really the beginning of what we believe is a very strong multi-year partnership. Can you talk a little bit about, number 1, what are you most excited about in the industry? Then number 2, what can we do more together to really make sure that we’re satisfying those key opportunities?
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: Yeah. That’s a great question. I think working together for the scale-up seems like it’s probably the biggest thing that I’m most excited for, where it does seem like we see consistently using more, better compute results in better models that then add more value to all the folks using it downstream. I think that’s the biggest thing. Then I think one thing now that we’re investing more and more with you guys too, and I think we can continue to, is security, where that’s a place where now, as the machines are getting more complex, we can work together to secure things at the chip layer, the server level, the rack, the whole network. That’ll help out, not just us, but the entire industry stay safe.
+
+Lisa Su, CEO, AMD: No, I think you’re completely right. We are super focused on the idea of how can we use AI to improve every aspect of our product, whether it’s performance, power, software, and security, as you said. Really, Tom, huge thank you for the opportunity to work very closely with you and your team. Our team loves working with you guys.
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: Likewise.
+
+Lisa Su, CEO, AMD: We look forward to everything that we’re going to do together.
+
+Tom Brown, Co-founder and Chief Compute Officer, Anthropic: Thank you so much.
+
+Lisa Su, CEO, AMD: Thank you. Thank you. All right. Look, Tom talked about how important performance is, we have been laser-focused on ensuring that the real-world performance of MI455 and Helios really comes true when we look at system results. Let’s take a look at some of those results. Here’s an example. We’re running DeepSeek V4 Flash, one of the latest reasoning models, we are actually comparing MI455 to MI355. The key thing is, with every generation, we want to make huge leaps in performance. We’re seeing that at lower concurrency, that MI455 delivers 4x the throughput of MI355. Clearly, what you see with large users across the board, that you want to increase the number of simultaneous users, you want to increase the amount of work that you can do at the same time.
+
+At the highest concurrency, we’re seeing Helios deliver up to 34 times more throughput than our prior generation. What that means is more users, much faster response, and much better efficiency at scale. Performance is just one aspect of it, right? The other aspect, what I should have mentioned when Tom was on stage, is every one of us in the enterprise is seeing our AI budgets go up every single month. Is that right? Are you seeing some of that? Customers really care about cost per token. With every generation of Instinct, we’re driving the cost per token down, and that’s with more memory, more bandwidth, and much more compute. We’re taking another major step with MI455, delivering up to 18 times more tokens per dollar, so customers can serve far more users with the same investment.
+
+As you think about how that comes together in a rack, many of our data centers right now are really limited by power. Power is the maximum limiter. We tested Helios over a full range of workloads where you have a fixed rack power compared to the competition. What we’re seeing is, across the highest throughput workloads, the most interactive applications, all of these leading inference workloads, we’re seeing Helios an average of 10%-15% more performance than the competition. That comes with all of the system work that we’ve done in the overall system. How that translates to a customer is cost. What we expect is the Helios rack delivers more performance, and it also delivers up to 30% more tokens per dollar than the competition. I think that’s a pretty good overall value proposition.
+
+Now, I’m happy to say that the customer demand for Helios is extremely strong. From the largest AI labs to hyperscale and neo-cloud providers, we are working across the entire ecosystem to enable Helios together with our OEM and ODM partners. One of our deepest and earliest partners deploying Helios is OpenAI. To talk about where AI is headed and the work we’re doing together, please welcome to the stage OpenAI’s Head of Infrastructure, Sachin Katti.
+
+Sachin Katti, Head of Infrastructure, OpenAI: Thank you.
+
+Lisa Su, CEO, AMD: Thank you, Sachin. It’s so great to have you here, and most importantly, we are so thankful for the partnership with OpenAI. We’ve been through so much on this journey together.
+
+Sachin Katti, Head of Infrastructure, OpenAI: Yeah.
+
+Lisa Su, CEO, AMD: You’re really operating on the frontier of AI. Can you just tell us a little bit of what you’re seeing and just what compute looks like for you?
+
+Sachin Katti, Head of Infrastructure, OpenAI: Thanks. Great to be here. I was thinking about this event and over the last two years, it feels like the attendance at this event is following scaling laws, has been doubling every year over the last two years. More seriously, to your question, we’ve always predicted that models will evolve where they’ll start as chatbots, then they become reasoners, then they become agents, then they become interns. The trajectory has kept up with that, right? We are all seeing that models are becoming a lot more capable, more agentic, and able to do very long-running tasks, let them go, and they just take care of it. All that really means is we need to keep scaling compute, right? The more compute we scale and throw at training, the more capabilities emerge.
+
+The more compute we scale and provide it to distributing intelligence to the world, the more people want to do with it, and this is what we see with exploding token budgets. We’ve seen internally, for example, in OpenAI, that not just engineering, but every aspect of the enterprise is beginning to use agents for every part of the work. This is why we need platforms like yours that can scale with how quickly the capabilities of these models are scaling, as well as how quickly the whole world is beginning to embrace what these things can do.
+
+Lisa Su, CEO, AMD: Well, Sachin, I don’t think I’ve ever spoken to you where you haven’t asked me for more compute. He’s actually very, very consistent. Look, our teams have been working really closely together. I think it’s been a true journey when we think about just all of the technology that we’ve been doing. Last year we announced a really landmark partnership where you’re going to deploy up to six gigawatts of AMD infrastructure. You’re one of the first, I think you’re the first to actually have MI455X racks a few months ago. Can you talk a little bit about the journey?
+
+Sachin Katti, Head of Infrastructure, OpenAI: No, it’s been a phenomenal partnership. As you mentioned, we were first to bet on AMD, we are really thrilled with how that bet is turning out for us. Got started on MI300 and expanded very quickly to 355, it’s been really fun for our team to see how it was possible to optimize the software stack, the networking, and everything, and deploy our models running on AMD infrastructure. As Lisa mentioned, we just got hands on the Helios racks three months ago, the collaboration has gone to the next level. Our engineers are working side by side with AMD engineers to optimize the software stack and run GPT class workloads on Helios already. Phil will probably be on stage later talking about how productive and fast that collaboration is.
+
+We are really excited about the capabilities Helios is already showing us, we expect that we’ll be deploying Helios at massive scale, starting towards the end of this year and then accelerating throughout 2027.
+
+Lisa Su, CEO, AMD: Like I said, I know. More faster.
+
+Sachin Katti, Head of Infrastructure, OpenAI: We need it earlier.
+
+Lisa Su, CEO, AMD: Sachin, the other thing is one of the most exciting parts of our collaboration is actually some of the research work. Very thankful for the opportunity to spend, really bringing our best engineers together with your researchers to talk about how AI should be really implemented and used for future both silicon and software. Can you talk a little bit about that work?
+
+Sachin Katti, Head of Infrastructure, OpenAI: Yeah. I think one of our key bets, and I think for a lot of us in AI, is about recursion, right? AI recursively improving the systems it needs to run on, and eventually, obviously, AI doing the research itself, right? Today, expert engineers spend an enormous amount of time optimizing kernels, figuring out how to translate new models to run them efficiently on different hardware, dealing with all the usual things you would think about, compilers, communications, libraries, system configurations. What we’ve been super excited and encouraged by the work we are doing with you is now AI showing the potential and demonstrating it in production to automate a significant portion of the work when anyone programs to an AMD GPU.
+
+It dramatically has shortened the path from a new model coming up to an efficient production deployment, and something that we can much more easily tune to changing workload requirements, right? That’s a big deal. One of the other things that’s super exciting for us is because AMD is built around an open software ecosystem, all these things that we are now inventing internally for our own use, we believe we can also bring it to the whole world and allow the whole world to use it for all of the AI models out there, not just our models.
+
+Lisa Su, CEO, AMD: I think super excited about that. I think the idea is that it’s really the tide that lifts all boats, right? As we work, it helps our work together, but it really helps the overall ecosystem. A little bit of your crystal ball. Looking forward, I think we all know that compute is super critical. What do you need from the next generation AI infrastructure? What can we do as really a key partner to help you accomplish that mission?
+
+Sachin Katti, Head of Infrastructure, OpenAI: If you haven’t heard already, I need more compute, more plenty. Kidding aside.
+
+Lisa Su, CEO, AMD: At least he’s consistent, right?
+
+Sachin Katti, Head of Infrastructure, OpenAI: I think the thing that the whole industry is realizing is it’s a systems problem at a data center scale.
+
+Lisa Su, CEO, AMD: Yeah.
+
+Sachin Katti, Head of Infrastructure, OpenAI: I think we obviously very quickly internalized that AI was a rack level problem, now it is very clear that it’s not just a rack level problem, it’s a rack in a data center, the whole data center is a system, and we have to think about how we design the future based on what we know about our workloads, what’s coming down the line. Co-design it with you from CPUs to GPUs to memory, networking, storage, power distribution in a data center, and the cooling systems that go with it. These are all intertwined, and they all have to be co-designed.
+
+One of the really fun parts about what we do with you and your team is how easy and productive it is for us to work with you and give you insight into how we expect the world to change in the future from what our workload needs are, what our models are, and how quickly your team responds in turning those insights into better chips, better systems, better software. That’s worked well, really well with MI400 and left shifted a lot of the engineering work that we needed to do to bring this up online quickly, and that’s why we are very confident we can productionize those systems very quickly. Really looking forward to accelerating that with MI500 and beyond, and increasingly using AI to actually do that work for us, rather than being limited by humans.
+
+Lisa Su, CEO, AMD: That’s fantastic, Sachin. Look, we really do recognize that input is so valuable. I have to say thank you again for just the extraordinary partnership, the amount of work that our joint teams are doing together, and we couldn’t be more excited about the opportunities in front of us. Thank you, Sachin.
+
+Sachin Katti, Head of Infrastructure, OpenAI: Thank you so much.
+
+Lisa Su, CEO, AMD: All right. Now let’s turn to the world of CPUs. There’s been a lot of talk about CPUs recently, I can say that this has been the foundation of our AMD data center strategy for the longest time. We launched EPYC in 2017, we’ve been on a very clear mission. Every generation, more performance, more efficiency, more capability for a wider range of workloads. Naples was our first generation. It established the foundation, Rome and Milan really changed the economics in the data center. We did more than what people expected in terms of adding core count and adding throughput. Genoa expanded our performance, Turin set a new bar for density, throughput, and total cost of ownership. That’s really been the EPYC formula, a clear roadmap and very consistent execution, leadership that actually grows with every generation.
+
+This is why, if you look today, 5th-gen EPYC Turin is the best server CPU in the world. With up to 192 cores and 384 threads, Turin delivers leadership performance across a broad range of cloud, enterprise, and HPC workloads. The thing about the data center is compute never stands still. With agentic AI, it’s actually creating a whole new class of infrastructure, and the CPU matters now more than ever. That’s exactly what we built Venice for. There’s been a lot of talk about agentic AI, but it’s actually a very new field. What we see is that server computing is actually splitting across a couple of different workloads. The first section is GPU servers, and that’s fairly well-known. That’s where the CPU’s job is basically to drive the GPUs. The job there is all about speed.
+
+We want the highest frequency cores, we want the fastest IO, and we want to keep the GPUs fully fed. The biggest middle part, this is the largest growth, is actually in agent servers or what we call agent sandboxes. This is actually a whole new class of workload. Here, you execute code, you actually call a bunch of tools, you actually query data that’s outside the model. You have a whole bunch of things around it. In this place, the priority is actually density. We want the highest performing cores per watt to run thousands of agents at once. Then we have our traditional general-purpose servers that run the enterprise. Here you’re going to have a diversity of workloads. It’s all about efficiency. It’s running the applications, it’s running databases, it’s running data services.
+
+All of that is what we would traditionally say is general-purpose server. With these different workloads, you actually need the right CPU for the right workload. EPYC is the only CPU portfolio that leads across all three. Venice is our newest and most advanced server CPU family, and it’s actually designed for the agentic era. We’re extending Turin’s leadership across every single metric. That is performance, that’s efficiency, that’s TCO for cloud, that’s enterprise efficiency, that’s HVC workloads. Venice starts with our all-new Zen 6 core. We have higher IPC, higher frequency, and that delivers up to 1.8 times more performance than Turin. That is one of the largest generational gains. We have been doing this for six generations, but this is one of the largest generational gains in the history of EPYC.
+
+It’s 203 billion transistors built on TSMC’s newest 2-nanometer process, and it uses a next-generation triplet that supports up to 512 threads per socket. This is actually a really important point. I’m going to show you why in a few minutes. This gives us the highest compute density, but it also allows us to double both the memory and the IO bandwidth. I have a few more chips to show you, if that’s all right. What’s clear is Venice is not one chip. Venice is actually an entire family of chips, this is where our triplet architecture becomes a huge advantage. It lets us take the Zen 6 architecture and build a whole portfolio around it. Let’s start with this guy. This is Venice HF. This is the highest-performing CPU that drives AI host nodes.
+
+It has 8 compute chiplets, each with 12 cores running at up to 5 gigahertz with the I/O and memory bandwidth to keep the GPUs completely fed. This is the CPU that I showed you before shipping inside Helios. This is its bigger brother. It’s EPYC Venice 256-core. This is the chip that’s built for agentic sandboxes. It also has 8 compute chiplets. Each of the chiplets now has 32 cores, so it scales all the way to 512 threads. It is the highest compute density in the industry. Customers get more agent capacity per watt, per dollar, per rack, bar none. One more member of the family. This one is EPYC Venice 128-core. This guy is optimized for enterprise and general purpose servers.
+
+This is the same leadership performance per core, but it’s in a lower cost, lower power design for enterprise applications. This one is really tuned to give customers the best performance per dollar across a wide range of configurations. You can see really the power of the family as they come together. In addition with these guys, I can tell you that next year we’re adding a few other chips to the family. We’re adding Verano, which is the next generation for AI host nodes. What that adds is a more power efficient, low power memory, as well as faster interconnect between the CPU and the GPU.
+
+We’re also adding for our high performance computing or technical computing, EPYC Venice-X, which is using our 3D V-Cache stacking technology. We’re really the first to stack memory chiplets right below the compute chiplets to accelerate performance even for those types of workloads. You can see one architecture. A CPU is not a CPU. There are many different types of CPUs. For us, one architecture spans dozens of different chips. That breadth is someone that no other CPU vendor can match. That’s what makes 6th-gen EPYC the best CPU in the data center. You’re going to bear with me because I’m going to take you through some performance because the numbers are just incredible. Looking at AI workloads. Again, you have different use cases and different workloads, starting first with GPU servers.
+
+Many of the largest frontier models require you to move data between the CPU and the GPU. In that scenario, EPYC Venice moves the data faster than the best competitive x86 processor, delivering up to 1.8 times more tokens per second. When you look at the agentic CPU servers and sandboxes, because of our density, EPYC Venice delivers more than twice the agents per watt for agent sandboxes. For general purpose applications, in this case, we’re standardizing on 100 kilowatt rack. EPYC Venice delivers more than twice the performance per watt. Pretty incredible results. The gap is even wider if you look at Arm processors. If you look at the leading Arm processors, when we’re comparing at the chip level, EPYC Venice supports up to 2.8 times more agents per watt.
+
+When you look at the rack level, Venice is delivering up to 3.3 times more performance per watt. What that means is at the data center scale, you can just get a lot more agents in the same power envelope. There’s been a lot of talk about what matters most for agentic AI, with some saying that per core performance under load is the only thing that counts. That’s really only part of the story because agentic AI actually runs as a distributed platform, that is across databases and vector stores and orchestration. All of that has to happen at once. That requires not just raw speed, but you absolutely need density, efficiency, and per core performance all together. What I’m happy to say is that Venice leads across every one of them.
+
+When you compare Venice against the highest performing Arm CPU from our competition, EPYC delivers 20% higher per core performance. When we I like that number. I like that number. When we pair that with leadership core density, we’re delivering 2.2 times more performance at the socket level. The main point is whether a customer needs per core or per socket performance, Venice is the leader. There’s one more point that a benchmark doesn’t really capture, because when you think about what agentic AI is, it’s really like you’re adding thousands of employees to your enterprise, to your traditional workflow. That software enterprises have been running on for years. The truth is, that software runs on x86, so Venice runs all of it, and this is where x86 has an advantage.
+
+You must have the best performance, you must have the best density, but having that software compatibility is a big plus. Customers scale up their agents on the stack that they already have. Now let me just show you what that means at the rack level. At the rack level, what we find is density is super important. Everyone’s trying to optimize their data center. Everyone’s trying to optimize their power envelope. With Venice, every major server OEM is offering a broad spectrum of racks for agentic AI. What that means is we have the full spectrum from 25,000 cores to 50,000 cores, that’s more agents per rack, that gives customers the choice.
+
+The key is every data center is different, with that, the flexibility allows you to pick the right cooling, the right space requirements for what you’re trying to do in your data center. There you have it, Venice, the best server CPU in the industry. I’m very happy to say also today that Venice is in full production. Customer demand is incredible. It’s the strongest we’ve ever seen for a new EPYC generation. We’re seeing every major server OEM, every major cloud provider on track to begin rolling out in the fourth quarter as we start with making the broadest EPYC launch we’ve ever had. With that, I want to turn to my next guest, who runs some of the largest and most advanced compute infrastructure in the world.
+
+It’s really been our privilege to partner with them as they’ve deployed multiple generations of both EPYC and Instinct. To share more about our work together, please welcome to the stage Meta’s Head of Infrastructure, Santosh Janardhan.
+
+Santosh Janardhan, Head of Infrastructure, Meta: How are you?
+
+Lisa Su, CEO, AMD: Wonderful. It is so great to have you here. Thank you for being here.
+
+Santosh Janardhan, Head of Infrastructure, Meta: Of course.
+
+Lisa Su, CEO, AMD: Santosh is a true friend. I have to say, it’s been a tremendous opportunity over the last few years. My story about Santosh is the first time I sat in his office, he said to me, "Lisa, we’re going to deploy a lot of CPUs. Please make sure they work." I said, "I will. I will.
+
+Santosh Janardhan, Head of Infrastructure, Meta: You lived it up.
+
+Lisa Su, CEO, AMD: I try.
+
+Santosh Janardhan, Head of Infrastructure, Meta: They won’t care.
+
+Lisa Su, CEO, AMD: I try. Look, Santosh, Meta operates, you operate some of the most advanced infrastructure in the world. What’s happening in the data center world? What’s happening in your world? Tell us a little bit about the architecture.
+
+Santosh Janardhan, Head of Infrastructure, Meta: A lot
+
+Lisa Su, CEO, AMD: What you’re working on.
+
+Santosh Janardhan, Head of Infrastructure, Meta: Sure. First of all, thank you. It’s awesome. This is like a hardware geek’s paradise, right? You come in, you’re talking about transistors, you’re talking about hardware, you’re talking about cooling. This is sort of the jam. I like it here. Right. I think this is an audience that’s receptive to it. I usually talk to audiences, they have usually either not been to a data center or not really seen a chip ever. This is refreshing, I have to say. The thing I’ll say about. See, listen, we are seeing demand go through the roof. When you look at inference, training, recommendation system, that’s how a newsfeed works. Content creation, the demand for that is just exponential right now, right? When I think about the overall, Mark has this vision of delivering personal super intelligence to billions of people.
+
+If you go to Facebook or Instagram or WhatsApp or whatever surface you go to, the idea is that we’ll meet you there, and we’ll deliver super personalized intelligence right wherever you are. That’s why we established this Meta Compute Initiative, because it’s a top-level thing Mark himself oversees. What that means is that we are now moving away from an area where we used to take servers, optimize it, right? This is what the conversations we were having many years ago.
+
+Lisa Su, CEO, AMD: Yes
+
+Santosh Janardhan, Head of Infrastructure, Meta: hey, I’m deploying a CPU, I really need to maximize performance out of it. It’s different now. You talked about how we should be thinking about the whole system end to end.
+
+Lisa Su, CEO, AMD: Yes.
+
+Santosh Janardhan, Head of Infrastructure, Meta: We are at a point where we have to look about the whole data center and think about it as one integrated system. Servers, hardware, networking, cooling, power, all of that is not optional. All of that has to work together, right? This is where I think there’s a huge opportunity for collaboration with partners like AMD, because you have to now co-design, co-create systems.
+
+Lisa Su, CEO, AMD: Yes
+
+Santosh Janardhan, Head of Infrastructure, Meta: not just deploy something that comes off the shelf, right? The other thing is, by the way, flexibility. The thing I really like about what you said is that this is such a big opportunity in the industry right now. All of us.
+
+Lisa Su, CEO, AMD: Yes
+
+Santosh Janardhan, Head of Infrastructure, Meta: need to lean in and work on this together. It needs to be open. It needs to be heterogeneous. I think there’s no one company, one partner that works for any one of us. We need to work on this together, and that’s why I think you’re one of our most important strategic partners.
+
+Lisa Su, CEO, AMD: Thank you, Santosh. Look, we completely agree with your philosophy. You are actually one of our broadest partners because if you think about our work on CPUs, GPUs, we developed the Rack Scale OCP systems together.
+
+Santosh Janardhan, Head of Infrastructure, Meta: Yep.
+
+Lisa Su, CEO, AMD: You’ve deployed lots and lots of CPUs, millions of CPUs.
+
+Santosh Janardhan, Head of Infrastructure, Meta: Yep.
+
+Lisa Su, CEO, AMD: You’re a lead partner on Venice. Can you just talk a little bit about your CPU and infrastructure and some of our work together?
+
+Santosh Janardhan, Head of Infrastructure, Meta: Sure. It’s been many years. The story that Lisa was saying was many years ago. I think we went from Milan to Bergamo to Turin, now to Venice. It’s at least-
+
+Lisa Su, CEO, AMD: Just-
+
+Santosh Janardhan, Head of Infrastructure, Meta: the fourth generation, long time partnership, obviously. I actually think the world is changing in the sense that The world is changing. Every year is a new world these days.
+
+Lisa Su, CEO, AMD: It’s like every month.
+
+Santosh Janardhan, Head of Infrastructure, Meta: Months, exactly. What ends up happening now is that it’s not just a GPU game anymore. It’s CPUs and GPUs. If anything, I think CPUs are becoming at least as important, if not more. You’re looking at a world where the workload is changing, because while you have your workhorses and GPUs, at the end of the day, there’s agentic workloads. You have to run your tools, you have to run your systems, and all the code that’s being generated still needs to run somewhere, right? I’m super excited to work on Venice. I think there’s a lot to come there. You have to think again. This is a theme that I’m assuming will go throughout the presentation, that you have to start thinking about CPUs and GPUs as conjoined things.
+
+Lisa Su, CEO, AMD: Yes.
+
+Santosh Janardhan, Head of Infrastructure, Meta: You hand off workloads. Depending on the workload, you employ the right hardware.
+
+Lisa Su, CEO, AMD: Yes. No, absolutely right. We’ve gotten a lot of feedback from your technical team. I think that’s what I really appreciate.
+
+About the partnership with Meta. Clearly, you’re deploying lots of GPUs, too. A lot of accelerators.
+
+You’re also one of our deepest partners on the accelerator side, starting with MI300, and then we had a very large strategic partnership announced around up to 6 gigawatts, starting with MI450.
+
+Santosh Janardhan, Head of Infrastructure, Meta: Yep.
+
+Lisa Su, CEO, AMD: What we’re doing is quite unique with Meta. Can you talk a little bit about the evolution and the MI450 plans?
+
+Santosh Janardhan, Head of Infrastructure, Meta: Again, multi-year collaboration. I think we started with MI300. We did a bunch. It had really nice memory capacity. I remember talking to you about that. There’s a bunch of pipe cleaning we did. It was important to deploy that at production scale, sort of get hands-on experience on both sides. 350 is the first time we deployed this on our ranking and recommendation systems. That’s now getting into some good numbers. 450 is, I think I’m super excited about it. We just got some of the racks, and we are going to deploy it across the board because it gives us the opportunity to go and really collaborate. I think the big difference between the 300, 350, and 450 is that we have had an engineer sitting in the same room.
+
+Lisa Su, CEO, AMD: Yes
+
+Santosh Janardhan, Head of Infrastructure, Meta: Talking to each other, co-designing, co-creating, power, cooling. I was saying, it’s not just a single thing, we are not shy in feedback.
+
+Lisa Su, CEO, AMD: They’re not shy, for sure.
+
+Santosh Janardhan, Head of Infrastructure, Meta: You’re very receptive.
+
+Lisa Su, CEO, AMD: Thank you.
+
+Santosh Janardhan, Head of Infrastructure, Meta: This is true partnership, right? This is the point about co-designing and co-creating that, I think. Like I was saying, that’s a huge deployment coming in. The more we deploy, the earlier we co-design, the better we are.
+
+Lisa Su, CEO, AMD: Yeah. Absolutely. Really appreciate the effort together on MI450. I’m going to ask you also about your crystal ball. You look out into the future, and you see what the next few years really means as you push forward in the AI industry. What are the biggest challenges and really opportunities for us? This is the industry ecosystem here. What should we be focused on as an industry?
+
+Santosh Janardhan, Head of Infrastructure, Meta: Listen, all of you know about the bottlenecks. You know about the power, the data centers, the silicon. All of these, I think, are choke points that I think the industry is waiting on. Those are things I’m pretty confident we’ll work our way through. At the end of the day, I think the demand is immense. People are responding. The thing that I really want to make sure all of us realize is that we should not think about systems in isolations. Like I was saying, CPUs and GPUs are one conjoined system. We should start thinking about it that way. We really need to co-design things early. See, data centers takes years to build. Okay. One of my favorite stories is Mark comes to me and says, "Hey, I want a gigawatt worth of data centers." Well, you should have talked to me two years ago.
+
+It takes time, right? It’s the same with silicon, right? It just takes time. We need to be starting and sitting down in a room co-designing today for what we need to deploy in 2027 and 2028. That, I think, is when we truly unlock powers of the system. The systems are amazing. The specs are amazing. Think about how much more you can get out of it if you sit in a room and just co-design it today, and then in 2028, we’ll be having much better graphs out there.
+
+Lisa Su, CEO, AMD: Fantastic. Santosh, I completely agree with you. I want to say again, thank you. We are so happy with the amazing partnership that we have across the board and most importantly, with your engineering teams, and we truly are excited about what we’re going to do in the future.
+
+Santosh Janardhan, Head of Infrastructure, Meta: Of course.
+
+Lisa Su, CEO, AMD: Thank you so much.
+
+Santosh Janardhan, Head of Infrastructure, Meta: Thanks, Lisa. Cheers.
+
+Lisa Su, CEO, AMD: Thank you. You heard Santosh talk about just the diversity of workloads and really the massive scale that you require with AI. Now I want to turn to another part of the inference market where the requirements are actually very different. Lots and lots of workloads, and as inference is moving into more products and services, we’re actually seeing it segment into different workloads depending on what you’re trying to do. Some of these are, let’s call it less interactive, so they’re really tuned for, let’s call it maximum throughput or the lowest cost. Other of these applications require more balanced throughput, so you have to balance throughput and responsiveness. There’s this new class of applications that actually want very, very fast results. You have extremely smart engineers, and they don’t like to wait, and that is where ultra-low latency or every millisecond actually matters.
+
+Each one of these types of workloads requires a different type of compute, and one of the best ways to reach ultra-low latency today is disaggregated inference. If you think about the different pieces, both prefill and decode are two different jobs. Prefill tends to need more compute, decode tends to need more memory bandwidth. With Instinct, we have a very balanced machine so that we deliver both great compute and great memory bandwidth. You can actually take this a step further. If you know what workloads you’re trying to run, you can actually let customers tune each of these pieces independently. To address this market opportunity, we’ve been working with Cerebras. To talk more about what we’re building together, please welcome to the stage Cerebras Co-founder and CEO, Andrew Feldman.
+
+Andrew Feldman, Co-founder and CEO, Cerebras: Hi.
+
+Andrew, it’s great to have you here. It’s been an exciting few months for you. I know that for those who don’t know exactly what you’ve been working on, can you talk a little bit about Cerebras and what problem you’ve been trying to solve?
+
+Sure. Great to be here and great to be among people who love hardware because it’s nice. Look, I’m thrilled to be here with you and to announce our cool new partnership. At Cerebras, we build the world’s largest and fastest chip. It’s a full wafer, and we package this into a system and stack these systems into racks and then racks into clusters, and we deliver them both on-premise and via the cloud. You’ve had some of our customers up here already today. On the frontier labs, we serve customers like OpenAI and in the hyperscalers like AWS, in the small agentic and the coding space leaders like Cognition. They do this because we’re blisteringly fast.
+
+Lisa Su, CEO, AMD: There’s no question, Andrew, that you have some tremendous innovation with what you’ve been working on. Our teams have been collaborating really closely over the last few years to really have Helios together with the Wafer Scale Engine for ultra-low latency inference. Can you just educate the audience a little bit? What are we trying to do, and what does that mean for customers?
+
+Andrew Feldman, Co-founder and CEO, Cerebras: Sure. I think what’s happened, you described it previously, is that AI has moved from being a novelty to being useful, and then in some domains, a necessity. When something’s a necessity, people want to use it, and they want to use it quickly. To serve this market, this segment of ultra-low latency, we sought a partnership that could extend our capabilities and our footprint, and there was no better answer than AMD. We were already an AMD customer as we use AMD CPUs.
+
+Lisa Su, CEO, AMD: Thank you
+
+Andrew Feldman, Co-founder and CEO, Cerebras: to surround our systems, we were so excited at the opportunity to build a disaggregated solution that combined AMD CPUs, the cool new Helios rack, and the Cerebras Wafer Scale Engine.
+
+Lisa Su, CEO, AMD: Yeah. Well, the technology is pretty cool. Just talk a little bit about how it comes together.
+
+Andrew Feldman, Co-founder and CEO, Cerebras: Sure. As Lisa described, what you have with Instinct and the Helios rack is you have the leader in performance and memory capacity. You marry that with our Wafer Scale Engine, which is the leader in SRAM and in-memory bandwidth. That combination allows us to deliver a solution that is unmatched in the industry.
+
+Lisa Su, CEO, AMD: Very, very exciting. I know that customers are excited about what we’re going to do together as well. When are we going to have it in market?
+
+Andrew Feldman, Co-founder and CEO, Cerebras: Later this year. It will be first in the Cerebras cloud, and it will be later at a store near you.
+
+Lisa Su, CEO, AMD: I think the key thing is we’re going to give customers the choice to really put together what is the solution that they want. I think we’re very, very happy to be able to do this together with you. I think it’s a huge step up in terms of what we can do for this ultra-low latency segment.
+
+Andrew Feldman, Co-founder and CEO, Cerebras: I think that’s right. I think until recently, customers, they could have high throughput, or they could have extraordinary speed. By bringing together the Helios rack with the Cerebras Wafer Scale Engine, we give you five times the throughput while continuing to deliver this extraordinary speed. It’s really something amazing.
+
+Lisa Su, CEO, AMD: Fantastic. Well, look, Andrew, huge congratulations to what you and the Cerebras team have done. I think it’s been incredible. I think you’ve been clear on what you were trying to accomplish, and it’s really nice to see not only it come together, but us come together to offer a solution that will be very, very compelling to customers. We can’t wait to get this into customers’ hands.
+
+Andrew Feldman, Co-founder and CEO, Cerebras: Soon.
+
+Lisa Su, CEO, AMD: Thank you.
+
+Andrew Feldman, Co-founder and CEO, Cerebras: Good to see you. Thank you so much.
+
+Lisa Su, CEO, AMD: Thank you, Andrew. All right. Look, I think we’ve shown you a lot of hardware this morning. As we all know, hardware is only part of the story. It’s actually software that turns all of this into a platform that developers can really build on. To share the progress we’re making with ROCm, please welcome AMD Senior Vice President of AI, Vamsi Boppana, to the stage.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Thank you, Lisa. Good morning, everyone.
+
+Lisa Su, CEO, AMD: Good morning.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: It’s great to be back to talk about software. Just a few years ago, programming AMD GPUs required deep expertise and significant engineering effort. We’ve come a long, long way in a remarkably short period of time. Through our open source community collaboration and sustained investment in ROCm, our software stack, AMD Instinct GPUs are powering some of the most important and consequential workloads on the planet. The biggest change is still ahead of us. AI is transforming how software is getting built, we are bringing that transformation to ROCm, and that’s what I’m excited to share with you guys today. Our software teams have been moving fast, with relentless focus on developers. We’ve invested at every level of the stack in build and test infrastructure, so we ship faster. ROCm releases now go out every six weeks, not every four months.
+
+We’ve continued to expand the work we do with our AI ecosystem partners, the result, more features, faster performance, and a significantly better out-of-the-box experience. Our strategy that has gotten us here has been remarkably consistent. It’s built on two core principles: partner deeply with the open source ecosystem, and build with the right layers of abstraction to enable developer productivity. Open source gives us velocity and scale, abstraction makes developers more productive. Our deep commitment to open source has resonated with the community that has truly embraced AMD. From frameworks and compiler stacks to inference engines and model hubs, AMD is now becoming part of default enablement for the most important AI communities, such as Hugging Face, PyTorch, JAX, vLLM, and SGLang. This is why new models get day zero support and why the world’s most important AI workloads run on AMD today.
+
+That is a big shift Inspired by engineers seeking productivity, abstractions have evolved to enable work at the right level of detail, hiding complexity when they want speed, and exposing control when they need performance. From low-level programming in Assembly and C to block programming abstractions like Triton to Pythonic frameworks, we’ve invested in key abstractions. AITER, our kernel library, and ATOM, our serving engine, get you peak performance without writing the kernels yourself. FlyDSL is a brand-new Pythonic domain-specific language that gives you low-level control with the performance of hand-tuned C++. MORI, our communications library, helps deliver leadership performance on the latest models like MiniMax. Look, something very, very exciting is happening. Over the past year, I’ve seen something remarkable inside AMD. Our engineers are using AI models to generate GPU kernels, optimize code, debug issues, and improve performance.
+
+In some cases, these AI-generated kernels are shockingly good, better than what we expected, sometimes better than the most manually tuned versions. The first time you see this, you’re a little bit skeptical. You run more tests, you try to break it, you look for what went wrong, and then you realize this is real. What has happened in general software development is coming to significantly transform GPU programming. It’s going to reduce the time it takes to bring up workloads, make optimization automated, and it’ll remove any remaining barriers to broad adoption. We want to put that capability in the hands of every developer. Today I am excited to introduce ROCm AI. It’s an agentic AI platform that brings the capabilities of AI-assisted GPU programming to developers.
+
+It starts with the simple idea of giving developers access to the power of an AMD ecosystem through the AI coding agents they already use. Whether you’re using Cursor, Claude, Codex, ROCm AI helps those agents understand AMD platforms, understand ROCm, and helps you build and optimize your workloads. In other words, we are making those popular coding agents into ROCm super users. You should be able to describe the workload you want to run, the performance target you want to hit, and then let the agents help you get there. For years, we have been building the open software foundation. Now we are adding an AI-assisted layer that helps developers use that foundation faster and more effectively. Let me show you what is inside ROCm AI.
+
+It’s built on the foundational capabilities of ROCm, our core software stack, runtime, libraries, compilers, tools, framework integration, all of the core software that makes the stack work. On top of that, we built a layer of AI-assisted optimization called HyperLoom. Using HyperLoom, the system can analyze a workload, tune configurations, select and tune kernels, adjust parallelism strategies, and iterate towards performance goals. To give you an example of the power of HyperLoom, I was talking to the lead developer last week. He told me they just pushed through a suite of 14,000 models through HyperLoom, optimizing them and creating valuable insights. This would have been impossible to imagine, even with a large team of engineers before. That’s the power of HyperLoom. Finally, we provide an AI-native interface for our developers, AI skills that allow coding agents to understand ROCm natively.
+
+I am incredibly excited by what we have built with ROCm AI. It’s going to profoundly transform the way developers interact with our platforms. Let me make this concrete for you with an example. Imagine you are a developer who wants to optimize MiniMax M3 with vLLM on MI355s. Today, there are many things you need to get right. You need the right vLLM optimizations, the right model recipes, the right environment variables. You may need to write new kernels or optimize kernels, and then you still need to tune all of this. With ROCm AI, this interaction becomes much simpler. Let’s see it. You can say, "Optimize MiniMax M3 with HyperLoom," enter, and behind the scenes, the agent does what an expert would do.
+
+Pulls a known good recipe, runs and profiles the workload, it creates and tests a bunch of kernel and runtime configurations, and it keeps iterating towards target. You can actually watch on screen here, ROCm AI write a GPU kernel. It sees an opportunity write a more optimized MOE GroupGEMM. The result, ROCm AI delivers a 38% more tokens per second improvement on this specific example. This is the experience we want for developers. Simple to start. That’s pretty cool, huh? Simple. Simple to start and powerful to optimize. We’ve continued our relentless focus on performance. With every release, we have delivered significant performance gains on leading models like DeepSeek, ROCm AI delivers 3.3 times speedup over ROCm 7.0. This has been made possible by innovations at every level of the stack. Techniques such as the use of block-scaled fused MOE kernels, KV cache quantization, expert parallelism.
+
+Look, the bigger story is how AI agents actually profiled the workload, proposed new kernels, tested configurations, and actually validated all of the results. That exact same focus is also on delivering performance gains for training. On the same hardware, ROCm AI improves training performance by an average of 2.4 times through optimized kernels such as fused flash attention, more efficient checkpointing, and advanced parallelism strategies. Our engineers have done amazing work to unlock the capabilities of MI455 through ROCm AI. I’m delighted to share some incredible results on hardware. On running real workloads, we are able to see the system deliver 20 terabytes of memory bandwidth and 20 petaFLOPS of delivered compute. These are the highest demonstrated compute plus memory capabilities of any accelerator platform in the industry today. It’s not theoretical. There’s measure. Super exciting that we were able to share this on day one.
+
+I’m also thrilled to share that the leading AI ecosystem partners who have had their hands on MI455 have had a delightful experience. You can see here what they’ve had to say, from end-to-end PyTorch testing, to ensuring Hugging Face models are getting validated, to vLLM and SGLang running well on MI455. We are incredibly encouraged and excited by what the community is about to unlock with MI455. This matters because day zero readiness is one of the most important objectives we strive for, and that’s what ROCm AI enables. Now let’s look at ROCm AI in action on Helios. This time, we are going to use a Codex front end. Let’s deploy DeepSeek V4 Pro, a 1.6 trillion parameter frontier model on Helios. Now watch what happens. ROCm AI pulls the right recipes. It configures the runtime. It implements the model graph onto hardware, and finally serves up the model.
+
+There you go. The model is actually up and running. Let’s see the model write a simple poem now about advancing AI. Let’s hit enter. Isn’t that a pretty cool poem? This is the experience we want to give our users. The developers should not have to manually reason through every layer of model architecture, kernel selection, comms strategy, and rack-level deployment. AI is transforming this experience, and that is a very, very big shift for GPU hardware and software. There are few organizations shaping the frontier of AI as much as OpenAI. You heard Lisa and Sachin talk about our partnership. It’s been truly wonderful collaborating closely with the OpenAI technical team to make rapid progress with ROCm. To talk about how they are advancing the frontier of software development and our collaboration, I’m delighted to welcome to stage Philippe Tillet from OpenAI.
+
+Thank you for joining us here, Philippe. Just so you all know, Philippe is the creator of Triton, one of the most important software innovations in modern AI infrastructure. It’s a huge privilege having you here.
+
+Philippe Tillet, Creator of Triton, OpenAI: Thank you.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: OpenAI has always pushed the limits of infrastructure. Can you tell the team a little bit here today as to how your team actually develops GPU software and how have technologies like Triton evolved?
+
+Philippe Tillet, Creator of Triton, OpenAI: For sure. First of all, thanks so much for having me. I was here two years ago. It’s my great pleasure to be back now. Our way of looking at things is there’s no one way to fit all applications, and we really try to meet users where they are. For that reason, we’ve developed multiple solutions. For workflows where speed of iterations is more important, we’ve developed Triton, as you mentioned. This is typically what researchers will use. More and more, we’ve been in a case where we’ve had to hyper-optimize performance, Triton didn’t give us the level of control that we wanted, we’ve developed Gluon for that, which is a lower-level language. This year, we’ve been really able to optimize our kernels for AMD, among other things.
+
+Our agents have become extremely good at both of them, we’ve worked with AMD on both of them as well.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Yeah.
+
+Philippe Tillet, Creator of Triton, OpenAI: More and more what we’re seeing is agents slowly taking over, they’re getting just very good, as you just mentioned, at writing this kind of code.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Amazing. I think the work you have done with Triton and now Gluon, right, it’s been really, really moving the ball forward for the entire industry. We began our work together with 300 and extended at 350, we’re collaborating at a different scale with 450 and Helios. Would love to hear your thoughts on how that collaboration has been going and how has that experience been?
+
+Philippe Tillet, Creator of Triton, OpenAI: Yeah, super well. It feels like ages. I think we started years ago.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Yeah
+
+Philippe Tillet, Creator of Triton, OpenAI: on hardware co-design, when MI450 was in the very early prototyping stages. I think we’re able to work really well together, and it’s so nice to see the outcome of that and the chip. More recently, we’ve been working very, very deeply on software enablement for MI450, both for our models, but also for the broader ecosystem. A lot of this development has been done open source. Yeah, we’re collaborating on the full stack now, down to the very low level LLVM code generation, so that all the nice hardware advances that came with MI450 can be properly leveraged in end-to-end applications.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Yeah. You got your Helios racks, tell us a little bit about that. Yeah.
+
+Philippe Tillet, Creator of Triton, OpenAI: Yeah, it worked. We got the chip and very quickly, like a single engineer in a few days was able to confirm that everything worked. Obviously, we have to optimize performance more. We’re very confident we can get in a very, very good place.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Awesome. That’s awesome to hear. Look, one of the more amazing things that we’ve done recently is our teams have collaborated even more closely in terms of using AI to program AMD GPUs. Would love to hear your thoughts and anything you can share with the audience.
+
+Philippe Tillet, Creator of Triton, OpenAI: Yeah. No, everyone in this room knows how much agents are taking over our jobs, in a sense, as kernel engineers. It’s been amazing just to see how much better they’ve got over just the past six months. Just now they’re extremely good at generating just high quality GPU kernels in a way that we were not before. It’s been very great collaborating with AMD on just making sure that agents not only are capable enough, but also have all the right context they need-
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Yeah
+
+Philippe Tillet, Creator of Triton, OpenAI: to be able to make good decisions and good optimizations.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: That’s great to hear. Yeah, I think the quality of code that’s getting produced by AI-assisted kernel generation has been truly remarkable through our collaboration.
+
+Philippe Tillet, Creator of Triton, OpenAI: Yeah.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Very excited. Now, as you look ahead, what crystal ball do you have for us for the future of AI software ecosystem and collaborations like ours?
+
+Philippe Tillet, Creator of Triton, OpenAI: Yeah, there’s two things that really come to mind. One, as we keep talking, is just how good agents are getting, and the other one is, I think, how much the open approach to software-
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Yeah
+
+Philippe Tillet, Creator of Triton, OpenAI: of AMD is enabling, not only for OpenAI, but I think for the industry as a whole. I talked a little bit earlier how we’ve been collaborating on LLVM code generation.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Yeah.
+
+Philippe Tillet, Creator of Triton, OpenAI: LLVM is an open source project. The entire compiler stack from AMD is open source, that has allowed us to make our agents really good at very, very low level code generation, down to scheduling instructions in assembly. This has led to very significant performance gain that I don’t think we’d have been able to achieve in a fully closed source stack.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Yeah, that’s one of the real sort of big value propositions that we have to offer, right? Because everything that we do is in the open, and the fact that AI can actually pick that up is a big one.
+
+Philippe Tillet, Creator of Triton, OpenAI: Yeah.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: Thank you, Philippe. We truly appreciate the partnership and we’re really excited about what we’re going to build together.
+
+Philippe Tillet, Creator of Triton, OpenAI: Yeah, my pleasure. Thank you so much for having me.
+
+Vamsi Boppana, Senior Vice President of AI, AMD: What you just heard is extremely important. When we combine better abstractions with AI-assisted development and close hardware-software core design, we can create some incredibly powerful capabilities, and that’s exactly aligned with our strategy. Everything I’ve shown you so far has been about AI, but ROCm is also a great stack for developing high performance and scientific computing applications. From frontier models to climate simulation, we use the same ROCm, the same library, same tools, same AI-assisted development, one open stack for every single workload. In fact, when you look at our roadmap, we’ve retained that very strong focus on HPC and scientific computing. Just like MI455X leads in AI compute with FP4 and memory performance, MI430X leads HPC compute with FP64 and memory performance. Two platforms purpose-built for two very different classes of workload.
+
+The MI430X is built by leveraging our modular chiplet architecture to deliver a purpose-built variant with native FP64 hardware, giving customers leadership performance across AI and HPC in a single platform. This is hardware double precision, not emulation. For the scientific community, that distinction is everything. This product delivers 288 teraflops of FP64 compute, nearly nine times better than competition, and the same leadership, memory capacity and bandwidth of MI455X. The MI430X ships in the first half of 2027. This is why leaders in sovereign AI love this product. The first sovereign exascale AI factories in both U.S. and Europe are being built on the MI430X. Discovery at Oak Ridge National Laboratory and ALICE/RecurVE with CINES and GENCI in Europe. Look, as we look ahead, let me leave you with this thought. Every so often our industry goes through inflection points. We’ve all felt it.
+
+When neural networks first started recognizing cats and dogs, when transformers changed what was possible with AI. I believe we are experiencing another one right now, a real inflection in the ability of AI to program complex hardware systems. Building on the surface area that’s been exposed from open source software and leveraging the power of abstracted interfaces, AI is making it dramatically easier to program AI systems. We cannot wait what you will build with it. Thank you. Now, AI is getting pervasively infused into all forms of computing. Enterprises are experiencing the same shift with their own unique requirements. To tell us more about that transformation, please welcome to stage Senior Vice President and General Manager of Compute and Enterprise AI, Dan McNamara.
+
+Dan McNamara, Senior Vice President and General Manager of Compute and Enterprise AI, AMD: Thank you, Vamsi, and good morning, everyone. It is a great pleasure for me to bring to you the third pillar of our strategy, which is powering AI everywhere. The vision behind this has remained the same for several years for us, to deliver the right compute engine to the right workload, then continuously drive optimization points across our entire portfolio, from CPUs, GPUs, networking, and FPGAs. Building on what we’ve already shared, I’ll cover how our strategy comes together across our enterprise portfolio and how the foundation we built with the CPU franchise has truly positioned us for the next era of AI across multiple deployment models. Lisa talked about the frontier model and hyperscale landscape and just the rapid and massive advances we’ve seen over the last six to 12 months. Those advances are driving the adoption of AI well beyond the cloud.
+
+As AI continues to grow, it will demand compute beyond the massive purpose-built data centers that we all know and love, extending into enterprise, personal, and physical AI. Each of these brings a new or unique set of requirements. Enterprises are usually constrained by power and cooling. Personal AI usually must operate within a fairly limited compute and memory footprint, and physical AI must perform reliably in real-world demanding environments. AMD is the only company delivering a complete portfolio that spans all of these development models. I just mentioned that our journey began in the data center with our CPU franchise, and I want to touch on it a bit. With each generation of EPYC, our strategy has been to listen to our customers, address their evolving needs, and deliver the highest performance, lowest total cost of ownership, and the fastest time to value.
+
+As Lisa mentioned earlier, we’ve introduced many industry firsts across our generations that our enterprise customers have actually asked for, that customer focus has brought us to where we are today with EPYC as the leader in enterprise computing. Over the last three years, there’s been very strong adoption across the enterprise, with the world’s largest companies moving more and more workloads to AMD. It’s reflected in a number of places. First, public cloud, where our VM consumption has grown at 76% CAGR over the last three years. For on-prem deployments with our OEM and ODM partners, is growing quite aggressively across key industries. Just as important, this position allows us to understand truly the diversity of the workloads that our enterprise customers run every day. Each workload places new demands on the CPU.
+
+Some require maximum thread count, some depend on per-core performance, while others depend on memory bandwidth, cache efficiency, or I/O performance. The really important point is that there is no single SKU that solves every enterprise application, that’s why our EPYC portfolio with Venice spans 8 to 256 cores with a range of power frequencies and I/O capabilities, giving customers the flexibility to choose the right solution for their workload, most importantly, at the most optimized cost. Lisa mentioned this earlier, now we all know we covered Venice, she showed how we have strong leadership across AI host nodes and the agentic workflows. I wanted to show you how Venice actually leads across the general purpose workloads of the enterprise and these workloads that are running our customers rely on every day.
+
+As you can see, we have a minimum of 2 and a half extra performance across our competition, across these very important enterprise workloads. Now, as we all know, agentic AI is really the next major transition for the enterprise, it truly is a force multiplier for enterprises, adoption is accelerating. In fact, the latest data here shows that nearly every enterprise next year will have some form of agentic deployments. As enterprises move from pilots to production deployments, we’ve talked to CIOs all the time and they are looking at three major things. First, predictable infrastructure cost and token costs. Secondly, making sure the data is secure. Lastly, sometimes this is overlooked, integrating AI into their existing infrastructure. It’s not all greenfield out there for the enterprise customer.
+
+To solve these problems, we truly believe that it’s going to be a distributed deployment model that leverages frontier models, cloud services, on-prem infrastructure, of course, AI clients. As AI has moved from chatbots responding to prompts to agents doing real work, writing code, summarizing documents, running complex flows, the requirements have evolved also. Those are exactly the requirements we’ve been designing for multiple years. While AI will be deployed across all these environments, the on-prem deployments in our enterprise customers have fairly unique constraints. First and foremost, power cooling, really big challenge, space. Of course, costs remain top of the list for CIOs that are trying to drive things forward in the AI world. Lastly, the full solutions they need to be easy to deploy.
+
+That’s been common for many, many years for the enterprise, but that’s something we’re very focused on. To address these constraints, thank you, Laura, I’m very happy to announce the launch of the Instinct MI350P. Today, every enterprise wants AI in the data center. The challenge is, how do you add those capabilities without starting over? That’s exactly what the MI350P was designed to solve. It’s an air-cooled GPU designed to fit within the power and cooling of enterprise servers today without a facilities upgrade, making it easy to bring LLM-scale inference into today’s enterprise data center. At the same time, there’s no compromise in capability. A single MI350P can support up to 260 billion parameters, allowing customers to run the majority of enterprise AI workloads on a single GPU. The economics are actually even better and more compelling.
+
+The MI350P delivers more than four times the tokens per second per dollar than the competition. It’s pretty cool. It actually turns the customer’s existing data center into an AI data center. We all know that benchmarks are one part of the equation, right? The other part is really evaluating, does the advantage hold up across the actual workloads you run and how your business runs? We tested a set of workloads, enterprise use cases using production models. The MI350P delivers much higher productivity than the competition, delivering up to two to five times faster tokens per second than the competition. If you think about that’s more tokens per second, more work completed, more users supported, all at a lower cost for the business. Another area that I wanted to talk about is our earliest customers are our own AMD IT team.
+
+They’re a tough group to work with, even for us. They put us through our paces and really, this has been our model from day one is we want to put our technology into our own data center first. Like many companies, many enterprises, we’re looking at how to deliver AI service to our employee base, but also manage costs and protect our data, manage and control the data. We focused on two use cases that we wanted to try out, and first was autonomous threat detection. That is probably one of the faster-growing agentic applications that we’re seeing today. The second was a personalized AI assistant running on OpenClaw. Both of these route requests through the router and the gateway sort of tests the complexity, the sensitivity of the information, and the service level requirements.
+
+Some requests are sent to the frontier model while others are routed to open-weights models running on EPYC and an MI350P. With intelligent routing, we reduced our token cost by 43% while delivering up to 3x faster response times for the workloads running locally. We believe this is how enterprise AI will be deployed. We also know that from our history here with EPYC, that enabling enterprise takes a whole lot more than great silicon. It requires a complete ecosystem of software and solutions. Over the last several years, we’ve truly grown significantly and expanded our enterprise AI ecosystem. Today, we support numerous AI ISVs, provide zero-day support for all of the industry’s leading open models, and deliver robust frameworks that help customers bring AI into production as fast as possible.
+
+It’s all built on trusted platform software and OEM partnerships that enterprises rely on every single day. Everything I just shared comes down to one goal for us, and that’s helping customers deploy AI where it creates the most value for them, whether it’s in the cloud, on-premise, or at the edge. To bring this to life, I’d like to welcome Jeremy Legg, Chief Technology Officer at AT&T.
+
+Jeremy Legg, Chief Technology Officer, AT&T: Hey, crew, good to see you.
+
+Dan McNamara, Senior Vice President and General Manager of Compute and Enterprise AI, AMD: Hey, Jeremy.
+
+Jeremy Legg, Chief Technology Officer, AT&T: Yeah, thanks for having me.
+
+Dan McNamara, Senior Vice President and General Manager of Compute and Enterprise AI, AMD: Thanks for joining us.
+
+Jeremy Legg, Chief Technology Officer, AT&T: Yeah, this is great. It’s kind of a homecoming. I grew up in the East Bay, so it’s good to be back.
+
+Dan McNamara, Senior Vice President and General Manager of Compute and Enterprise AI, AMD: Yeah, fantastic. We really appreciate you joining us today. Look, I think everyone knows AT&T is the largest communications company, one of the largest in the world, and I’m sure half of them out there probably have AT&T network right now, but if you’re.
+
+Jeremy Legg, Chief Technology Officer, AT&T: Hopefully more than half, but yeah.
+
+Dan McNamara, Senior Vice President and General Manager of Compute and Enterprise AI, AMD: AI is touching way more than the network, and you and your team are really doing a fair amount of work driving it. Can you share with us the opportunities you approach, you’re working on, and your experience to date?
+
+Jeremy Legg, Chief Technology Officer, AT&T: Sure, happy to. At AT&T, we’re now burning about a trillion-plus tokens per month. That number has gone up pretty dramatically. It’s moving up double digits. This is now becoming very pervasive inside of the enterprise. We’ve got over 100 GenAI models in production across our enterprise as well. Those are stretching from things that I think a lot of folks are doing in customer care, things that we’re doing in fraud, but also things that you wouldn’t necessarily think about, like where’s the best place to place a cell tower or a RAN that is the most effective use of it inside of a network. All of these things are happening across our enterprise, but they’re happening at a scale that is not necessarily normal. We get over 300,000 calls a day.
+
+The transcription of those calls is an enormous workload, and then driving the insights out of those calls that we then bring back to the business is another set of insights. It’s really an interesting thing, and now we’re beginning to actually rebuild entire workflows inside of the company beyond just the point use of a use case. As we think about HR, as we think about finance, and we think about different kinds of things that each of those organizations do, cash forecasting, things that we do on onboarding employees as examples, we’re now agentifying those entire workloads.
+
+Dan McNamara, Senior Vice President and General Manager of Compute and Enterprise AI, AMD: Yeah. We work closely with your team, and we’ve had many conversations. It’s truly amazing the number of actual opportunities you’re addressing with AI. Super broad range of use. Can you just explain what are the key learnings in moving these to AI at enterprise scale, and then maybe a bit on what we’ve done together?
+
+Jeremy Legg, Chief Technology Officer, AT&T: Sure. I’ll start at a place that I don’t think everybody starts from here, which is the human. You need world-class teams in order to do this, and you need people that think in workflows. There’s an enormous amount of what I call racing from stoplight to stoplight. Folks are going from 0 to 100, and then they hit the next stage of the workflow, and then there’s a red light, and they haven’t worked their way all the way through that. I would start with people and the quality of the people that you really have across your enterprise in order to do these things. The second point is we are big believers in data sovereignty. Data sovereignty for us means not being tied to a specific chipset, not being tied to a specific model or a specific set of development tools.
+
+You need, as an enterprise, to manage your data. Your data is your fuel in terms of how you implement AI across that broader enterprise. What we’ve done with AMD, and AMD’s been such a great partner in this, is leveraging open source models, leveraging different sets of chipsets, building our own models, training other models. We’re 1 of the few companies in the world that’s actually post-trained a model on AMD and then been able to drive equivalency in terms of performance and accuracy with other, more expensive chipsets in the marketplace. As we have done that, we’ve been able to drive down token costs, essentially through money balling across all of these different models and leveraging that human capital in a way that’s made a big difference to our company.
+
+Increasingly, even though token consumption is going up, we’re able to manage that underlying token cost at enterprise scale, which is not a small thing.
+
+Dan McNamara, Senior Vice President and General Manager of Compute and Enterprise AI, AMD: Yeah. It’s a bunch of great work. Another key area that’s groundbreaking, which is exciting also, is you’re the 1st telecom company to actually train a model on AMD. Also, you’re driving fully open source models in telecom. Tell us about that experience and why you felt like that was needed.
+
+Jeremy Legg, Chief Technology Officer, AT&T: We felt like the industry was moving down a path where folks were only going to use closed source models to solve solutions. While closed source models are an important ingredient in that, we didn’t want to lose sight of the fact that open source models were going to be a very significant part of the solution. We announced, what we call OTel 1.0, that’s the Open Telco AI model, a bit over a year ago now, and we had over 18 million downloads of that model since then. We’re excited to announce today the launch of OTel 2.0, which is a more advanced set of models that we have trained on AMD, and we’re now making that available via open source across the broader industry.
+
+It, I think, is going to give folks an opportunity to see that not only do you need to think about leveraging models, but you also need to think about training those models and how they work across your enterprise.
+
+Dan McNamara, Senior Vice President and General Manager of Compute and Enterprise AI, AMD: That’s just great. We certainly appreciate the partnership, and we really feel like this is germane to the conversation. It’s exactly what we’ve been talking about today, and I just want to thank you again for joining us and the partnership.
+
+Jeremy Legg, Chief Technology Officer, AT&T: Thank you. You’re a big part of it.
+
+Dan McNamara, Senior Vice President and General Manager of Compute and Enterprise AI, AMD: Thank you. Okay, let me close with one last point. We’ve established ourselves as a leader in enterprise computing by listening to our customers and delivering the right solutions for their workloads. Today, we’re extending that leadership to help customers accelerate their AI journey. This is our vision for powering AI everywhere. To expand a little bit beyond the data center into physical and client AI, it’s my pleasure to introduce Mr. Jack Huynh, who leads our computing and graphics group. Thank you.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Thank you, Dan. It’s great to see so many friends, partners, and developers here in San Francisco. Today, we have seen how AMD is building the compute foundation for AI in a data center. The full AI transformation requires two more ingredients, intelligence that becomes personal and intelligence that can understand and act in the physical world. Those are two frontiers I want to explore with you here today. Let’s begin with personal AI. Enterprise AI is already reshaping the data center, but agentic AI will extend far beyond it. Agents are the next great productivity multiplier. The jump from software that responds to software that completes work. A personal agent can double what one person can do. A team of agents can multiply that by 10. As agents gain more capabilities, often can grow exponentially. That promise has a compute consequence.
+
+Unlike a single AI query, as an agent reasons, calls tools, and coordinates the other agents, and runs nonstop, agents become more capable and pervasive, so will token consumption. That demand will require every layer of the computing ecosystem to scale together. Data centers remain the foundation for frontier AI in the most demanding workloads. Edge and client systems can extend that capacity, putting more intelligence closer to where data is created and where the work gets done. The PC is already one of the most powerful compute engines ever placed in the hands of individuals. Across billions of devices, enormous computing capability is already deployed every single day. Yet its potential remains largely untapped. Putting that capacity to work changes the economics of computing.
+
+More workloads can run on systems that are already in place, reducing overall infrastructure costs and allowing data centers to focus on the largest, most demanding task. Local computing brings inherent advantages. Your data stays with you, your applications remain responsive, and your system keeps working even when your network does not. Thanks to a new generation of smaller, more capable AI models, we’re beginning to unlock that potential. The unlock is happening faster than anyone expected. Last August, GPT-OSS needed 120 billion parameters to score 80 on GPQA. Just seven months later, Qwen 3.5 scored even higher with only nine billion. Better performance with 13 times fewer parameters. This is not an incremental improvement. It’s a dramatic shift in the compute required to deliver advanced intelligence. This is a trend, not an outlier. Smaller open models are closing the frontier gap at an extraordinary speed.
+
+Qwen 3.6 27 billion parameter model now outperforms leading frontier models from the previous generation on graduate-level reasoning at a fraction of the size and cost. That changes what is possible. Workloads once reserved for the cloud can now run on powerful compute engines designed for personal AI compute. Let’s map these model performance breakthroughs to AMD platforms. Ryzen AI 400 supports models up to 24 billion parameters, more than enough for Qwen 3.5, nine billion, with substantial headroom. Ryzen AI Max extends that capacity to models as large as 200 billion parameters, running natively on a personal system. This is not reduced AI compressed to fit on a PC. It’s a new class of personal computing built to run powerful models where the work actually happens. This is exactly what led us to build Ryzen AI Halo.
+
+We wanted to give developers a platform powerful enough to run these models locally, yet simple enough to use every day. With 120 gigabytes of unified memory and support for models up to 200 billion parameters, developers can build, test, and iterate locally, directly on their desk. Ryzen AI Halo embodies the future of personal AI for everyone, a future that shortens the distance between an idea and a working model. For developers, that means a dramatically more efficient and optimized path from experimentation to deployment. As Vantu showed earlier, ROCm AI is making hardware programming radically more accessible. Developers can understand, modify, and optimize code for ROCm, even without deep ROCm expertise. Better yet, the same open software foundation extends across all of AMD’s hardware.
+
+Developers can use the frameworks and tools they already know, start locally on Ryzen AI Halo, and scale across the full AMD compute platform without rebuilding their work. We’re not stopping there. Today, we’re expanding our partnership with Hugging Face to bring the open AI ecosystem directly on Ryzen AI Halo. Powerful compute only creates value when developers can quickly access the right models, optimize them for the platform, and turn them into real applications. Together, AMD and Hugging Face will deliver Halo-optimized performance for open models and agentic workflows, along with co-engineered libraries and toolkits designed to help developers spend less time configuring infrastructure and more time building. How cool is that. Later this year, every Ryzen AI Halo box will include a full year of Hugging Face Pro, putting the power of partnership in developers’ hands from day one.
+
+Freedom and more power to the user. This is how we accelerate innovation in the AI era, and we are already pushing that vision further with Gorgon Halo. Seeing is believing. Look at how small and beautiful this box is. We’ve increased unified memory from 128 to 192 gigabytes, the largest unified memory pool in its class, and increased model support from 200 billion to 300 billion parameters. Thank you, Laura. This is no longer limited to a single platform form factor. Together with the world’s leading OEMs, AMD now powers the broadest portfolio of personal AI systems from laptops and workstations to mini PCs and developer platforms. That means developers, enterprises, and creators can choose the right system for the way they want to build and work. Personal AI is not a concept, it is a category, and is available right now on AMD.
+
+We now have all the pieces. Models are efficient enough. Hardware is powerful enough. Software stack is open and ready, and open harnesses like Lemonade Server can route workloads to the right model and right compute. The technology is here. The next challenge is taking it from one developer’s desk to thousands of users across an enterprise. Cisco sees and believes in that future the same way we do. To take us deeper into how we turn that vision into enterprise-scale reality, please join me in welcoming to the stage, Jeetu Patel, President and Chief Product Officer at Cisco. Jeetu, how you doing?
+
+Jeetu Patel, President and Chief Product Officer, Cisco: How are you?
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: You look great.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: You do too.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Thank you for joining me here today.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Congratulations.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Thank you. Jeetu, you and I talk how we’re at an inflection point. For the past few years, industry has spent time just building intelligence. The next phase is how we deploy this intelligence at scale in enterprises. You spend so much of your time talking to CIOs, technology leaders. What are they telling you? What’s changing?
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Well, firstly, it’s a really exciting time to be alive in tech. If you just take a step back right now and see what’s happening, there’s actually a fundamental shift that’s happening in the patterns of inferencing. If you think about the patterns of inferencing that existed during the chatbot era that was human-led, it was very spiky. You ask a question, you get an answer. What you’re starting to see with agents is they’re working 7 by 24. They’re very consumptive on bandwidth and on infrastructure. You’re starting to see a much more persistent pattern of demand signal for infrastructure. We usually joke around internally, humans click, but agents swarm.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Yes.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: As you start to see this, what you’re going to have is. There’s two big concerns that are also there, which is one is every customer is concerned about security and every customer is concerned about cost.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Cost.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: What you’re starting to see happen is inferencing is not just going to be limited to the data center. Inferencing is going to be distributed everywhere, and there’s a whole new class of computing that’s emerging with this desk-side computing that you just announced, where there’s going to be inferencing that you’re going to have a laptop or a desktop where humans work, and they might have a desk-side computer where agents are going out and running their jobs on behalf of humans. That’s what we’re seeing, essentially.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: We’re fully aligned, Jeetu.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Yeah.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: That’s exactly the shift we’re seeing. Now, if AI is moving closer to employees, compute has to move closer as well. Right? The PC is no longer just a productivity device. It becomes an intelligence node in the enterprise. Deploying intelligence everywhere creates a new challenge for CIOs that you and I talk about so much.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: We do, yeah.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: How do you operate thousands of these systems with the security, governance, and control enterprises require? Jeetu, how is AMD and Cisco solving this, and what are we building together?
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Yeah. This is an exciting time because what you’re starting to see is there’s a few things that need to really be done. You can’t just go out and deploy your desk-side computers and hope that everything works out in the enterprise. You need to make sure that it’s governed, it’s managed. There’s a few things that are really important. Number 1, you have to have an appropriate amount of network bandwidth to satiate the needs of the agents that you’re going to run locally. This notion of network infrastructure that can get modernized to keep up with the needs that you’re going to go out and generate is going to be very important. That’s number 1.
+
+Number 2, like I said, every customer is really worried about token costs, we need to make sure that we can actually contain the costs of an agent’s consumption of tokens when it actually starts to go awry.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Go up and down when needed.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Exactly. Number 3 is how do we monitor agent behavior for safety and security, so that if it does start to do things that we don’t want it to do, we can in runtime provide enforcement guardrails. Fourthly, it’s just the overall safety and security that you need to have from an apparatus perspective to get this entire thing humming in the way that you want it to hum.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Yes. Jeetu, it’s clear how you and I think very alike.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Yeah.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: The opportunity is not just bringing AI to every device, as you and I talk. How do we enable enterprises to deploy, manage, and scale AI with confidence? Why don’t we take a look at what we’ve been building the past few weeks and months?
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Yeah, it’s exciting. Basically what we’ve done is there’s a full stack that you can start to think about. What you folks have done with Halo is you’ve got an isolated secure agent sandbox. You’ve got intelligent routing. You’ve got an MCP, core set of integrations. What we’ve done above that is we’ve made sure that you have the right level of security policy enforcement. We’ve also got the right level of observability so that it’s an end-to-end resilient infrastructure stack. It’s observability of how is your apparatus and the infrastructure working. Is the agent behavior being done in the right way? Can you observe the agent behavior? Are the tokenomics within the guidelines that you want them to be?
+
+what we have is a single unified management plane, a control plane, that can look at every single dimension that you have and be managed within one environment. That’s kind of the full stack, and we are really, really excited about the partnership.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: No, us too. Our teams love working with your team, Jeetu.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Yeah.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: How’s this all managed? How does a CEO deploy this at scale?
+
+Jeetu Patel, President and Chief Product Officer, Cisco: let’s take a look at what this looks like. What we would have is, this is Cisco Cloud Control, which is the overall management plane. If you happen to have Halo devices on every desktop, which it might actually get to, what you want to make sure that you do is you are able to go out and manage your entire estate of not just your Halo fleet, but also what you have running on the data centers, as well as what you have running in the cloud. You can provide full visibility for the entirety of the estate. Once you’ve got that, what we also have is this notion of how do we go out and monitor tokenomics. Is the agent behaving the way that it needs to behave? Or is the agent actually going out and being overly consumptive?
+
+At which point you should be able to isolate any individual Halo device so that you can make sure that you can quarantine it.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: No, I love this. We can actually see the return on invested capital. It could pay for itself in three or six months, even quicker.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Exactly.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Yeah.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: What you see over here basically is you can tell how every single agent is performing and whether or not they’re consuming way too much in token costs, and if they are, how do you actually contain the cost as you’re going through it?
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: No, I love this, Jeetu. Now everyone to us is wondering, when can they buy this?
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Yeah.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: When is this open for everyone?
+
+Jeetu Patel, President and Chief Product Officer, Cisco: Well, the good news is you can buy the Halo-
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Today
+
+Jeetu Patel, President and Chief Product Officer, Cisco: already today.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Yes.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: What we’re doing is we’re making sure that we provide this entire management apparatus that’s currently in early availability for a select set of customers, but we’ll have it in general availability in the U.S. in early fall. We’re excited to make sure that we can provide not just the compute, but all of the apparatus that’s needed to go out and manage this so that you can have inference running in the cloud, you can have inference running in your data center privately, or you can have inference running on your desk side.
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: Jeetu, we’re so grateful for our partnership with you and Cisco, we’re so excited.
+
+Jeetu Patel, President and Chief Product Officer, Cisco: As are we. Thank you so much. Congratulations again
+
+Jack Huynh, Leader of Computing and Graphics Group, AMD: to put this together. Take care, Jeetu. Okay, thank you. What you just saw brings the vision of scaling AI seamlessly and securely for personal devices all the way to the cloud. In the age of AI, intelligence should be pervasive, it will be everywhere. The next frontier is where AI leaves the screen, enters the world, and acts. That frontier is physical AI, the ultimate application of agentic frameworks. In a digital world, an agent plans and completes a task. In a physical world, it must also sense motion, navigate uncertainty, and protect people. Here, intelligence does not just produce an answer, it produces an action. When answers become actions, latency becomes safety, and reliability becomes trust. That is why the promise of physical AI is so incredibly powerful. It is not about replacing human potential, it is about amplifying it.
+
+Giving surgeons greater precision, keeping people out of harm’s way, making farms more productive, supply chains more resilient, factories more efficient. The best technology does not make people smaller. It gives a much greater reach. For more than 20 years, AMD has helped power the core capabilities that robotics depend on, from sensing and functional safety to deterministic control and precision motion. That foundation is already trusted by many of the companies defining the future of robotics, now that foundation is coming alive in extraordinary ways. These are not machines following a script. They are beginning to perceive the world, reason through uncertainty, and act with purpose. The promise of physical AI already in motion. The next era of robotics is not programmed, it is autonomous. While traditional robots execute instructions, autonomous robots are given an objective, from there, they determine how to achieve it.
+
+They do this all at once and all in real time. The robot must orchestrate intelligence, motion, and safety continuously, and every part must respond at the speed of the world around it. That demands an entirely new kind of robotics brain. To solve that, we rethought its architecture from the ground up. Today, I’m so excited to introduce the AMD Kria AI System-on-Module powered by Ryzen AI Embedded X100. It brings CPU, GPU, NPU, and unified memory together in one compact open standard architecture. This allows robots to process perception, AI reasoning, and do it all simultaneously and in real time. The architecture is different, but the results are decisive. In third-party testing against NVIDIA Jetson Thor, Kria delivers 3.4 times better real-time results, 2.3 times more concurrent agents, and 1.6 times more CPU capacity.
+
+That means faster reactions and greater headroom for the robot to take on more complex work. All this without compromising control or safety. Defining the next era of robotics takes more than a powerful brain. Developers need a complete path from idea to a machine operating in the real world. Today, we are introducing AMD’s Kria AI robotics developer platform. The industry’s first turnkey, open, fully integrated robotic system. Thank you, Laura, so much. At the center is the Kria AI System-on-Module, paired with a robotics carrier card designed for sensing and connectivity. Built on ROCm and ROS2, this platform gives developers everything they need to move from concept to prototype in days. The same module carries forward into production with no migration or redesign needed at the finish line. You can build faster and move from imagination to deployment with absolute confidence.
+
+This is the breadth only AMD can bring to autonomous robotics. From the first signal to the final motion. AMD Kria for the brain, Versal for the spine, Zynq for the joints, and Spartan for the sensors. Each layer purpose-built for its role, working together in one intelligent system, connecting perception and high-level reasoning to real-time control. The future will not be defined by one model, one machine, or one company. It will be built in the open across silicon, software, systems, in an ecosystem moving forward together. From the cloud to the PC, now into the physical world, AMD continues to build a compute foundation for intelligence everywhere. We’re laser focused on the future, so our solution can augment and expand what people are capable of achieving. The next era of AI will not just unfold behind a screen. It will unfold in the world around us.
+
+Now, to bring it all together and take us to what comes next, please welcome back Lisa to the stage. Hi, Lisa.
+
+Lisa Su, CEO, AMD: All right. Thank you, Jack. It’s been a big day. We’ve covered a lot. From our data center products, to enterprise AI, to personal and physical AI, and the software that ties it all together. This is the strongest product portfolio in our history, and we believe it’s the strongest portfolio in the industry. It’s really just the beginning, because what our customers count on is not just today, they really count on us looking ahead and pushing the bleeding edge of technology. I want to spend the last few minutes giving you a preview of what we’re working on. Starting with CPUs. In 2028, we’re going to introduce Florence.
+
+Florence brings the next-gen Zen 7 cores, its leading-edge process technology, it’s a new set of AI compute extensions to really ensure that we have all of the AI capability, and it supports the latest memory technologies. We’re not stopping there. We’re already deep in development of Ravenna, our eighth generation EPYC family built on Zen 8, and that family is already well under development for 2030. To give you a little bit of a flavor, Florence is again going to extend our biggest advantage with EPYC. It’s all about product breadth and having the right foundation, and also the right family for each workload. You have Florence, you have Ferrara, you have Faenza, and it’s really built on a full family of CPUs that is optimized for these different workloads.
+
+That’s giving the customers the right CPU for every workload, and that is our commitment with EPYC. Moving to Instinct. We are continuing our cadence of delivering a new generation every single year. MI500 brings next-generation HBM, it brings a larger scale-up domain because scaling is everything, and it introduce new copper and optical interconnects. With MI600, it’s powered by our CDNA Next architecture, and it’s already deep in development for 2028. To give you an idea of what we see from a performance standpoint, every generation of Instinct has delivered a major big step up in performance. With MI455, we’ve talked a lot about it, delivering 35 times more inference throughput compared to MI355. We’re really excited about MI500. What we see is another opportunity to take a major step up and actually bend the curve again.
+
+MI500 will deliver the largest generational leap in the history of Instinct, putting us on track to deliver more than 2,000 times higher inference throughput in just four years. What I can tell you is we are working with a number of our customers already on this design point. MI500 is super exciting and the feedback we’re getting from customers is just fantastic. Put the CPU, GPU, and the networking roadmaps together, and you can now see a complete cadence of our rack scale systems. You should expect from AMD a new Helios system every year, delivering more performance, more capacity, so that we can run larger models, more agents, at better total cost of ownership. That gives our customers the complete predictable roadmap to plan and scale their infrastructure for years to come.
+
+Lots of exciting things in store over the next few years. With that, let me wrap this up for this morning. Today, I hope you saw a little bit about how we’re really looking at that compute from every angle. Every aspect of AI compute, whether you’re talking about Helios or MI455 or Venice for the world’s largest AI systems, or you’re talking about MI430 and MI350 for sovereign and enterprise AI. You saw the passion in Vamsi with ROCm AI. It’s so good to see how much has come through that platform in terms of making it much easier for developers to access the AMD platform. Jack talked about Gorgon Halo and our new Kria AI platforms, really bringing together the leadership of the end-to-end AI story, including PCs and physical AI.
+
+Lots of new information, but I want to say a very, very special thank you to all of our partners who joined us today, because it is really through those partnerships that we’re able to do the most amazing things together. If I just leave you with a final thought, when I think about where AI is today, the biggest change that we see is we’re no longer talking about what might be possible. We’re actually seeing how AI can have real and significant impact across every industry and every part of our lives, our personal lives. I have to say that I’ve spent my entire career in tech believing that high-performance computing can make the world an incredibly better place. I have never, ever believed that more than I do today.
+
+At AMD, what we’re focused on is building the technology, the roadmaps, and the partnerships, and there’s never been a more exciting moment than today for our 30,000-plus engineers. This is really the next phase of AI. This is where we make AI, give the AI the opportunity with all the tools and all the capabilities to really bring meaningful, real-world impact. I can tell you, I could not be more excited to build all of that together with you, our ecosystem. Thank you so much for joining us today.

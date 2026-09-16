@@ -1,6 +1,6 @@
 {
- "generated": "2026-09-12 22:20",
- "labels_total": 840,
+ "generated": "2026-09-16 01:40",
+ "labels_total": 929,
  "pipelines": [
   {
    "id": "us",
@@ -56,7 +56,7 @@
    "files": 1012,
    "labels_on_disk": 758,
    "in_graph": 432,
-   "entries": 1156,
+   "entries": 1157,
    "pending": [],
    "no_data": [
     {
@@ -141,11 +141,15 @@
     "2026-09-10"
    ],
    "last_fetch": "2026-09-10",
-   "last_enriched": "2026-09-10",
+   "last_enriched": "2026-09-16",
    "enriched_days": [
     {
      "day": "2026-09-10",
-     "labels": 432
+     "labels": 431
+    },
+    {
+     "day": "2026-09-16",
+     "labels": 1
     }
    ],
    "last_sync": "2026-09-10",
@@ -302,442 +306,47 @@
    "name": "Investor conferences",
    "command": "enrich conference",
    "source": "Investing.com fireside chats (investing.py conferences)",
-   "files": 84,
-   "labels_on_disk": 84,
-   "in_graph": 0,
-   "entries": 0,
-   "pending": [
+   "files": 93,
+   "labels_on_disk": 93,
+   "in_graph": 89,
+   "entries": 490,
+   "pending": [],
+   "no_data": [
     {
-     "company": "Penguin Solutions",
-     "label": "Penguin Solutions Goldman Sachs conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/penguinsolutions_goldmansachsconference_2026-09-10.txt"
-    },
-    {
-     "company": "SpaceX",
-     "label": "SpaceX Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/spacex_goldmansachscommunacopiatechnologyconfer_2026-09-10.txt"
-    },
-    {
-     "company": "TE Connectivity",
-     "label": "TE Connectivity Jefferies conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/teconnectivity_jefferiesconference_2026-09-10.txt"
-    },
-    {
-     "company": "Credo",
-     "label": "Credo Goldman Sachs conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/credo_goldmansachsconference_2026-09-10.txt"
-    },
-    {
-     "company": "Uber",
-     "label": "Uber Goldman Sachs Communacopia 2026 (09-10-2026)",
-     "file": "transcripts/conferences/uber_goldmansachscommunacopia_2026-09-10.txt"
-    },
-    {
-     "company": "Supermicro",
-     "label": "Supermicro Goldman Sachs conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/supermicro_goldmansachsconference_2026-09-10.txt"
-    },
-    {
-     "company": "Seagate",
-     "label": "Seagate Goldman Sachs conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/seagate_goldmansachsconference_2026-09-10.txt"
-    },
-    {
-     "company": "Arista",
-     "label": "Arista Citi’s Global TMT Conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/arista_citisglobaltmtconference_2026-09-10.txt"
-    },
-    {
-     "company": "Lam Research",
-     "label": "Lam Research Goldman Sachs conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/lamresearch_goldmansachsconference_2026-09-10.txt"
-    },
-    {
-     "company": "HPE",
-     "label": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/hpe_goldmansachscommunacopiatechnologyconfer_2026-09-10.txt"
-    },
-    {
-     "company": "NVIDIA",
-     "label": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/nvidia_goldmansachsconference_2026-09-10.txt"
-    },
-    {
-     "company": "Dell",
-     "label": "Dell Citi’s Global TMT Conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/dell_citisglobaltmtconference_2026-09-10.txt"
-    },
-    {
-     "company": "Advanced Energy",
-     "label": "Advanced Energy Citi’s Global TMT Conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/advancedenergy_citisglobaltmtconference_2026-09-10.txt"
-    },
-    {
-     "company": "Teradyne",
-     "label": "Teradyne Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/teradyne_goldmansachscommunacopiatechnologyconfer_2026-09-10.txt"
-    },
-    {
-     "company": "Sandisk",
-     "label": "Sandisk Goldman Sachs Communacopia 2026 (09-10-2026)",
-     "file": "transcripts/conferences/sandisk_goldmansachscommunacopia_2026-09-10.txt"
-    },
-    {
-     "company": "Microsoft",
-     "label": "Microsoft Goldman Sachs conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/microsoft_goldmansachsconference_2026-09-10.txt"
-    },
-    {
-     "company": "Lumentum",
-     "label": "Lumentum Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/lumentum_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "SiTime",
-     "label": "SiTime Goldman Sachs Communacopia + Technology Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/sitime_goldmansachscommunacopiatechnologyconfer_2026-09-09.txt"
-    },
-    {
-     "company": "Digital Realty",
-     "label": "Digital Realty Bank of America conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/digitalrealty_bankofamericaconference_2026-09-09.txt"
-    },
-    {
-     "company": "Flex",
-     "label": "Flex Goldman Sachs Communacopia + Technology Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/flex_goldmansachscommunacopiatechnologyconfer_2026-09-09.txt"
-    },
-    {
-     "company": "Applied Materials",
-     "label": "Applied Materials Goldman Sachs conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/appliedmaterials_goldmansachsconference_2026-09-09.txt"
-    },
-    {
-     "company": "Onto Innovation",
-     "label": "Onto Innovation Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/ontoinnovation_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "TE Connectivity",
-     "label": "TE Connectivity Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/teconnectivity_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "FormFactor",
-     "label": "FormFactor Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/formfactor_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Dell",
-     "label": "Dell Goldman Sachs Communacopia + Technology Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/dell_goldmansachscommunacopiatechnologyconfer_2026-09-09.txt"
-    },
-    {
-     "company": "Cadence",
-     "label": "Cadence Goldman Sachs conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/cadence_goldmansachsconference_2026-09-09.txt"
-    },
-    {
-     "company": "TTM Technologies",
-     "label": "TTM Technologies Jefferies Global Industrials Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/ttmtechnologies_jefferiesglobalindustrialsconference_2026-09-09.txt"
-    },
-    {
-     "company": "MaxLinear",
-     "label": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/maxlinear_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Nebius",
-     "label": "Nebius Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/nebius_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Marvell",
-     "label": "Marvell Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/marvell_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Seagate",
-     "label": "Seagate Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/seagate_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Amphenol",
-     "label": "Amphenol Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/amphenol_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Lam Research",
-     "label": "Lam Research Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/lamresearch_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "KLA",
-     "label": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/kla_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Astera Labs",
-     "label": "Astera Labs Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/asteralabs_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Western Digital",
-     "label": "Western Digital Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/westerndigital_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Baker Hughes",
-     "label": "Baker Hughes Barclays conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/bakerhughes_barclaysconference_2026-09-09.txt"
-    },
-    {
-     "company": "Corning",
-     "label": "Corning Citi’s Global TMT Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/corning_citisglobaltmtconference_2026-09-09.txt"
-    },
-    {
-     "company": "Nebius",
-     "label": "Nebius Goldman Sachs conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/nebius_goldmansachsconference_2026-09-08.txt"
-    },
-    {
-     "company": "GlobalFoundries",
-     "label": "GlobalFoundries Goldman Sachs conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/globalfoundries_goldmansachsconference_2026-09-08.txt"
-    },
-    {
-     "company": "CoreWeave",
-     "label": "CoreWeave Goldman Sachs conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/coreweave_goldmansachsconference_2026-09-08.txt"
-    },
-    {
-     "company": "Broadcom",
-     "label": "Broadcom Goldman Sachs conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/broadcom_goldmansachsconference_2026-09-08.txt"
-    },
-    {
-     "company": "Cisco",
-     "label": "Cisco Goldman Sachs Communacopia + Technology Conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/cisco_goldmansachscommunacopiatechnologyconfer_2026-09-08.txt"
-    },
-    {
-     "company": "NetApp",
-     "label": "NetApp Citi’s Global TMT Conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/netapp_citisglobaltmtconference_2026-09-08.txt"
-    },
-    {
-     "company": "Vertiv",
-     "label": "Vertiv Goldman Sachs conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/vertiv_goldmansachsconference_2026-09-08.txt"
-    },
-    {
-     "company": "NetApp",
-     "label": "NetApp Goldman Sachs conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/netapp_goldmansachsconference_2026-09-08.txt"
-    },
-    {
-     "company": "Navitas",
-     "label": "Navitas Citi’s Global TMT Conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/navitas_citisglobaltmtconference_2026-09-08.txt"
-    },
-    {
-     "company": "Google",
-     "label": "Google Goldman Sachs conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/google_goldmansachsconference_2026-09-08.txt"
-    },
-    {
-     "company": "Sandisk",
-     "label": "Sandisk Citi’s Global TMT Conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/sandisk_citisglobaltmtconference_2026-09-08.txt"
-    },
-    {
-     "company": "Arista",
-     "label": "Arista Goldman Sachs conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/arista_goldmansachsconference_2026-09-08.txt"
-    },
-    {
-     "company": "Qualcomm",
-     "label": "Qualcomm Goldman Sachs conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/qualcomm_goldmansachsconference_2026-09-08.txt"
-    },
-    {
-     "company": "Nova",
-     "label": "Nova Citi conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/nova_citiconference_2026-09-08.txt"
-    },
-    {
-     "company": "AMD",
-     "label": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/amd_citisglobaltmtconference_2026-09-08.txt"
-    },
-    {
-     "company": "Applied Materials",
-     "label": "Applied Materials Citi conference 2026 (09-08-2026)",
-     "file": "transcripts/conferences/appliedmaterials_citiconference_2026-09-08.txt"
-    },
-    {
-     "company": "AMD",
-     "label": "AMD IFA Opening Keynote 2026 (09-04-2026)",
-     "file": "transcripts/conferences/amd_ifaopeningkeynote_2026-09-04.txt"
-    },
-    {
-     "company": "Lumentum",
-     "label": "Lumentum Deutsche Bank Technology Conference 2026 (08-27-2026)",
-     "file": "transcripts/conferences/lumentum_deutschebanktechnologyconference_2026-08-27.txt"
-    },
-    {
-     "company": "NVIDIA",
-     "label": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
-     "file": "transcripts/conferences/nvidia_thesixfivesummit_2026-08-27.txt"
-    },
-    {
-     "company": "Microsoft",
-     "label": "Microsoft Deutsche Bank Technology Conference 2026 (08-27-2026)",
-     "file": "transcripts/conferences/microsoft_deutschebanktechnologyconference_2026-08-27.txt"
-    },
-    {
-     "company": "Micron",
-     "label": "Micron the Six Five Summit 2026 (08-27-2026)",
-     "file": "transcripts/conferences/micron_thesixfivesummit_2026-08-27.txt"
-    },
-    {
-     "company": "onsemi",
-     "label": "onsemi Deutsche Bank Technology Conference 2026 (08-27-2026)",
-     "file": "transcripts/conferences/onsemi_deutschebanktechnologyconference_2026-08-27.txt"
-    },
-    {
-     "company": "Photronics",
-     "label": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
-     "file": "transcripts/conferences/photronics_midwestideasconference_2026-08-27.txt"
-    },
-    {
-     "company": "Applied Materials",
-     "label": "Applied Materials Six Five Summit 2026 (08-27-2026)",
-     "file": "transcripts/conferences/appliedmaterials_sixfivesummit_2026-08-27.txt"
-    },
-    {
-     "company": "Qualcomm",
-     "label": "Qualcomm Deutsche Bank Technology Conference 2026 (08-26-2026)",
-     "file": "transcripts/conferences/qualcomm_deutschebanktechnologyconference_2026-08-26.txt"
-    },
-    {
-     "company": "Cadence",
-     "label": "Cadence Deutsche Bank tech conference 2026 (08-26-2026)",
-     "file": "transcripts/conferences/cadence_deutschebanktechconference_2026-08-26.txt"
-    },
-    {
-     "company": "Equinix",
-     "label": "Equinix Six Five Summit 2026 (08-26-2026)",
-     "file": "transcripts/conferences/equinix_sixfivesummit_2026-08-26.txt"
-    },
-    {
-     "company": "Intel",
-     "label": "Intel Deutsche Bank Technology Conference 2026 (08-26-2026)",
-     "file": "transcripts/conferences/intel_deutschebanktechnologyconference_2026-08-26.txt"
-    },
-    {
-     "company": "Coherent",
-     "label": "Coherent the Six Five Summit 2026 (08-26-2026)",
-     "file": "transcripts/conferences/coherent_thesixfivesummit_2026-08-26.txt"
-    },
-    {
-     "company": "Oracle",
-     "label": "Oracle Deutsche Bank tech conference 2026 (08-26-2026)",
-     "file": "transcripts/conferences/oracle_deutschebanktechconference_2026-08-26.txt"
-    },
-    {
-     "company": "Marvell",
-     "label": "Marvell the Six Five Summit 2026 (08-26-2026)",
-     "file": "transcripts/conferences/marvell_thesixfivesummit_2026-08-26.txt"
-    },
-    {
-     "company": "Powell Industries",
-     "label": "Powell Industries Midwest IDEAS 2026 (08-26-2026)",
-     "file": "transcripts/conferences/powellindustries_midwestideas_2026-08-26.txt"
-    },
-    {
-     "company": "Seagate",
-     "label": "Seagate The Six Five Summit 2026 (08-25-2026)",
-     "file": "transcripts/conferences/seagate_thesixfivesummit_2026-08-25.txt"
-    },
-    {
-     "company": "Oracle",
-     "label": "Oracle Six Five Summit 2026 (08-25-2026)",
-     "file": "transcripts/conferences/oracle_sixfivesummit_2026-08-25.txt"
-    },
-    {
-     "company": "Intel",
-     "label": "Intel The Six Five Summit 2026 (08-25-2026)",
-     "file": "transcripts/conferences/intel_thesixfivesummit_2026-08-25.txt"
-    },
-    {
-     "company": "Dell",
      "label": "Dell the Six Five Summit 2026 (08-25-2026)",
-     "file": "transcripts/conferences/dell_thesixfivesummit_2026-08-25.txt"
+     "file": "transcripts/conferences/dell_thesixfivesummit_2026-08-25.txt",
+     "why": null
     },
     {
-     "company": "Arista",
-     "label": "Arista Rosenblatt AI summit 2026 (08-18-2026)",
-     "file": "transcripts/conferences/arista_rosenblattaisummit_2026-08-18.txt"
+     "label": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+     "file": "transcripts/conferences/nvidia_siggraph_2026-07-20.txt",
+     "why": null
     },
     {
-     "company": "Fabrinet",
-     "label": "Fabrinet Rosenblatt ai summit 2026 (08-18-2026)",
-     "file": "transcripts/conferences/fabrinet_rosenblattaisummit_2026-08-18.txt"
+     "label": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+     "file": "transcripts/conferences/nvidia_thesixfivesummit_2026-08-27.txt",
+     "why": null
     },
     {
-     "company": "Applied Optoelectronics",
-     "label": "Applied Optoelectronics Rosenblatt summit 2026 (08-18-2026)",
-     "file": "transcripts/conferences/appliedoptoelectronics_rosenblattsummit_2026-08-18.txt"
-    },
-    {
-     "company": "Viavi",
-     "label": "Viavi Rosenblatt AI summit 2026 (08-17-2026)",
-     "file": "transcripts/conferences/viavi_rosenblattaisummit_2026-08-17.txt"
-    },
-    {
-     "company": "Penguin Solutions",
-     "label": "Penguin Solutions Rosenblatt AI summit 2026 (08-17-2026)",
-     "file": "transcripts/conferences/penguinsolutions_rosenblattaisummit_2026-08-17.txt"
-    },
-    {
-     "company": "Equinix",
-     "label": "Equinix TD Cowen summit 2026 (08-11-2026)",
-     "file": "transcripts/conferences/equinix_tdcowensummit_2026-08-11.txt"
-    },
-    {
-     "company": "onsemi",
-     "label": "onsemi technology leadership forum 2026 (08-11-2026)",
-     "file": "transcripts/conferences/onsemi_technologyleadershipforum_2026-08-11.txt"
-    },
-    {
-     "company": "AMD",
-     "label": "AMD Technology Leadership Forum 2026 (08-11-2026)",
-     "file": "transcripts/conferences/amd_technologyleadershipforum_2026-08-11.txt"
-    },
-    {
-     "company": "Micron",
-     "label": "Micron technology leadership forum 2026 (08-10-2026)",
-     "file": "transcripts/conferences/micron_technologyleadershipforum_2026-08-10.txt"
-    },
-    {
-     "company": "Equinix",
-     "label": "Equinix Technology Leadership Forum 2026 (08-10-2026)",
-     "file": "transcripts/conferences/equinix_technologyleadershipforum_2026-08-10.txt"
+     "label": "Seagate The Six Five Summit 2026 (08-25-2026)",
+     "file": "transcripts/conferences/seagate_thesixfivesummit_2026-08-25.txt",
+     "why": null
     }
    ],
-   "no_data": [],
    "skipped": 0,
    "source_range": [
-    "2026-08-10",
-    "2026-09-10"
+    "2026-07-20",
+    "2026-09-15"
    ],
-   "last_fetch": "2026-09-10",
-   "last_enriched": null,
-   "enriched_days": [],
-   "last_sync": "2026-09-10",
+   "last_fetch": "2026-09-16",
+   "last_enriched": "2026-09-16",
+   "enriched_days": [
+    {
+     "day": "2026-09-16",
+     "labels": 89
+    }
+   ],
+   "last_sync": "2026-09-16",
    "extra": {
     "runs": [
      {
@@ -755,6 +364,22 @@
       "oldest_seen": "2026-08-06",
       "candidates": 78,
       "saved": 77
+     },
+     {
+      "at": "2026-09-16 01:07",
+      "since": "2026-05-15",
+      "pages": 31,
+      "oldest_seen": "2026-09-09",
+      "candidates": 6,
+      "saved": 5
+     },
+     {
+      "at": "2026-09-16 01:14",
+      "since": "2026-05-15",
+      "pages": 285,
+      "oldest_seen": "2026-05-14",
+      "candidates": 4,
+      "saved": 4
      }
     ]
    }
@@ -894,6 +519,18 @@
    "source_range": [
     "2026-02-05",
     "2026-08-27"
+   ]
+  },
+  {
+   "day": "2026-09-16",
+   "pipeline": "conference",
+   "files": 93,
+   "in_graph": 89,
+   "pending": 0,
+   "last_sync": "2026-09-16",
+   "source_range": [
+    "2026-07-20",
+    "2026-09-15"
    ]
   }
  ]

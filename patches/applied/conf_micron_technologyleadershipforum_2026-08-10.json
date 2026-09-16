@@ -1,0 +1,85 @@
+{
+  "source": "Micron technology leadership forum 2026 (08-10-2026)",
+  "chains": {
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "Micron",
+          "layer": "memory",
+          "sector": "HBM",
+          "quarterly_data": [
+            {
+              "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+              "signal": "Demand outlook RAISED versus the fiscal Q3 earnings call. Sadana's opening remarks: 'Since our earnings, our aggregate demand signals from our customers have increased even further.' Micron had said very tight industry conditions would continue beyond calendar year 2027; based on these increased customer signals it now expects that calendar year 2027 will be EVEN TIGHTER THAN 2026, because demand growth for calendar 2027 is taking shape faster than industry supply growth. Micron still has no line of sight as to when supply will meet demand. Customers tell Micron their number one constraint is not power, real estate, data center capacity or logic wafers - it is DRAM.",
+              "figure": "calendar 2027 expected to be even tighter than 2026; aggregate customer demand signals increased since the Q3 FY2026 earnings call",
+              "topics": ["supply_tightness"],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+              "signal": "Strategic Customer Agreement TERMS disclosed well beyond the earnings call, and more SCAs signed since it: 'Since our earnings, we have signed up more SCA agreements with our customers.' At the time of earnings Micron announced 16 SCA agreements with $22 billion of cash and cash-like commitments, of which $18 billion was cash alone on the balance sheet. Smaller automotive customers are mostly on three-year SCAs, but the SCAs covering the overwhelming amount of revenue run five-year terms through the end of calendar 2030. They are TAKE-OR-PAY, binding purchase commitments by volume, by year, by customer with NO contractual outs, and carry an EVERGREEN structure so years can be added to the back end. Unlike the old LTAs they also carry pricing: most volume sits inside a price band - the ceiling price of the 16 announced SCAs is CQ2 pricing (SCAs signed later take the market price at signing as their ceiling), while the FLOOR price is set at a level that provides a gross margin well above any prior peak in the industry's cycles. Micron will still put equipment into the new clean rooms only consistent with its view of medium-term demand.",
+              "figure": "more SCAs signed since the Q3 FY2026 earnings call; evergreen structure lets years be added to the back end; SCAs signed later take the market price at signing as their ceiling (the 16 announced were at CQ2 pricing); no contractual outs",
+              "topics": [],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+              "signal": "Custom HBM begins at HBM4E and HBM is becoming a one-to-two-supplier market. Asked when custom HBM can be material: 'HBM4E is when there is going to be a custom SKU of HBM as we work with customers on, and there is plenty of opportunity for differentiation in HBM.' Beyond the custom opportunity, the core design and qualification of HBM is so time-consuming, R&D-intensive and expensive that it is not practical for customers to do business with all three HBM suppliers for all projects: many projects, platforms and several customers will end up using ONE OR TWO HBM suppliers and only a very small number will use all three, so HBM becomes a two-supplier market and 'oftentimes, just a single-sourced opportunity.' On supply mix, the HBM-to-DDR trade ratio of 3-to-1 at HBM3E (to produce 100 bits of HBM, 300 bits of DDR supply must be given up) worsens to CLOSER TO 4 TO 1 by the time Micron reaches HBM4E.",
+              "figure": "custom HBM SKU starts with HBM4E; HBM3E-to-DDR trade ratio 3-to-1 worsening to closer to 4 to 1 at HBM4E; HBM a one-to-two-supplier market per platform",
+              "topics": ["hbm", "transitions"],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+              "signal": "U.S. manufacturing turned into a PRICING lever. Micron has raised its planned U.S. investment 'from $200 billion of investments to $250 billion over the next many years' and argues it is the only company investing in front-end memory fab manufacturing in the U.S. - Idaho 1 and Idaho 2 leading-edge memory fabs come online middle of next year and end of 2028 respectively, then New York 1 and a cluster of New York fabs beyond that, plus Virginia investments for long life cycle technology and bringing 1-alpha DRAM into Virginia. Management characterises Samsung's U.S. expansion as logic foundry rather than memory and SK Hynix's Indiana investment as back-end assembly/packaging. Because customers want that supply-chain resilience, 'we do believe that we will be able to get a premium for our U.S. supply, from a pricing perspective. That premium is something that we have even baked into our SCAs.'",
+              "figure": "U.S. investment raised from $200 billion to $250 billion; Idaho 1 online middle of next year, Idaho 2 end of 2028; U.S.-supply price premium baked into the SCAs",
+              "topics": ["supply_tightness"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "contracts": [
+                {
+                  "source": "Micron technology leadership forum 2026 (08-10-2026)",
+                  "signal": "LPDRAM in the data center was co-innovated with NVIDIA and was sole-sourced: 'You look at how LPDRAM, low power DRAM, was deployed in the data center. Micron innovated that capability first in the industry, with Nvidia. We took LPDRAM, which was only meant for smartphones and laptops, into the data center for the very first time with higher density and much lower power and very robust performance. For the longest time, we were sole sourced in that with very robust ROI because it was such a differentiated product. We became multi-sourced with Nvidia only because we were just not able to meet and keep up with the demand.' Management presents this as the template for future engagements - first to innovate with a customer, then sole source, at most dual source.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "co-development / sole-source supply",
+                  "topics": ["transitions"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "GlobalWafers",
+          "layer": "materials",
+          "sector": "Silicon Wafers (300mm)",
+          "connects_to": [
+            {
+              "company": "Micron",
+              "relationship": "raw silicon wafers for Micron memory fabs; Micron made a $500 million supply-chain investment in GlobalWafers",
+              "contracts": [
+                {
+                  "source": "Micron technology leadership forum 2026 (08-10-2026)",
+                  "signal": "Sadana's opening remarks on securing the supply chain behind Micron's fab buildout: 'These investments are also going to be aided by investments in our supply chain. We made this $500 million investment in GlobalWafers for raw wafers. We are also making as part of a $3 billion investment in our supply chain.'",
+                  "units": "no specific figure",
+                  "value": "$500 million investment in GlobalWafers for raw wafers, part of a $3 billion supply chain investment",
+                  "date_signed": "not stated",
+                  "type": "supply-chain investment",
+                  "topics": ["supply_tightness"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

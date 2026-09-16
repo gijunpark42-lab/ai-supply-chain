@@ -1,0 +1,97 @@
+{
+  "source": "Credo Goldman Sachs conference 2026 (09-10-2026)",
+  "chains": {
+    "components/optical_networking.json": {
+      "players": [
+        {
+          "company": "Credo",
+          "layer": "interconnect",
+          "sector": "Components",
+          "quarterly_data": [
+            {
+              "quarter": "Credo Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "SHAPE of fiscal 2027 given for the first time (nine days after the Q1 FY2027 call, which had guided only Q2 and a full-year inflection). CFO Dan Fleming: 'this year, from a sequential growth standpoint, has been and will be 10% plus each quarter sequentially. We guided about 11% sequentially into Q2. If you look at the way we've discussed things for the back half of the year, it's really an accelerating growth rate, CALL IT 20% INTO Q3, 30% INTO Q4. That sets you up where a BILLION-DOLLAR QUARTER IS WITHIN OUR SIGHTS WITHIN EARLY FISCAL 2028.' On operating leverage he added that this year the top line is growing about 50% faster than OpEx and Credo may get back to its 2:1 revenue-to-OpEx growth ratio as it enters fiscal 2028.",
+              "figure": "back half sequential growth of about 20% into Q3 and 30% into Q4; a billion-dollar quarter within sight in early fiscal 2028; top line growing about 50% faster than OpEx",
+              "topics": [],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "Credo Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "Optical production-rate ramp quantified through fiscal 2029. CEO Bill Brennan: 'by the end of this fiscal year, we will be producing HUNDREDS OF THOUSANDS OF UNITS PER MONTH, and then we will increase that production rate to DOUBLE and then even TRIPLE BY THE END OF FISCAL YEAR 2028. The ramp is going to be quite fast. It is going to be quite significant. And we expect to even go beyond that in fiscal 2029.' Margin structure of that ramp: Credo is the only vertically integrated player - it builds its own DSP and its own silicon photonics PIC - and is targeting differentiated features rather than the IEEE-standard 1.6T commodity transceiver, so it expects to hold its margin profile as optics becomes a bigger part of the mix.",
+              "figure": "hundreds of thousands of optical units per month by the end of fiscal 2027, doubling then tripling by the end of fiscal year 2028, more in fiscal 2029",
+              "topics": [
+                "optical_speed",
+                "silicon_photonics"
+              ],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Credo Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "Micro-emitter ALCs - reach, form factor and production date. Credo has been working on micro-emitter technology for three years because, at a core technology level, 'wide and slow' micro-emitters keep copper-like bulletproof reliability with much better power efficiency than laser-based optics. The technology reaches 30 meters, extending Credo from a 7-meter AEC reach to 30 meters 'with an equal level of reliability and power efficiency,' and the cable is 75% SMALLER BY TOTAL VOLUME than today's bulky 7-meter AECs at 200G per lane. Credo will demonstrate at OCP next month, then 'expect to go through qualification and then be IN PRODUCTION AT FY 2028.' Every ALC goes through the same qualification rigor as AECs - Credo runs live traffic through customers' own switches and NICs over every corner, deliberately breaking the link and strengthening it through firmware, so the customer only has to plug it in.",
+              "figure": "ALC reach extends from 7 meters to 30 meters; cable 75% smaller by total volume; OCP demo next month, in production at FY 2028",
+              "topics": [
+                "optical_speed",
+                "transitions",
+                "product_launches"
+              ],
+              "slot": "next_catalyst"
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "SpaceX",
+              "relationship": "ZeroFlap AEC supply — xAI defined the 7-meter AEC that covers every connection in the row of its liquid-cooled cluster",
+              "contracts": [
+                {
+                  "source": "Credo Goldman Sachs conference 2026 (09-10-2026)",
+                  "signal": "CEO Bill Brennan named xAI as the customer that created the ZeroFlap concept: while building in another data center xAI was 'struggling mightily with link flaps' and could not keep cluster availability above even 90%. Moving into its own liquid-cooled data center, 'they came to us and said... What we want you to do is extend your AEC family from 3 meters to 7 meters because if you can do 7 meters, we can cover every connection in the row, and we can build a ZeroFlap cluster.' Brennan notes this is the ONLY transition where copper has replaced optical, for lengths up to 7 meters. He visited Memphis over the summer: xAI has achieved 99.9% uptime and can bring a cluster up in 5 days versus 6 to 8 weeks.",
+                  "units": "AEC family extended from 3 meters to 7 meters",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "design win / product co-definition",
+                  "topics": [
+                    "transitions"
+                  ]
+                }
+              ]
+            },
+            {
+              "company": "Oracle",
+              "relationship": "ZeroFlap Optics with real-time link telemetry for NIC-to-first-switch connections longer than 7 meters",
+              "contracts": [
+                {
+                  "source": "Credo Goldman Sachs conference 2026 (09-10-2026)",
+                  "signal": "Oracle named as the customer behind the telemetry version of ZeroFlap: 'After we made this transition, Oracle came to us and said, Look, we'd love to address these problems as well, but our connections between the NIC and the first switch are longer than 7 meters, and we can't redesign. We've got what we've got.' Credo designed a custom DSP plus a software platform that lights up continuous real-time telemetry on each of the six links between a GPU and a switch (three in each direction), measuring eye height, SNR, post-FEC bit error rates and histograms to create a yellow 'check engine light' for a link instead of only green or red; it also identifies multipath interference caused by dust on the fiber plant and latent ESD damage, and mitigates likely link flaps by taking a link down in an orderly way rather than disrupting the cluster.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "design win / co-development",
+                  "topics": [
+                    "optical_speed"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "SpaceX",
+          "layer": "ai_models",
+          "sector": "Foundation Models",
+          "product": "frontier model training/inference on liquid-cooled GPU clusters wired with Credo 7-meter ZeroFlap AECs (Memphis)",
+          "connects_to": [],
+          "quarterly_data": [
+            {
+              "quarter": "Credo Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "Named by Credo's CEO as the customer that drove the ZeroFlap architecture. Building in another data center, xAI was struggling mightily with link flaps - connections that disconnect and reconnect, propagating bad data and forcing the cluster to be brought down and reset - and could not keep availability above even 90%. Moving into its own liquid-cooled data center with 'tons of power to the racks,' xAI asked Credo to extend its AEC family from 3 meters to 7 meters so that every connection in the row could be copper. Brennan visited Memphis over the summer: xAI has achieved 99.9% uptime and brings a cluster up in 5 days versus 6 to 8 weeks, which he frames as worth a billion-dollar increment of revenue for a month of compute.",
+              "figure": "99.9% uptime; cluster brought up in 5 days versus 6 to 8 weeks",
+              "topics": [
+                "transitions"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

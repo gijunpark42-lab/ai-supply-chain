@@ -1,0 +1,72 @@
+{
+  "source": "Silicon Motion Piper Sandler growth frontiers conference 2026 (09-15-2026)",
+  "chains": {
+    "components/nand_flash.json": {
+      "players": [
+        {
+          "company": "Silicon Motion",
+          "layer": "memory",
+          "sector": "NAND Flash",
+          "product": "enterprise NVMe SSD controllers (MonTitan)",
+          "quarterly_data": [
+            {
+              "quarter": "Silicon Motion Piper Sandler growth frontiers conference 2026 (09-15-2026)",
+              "signal": "NAND supply secured for next year. Head of IR Tom Sepenzis said that by the end of Q1 Silicon Motion had secured 'three of the six NAND makers' willing to supply what it needed, and 'exiting Q2, that number became four of the NAND makers.' The initial arrangement from Q1 'stretches through Q1 of 2027', and the arrangements for next year, normally negotiated in July-August, are done: 'We just completed that for next year.' 'We’re set.' He added that customers now come to Silicon Motion to build products on its controllers 'because we can actually get the NAND.'",
+              "figure": "four of the NAND makers (up from three of the six at end of Q1); supply arranged through Q1 of 2027 and for next year",
+              "topics": ["supply_tightness", "nand_storage"],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Silicon Motion Piper Sandler growth frontiers conference 2026 (09-15-2026)",
+              "signal": "NAND price outlook: 'NAND demand is up likely 80% year-over-year this year. And supply is up 20% year-over-year.' After very strong sequential price increases in the first half, management expects increases to ease to 'the 5%-10% sequential increases in Q3 and Q4', and sees no meaningful price decline 'at least until 2028, 2029, when Samsung and Micron introduce two new fabs' - which it said are 'likely not going to change the demand supply' balance significantly. Sepenzis argued lower NAND prices would help the company, re-accelerating PC and mobile (units 'down in both those industries by about 10%-15% this year') and making QLC MonTitan drives competitive with hard drives, which are 'sold out for 2 years.'",
+              "figure": "NAND demand is up likely 80% year-over-year this year; supply is up 20% year-over-year; 5%-10% sequential increases in Q3 and Q4",
+              "topics": ["supply_tightness", "nand_storage"]
+            },
+            {
+              "quarter": "Silicon Motion Piper Sandler growth frontiers conference 2026 (09-15-2026)",
+              "signal": "Capital raise for NAND: 'we just completed a bond offering for $1.15 billion. Initially we were looking to raise $800 million.' Most of the proceeds will buy NAND to support the boot-drive ramp of 'our first two customers' (and 'hopefully we get one or two more') and automotive Ferri, where automotive 'was less than 5% of our revenue a year ago and now is closer to 15% of revenue.'",
+              "figure": "$1.15 billion bond offering (initially $800 million targeted); automotive closer to 15% of revenue",
+              "topics": ["nand_storage"]
+            },
+            {
+              "quarter": "Silicon Motion Piper Sandler growth frontiers conference 2026 (09-15-2026)",
+              "signal": "Gross margin by segment: the Boot Drive and automotive (Ferri) businesses run 'closer to the 40%-45% gross margin range' but need less investment, so operating leverage is still good; MonTitan is 'probably closer to 60% gross margin', the highest in the company; mobile and PC controllers sit in the '48% to 50% historical range' that it guides to.",
+              "figure": "Boot Drive/automotive 40%-45% GM; MonTitan closer to 60% GM; mobile and PC 48% to 50%",
+              "topics": []
+            },
+            {
+              "quarter": "Silicon Motion Piper Sandler growth frontiers conference 2026 (09-15-2026)",
+              "signal": "Boot-drive customer pipeline: beyond the world’s largest GPU maker, Silicon Motion has 'won a large telecommunications provider', which it will 'start shipping to late this year or early next year.' It is trying to convert 'the world’s largest search engine', which already uses its controllers through another NAND maker, to its full boot drive but says 'we haven’t won them yet' and would not give timing. It is also in negotiations with 'probably about three or four other customers' that build servers for AI. Interest in the DRAM-less controller for DPUs, TPUs and switches is growing, and customers are now asking for a controller 'that comes with DRAM, for CPU intensive tasks.'",
+              "figure": "telecom customer shipping late this year or early next year; about three or four other AI server customers in negotiations",
+              "topics": ["nand_storage"],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "Silicon Motion Piper Sandler growth frontiers conference 2026 (09-15-2026)",
+              "signal": "MonTitan KV-cache opportunity: 'Nvidia and their Rubin platform want a 16 terabyte NAND flash drive for KV cache.' MonTitan has 'a number of design wins' for KV-cache/compute drives ramping in the second half, in what Sepenzis called 'a multibillion-dollar market' that will draw more competition from NAND makers at first. He expects NAND makers such as SanDisk, Micron or Samsung to use MonTitan for customers their own engineering teams cannot customize for, so the company is 'more likely' to be 'in partnership with the NAND flash makers', as it always has been. He said interest from KV cache and compute is so strong that the company does not need to focus as much on QLC pure-storage drives.",
+              "figure": "16 terabyte NAND flash drive for KV cache (Rubin); multibillion-dollar market",
+              "topics": ["nand_storage", "transitions"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "DRAM-less enterprise Boot Drive storage for BlueField DPUs",
+              "contracts": [
+                {
+                  "source": "Silicon Motion Piper Sandler growth frontiers conference 2026 (09-15-2026)",
+                  "signal": "Blackwell-to-Rubin boot-drive attach step-up. Sepenzis said that with Blackwell the BlueField-3 DPU 'was an option', with an attach rate 'closer to probably 20% or 30%'. In Rubin, 'BlueField-4 is integrated. You have to buy it, so it’s 100% attached', and Silicon Motion also has boot drives in 'some of their switches, like NVLink and ethernet switches', with drive capacity rising (more units and higher ASP). The Rubin ramp will take 'probably 6-12 months.' Silicon Motion won the full BlueField-4 boot drive after the incumbent NAND maker, which had been buying Silicon Motion’s controller through a distributor, 'decided not to move forward with BlueField-4', making Silicon Motion 'the natural successor'. The customer is described as 'the world’s largest GPU maker', and the transcript names BlueField-4 and Rubin.",
+                  "units": "BlueField-3 attach closer to probably 20% or 30%; BlueField-4 100% attached",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "component supply",
+                  "topics": ["transitions", "nand_storage"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

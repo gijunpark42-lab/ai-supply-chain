@@ -543,6 +543,25 @@
                   "quarter": "AMD Q2 FY2026 (08-04-2026)",
                   "signal": "Helios carries ~50% MORE HBM THAN THE COMPETITION — a deliberate TCO advantage for large-model inference. AMD has worked with memory partners for multiple years and has 'very good visibility into HBM ALLOCATION for what we expect to deliver in 2027' (multi-year agreements). In the current memory-cost environment every customer is optimising memory footprint, and AMD retains the flexibility to MODIFY THE HBM FOOTPRINT per workload where the TCO benefit is smaller (medium-sized models) — the memory benefit is workload-dependent.",
                   "figure": "Helios ~50% more HBM vs competition; multi-year HBM allocation visibility into 2027; footprint modifiable per workload"
+                },
+                {
+                  "quarter": "AMD IFA Opening Keynote 2026 (09-04-2026)",
+                  "signal": "NEW INSTINCT DEMAND POCKET OUTSIDE THE DATA CENTER: Jack Huynh (SVP & GM, Computing & Graphics) launched the Threadripper Halo Station, 'the most powerful workstation in the world', capable of running AI models with 'more than 1 trillion parameters'. Configuration disclosed on stage: '96 cores on Threadripper PRO, two MI350P Instinct accelerators with the path to four. Up to 2 terabytes of system memory and up to 576 gigabytes of HBM 3E. All liquid cooled.' This puts MI350-class Instinct silicon and HBM3E content into a workstation SKU — a liquid-cooled, HBM-bearing product line that did not exist in AMD's data-center-only Instinct framing on the Q2 call.",
+                  "figure": "Threadripper Halo Station: 96 cores on Threadripper PRO, two MI350P Instinct accelerators with the path to four, up to 2 terabytes of system memory, up to 576 gigabytes of HBM 3E, all liquid cooled; runs models with more than 1 trillion parameters",
+                  "topics": [
+                    "hbm",
+                    "product_launches",
+                    "power_cooling"
+                  ]
+                },
+                {
+                  "quarter": "AMD Advancing AI keynote 2026 (07-23-2026)",
+                  "signal": "ENTERPRISE INSTINCT CARD LAUNCHED. Dan McNamara (SVP & GM, Compute and Enterprise AI) launched the Instinct MI350P: 'an air-cooled GPU designed to fit within the power and cooling of enterprise servers today without a facilities upgrade'. 'A single MI350P can support up to 260 billion parameters', and it 'delivers more than four times the tokens per second per dollar than the competition'. AMD IT runs open-weights models on EPYC and an MI350P behind an intelligent router, which 'reduced our token cost by 43%'.",
+                  "figure": "MI350P: air-cooled, up to 260 billion parameters on a single GPU, more than four times the tokens per second per dollar",
+                  "topics": [
+                    "product_launches",
+                    "power_cooling"
+                  ]
                 }
               ]
             }
@@ -1112,6 +1131,17 @@
                       "date_signed": "not stated",
                       "type": "10-K supplier disclosure",
                       "topics": []
+                    },
+                    {
+                      "source": "Micron technology leadership forum 2026 (08-10-2026)",
+                      "signal": "LPDRAM in the data center was co-innovated with NVIDIA and was sole-sourced: 'You look at how LPDRAM, low power DRAM, was deployed in the data center. Micron innovated that capability first in the industry, with Nvidia. We took LPDRAM, which was only meant for smartphones and laptops, into the data center for the very first time with higher density and much lower power and very robust performance. For the longest time, we were sole sourced in that with very robust ROI because it was such a differentiated product. We became multi-sourced with Nvidia only because we were just not able to meet and keep up with the demand.' Management presents this as the template for future engagements - first to innovate with a customer, then sole source, at most dual source.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "co-development / sole-source supply",
+                      "topics": [
+                        "transitions"
+                      ]
                     }
                   ]
                 },
@@ -1247,6 +1277,86 @@
                   "topics": [
                     "product_launches"
                   ]
+                },
+                {
+                  "quarter": "Micron the Six Five Summit 2026 (08-27-2026)",
+                  "signal": "Multi-year CapEx profile quantified beyond the earnings call: 'If you look at just our CapEx profile, we have gone from just over $13 billion of CapEx in fiscal 2025. Fiscal 2026, we'll do double of that. Then we have pointed to Fiscal 2027 being above $45 billion even.' Sadana adds that the U.S. commitment has been taken from $200 billion up to $250 billion and the timeline for when that $250 billion is invested has been PULLED IN.",
+                  "figure": "capex just over $13 billion in fiscal 2025, double that in fiscal 2026, above $45 billion in fiscal 2027",
+                  "topics": [],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "Micron the Six Five Summit 2026 (08-27-2026)",
+                  "signal": "Fab-by-fab buildout schedule: Micron has 20 investment projects going on around the world of all different shapes and sizes, bringing on both front-end and back-end capacity. Idaho ID1 has first wafer outs in mid next year; ID2 follows right after with first wafer outs close to the end of calendar 2028. The Tongluo fab purchased in Taiwan has wafer starts in 2027 with further expansions there, plus expansions in Japan and Singapore. In New York Micron has a four-fab cluster with first fab output expected in 2030 - it broke ground in January and has hit the concrete pour milestone ahead of schedule - alongside the Manassas fab in Virginia. Management flags construction talent as a genuine bottleneck: there are not enough skilled construction workers or fab technicians given simultaneous data center, power plant and semiconductor buildouts.",
+                  "figure": "20 investment projects worldwide; Idaho ID1 first wafer outs mid next year, ID2 close to the end of calendar 2028; Tongluo wafer starts in 2027; New York four-fab cluster first output 2030",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Micron the Six Five Summit 2026 (08-27-2026)",
+                  "signal": "When industry supply actually arrives: 'We think that meaningful supply will start to ramp only in 2028. And that too, it'll be only an initial ramp. It'll gather momentum only in the years after. It will take a while for the industry to find a new equilibrium point. But when exactly that happens, we don't have line of sight to yet.' Because tech transitions no longer produce enough bit growth, the whole industry needs greenfield clean room space at the same time, which is gated by construction, permitting and infrastructure. Cycle-time context on why memory supply cannot respond quickly: roughly 2,000 process steps in the fab, three and a half plus months (approaching four months) through the fab plus a month - or a month and a half for more complex products - in assembly, packaging and test, so about a five-month cycle time from wafer start to customer shipment.",
+                  "figure": "meaningful industry supply ramps only in 2028 (initial ramp); ~2,000 process steps and a five-month cycle time from wafer start to shipment",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Micron the Six Five Summit 2026 (08-27-2026)",
+                  "signal": "Memory content per humanoid robot quantified as the next demand wave after data center and edge: 'Each humanoid is going to have hundreds of gigabytes of DRAM content and terabytes of SSD NAND content. They are going to be massive drivers of growth in demand for both DRAM and NAND.' Management expects robotics to start in factory-automation settings and become a massive growth driver in the latter part of this decade and into the 2030s, a wave that compounds on top of data center demand rather than replacing it.",
+                  "figure": "hundreds of gigabytes of DRAM content and terabytes of SSD NAND content per humanoid",
+                  "topics": [
+                    "nand_storage",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+                  "signal": "Demand outlook RAISED versus the fiscal Q3 earnings call. Sadana's opening remarks: 'Since our earnings, our aggregate demand signals from our customers have increased even further.' Micron had said very tight industry conditions would continue beyond calendar year 2027; based on these increased customer signals it now expects that calendar year 2027 will be EVEN TIGHTER THAN 2026, because demand growth for calendar 2027 is taking shape faster than industry supply growth. Micron still has no line of sight as to when supply will meet demand. Customers tell Micron their number one constraint is not power, real estate, data center capacity or logic wafers - it is DRAM.",
+                  "figure": "calendar 2027 expected to be even tighter than 2026; aggregate customer demand signals increased since the Q3 FY2026 earnings call",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+                  "signal": "Strategic Customer Agreement TERMS disclosed well beyond the earnings call, and more SCAs signed since it: 'Since our earnings, we have signed up more SCA agreements with our customers.' At the time of earnings Micron announced 16 SCA agreements with $22 billion of cash and cash-like commitments, of which $18 billion was cash alone on the balance sheet. Smaller automotive customers are mostly on three-year SCAs, but the SCAs covering the overwhelming amount of revenue run five-year terms through the end of calendar 2030. They are TAKE-OR-PAY, binding purchase commitments by volume, by year, by customer with NO contractual outs, and carry an EVERGREEN structure so years can be added to the back end. Unlike the old LTAs they also carry pricing: most volume sits inside a price band - the ceiling price of the 16 announced SCAs is CQ2 pricing (SCAs signed later take the market price at signing as their ceiling), while the FLOOR price is set at a level that provides a gross margin well above any prior peak in the industry's cycles. Micron will still put equipment into the new clean rooms only consistent with its view of medium-term demand.",
+                  "figure": "more SCAs signed since the Q3 FY2026 earnings call; evergreen structure lets years be added to the back end; SCAs signed later take the market price at signing as their ceiling (the 16 announced were at CQ2 pricing); no contractual outs",
+                  "topics": [],
+                  "slot": "backlog_or_b2b"
+                },
+                {
+                  "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+                  "signal": "Custom HBM begins at HBM4E and HBM is becoming a one-to-two-supplier market. Asked when custom HBM can be material: 'HBM4E is when there is going to be a custom SKU of HBM as we work with customers on, and there is plenty of opportunity for differentiation in HBM.' Beyond the custom opportunity, the core design and qualification of HBM is so time-consuming, R&D-intensive and expensive that it is not practical for customers to do business with all three HBM suppliers for all projects: many projects, platforms and several customers will end up using ONE OR TWO HBM suppliers and only a very small number will use all three, so HBM becomes a two-supplier market and 'oftentimes, just a single-sourced opportunity.' On supply mix, the HBM-to-DDR trade ratio of 3-to-1 at HBM3E (to produce 100 bits of HBM, 300 bits of DDR supply must be given up) worsens to CLOSER TO 4 TO 1 by the time Micron reaches HBM4E.",
+                  "figure": "custom HBM SKU starts with HBM4E; HBM3E-to-DDR trade ratio 3-to-1 worsening to closer to 4 to 1 at HBM4E; HBM a one-to-two-supplier market per platform",
+                  "topics": [
+                    "hbm",
+                    "transitions"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+                  "signal": "U.S. manufacturing turned into a PRICING lever. Micron has raised its planned U.S. investment 'from $200 billion of investments to $250 billion over the next many years' and argues it is the only company investing in front-end memory fab manufacturing in the U.S. - Idaho 1 and Idaho 2 leading-edge memory fabs come online middle of next year and end of 2028 respectively, then New York 1 and a cluster of New York fabs beyond that, plus Virginia investments for long life cycle technology and bringing 1-alpha DRAM into Virginia. Management characterises Samsung's U.S. expansion as logic foundry rather than memory and SK Hynix's Indiana investment as back-end assembly/packaging. Because customers want that supply-chain resilience, 'we do believe that we will be able to get a premium for our U.S. supply, from a pricing perspective. That premium is something that we have even baked into our SCAs.'",
+                  "figure": "U.S. investment raised from $200 billion to $250 billion; Idaho 1 online middle of next year, Idaho 2 end of 2028; U.S.-supply price premium baked into the SCAs",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+                  "signal": "Sadana cited an HBM3E power lead as an example of co-engineering with customers: 'If you look at the HBM3E product, we came out with capability that was 30% lower power consumption than anyone else, the next best product.' He said engineering engagements now give Micron visibility into customer 'roadmaps at our customers that are beyond 2030 timeframe', whereas years ago it was rare even to know a customer's next-year products.",
+                  "figure": "HBM3E 30% lower power consumption than anyone else; customer roadmap visibility beyond 2030",
+                  "topics": [
+                    "hbm"
+                  ]
+                },
+                {
+                  "quarter": "Micron technology leadership forum 2026 (08-10-2026)",
+                  "signal": "Agentic AI demand multiplier given by Sadana: 'the interaction of these agents with the hardware infrastructure creates and needs 5 to 30 times the tokens that a chat interface needs for a similar type of task. If it is a deep reasoning type of an agentic approach, it is even higher.'",
+                  "figure": "agentic AI needs 5 to 30 times the tokens of a chat interface",
+                  "topics": []
                 }
               ]
             }
@@ -2168,6 +2278,23 @@
                   "signal": "Applied's Q3 FY2026 earnings release: DRAM was 26% of Semiconductor Systems revenue in Q3 FY2026 (quarter ended July 26, 2026), versus 22% in Q3 FY2025.",
                   "figure": "DRAM 26% of Semiconductor Systems revenue (vs 22%)",
                   "topics": []
+                },
+                {
+                  "quarter": "Applied Materials Citi conference 2026 (09-08-2026)",
+                  "signal": "DRAM is shifting from line upgrades to greenfield, which changes the equipment intensity. About 1.6 million DRAM wafers per month was the right number a year ago; this year the industry is adding 400,000 more wafer starts per month of capacity, and Applied sees 300,000 to 400,000 additional wafer starts a month of new DRAM capacity for the next several years, taking the industry from 1.6 million to 2 million to 2.4 million wafer starts per month. Economics: an upgrade factory takes about 25% of the equipment investment of a greenfield, where process equipment is more like $10 billion for 100,000 wafer starts of capacity.",
+                  "figure": "about 1.6 million DRAM wafers per month a year ago; 400,000 more wafer starts per month added this year; 300,000 to 400,000 additional wafer starts a month for the next several years; upgrade about 25% of the equipment investment; greenfield process equipment more like $10 billion for 100,000 wafer starts",
+                  "topics": [
+                    "hbm"
+                  ]
+                },
+                {
+                  "quarter": "Applied Materials Citi conference 2026 (09-08-2026)",
+                  "signal": "On HBM de-speccing: when customers lower the number of stacked High-Bandwidth Memory in a system they are doing it to get more system output and ship more AI data center systems in total against the memory constraint, which means shipping more GPUs, more CPUs and more accelerators per memory chip. Applied views the effect on equipment demand as overall neutral and says it has not seen a reduction in demand in the business because of this phenomenon.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "hbm",
+                    "supply_tightness"
+                  ]
                 }
               ]
             },
@@ -3306,6 +3433,14 @@
                   "quarter": "KLA Q4 FY2026 (07-28-2026)",
                   "signal": "CALL — HBM PROCESS-CONTROL INTENSITY 'RIVALS ADVANCED LOGIC': CFO Bren Higgins said HBM is 'a unique animal' for KLA — base-die CUSTOMIZATION, the integration of each DRAM in the stack, the ultimate device value and tighter performance specs are driving process-control intensity levels 'RIVALING WHAT WE SEE IN ADVANCED LOGIC' across some products; conventional DRAM intensity has improved but is NOT the same as HBM. 2027 memory setup: DRAM investment broad across conventional AND HBM with GREENFIELD FABS (whole new toolsets, not just upgrades) — 'given where prices are and how that translates into margins, the VALUE OF YIELD is pretty high,' plus rising EUV adoption in DRAM; even NAND gets some greenfield. Mix: September quarter memory = 27% of semi-PC systems (DRAM 90% / NAND 10%); memory share RISES in the December quarter and stays elevated through H1 2027. Cost side: the memory-pricing gross-margin headwind is ~100bps 'and probably a little bit more' and now expected to CONTINUE THROUGH 2027 (new memory procured at higher prices) before normalizing into a TAILWIND.",
                   "figure": "HBM PC intensity rivals advanced logic; DRAM greenfield + EUV in 2027; memory GM headwind ~100bps+ through 2027 then tailwind"
+                },
+                {
+                  "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "DE-SPECCING DOES NOT DENT HBM PROCESS-CONTROL INTENSITY: asked about customer de-speccing (the analyst's framing - AI servers putting in less memory and stepping from 12 high to 8 high), Higgins argues 'the roadmap dynamics I talked about earlier, those are generally unchanged in the HBM environment' - redundancy, IO count, die size and performance specs still hold, and 'You cannot bin an HBM device'. He reads the behaviour as a reaction to today's memory pricing and supply-demand imbalance rather than a roadmap change, and says KLA does not like paying today's memory prices either. Supporting context he gave on intensity: HBM carries less redundancy, larger die and more logic-like attributes with more logic in the base die, 'the actual device only performs as good as the weakest DRAM in the device', and 'In some products, we have seen intensity in High-Bandwidth Memory that has been consistent with what we see in advanced logic.' Conventional memory is also improving for KLA, with more EUV layers in conventional DRAM devices than in the past.",
+                  "figure": "HBM roadmap dynamics generally unchanged despite de-speccing; you cannot bin an HBM device",
+                  "topics": [
+                    "hbm"
+                  ]
                 }
               ]
             },
@@ -3328,6 +3463,25 @@
                   "quarter": "Teradyne Q2 FY2026 (07-29-2026)",
                   "signal": "CALL — MEMORY TEST: BOOK-TO-BILL OVER 2 AND A +40% TAM: memory revenue hit a third straight >$200M record ($212M) with the quarter's memory BOOK-TO-BILL RATIO OVER 2 as 'memory manufacturers are planning capacity additions further out in time'; the 2026 MEMORY TEST TAM is likely MORE THAN 40% LARGER THAN 2025, growing H1->H2. Drivers re-ranked: HBM strength was expected, but the SURPRISE is DDR — 'coupled to the resurgence in CPU-oriented applications, so AGENTIC AI' plus LPDDR inside SoCs; and the long-awaited NAND INFLECTION IS NOW REAL ('we actually have seen the beginning... getting PULL from our customers for more NAND capacity'). HBM die test a highlight — Magnum's logic-test capability gives memory makers a SWING-TOOL advantage between memory and logic test. 2027: NO lumpiness expected — WFE investment, new fabs and wafer-output plans have customers making test-capacity plans INTO 2027 already; memory TAM has two flywheels (bit growth ~15-20% CAGR + technology transitions HBM3->4, DDR5->6, flash generations); memory remains a GROSS-MARGIN strain into 2027 (SoC TAM still ~5x the memory TAM). Teradyne expects to GAIN memory-test share (Advantest publicly concurs it is losing some).",
                   "figure": "Memory b2b >2; 2026 memory-test TAM +>40%; DDR the surprise (agentic-AI CPU pull); NAND inflection real; share shifting to Teradyne"
+                },
+                {
+                  "quarter": "Teradyne Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                  "signal": "2027 MEMORY TEST CALL: 'modest up for HBM and strong growth for DRAM and flash in 2027' - explicitly NOT the digestion phase management had previously flagged as a risk. History given: 2024 was the initial HBM capacity ramp, where test capacity actually got ahead of production; 2025 HBM TAM was significant but basically flat year-on-year; 2026 is back to strong growth above 2025; and Teradyne's initial view of 2027 is continued growth. The 2026 upside surprise was the rest of DRAM - 'much, much stronger than we expected coming into the year' - driven by a burst of LPDDR and DDR activity tied to CPUs, SoCs and the memory needed for agentic AI. NAND is turning too: the memory market was almost 50%/50% NAND/DRAM historically and was 85% DRAM, 15% flash in 2025, with a resurgence beginning toward the end of 2026 led by eSSD and data-center solid state drives, which management expects to be an even stronger year in 2027.",
+                  "figure": "2027: modest up for HBM, strong growth for DRAM and flash; memory mix 85% DRAM / 15% flash in 2025 versus almost 50%/50% historically",
+                  "topics": [
+                    "hbm",
+                    "nand_storage"
+                  ],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "Teradyne Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                  "signal": "INTEGRATED SYSTEM TEST IS BEING CARRIED BY DATA-CENTER HDD - AND SSD TEST IS A NEW 2026 ENTRY: 'The most important thing that's driving our short-term results in our integrated system test group is actually traditional hard disk drive test, and that's both higher exabyte growth, but also share gain. That right now, we serve all three major manufacturers of data center class hard drives, and that's the part of the market that's growing most rapidly.' Alongside it, mobile system-level test has gained share and won additional customers in a unit-flat market, and Teradyne is building system-level test and burn-in for AI accelerators for hyperscalers and for edge AI products going into automotive (wide temperature ranges, higher quality level than traditional test). New in 2026: Teradyne is entering solid-state drive test - it previously tested hard drives and flash memories but not the SSD itself - because the transition of SSDs to PCIe 6.0 creates a discontinuity and raises test intensity.",
+                  "figure": "serves all three major manufacturers of data center class hard drives; SSD test entered in 2026 on the PCIe 6.0 transition",
+                  "topics": [
+                    "nand_storage",
+                    "transitions"
+                  ]
                 }
               ]
             },
@@ -3401,6 +3555,21 @@
                   "quarter": "FormFactor 10-Q (08-04-2026)",
                   "signal": "FormFactor's 10-Q reports DRAM probe-card revenue of $84,999 thousand for the three months ended June 27, 2026 (32.9% of revenues), up 49.0% from $57,057 thousand, and $167,932 thousand for the six months, up 58.6% from $105,915 thousand.",
                   "figure": "Q2 DRAM $84,999 thousand (+49.0% YoY vs $57,057 thousand); six months $167,932 thousand (+58.6% vs $105,915 thousand)",
+                  "topics": []
+                },
+                {
+                  "quarter": "FormFactor Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "HBM GROWTH DECOMPOSED, AND THE THIRD DRAM CUSTOMER OPENS UP. On the roughly '70% growth on a year-over-year basis' in HBM in the first half, Slessor attributed it to three things: share gains from 'adding a second HBM customer'; industry bit growth as HBM3 moved to HBM4; and ASP uplift that came not from price increases but from delivering a higher-value configuration 'able to test at the 11 gigabit per second spec of HBM4 and test hundreds of die at once'. FormFactor's largest customer is the HBM leader, where it is the strong incumbent. At the third DRAM maker the major competitor is the entrenched incumbent and FormFactor sees less adoption of its high-speed stack-die configuration — but 'there is a very active conversation with that customer about what to plan for in 2027 and into 2028, as we have more capacity available to serve them'. On the HBM de-spec debate, Slessor called it 'much ado about nothing': fewer/simpler stacks would be offset by more HBM units and by more networking infrastructure to transact data across those units, leaving it 'net net... neutral'. He framed the whole test tailwind as a chiplet problem — in an HBM stack 'one of the 16 die actually causes the entire stack to be essentially scrapped and lost' without known-good-die certainty.",
+                  "figure": "HBM revenue up about 70% year-over-year in the first half; test at the 11 gigabit per second spec of HBM4 and hundreds of die at once",
+                  "topics": [
+                    "hbm",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "FormFactor Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "DRAM MIX AND WHY PROBE-CARD INTENSITY IS ABOUT TO LOOK BROKEN. Slessor: 'As we go from Q2 to Q3, we expect to again have record levels of DRAM probe card revenue with actually the mix shifting to DDR5 as our customers optimize their wafer start mix and take advantage of very strong spot market pricing' — with gross margin guided 'Up to 54%' including some one-time tariff benefits, against the 55% target model. On intensity: probe card spend as a fraction of customer revenue has run 'around the 0.4% level', but 'we see that distorting pretty substantially' through 2026 into 2027, because per-unit probe card spending is rising far slower than DRAM ASPs, which 'have exploded' on shortage pricing. FormFactor is explicitly not a supply/demand pricer — 'We're a value-based pricer' — so the gross-margin improvement to date and going forward is COGS-focused (yields, cycle times) rather than price-driven.",
+                  "figure": "record levels of DRAM probe card revenue Q2 to Q3 with mix shifting to DDR5; gross margin guided up to 54%; probe card intensity around the 0.4% level and distorting through 2026 into 2027",
                   "topics": []
                 }
               ]

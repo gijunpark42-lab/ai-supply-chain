@@ -1,0 +1,78 @@
+{
+  "source": "Broadcom Goldman Sachs conference 2026 (09-08-2026)",
+  "chains": {
+    "accelerators/broadcom_custom_asic.json": {
+      "players": [
+        {
+          "company": "Broadcom",
+          "layer": "compute_hardware",
+          "sector": "Custom AI ASIC (hyperscaler silicon)",
+          "product": "complete custom XPU accelerator (packaged ASIC + HBM) delivered to hyperscalers",
+          "quarterly_data": [
+            {
+              "quarter": "Broadcom Goldman Sachs conference 2026 (09-08-2026)",
+              "signal": "CEO Hock Tan disclosed the multi-die XPU roadmap in explicit terms - the clearest statement yet of how Broadcom is 'substituting Moore's law with something else'. He said Moore's law has ended ('Moving down process node, you cannot achieve double transistor performance anymore. You barely eke out 5% improvement, but you get power'), that physics caps a single die at '800 square millimeters' ('That's the largest size die you can make'), and that Broadcom now puts '2 die together in one chip. So effectively, you now have 1,600 square millimeters, double.' Critically: 'The current generation we are working on has 4 dies. You can just imagine. The one after that probably will go to maybe no limit, 8 die. 8 die in one chip. So your chip size is equivalent of, say, 800 times 8, over 6,000 square millimeter running as one single chip.' He stressed this enabling technology 'is not just created at a wafer fab or with the memory guys. It is us designing it', and listed the moats as high-speed SerDes/IO IP, multiplier density per square millimeter, die-to-die communication at low power, and advanced packaging.",
+              "figure": "largest size die you can make 800 square millimeters; 2 die = 1,600 square millimeters; current generation has 4 dies; next probably 8 die in one chip = over 6,000 square millimeter; process node shrink now yields barely 5% improvement",
+              "topics": [
+                "packaging_substrate",
+                "transitions"
+              ],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "Broadcom Goldman Sachs conference 2026 (09-08-2026)",
+              "signal": "Roadmap beyond the first OpenAI XPU (the Jalapeño itself was already disclosed on the Q3 FY2026 call): Tan said the relationship 'is very strong and continues to be very strong because we are working on the next and two generations to the Jalapeño' - i.e. two further generations already in development. He also explained why the first one took only a year ('within a year, we created an XPU called the Jalapeño'): co-design, where the customer's frontier-model team translates model specs into the architecture of what the compute hardware needs and Broadcom supplies the micro-architecture and physical design - 'When you have that very tight, almost seamless flow, it's not that much a challenge to be able to create chips of that caliber that quickly.'",
+              "figure": "no specific figure",
+              "topics": [
+                "product_launches",
+                "transitions"
+              ]
+            },
+            {
+              "quarter": "Broadcom Goldman Sachs conference 2026 (09-08-2026)",
+              "signal": "Tan unpacked what 'supply constrained' means behind the 2027 and 2028 AI revenue forecast, and it is not silicon. On chips: 'We understand the need for wafers, leading-edge wafers, and memory, as well as even substrates. That is pretty well locked in. We can pretty well lock that in for sure in 2027, and the process of locking in 2028 gives us within some limits. That is more within our control.' The less deterministic constraint is a site that is power READY, not merely power available: 'If you want to make it power ready, say, in 2028, got to start construction on the sites now. That is not us, our customers, has to start construction on the site now to make it available and ready by 2028' - a year and a half to two years out, gated by transformers, gas turbines, local permitting and the rate of construction. 'It's a judged number based on not just supply of memory wafers, but availability and readiness of power sites.'",
+              "figure": "wafers, memory and substrates locked in for 2027, being locked for 2028",
+              "topics": [
+                "supply_tightness",
+                "power_cooling",
+                "packaging_substrate"
+              ],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Broadcom Goldman Sachs conference 2026 (09-08-2026)",
+              "signal": "Customer concentration and the financing vehicle, in Tan's own words: 'we have only six customers today at this point. Very concentrated group, but I believe these six customers, all each of them are creating their own frontier models'. Of those six, 'two of them, two of the strongest guys do not have the cash flows to be able to generate the compute needed to train and create inference, productize their models' - he later referred to financing partners 'Anthropic and OpenAI'. Why Broadcom backs all six rather than picking: 'we cannot tell who is going to win' and 'they may coexist'. On the already-disclosed XPV platform he drew the line Broadcom had not drawn before: 'We do it by creating a platform, we call it XPV, where it would enable them to be financed. We do not finance directly.' Tan also rejected the circularity charge head-on: 'This is not circular financing... We are using financing to create demand. Demand is there' - when a customer sees the demand and could buy the compute from someone else, it is not circular.",
+              "figure": "only six customers today; two of the strongest do not have the cash flows",
+              "topics": []
+            },
+            {
+              "quarter": "Broadcom Goldman Sachs conference 2026 (09-08-2026)",
+              "signal": "Tan gave the unit economics he uses to judge AI durability - useful as the demand test behind Broadcom's XPU forecast. On a single deployment: 'Take the case of a very good frontier model. 1 gigawatt could generate $30 billion ARR... The cost to run 1 gigawatt, as you all know, is about $10 billion a year. So you have $20 billion that accrue to the model guys and the application that goes with it, and $10 billion fought over by the power guys, the cloud provider guys, even the chip and memory guys.' On the industry today (inference only, sourced from OpenRouter and Vercel data): global token generation cost is 'around $200 billion a year now' against model-layer revenue of 'Around $150 billion'. Splitting it: more than half of tokens are generated on open weight models, but frontier closed models take 'at least' 75% of the revenue - 'That's $120 billion. They spend roughly $100 billion' - while open weight players spend 'the other $100 billion' for 'revenue $30 billion'. His conclusion: value accrues to the best frontier models, which is why Broadcom's XPU customers must be frontier-model developers.",
+              "figure": "1 gigawatt generates $30 billion ARR at about $10 billion a year to run, leaving $20 billion to the model layer and $10 billion to power, cloud, chip and memory; industry token cost around $200 billion a year vs around $150 billion model revenue; frontier models 75% of revenue = $120 billion on roughly $100 billion spend; open weight revenue $30 billion on the other $100 billion",
+              "topics": []
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "OpenAI",
+              "relationship": "custom XPU silicon supply and deployment",
+              "contracts": [
+                {
+                  "source": "Broadcom Goldman Sachs conference 2026 (09-08-2026)",
+                  "signal": "The OpenAI XPU program extends past the first chip: Tan said the relationship 'is very strong and continues to be very strong because we are working on the next and two generations to the Jalapeño' - two further OpenAI accelerator generations already in development on top of the Jalapeño Broadcom shipped in Q3 FY2026. He attributed the one-year design cycle to embedded co-design with the OpenAI frontier-model team, which hands Broadcom the model specs and compute-hardware architecture while Broadcom does the micro-architecture and physical design.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "custom silicon design win",
+                  "topics": [
+                    "product_launches"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

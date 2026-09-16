@@ -1,0 +1,95 @@
+{
+  "source": "Powell Industries Midwest IDEAS 2026 (08-26-2026)",
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Powell Industries",
+          "domain": "power",
+          "sector": "Datacenter Power",
+          "quarterly_data": [
+            {
+              "quarter": "Powell Industries Midwest IDEAS 2026 (08-26-2026)",
+              "signal": "SCOPE OF THE RECORD DATA-CENTER ORDER DISCLOSED: CFO Michael Metcalf says the $400 million-plus order booked in fiscal Q3 was 'the entire outside electrical kit for a two gigawatt phase one data center' and that Powell 'won 100% of the outside' - unusual, because 'Usually, they'll split it up. They will say, Eaton, you do this. Powell, you do this.' The only visibility to another order of that size is phase two of the same project, which is contingent on executing phase one. The sales cycle was extraordinarily fast: the project 'started percolating in late fall last year, and it was done by the end of March', six months, where 'A $400 million LNG project would be five plus years in the making.'",
+              "figure": "$400 million-plus order = entire outside electrical kit for a two gigawatt phase one data center; 100% of the outside; booked in six months",
+              "topics": ["power_cooling"]
+            },
+            {
+              "quarter": "Powell Industries Midwest IDEAS 2026 (08-26-2026)",
+              "signal": "FORWARD BOOKING AND THE DATA-CENTER SPLIT INSIDE BACKLOG: Metcalf states '2027 is essentially booked at this point, and we're booking into 2028 backlog' - the first time Powell has put a year on how far the book extends. Of the 40% consumer and other industrial backlog bucket, '34 points of that is attributable to data centers' - 'It's almost entirely data center driven.' Mix otherwise: data centers about a third of backlog, core industrial (oil and gas, LNG, refineries) another third, utilities the remainder, which Powell deliberately holds at about a quarter ('We like to see that at 25% or greater'). On the revenue side the commercial and other industrial segment is about 20% today and 'that 20% likely will grow to 30% over the next 6 to 12 months, given where our backlog sits today'. 'Roughly 55% of that $2.4 billion is going to exit backlog in the next 12 months', plus book-and-ship on top.",
+              "figure": "2027 essentially booked, booking into 2028; 34 points of the 40% bucket is data centers; commercial 20% to 30% over the next 6 to 12 months; roughly 55% of the $2.4 billion exits backlog in the next 12 months",
+              "topics": ["power_cooling"],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "Powell Industries Midwest IDEAS 2026 (08-26-2026)",
+              "signal": "CAPACITY IS BEING ADDED AND MORE IS QUEUED: Powell is 'just finishing up a 335,000 square foot expansion at our fabrication yard that'll give us the ability to lay down 10 to 12 additional substations to work on per year', with 'Each substation is $10 million to $15 million' - that yard is bespoke for large one-piece buildings for core industrial (LNG, refineries). Beyond it, Powell's CEO (Brett) has flagged 'a $75 million to $100 million greenfield facility add-on at some point in probably the next 24 months to address some of this capacity', fundable from cash. The balance sheet supports it: over $600 million of cash and zero debt, with about $250 million of dry powder for acquisitions and roughly half the cash earmarked for working capital (12%-15% of every revenue dollar), helped by 25% advance payments taken at contract signing.",
+              "figure": "335,000 square foot fabrication-yard expansion adding 10 to 12 substations per year at $10 million to $15 million each; $75 million to $100 million greenfield add-on in probably the next 24 months",
+              "topics": ["power_cooling"],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Powell Industries Midwest IDEAS 2026 (08-26-2026)",
+              "signal": "DATA-CENTER VOLTAGE STEP-UP IN ONE YEAR - CONTENT MIX MOVING TO POWELL'S HIGH END: 'If I was sitting here last year talking specifically about data centers, it was 5,000 and 15,000 volt. Now it's 38,000 volt. They need more power.' 38,000 volts is the top of Powell's medium-voltage range ('that's where we stop') and Metcalf says 'We can't build it fast enough.' He adds 'I think the power equation hasn't yet been solved ... these things need so much power, and there's not enough power to feed all of them.' Powell remains outside the data center only ('we do not do anything on the inside'), supplying switchgear inside power control rooms / e-houses that step power into the site. On cycle length, management's working assumption is three to five years of this demand with no let-up visible today, and revamps of today's data centers in about five years are viewed as a future services opportunity.",
+              "figure": "data-center orders moved from 5,000 and 15,000 volt last year to 38,000 volt today",
+              "topics": ["power_cooling", "transitions"]
+            },
+            {
+              "quarter": "Powell Industries Midwest IDEAS 2026 (08-26-2026)",
+              "signal": "NEW ROUTE TO MARKET - NEOSCALERS: 'we booked a large order last quarter with a neoscaler, a new term to us'. Powell initially worked with the hyperscalers and the colos, but 'the terms and conditions on some of these hyperscaler colo operations are really tough', so it now goes direct with neoscalers and predominantly through distribution with hyperscalers and colos. Metcalf describes neoscalers as real-estate-origin operators who build out infrastructure and lease it back to a Google or a Microsoft, and says they are easier to contract with; the hyperscaler terms Powell refuses include consequential damages of 'millions and millions of dollars' for five minutes of downtime caused by its equipment, terms 'you'd never see ... in a utility contract'. Powell also notes the data-center customers found Powell after COVID when Schneider, ABB and Eaton ran out of capacity.",
+              "figure": "no specific figure",
+              "topics": ["power_cooling"]
+            }
+          ],
+          "connects_to": []
+        },
+        {
+          "company": "Eaton",
+          "domain": "power",
+          "sector": "Grid",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Powell Industries",
+              "relationship": "supplies low-voltage circuit breakers and other electrical gear into Powell's switchgear and power control rooms",
+              "contracts": [
+                {
+                  "source": "Powell Industries Midwest IDEAS 2026 (08-26-2026)",
+                  "signal": "Powell CFO Michael Metcalf on Powell's low-voltage line: 'We have low voltage switchgear, so we make the cabinets. We do not have a low voltage breaker. We will typically buy our breaker from an Eaton, a Siemens.' On the competitive relationship he adds: 'We buy a lot of equipment and gear from particularly Eaton and Siemens, not so much ABB and Schneider' - the same four firms Powell bids against in every North American utility campaign.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "component supply (low-voltage breakers and electrical gear)",
+                  "topics": ["power_cooling"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Siemens",
+          "domain": "power",
+          "sector": "Datacenter Power",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Powell Industries",
+              "relationship": "supplies low-voltage circuit breakers and other electrical gear into Powell's switchgear and power control rooms",
+              "contracts": [
+                {
+                  "source": "Powell Industries Midwest IDEAS 2026 (08-26-2026)",
+                  "signal": "Powell CFO Michael Metcalf: Powell makes the low-voltage cabinets but has no low-voltage breaker of its own - 'We will typically buy our breaker from an Eaton, a Siemens' - and 'We buy a lot of equipment and gear from particularly Eaton and Siemens, not so much ABB and Schneider.' Powell's own intellectual property is in medium voltage (two medium-voltage breakers, 1,000 volts up to 38,000 volts).",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "component supply (low-voltage breakers and electrical gear)",
+                  "topics": ["power_cooling"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

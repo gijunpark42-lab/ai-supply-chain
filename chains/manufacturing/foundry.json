@@ -402,7 +402,60 @@
                   "contracts": []
                 }
               ],
-              "quarterly_data": []
+              "quarterly_data": [
+                {
+                  "quarter": "Marvell Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "Murphy sized the data center ramp beyond the reported segment: in calendar 2023 Marvell did about $2.2 billion in data center revenue, and next year he is looking at $15 billion-$16 billion of data center revenue. He also contrasted the plan he laid out a year ago at the same conference (about $9.5 billion in fiscal 2027 and $11 billion-plus in fiscal 2028) with today's $12 billion and $18 billion.",
+                  "figure": "calendar 2023 data center revenue about $2.2 billion; next year $15 billion-$16 billion; year-ago plan of $9.5 billion / $11 billion now $12 billion / $18 billion",
+                  "topics": [],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "Marvell Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "Supply: over the past year the supply chain has been able to flex up 50%, taking the two-year revenue plan from $20 billion to $30 billion. Marvell reaches production more than 90%-plus of the time on first-pass silicon on advanced nodes. TSMC remains the sole-source fab vendor, with long-term deals also struck on substrate and back-end capacity plus capex and prepays. Murphy spent a week in Asia with existing and new suppliers ahead of the October 6 Investor Day; conditions are very acute right now in some areas, and he warned that some substrate capacity cannot be obtained until the end of the decade by anyone who did not start five years ago.",
+                  "figure": "supply chain flexed up 50%; two-year plan from $20 billion to $30 billion; 90%-plus first-pass silicon success on advanced node",
+                  "topics": [
+                    "supply_tightness",
+                    "packaging_substrate"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "Marvell Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "Murphy named Google on stage as the counterparty of the SEC 8-K warrant filed before the Q2 call and characterised it as an XPU-attach relationship rather than an XPU socket, covering NICs, CXL, storage controllers, near memory compute and AI acceleration. He stressed that Marvell is running the same playbook across the whole spectrum of hyperscale customers for programs that have no warrant or 8-K attached, so their size is not public, and that XPU-attach products are largely Marvell's own IP built to spec with the customer's name on the chip.",
+                  "figure": "no specific figure",
+                  "topics": []
+                },
+                {
+                  "quarter": "Marvell Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "Mix behind the raise: when next year's revenue outlook was still like $13.5 billion, custom was about the same size as it is today; the raise from $13.5 billion to $18 billion came mostly from interconnect and switching and storage, with only some from custom. Durn expects operating margin to walk from touching the low end of the 38%-40% range this Q4 to touching the high end next year at a similar range of gross margin, and Murphy expects gross margin flat-ish next year with operating margin expansion even though custom doubles, because custom NRE is booked as contra R&D.",
+                  "figure": "next-year revenue raised from $13.5 billion to $18 billion, mostly interconnect/switching/storage; gross margin flat-ish with operating margin from the low end to the high end of 38%-40%",
+                  "topics": [],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "Marvell the Six Five Summit 2026 (08-26-2026)",
+                  "signal": "Custom is penetrating faster than Marvell modelled: when the company sized this two years ago it assumed maybe 25% penetration of custom silicon versus merchant, and Murphy now says the prevailing view is that number is probably going to be higher in terms of units, while still rejecting the idea that custom takes the whole market. On XPU-attach he repeated the a-year-ago count of 15 or 18 different designs across all four big hyperscalers plus others, spanning the TPU, Trainium and MTIA ecosystems and also attaching to merchant GPUs, and put the content at up into the $500,000, $2,000 content level per accelerator — chips that are almost entirely Marvell IP, built to spec with little customer RTL.",
+                  "figure": "custom-vs-merchant penetration assumed at 25% penetration now seen higher in units; 15 or 18 different designs across all four big hyperscalers; $500,000, $2,000 content level per accelerator",
+                  "topics": [
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Marvell the Six Five Summit 2026 (08-26-2026)",
+                  "signal": "Memory expansion is accelerating on the memory shortage: Marvell's organically developed CXL line (expanders, pooling devices, CXL switches and CXL retimers, plus custom memory-expansion silicon) is on turbocharge, with customers that were already designing Marvell in now trying to go faster because expansion obviates the need to buy as much memory as they thought before, while inference KV caching drives disproportionate memory attached to the XPU. Murphy called it a billion, multi-billion dollar kind of business for us in the future with product and market leadership.",
+                  "figure": "a billion, multi-billion dollar kind of business for us in the future",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Marvell Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "Custom design-win count updated while recounting the June 2025 custom AI silicon event: 'Look, we got 18, it is now 20-plus design wins across all the four U.S. hyperscalers of both XPU and what we called XPU-attach.' Murphy added that Marvell called XPU-attach 'about a $15 billion market in 2025' at that time. (The transcript frames the 20-plus count inside his account of that event, so its as-of date is not stated precisely.)",
+                  "figure": "we got 18, it is now 20-plus design wins across all the four U.S. hyperscalers; XPU-attach about a $15 billion market in 2025",
+                  "topics": []
+                }
+              ]
             },
             {
               "company": "GUC (Global Unichip)",
@@ -1402,6 +1455,24 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "company": "MaxLinear",
+                  "relationship": "advanced-node foundry for MaxLinear's 1.6T optical DSP (Rushmore) and further product lines",
+                  "contracts": [
+                    {
+                      "source": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
+                      "signal": "MaxLinear's CFO confirmed the 1.6T generation moved to Samsung: 'With our 1.6T, as many of you know, we moved to Samsung. The industry is somewhat constrained by TSMC, and so this move to Samsung has caught a lot of people's attention.' It was not an optical-only decision - 'You'll see other products and other product lines or business units that will be done on Samsung as well' - and MaxLinear says it has worked with Samsung on forecasts and ramp plans and is comfortable it can meet customer demand.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "foundry supply",
+                      "topics": [
+                        "foundry",
+                        "optical_speed"
+                      ]
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -1865,6 +1936,86 @@
                   "signal": "Applied's Q3 FY2026 earnings release (quarter ended July 26, 2026) segment tables: in the year-ago quarter (Q3 FY2025) Semiconductor Systems revenue was $5,564 million and Applied Global Services revenue was $1,463 million; foundry, logic and other was 67% of Semiconductor Systems revenue in Q3 FY2026 (69% a year earlier). The release also says Applied expanded its manufacturing and R&D operations in Singapore with the new US$500 million Tampines Campus, which more than doubles its advanced cleanroom capacity in Singapore.",
                   "figure": "Q3 FY2025 year-ago comparison: Semiconductor Systems $5,564 million, Applied Global Services $1,463 million; foundry, logic and other 67% (vs 69%); Tampines Campus US$500 million",
                   "topics": []
+                },
+                {
+                  "quarter": "Applied Materials Citi conference 2026 (09-08-2026)",
+                  "signal": "CFO Brice Hill detailed the leading indicators behind the demand call. Applied runs a fab tracker of well over 100 factories announced across the world, with more than 10 added in each of the last two quarters, and the rolling eight-quarter forecast from its largest customers has risen every single quarter this year. Looking one level further out, cloud service provider capex forecasts have risen all year - over $700 billion this year for the U.S. companies and almost $1 trillion for the global companies. Management says the medium-term ramp is gated by clean room, and there is more demand than there is supply.",
+                  "figure": "fab tracker well over 100 factories, more than 10 added in each of the last two quarters; CSP capex over $700 billion this year for U.S. companies, almost $1 trillion globally",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "backlog_or_b2b"
+                },
+                {
+                  "quarter": "Applied Materials Citi conference 2026 (09-08-2026)",
+                  "signal": "Capacity and supply-chain readiness: Applied has invested and is investing so that it can produce double the amount of systems each quarter that it is producing today - a capacity statement, not a revenue forecast. Clean room typically takes two, three or four years to put in place. Applied aggregates the eight-quarter customer forecasts by component type and sends them to its suppliers - typically referenced as 2,000 plus suppliers - so they get 8-quarter advance notice to add capacity, and that forecast has risen every single quarter this year.",
+                  "figure": "capacity to produce double the amount of systems each quarter; 2,000 plus suppliers on 8-quarter forecast; clean room takes two, three or four years",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "Applied Materials Six Five Summit 2026 (08-27-2026)",
+                  "signal": "EPIC Center: Applied made a $5 billion investment co-locating its innovators with partner innovators in Silicon Valley, where customers get first access to Applied's materials innovations and the new architectures are co-created. Management says the engagement gives Applied very high visibility on what is important over the next 10 years and over many technology nodes, which drives where it invests and where it does not, and that the commercialization half of EPIC is about ramping those architectures at high yield.",
+                  "figure": "$5 billion investment in EPIC Center; visibility over the next 10 years and many technology nodes",
+                  "topics": []
+                },
+                {
+                  "quarter": "Applied Materials Goldman Sachs conference 2026 (09-09-2026)",
+                  "signal": "CEO Gary Dickerson walked through how the 2026 revenue forecast has been raised through the year: in February Applied said greater than 20% revenue growth, in May greater than 30% revenue growth, and now it is approaching 40% revenue growth. 80% of wafer fab equipment growth this year is leading foundry logic, DRAM including High-Bandwidth Memory and advanced packaging, and management sees that same mix in 2027 and going forward.",
+                  "figure": "approaching 40% revenue growth (from greater than 20% revenue growth in February and greater than 30% revenue growth in May); 80% of wafer fab equipment growth",
+                  "topics": [
+                    "foundry",
+                    "hbm",
+                    "packaging_substrate"
+                  ],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "Applied Materials Goldman Sachs conference 2026 (09-09-2026)",
+                  "signal": "Structural mix shift at leading-edge foundry: a few years ago smartphone wafer starts were 4 times larger than data center, today they are one to one, and in a couple of years it will be two to one data center versus smartphone. Management calls data center versus smartphone the driver for the next several years.",
+                  "figure": "smartphone wafer starts 4 times larger than data center a few years ago; one to one today; two to one data center versus smartphone in a couple of years",
+                  "topics": [
+                    "foundry"
+                  ]
+                },
+                {
+                  "quarter": "Applied Materials Goldman Sachs conference 2026 (09-09-2026)",
+                  "signal": "Pricing and margin: Semiconductor Systems gross margin is in the mid-50s and has increased about 190 basis points over the last year, with services margins up 180 basis points, and management has high confidence it can keep driving both higher because customer profit pools are larger than ever. On services, moving a customer to a different service contract can more than double revenue per tool, with over 37,000 chambers in the field connected to AI-enabled servers.",
+                  "figure": "Semiconductor Systems gross margin mid-50s, up about 190 basis points; services margins up 180 basis points; can more than double revenue per tool on some service contracts",
+                  "topics": []
+                },
+                {
+                  "quarter": "Applied Materials Goldman Sachs conference 2026 (09-09-2026)",
+                  "signal": "China / ICAPS: China is mostly ICAPS (IoT, communication, auto, power, sensors) for Applied. Applied is seeing growth this year in China and overall ICAPS and gaining a little bit of share in the areas where it can compete inside China, and expects that business to grow a little faster next year than this year. Near-term ICAPS growth is being driven by power in data center and photonics; longer term ICAPS grows mid to high single digits, slower than the AI data center segments.",
+                  "figure": "ICAPS mid to high single digits longer term; China and ICAPS growing this year and a little faster next year",
+                  "topics": [
+                    "power_cooling",
+                    "silicon_photonics"
+                  ]
+                },
+                {
+                  "quarter": "Applied Materials Goldman Sachs conference 2026 (09-09-2026)",
+                  "signal": "Capital allocation: Applied will return 80%-100% of cash to shareholders. Management said large M&A is not possible in the current geopolitical environment, so the company is doing smaller deals - the panel plating acquisition and an X-ray technology company - plus strategic investments, including hybrid bonding, where Applied is combining a partner technology with five technologies from Applied Materials on an Applied Materials platform.",
+                  "figure": "80%-100% of cash returned to shareholders; hybrid bonding combines a partner technology with five technologies from Applied Materials",
+                  "topics": [
+                    "packaging_substrate"
+                  ]
+                },
+                {
+                  "quarter": "Applied Materials Citi conference 2026 (09-08-2026)",
+                  "signal": "CFO Brice Hill said 'A lot of that has been on pricing' when explaining gross margin growth of approximately 300 basis points over the last three years, which he frames as the solutions being more valuable rather than simply raising prices. He added that input costs are rising ('costs of labor, materials, components, aluminum, steel, gold, all the input costs have gone up'), so Applied has to make price adjustments on every product, new or existing, each period, not only on new tools.",
+                  "figure": "approximately 300 basis points over the last three years",
+                  "topics": []
+                },
+                {
+                  "quarter": "Applied Materials Citi conference 2026 (09-08-2026)",
+                  "signal": "Services model: early this year Applied talked about services growing in low double digits (11% or 12%), then raised the longer-term growth view to mid-teens because the installed base is growing faster than expected. This year's growth of over 20% is an unusual bump from utilization - leading-edge logic and DRAM at almost 100% utilization, NAND very high, ICAPS healthier - which drives spares and component buying and cannot repeat ('We cannot go to 110% next year'). The two long-term growth drivers are an installed base growing 5%, 6%, 7% every single year plus rising average revenue per tool from new, largely AI-based, service products.",
+                  "figure": "installed base growing every single year, 5%, 6%, 7% every single year; Leading-edge logic and DRAM, almost 100% utilization; earlier view 11% or 12%",
+                  "topics": [
+                    "supply_tightness"
+                  ]
                 }
               ]
             },
@@ -1971,6 +2122,73 @@
                   "signal": "The release's cash flow statement shows capital expenditures and intangible assets of $188,801 thousand in the three months ended June 28, 2026, versus $331,604 thousand in the three months ended March 29, 2026 and $172,191 thousand in the three months ended June 29, 2025.",
                   "figure": "capital expenditures and intangible assets $188,801K (June 2026 quarter) vs $331,604K (March 2026 quarter) vs $172,191K (June 2025 quarter)",
                   "topics": []
+                },
+                {
+                  "quarter": "Lam Research Goldman Sachs conference 2026 (09-10-2026)",
+                  "signal": "NEW U.S. LAB INVESTMENT, NOT ON THE CALL: Doug said Lam announced a large new lab investment in Oregon about two weeks before the conference, 'which is a key part of a $3 billion investment that we plan to do in lab and engineering capability'. The biggest lab investments in the company are in the U.S. - the Fremont, California headquarters and the large Oregon engineering organization - because that is where Lam does its innovation. Separately, on the wave of new U.S. fab investments Doug said Lam is 'making investments in all of those locations to make sure we have got the engineering capability to support what the customer needs in those locations' - he named only TSMC's Arizona fab as an example ('if they weren't doing there, they would've probably been doing in Taiwan, and we support them the same no matter where they are'). Asked whether Lam's share of U.S. capacity could be higher than its global share, Doug said 'It's consistent.'",
+                  "figure": "$3 billion investment in lab and engineering capability, including a newly announced Oregon lab",
+                  "topics": []
+                },
+                {
+                  "quarter": "Lam Research Goldman Sachs conference 2026 (09-10-2026)",
+                  "signal": "ENGAGEMENT WITH A NEW-ENTRANT FAB CUSTOMER: asked about the unconventional new fab customers coming to market, Doug would not name the company but confirmed the engagement: 'there's a potential large amount of demand that shows up there. We are deeply engaged already with that specific customer. I have to be careful not talking too much about any one customer, but the engagement there is already in place, and will be.' He added that with a new-type customer 'the opportunity to do more and provide even more for a customer like that is very high, and we're making sure we're very focused on it'. No units, value or timing were given.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "foundry"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Lam Research Goldman Sachs conference 2026 (09-10-2026)",
+                  "signal": "2027 SEGMENT RANKING: Ram said that after a 2026 WFE led by DRAM, then leading-edge foundry/logic, then NAND, next year has 'a similar setup in terms of ranking' and is 'still led by DRAM next year, but the gap between leading-edge foundry logic's WFE spend and DRAM is probably a little closer next year. Leading-edge foundry logic is very strong next year.' Asked to handicap foundry versus DRAM, Doug declined to rank them: 'both are going to go quite high, and NAND'. He tied the strength to 3D architecture inflections Lam is levered to - gate-all-around, backside power, advanced packaging TSV and HBM - each gate-all-around and backside-power step worth about $1 billion of incremental SAM per 100,000 wafer starts of capacity.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "foundry"
+                  ]
+                },
+                {
+                  "quarter": "Lam Research Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "FIRST READ ON 2028: the CY2026 WFE walk ('from $135 billion to $140 billion, now to low $150 billion'), the clean-room constraint and the '8 to 10 new, what I would call tier 1 fabs coming online ... through the end of 2027' were all reaffirmations of the Q4 FY2026 call. NEW here is the year beyond: CFO Doug Bettinger would not commit to a 2028 number, but said that because customers are telling him 2027 is still undersupplied, that 'leads you to think 2028 is probably a pretty decent year as well'. He framed the constraint as easing rather than lifting - WFE grows next year while the clean-room limit 'will get somewhat better' - with the industry still 'fundamentally under-supplying demand'.",
+                  "figure": "2028 called 'probably a pretty decent year as well' (no number); reaffirmed: CY2026 WFE walked $135 billion -> $140 billion -> low $150 billion, 8 to 10 new tier 1 fabs through the end of 2027",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "Lam Research Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "HOW LAM GETS PAID ON THE PANEL TRANSITION: the growth rate itself was already on the Q4 FY2026 call - Bettinger repeated that 'Our advanced packaging business is growing north of 70% this year', with foundry and logic the big contributor. NEW is the panel readiness argument: he said the industry has not moved to the panel form factor yet but will, that it will show up in foundry and logic, and that Lam needs nothing inorganic for it because the wafer-level TSV skill set (silicon etching plus copper electroplating) carries straight over - 'we're going to be extraordinarily strong there' - helped by a company Lam acquired in Austria a few years ago that already had panel form-factor capability and 'accelerated our R&D progress there'.",
+                  "figure": "no specific figure (advanced packaging growth north of 70% this year was already disclosed on the Q4 FY2026 call)",
+                  "topics": [
+                    "packaging_substrate",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Lam Research Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "DRY RESIST TARGET IS GOING UP: asked to update the $1.5 billion cumulative five-year revenue opportunity Lam has previously given for Aether Dry Resist, Bettinger said 'the pull for Dry Resist is really strong. I'm quite confident that billion and a half number is going to be higher than $1.5 billion... We're going to upside that $1.5 billion', based on incremental opportunity he is hearing and seeing from customers. He is not ready to give a new number yet. He also pointed to the high-NA adoption announcements made by players in the industry over the prior day or so as 'going to be beneficial for us'.",
+                  "figure": "$1.5 billion cumulative five-year Aether Dry Resist opportunity to be revised higher; no new number given yet",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Lam Research Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "LAM'S OWN CAPACITY RESPONSE: Bettinger said Lam is pulling hard to bring a second facility in Malaysia online sooner - 'essentially a cookie cutter of the previous facility' - and is densifying existing footprints to get more output from the same square footage of clean room it already had ('you didn't know you needed to until you needed to'), plus hiring and training so Lam is 'not going to be the bottleneck'. Lam's lead time to add capacity is shorter than a customer's clean-room lead time, and the same customer demand signals (point estimate, upside, timing, error bar) are propagated back to Lam's supply chain. With thousands of parts per tool 'there's always something that is constraining us'.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "Lam Research Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "WHAT IS DRIVING THE CSPG RECORD - AND THE SERVICE MODEL BEHIND IT: the headline ('third consecutive record, nearly $2.5 billion in revenue from CSPG', more than 100K installed chambers, cobots on 8 tool types) repeats the Q4/Q3 FY2026 calls. NEW is the why: Bettinger said spare parts are the biggest individual component of CSPG and 'utilization in the industry is basically at 100%, so spare parts consumption is high. That's going to continue, for sure' - the first time the utilization level itself is quantified; upgrades carry a heavy NAND footprint; and the Reliant mature-node line is strengthening in analog and industrial. He also positioned the outcome-based service model (cobots plus Equipment Intelligence and algorithmic fleet analysis) competitively for the first time - Lam is 'quite a ways ahead of this' and he expects customers to push competitors to copy it.",
+                  "figure": "industry utilization basically at 100% driving spare-parts consumption (reaffirmed: CSPG nearly $2.5 billion, third consecutive record; cobots on 8 tool types)",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "revenue_growth"
                 }
               ]
             },
@@ -2386,6 +2604,32 @@
                   "signal": "Second-quarter 2026 earnings release, Net Revenue by Market table: Semiconductor Equipment revenue was $209.5 million in the three months ended June 30, 2025 and $219.4 million in the three months ended March 31, 2026 (the comparison periods for the second quarter of 2026); $497.7 million for the six months ended June 30, 2026 versus $431.7 million for the six months ended June 30, 2025.",
                   "figure": "Semiconductor Equipment six months ended June 30, 2026 $497.7M vs $431.7M (six months ended June 30, 2025); three months ended June 30, 2025 $209.5M; three months ended March 31, 2026 $219.4M",
                   "topics": []
+                },
+                {
+                  "quarter": "Advanced Energy Citi’s Global TMT Conference 2026 (09-10-2026)",
+                  "signal": "eVoS / eVerest / NavX ARE DESIGNED INTO SUB-2 NANOMETER LOGIC, BUT REVENUE IS A 2027-2028 EVENT. Kelley: 'Today we are being designed into sub-2 nanometer applications, logic for instance. We expect those products to become more meaningful from a revenue standpoint next year. We are already seeing shipments this year but, compared to the overall shipments we make, they are not that meaningful.' On the mix of what is ramping now: 'As you see the ramp this year, that is almost all older technologies. They are existing wins from many years ago where our customers are ramping the volume. I think as you move into 2027 and 2028, you will see a more significant percentage of the buy coming from new products, as those new processes ramp to volume.' He tied the pull to higher etch and dep intensity at fine geometries requiring higher power, multiple frequencies and more advanced metrology - capabilities that 'drive higher prices.'",
+                  "figure": "new products (eVoS, eVerest, NavX) designed into sub-2 nanometer logic; meaningful revenue share only in 2027 and 2028",
+                  "topics": [
+                    "foundry",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Advanced Energy Citi’s Global TMT Conference 2026 (09-10-2026)",
+                  "signal": "WFE CUSTOMERS HAVE TWO-YEAR VISIBILITY AND ARE GATED BY FAB SPACE, NOT ORDERS: Kelley said 'What we are being told by our customers is they have good visibility for the next two years. That is a lot of visibility. They are also telling us they are constrained by available fab basis. As their customers are able to accelerate the build-out schedule for new fabs for advanced memory and advanced logic, that is an upside for our customers, upside for us.' He said AE believes it is 'shipping to demand and not into inventory' because it is seen as a reliable supplier, so customers hold less buffer inventory, and that AE runs 'a just-in-time model with our largest customers. There's no lead time per se.'",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "supply_tightness",
+                    "foundry"
+                  ]
+                },
+                {
+                  "quarter": "Advanced Energy Citi’s Global TMT Conference 2026 (09-10-2026)",
+                  "signal": "NEW SOCKET - SYSTEM POWER INSIDE AI TEST AND BURN-IN: Kelley said that beyond the plasma-power heritage, 'over the past few years, we've put more emphasis on what we call our system power business... The demands have become increasingly complex, particularly as we move into the AI testing challenges. So we've had significant success there, getting our products designed into those testers, burn-in ovens, other applications where our customers need reliable system power.' On the trajectory: 'we haven't modeled exactly how it's going to grow, but what we know is we continue to expand capacity every quarter for these test applications', at margins 'similar to what we have in the plasma power business.'",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "supply_tightness"
+                  ]
                 }
               ]
             },
@@ -3126,6 +3370,65 @@
                   "topics": [
                     "supply_tightness"
                   ]
+                },
+                {
+                  "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "WFE VIEW RAISED AGAIN AND A FIRST LOOK AT 2027. CFO Bren Higgins: at the March Investor Day KLA thought the industry would be '$135 billion to $140 billion' and it now expects 'greater than $150 billion'; customers are 'struggling with space' but 'figuring out ways to take equipment'. KLA's own growth: 'in 2024, we grew 12%, 2025, we grew 17%, 2026, if you take our performance plus some of the guidance we gave, you end up in the low 20%', with about 400 basis points of operating-margin gain over that span. For 2027 he says 'growth rates into 2027 are probably in a similar range, maybe higher'. Mix commentary: process-control intensity at the 2 nm node is higher than at 3 nm, KLA is seeing backporting of capability into N3 on top of N2 investment, and in 2027 'we are going to see the next investment in the next node from multiple players' - leading-edge logic is no longer effectively one investor, which he calls an inefficiency that is good for KLA.",
+                  "figure": "industry greater than $150 billion (vs $135 billion to $140 billion at Investor Day); KLA grew 12% in 2024, 17% in 2025, low 20% in 2026; 2027 growth in a similar range, maybe higher",
+                  "topics": [
+                    "foundry"
+                  ],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "BACKLOG QUALITY AND DURATION - NEW COLOUR ON THE RECORD 10-K NUMBER: Higgins says backlog is 'just short of $13 billion' and that he 'would expect that backlog to continue to grow', with a very strong order funnel. KLA does not disclose the conversion split, but 'we are taking orders basically for the next, in most cases, it is 12 to 18-month time frames', pushed toward the long end in this environment; Gen 4 and Gen 5 inspection tools carry longer lead times than metrology tools. Customer shipment visibility now runs 'through 2027 and in some cases into early 2028'. Some orders are placed purely to hold a slot against fab construction schedules, and 'getting the orders tends to solidify, particularly in a constrained environment, both timing, commitment, and pricing'. KLA's top five customers still drive a lot of the business.",
+                  "figure": "backlog just short of $13 billion; orders in 12 to 18-month time frames; shipment visibility through 2027 and in some cases into early 2028",
+                  "topics": [],
+                  "slot": "backlog_or_b2b"
+                },
+                {
+                  "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "OPTICS ARE THE BINDING CONSTRAINT AND KLA IS CONTRACTING CAPACITY OUT TO 2029-2030: 'typically where we see the most constraint typically is around optical components. Optics have an intrinsic lead time that is just very long. Calcium fluoride lead times can be 18 to 24 months or more', and the equipment used to make optics is itself long lead time. 'We are having conversations with our key optics suppliers around capacity requirements out into the 2029 and 2030 timeframe.' Higgins states the constraint is still live - 'if I could get more, I could probably ship more today' - but says new supplier capacity came online to support the stronger second half and more arrives through next year, and confirms that constraints are improving.",
+                  "figure": "calcium fluoride lead times 18 to 24 months or more; optics-supplier capacity conversations out into the 2029 and 2030 timeframe",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "CFO Bren Higgins on services (pure service, no systems inside): KLA has 'an updated target growth model of 13%-15% moving forward', and '80% is contract-based, so subscription-like in a lot of ways', with an operating margin profile accretive to the company and 'only had one down year, I think, in 25 years'. The 13%-15% target was laid out in March on a five-year industry view, and 'that view looks conservative today', which he says creates an opportunity to drive more growth out of service as more systems ship. (The 'mid-teens' wording in the question was the moderator's.)",
+                  "figure": "80% is contract-based; that view looks conservative today",
+                  "topics": []
+                },
+                {
+                  "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "Optical vs e-beam inspection split: 'historically, it has been about 80/20', and today 'it is probably a little bit higher in the higher end of the maybe 85% plus' on the optical side, driven by the relative growth rates of the two markets. E-beam is inherently slow and used in production only for defect types it alone can find; Higgins expects high-end optical pattern inspection to be one of the fastest-growing markets in process control and does not think the ratio changes much going forward.",
+                  "figure": "historically about 80/20; today maybe 85% plus",
+                  "topics": []
+                },
+                {
+                  "quarter": "KLA Goldman Sachs conference 2026 (09-11-2026)",
+                  "signal": "TERAFAB NAMED AS A NEW CUSTOMER ENGAGEMENT: Ahmad Khan lists 'new customers coming in as you know, like Terafab and others' among U.S. fab builders. On the engagement he says Terafab is 'engaged in an R&D line first' and KLA is working with them to develop those processes, including process transfers from other customers' developed nodes; 'as Terafab starts building that initial factory, we would be engaged with them on that, and then as they go forward with HBM fab, we’ll be engaged with them.' KLA also had a prior relationship with them on other parts of their businesses that need advanced packaging and chip integration. No order size or timing was given. (Terafab was first raised by Khan himself; the moderator then asked about it.)",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "foundry"
+                  ]
+                },
+                {
+                  "quarter": "KLA Goldman Sachs conference 2026 (09-11-2026)",
+                  "signal": "SUPPLY-CHAIN ACTIONS BEHIND THE CONSTRAINT: Higgins says the memory issue 'has been more of a cost issue than it’s been a supply issue' - KLA first secured supply 'to meet our needs for 2026 and 2027', then had to secure more at much higher prices (the roughly 100-ish basis points gross-margin headwind already cited). For optics and other long-lead custom parts, KLA makes investments with suppliers that show up as 'large prepaids or sharing of CapEx'. On its own capacity, in November Higgins will attend a ribbon cutting on a Singapore building he broke ground on two years ago plus a groundbreaking on the next building. He also said 'I could ship more if I had more parts even today.' Context on KLA as a compute buyer: Khan says an average high-end KLA machine takes 'about one petabyte of images per day', and KLA has moved its systems to a GPU-based compute architecture using GPUs and memory.",
+                  "figure": "secured supply for needs for 2026 and 2027; large prepaids or sharing of CapEx; Singapore expansion groundbreaking in November; about one petabyte of images per day",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "KLA Goldman Sachs conference 2026 (09-11-2026)",
+                  "signal": "LEGACY / CHINA SIZED FOR 2027: Higgins says in the legacy parts of the market, including China, 'you will start to see some growth again'; it is 'a smaller part of the business, maybe 25-ish percent of overall WFE', and will not grow as fast as the overall market, so its percent of the total 'maybe comes down'. He also said that from a share point of view in the expanding U.S. footprint KLA is 'at least sort of flattish'.",
+                  "figure": "legacy including China maybe 25-ish percent of overall WFE",
+                  "topics": []
                 }
               ]
             },
@@ -3195,6 +3498,36 @@
                   "quarter": "Teradyne 8-K (07-29-2026)",
                   "signal": "Teradyne's Q2 2026 earnings release states revenue was up 104% and earnings up over 300% from Q2'25, when revenue was $652 million; Q2'26 non-GAAP EPS was $2.47 versus $0.57 in Q2'25.",
                   "figure": "revenue +104% vs Q2'25 ($652 million); non-GAAP EPS $2.47 vs $0.57",
+                  "topics": []
+                },
+                {
+                  "quarter": "Teradyne Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                  "signal": "FIRST HARD SIZING OF THE CPO TEST MARKET, PLUS WHO WINS WHICH INSERTION (CEO Greg Smith): the test-equipment TAM for silicon photonics co-packaged optics is about $100 million in 2026 and is expected to be between $300 million and $700 million by 2028, reaching about a billion dollars of test equipment by 2030 (optical alignment, interface hardware and material handling are a separate TAM). Today it is 'a very concentrated market' - one customer and a very small number of devices drive most of the 2026 capital intensity. A CPO device has four major optical test insertions: (1) the photonics wafer, (2) the silicon photonics wafer with the electronic ICs bonded to it, (3) the singulated optical engine dielets with the mounting plate for FAU alignment, (4) the assembled CPO device. On this first device at this first customer, 'Advantest is strongest in insertion one, Teradyne is strongest in insertion two, a Taiwanese supplier is strongest in insertion three, and Teradyne is strongest in insertion four.' Management flags scaling pain as the reason for 'increasing excitement about copper networking for scale-up' and for NPO, which avoids the yield risk of a full CPO device.",
+                  "figure": "CPO/SiPho test equipment TAM about $100 million in 2026, between $300 million and $700 million by 2028, about a billion dollars by 2030",
+                  "topics": [
+                    "cpo",
+                    "silicon_photonics"
+                  ]
+                },
+                {
+                  "quarter": "Teradyne Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                  "signal": "MERCHANT COMPUTE (GPU) SECOND-SOURCE PATH QUANTIFIED: Teradyne was invited in the middle of 2025 to qualify as a second vendor for test in a merchant compute account; the qualification part - deliberately a mature, already-ramped device so the tester was the only variable - was released in the first part of this year and is loaded in production on a small fleet of testers. Teradyne is now developing additional devices for release on both its own and the incumbent platform; those parts are earlier in their life cycle, are expected to finish in the second part of this year, and the associated production volume would be captured in 2027. Management expects to stay in this program-conversion mode 'for the next three to five years... we are going to slowly gain share up to maybe 30% of that compute portion of the account', after which share depends purely on which platform is chosen for initial part qualification.",
+                  "figure": "share path to maybe 30% of the merchant compute portion of the account over the next three to five years; volume capture starting 2027",
+                  "topics": [
+                    "transitions"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Teradyne Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                  "signal": "CUSTOM AI SILICON - TERADYNE HOLDS BOTH CLOUD-COMPUTE HYPERSCALER ACCOUNTS AND SIZED THEM: 'there are really two very large players and a third that is at scale, but not of the same magnitude. Two of them are in cloud compute, and the other is primarily in the automotive and robotic space. Those are the three players that are loading hundreds of testers.' Teradyne has the two cloud-compute hyperscalers. At the first, which used to be exclusively on the competitor's platform, Teradyne began qualifying in 2023, succeeded in 2024, 'and by 2026, we had the majority share in that hyperscaler account'. The second at-scale cloud hyperscaler has opened a second-source slot: the first part is correlated and being released to production, follow-on devices are under way, and Teradyne expects 'to begin capturing meaningful production share in 2027'. 'Each one of these is hundreds of millions of dollars of TAM to $1 billion of TAM in any particular year.' Between the two AI franchises, the ASIC business has more 2027 upside than networking, which is a more mature, more predictable TAM.",
+                  "figure": "majority share at the first cloud hyperscaler by 2026; meaningful production share at the second expected 2027; each account hundreds of millions of dollars to $1 billion of TAM per year",
+                  "topics": []
+                },
+                {
+                  "quarter": "Teradyne Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                  "signal": "CEO Greg Smith gave the base and the upper end of the semiconductor capital spend frame behind the test TAM: 'last year, kind of $120 billion, moving on towards $250 billion or even $300 billion of semiconductor capital spend in the 2028 to 2030 period of time.' He is not sure test keeps rising as a percentage of that spend, but expects it to increase in proportion to it. He also gave the business mix: semiconductor test is about 80% of revenue ('A little bit more for semi test recently because it has grown so quickly'), robotics about 10% and product test about another 10%.",
+                  "figure": "semiconductor capital spend $120 billion last year, moving towards $250 billion or even $300 billion in the 2028 to 2030 period; semiconductor about 80% of revenue, robotics about 10%, product test about another 10%",
                   "topics": []
                 }
               ]
@@ -3465,6 +3798,42 @@
                   "signal": "FormFactor's 10-Q reports Foundry & Logic probe-card revenue of $121,839 thousand for the three months ended June 27, 2026 (47.2% of revenues), up 22.4% from $99,513 thousand, and $233,027 thousand for the six months, up 26.1% from $184,785 thousand, driven by stronger probe-card demand for networking and high-performance compute microprocessor designs. Remaining performance obligations were $10.8 million at June 27, 2026.",
                   "figure": "Q2 Foundry & Logic $121,839 thousand (+22.4% YoY vs $99,513 thousand); six months $233,027 thousand (+26.1%); RPO $10.8 million",
                   "topics": []
+                },
+                {
+                  "quarter": "FormFactor Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "GPU PROBE-CARD MARKET SIZED AND A SHARE TARGET PUT ON IT FOR THE FIRST TIME. Slessor on qualifying for GPU applications at the world's largest foundry: 'we've now received qualification and are shipping pilot production volumes that are being used in production, for GPU test at the world-leading foundry'. On the size: 'We initially sized it maybe a little less than $100 million a year. That feels awfully conservative at this point.' On share against the entrenched incumbent, assuming the uptime/MTBF/test-cell-productivity advantages of FormFactor's advanced MEMS probes hold through the initial production ramp: 'we will be able to gain on the next generation, maybe somewhere in the 20%-25%-30% share range', which he called a useful goal — revenue from it becoming visible in 2027. Delivering it depends on capacity: 'We are pretty constrained on capacity right now.'",
+                  "figure": "GPU probe-card market initially sized a little less than $100 million a year (now seen as conservative); target 20%-25%-30% share range on the next generation",
+                  "topics": [
+                    "foundry"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "FormFactor Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "CUSTOM ASICs CROSS INTO ADVANCED MEMS IN 2027-2028 — THE NEXT TECHNOLOGY PIVOT. Slessor named the category directly: 'custom ASICs, things like Google's TPU, AWS's Trainium'. Their power envelope, both consumed and produced, is driving them out of legacy wire-based needle probe technology: 'We see custom ASICs really crossing this brink in 2027 and into 2028 of needing an advanced MEMS probe technology... much the same way GPUs did a few generations ago.' It will be mixed rather than wholesale — chiplet architectures mean some chiplets stay on legacy wire probes while the advanced compute chiplets require MEMS. FormFactor builds every probe with proprietary MEMS metallurgy and patterning, vertically integrated in Livermore, California and the ramping Farmers Branch, Texas site, enabling higher current, higher speed and higher/lower temperature test. Engagement is with 'all the names you'd expect us to be engaged with and their foundry and OSAT partners'; initial revenue has been booked on some projects, with designs and qualifications won in late 2026 and ramp in 2027. These may not appear as 10% customers because FormFactor is 'essentially operating at a billion-dollar annual run rate now', raising the 10%-customer bar.",
+                  "figure": "custom ASICs crossing to advanced MEMS probe in 2027 and into 2028; FormFactor at a billion-dollar annual run rate",
+                  "topics": [
+                    "transitions",
+                    "packaging_substrate"
+                  ]
+                },
+                {
+                  "quarter": "FormFactor Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "THREE NEW COMPUTE PROBE-CARD WINS DISCLOSED, ALL UNNAMED. (1) 'One of our historic long-term customers, one of the major CPU suppliers to the industry, their business obviously getting stronger associated with some of the turnaround they've done and the CPU strength.' (2) 'We recently qualified and won some designs at a fabless CPU and GPU manufacturer.' (3) 'There's a third customer building their own CPUs for their overall high-performance compute products, where we've won some designs and expect to have that as a 2027 contributor.' Slessor also explained why probe cards stay consumable even though high-performance-compute probes no longer wear out: each new mask set needs a new probe card — 'as a customer like NVIDIA goes from Blackwell to Rubin to Rubin Ultra, those are each new probe cards, even though they use the same capital equipment and test equipment' — so design-change velocity, not wear, now drives the recurring revenue.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "cpu",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "FormFactor Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "CAPACITY IS THE BINDING CONSTRAINT AND FARMERS BRANCH IS THE RELEASE VALVE. Slessor: 'right now, the simplest way to think about our situation is we are capacity constrained. What's limiting our growth, if you will, or what's constraining our growth, is our capacity.' Farmers Branch, Texas is 'close to a 300,000 square foot site' bought a little over a year ago with a ready-to-go clean room and expansion potential; a grand opening is set for 'late October'; the site is expected to deliver 'twice the current California probe card capacity in the current phase'. Timing: 'Start to ship the initial qualification units in the fourth quarter, and again, ramping through 2027 to deliver a substantial increase, essentially 2X the existing capacity as we get through the back part of 2027.' Capacity will be turned on in tranches matched to demand to avoid utilisation and gross-margin headwinds. On the target model — '55% gross margin, $5 of earnings per share on $1.6 billion of revenue' in 2030 — he said the external high-single-digit market growth assumption was arguably too conservative and that FormFactor could 'reach the target model faster than 2030' if demand holds.",
+                  "figure": "Farmers Branch: close to a 300,000 square foot site, grand opening in late October, twice the current California probe card capacity in the current phase; initial qualification units ship in the fourth quarter, 2X the existing capacity by the back part of 2027; target model 55% gross margin, $5 of earnings per share on $1.6 billion of revenue",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
                 }
               ]
             },
@@ -3630,6 +3999,61 @@
                   "topics": [
                     "foundry",
                     "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Nova Citi conference 2026 (09-08-2026)",
+                  "signal": "WFE VIEW RAISED: asked about the mid-teens 2026 WFE framework the moderator attributed to Nova from May, CFO Guy Kizner said the numbers have moved up - external estimates have been revised up every two months, driven by AI, and on Nova's read of WFE 'it will be above 20%', though he would not name a number (Nova does not forecast WFE internally and refers to market consensus). He noted the market range is still unusually wide four months from year end: 'Gartner talking about 20% growth, TechInsights in the high 20s', with other analysts at 30, 35, 38 - even with the big players' backlog and shipment plans already visible.",
+                  "figure": "it will be above 20%; Gartner talking about 20% growth, TechInsights in the high 20s",
+                  "topics": [
+                    "foundry"
+                  ],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "Nova Citi conference 2026 (09-08-2026)",
+                  "signal": "WHY NOVA IS NOT OUTPERFORMING WFE AS USUAL IN 2026 (the '2x WFE' framing was the moderator's, not management's): Kizner said Nova historically outperforms WFE significantly ('2024, we grew by 30%', '2025, we grew by 31%' while WFE did not grow much) but 2026 breaks the pattern because of investment MIX. Three reasons: (1) NAND contributes to WFE but nothing to Nova because the spend is upgrades, not greenfield capacity; (2) heavy DRAM investment, where metrology intensity is lower than logic; (3) most important, the AI customers did NOT transition to Gate-All-Around - they are 'still using the N-1, 3 nm and 5 nm' and are spending on 3 nm capacity expansions in both the U.S. and Taiwan, so the metrology intensity of 2026 spending went down on mix.",
+                  "figure": "2024, we grew by 30%; 2025, we grew by 31%; still using the N-1, 3 nm and 5 nm",
+                  "topics": [
+                    "foundry",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Nova Citi conference 2026 (09-08-2026)",
+                  "signal": "2027 SETUP BY END MARKET: Kizner expects the mix to swing back in Nova's favour in 2027 - NAND capacity additions would be 'coming from zero to business' for Nova since it is positioned with all the key NAND customers (he called this the longest NAND down cycle, with upgrades-only spend that Nova does not benefit from, and hopes for greenfield in 2027); DRAM stays a significant driver on capacity expansion but with NO metrology-intensity increase until the industry moves to 4F², which he placed in '2028 and going forward'; and logic mix shifts 'much more towards the 2 nm and the Gate-All-Around, and less on the 3 nm', pushing metrology intensity up.",
+                  "figure": "it will happen in 2028 and going forward",
+                  "topics": [
+                    "nand_storage",
+                    "transitions",
+                    "foundry"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Nova Citi conference 2026 (09-08-2026)",
+                  "signal": "CAPACITY BUILD BEYOND THE US CLEAN ROOM: Kizner said Nova is 'doubling our production floor'; besides the US expansion it has opened 'a new clean room in Germany' and will open 'a new clean room by the end of this year for the first time in Asia', with CapEx staying focused on infrastructure into 2027 and beyond. He stressed the constraint is not only Nova's own clean-room space but the whole stretched supply chain: Nova gives its vendors forward visibility so they can ramp, and qualifies a second vendor where it identifies a bottleneck, because one crucial vendor can stop Nova meeting demand regardless of floor space.",
+                  "figure": "doubling our production floor; a new clean room in Germany; a new clean room by the end of this year for the first time in Asia",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "Nova Citi conference 2026 (09-08-2026)",
+                  "signal": "HYBRID BONDING IS THE PACKAGING SHARE PRIZE - TIMING GIVEN: Kizner said the main advanced-packaging share-gain opportunity ahead is hybrid bonding, which brings front-end capability into the back end: copper-to-copper bonding requires wafer-to-wafer and die warpage control, CMP uniformity and flatness control, all of which raise metrology intensity and pull in both Nova's dimensional and materials metrology portfolios. The work right now is QUALIFICATIONS - high-volume manufacturing 'capacity is not big story in 2027', it comes later. He added that Nova's materials metrology is not yet exposed to advanced packaging at all and that early customer discussions to apply it there are another growth engine on top of the ancosys and Sentronics acquisitions and the PRISM front-end tools already deployed into packaging.",
+                  "figure": "the capacity is not big story in 2027",
+                  "topics": [
+                    "packaging_substrate",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Nova Citi conference 2026 (09-08-2026)",
+                  "signal": "CHINA GUIDANCE REVISED UP: Kizner said China is 'around 30% of our revenues' today and 25% to 30% of overall WFE spending, and that although Nova said at the start of the year China would be slightly down to flat, the visibility it now has means 'it will be another growth year for China for us on a nominal basis' (still declining as a percentage because other regions grow faster). He treats domestic Chinese metrology vendors as a real risk rather than dismissing them - they have the talent, funds and government support, there is still a capability gap today, and Nova's answer is to keep spending a significant portion of revenue on R&D to keep the gap open.",
+                  "figure": "it is around 30% of our revenues; 25% to 30% over all WFE spending; it will be another growth year for China for us on a nominal basis",
+                  "topics": [
+                    "foundry"
                   ]
                 }
               ]
@@ -3856,6 +4280,39 @@
                   "quarter": "Onto Innovation Q2 FY2026 (08-06-2026)",
                   "signal": "Driver is new-product adoption rather than process-control intensity: the ATLAS G6 is being used for TRANSISTOR METROLOGY AT SEVERAL NODES BELOW 2nm, where its smaller spot size and tighter precision let customers apply OCD to parts of the wafer that previously required scribe-line test structures - a SAM/wallet-share expansion per 10k wafer starts. Iris films and integrated metrology are both on track for RECORD 2026 revenue, with integrated metrology in logic called pure share gain ('a year ago, we wouldn't have had hardly any, maybe zero logic for integrated metrology'). Iris G2 is in the normal 6-12 month install/qual/performance cycle; the Dragonfly G5 is being evaluated for FRONT-END applications against the incumbent, with bigger contribution expected in 2027. New FAST-technology applications aim to predict device performance earlier in the flow",
                   "figure": "Atlas G6 at several nodes below 2nm; Iris films + integrated metrology at record 2026 levels"
+                },
+                {
+                  "quarter": "Onto Innovation Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "CEO Mike Plisinski said the growth Onto has implied is around 40%, significantly above its peers and nearly double its peers, and that rather than trying to pull upside into Q3 or Q4 the focus is on driving additional backlog for 2027, making sure the supply chain ramps effectively and quality is maintained. On the share question at the customer where Onto had lost position, he said 'did we gain it all back, for sure', noted Onto said back in March it was qualified for all, that the customer has been factory constrained and did not spend a ton, and that Onto received huge OSAT orders; where the allocations actually land will be seen when that customer starts spending more aggressively in 2027, and that customer tends to care more about total spend with a supplier than about second-sourcing on a per-layer basis. The competitor is already reacting and trying to fight back.",
+                  "figure": "implied growth around 40%, nearly double our peers",
+                  "topics": [],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "Onto Innovation Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "Dragonfly G5 strategy clarified: management does NOT expect a G3-to-G5 transition. Customers still appreciate the G3 for its lower price point, and for ClearFind/subsurface or 3DI applications the G5 platform gives no added benefit so those stay on G3, which has been growing phenomenally throughout 2026. The G5 is instead about expanding into NEW markets - high resolution, 100 nm type inspection applications in the front end plus several specialty device applications - which is the focus for 2027. Onto had about 10 customers across 15 different applications a quarter ago and expects, based on evaluation feedback, that the majority of those will convert to orders throughout 2027. CFO Brian Roberts confirmed the G5 is margin accretive with a better ASP and a better margin profile.",
+                  "figure": "about 10 customers across 15 different applications; majority expected to convert to orders throughout 2027",
+                  "topics": [
+                    "product_launches"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Onto Innovation Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "A new growth leg is forming in power semiconductors from data center power. Onto's earlier power-semi run was driven not by capacity expansion but by customers using Onto's inspection and metrology to drive yield improvement, with yields in the 60%-70% range rather than the 90s. The EV recovery has not really happened yet, but those same customers are now telling Onto they see demand from data centers driving adoption of power semiconductors and that Onto needs to prepare. Management is not seeing the actual orders yet and has no good clarity on timing, but said 2027 into 2028 is what the customers are thinking about; because the process control is already inserted in their process, Onto should benefit as they expand. Data center power is relatively small for Onto today and would be captured under specialty devices.",
+                  "figure": "yields in the 60%-70% range; customers thinking 2027 into 2028",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                },
+                {
+                  "quarter": "Onto Innovation Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "CFO Brian Roberts on the margin path and supply: 2026 margin gains have come from operational productivity and the move of manufacturing from the U.S. to the international extended factories - a year ago Onto was shipping its first tools from those factories and in Q2 it shipped about 70% of its tools from them. To date Onto has driven 250 basis points of gross margin and doubled that at the operating margin line. Into 2027, the accretive Dragonfly G5 and Atlas G6 add ASP lift which, alongside productivity, drives toward 'a margin that starts with a six'. The two major 2026 headwinds were memory cost and freight/fuel shortage, partly offset by being in region, and Onto is having pricing conversations with customers about the existing product portfolio for the 2027 pricing/budgeting season. On supply, the extended-factory move gave Onto partner capacity and new clean rooms without heavy CapEx; the supply chain is not perfect but Onto is using customer visibility to get ahead of bottlenecks, is carrying a higher inventory balance, is not missing customer dates and its lead times have not grown too much.",
+                  "figure": "about 70% of tools shipped from international factories in Q2; 250 basis points of gross margin to date; target gross margin that starts with a six",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
                 }
               ]
             },
@@ -4619,7 +5076,16 @@
               "company": "Toppan",
               "product": "merchant photomasks",
               "connects_to": [],
-              "quarterly_data": []
+              "quarterly_data": [
+                {
+                  "quarter": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
+                  "signal": "Third-party commentary from a competitor, not Toppan management: Photronics' IR head Ted Moreau named Tekscend - the photomask business spun out of Toppan, which IPO'd in October of last year - as Photronics' largest competitor, and gave its EUV status: 'Our largest competitor is this company called Tekscend, which went public in October of last year. They were spun out of a company called Toppan... Tekscend is based in Japan. They have been subsidized by the Japanese government in order to produce masks at what's called extreme ultraviolet technology, EUV.' That capability is close to live - they are 'about to start producing capabilities for masks for that technology in the coming, I would say, probably any minute now.' Moreau added that clean-room capabilities on both sides are otherwise very comparable and both buy the same equipment, so the differentiator is geometry capability, capacity and turnaround time.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "foundry"
+                  ]
+                }
+              ]
             },
             {
               "company": "Solstice Advanced Materials",
@@ -4699,7 +5165,42 @@
             {
               "company": "Photronics",
               "product": "photomasks (high-end logic/memory)",
-              "connects_to": [],
+              "connects_to": [
+                {
+                  "company": "Samsung",
+                  "relationship": "photomasks supplied for semiconductor and display manufacturing",
+                  "contracts": [
+                    {
+                      "source": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
+                      "signal": "Moreau: 'Samsung is a 10% customer of ours today, and we supply masks to them on both the semiconductor side and the display side.' Samsung runs a captive mask operation and designs 'a lot of the photomasks in-house' for its own needs but does outsource some; Photronics is working with Samsung and the other captives, which are expected to outsource more at the near-leading edge as their internal teams move to five, four, three and two nanometer.",
+                      "units": "no specific figure",
+                      "value": "Samsung is a 10% customer of Photronics",
+                      "date_signed": "not stated",
+                      "type": "supply relationship",
+                      "topics": [
+                        "foundry"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "company": "TSMC",
+                  "relationship": "photomasks supplied to TSMC fabs",
+                  "contracts": [
+                    {
+                      "source": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
+                      "signal": "Moreau named TSMC as a customer: 'If you looked at Taiwan Semiconductor, which is a customer of ours, they're actually a top 20 customer of ours.' He added that Photronics estimates it manufactures on a unit volume basis about as much as TSMC does in house, and that if TSMC's fully captive mask output were given an external revenue value it would be 'at least five or six times greater' than Photronics' roughly $620 million of semiconductor photomask revenue last year - the ASP gap, not units, is why captive share keeps rising. Photronics is also working with TSMC, Intel and SMIC as those captives look to outsource more of the near-leading edge.",
+                      "units": "top 20 customer; Photronics unit volume about equal to TSMC in-house mask volume",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "supply relationship",
+                      "topics": [
+                        "foundry"
+                      ]
+                    }
+                  ]
+                }
+              ],
               "quarterly_data": [
                 {
                   "quarter": "Photronics Q3 FY2026 (08-26-2026)",
@@ -4798,6 +5299,57 @@
                   "signal": "Photronics guided fiscal Q3 2026 revenue between $207 million and $215 million, operating margin between 18% and 20% and non-GAAP diluted EPS between $0.39 and $0.45, assuming delayed design starts because of tight memory conditions. The presentation says the Allen, Texas facility is to begin delivering qualification masks in FQ3 and that fiscal 2026 capex reflects latter stages of expansion in the U.S., initial expansion in South Korea and peak end-of-life tool replacement; FQ2 capex of $45.8 million primarily reflected outlays for the Korea node extension down to 8nm, end-of-life tool upgrades, facility optimization and Allen expansion.",
                   "figure": "FQ3 2026 revenue $207 million-$215 million; operating margin 18%-20%; non-GAAP EPS $0.39-$0.45; FQ2 capex $45.8 million",
                   "topics": []
+                },
+                {
+                  "quarter": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
+                  "signal": "First cost and gating condition put on the EUV plan the Q3 call described only as partnerships: 'we have a plan to go to EUV, but a full EUV program would cost us about $300 million. For a company generating $850 million to $900 million in annual revenue, you're very cautious about doing that... you could end up crippling the company if you're not careful.' The approach is to introduce certain EUV capabilities in stages over what Moreau called 'probably takes us a good maybe a five-year investment cycle', spreading the cost while waiting for the captives to release EUV work to merchant suppliers. The demand gate today is thin: 'At the moment, there's one company out there that's requesting EUV masks. That's not a big enough market for you to incur that $300 million.' EUV is critical from 14 nanometers down to 3 nanometers and essentially all of that mask business is captive today.",
+                  "figure": "full EUV program would cost about $300 million against $850 million to $900 million of annual revenue; one company currently requesting EUV masks; EUV critical from 14 nanometers down to 3 nanometers",
+                  "topics": [
+                    "foundry"
+                  ]
+                },
+                {
+                  "quarter": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
+                  "signal": "Mask-set ASP ladder and share, quantified: citing a Morgan Stanley Japan initiation report on a competitor, Moreau said a 90 nanometer design is about 25 masks per set and roughly '$50,000 of revenue for that one chip design'; at 14 nanometers the set goes to close to 80 masks and 'we're talking about $1 million in revenue contribution'; at five nanometers 'you're talking about $10 million to $20 million for that one semiconductor chip design, for the photomask set' - 'a very parabolic move'. Photronics holds about 10% of the total photomask market including captives, captives are about two-thirds of the market and gained share in 2025 purely on ASP (conceivably going to 70%), while display share is about 28% and has held steady for five years. On units, Photronics estimates it manufactures about as much volume as TSMC does in-house, but that TSMC's fully captive mask output would be worth 'at least five or six times' Photronics' roughly $620 million of semiconductor photomask revenue last year if it carried an external price.",
+                  "figure": "90 nanometer set about 25 masks and about $50,000; 14 nanometer set close to 80 masks and about $1 million; five nanometer set $10 million to $20 million; Photronics 10% of the total photomask market, captives about two-thirds going possibly to 70%; display share about 28%; semiconductor photomask revenue about $620 million last year",
+                  "topics": [
+                    "foundry"
+                  ]
+                },
+                {
+                  "quarter": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
+                  "signal": "Node-capability roadmap by site, more granular than the Q3 call. Boise is the U.S. high-end facility and 'can produce masks down to seven nanometers' today, with little revenue at 7 nanometers so far, and 'with the same equipment, we are advancing our capabilities to actually go down to four' - not ready and no revenue presented today. Allen, Texas is being taken from 180 nanometers and 130 nanometers up to 65 nanometers and 'we should be up and running in the next month or two'; production then shifts out of Boise to Texas, freeing Boise to capture more 7, 10, 14 and 22 nanometer business. Korea is the other upgrade: the bulk of that facility's business today is about 40 nanometers, the expansion to 8 nanometers is expected 'in about a year from now', and Photronics expects significantly greater 8 and 10 nanometer business there 'largely because of customers that are very close to that facility'. The U.S. is 17%-19% of revenue today and is expected to be a higher share of total revenue in fiscal 2027.",
+                  "figure": "Boise down to seven nanometers today, advancing toward four; Allen, Texas from 180 and 130 nanometers to 65 nanometers up and running in the next month or two, freeing Boise for 7, 10, 14 and 22 nanometers; Korea about 40 nanometers today to 8 nanometers in about a year; U.S. 17%, 18%, 19% of revenue rising in fiscal 2027",
+                  "topics": [
+                    "foundry",
+                    "transitions"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
+                  "signal": "Mechanism behind the better-than-expected July quarter, which the Q3 call did not spell out. April-quarter push-outs came from customers being unable to capture memory and from Asian fabs at unusually high utilization telling chip designs 'You have to delay your design because we don't have the capacity for it'. Through the July quarter those designs started to be released because the same fabs 'added capacity in the 14-nanometer, 22-nanometer, 28-nanometer range', and in some cases told a customer with a 40 nanometer design 'if you move that chip design to 28 nanometers or 22 nanometers, I will then manufacture it for you' - i.e. the capacity shortage is actively forcing node migration, which is the ASP-positive trend Photronics benefits from. On the display side Korea is strong on high-end consumer electronics launching this fall while China has pulled back because low-end consumer electronics cannot capture memory; Moreau relayed that the memory companies are talking about 'another 2, 3, 4 years before supply and demand comes into equilibrium'.",
+                  "figure": "fabs added capacity in the 14-nanometer, 22-nanometer, 28-nanometer range and pushed 40 nanometer designs to 28 or 22 nanometers; memory supply and demand equilibrium another 2, 3, 4 years away",
+                  "topics": [
+                    "supply_tightness",
+                    "transitions"
+                  ],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
+                  "signal": "Capex cycle and the financing constraint behind it. Photronics historically spends about 10% of revenue on capex; the upgrade cycle that began last fiscal year continues this year and 'then it likely extends into next year', and Moreau would imagine fiscal 2028 'probably remains elevated above the traditional 15% of total revenue range'. The balance sheet has $673 million of cash, but $504 million of it sits in the two 50/50 semiconductor joint ventures (Taiwan, entered 2013-2014; China, 2018-2019; ownership 50.01%) and can only be spent at those facilities - dividending $100 million out returns roughly $40 million after the partner split and a 20% tax, 'not a really productive use of cash'. Only about $165 million of cash sits outside the joint ventures, so 'if we need cash, we would either issue debt or a line of credit... Not likely to use equity'. Next-quarter guidance was 'basically flat to slightly up sequentially' with gross margin, most recently 33%, 'about flattish' in the coming quarter; the full-year capex guidance was cut on equipment delivery delays but the revenue timelines for both the Texas and Korea expansions were maintained.",
+                  "figure": "capex historically about 10% of revenue, likely elevated above the traditional 15% of revenue range in fiscal 2028; $673 million cash of which $504 million sits in the two 50/50 joint ventures and only about $165 million outside; gross margin 33% and about flattish next quarter",
+                  "topics": [],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "Photronics Midwest IDEAS conference 2026 (08-27-2026)",
+                  "signal": "Named the biggest headwind of the last couple of years as geopolitics rather than demand: Photronics lost China-market customers it had good business with after 'We were told by the U.S. government, You have to stop shipping to that customer', and in another case Taiwan put a customer on its restricted list, forcing Photronics to move that production out of its Taiwan facility into its China facility, which has less capacity - so revenue with that customer fell as well. Offsetting structural positive: regionalization and reshoring, with TSMC expanding very aggressively in Arizona and GlobalFoundries and Samsung also expanding in the U.S.; the more locations that manufacture chips, the more mask business spreads out, which is why Photronics is expanding in the U.S. and Korea.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "supply_tightness"
+                  ]
                 }
               ]
             }

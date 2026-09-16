@@ -1,0 +1,82 @@
+{
+  "source": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
+  "chains": {
+    "components/optical_networking.json": {
+      "players": [
+        {
+          "company": "MaxLinear",
+          "layer": "interconnect",
+          "sector": "Components",
+          "quarterly_data": [
+            {
+              "quarter": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "CFO put a single number on the full-year optical guide: 'The midpoint of our guidance for the optical piece of it is $220 million,' after entering the year saying it would be 'north of $100' and raising each quarter since. Mix today is 'probably 70% 800G and probably 30% 400G'; 400G is at end of life and market data says it slows next year, while 800G grows this year and next, with debate about 2028. He attributed the raises to a bigger transceiver market, share coming in above plan and unplanned new customers, plus deliberate conservatism given supply constraints.",
+              "figure": "optical guidance midpoint $220 million (entered the year north of $100); mix ~70% 800G / 30% 400G",
+              "topics": ["optical_speed"],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "Foundry diversification is now a selling point: 'With our 1.6T, as many of you know, we moved to Samsung. The industry is somewhat constrained by TSMC, and so this move to Samsung has caught a lot of people's attention, and they are very interested in the fact that it gives them some diversity.' The strategy is company-wide, not optical-only - 'You'll see other products and other product lines or business units that will be done on Samsung as well' - and follows years of alternating between UMC and TSMC until 'UMC kind of stopped investing on advanced nodes.' To secure capacity MaxLinear is using 'everything in the toolbox': orders, occasional LTAs (normally avoided), prepayments and letters of credit, plus technical work with the foundry on throughput, IP and chip size. On Samsung wafers for the 1.6T ramp: 'we've worked with them on the forecast and potential ramps, and we feel very comfortable that we can meet the demand of the customers.'",
+              "figure": "no specific figure",
+              "topics": ["foundry", "supply_tightness"],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "Content economics of the 1.6T transition, with ASPs: 'if you look at 800G, most of the market data will say ASPs are running, I don't know, $35 to $50 probably, versus a 1.6T, which is probably $80 to $100 plus the cost of the TIA, which pushes it above $100.' Rushmore is in customer qualification and is 'expected to go to market mid-next year,' with full scale production 'in the following year,' sold alongside the Washington TIA. Looking further out, architectures disaggregate: at 3.2T expect a standalone TIA, a standalone driver and the SerDes 'incorporated differently. Maybe it is not in a DSP'; in a CPO or NPO application the driver (today integrated into the DSP) becomes standalone and the SerDes 'ends up being in a chiplet', so versus the DSP and a TIA today 'the content is higher in a CPO or an NPO application.' Pricing is expected to hold: 'I don't anticipate pricing coming down much, between now and the end of next year.'",
+              "figure": "800G ASPs $35 to $50 versus 1.6T $80 to $100, above $100 with the TIA; Rushmore to market mid-next year, full scale production the year after",
+              "topics": ["optical_speed", "cpo", "transitions"]
+            },
+            {
+              "quarter": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "Share position quantified against the two incumbents: 'naturally we will see if market share is 5% to 7%, I think we have aspirations to get up to 20%, 25% over the next couple of three years.' The differentiators he cited: 'Our current 800G solution runs about 20% less power than a comparable module from one or the other of those two competitors'; 18 months of mass production removing the design-in hurdle with large customers; a broadened portfolio (retimers, Washington TIAs, drivers) because customers 'want to work with less suppliers'; and system engineers hired over the last 12 to 18 months and located close to the big hyperscalers. Infrastructure was over 50% of revenues this most recent quarter. Engagements span all the major data center customers and all the module players with no dominant customer, though he expects 'more concentration next year and certainly into 2028.'",
+              "figure": "optical DSP share 5% to 7% today, aspiration 20%-25% over the next couple of three years; 800G solution ~20% less power; 18 months in mass production; infrastructure over 50% of revenues",
+              "topics": ["optical_speed"],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "Order visibility extended well past the earnings call: 'We quote 26 to 28 week lead times for our optical products. That's fairly consistent, but I will say that customers have come in placing orders throughout all of next year, or at least at a minimum, given us forecasts so that we can go out and plan.' He framed it as 'a big gap between supply and demand here,' with those upfront orders needed to secure foundry capacity for next year.",
+              "figure": "26 to 28 week lead times on optical products; customer orders placed throughout all of next year",
+              "topics": ["supply_tightness"],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "Panther storage accelerator sized and given a new demand driver: 'It only did $15 million-$20 million last year, but do expect it to double this year. I think we're on track to double again in 2027.' It is a compression-based offload that lets customers use fewer CPUs; the original focus was enterprise storage, where 'We had done a lot of work with Dell and a number of other guys.' Two changes drive 2027: rising NAND and memory prices and availability are pushing customers to re-architect around compression, and AMD - which lacks an equivalent to Intel's QAT compression on its CPUs - 'came to us and said, We don't have that capability, and customers would like to have your capability. So they did a reference design with us,' plus joint FMS keynotes, and 'they have sent customers our way.'",
+              "figure": "Panther $15 million-$20 million last year, doubling this year and on track to double again in 2027",
+              "topics": ["nand_storage", "cpu"]
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Samsung",
+          "layer": "foundry",
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "connects_to": [
+            {
+              "company": "MaxLinear",
+              "relationship": "advanced-node foundry for MaxLinear's 1.6T optical DSP (Rushmore) and further product lines",
+              "contracts": [
+                {
+                  "source": "MaxLinear Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "MaxLinear's CFO confirmed the 1.6T generation moved to Samsung: 'With our 1.6T, as many of you know, we moved to Samsung. The industry is somewhat constrained by TSMC, and so this move to Samsung has caught a lot of people's attention.' It was not an optical-only decision - 'You'll see other products and other product lines or business units that will be done on Samsung as well' - and MaxLinear says it has worked with Samsung on forecasts and ramp plans and is comfortable it can meet customer demand.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "foundry supply",
+                  "topics": ["foundry", "optical_speed"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

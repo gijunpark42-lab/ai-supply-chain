@@ -1,0 +1,92 @@
+{
+  "source": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+  "chains": {
+    "accelerators/amd_mi450_helios.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "interconnect",
+          "sector": "Scale-up",
+          "product": "Helios rack-scale platform (Instinct + EPYC, Infinity Fabric / UALink scale-up)",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "CFO Jean Hu gave the quarter-by-quarter Helios/MI450 ramp shape: 'Q3 will be at the very beginning of our production shipment. We expect revenue in Q3, but Q4 we'll see a very significant step up. Then another step up in Q1 2027, and the ramp through 2027.' Critically, 'the demand and the volume for 2027 has certainly go above our original initial expectation' and AMD 'can use more supplies to make sure we meet the customer's demand'. AMD now has 'three major anchor customers, Meta and OpenAI and Anthropic', each at 'multiple gigawatt scale deployment and multi-generational engagement', and 'all three of them give us the forecast more than what we expected in the beginning of the strategic partnership'. Beyond the anchors, MI350 is seeing demand from third-party model builders, new AI companies and enterprises, and AMD will use neoclouds to serve them while prioritising the three anchors.",
+              "figure": "MI450 revenue starts Q3, very significant step up in Q4, another step up in Q1 2027; 2027 volume above AMD's original expectation",
+              "topics": ["product_launches"],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "SCALE-UP ROADMAP AND THE COPPER-TO-OPTICS TRANSITION. Ramsay, on when copper stops being good enough, pointed back to what AMD disclosed at its Advancing AI conference 'a couple of months ago': in the MI400 series program, 'which would be second half of 2027 introduction and be kind of the primary product for the company in 2028', AMD will have scale-up domains larger than today — 'We have not set a number, but greater than 72' — and 'we would have both copper-based and near-package optics-based options for scale-up connectivity'. AMD keeps running Infinity Fabric coherency traffic, donated to the UAL (UALink) consortium, tunnelled over Ethernet and other means on copper and over optics. He explicitly rejected a clean cut-over: 'It is not going to be a student body left type of decision... You should think about copper and optics living side by side for a number of generations,' with different optics versions introduced at different risk tolerances.",
+              "figure": "MI400 series: second half of 2027 introduction, primary product in 2028; scale-up domain greater than 72; copper-based and near-package optics-based options",
+              "topics": ["transitions", "optical_speed"]
+            },
+            {
+              "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "NEW INFERENCE STRATEGY LEGS NOT ON THE Q2 CALL. (1) Cerebras partnership: 'our Helios systems will be in their cloud and compute alongside their wafer scale engine racks to expand the utility, not just of ultra-fast inference, but take it to a broader range of more general-purpose inference in their cloud for their customers'. (2) AMD acquired Taalas, whose team joins to accelerate AMD's own internal silicon ambitions for ultra-low latency inference, which 'would fit into our architecture via chiplets'. (3) Ramsay said multi-generational technical engagement with the three named model customers is already shaping 'the Instinct MI500 program' and 'the Instinct MI600 program' and the design of future racks — the same pattern AMD saw on the CPU side around the Rome generation.",
+              "figure": "no specific figure",
+              "topics": ["product_launches", "transitions"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Cerebras",
+              "relationship": "Helios rack systems deployed in Cerebras' cloud alongside its wafer-scale engine racks",
+              "contracts": [
+                {
+                  "source": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+                  "signal": "Ramsay: 'a partnership that we have announced with Cerebras, where our Helios systems will be in their cloud and compute alongside their wafer scale engine racks to expand the utility, not just of ultra-fast inference, but take it to a broader range of more general-purpose inference in their cloud for their customers.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "partnership / deployment",
+                  "topics": ["product_launches"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Instinct MI450 GPU (CDNA) + EPYC Venice CPU — Helios compute silicon",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "GROSS-MARGIN PATH THROUGH THE MI450 RAMP. Jean Hu: Q3 gross margin was 'guided our gross margin at 56%'; as MI450 ramps in Q4 and 2027 the gross margin 'will be slightly lower than what we guided Q3', and 2027 gross margin will vary quarter over quarter. Data center AI remains below corporate-average gross margin, but three mix tailwinds offset the dilution: server CPU (the largest part of data center, accretive to corporate average, growing more than 80% in H2 and more than 70% next year); embedded, now recovering broadly after three years of inventory digestion with a 'significant double-digit year-over-year increase' and margin-accretive design wins in data center and networking; and gaming, a lower-margin, late-cycle business whose demand is being hurt by high memory cost. The framing is gross-profit dollars: revenue and gross-profit growth ahead of OPEX growth drives operating leverage and EPS expansion.",
+              "figure": "Q3 gross margin guided at 56%; Q4 and 2027 slightly lower than the Q3 guide as MI450 ramps",
+              "topics": [],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "SUPPLY BREADTH AND THE COST PASS-THROUGH RULE. Jean Hu listed the tight points by name: 'not only wafers, advanced process node, HBM tight packaging, substrate. Some of the components are very tight.' For Helios it is not just GPU, CPU and HBM — 'there are also a lot of other small component that we need to ensure we have'. On capex: 'The primary increase for CapEx is to build the capacity to support the recipe ramp, especially Venice... capacity is not enough. We need to build ourselves to buy the equipment, do the consignment to support the ramp' — i.e. AMD is buying the equipment itself and placing it on consignment to support the ramp. On pricing, a rule not given on the Q2 call: 'if there's a component cost increase, we do need to make sure we share that cost increase with the customers... If wafer price increase, you should expect us to increase the CPU price, too', while stressing AMD will not raise price purely to expand gross margin. CPU growth is coming from both units and ASP, with 'unit increase probably is more than ASP increase'.",
+              "figure": "no specific figure",
+              "topics": ["supply_tightness", "hbm", "packaging_substrate"]
+            }
+          ]
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "EPYC Turin (Zen 5) server CPU silicon design",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+              "signal": "TAM RESET AND THE SHARE AMBITION PUT IN DOLLARS. At Advancing AI Day AMD raised its total market opportunity to '$2 trillion in 2030'. For server CPUs specifically, Jean Hu contrasted the November 2025 financial analyst day number of '$60 billion in 2030' with the updated 'more than $220 billion, from $25 billion in 2025' — 'more than 50% CAGR in next several years, largely driven by agentic AI'. She split that TAM three ways: foundational CPUs running enterprise apps/SAP/databases (growing, but slowest); head nodes coordinating with GPUs; and the agentic AI sandbox, 'very small today, but it is going to be more than 50% of that $220 billion market', with units as well as ASPs rising. Ramsay attached AMD's ambition to it: 'we do intend to grow to 50% of that dollar TAM, inclusive of all instruction sets of competition. When you do the math and you talk about building a $100 billion server business, that is what we are intending to do.'",
+              "figure": "AI TAM $2 trillion in 2030; server CPU TAM more than $220 billion, from $25 billion in 2025, more than 50% CAGR; agentic sandbox more than 50% of that $220 billion market; AMD targeting 50% of that dollar TAM = a $100 billion server business",
+              "topics": ["cpu"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

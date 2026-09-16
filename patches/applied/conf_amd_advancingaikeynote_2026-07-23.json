@@ -1,0 +1,97 @@
+{
+  "source": "AMD Advancing AI keynote 2026 (07-23-2026)",
+  "chains": {
+    "accelerators/amd_mi450_helios.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Instinct MI450 GPU (CDNA) + EPYC Venice CPU — Helios compute silicon",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Advancing AI keynote 2026 (07-23-2026)",
+              "signal": "MI455 / HELIOS BILL OF MATERIALS (launch keynote, before the Q2 call). Lisa Su: the MI455 is mounted on an 'enhanced accelerator module, or EAM' that 'integrates the GPU, memory, power delivery, high speed interfaces, system management, cold plates for liquid cooling, all into one compact serviceable module'. Specs: '320 billion transistors', 'built with TSMC’s leading 2 nanometer and 3 nanometer process technology', combining '12 compute and IO chiplets with 432 gigabytes of memory, all connected by leading industry’s 3D chip stacking packaging'. The Helios compute tray pairs it with 'a high speed 96 core EPYC processor, DDR5 memory'. Per rack: 'More than 18,000 CDNA five GPU compute units, over 4,600 Zen 6 CPU cores, and 31 terabytes of HBM4 memory, all in a single rack.' Versus the competition Helios delivers '15% more compute, 50% more HBM4 memory capacity and memory bandwidth, and 50% more scale-out bandwidth' — i.e. the memory on this generation is HBM4.",
+              "figure": "320 billion transistors; TSMC 2 nanometer and 3 nanometer; 12 compute and IO chiplets with 432 gigabytes of memory; 31 terabytes of HBM4 memory per rack; 96 core EPYC host; 15% more compute, 50% more HBM4 memory capacity and memory bandwidth, 50% more scale-out bandwidth",
+              "topics": [
+                "hbm",
+                "foundry",
+                "packaging_substrate",
+                "power_cooling"
+              ]
+            },
+            {
+              "quarter": "AMD Advancing AI keynote 2026 (07-23-2026)",
+              "signal": "INSTINCT ROADMAP BEYOND MI500. Lisa Su: 'With MI600, it’s powered by our CDNA Next architecture, and it’s already deep in development for 2028.' She also put a number on the MI455 step: 'delivering 35 times more inference throughput compared to MI355'. HPC/sovereign variant: Vamsi Boppana (SVP of AI) said the MI430X, a chiplet variant with native FP64 hardware, 'delivers 288 teraflops of FP64 compute, nearly nine times better than competition' with the memory capacity and bandwidth of MI455X, and 'The MI430X ships in the first half of 2027.' The first sovereign exascale AI factories in the U.S. and Europe are being built on it: 'Discovery at Oak Ridge National Laboratory and ALICE/RecurVE with CINES and GENCI in Europe.'",
+              "figure": "MI600 (CDNA Next) for 2028; MI430X: 288 teraflops of FP64 compute, ships in the first half of 2027; MI455 35 times more inference throughput compared to MI355",
+              "topics": [
+                "product_launches",
+                "transitions"
+              ]
+            }
+          ]
+        },
+        {
+          "company": "AMD",
+          "layer": "interconnect",
+          "sector": "Scale-up",
+          "product": "Helios rack-scale platform (Instinct + EPYC, Infinity Fabric / UALink scale-up)",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Advancing AI keynote 2026 (07-23-2026)",
+              "signal": "HELIOS NETWORKING CONTENT. Lisa Su: the Salina DPU delivers 'both a front end as well as the scale out and scale across bandwidth'; the Vulcano AI NIC allows 'up to 6 Vulcano NICs on a board, and it uses the open Ultra Ethernet standard', and 'Each Helios compute tray includes two of these Vulcano boards'. Scale-up is handled by 'an additional six dedicated networking trays' that connect '75 GPUs together with UALink over Ethernet with Silicon from our partners' (the transcript prints 75; partners not named).",
+              "figure": "up to 6 Vulcano NICs on a board; two of these Vulcano boards per compute tray; six dedicated networking trays for scale-up (UALink over Ethernet)",
+              "topics": [
+                "transitions"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "EPYC Turin (Zen 5) server CPU silicon design",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Advancing AI keynote 2026 (07-23-2026)",
+              "signal": "VENICE FAMILY BUILD AND THE EPYC ROADMAP TO 2030. Lisa Su: Venice (Zen 6) delivers 'up to 1.8 times more performance than Turin' and is '203 billion transistors built on TSMC’s newest 2-nanometer process'. The family is chiplet-configured: Venice HF has '8 compute chiplets, each with 12 cores running at up to 5 gigahertz' and ships inside Helios; the 256-core part also has 8 compute chiplets with '32 cores' each; a Venice 128-core targets enterprise/general purpose. Added next year: Verano (lower-power memory and faster CPU-GPU interconnect for AI host nodes) and 'EPYC Venice-X, which is using our 3D V-Cache stacking technology', stacking memory chiplets below the compute chiplets. OEM agentic racks span 'from 25,000 cores to 50,000 cores', and every major server OEM and cloud provider is 'on track to begin rolling out in the fourth quarter'. Roadmap: Florence (Zen 7) in 2028 with Ferrara and Faenza family members, and 'Ravenna, our eighth generation EPYC family built on Zen 8', 'well under development for 2030'. Lisa Su also cited 'a record 46% revenue share in the server market' last quarter.",
+              "figure": "Venice: 203 billion transistors, 2-nanometer, up to 1.8 times more performance than Turin; 8 compute chiplets (12 cores at up to 5 gigahertz / 32 cores); racks from 25,000 cores to 50,000 cores; Ravenna (Zen 8) for 2030; record 46% revenue share",
+              "topics": [
+                "cpu",
+                "product_launches",
+                "packaging_substrate",
+                "foundry"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Instinct MI300X/MI325X/MI350 accelerators",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Advancing AI keynote 2026 (07-23-2026)",
+              "signal": "ENTERPRISE INSTINCT CARD LAUNCHED. Dan McNamara (SVP & GM, Compute and Enterprise AI) launched the Instinct MI350P: 'an air-cooled GPU designed to fit within the power and cooling of enterprise servers today without a facilities upgrade'. 'A single MI350P can support up to 260 billion parameters', and it 'delivers more than four times the tokens per second per dollar than the competition'. AMD IT runs open-weights models on EPYC and an MI350P behind an intelligent router, which 'reduced our token cost by 43%'.",
+              "figure": "MI350P: air-cooled, up to 260 billion parameters on a single GPU, more than four times the tokens per second per dollar",
+              "topics": [
+                "product_launches",
+                "power_cooling"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

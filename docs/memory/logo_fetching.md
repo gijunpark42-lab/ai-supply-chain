@@ -171,3 +171,5 @@ resets there after every call, so cd in every command and give agents absolute p
   `Cipher Digital`; logo manifest keys and files renamed. Exchanges checked on the Nasdaq quote API
   and stockanalysis.com (they agree): Powell Industries is NASDAQ, so its metadata was fixed; Talen
   Energy and Baker Hughes were already NASDAQ in metadata (Wikidata is stale). See [[naming-rules]].
+
+2026-09-16: +SK Telecom (new node) — companieslogo search API → slug `sk-telecom`, ticker SKM (NYSE ADR of 017670.KS) proves identity; `SKM_BIG-eccab257.svg` (SK butterfly + 'telecom' wordmark), XML-valid, readable on both chips, bg light. Manifest 349.

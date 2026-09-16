@@ -1,0 +1,77 @@
+{
+ "source": "Vertiv Goldman Sachs conference 2026 (09-08-2026)",
+ "chains": {
+  "components/power_semiconductor.json": {
+   "players": [
+    {
+     "company": "Vertiv",
+     "domain": "power",
+     "sector": "Datacenter Power",
+     "sub_sector": null,
+     "product": "rack power (busbar, PDU, CDU)",
+     "quarterly_data": [
+      {
+       "quarter": "Vertiv Goldman Sachs conference 2026 (09-08-2026)",
+       "signal": "First explicit 800V DC RAMP timing, more granular than the May Investor Day or the July call: CEO Gio Albertazzi says Vertiv will start to see an acceleration in everything sidecar happening in 2027, probably second half of 2027, while a fully native end-to-end 800 volt DC powertrain would probably be commercially back end of 2027, volumes 2028. He stresses the future is multi-architecture rather than one winning standard - 800V DC either at the individual pod with a sidecar or as a native end-to-end architecture across the whole data hall - and says Vertiv is delivering nicely on the timelines shared in May with customer validations ongoing and some products already in the offering cycle. CFO Craig Chamberlin adds that 800V is a content-per-megawatt opportunity in every architecture variant (sidecar, pod level, or built into the data centre), and Albertazzi notes the powertrain is getting more complex simply because required performance is rising, which favours Vertiv on content and know-how.",
+       "figure": "sidecar acceleration in 2027, probably second half of 2027; native end-to-end 800 volt DC powertrain commercially back end of 2027, volumes 2028",
+       "topics": [
+        "power_cooling",
+        "transitions"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Vertiv Goldman Sachs conference 2026 (09-08-2026)",
+       "signal": "Proposed acquisition of Utility Innovation Group (UIG), announced just before the conference and not covered on the July call. CFO Craig Chamberlin says UIG gives Vertiv the opportunity to influence the way the powertrain will be constructed as it goes into the actual data centre - specifically the architecture of BEHIND-THE-METER power - putting Vertiv in that design conversation earlier and, as Albertazzi puts it, physically very early, just behind the meter. The deal carries an earn-out: if the earn-out happens, we would be really happy to pay the earn-out. Chamberlin calls it a home run of an acquisition and compares the logic to the earlier PurgeRite deal - buying what is not in the portfolio to pull through more content and steer how the data centre architecture is built.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Vertiv Goldman Sachs conference 2026 (09-08-2026)",
+       "signal": "Albertazzi narrows the supply-chain congestion flagged on the Q2 call: it was not a generic situation but specifically referred to the converged infrastructure products OneCore and SmartRun, where Vertiv is industrializing something that is a field project and taking construction-site complexity onto itself. The consequences are coordination across multiple factories rather than component shortage, and timing variability - is revenue recognized this day or maybe four days later because some of the components are converging in the integration factory. Integration at this scale is a different capability than the power-module integration Vertiv has done for 25, 30 years, and that integration capacity is being deployed constantly to follow demand. He adds the current outlook already incorporates wiggle room against possible hiccups. Chamberlin separately points back to the ramp in infrastructure-solutions orders (Vertiv SmartRun / Vertiv OneCore) seen in last fourth quarter as evidence of the share gain.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness",
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Vertiv",
+     "domain": "thermal",
+     "sector": "Direct-to-Chip Liquid",
+     "sub_sector": null,
+     "product": "Liebert UPS, rack PDUs, CDUs and Liebert XDU rear-door cooling",
+     "quarterly_data": [
+      {
+       "quarter": "Vertiv Goldman Sachs conference 2026 (09-08-2026)",
+       "signal": "Thermal roadmap detail the call did not give, walked along the heat flow from the chip outward. The Strategic Thermal Labs acquisition is valued because it gives Vertiv an opportunity to be very early and very inside the silicon development; liquid cooling keeps evolving and Vertiv continues to add capacity to that part of the business, which Albertazzi says is growing in a very convincing way, with CDU design and orchestration at a primary/secondary fluid network level continuing. On heat rejection - chillers, dry coolers, high water temperature for efficiency - Vertiv is excited about the ThermoKey dry-cooler acquisition and is seeing a lot of attention around the Vertiv CoolLoop Trim Cooler, physically a hybrid between a dry cooler (free cooling, no mechanical refrigeration) and a chiller, which extends the range of when a data centre can run on free cooling while keeping a cooling boost in reserve for days too hot for free cooling. Chamberlin frames this as architecting a different thermal chain by site (Minnesota versus West Texas ambient) with a controls layer such as Next Predict orchestrating the whole system.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Vertiv Goldman Sachs conference 2026 (09-08-2026)",
+       "signal": "Direct answer on hyperscalers developing their own power and cooling products, which the Q2 call did not address: Albertazzi says this is not new to the industry and the behaviours have been there for at least almost two decades or at least a good decade, only now receiving scrutiny. The majority of the hyperscalers still need to rely, at least partially, on players that can support them with technology know-how and depth, because no one is pure in that type of approach - it is not all their own IP, and even where it is their own IP there is a lot of opportunity to do things together given the ability to operate at scale. On the pipeline he says Vertiv sees no sign of weakening despite data-centre siting and financing debates, with frontier labs gradually becoming hyperscalers themselves and the build-out spreading geographically well beyond the US.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

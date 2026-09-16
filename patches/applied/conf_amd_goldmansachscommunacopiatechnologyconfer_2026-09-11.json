@@ -1,0 +1,53 @@
+{
+  "source": "AMD Goldman Sachs Communacopia + Technology Conference 2026 (09-11-2026)",
+  "chains": {
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "EPYC Turin (Zen 5) server CPU silicon design",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Goldman Sachs Communacopia + Technology Conference 2026 (09-11-2026)",
+              "signal": "CPU CONTENT PER GIGAWATT — RATIO NOW ONE TO ONE. Asked by the moderator about CPU content per gigawatt, Dan McNamara (SVP & GM, Compute Enterprise AI) said the GPU server 'started out on one to four, a CPU to GPU', and on the whole deployment: 'If you think about it today, we’re saying one to one sort of ratio, and it’s going to continue to grow.' He stressed there is no fixed ratio — it depends on the split of a gigawatt between training, inference, general-purpose and agent servers. Matt Ramsay: 'We haven’t been super specific on the gigawatt comments in terms of CPU.'",
+              "figure": "CPU to GPU: started at one to four; today one to one sort of ratio, going to continue to grow",
+              "topics": ["cpu", "transitions"]
+            },
+            {
+              "quarter": "AMD Goldman Sachs Communacopia + Technology Conference 2026 (09-11-2026)",
+              "signal": "VENICE DESIGN-INS AND ROADMAP. McNamara: 'We feel extremely good about the design-in that we have right now across all of the major cloud vendors in the world. From an agentic standpoint at 256 core, from a high frequency standpoint at 96 core', plus other SKUs for HPC. Venice is 'the broadest true launch that we’ve had in terms of OEMs, ODMs, cloud vendors, the ISVs on day zero support' and 'we launched it already', coming online through the back half of the year. He noted a review earlier in the week 'on even Zen 8 in terms of what our engineering teams are targeting'. Separately, mainstream enterprises are starting sub-rack AI deployments — 'PCI card type deployments or 8-way server, UBB-based deployments'.",
+              "figure": "design-ins across all of the major cloud vendors at 256 core (agentic) and 96 core (high frequency)",
+              "topics": ["cpu", "product_launches"]
+            }
+          ]
+        },
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "finished EPYC Turin CPUs",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Amazon",
+              "relationship": "EPYC server CPUs for cloud instances",
+              "contracts": [
+                {
+                  "source": "AMD Goldman Sachs Communacopia + Technology Conference 2026 (09-11-2026)",
+                  "signal": "McNamara, on hyperscalers moving first-party workloads to their own silicon: 'Recently, Amazon came out with RDS, which is their database service, which is a first-party property that we would classify. It’s on Turin, and the reason why is performance.' He added that homegrown silicon 'doesn’t fit for everything'.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "deployment (first-party Amazon RDS on EPYC Turin)",
+                  "topics": ["cpu"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

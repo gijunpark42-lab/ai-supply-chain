@@ -1,0 +1,86 @@
+{
+  "source": "Qualcomm Goldman Sachs conference 2026 (09-08-2026)",
+  "chains": {
+    "accelerators/broadcom_custom_asic.json": {
+      "players": [
+        {
+          "company": "Qualcomm",
+          "layer": "compute_hardware",
+          "sector": "Custom AI ASIC (hyperscaler silicon)",
+          "quarterly_data": [
+            {
+              "quarter": "Qualcomm Goldman Sachs conference 2026 (09-08-2026)",
+              "signal": "LANDMARK AMAZON DATA-CENTER DEAL ANNOUNCED THE MORNING OF THE CONFERENCE (after the Q3 FY2026 call). CFO/COO Akash Palkhiwala: the strategic transaction with Amazon has two product components - a customized silicon business covering multiple generations, and optical connectivity solutions 'starting with 1.6T and follow-on generations'. It is structured with a warrant agreement (filed in an 8-K the same day): Qualcomm issues warrants against purchases of up to $60 billion from Amazon for data center products over the next 10 years, with an upfront vesting of about 15% of those warrants tied to the upfront commitments Amazon is making. Revenue with Amazon starts in the December quarter - 'we are already in production with them'. Palkhiwala says the deal makes the approximately $5 billion in revenue in fiscal 2027 target 'a very high confidence' number ('we have POs, we're building the chips'), positions fiscal 2028 for strong year-over-year growth, and is one of the core components of the $15 billion in fiscal 2029 data-center target. He calls it 'a first of many' and says Qualcomm is 'similarly proceeding with the other data center customer' (an undisclosed global hyperscaler).",
+              "figure": "warrants against purchases of up to $60 billion over the next 10 years; upfront vesting of about 15%; approximately $5 billion in revenue in fiscal 2027; $15 billion in fiscal 2029; optical connectivity starting with 1.6T",
+              "topics": ["product_launches", "optical_speed"],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "Qualcomm Goldman Sachs conference 2026 (09-08-2026)",
+              "signal": "Four-franchise data-center strategy laid out with named customers for the first time: (1) custom silicon - Amazon plus one other undisclosed global hyperscaler, working on 'their main AI accelerators', not ancillary custom chips; (2) AI accelerator built on High Bandwidth Compute (stacking compute and memory) aimed at memory-bandwidth-constrained inference decode, with Humane announced as an AI accelerator customer; (3) CPU, with Meta as the first data-center silicon customer, contributing 'late in 2028, going into 2029'; (4) connectivity - the acquired Alphawave SerDes is integrated into the custom-silicon engagements and Alphawave optical connectivity products are part of the Amazon agreement. Palkhiwala frames the accelerator market as disaggregating (GPU vs XPU, training vs inference, prefill vs decode), with Qualcomm starting at decode and extending across inference.",
+              "figure": "no specific figure",
+              "topics": ["transitions", "product_launches"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Amazon",
+              "relationship": "multi-generation custom data-center silicon and optical connectivity supply",
+              "contracts": [
+                {
+                  "source": "Qualcomm Goldman Sachs conference 2026 (09-08-2026)",
+                  "signal": "Multi-year strategic agreement announced 09-08-2026: customized silicon across multiple generations plus optical connectivity solutions starting with 1.6T. Warrants are issued against purchases of up to $60 billion from Amazon for data center products over the next 10 years, with about 15% vesting upfront against Amazon's upfront commitments. Qualcomm is already in production and begins recognizing revenue with Amazon in the December quarter.",
+                  "units": "no specific figure",
+                  "value": "up to $60 billion from Amazon for data center products over the next 10 years",
+                  "date_signed": "2026",
+                  "type": "custom silicon supply agreement with warrant agreement",
+                  "topics": ["product_launches", "optical_speed"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "Qualcomm",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "quarterly_data": [
+            {
+              "quarter": "Qualcomm Goldman Sachs conference 2026 (09-08-2026)",
+              "signal": "SERVER-CPU TAM RE-SIZED SINCE THE META AGREEMENT WAS SIGNED: Palkhiwala says 'when we signed our agreement with Meta, the size of the CPU market was a lot less than it's perceived to be today. The CPU TAM obviously has tripled since then', and is now 'over $200 billion a year', with 'about half of that market transitioning over to Arm architecture', where Qualcomm claims performance-per-watt and performance-per-area leadership. Asked to bridge to a longer-term share target, he answered that Qualcomm's longer-term forecast is not tied to the CPU engagement alone but rests on all four franchises - CPU, AI accelerator, custom chip and connectivity.",
+              "figure": "CPU TAM tripled to over $200 billion a year; about half of that market transitioning over to Arm architecture",
+              "topics": ["cpu", "transitions"]
+            },
+            {
+              "quarter": "Qualcomm Goldman Sachs conference 2026 (09-08-2026)",
+              "signal": "MEMORY PRICING IS DESTROYING THE LOW-END HANDSET BOM: smartphone volume has gone down 'by low double digits ... low teens, over the last year', with the impact concentrated on the lowest tier and second lowest tier - 'everything below $300' - because 'memory has now become more than half of the BOM of the phone', making those device prices unsustainable. At the premium end, where Qualcomm's presence is largest, Palkhiwala says Qualcomm has 'not seen much of an impact' despite higher prices. He expects continued pressure at the low end and describes handsets as at the low point of the cycle.",
+              "figure": "smartphone volume down low double digits / low teens over the last year; impact on everything below $300; memory more than half of the BOM of the phone",
+              "topics": ["supply_tightness"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Meta",
+              "relationship": "Dragonfly C1000 Arm server CPU supply - first announced data-center customer",
+              "contracts": [
+                {
+                  "source": "Qualcomm Goldman Sachs conference 2026 (09-08-2026)",
+                  "signal": "Palkhiwala: 'We have an agreement with Meta as our first customer for silicon solutions in data center.' The Meta CPU engagement is expected to contribute revenue 'Late in 2028, going into 2029', on top of the Amazon custom-silicon ramp, as part of the bridge to the $15 billion in fiscal 2029 data-center target.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "design win / CPU supply agreement",
+                  "topics": ["cpu"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

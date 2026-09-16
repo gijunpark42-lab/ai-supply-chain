@@ -443,7 +443,33 @@
                 {
                   "company": "TSMC",
                   "relationship": "GPU/CPU die delivered for CoWoS advanced packaging",
-                  "contracts": []
+                  "contracts": [
+                    {
+                      "source": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                      "signal": "Ramsay: AMD is 'the third or fourth largest customer at TSMC' depending on the quarter and 'a very loyal partner with them for a long time'; Lisa Su and the supply-chain team have been working with TSMC directly and 'they have been absolutely phenomenal partners of giving us additional supply'. Alongside this, AMD announced a $10 billion ecosystem investment in the Taiwanese ecosystem, much of it oriented on back-end (advanced packaging) capacity.",
+                      "units": "no specific figure",
+                      "value": "$10 billion ecosystem investment in the Taiwanese ecosystem",
+                      "date_signed": "2026",
+                      "type": "supply relationship / capacity investment",
+                      "topics": [
+                        "foundry",
+                        "supply_tightness",
+                        "packaging_substrate"
+                      ]
+                    },
+                    {
+                      "source": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+                      "signal": "Asked whether AMD would consider Intel as a foundry partner, CFO Jean Hu said AMD co-develops much of its technology with TSMC, is diversifying geographically with TSMC (a fab in Arizona), and 'you should expect us to continue to view TSMC as our primary supplier on the wafer side.' Matt Ramsay added that for 'anything that’s advanced packaging or anything that’s advanced wafers, we’re going to evaluate and due diligence on technology from every vendor in the market', while the TSMC partnership stays significant for the foreseeable future.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "foundry supply relationship (primary wafer supplier)",
+                      "topics": [
+                        "foundry",
+                        "packaging_substrate"
+                      ]
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -451,6 +477,53 @@
                   "quarter": "AMD Q1 FY2026 (05-05-2026)",
                   "signal": "Instinct adoption moving from pilots to large-scale production deployments, particularly in inference where leadership memory capacity and bandwidth are key advantages; ROCm software cadence accelerated; customers engaging on MI500 series",
                   "figure": "Instinct production scale-up"
+                },
+                {
+                  "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+                  "signal": "GROSS-MARGIN PATH THROUGH THE MI450 RAMP. Jean Hu: Q3 gross margin was 'guided our gross margin at 56%'; as MI450 ramps in Q4 and 2027 the gross margin 'will be slightly lower than what we guided Q3', and 2027 gross margin will vary quarter over quarter. Data center AI remains below corporate-average gross margin, but three mix tailwinds offset the dilution: server CPU (the largest part of data center, accretive to corporate average, growing more than 80% in H2 and more than 70% next year); embedded, now recovering broadly after three years of inventory digestion with a 'significant double-digit year-over-year increase' and margin-accretive design wins in data center and networking; and gaming, a lower-margin, late-cycle business whose demand is being hurt by high memory cost. The framing is gross-profit dollars: revenue and gross-profit growth ahead of OPEX growth drives operating leverage and EPS expansion.",
+                  "figure": "Q3 gross margin guided at 56%; Q4 and 2027 slightly lower than the Q3 guide as MI450 ramps",
+                  "topics": [],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+                  "signal": "SUPPLY BREADTH AND THE COST PASS-THROUGH RULE. Jean Hu listed the tight points by name: 'not only wafers, advanced process node, HBM tight packaging, substrate. Some of the components are very tight.' For Helios it is not just GPU, CPU and HBM — 'there are also a lot of other small component that we need to ensure we have'. On capex: 'The primary increase for CapEx is to build the capacity to support the recipe ramp, especially Venice... capacity is not enough. We need to build ourselves to buy the equipment, do the consignment to support the ramp' — i.e. AMD is buying the equipment itself and placing it on consignment to support the ramp. On pricing, a rule not given on the Q2 call: 'if there's a component cost increase, we do need to make sure we share that cost increase with the customers... If wafer price increase, you should expect us to increase the CPU price, too', while stressing AMD will not raise price purely to expand gross margin. CPU growth is coming from both units and ASP, with 'unit increase probably is more than ASP increase'.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "supply_tightness",
+                    "hbm",
+                    "packaging_substrate"
+                  ]
+                },
+                {
+                  "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                  "signal": "Ramsay named the specific supply constraints behind the Helios/Venice ramp and quantified AMD's back-end investment: the binding limits are TSMC wafer support and advanced packaging, where 'Venice is the first server product in the market to use advanced packaging'. Lisa Su was in Taiwan 'a month and a half ago or so, and we announced a $10 billion ecosystem investment in the Taiwanese ecosystem. Much of that is oriented on back-end capacity.' He also placed AMD as 'the third or fourth largest customer at TSMC' depending on the quarter, and said AMD is working with OEM, ODM and hyperscale partners to make sure they have 'matched set DRAM' to support the server volume. Near-term supply is the hard part; looking into 2027 and 2028, Ramsay said the industry, including AMD and its partners, 'have had much more time to adjust supply higher' to support the growth.",
+                  "figure": "$10 billion ecosystem investment in the Taiwanese ecosystem (much oriented on back-end capacity); AMD the third or fourth largest customer at TSMC",
+                  "topics": [
+                    "supply_tightness",
+                    "packaging_substrate"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "AMD Advancing AI keynote 2026 (07-23-2026)",
+                  "signal": "MI455 / HELIOS BILL OF MATERIALS (launch keynote, before the Q2 call). Lisa Su: the MI455 is mounted on an 'enhanced accelerator module, or EAM' that 'integrates the GPU, memory, power delivery, high speed interfaces, system management, cold plates for liquid cooling, all into one compact serviceable module'. Specs: '320 billion transistors', 'built with TSMC’s leading 2 nanometer and 3 nanometer process technology', combining '12 compute and IO chiplets with 432 gigabytes of memory, all connected by leading industry’s 3D chip stacking packaging'. The Helios compute tray pairs it with 'a high speed 96 core EPYC processor, DDR5 memory'. Per rack: 'More than 18,000 CDNA five GPU compute units, over 4,600 Zen 6 CPU cores, and 31 terabytes of HBM4 memory, all in a single rack.' Versus the competition Helios delivers '15% more compute, 50% more HBM4 memory capacity and memory bandwidth, and 50% more scale-out bandwidth' — i.e. the memory on this generation is HBM4.",
+                  "figure": "320 billion transistors; TSMC 2 nanometer and 3 nanometer; 12 compute and IO chiplets with 432 gigabytes of memory; 31 terabytes of HBM4 memory per rack; 96 core EPYC host; 15% more compute, 50% more HBM4 memory capacity and memory bandwidth, 50% more scale-out bandwidth",
+                  "topics": [
+                    "hbm",
+                    "foundry",
+                    "packaging_substrate",
+                    "power_cooling"
+                  ]
+                },
+                {
+                  "quarter": "AMD Advancing AI keynote 2026 (07-23-2026)",
+                  "signal": "INSTINCT ROADMAP BEYOND MI500. Lisa Su: 'With MI600, it’s powered by our CDNA Next architecture, and it’s already deep in development for 2028.' She also put a number on the MI455 step: 'delivering 35 times more inference throughput compared to MI355'. HPC/sovereign variant: Vamsi Boppana (SVP of AI) said the MI430X, a chiplet variant with native FP64 hardware, 'delivers 288 teraflops of FP64 compute, nearly nine times better than competition' with the memory capacity and bandwidth of MI455X, and 'The MI430X ships in the first half of 2027.' The first sovereign exascale AI factories in the U.S. and Europe are being built on it: 'Discovery at Oak Ridge National Laboratory and ALICE/RecurVE with CINES and GENCI in Europe.'",
+                  "figure": "MI600 (CDNA Next) for 2028; MI430X: 288 teraflops of FP64 compute, ships in the first half of 2027; MI455 35 times more inference throughput compared to MI355",
+                  "topics": [
+                    "product_launches",
+                    "transitions"
+                  ]
                 }
               ]
             }
@@ -683,6 +756,15 @@
                       "value": "no specific figure",
                       "date_signed": "2026",
                       "type": "GPU deployment"
+                    },
+                    {
+                      "source": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                      "signal": "Ramsay named Meta as one of three 'workhorse customers' for the Helios generation: '1 gigawatt commitments from both OpenAI and Meta' inside commitments for 6 gigawatt arrangements over that product generation.",
+                      "units": "1 gigawatt commitments from both OpenAI and Meta",
+                      "value": "no specific figure",
+                      "date_signed": "2026",
+                      "type": "infrastructure deployment commitment",
+                      "topics": []
                     }
                   ]
                 },
@@ -706,6 +788,15 @@
                       "date_signed": "October 2025",
                       "type": "product purchase agreement",
                       "topics": []
+                    },
+                    {
+                      "source": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                      "signal": "Ramsay named OpenAI as one of three 'workhorse customers' for the Helios generation and disclosed the size: '1 gigawatt commitments from both OpenAI and Meta' inside commitments for 6 gigawatt arrangements, each of which wants to go to gigawatt scale on AMD's first rack-scale solution.",
+                      "units": "1 gigawatt commitments from both OpenAI and Meta",
+                      "value": "no specific figure",
+                      "date_signed": "2026",
+                      "type": "infrastructure deployment commitment",
+                      "topics": []
                     }
                   ]
                 },
@@ -728,6 +819,15 @@
                       "value": "no specific figure",
                       "date_signed": "2026",
                       "type": "deployment timing"
+                    },
+                    {
+                      "source": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                      "signal": "Ramsay quantified the Anthropic engagement for the first time: 'We've gotten a 1 gigawatt commitment and a 2 gigawatt ambition from Anthropic over that generation', and AMD 'would love to be able to do the first full gigawatt with Anthropic in 2027'. On software, the multi-gigawatt partnership also covers ROCm: AMD uses Claude across its engineering teams and is working with Anthropic so that other customers using Claude can land Claude-automated code on ROCm and Instinct platforms. He cited Anthropic having 'rented a cluster of MI355s' early this year and getting their premier inference model up, running and tuned on MI355 in a weekend without AMD's help or knowledge.",
+                      "units": "1 gigawatt commitment and a 2 gigawatt ambition",
+                      "value": "no specific figure",
+                      "date_signed": "2026",
+                      "type": "infrastructure deployment commitment + software co-development",
+                      "topics": []
                     }
                   ]
                 },
@@ -750,6 +850,34 @@
                       "value": "no specific figure",
                       "date_signed": "2026",
                       "type": "deployment confirmation (buyer side)"
+                    }
+                  ]
+                },
+                {
+                  "company": "Cerebras",
+                  "relationship": "Helios rack systems deployed in Cerebras' cloud alongside its wafer-scale engine racks",
+                  "contracts": [
+                    {
+                      "source": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+                      "signal": "Ramsay: 'a partnership that we have announced with Cerebras, where our Helios systems will be in their cloud and compute alongside their wafer scale engine racks to expand the utility, not just of ultra-fast inference, but take it to a broader range of more general-purpose inference in their cloud for their customers.'",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2026",
+                      "type": "partnership / deployment",
+                      "topics": [
+                        "product_launches"
+                      ]
+                    },
+                    {
+                      "source": "AMD Advancing AI 2026 (07-23-2026)",
+                      "signal": "Vamsi Kompella (AI business lead): the Cerebras work started on MI350: 'We have things up and running in our lab infrastructure between 350s and their Wafer-Scale Engines, and the disaggregation software stack is all serving well.' Helios work is at the analysis and simulation stage, and 'We expect these deployments for their initial version, which is basically token service under Cerebras Cloud, to happen by the end of this year.'",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2026",
+                      "type": "partnership / disaggregated inference deployment",
+                      "topics": [
+                        "product_launches"
+                      ]
                     }
                   ]
                 }
@@ -817,6 +945,81 @@
                   "topics": [
                     "cpu"
                   ]
+                },
+                {
+                  "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+                  "signal": "CFO Jean Hu gave the quarter-by-quarter Helios/MI450 ramp shape: 'Q3 will be at the very beginning of our production shipment. We expect revenue in Q3, but Q4 we'll see a very significant step up. Then another step up in Q1 2027, and the ramp through 2027.' Critically, 'the demand and the volume for 2027 has certainly go above our original initial expectation' and AMD 'can use more supplies to make sure we meet the customer's demand'. AMD now has 'three major anchor customers, Meta and OpenAI and Anthropic', each at 'multiple gigawatt scale deployment and multi-generational engagement', and 'all three of them give us the forecast more than what we expected in the beginning of the strategic partnership'. Beyond the anchors, MI350 is seeing demand from third-party model builders, new AI companies and enterprises, and AMD will use neoclouds to serve them while prioritising the three anchors.",
+                  "figure": "MI450 revenue starts Q3, very significant step up in Q4, another step up in Q1 2027; 2027 volume above AMD's original expectation",
+                  "topics": [
+                    "product_launches"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+                  "signal": "SCALE-UP ROADMAP AND THE COPPER-TO-OPTICS TRANSITION. Ramsay, on when copper stops being good enough, pointed back to what AMD disclosed at its Advancing AI conference 'a couple of months ago': in the MI400 series program, 'which would be second half of 2027 introduction and be kind of the primary product for the company in 2028', AMD will have scale-up domains larger than today — 'We have not set a number, but greater than 72' — and 'we would have both copper-based and near-package optics-based options for scale-up connectivity'. AMD keeps running Infinity Fabric coherency traffic, donated to the UAL (UALink) consortium, tunnelled over Ethernet and other means on copper and over optics. He explicitly rejected a clean cut-over: 'It is not going to be a student body left type of decision... You should think about copper and optics living side by side for a number of generations,' with different optics versions introduced at different risk tolerances.",
+                  "figure": "MI400 series: second half of 2027 introduction, primary product in 2028; scale-up domain greater than 72; copper-based and near-package optics-based options",
+                  "topics": [
+                    "transitions",
+                    "optical_speed"
+                  ]
+                },
+                {
+                  "quarter": "AMD Citi’s Global TMT Conference 2026 (09-08-2026)",
+                  "signal": "NEW INFERENCE STRATEGY LEGS NOT ON THE Q2 CALL. (1) Cerebras partnership: 'our Helios systems will be in their cloud and compute alongside their wafer scale engine racks to expand the utility, not just of ultra-fast inference, but take it to a broader range of more general-purpose inference in their cloud for their customers'. (2) AMD acquired Taalas, whose team joins to accelerate AMD's own internal silicon ambitions for ultra-low latency inference, which 'would fit into our architecture via chiplets'. (3) Ramsay said multi-generational technical engagement with the three named model customers is already shaping 'the Instinct MI500 program' and 'the Instinct MI600 program' and the design of future racks — the same pattern AMD saw on the CPU side around the Rome generation.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "product_launches",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                  "signal": "FIRST TIME THE ANCHOR-CUSTOMER GIGAWATT COMMITMENTS WERE BROKEN OUT BY NAME. Ramsay: 'We've gotten commitments for 6 gigawatt arrangements, but 1 gigawatt commitments from both OpenAI and Meta. We've gotten a 1 gigawatt commitment and a 2 gigawatt ambition from Anthropic over that generation.' The MI455 / Instinct MI450 Helios series is the primary driver of the AI business starting in September and running 'through the first quarter or so of 2028, so a six or seven quarter period of time'. Beyond the three anchors he named OCI customers, Azure customers and Microsoft's own internal AI workloads, plus a number of neoclouds, as additional Helios demand — gated by land, power, shell and capital commitments rather than by interest. AMD 'would love to be able to do the first full gigawatt with Anthropic in 2027'.",
+                  "figure": "commitments for 6 gigawatt arrangements: 1 gigawatt commitments from both OpenAI and Meta, 1 gigawatt commitment and a 2 gigawatt ambition from Anthropic",
+                  "topics": [],
+                  "slot": "backlog_or_b2b"
+                },
+                {
+                  "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                  "signal": "HELIOS RAMP MECHANICS, ONE WEEK AFTER THE Q2 CALL. Ramsay: 'We're going to start to ship MI450 and the Venice CPUs and some of our Pensando networking products into our ODM partners that are building Helios starting in the month of September' — a fairly large ramp of that revenue in Q4 and 'another fairly large jump of revenue in Q1'. He sized it as going 'from a standing start to billions of dollars of revenue in the first quarter that it's shipping for the full quarter', and said the data center business inclusive of AI is growing 'much more than 100% next year' versus the more-than-70% server-CPU number. Execution approach: a couple of focus ODM partners first, then spread into the wider ODM ecosystem once copy-exact works; sampled racks are already running customer production code and 'there's no smoking guns' on the design, leaving it an operational problem.",
+                  "figure": "ODM shipments of MI450 / Venice CPUs / Pensando networking start in September; standing start to billions of dollars of revenue in the first full shipping quarter; data center inclusive of AI growing much more than 100% next year",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                  "signal": "De-risking AMD's first rack-scale ramp: asked how Helios avoids the growing pains a peer had when it first went to rack scale, Matt Ramsay said AMD has taken customer feedback while setting up the ODM partners and supply chain, and that the ZT Systems acquisition brought system-level talent that has 'proven invaluable to hardening the design and de-risking the different design points'. He described 'a very large Gantt chart' for the ramp and said AMD tried to design the system to take risk out of the design.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "AMD Advancing AI keynote 2026 (07-23-2026)",
+                  "signal": "HELIOS NETWORKING CONTENT. Lisa Su: the Salina DPU delivers 'both a front end as well as the scale out and scale across bandwidth'; the Vulcano AI NIC allows 'up to 6 Vulcano NICs on a board, and it uses the open Ultra Ethernet standard', and 'Each Helios compute tray includes two of these Vulcano boards'. Scale-up is handled by 'an additional six dedicated networking trays' that connect '75 GPUs together with UALink over Ethernet with Silicon from our partners' (the transcript prints 75; partners not named).",
+                  "figure": "up to 6 Vulcano NICs on a board; two of these Vulcano boards per compute tray; six dedicated networking trays for scale-up (UALink over Ethernet)",
+                  "topics": [
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "AMD Advancing AI 2026 (07-23-2026)",
+                  "signal": "SCALE-UP PROTOCOL AND THE END STATE OF THE OPTICAL TRANSITION. An AMD executive (named 'Farosh' in the transcript): 'on MI450, we support UALink transported over Ethernet. ESUN is a set of extensions to Ethernet', and AMD expects 'UALink over Ethernet brought forward and being available in MI500 as well'. MI500 is 'the one where we begin transitioning from a purely electrical interconnect for scale-up networking to start to see optical play a role as well' — 'We don’t view this as a light switch.' The terminus, 'generations out in the future is, Co-packaged optics on all the major components and optical really being the backbone of many connections within the rack as well as between.'",
+                  "figure": "MI450: UALink over Ethernet; MI500 begins electrical-to-optical scale-up transition; end state Co-packaged optics on all the major components",
+                  "topics": [
+                    "cpo",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "AMD Advancing AI 2026 (07-23-2026)",
+                  "signal": "RACK BUILD AND DEPLOYMENT CAPACITY. The AMD executive named 'Farosh' said AMD is working with key OEM and ODM partners — 'Sanmina, Wiwynn, et cetera, as well as the OEMs' — to have capacity to 'build, integrate, test, and validate the racks at the right pace'; the next choke point is physical and logical deployment of racks. AMD retained the large services arm acquired with ZT and is using it for internal deployments and to help customers deploy 'both MI350s as well as MI455 systems in their data center'. Lisa Su: AMD now plans GPUs and Helios systems alongside the power planning of customers — 'there is easily 12 to 18 months of visibility.'",
+                  "figure": "12 to 18 months of visibility",
+                  "topics": [
+                    "supply_tightness"
+                  ]
                 }
               ]
             },
@@ -843,6 +1046,17 @@
                       "value": "no specific figure",
                       "date_signed": "not stated",
                       "type": "partnership",
+                      "topics": [
+                        "product_launches"
+                      ]
+                    },
+                    {
+                      "source": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                      "signal": "HPE's Helios engagement with AMD runs on two tracks: a complete HPE-branded Helios rack (HPE server technology plus HPE scale-up networking technology) and white-label Helios trays supplied into competing server OEMs that are working with AMD on Helios. Management cited HPE's 'very long-standing relationship with AMD' as the reason it leaned in early, says only a couple of vendors are qualified in so far, and points to active RFPs, with rollout timing and sizing to be given around the fiscal fourth-quarter report.",
+                      "units": "full Helios racks plus white-label trays for other server OEMs",
+                      "value": "no specific figure",
+                      "date_signed": "2026",
+                      "type": "product partnership / rack-scale platform participation",
                       "topics": [
                         "product_launches"
                       ]
@@ -875,6 +1089,16 @@
                     "product_launches",
                     "transitions"
                   ]
+                },
+                {
+                  "quarter": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                  "signal": "HPE WILL SELL HELIOS TWO WAYS - FULL RACKS AND WHITE-LABEL TRAYS TO ITS OWN COMPETITORS: 'The first is we'll provide the whole rack. Put HPE on it, server technology, obviously the scale-up networking technology... We're also going to be providing to the market trays. So basically we'll provide on a white label basis trays into the server competitors of ours, co-opetition, I suppose, that are going to be working with AMD on Helios.' Management says 'there's only a couple of us that have been qualified in' today and does not expect the market to stay that duopolistic. Helios is how HPE gets more aggressive in hyperscale and neocloud after focusing AI servers on enterprise and sovereign, and it carries a better margin profile because HPE's networking IP is inside the rack. HPE is 'excited about the RFPs that we're seeing right now'; no sizing was given, with more expected when HPE reports the fourth quarter in late November or early December.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "product_launches",
+                    "transitions"
+                  ],
+                  "slot": "next_catalyst"
                 }
               ]
             },
@@ -947,6 +1171,14 @@
                   "quarter": "Astera Labs Q2 FY2026 (08-04-2026)",
                   "signal": "CALL — UALINK ON TRACK FOR 2027: the UALink Consortium's 2.0 spec 'validates our architectural approach,' codifying IN-NETWORK COMPUTE, advanced RAS, and 200G SerDes as next-generation scale-up fabric requirements — all existing Astera investment areas. Astera is on track to deliver UALINK-ENABLED SCORPIO X SERIES scale-up switches in 2027, timed to INTERCEPT THE XPUS RELEASING IN 2027, with a full portfolio anchored on the switch plus copper AND optical signal conditioning (new Taurus 200G/lane retimers/redrivers support UALink). Customer interest is driven by throughput plus UALink's LOW LATENCY vs other protocols — strongest traction in INFERENCING. Management: the PCIe->UALink transition INCREASES dollar content per XPU.",
                   "figure": "UALink-enabled Scorpio X ships 2027, intercepting 2027 XPUs; PCIe->UALink raises $/XPU content"
+                },
+                {
+                  "quarter": "Astera Labs Citi’s Global TMT Conference 2026 (09-09-2026)",
+                  "signal": "WHY MI450 RUNS UALINK OVER ETHERNET, AND WHAT IT MEANS FOR ASTERA CONTENT: asked about the first Helios server, CEO Jitendra Mohan declined to speak for AMD but reiterated AMD's public position - 'for the MI450 series, they are going to go with UALink running over Ethernet. That has really got everything to do with the fact that UALink switches are not yet available', so MI450 must tunnel UALink over Ethernet - while AMD has said it will keep offering both UALink over Ethernet and native UALink in future generations, which Mohan expects to coexist. The content consequence he spelled out generically: where Astera does not supply the scale-up switching, its content is limited to scale-out retimers, Scorpio P, Taurus Ethernet retimers and active electrical cables; where the scale-up protocol is one Astera supports (PCI Express, UALink or something in between) and a Scorpio X solution can be used, 'then our content really does explode a lot, because scale up is a very rich area for connectivity solutions'. He added that the in-network compute, Hypercast, diagnostics and telemetry built into today's Scorpio X, exposed through COSMOS software, carry forward to a UALink-based Scorpio X, making the migration easy for existing Scorpio X users.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "transitions"
+                  ]
                 }
               ]
             }

@@ -1,0 +1,66 @@
+{
+  "source": "Qualcomm Deutsche Bank Technology Conference 2026 (08-26-2026)",
+  "chains": {
+    "accelerators/broadcom_custom_asic.json": {
+      "players": [
+        {
+          "company": "Qualcomm",
+          "layer": "compute_hardware",
+          "sector": "Custom AI ASIC (hyperscaler silicon)",
+          "quarterly_data": [
+            {
+              "quarter": "Qualcomm Deutsche Bank Technology Conference 2026 (08-26-2026)",
+              "signal": "HIGH BANDWIDTH COMPUTE (HBC) IS AN EXPLICIT ALTERNATIVE TO HBM, WITH SPECS AND A SHIP DATE. Durga Malladi (EVP Tech Planning, Edge & Data Center): HBC puts compute right next to memory and was 'a direct take on an alternative way of doing things as opposed to HBM'. Claimed '6x improvement compared to HBM in terms of tokens per second per watt'; where 'HBM today is about give or take 21, 22 terabytes per second. We are, like, in hundreds of terabytes per second'. Against SRAM the argument is TCO/area (more racks for the same work). Proof points: the silicon is taped out and 'back in the lab ... coming along very well', with silicon validation and engineering plus commercial samples on track. Generation 1 is 'slated to be commercial and shipping in 2027'; generation 2 lands in 2028 and is benchmarked against HBM4E, where Malladi says the relative gain looks even better because more arithmetic is moving into the logic die under the DRAM stack.",
+              "figure": "6x improvement compared to HBM in terms of tokens per second per watt; HBM today about 21, 22 terabytes per second vs hundreds of terabytes per second; gen 1 commercial and shipping in 2027, gen 2 in 2028 vs HBM4E",
+              "topics": ["hbm", "transitions"]
+            },
+            {
+              "quarter": "Qualcomm Deutsche Bank Technology Conference 2026 (08-26-2026)",
+              "signal": "HBC SUPPLY CHAIN AND DIVISION OF LABOUR: Qualcomm is not a memory vendor - 'We're not doing the DRAM stacking ourselves. What we prescribe is this is how things should be done. These are the TSVs that need to occur.' The compute die comes from Qualcomm, and 'We still have to work with the likes of TSMC to tape it all together'; Qualcomm positions itself as the overall system integrator and the single front end to the hyperscaler customer. On supply: right after Investor Day Malladi was 'in Korea with two memory vendors' and, instead of pushing back on the HBM comparison, they asked how to work more closely - 'we have been working with them because we need to make sure that we have the right supply as we do the commercialization', with additional inbound interest from the wider memory community. Hyperscaler engagement is modular across three independent tracks (standalone HBC, HBC plus Qualcomm CPU, or the full stack), and a hyperscaler taking HBC brings 'certain volume commitment, some sort of a demand signal'.",
+              "figure": "no specific figure",
+              "topics": ["hbm", "supply_tightness"],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Qualcomm Deutsche Bank Technology Conference 2026 (08-26-2026)",
+              "signal": "ALPHAWAVE IS BEING KEPT AS A CUSTOM-SILICON AND SERDES FRANCHISE, NOT JUST IP: 'Post our acquisition of Alphawave, we have retained the custom silicon business. Increasingly, all of our discussions with hyperscalers involve some level of customization. It is a mix and match of everything that we bring to the table along with their IP. Keep in mind that we are in the networking business now, so we have SerDes.' Malladi adds that 'prior to acquisition, Alphawave already had these hyperscaler customers, so we will continue to go in that direction.'",
+              "figure": "no specific figure",
+              "topics": ["optical_speed"]
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "Qualcomm",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "quarterly_data": [
+            {
+              "quarter": "Qualcomm Deutsche Bank Technology Conference 2026 (08-26-2026)",
+              "signal": "DRAGONFLY C1000 TIMING AND FIRST CUSTOMER CONFIRMED: Malladi confirms the moderator's second-half 2028 framing ('That is correct') and says 'the commercial launch is in 2028', with silicon back in the lab and more proof points to be shared before launch. 'We announced Meta as our first customer for C1000. They believed our claims.' The design target was set against where competing data-center CPUs will be in 2028 rather than today's parts (baselined from Neoverse V2 generation over generation, benchmarked with SPECint 2K), on the view that a 2% improvement would never displace a hyperscaler's in-house solution. One hyperscaler's response was 'Your numbers are too good to be true'; others told him 'Let us see your silicon, and then we will be there.'",
+              "figure": "Dragonfly C1000 commercial launch in 2028 (second half 2028); Meta first customer",
+              "topics": ["cpu"]
+            },
+            {
+              "quarter": "Qualcomm Deutsche Bank Technology Conference 2026 (08-26-2026)",
+              "signal": "CPU-TO-XPU ATTACH RATIO IS TIGHTENING BECAUSE OF AGENTIC AI - A DIRECT TAM DRIVER FOR SERVER CPUs: 'It was like 4 is to 1, it used to be 8 is to 1, became 4 is to 1. But with agentic AI, that's changing quite a bit. In fact, nowadays we are more in the 2 is to 1 configuration. For every CPU, there's 2 XPUs' - and Malladi 'wouldn't be surprised if it actually becomes even less than that, it becomes more and more symmetric'. The CPU's role is shifting from a passive AI head node to running agentic AI workloads alongside general-purpose compute; Qualcomm's racks were shown at Investor Day with '250 plus cores'.",
+              "figure": "CPU:XPU ratio 8 is to 1 -> 4 is to 1 -> more in the 2 is to 1 configuration today; racks have 250 plus cores",
+              "topics": ["cpu", "transitions"]
+            },
+            {
+              "quarter": "Qualcomm Deutsche Bank Technology Conference 2026 (08-26-2026)",
+              "signal": "A SECOND, RISC-V CPU TRACK FOR THE DATA CENTER: Malladi says RISC-V has moved past being academic - there are now 'pre-commercial engagements' on where to take RISC-V cores, with a few hyperscaler partners both in the U.S. and in China participating in the software ecosystem (he rejects the idea that RISC-V is a China-only story). Qualcomm holds leadership positions in the RISC-V forums and is investing in its RISC-V portfolio 'even towards data center, especially towards data center'; 'Last year we made an acquisition of Antenna Microsystems, and that team is now fully integrated.' He expects Arm and RISC-V to run as parallel tracks - 'It is not A or B, it is A and B'.",
+              "figure": "no specific figure",
+              "topics": ["cpu", "transitions"]
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

@@ -241,10 +241,17 @@ def label_parts(name, title, published):
 def get(url, params=None, tries=4):
     """GET with a Chrome fingerprint; on 503 (rate limit) wait and retry, doubling the pause.
     A 403 after many fast requests is the bot filter cooling us off (seen at listing page 131 on
-    2026-09-10) -- wait a full minute before each retry instead of giving up."""
+    2026-09-10) -- wait a full minute before each retry instead of giving up.
+    A dropped connection / DNS blip (curl errors 6 and 56, seen 2026-09-16) is retried the same way."""
     pause = 5
     for attempt in range(tries):
-        r = requests.get(url, params=params, impersonate="chrome", timeout=60)
+        try:
+            r = requests.get(url, params=params, impersonate="chrome", timeout=60)
+        except Exception:
+            if attempt == tries - 1:
+                raise
+            time.sleep(60)
+            continue
         if r.status_code == 200:
             return r.text
         if r.status_code not in (403, 503) or attempt == tries - 1:

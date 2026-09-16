@@ -45,9 +45,9 @@ append-only history is `enrich_log.json` (commit it).
   authorized immediate deployment in this session, including the necessary commit/push. Completion notes
   are recorded in a follow-up documentation commit. The standing no-auto-commit preference still applies
   to future sessions.
-- **Graph:** 352 nodes, 1,359 edges, 25 chains, 799 applied patches in `patches/applied/`.
+- **Graph:** 352 nodes, 1,377 edges (2026-09-16 evening: conference run 2 + SK Telecom node, onsemi→Lite-On removed).
 - **Coverage by pipeline (from `enrich_log.json`, 2026-09-11):** edgar 1,012 files / 432 in graph;
-  dart 48/48; intl 30/29; tw 17/17; conference 84/0; manual 244/244.
+  dart 48/48; intl 30/29; tw 17/17; conference 93 files / 89 in graph / 0 pending / 4 no-data (2026-09-16); manual 244/244.
 - **Web app:** live; 2026-09-12 UI refresh in `web/src/app/{page.tsx,workspace.css}` and
   `web/src/components/{Sidebar.tsx,SearchBox.tsx}`: research-view headings, graph summary, scrollable
   keyboard-operated tab strip, mobile filter focus management, accessible sidebar sections/search clear,
@@ -67,13 +67,12 @@ append-only history is `enrich_log.json` (commit it).
 
 ## 4. Next up (ordered; edit in place)
 
-1. **`enrich conference` — 84 fireside chats, 40 companies, 2026-08-10 → 09-10.** Nothing enriched yet.
-   Procedure: `.claude/skills/enrich/references/conferences.md`. Depth rule: add ONLY what the company's
-   latest earnings call (its existing node entries) did not already say. Multi-agent (≤8 enrichers + a
-   verifier each) writing `patches/` only, ONE `graph_build.py --sync`, verify loop to 0 fail, then
-   `python investing.py done --kind conference`, then update `docs/memory/conference_enrichment.md` +
-   this file. Run history lives in `investing/conferences_state.json → runs[]`. A later
-   `python investing.py conferences` continues past listing page 130 (June conferences not yet reached).
+1. **Conferences: done through 2026-09-15.** Investing.com has almost no tech-conference transcripts before late
+   July 2026 (a 285-page walk back to 05-14 found only 9), so the only future work is NEW conferences:
+   `C:/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 investing.py conferences` (bare `python` lacks
+   `curl_cffi`) → enrich → verify → one build → `investing.py done --kind conference`.
+   Open structure questions for the USER: Terafab (KLA's new customer; not a node — fold into Tesla/SpaceX?),
+   STMicro→SpaceX (Starlink ~90% share, satellite chips), Sanmina/Wiwynn as AMD Helios rack partners (list-named).
 2. **EDGAR round 3b — "read ALL recovered tables", user scheduled it for the week of 2026-09-14.**
    Prep is finished: `transcripts/edgar/` was re-pulled 137/137 tickers (2026-09-11 night), the 5 old
    verify fails pass again. Durable archive: `C:\Users\calif\edgar_round3b\` (ledger `R3_PROGRESS.md`,
@@ -211,3 +210,32 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   1,359→1,357 edges; verify_graph.py output byte-identical to before. naming_rules.md (docs + memory) updated.
   Uncommitted: yes (not deployed). Note: unrelated uncommitted edits by another session were present
   (CLAUDE.md, AGENTS.md, local-ask/*, ask-server skill) — not touched.
+
+- **2026-09-16 (Claude)** — Asked: `enrich conference` on all 84 queued fireside chats, multi-agent in parallel,
+  then a 20-agent verify pass. Done: 56 companies split into 20 batches (one company's conferences together);
+  20 enrichers wrote 81 patches (Dell / Seagate / NVIDIA Six Five Summit had no supply-chain content → no patch);
+  coordinator rewrote 25 flat chain keys to the nested `chains/<group>/<file>.json` paths (the batch briefs printed
+  them flat — `apply_patches.py` aborts on a missing path); 20 adversarial verifiers then edited ~80 entries and
+  deleted ~10 (cross-transcript contamination, moderator numbers credited to management, false "first disclosure"
+  framing, invented strings, one `value` holding a market estimate). Dry-run clean, then ONE `graph_build.py --sync`:
+  +387 quarterly_data, +37 contracts, +19 edges. `verify_graph` on the 424 conference entries: 294 pass /
+  130 unchecked / 0 fail / 0 warn. User ruling mid-run: **xAI is under SpaceX** → `utils/merge_company.py --from xAI
+  --into SpaceX` (graph 351 nodes / 1,376 edges). `investing.py done --kind conference` → queue 0 (needs the
+  `AppData/Local/Python` interpreter). Memory: `conference_enrichment.md`, `naming_rules.md` (docs/memory copies
+  updated). Left open: June conference backfill + the omissions list in §4.1. Uncommitted: yes (chains/, graph/,
+  web/public, patches/applied, investing/pending.json, enrich_log.json, docs/).
+
+- **2026-09-16 (Claude, run 2)** — Asked: supplement patches for the run-1 omissions, drop onsemi→Lite-On, pull the
+  remaining conferences (newest first, reputable hosts only) and enrich + verify with 30 agents; then add SK Telecom
+  as a node with its logo. Done: onsemi→Lite-On removed (chain + receipt). 26 supplement patches. `investing.py
+  conferences --since 2026-05-15` → 9 new files (the site has almost nothing before late July); 7 enrichers → 8
+  patches (NVIDIA SIGGRAPH had no supply-chain content). SK Telecom: node in neocloud.json (cloud_infra / Neocloud),
+  edges Penguin Solutions→SK Telecom and NVIDIA→SK Telecom, metadata 017670.KS, logo `static/logos/SK Telecom.svg`
+  (companieslogo SKM). **Incident:** a verifier ran `apply_patches.py --help`, which applied all 36 pending patches
+  before verification finished → fixed apply_patches.py (any arg other than `--dry-run` now exits without applying);
+  the 30 verifier rulings (20 concurrent max, launched in two waves) were then applied by the coordinator to chains
+  and receipts (2 deletions, 14 edits). Also `investing.py get()` now retries connection resets / DNS blips.
+  Result: graph 352 / 1,377; verify_graph on the 89 conference labels: 346 pass / 156 unchecked / 0 fail / 0 warn;
+  conference queue 0. Memory: conference_enrichment.md, logo_fetching.md (docs/memory copies updated).
+  Uncommitted: yes (chains/, graph/, web/public, patches/applied, transcripts/conferences, company_metadata.json,
+  static/logos, apply_patches.py, investing.py, enrich_log.json, investing/, docs/).

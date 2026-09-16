@@ -1,0 +1,94 @@
+{
+  "source": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+  "chains": {
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Vera Rubin platform (Rubin GPU, Vera CPU, NVLink switch, Spectrum-X / Quantum-X networking)",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "Shipment datapoint Huang cited from that morning's internal reports ('I was just seeing the reports this morning'): 'Grace, Blackwell, NVLink, 72 racks, month-over-month increase 27%. You don't have month-to-month increase of 27%. That compounds. That's called a high growth value stock.'",
+              "figure": "month-over-month increase 27%",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "Per-GPU-system ASP ladder by architecture, driven by NVIDIA capturing more of the AI factory: 'Hopper was about $18,000 or so per GPU system, Blackwell went to about $25,000, and Vera Rubin is about $40,000... we're increasing our SAM of the world's CapEx.' Huang described the rack-scale unit as the GPU: 'One GPU is 2 tons... It is $8.5 million. That is one GPU, all connected with NVLink, 2 million parts.'",
+              "figure": "Hopper about $18,000 -> Blackwell about $25,000 -> Vera Rubin about $40,000 per GPU system; $8.5 million per NVLink rack 'GPU' (2 tons, 2 million parts)",
+              "topics": ["transitions"]
+            },
+            {
+              "quarter": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "Component-level breakdown of the upstream bottleneck: 'Packaging is a challenge. DRAM is a challenge. LPDDR DRAM is a challenge. Connectors are challenging. Everything is challenging. Voltage regulators are challenging. Everything is challenging. Wafers are obviously challenging.' Huang framed downstream (land, power, shell) as NVIDIA's advantage because 'we are tracking every single gigawatt of land, power, shell around the world', with neoclouds, OEMs, clouds and AI natives all reporting capacity back to NVIDIA.",
+              "figure": "no specific figure",
+              "topics": ["supply_tightness", "packaging_substrate"],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "Announced that morning: with energy and data-center companies in Australia, 'We stood up 2 gigawatts for 2027. Just put in perspective, 2 gigawatts for 2027. It's not a lot, but it's $80 billion.' Huang also sized the AI-native demand pool: '$400 billion of VC funding went into AI natives in the last six months', defining an AI native as a company that spends two-thirds of its raised money on compute.",
+              "figure": "2 gigawatts for 2027 in Australia = $80 billion; $400 billion of VC funding into AI natives in the last six months",
+              "topics": [],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "AI-factory unit economics used to argue NVIDIA Compute should be financed as an investable, asset-backed asset: 'one gigawatt data center is probably like $60 billion. Let us say it is over six years, $10 billion a year... That $10 billion a year currently is being rented out for 50... The revenues per gigawatt right now is about $50 billion.' On the $500 billion platform: 'Hopefully, most of that $500 billion is going to be asset-backed.' Huang cited durability evidence — 'You can still rent Voltas. Volta is 10 years old... All the Ampere's in the world are all rented out.'",
+              "figure": "one gigawatt data center is probably like $60 billion; $10 billion a year over six years; revenues per gigawatt about $50 billion; $500 billion platform",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "Neocloud channel widening: 'We have neoclouds around the world from Nscale, and of course, you got CoreWeave and Nebius, and they are doing fantastically. Some new ones that are on the verge of going public or are in the process of filing, whether it is Nscale or Lambda or Firmus. You are going to see a whole new crop of really, really exciting neoclouds with hundreds of billions of dollars backlogged together.' Neoclouds 'secure land power and shell for us that the CSPs have already exhausted.'",
+              "figure": "hundreds of billions of dollars backlogged together",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "Enterprise (non-CSP) AI factory demand newly named by Huang: 'Some of the great names of enterprises building AI factories are, of course, Jane Street and Hudson River. Just about every quantitative trading company in the world is shifting into this new model of doing predictions. And of course, drug discovery with Eli Lilly and Merck and Bristol Myers Squibb... lab in the loop, AI in the loop for wet labs. You need a supercomputer to do that.' Huang also flagged cybersecurity as 'likely the next major use case of AI', running continuously on swarms of Nemotron models, with a big partnership with CrowdStrike.",
+              "figure": "no specific figure",
+              "topics": []
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Cisco",
+              "relationship": "Cisco offers the full NVIDIA AI factory platform to enterprises and countries",
+              "contracts": [
+                {
+                  "source": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+                  "signal": "Huang: 'We have a partnership with Cisco I think today, Palantir, Cisco, NVIDIA, they are building. Cisco is going to offer an entire AI factory platform from NVIDIA. Palantir is built on top of that. That is going to be taken out to all the countries and companies around the world to help them build either proprietary AI models based on Nemotron or cybersecurity red team, blue team models based on Nemotron.' Separately: 'Cisco is coming in. We have 100% of the world's enterprise go-to-market.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "partnership / enterprise go-to-market",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "Anthropic",
+              "relationship": "NVIDIA compute platform for Anthropic model training and inference",
+              "contracts": [
+                {
+                  "source": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+                  "signal": "Share shift disclosed by Huang: 'we didn't use to run Anthropic for a lot of different reasons. We didn't have the money to invest in them as a young company. Now we have more money and we're happy to invest in them and help them. Anyhow, our share of Anthropic is growing very quickly.' Huang also said NVIDIA is 'the only company in the world that actually runs every model' and cited Gemini as newly added: 'We didn't use to run Gemini. We run Gemini today.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "compute supply / share gain",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

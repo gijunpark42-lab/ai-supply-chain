@@ -303,6 +303,12 @@ def apply_all(patches_dir=PATCHES_DIR, chains_dir=CHAINS_DIR, dry_run=False):
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
+    # Any unknown flag (e.g. --help) used to fall through to a REAL apply of every pending
+    # patch -- that happened twice on 2026-09-16. Only --dry-run is accepted; anything else stops.
+    unknown = [a for a in sys.argv[1:] if a != "--dry-run"]
+    if unknown:
+        print("usage: python apply_patches.py [--dry-run]   (unknown argument(s): %s -- nothing applied)" % " ".join(unknown))
+        sys.exit(2)
     dry = "--dry-run" in sys.argv
     n = len(apply_all(dry_run=dry))
     if n == 0:

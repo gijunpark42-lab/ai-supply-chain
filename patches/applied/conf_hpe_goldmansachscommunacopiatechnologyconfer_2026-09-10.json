@@ -1,0 +1,97 @@
+{
+  "source": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+  "chains": {
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "HPE",
+          "layer": "system_integration",
+          "sector": "Server / Rack OEM",
+          "product": "ProLiant / Cray AI server systems",
+          "quarterly_data": [
+            {
+              "quarter": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+              "signal": "ORDERS ARE RUNNING WELL AHEAD OF REVENUE - CONVERSION IS THE CONSTRAINT (Shannon Cross, HPE): networking revenue grew 10% with 36% growth in orders; storage revenue grew 10% with about twice that growth in orders; and traditional (non-AI) server order growth was 75% year-over-year. HPE earned $1.11 in the quarter, the first quarter the company has done over a dollar in earnings, with record free cash flow of almost $1 billion. 'Demand is absolutely not a problem' - management meets weekly on order conversion and expects it to improve sequentially quarter over quarter.",
+              "figure": "networking revenue +10% with orders +36%; storage revenue +10%; traditional server orders +75% YoY; EPS $1.11; free cash flow almost $1 billion",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+              "signal": "SUPPLY, NOT DEMAND, SETS THE GUIDE - HPE HAS LOCKED MULTI-YEAR COMPONENT AGREEMENTS: management said networking purchase commitments doubled quarter-over-quarter and that the rest of the step-up ('if you see six to 30, part of that is networking, but the remainder is focused on cloud and AI') sits against 'the components that are in the shortest supply right now'. HPE pushed back on the idea that LTAs are new - it has relationships with the DRAM manufacturers 'going back to Compaq days' - but has now signed multi-year, larger agreements to lock in supply, which is a direct input to the raised fiscal 2027 outlook.",
+              "figure": "networking purchase commitments doubled quarter-over-quarter; total purchase commitments 'six to 30'",
+              "topics": ["supply_tightness"],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+              "signal": "NETWORKING FOR AI ORDER TARGET RAISED AGAIN, TO $2.5 billion-$3 billion FOR FISCAL 2026 - up from the $1.5 billion target set back in October for a market that was 'nascent' for HPE a year ago. The portfolio: the PTX router for scale-across, which runs Juniper's own Express silicon and is now on multiple generations; the MX router (Trio silicon) as the on-ramp to the data center; and the QFX, 'the first 100% direct liquid-cooled Tomahawk 6 top-of-rack switch'. Routing growth is coming from the new AI use cases rather than the legacy telco core. A networking analyst day is set for September 30th in the Bay Area.",
+              "figure": "Networking for AI order target $2.5 billion-$3 billion for fiscal 2026, raised from $1.5 billion",
+              "topics": ["product_launches"],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+              "signal": "THE $3.5 billion ENTERPRISE DEAL IS A HYPERSCALER BUYING ON-PREM CPU SERVERS AT TRADITIONAL SERVER MARGINS: management clarified that the $3.5 billion award booked after quarter end is 'a hyperscaler', the gear is for their internal usage and inferencing, it is 'predominantly CPU' rather than GPU, it carries traditional server margins (not AI-server margins), and as a server deal it is 'a fairly quick turnaround' rather than a multi-year contract. Management attributes the win to HPE's services, installation and maintenance wrap. It frames a new demand driver - enterprises and CSPs buying on-prem hardware to contain token cost and keep data sovereign - with 'several large enterprise customers' with large deals in the pipeline behind it.",
+              "figure": "$3.5 billion enterprise deal, awarded after quarter end, predominantly CPU, traditional server margins",
+              "topics": ["cpu"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Oracle",
+              "relationship": "HPE Juniper networking routers and switches for Oracle's gigawatt-scale AI cloud build-out",
+              "contracts": [
+                {
+                  "source": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                  "signal": "Management detailed the Oracle AI data center win: HPE is providing the PTX, the MX and the QFX, 'which basically running the back end of the data center' - an AI data center build, explicitly different from the older Juniper-Oracle telco relationship, won through a competitive bid. The drivers cited were the direct liquid-cooled (DLC) QFX switch, where HPE says it is 'time to market versus the competition by at least 6 months' and which cuts power consumption in a smaller device; the existing relationship between the two companies; and HPE's balance sheet, with Oracle able to use HPE Financial Services leasing. Management calls it a proof point and says it is talking to a number of other players in the market.",
+                  "units": "PTX, MX and QFX routers and switches running the back end of the AI data center",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "competitive design win / networking supply agreement",
+                  "topics": ["product_launches", "power_cooling"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/amd_mi450_helios.json": {
+      "players": [
+        {
+          "company": "HPE",
+          "layer": "interconnect",
+          "sector": "Scale-up",
+          "product": "scale-up Ethernet switch for AMD Helios rack-scale (fall 2026)",
+          "quarterly_data": [
+            {
+              "quarter": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+              "signal": "HPE WILL SELL HELIOS TWO WAYS - FULL RACKS AND WHITE-LABEL TRAYS TO ITS OWN COMPETITORS: 'The first is we'll provide the whole rack. Put HPE on it, server technology, obviously the scale-up networking technology... We're also going to be providing to the market trays. So basically we'll provide on a white label basis trays into the server competitors of ours, co-opetition, I suppose, that are going to be working with AMD on Helios.' Management says 'there's only a couple of us that have been qualified in' today and does not expect the market to stay that duopolistic. Helios is how HPE gets more aggressive in hyperscale and neocloud after focusing AI servers on enterprise and sovereign, and it carries a better margin profile because HPE's networking IP is inside the rack. HPE is 'excited about the RFPs that we're seeing right now'; no sizing was given, with more expected when HPE reports the fourth quarter in late November or early December.",
+              "figure": "no specific figure",
+              "topics": ["product_launches", "transitions"],
+              "slot": "next_catalyst"
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "AMD",
+              "relationship": "scale-up Ethernet switch purpose-built for the AMD Helios AI rack-scale architecture",
+              "contracts": [
+                {
+                  "source": "HPE Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026)",
+                  "signal": "HPE's Helios engagement with AMD runs on two tracks: a complete HPE-branded Helios rack (HPE server technology plus HPE scale-up networking technology) and white-label Helios trays supplied into competing server OEMs that are working with AMD on Helios. Management cited HPE's 'very long-standing relationship with AMD' as the reason it leaned in early, says only a couple of vendors are qualified in so far, and points to active RFPs, with rollout timing and sizing to be given around the fiscal fourth-quarter report.",
+                  "units": "full Helios racks plus white-label trays for other server OEMs",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "product partnership / rack-scale platform participation",
+                  "topics": ["product_launches"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

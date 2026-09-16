@@ -1,0 +1,74 @@
+{
+  "source": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+  "chains": {
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "KLA",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "quarterly_data": [
+            {
+              "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "WFE VIEW RAISED AGAIN AND A FIRST LOOK AT 2027. CFO Bren Higgins: at the March Investor Day KLA thought the industry would be '$135 billion to $140 billion' and it now expects 'greater than $150 billion'; customers are 'struggling with space' but 'figuring out ways to take equipment'. KLA's own growth: 'in 2024, we grew 12%, 2025, we grew 17%, 2026, if you take our performance plus some of the guidance we gave, you end up in the low 20%', with about 400 basis points of operating-margin gain over that span. For 2027 he says 'growth rates into 2027 are probably in a similar range, maybe higher'. Mix commentary: process-control intensity at the 2 nm node is higher than at 3 nm, KLA is seeing backporting of capability into N3 on top of N2 investment, and in 2027 'we are going to see the next investment in the next node from multiple players' - leading-edge logic is no longer effectively one investor, which he calls an inefficiency that is good for KLA.",
+              "figure": "industry greater than $150 billion (vs $135 billion to $140 billion at Investor Day); KLA grew 12% in 2024, 17% in 2025, low 20% in 2026; 2027 growth in a similar range, maybe higher",
+              "topics": ["foundry"],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "BACKLOG QUALITY AND DURATION - NEW COLOUR ON THE RECORD 10-K NUMBER: Higgins says backlog is 'just short of $13 billion' and that he 'would expect that backlog to continue to grow', with a very strong order funnel. KLA does not disclose the conversion split, but 'we are taking orders basically for the next, in most cases, it is 12 to 18-month time frames', pushed toward the long end in this environment; Gen 4 and Gen 5 inspection tools carry longer lead times than metrology tools. Customer shipment visibility now runs 'through 2027 and in some cases into early 2028'. Some orders are placed purely to hold a slot against fab construction schedules, and 'getting the orders tends to solidify, particularly in a constrained environment, both timing, commitment, and pricing'. KLA's top five customers still drive a lot of the business.",
+              "figure": "backlog just short of $13 billion; orders in 12 to 18-month time frames; shipment visibility through 2027 and in some cases into early 2028",
+              "topics": [],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "OPTICS ARE THE BINDING CONSTRAINT AND KLA IS CONTRACTING CAPACITY OUT TO 2029-2030: 'typically where we see the most constraint typically is around optical components. Optics have an intrinsic lead time that is just very long. Calcium fluoride lead times can be 18 to 24 months or more', and the equipment used to make optics is itself long lead time. 'We are having conversations with our key optics suppliers around capacity requirements out into the 2029 and 2030 timeframe.' Higgins states the constraint is still live - 'if I could get more, I could probably ship more today' - but says new supplier capacity came online to support the stronger second half and more arrives through next year, and confirms that constraints are improving.",
+              "figure": "calcium fluoride lead times 18 to 24 months or more; optics-supplier capacity conversations out into the 2029 and 2030 timeframe",
+              "topics": ["supply_tightness"],
+              "slot": "supply_status"
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    },
+    "manufacturing/packaging_substrate.json": {
+      "players": [
+        {
+          "company": "KLA",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "quarterly_data": [
+            {
+              "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "ADVANCED-PACKAGING SHARE QUANTIFIED FOR THE FIRST TIME, AND THE HIGH-END TOOL CYCLE IS ONLY STARTING: KLA's share of the advanced-packaging market was 'a couple percent, just a few years ago, 2023 timeframe' and in 2026 is 'likely to be somewhere between 7% and 8%'. Higgins confirms the ~70% growth number equals '$1.1 billion'. The driver is front-end-like processing in packaging: assembling HBM with the GPU or the custom ASICs plus surrounding peripheral die forces 'very, very high' sampling rates, and hybrid bonding pushes sensitivity requirements down to 'sub sort of one micron' and below, pulling KLA's higher-end front-end tools in. Those higher-end tools are 'a pretty small percentage today of the overall ... probably somewhere on the order of maybe 20% or so', so the mix upgrade is ahead. Momentum is strongest in logic; OSATs are an opportunity and memory packaging is less complex today but expected to grow as new technology is introduced. Agentic workloads, CPU growth and inference chips are expected to add die-stacking opportunities in advanced logic packages next year.",
+              "figure": "advanced-packaging share a couple percent in 2023 to between 7% and 8% in 2026; 70% growth equals $1.1 billion; higher-end tools maybe 20% or so of the total",
+              "topics": ["packaging_substrate"]
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "KLA",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "quarterly_data": [
+            {
+              "quarter": "KLA Citi’s Global TMT Conference 2026 (09-09-2026)",
+              "signal": "DE-SPECCING DOES NOT DENT HBM PROCESS-CONTROL INTENSITY: asked about customer de-speccing (the analyst's framing - AI servers putting in less memory and stepping from 12 high to 8 high), Higgins argues 'the roadmap dynamics I talked about earlier, those are generally unchanged in the HBM environment' - redundancy, IO count, die size and performance specs still hold, and 'You cannot bin an HBM device'. He reads the behaviour as a reaction to today's memory pricing and supply-demand imbalance rather than a roadmap change, and says KLA does not like paying today's memory prices either. Supporting context he gave on intensity: HBM carries less redundancy, larger die and more logic-like attributes with more logic in the base die, 'the actual device only performs as good as the weakest DRAM in the device', and 'In some products, we have seen intensity in High-Bandwidth Memory that has been consistent with what we see in advanced logic.' Conventional memory is also improving for KLA, with more EUV layers in conventional DRAM devices than in the past.",
+              "figure": "HBM roadmap dynamics generally unchanged despite de-speccing; you cannot bin an HBM device",
+              "topics": ["hbm"]
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

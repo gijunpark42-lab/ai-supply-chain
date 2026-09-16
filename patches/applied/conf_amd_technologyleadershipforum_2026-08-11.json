@@ -1,0 +1,130 @@
+{
+  "source": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+  "chains": {
+    "accelerators/amd_mi450_helios.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Instinct MI450 GPU (CDNA) + EPYC Venice CPU — Helios compute silicon",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+              "signal": "Ramsay named the specific supply constraints behind the Helios/Venice ramp and quantified AMD's back-end investment: the binding limits are TSMC wafer support and advanced packaging, where 'Venice is the first server product in the market to use advanced packaging'. Lisa Su was in Taiwan 'a month and a half ago or so, and we announced a $10 billion ecosystem investment in the Taiwanese ecosystem. Much of that is oriented on back-end capacity.' He also placed AMD as 'the third or fourth largest customer at TSMC' depending on the quarter, and said AMD is working with OEM, ODM and hyperscale partners to make sure they have 'matched set DRAM' to support the server volume. Near-term supply is the hard part; looking into 2027 and 2028, Ramsay said the industry, including AMD and its partners, 'have had much more time to adjust supply higher' to support the growth.",
+              "figure": "$10 billion ecosystem investment in the Taiwanese ecosystem (much oriented on back-end capacity); AMD the third or fourth largest customer at TSMC",
+              "topics": ["supply_tightness", "packaging_substrate"],
+              "slot": "supply_status"
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "contracts": [
+                {
+                  "source": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                  "signal": "Ramsay: AMD is 'the third or fourth largest customer at TSMC' depending on the quarter and 'a very loyal partner with them for a long time'; Lisa Su and the supply-chain team have been working with TSMC directly and 'they have been absolutely phenomenal partners of giving us additional supply'. Alongside this, AMD announced a $10 billion ecosystem investment in the Taiwanese ecosystem, much of it oriented on back-end (advanced packaging) capacity.",
+                  "units": "no specific figure",
+                  "value": "$10 billion ecosystem investment in the Taiwanese ecosystem",
+                  "date_signed": "2026",
+                  "type": "supply relationship / capacity investment",
+                  "topics": ["foundry", "supply_tightness", "packaging_substrate"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "AMD",
+          "layer": "interconnect",
+          "sector": "Scale-up",
+          "product": "Helios rack-scale platform (Instinct + EPYC, Infinity Fabric / UALink scale-up)",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+              "signal": "FIRST TIME THE ANCHOR-CUSTOMER GIGAWATT COMMITMENTS WERE BROKEN OUT BY NAME. Ramsay: 'We've gotten commitments for 6 gigawatt arrangements, but 1 gigawatt commitments from both OpenAI and Meta. We've gotten a 1 gigawatt commitment and a 2 gigawatt ambition from Anthropic over that generation.' The MI455 / Instinct MI450 Helios series is the primary driver of the AI business starting in September and running 'through the first quarter or so of 2028, so a six or seven quarter period of time'. Beyond the three anchors he named OCI customers, Azure customers and Microsoft's own internal AI workloads, plus a number of neoclouds, as additional Helios demand — gated by land, power, shell and capital commitments rather than by interest. AMD 'would love to be able to do the first full gigawatt with Anthropic in 2027'.",
+              "figure": "commitments for 6 gigawatt arrangements: 1 gigawatt commitments from both OpenAI and Meta, 1 gigawatt commitment and a 2 gigawatt ambition from Anthropic",
+              "topics": [],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+              "signal": "HELIOS RAMP MECHANICS, ONE WEEK AFTER THE Q2 CALL. Ramsay: 'We're going to start to ship MI450 and the Venice CPUs and some of our Pensando networking products into our ODM partners that are building Helios starting in the month of September' — a fairly large ramp of that revenue in Q4 and 'another fairly large jump of revenue in Q1'. He sized it as going 'from a standing start to billions of dollars of revenue in the first quarter that it's shipping for the full quarter', and said the data center business inclusive of AI is growing 'much more than 100% next year' versus the more-than-70% server-CPU number. Execution approach: a couple of focus ODM partners first, then spread into the wider ODM ecosystem once copy-exact works; sampled racks are already running customer production code and 'there's no smoking guns' on the design, leaving it an operational problem.",
+              "figure": "ODM shipments of MI450 / Venice CPUs / Pensando networking start in September; standing start to billions of dollars of revenue in the first full shipping quarter; data center inclusive of AI growing much more than 100% next year",
+              "topics": ["product_launches"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "OpenAI",
+              "contracts": [
+                {
+                  "source": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                  "signal": "Ramsay named OpenAI as one of three 'workhorse customers' for the Helios generation and disclosed the size: '1 gigawatt commitments from both OpenAI and Meta' inside commitments for 6 gigawatt arrangements, each of which wants to go to gigawatt scale on AMD's first rack-scale solution.",
+                  "units": "1 gigawatt commitments from both OpenAI and Meta",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "infrastructure deployment commitment",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "Meta",
+              "contracts": [
+                {
+                  "source": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                  "signal": "Ramsay named Meta as one of three 'workhorse customers' for the Helios generation: '1 gigawatt commitments from both OpenAI and Meta' inside commitments for 6 gigawatt arrangements over that product generation.",
+                  "units": "1 gigawatt commitments from both OpenAI and Meta",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "infrastructure deployment commitment",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "Anthropic",
+              "contracts": [
+                {
+                  "source": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+                  "signal": "Ramsay quantified the Anthropic engagement for the first time: 'We've gotten a 1 gigawatt commitment and a 2 gigawatt ambition from Anthropic over that generation', and AMD 'would love to be able to do the first full gigawatt with Anthropic in 2027'. On software, the multi-gigawatt partnership also covers ROCm: AMD uses Claude across its engineering teams and is working with Anthropic so that other customers using Claude can land Claude-automated code on ROCm and Instinct platforms. He cited Anthropic having 'rented a cluster of MI355s' early this year and getting their premier inference model up, running and tuned on MI355 in a weekend without AMD's help or knowledge.",
+                  "units": "1 gigawatt commitment and a 2 gigawatt ambition",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "infrastructure deployment commitment + software co-development",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "EPYC Turin (Zen 5) server CPU silicon design",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+              "signal": "A NEW WAY TO SIZE THE SERVER RAMP: 'The early view of 2027 server revenue for our company is roughly 20% larger than the whole server market was in 2025.' Ramsay walked the sequence — AMD grew server 'more than 50% in the first quarter' of 2026, 'more than 70% in Q2' with cloud and enterprise both above 70%, 'greater than 80% in Q3 and Q4 in the back half of the year', and 'a really early view of 2027 is on top of that much larger base, at least 70% growth next year'. He also framed the share journey: 'I can remember when AMD's share was 0.4 and now it is in the high 40s of the x86 market', credited to chiplet economics letting AMD push SKUs and core counts faster than the competitor.",
+              "figure": "early view of 2027 server revenue roughly 20% larger than the whole 2025 server market; x86 share from 0.4 to the high 40s",
+              "topics": ["cpu"],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
+              "signal": "VENICE SPECS AND THE POST-VENICE ROADMAP. 'We're just about to launch our 2 nanometer Venice CPUs. We're sampling them to everyone today.' Venice ships in Helios AI racks and broadly across all server markets, and 'Venice goes up to 256 cores and 512 threads' for the agentic CPU-only racks, where the metric customers use is agents per megawatt or threads per megawatt. Venice is also 'the first server product in the market to use advanced packaging'. Demand is splitting into three distinct SKU buckets: medium-core-count, high-frequency parts 'up to 5 gigahertz' for AI head nodes; highest-core/thread-count parts for agentic racks; and traditional enterprise/cloud workloads in between. Beyond Venice, 'the whole Florence lineup of CPUs that comes in 2028', with the Ravenna generation also in development under deep customer engagement.",
+              "figure": "Venice: 2 nanometer, up to 256 cores and 512 threads, up to 5 gigahertz head-node SKUs; Florence lineup in 2028",
+              "topics": ["cpu", "product_launches", "packaging_substrate"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

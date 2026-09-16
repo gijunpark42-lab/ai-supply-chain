@@ -1,0 +1,74 @@
+{
+  "source": "AMD Advancing AI 2026 (07-23-2026)",
+  "chains": {
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "EPYC Turin (Zen 5) server CPU silicon design",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Advancing AI 2026 (07-23-2026)",
+              "signal": "CPU-TO-GPU RATIO PATH. Lisa Su: 'if today, in the head node type configuration, the CPU to GPU ratio may be 4 to 1. That is 4 GPUs to 1 CPU. We certainly expect that to tighten as we go into future generations. When we add agents, certainly for the new TAM, we’re expecting that the CPU ratio will actually be greater than 1. Maybe we get to the point where it’s 2 CPUs for 1 GPU. It’s hard to call exactly'. She added that the CPU TAM acceleration 'required some adjustments to overall capacity'.",
+              "figure": "head node today 4 GPUs to 1 CPU; with agents CPU ratio greater than 1, maybe 2 CPUs for 1 GPU",
+              "topics": [
+                "cpu",
+                "transitions"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/amd_mi450_helios.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "interconnect",
+          "sector": "Scale-up",
+          "product": "Helios rack-scale platform (Instinct + EPYC, Infinity Fabric / UALink scale-up)",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Advancing AI 2026 (07-23-2026)",
+              "signal": "SCALE-UP PROTOCOL AND THE END STATE OF THE OPTICAL TRANSITION. An AMD executive (named 'Farosh' in the transcript): 'on MI450, we support UALink transported over Ethernet. ESUN is a set of extensions to Ethernet', and AMD expects 'UALink over Ethernet brought forward and being available in MI500 as well'. MI500 is 'the one where we begin transitioning from a purely electrical interconnect for scale-up networking to start to see optical play a role as well' — 'We don’t view this as a light switch.' The terminus, 'generations out in the future is, Co-packaged optics on all the major components and optical really being the backbone of many connections within the rack as well as between.'",
+              "figure": "MI450: UALink over Ethernet; MI500 begins electrical-to-optical scale-up transition; end state Co-packaged optics on all the major components",
+              "topics": [
+                "cpo",
+                "transitions"
+              ]
+            },
+            {
+              "quarter": "AMD Advancing AI 2026 (07-23-2026)",
+              "signal": "RACK BUILD AND DEPLOYMENT CAPACITY. The AMD executive named 'Farosh' said AMD is working with key OEM and ODM partners — 'Sanmina, Wiwynn, et cetera, as well as the OEMs' — to have capacity to 'build, integrate, test, and validate the racks at the right pace'; the next choke point is physical and logical deployment of racks. AMD retained the large services arm acquired with ZT and is using it for internal deployments and to help customers deploy 'both MI350s as well as MI455 systems in their data center'. Lisa Su: AMD now plans GPUs and Helios systems alongside the power planning of customers — 'there is easily 12 to 18 months of visibility.'",
+              "figure": "12 to 18 months of visibility",
+              "topics": [
+                "supply_tightness"
+              ]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Cerebras",
+              "relationship": "Helios rack systems deployed in Cerebras' cloud alongside its wafer-scale engine racks",
+              "contracts": [
+                {
+                  "source": "AMD Advancing AI 2026 (07-23-2026)",
+                  "signal": "Vamsi Kompella (AI business lead): the Cerebras work started on MI350: 'We have things up and running in our lab infrastructure between 350s and their Wafer-Scale Engines, and the disaggregation software stack is all serving well.' Helios work is at the analysis and simulation stage, and 'We expect these deployments for their initial version, which is basically token service under Cerebras Cloud, to happen by the end of this year.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "partnership / disaggregated inference deployment",
+                  "topics": [
+                    "product_launches"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
