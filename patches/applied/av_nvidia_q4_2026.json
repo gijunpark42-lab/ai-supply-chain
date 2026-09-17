@@ -1,0 +1,200 @@
+{
+  "source": "NVIDIA Q4 FY2026 (02-25-2026)",
+  "chains": {
+    "accelerators/nvda_b200.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "NVLink Switch, B200 GPU, GB200 superchip",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Q4 FY2026 results (CFO Colette Kress): record revenue, 'Total revenue of $68 billion was up 73% year-over-year, accelerating from Q3.' Q4 data center revenue of $62 billion rose 75% year-over-year and 22% sequentially, 'driven primarily by sustained strength in Blackwell and the Blackwell Ultra ramp'; Grace Blackwell systems accounted for roughly 2/3 of data center revenue in the quarter; a record sequential add of $11 billion in data center revenue.",
+              "figure": "revenue $68 billion (+73% YoY); data center $62 billion (+75% YoY, +22% QoQ); Grace Blackwell roughly 2/3 of data center revenue",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Blackwell installed base and generational leap: 'Today, nearly 9 gigawatts of infrastructure on Blackwell are deployed' at major CSPs, hyperscalers, AI model makers and enterprises, nearly a year after Grace Blackwell NVL72 systems were released. GB300 NVL72 achieved up to 50x performance per watt and 35x lower cost per token versus Hopper (InferenceX), and CUDA optimization delivered up to 5x better performance on GB200 NVL72 within 4 months. Demand so tight that 'even Hopper and much of the 6-year-old Ampere based products are sold out in the cloud'; Huang: even 6-year-old GPUs in the cloud 'are completely consumed and the pricing is going up.'",
+              "figure": "nearly 9 gigawatts of Blackwell deployed; up to 50x performance per watt and 35x lower cost per token vs Hopper",
+              "topics": ["supply_tightness"]
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Vera Rubin platform (Rubin GPU, Vera CPU, NVLink switch, Spectrum-X / Quantum-X networking)",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Q1 FY2027 outlook: revenue expected to be $78 billion, plus or minus 2%, with most growth from data center; no data center compute revenue from China assumed. GAAP / non-GAAP gross margins 74.9% / 75% (plus or minus 50 basis points), full-year gross margins still in the mid-70s while preparing for the Vera Rubin transition. Non-GAAP results now include stock-based compensation; Q1 GAAP / non-GAAP opex approximately $7.7 billion / $7.5 billion; full-year non-GAAP opex to grow in the low 40s year-over-year.",
+              "figure": "Q1 FY2027 revenue guide $78 billion, plus or minus 2%; non-GAAP gross margin 75%; full-year gross margins in the mid-70s",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Demand visibility and supply: 'we expect sequential revenue growth throughout calendar 2026, exceeding what was included in the $500 billion Blackwell and Rubin revenue opportunity we shared last year.' NVIDIA believes it has 'inventory and supply commitments in place to address future demand, including shipments extending into calendar 2027.' Inventory grew 8% quarter-over-quarter and purchase commitments increased significantly — inventory and capacity secured 'to meet demand beyond the next several quarters', further out than usual; 'we expect tightness in the supply for our advanced architectures to persist.'",
+              "figure": "sequential revenue growth throughout calendar 2026, exceeding what was included in the $500 billion Blackwell and Rubin revenue opportunity; inventory grew 8% QoQ; supply commitments include shipments extending into calendar 2027",
+              "topics": ["supply_tightness"]
+            },
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Rubin platform (unveiled at CES) comprises 6 new chips: Vera CPU, Rubin GPU, NVLink 6 Switch, ConnectX-9 SuperNIC, BlueField-4 DPUs and Spectrum-6 Ethernet switch; trains MOE models with 1/4 the number of GPUs and reduces inference token costs by up to 10x versus Blackwell. 'We shipped our first Vera Rubin samples to customers earlier this week, and we remain on track to commence production shipments in the second half of the year.' Modular cable-free tray design improves resiliency and serviceability relative to Blackwell. Kress: Blackwell will still be sold alongside Vera Rubin during the year; 'It's too early yet to determine how much' of the Vera Rubin ramp starts in the second half, but 'We do expect pretty much every single customer to be purchasing Vera Rubin.'",
+              "figure": "6 new chips; 1/4 the GPUs for MOE training; up to 10x lower inference token cost vs Blackwell; first samples shipped, production shipments in second half",
+              "topics": ["product_launches", "transitions"]
+            },
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Groq inference technology (the transcript prints the name as 'Grok'): Huang — 'we recently entered into a nonexclusive licensing agreement with Grok for its low latency inference technology and welcome the team of brilliant engineers to NVIDIA. As we did with Mellanox, we will extend NVIDIA's architecture with Grok's innovations'; 'we'll extend our architecture with Grok as an accelerator', low latency decoder details to be shared at GTC.",
+              "figure": "no specific figure",
+              "topics": ["product_launches"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Anthropic",
+              "relationship": "NVIDIA securing compute capacity for Anthropic across Azure, AWS, CoreWeave, and others for Vera Rubin platform",
+              "contracts": [
+                {
+                  "source": "NVIDIA Q4 FY2026 (02-25-2026)",
+                  "signal": "Huang: 'This quarter, we announced a partnership with Anthropic, and a $10 billion investment in their company. Anthropic will train an inference on Grace Blackwell and Vera Rubin system.' Later: Anthropic's revenue is about 10x in a year and they are 'severely capacity constrained because the demand is just incredible.'",
+                  "units": "no specific figure",
+                  "value": "$10 billion investment",
+                  "date_signed": "Q4 FY2026",
+                  "type": "strategic partnership and equity investment",
+                  "topics": ["supply_tightness"]
+                }
+              ]
+            },
+            {
+              "company": "OpenAI",
+              "relationship": "NVIDIA AI infrastructure deployments committed through 2030 (~12 GW), incl. Portsmouth 4.25 GW site",
+              "contracts": [
+                {
+                  "source": "NVIDIA Q4 FY2026 (02-25-2026)",
+                  "signal": "Huang: OpenAI's GPT-5.3-Codex was 'trained with and inferencing on Grace Blackwell NVLink 72 systems'; 'We continue to work with OpenAI toward a partnership agreement and believe we are close.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated (agreement not yet signed as of the call)",
+                  "type": "partnership agreement under negotiation",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "H200/B200/GB200 GPU accelerators and HGX/GB200 NVL boards",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "China: 'While small amounts of H200 products for China-based customers were approved by the U.S. government, we have yet to generate any revenue. And we do not know whether any imports will be allowed into China.' Chinese competitors 'bolstered by recent IPOs are making progress'; the Q1 FY2027 outlook assumes no data center compute revenue from China.",
+              "figure": "no specific figure",
+              "topics": []
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Meta",
+              "relationship": "GPUs for AI training infrastructure",
+              "contracts": [
+                {
+                  "source": "NVIDIA Q4 FY2026 (02-25-2026)",
+                  "signal": "Huang: 'Last week, we announced that Meta is deploying millions of Blackwells and Rubin GPUs, NVIDIA CPUs and Spectrum x Ethernet for training and inference.' Kress: Meta Superintelligence Labs trains and deploys its frontier agentic AI systems on the same NVIDIA infrastructure.",
+                  "units": "millions of Blackwells and Rubin GPUs, plus NVIDIA CPUs and Spectrum-X Ethernet",
+                  "value": "no specific figure",
+                  "date_signed": "announced the week before the 02-25-2026 call",
+                  "type": "multi-generation GPU / CPU / networking deployment",
+                  "topics": ["transitions"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Grace CPU (GB200/GH200 superchip host)",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Standalone Vera CPU push (Huang): 'It's the only data center CPU that supports LPDDR5', designed for very high data processing and single-threaded performance; 'Vera was designed to be an excellent CPU for post-training' where AI agents learn to use tools that run in CPU-only or CPU-plus-GPU environments; Grace was built for single-threaded performance 'and Vera is off the charts better than that.' More detail promised at GTC.",
+              "figure": "no specific figure",
+              "topics": ["cpu", "product_launches"]
+            }
+          ]
+        },
+        {
+          "company": "NVIDIA",
+          "layer": "interconnect",
+          "sector": "Scale-up",
+          "product": "NVLink Switch / Spectrum-X / Quantum InfiniBand fabric",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Networking 'generating $11 billion in revenue, up more than 3.5x year-over-year'; scale-up and scale-out both grew double digits sequentially on NVLink, Spectrum-X Ethernet and InfiniBand; year-over-year growth driven primarily by NVLink 72 scale-up switches. 'In Q4, we announced that we will enable AWS with NVLink to integrate with their custom silicon.' Huang: 'Every rack comes with 9 nodes of switches. And each of them has 2 chips in it. And in the future, they'll have more'; NVIDIA is 'probably the largest Ethernet networking company in the world today', with Spectrum-X scale-across linking data centers.",
+              "figure": "networking $11 billion, up more than 3.5x YoY; 9 nodes of switches per rack, 2 chips each",
+              "topics": ["transitions"]
+            }
+          ]
+        }
+      ]
+    },
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "GB200 / GB300 / Vera Rubin GPU systems",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Customer mix: the top 5 cloud providers and hyperscalers 'collectively account for a little over 50% of our data center revenue'; analyst expectations for their 2026 CapEx are 'up nearly $120 billion since the start of the year and approaching $700 billion.' The rest (AI model makers, enterprises, supercomputing, sovereigns) is 'a very fast-growing area'. Sovereign AI business 'more than tripled year-over-year and over $30 billion' in fiscal 2026, driven primarily by customers in Canada, France, the Netherlands, Singapore and the U.K.",
+              "figure": "top 5 CSPs a little over 50% of data center revenue; sovereign AI over $30 billion in FY2026 (more than tripled)",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/packaging_substrate.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Vera Rubin / Blackwell GPU (CoWoS-packaged)",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+              "signal": "Die architecture (Huang, answering a question on customized silicon): 'every time you cross a dilate, you have a dilate, you have to cross an interface. Every time you cross an interface, you add latency, you add power unnecessarily' (term as printed in the transcript); 'if you look at the Grace Blackwell architecture and the Rubin architecture, we use 2 giant reticle-limited dies', reducing interface crossings.",
+              "figure": "2 giant reticle-limited dies (Grace Blackwell and Rubin)",
+              "topics": ["packaging_substrate"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

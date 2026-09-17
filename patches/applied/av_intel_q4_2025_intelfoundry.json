@@ -1,0 +1,89 @@
+{
+  "source": "Intel Foundry Q4 FY2025 (01-22-2026)",
+  "chains": {
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Intel Foundry",
+          "layer": "foundry",
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "product": "18A RibbonFET/PowerVia wafer fab",
+          "quarterly_data": [
+            {
+              "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+              "signal": "Q4 2025 FOUNDRY SEGMENT (Intel call, CFO David Zinsner): Intel Foundry revenue was $4.5 billion, up 6.4% sequentially on increased EUV wafer mix; EUV wafer revenue grew from less than 1% of wafers out in 2023 to greater than 10% in 2025. External foundry revenue was $222 million in the quarter, driven by projects with the U.S. government and the deconsolidation of Altera. Operating loss was $2.5 billion, $188 million worse quarter-over-quarter, driven by the early ramp of Intel 18A. Q1 2026 outlook: Intel Foundry revenue 'up double digits quarter-over-quarter, helped by continued mix shift to EUV wafers and Intel 18A pricing'.",
+              "figure": "revenue $4.5 billion, up 6.4% sequentially; external foundry revenue $222 million; operating loss $2.5 billion ($188 million worse quarter-over-quarter); EUV greater than 10% of wafers out in 2025",
+              "topics": ["foundry"]
+            },
+            {
+              "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+              "signal": "INTEL 18A SHIPPING FOR REVENUE, YIELDS STILL BELOW TARGET: Intel is now shipping its first products on Intel 18A (Core Ultra Series 3 / Panther Lake - 3 SKUs delivered by end-2025 against a commitment of one); with that launch, 'Intel Foundry is the only semiconductor manufacturer in the world shipping gate-all-around transistors with backside power for revenue', with the wafers coming off production lines in Oregon and Arizona. CEO Lip-Bu Tan said yields are improving at '7%, 8% yield improvement per month' and are 'in line with our internal plans' but 'still below what I want them to be' and 'not quite to the industry-leading standard yet'; accelerating yield improvement is a key 2026 lever. The early 18A ramp weighed on Q4 gross margin, and Panther Lake is still dilutive to the corporate average in Q1, expected to turn accretive as yields and throughput improve. Intel 18A-P continues to progress, with the 1.0 PDK delivered at the end of last year and engagement with internal and external customers.",
+              "figure": "7%, 8% yield improvement per month",
+              "topics": ["foundry"]
+            },
+            {
+              "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+              "signal": "INTEL 14A - CUSTOMER DECISIONS 2H26-1H27, VOLUME 2028, CAPACITY HELD UNTIL COMMITTED: Tan said 14A development 'remains on track', the process flow has been simplified and the 14A PDK 0.5 came in the first quarter; a couple of key customers are already engaging on PDK 0.5, looking at test chips and the specific products they would run, and discussing capacity and pricing. Customers are expected to make firm supplier decisions starting in the second half of 2026 and extending into the first half of 2027. Timeline: 'risk production in the later part of 2027 and real production, volume production in 2028', which Tan said is similar to the time frame of a leading foundry. Per CFO Zinsner, Intel will not spend on 14A capacity - only technology-development/R&D spend - until customers are secured, and High NA 'is targeted at 14A'.",
+              "figure": "risk production in the later part of 2027; volume production in 2028; PDK 0.5",
+              "topics": ["foundry"]
+            },
+            {
+              "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+              "signal": "CAPACITY PLAN - TOOLS UP, SPACE DOWN, 14A ON HOLD: Zinsner said 2026 capex is 'down significantly in space' (Intel has a good cleanroom footprint) while tool spending is ramping 'quite a bit in '26 relative to '25' to address the supply shortfall; wafer starts are increasing every quarter 'pretty much across the board across Intel 7, Intel 3 and 18A', and Intel is 'aggressively getting tools' on those nodes. What is held back is 14A, which 'is really linked to foundry customers'. The near-term supply lever is better yields and cycle times on existing tools and footprint, which need no incremental capital. Supply should improve in Q2 and through 2026, though Intel 'won't be completely out of the woods' in Q2.",
+              "figure": "no specific figure",
+              "topics": ["foundry", "supply_tightness"]
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "Intel Foundry",
+          "layer": "foundry",
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "product": "Intel 3 / 18A logic wafers (Granite Rapids tiles)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Intel",
+              "relationship": "Xeon compute tiles for EMIB/Foveros packaging",
+              "contracts": [
+                {
+                  "source": "Intel Foundry Q4 FY2025 (01-22-2026)",
+                  "signal": "Internal wafer allocation shifted to data center: CFO Zinsner said 'Where possible, we're prioritizing our internal wafer supply to data center and leveraging an increased mix of externally sourced wafers in clients', and 'to the extent we have excess, we're pushing all of that into the data center space to meet that customer demand'; the wafer mix shift toward servers that began in Q3 'will not come out of fab until late Q1 '26'.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "internal wafer supply allocation",
+                  "topics": ["cpu", "supply_tightness"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/packaging_substrate.json": {
+      "players": [
+        {
+          "company": "Intel Foundry",
+          "layer": "advanced_packaging",
+          "sector": "Wafer-Level Packaging (CoWoS, SoIC)",
+          "product": "Foveros / EMIB advanced packaging",
+          "quarterly_data": [
+            {
+              "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+              "signal": "ADVANCED PACKAGING OPPORTUNITIES 'WELL NORTH OF $1 BILLION' (MANY OF THEM); CUSTOMERS WILLING TO PREPAY: CFO Zinsner said advanced packaging is an early indicator of foundry success and its revenue will come in before meaningful wafer revenue; he had expected packaging opportunities to be 'measured in hundreds of millions of dollars', but 'some of the early customer engagements suggest that we'll be well north of $1 billion on many of these opportunities for advanced packaging'. CEO Tan called EMIB-T 'a very big differentiator' and said 'we have a couple of customers willing to even prepay the subscript' (printed as 'subscript' in the transcript, which describes it as a 'very big supply shortage'; the CFO earlier flagged substrates among the pressured components). Intel is improving EMIB and EMIB-T quality and yield to support customer ramps beginning in the second half of 2026; hyperscale ASIC customers also want Intel's advanced packaging alongside purpose-built silicon.",
+              "figure": "well north of $1 billion on many of these opportunities",
+              "topics": ["packaging_substrate", "supply_tightness"]
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

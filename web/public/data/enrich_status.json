@@ -1,25 +1,586 @@
 {
- "generated": "2026-09-16 01:40",
- "labels_total": 929,
+ "generated": "2026-09-16 16:56",
+ "labels_total": 1133,
  "pipelines": [
   {
    "id": "us",
    "name": "US earnings calls",
    "command": "enrich us",
    "source": "Alpha Vantage / defeatbeta (av.py)",
-   "files": 70,
-   "labels_on_disk": 70,
-   "in_graph": 70,
-   "entries": 716,
-   "pending": [],
+   "files": 272,
+   "labels_on_disk": 272,
+   "in_graph": 273,
+   "entries": 2623,
+   "pending": [
+    {
+     "company": "3M",
+     "label": "3M Q4 FY2025 (01-20-2026)",
+     "file": "transcripts/av/3m_q4_2025.txt"
+    },
+    {
+     "company": "AMD",
+     "label": "AMD Q4 FY2025 (02-03-2026)",
+     "file": "transcripts/av/amd_q4_2025.txt"
+    },
+    {
+     "company": "ASE Group",
+     "label": "ASE Group Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/asegroup_q4_2025.txt"
+    },
+    {
+     "company": "ASML",
+     "label": "ASML Q4 FY2025 (01-28-2026)",
+     "file": "transcripts/av/asml_q4_2025.txt"
+    },
+    {
+     "company": "AXT",
+     "label": "AXT Q4 FY2025 (02-20-2026)",
+     "file": "transcripts/av/axt_q4_2025.txt"
+    },
+    {
+     "company": "Advanced Energy",
+     "label": "Advanced Energy Q4 FY2025 (02-10-2026)",
+     "file": "transcripts/av/advancedenergy_q4_2025.txt"
+    },
+    {
+     "company": "Aehr Test Systems",
+     "label": "Aehr Test Systems Q2 FY2026 (01-08-2026)",
+     "file": "transcripts/av/aehrtestsystems_q2_2026.txt"
+    },
+    {
+     "company": "Air Products",
+     "label": "Air Products Q1 FY2026 (01-30-2026)",
+     "file": "transcripts/av/airproducts_q1_2026.txt"
+    },
+    {
+     "company": "Amazon",
+     "label": "Amazon Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/amazon_q4_2025.txt"
+    },
+    {
+     "company": "American Electric Power",
+     "label": "American Electric Power Q4 FY2025 (02-12-2026)",
+     "file": "transcripts/av/americanelectricpower_q4_2025.txt"
+    },
+    {
+     "company": "Amkor Technology",
+     "label": "Amkor Technology Q4 FY2025 (02-09-2026)",
+     "file": "transcripts/av/amkortechnology_q4_2025.txt"
+    },
+    {
+     "company": "Amphenol",
+     "label": "Amphenol Q4 FY2025 (01-28-2026)",
+     "file": "transcripts/av/amphenol_q4_2025.txt"
+    },
+    {
+     "company": "Analog Devices",
+     "label": "Analog Devices Q1 FY2026 (02-18-2026)",
+     "file": "transcripts/av/analogdevices_q1_2026.txt"
+    },
+    {
+     "company": "Apple",
+     "label": "Apple Q1 FY2026 (01-29-2026)",
+     "file": "transcripts/av/apple_q1_2026.txt"
+    },
+    {
+     "company": "Applied Digital",
+     "label": "Applied Digital Q2 FY2026 (01-07-2026)",
+     "file": "transcripts/av/applieddigital_q2_2026.txt"
+    },
+    {
+     "company": "Arista",
+     "label": "Arista Q4 FY2025 (02-12-2026)",
+     "file": "transcripts/av/arista_q4_2025.txt"
+    },
+    {
+     "company": "Arm Holdings",
+     "label": "Arm Holdings Q3 FY2026 (02-04-2026)",
+     "file": "transcripts/av/armholdings_q3_2026.txt"
+    },
+    {
+     "company": "Astera Labs",
+     "label": "Astera Labs Q4 FY2025 (02-10-2026)",
+     "file": "transcripts/av/asteralabs_q4_2025.txt"
+    },
+    {
+     "company": "Axcelis",
+     "label": "Axcelis Q4 FY2025 (02-17-2026)",
+     "file": "transcripts/av/axcelis_q4_2025.txt"
+    },
+    {
+     "company": "Baker Hughes",
+     "label": "Baker Hughes Q4 FY2025 (01-26-2026)",
+     "file": "transcripts/av/bakerhughes_q4_2025.txt"
+    },
+    {
+     "company": "Bloom Energy",
+     "label": "Bloom Energy Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/bloomenergy_q4_2025.txt"
+    },
+    {
+     "company": "Cadence",
+     "label": "Cadence Q4 FY2025 (02-17-2026)",
+     "file": "transcripts/av/cadence_q4_2025.txt"
+    },
+    {
+     "company": "Camtek",
+     "label": "Camtek Q4 FY2025 (02-18-2026)",
+     "file": "transcripts/av/camtek_q4_2025.txt"
+    },
+    {
+     "company": "Carrier Global",
+     "label": "Carrier Global Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/carrierglobal_q4_2025.txt"
+    },
+    {
+     "company": "Caterpillar",
+     "label": "Caterpillar Q4 FY2025 (01-29-2026)",
+     "file": "transcripts/av/caterpillar_q4_2025.txt"
+    },
+    {
+     "company": "Celestica",
+     "label": "Celestica Q4 FY2025 (01-29-2026)",
+     "file": "transcripts/av/celestica_q4_2025.txt"
+    },
+    {
+     "company": "Cisco",
+     "label": "Cisco Q2 FY2026 (02-11-2026)",
+     "file": "transcripts/av/cisco_q2_2026.txt"
+    },
+    {
+     "company": "Coherent",
+     "label": "Coherent Q2 FY2026 (02-04-2026)",
+     "file": "transcripts/av/coherent_q2_2026.txt"
+    },
+    {
+     "company": "Cohu",
+     "label": "Cohu Q4 FY2025 (02-12-2026)",
+     "file": "transcripts/av/cohu_q4_2025.txt"
+    },
+    {
+     "company": "Comfort Systems USA",
+     "label": "Comfort Systems USA Q4 FY2025 (02-20-2026)",
+     "file": "transcripts/av/comfortsystemsusa_q4_2025.txt"
+    },
+    {
+     "company": "Corning",
+     "label": "Corning Q4 FY2025 (01-28-2026)",
+     "file": "transcripts/av/corning_q4_2025.txt"
+    },
+    {
+     "company": "Cummins",
+     "label": "Cummins Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/cummins_q4_2025.txt"
+    },
+    {
+     "company": "Digital Realty",
+     "label": "Digital Realty Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/digitalrealty_q4_2025.txt"
+    },
+    {
+     "company": "Dominion Energy",
+     "label": "Dominion Energy Q4 FY2025 (02-23-2026)",
+     "file": "transcripts/av/dominionenergy_q4_2025.txt"
+    },
+    {
+     "company": "Eaton",
+     "label": "Eaton Q4 FY2025 (02-03-2026)",
+     "file": "transcripts/av/eaton_q4_2025.txt"
+    },
+    {
+     "company": "Element Solutions",
+     "label": "Element Solutions Q4 FY2025 (02-18-2026)",
+     "file": "transcripts/av/elementsolutions_q4_2025.txt"
+    },
+    {
+     "company": "Entegris",
+     "label": "Entegris Q4 FY2025 (02-10-2026)",
+     "file": "transcripts/av/entegris_q4_2025.txt"
+    },
+    {
+     "company": "Entergy",
+     "label": "Entergy Q4 FY2025 (02-12-2026)",
+     "file": "transcripts/av/entergy_q4_2025.txt"
+    },
+    {
+     "company": "Equinix",
+     "label": "Equinix Q4 FY2025 (02-11-2026)",
+     "file": "transcripts/av/equinix_q4_2025.txt"
+    },
+    {
+     "company": "Eversource",
+     "label": "Eversource Q4 FY2025 (02-13-2026)",
+     "file": "transcripts/av/eversource_q4_2025.txt"
+    },
+    {
+     "company": "Exelon",
+     "label": "Exelon Q4 FY2025 (02-12-2026)",
+     "file": "transcripts/av/exelon_q4_2025.txt"
+    },
+    {
+     "company": "Fabrinet",
+     "label": "Fabrinet Q2 FY2026 (02-02-2026)",
+     "file": "transcripts/av/fabrinet_q2_2026.txt"
+    },
+    {
+     "company": "Flex",
+     "label": "Flex Q3 FY2026 (02-04-2026)",
+     "file": "transcripts/av/flex_q3_2026.txt"
+    },
+    {
+     "company": "Fluence Energy",
+     "label": "Fluence Energy Q1 FY2026 (02-05-2026)",
+     "file": "transcripts/av/fluenceenergy_q1_2026.txt"
+    },
+    {
+     "company": "FormFactor",
+     "label": "FormFactor Q4 FY2025 (02-04-2026)",
+     "file": "transcripts/av/formfactor_q4_2025.txt"
+    },
+    {
+     "company": "GE Vernova",
+     "label": "GE Vernova Q4 FY2025 (01-28-2026)",
+     "file": "transcripts/av/gevernova_q4_2025.txt"
+    },
+    {
+     "company": "Galaxy Digital",
+     "label": "Galaxy Digital Q4 FY2025 (02-03-2026)",
+     "file": "transcripts/av/galaxydigital_q4_2025.txt"
+    },
+    {
+     "company": "Generac",
+     "label": "Generac Q4 FY2025 (02-11-2026)",
+     "file": "transcripts/av/generac_q4_2025.txt"
+    },
+    {
+     "company": "GlobalFoundries",
+     "label": "GlobalFoundries Q4 FY2025 (02-11-2026)",
+     "file": "transcripts/av/globalfoundries_q4_2025.txt"
+    },
+    {
+     "company": "Google",
+     "label": "Google Q4 FY2025 (02-04-2026)",
+     "file": "transcripts/av/google_q4_2025.txt"
+    },
+    {
+     "company": "Hubbell",
+     "label": "Hubbell Q4 FY2025 (02-03-2026)",
+     "file": "transcripts/av/hubbell_q4_2025.txt"
+    },
+    {
+     "company": "IREN",
+     "label": "IREN Q2 FY2026 (02-05-2026)",
+     "file": "transcripts/av/iren_q2_2026.txt"
+    },
+    {
+     "company": "Ichor",
+     "label": "Ichor Q4 FY2025 (02-09-2026)",
+     "file": "transcripts/av/ichor_q4_2025.txt"
+    },
+    {
+     "company": "Intel",
+     "label": "Intel Q4 FY2025 (01-22-2026)",
+     "file": "transcripts/av/intel_q4_2025.txt"
+    },
+    {
+     "company": "Johnson Controls",
+     "label": "Johnson Controls Q1 FY2026 (02-04-2026)",
+     "file": "transcripts/av/johnsoncontrols_q1_2026.txt"
+    },
+    {
+     "company": "KLA",
+     "label": "KLA Q2 FY2026 (01-29-2026)",
+     "file": "transcripts/av/kla_q2_2026.txt"
+    },
+    {
+     "company": "Keysight",
+     "label": "Keysight Q1 FY2026 (02-23-2026)",
+     "file": "transcripts/av/keysight_q1_2026.txt"
+    },
+    {
+     "company": "Kulicke & Soffa",
+     "label": "Kulicke & Soffa Q1 FY2026 (02-05-2026)",
+     "file": "transcripts/av/kulickesoffa_q1_2026.txt"
+    },
+    {
+     "company": "Lam Research",
+     "label": "Lam Research Q2 FY2026 (01-28-2026)",
+     "file": "transcripts/av/lamresearch_q2_2026.txt"
+    },
+    {
+     "company": "Linde",
+     "label": "Linde Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/linde_q4_2025.txt"
+    },
+    {
+     "company": "Lumen Technologies",
+     "label": "Lumen Technologies Q4 FY2025 (02-03-2026)",
+     "file": "transcripts/av/lumentechnologies_q4_2025.txt"
+    },
+    {
+     "company": "Lumentum",
+     "label": "Lumentum Q2 FY2026 (02-03-2026)",
+     "file": "transcripts/av/lumentum_q2_2026.txt"
+    },
+    {
+     "company": "MACOM",
+     "label": "MACOM Q1 FY2026 (02-05-2026)",
+     "file": "transcripts/av/macom_q1_2026.txt"
+    },
+    {
+     "company": "MKS Instruments",
+     "label": "MKS Instruments Q4 FY2025 (02-18-2026)",
+     "file": "transcripts/av/mksinstruments_q4_2025.txt"
+    },
+    {
+     "company": "MaxLinear",
+     "label": "MaxLinear Q4 FY2025 (01-29-2026)",
+     "file": "transcripts/av/maxlinear_q4_2025.txt"
+    },
+    {
+     "company": "Meta",
+     "label": "Meta Q4 FY2025 (01-28-2026)",
+     "file": "transcripts/av/meta_q4_2025.txt"
+    },
+    {
+     "company": "Microsoft",
+     "label": "Microsoft Q2 FY2026 (01-28-2026)",
+     "file": "transcripts/av/microsoft_q2_2026.txt"
+    },
+    {
+     "company": "Monolithic Power Systems",
+     "label": "Monolithic Power Systems Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/monolithicpowersystems_q4_2025.txt"
+    },
+    {
+     "company": "NRG Energy",
+     "label": "NRG Energy Q4 FY2025 (02-24-2026)",
+     "file": "transcripts/av/nrgenergy_q4_2025.txt"
+    },
+    {
+     "company": "Nebius",
+     "label": "Nebius Q4 FY2025 (02-12-2026)",
+     "file": "transcripts/av/nebius_q4_2025.txt"
+    },
+    {
+     "company": "NextEra Energy",
+     "label": "NextEra Energy Q4 FY2025 (01-27-2026)",
+     "file": "transcripts/av/nexteraenergy_q4_2025.txt"
+    },
+    {
+     "company": "Nokia",
+     "label": "Nokia Q4 FY2025 (01-29-2026)",
+     "file": "transcripts/av/nokia_q4_2025.txt"
+    },
+    {
+     "company": "Nova",
+     "label": "Nova Q4 FY2025 (02-12-2026)",
+     "file": "transcripts/av/nova_q4_2025.txt"
+    },
+    {
+     "company": "Onto Innovation",
+     "label": "Onto Innovation Q4 FY2025 (02-19-2026)",
+     "file": "transcripts/av/ontoinnovation_q4_2025.txt"
+    },
+    {
+     "company": "Penguin Solutions",
+     "label": "Penguin Solutions Q1 FY2026 (01-06-2026)",
+     "file": "transcripts/av/penguinsolutions_q1_2026.txt"
+    },
+    {
+     "company": "Powell Industries",
+     "label": "Powell Industries Q1 FY2026 (02-04-2026)",
+     "file": "transcripts/av/powellindustries_q1_2026.txt"
+    },
+    {
+     "company": "Power Integrations",
+     "label": "Power Integrations Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/powerintegrations_q4_2025.txt"
+    },
+    {
+     "company": "Qualcomm",
+     "label": "Qualcomm Q1 FY2026 (02-04-2026)",
+     "file": "transcripts/av/qualcomm_q1_2026.txt"
+    },
+    {
+     "company": "Quanta Services",
+     "label": "Quanta Services Q4 FY2025 (02-19-2026)",
+     "file": "transcripts/av/quantaservices_q4_2025.txt"
+    },
+    {
+     "company": "Rambus",
+     "label": "Rambus Q4 FY2025 (02-02-2026)",
+     "file": "transcripts/av/rambus_q4_2025.txt"
+    },
+    {
+     "company": "SPX Technologies",
+     "label": "SPX Technologies Q4 FY2025 (02-24-2026)",
+     "file": "transcripts/av/spxtechnologies_q4_2025.txt"
+    },
+    {
+     "company": "STMicroelectronics",
+     "label": "STMicroelectronics Q4 FY2025 (01-29-2026)",
+     "file": "transcripts/av/stmicroelectronics_q4_2025.txt"
+    },
+    {
+     "company": "Sandisk",
+     "label": "Sandisk Q2 FY2026 (01-29-2026)",
+     "file": "transcripts/av/sandisk_q2_2026.txt"
+    },
+    {
+     "company": "Sanmina",
+     "label": "Sanmina Q1 FY2026 (01-26-2026)",
+     "file": "transcripts/av/sanmina_q1_2026.txt"
+    },
+    {
+     "company": "Seagate",
+     "label": "Seagate Q2 FY2026 (01-27-2026)",
+     "file": "transcripts/av/seagate_q2_2026.txt"
+    },
+    {
+     "company": "SiTime",
+     "label": "SiTime Q4 FY2025 (02-04-2026)",
+     "file": "transcripts/av/sitime_q4_2025.txt"
+    },
+    {
+     "company": "Silicon Motion",
+     "label": "Silicon Motion Q4 FY2025 (02-04-2026)",
+     "file": "transcripts/av/siliconmotion_q4_2025.txt"
+    },
+    {
+     "company": "Solstice Advanced Materials",
+     "label": "Solstice Advanced Materials Q4 FY2025 (02-11-2026)",
+     "file": "transcripts/av/solsticeadvancedmaterials_q4_2025.txt"
+    },
+    {
+     "company": "Southern Company",
+     "label": "Southern Company Q4 FY2025 (02-19-2026)",
+     "file": "transcripts/av/southerncompany_q4_2025.txt"
+    },
+    {
+     "company": "Supermicro",
+     "label": "Supermicro Q2 FY2026 (02-03-2026)",
+     "file": "transcripts/av/supermicro_q2_2026.txt"
+    },
+    {
+     "company": "TE Connectivity",
+     "label": "TE Connectivity Q1 FY2026 (01-21-2026)",
+     "file": "transcripts/av/teconnectivity_q1_2026.txt"
+    },
+    {
+     "company": "TSMC",
+     "label": "TSMC Q4 FY2025 (01-15-2026)",
+     "file": "transcripts/av/tsmc_q4_2025.txt"
+    },
+    {
+     "company": "TTM Technologies",
+     "label": "TTM Technologies Q4 FY2025 (02-04-2026)",
+     "file": "transcripts/av/ttmtechnologies_q4_2025.txt"
+    },
+    {
+     "company": "Teradyne",
+     "label": "Teradyne Q4 FY2025 (02-03-2026)",
+     "file": "transcripts/av/teradyne_q4_2025.txt"
+    },
+    {
+     "company": "Tesla",
+     "label": "Tesla Q4 FY2025 (01-28-2026)",
+     "file": "transcripts/av/tesla_q4_2025.txt"
+    },
+    {
+     "company": "Texas Instruments",
+     "label": "Texas Instruments Q4 FY2025 (01-27-2026)",
+     "file": "transcripts/av/texasinstruments_q4_2025.txt"
+    },
+    {
+     "company": "Tower Semiconductor",
+     "label": "Tower Semiconductor Q4 FY2025 (02-11-2026)",
+     "file": "transcripts/av/towersemiconductor_q4_2025.txt"
+    },
+    {
+     "company": "Trane Technologies",
+     "label": "Trane Technologies Q4 FY2025 (01-29-2026)",
+     "file": "transcripts/av/tranetechnologies_q4_2025.txt"
+    },
+    {
+     "company": "Uber",
+     "label": "Uber Q4 FY2025 (02-04-2026)",
+     "file": "transcripts/av/uber_q4_2025.txt"
+    },
+    {
+     "company": "Ultra Clean",
+     "label": "Ultra Clean Q4 FY2025 (02-23-2026)",
+     "file": "transcripts/av/ultraclean_q4_2025.txt"
+    },
+    {
+     "company": "Vertiv",
+     "label": "Vertiv Q4 FY2025 (02-11-2026)",
+     "file": "transcripts/av/vertiv_q4_2025.txt"
+    },
+    {
+     "company": "Viavi",
+     "label": "Viavi Q2 FY2026 (01-28-2026)",
+     "file": "transcripts/av/viavi_q2_2026.txt"
+    },
+    {
+     "company": "Vicor",
+     "label": "Vicor Q4 FY2025 (02-20-2026)",
+     "file": "transcripts/av/vicor_q4_2025.txt"
+    },
+    {
+     "company": "Vishay",
+     "label": "Vishay Q4 FY2025 (02-04-2026)",
+     "file": "transcripts/av/vishay_q4_2025.txt"
+    },
+    {
+     "company": "Wesco",
+     "label": "Wesco Q4 FY2025 (02-10-2026)",
+     "file": "transcripts/av/wesco_q4_2025.txt"
+    },
+    {
+     "company": "Western Digital",
+     "label": "Western Digital Q2 FY2026 (01-29-2026)",
+     "file": "transcripts/av/westerndigital_q2_2026.txt"
+    },
+    {
+     "company": "Wolfspeed",
+     "label": "Wolfspeed Q2 FY2026 (02-04-2026)",
+     "file": "transcripts/av/wolfspeed_q2_2026.txt"
+    },
+    {
+     "company": "Xcel Energy",
+     "label": "Xcel Energy Q4 FY2025 (02-05-2026)",
+     "file": "transcripts/av/xcelenergy_q4_2025.txt"
+    },
+    {
+     "company": "nVent",
+     "label": "nVent Q4 FY2025 (02-06-2026)",
+     "file": "transcripts/av/nvent_q4_2025.txt"
+    },
+    {
+     "company": "onsemi",
+     "label": "onsemi Q4 FY2025 (02-09-2026)",
+     "file": "transcripts/av/onsemi_q4_2025.txt"
+    },
+    {
+     "company": "Intel Foundry",
+     "label": "Intel Foundry Q4 FY2025 (01-22-2026)",
+     "file": "transcripts/av/intel_q4_2025.txt"
+    },
+    {
+     "company": "Applied Materials",
+     "label": "Applied Materials Q1 FY2026 (02-12-2026)",
+     "file": "transcripts/av/appliedmaterials_q1_2026.txt"
+    }
+   ],
    "no_data": [],
    "skipped": 0,
    "source_range": [
-    "2026-02-25",
+    "2026-01-06",
     "2026-09-10"
    ],
-   "last_fetch": "2026-09-11",
-   "last_enriched": "2026-09-11",
+   "last_fetch": "2026-09-16",
+   "last_enriched": "2026-09-16",
    "enriched_days": [
     {
      "day": "2026-08-31",
@@ -40,12 +601,16 @@
     {
      "day": "2026-09-11",
      "labels": 2
+    },
+    {
+     "day": "2026-09-16",
+     "labels": 203
     }
    ],
    "last_sync": "2026-09-04",
    "extra": {
     "waiting": [],
-    "saved_pairs": 18
+    "saved_pairs": 220
    }
   },
   {
@@ -391,8 +956,8 @@
    "source": "URL / pasted text enriched directly in Claude Code",
    "files": 244,
    "labels_on_disk": 36,
-   "in_graph": 244,
-   "entries": 1725,
+   "in_graph": 245,
+   "entries": 1732,
    "pending": [],
    "no_data": [
     {
@@ -417,7 +982,7 @@
     "2026-08-27"
    ],
    "last_fetch": "2026-09-07",
-   "last_enriched": "2026-09-07",
+   "last_enriched": "2026-09-16",
    "enriched_days": [
     {
      "day": "2026-08-27",
@@ -430,6 +995,10 @@
     {
      "day": "2026-09-07",
      "labels": 5
+    },
+    {
+     "day": "2026-09-16",
+     "labels": 1
     }
    ],
    "last_sync": "2026-09-07",
@@ -531,6 +1100,30 @@
    "source_range": [
     "2026-07-20",
     "2026-09-15"
+   ]
+  },
+  {
+   "day": "2026-09-16",
+   "pipeline": "manual",
+   "files": 244,
+   "in_graph": 245,
+   "pending": 0,
+   "last_sync": "2026-09-07",
+   "source_range": [
+    "2026-02-05",
+    "2026-08-27"
+   ]
+  },
+  {
+   "day": "2026-09-16",
+   "pipeline": "us",
+   "files": 272,
+   "in_graph": 273,
+   "pending": 112,
+   "last_sync": "2026-09-04",
+   "source_range": [
+    "2026-01-06",
+    "2026-09-10"
    ]
   }
  ]

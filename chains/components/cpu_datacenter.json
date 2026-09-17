@@ -80,6 +80,15 @@
                       "date_signed": "fiscal year 2026",
                       "type": "10-K related-party revenue disclosure",
                       "topics": []
+                    },
+                    {
+                      "source": "Microsoft Q2 FY2026 (01-28-2026)",
+                      "signal": "Hood: commercial bookings rose 23% in constant currency 'driven by the previously large Azure commitment from OpenAI, reflects multiyear demand needs'; 'Approximately 45% of our commercial RPO balance is from OpenAI' (commercial RPO $625 billion); 'the significant OpenAI contract signed in Q2 represents multiyear demand needs from them'. On the relationship: 'It's a great partnership. We continue to be their provider of scale.'",
+                      "units": "no specific figure",
+                      "value": "approximately 45% of commercial RPO ($625 billion)",
+                      "date_signed": "Q2 FY2026 (contract signed in Q2)",
+                      "type": "multiyear Azure compute commitment",
+                      "topics": []
                     }
                   ]
                 }
@@ -94,6 +103,38 @@
                   "quarter": "Microsoft Q3 FY2026 (04-29-2026)",
                   "signal": "CapEx $31.9B in Q3 (~two-thirds short-lived GPUs/CPUs); Q4 guide >$40B; CALENDAR-2026 capex ~$190B (incl ~$25B from higher component pricing). Added another gigawatt of capacity this quarter and on track to double total data-center footprint within two years; Fairwater (Wisconsin) DC came online 6 weeks early; new data-center investments across four continents; capacity expected to remain CONSTRAINED at least through 2026. Custom silicon: Maia 200 AI accelerator (>30% better tokens/dollar) live in Iowa/Arizona; Cobalt CPU deployed in ~half of regions; modernizing fleet alongside the latest NVIDIA and AMD.",
                   "figure": "CapEx ~$190B CY2026; +1GW/qtr, double footprint in 2yr; Maia 200 + Cobalt live"
+                },
+                {
+                  "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+                  "signal": "Q2 FY2026 CALL (December quarter) - HEADLINE: CFO Amy Hood: 'revenue was $81.3 billion, up 17% in constant currency'; operating income up 21% in constant currency; earnings per share $4.14 (up 24% in constant currency when adjusted for the impact of the OpenAI investment); company gross margin 68% and operating margin 47%. CEO Satya Nadella: 'the Microsoft Cloud surpassed $50 billion in revenue for the first time, up 26% year over year' - Microsoft Cloud revenue was $51.5 billion at a 67% gross margin. Intelligent Cloud revenue was $32.9 billion, up 29% in constant currency; 'Azure and other cloud services, revenue grew 39% in constant currency, slightly ahead of expectations with ongoing efficiency gains across our fungible fleet enabling us to reallocate some capacity to Azure that was monetized in the quarter.' On-premises server revenue grew 21% in constant currency, helped by the SQL Server 2025 launch and 'higher transactional purchasing ahead of memory price increases.' GAAP other income and expense was $10 billion, driven by a gain tied to OpenAI's recapitalization (Microsoft still uses the equity method and now records its share of the change in OpenAI's net assets).",
+                  "figure": "revenue $81.3 billion (up 17% cc); Microsoft Cloud $51.5 billion (26%); Intelligent Cloud $32.9 billion (29% cc); Azure and other cloud services 39% cc; EPS $4.14",
+                  "topics": []
+                },
+                {
+                  "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+                  "signal": "CALL - CAPEX AND SUPPLY: capital expenditures were $37.5 billion in the quarter, and 'roughly two-thirds of our CapEx, was on short-lived assets, primarily GPUs and CPUs'; the remaining spend went to long-lived assets 'that will support monetization for the next fifteen years and beyond.' Finance leases were $6.7 billion ('primarily for large data center sites'), cash paid for PP and E was $29.9 billion, and free cash flow fell sequentially to $5.9 billion on higher cash capex. Hood: 'Our customer demand continues to exceed our supply,' so incoming supply has to be balanced across Azure demand, first-party AI usage (Microsoft 365 Copilot, GitHub Copilot), larger allocations to R and D teams, and replacement of end-of-life server and networking equipment. Q3 FY2026 outlook: capex expected to DECREASE sequentially 'due to a normal variability from cloud infrastructure build-outs and the timing of delivery of finance leases', with the short-lived-asset mix staying similar to Q2 while Microsoft works to close the gap between demand and supply. Hood added that much of the GPU capacity being bought is 'already contracted for most of their useful life' - GPU contracts, 'including for some of our largest customers', are 'sold for the entire useful life of the GPU'.",
+                  "figure": "capex $37.5 billion (roughly two-thirds short-lived GPUs and CPUs); finance leases $6.7 billion; cash paid for PP and E $29.9 billion; Q3 capex to decrease sequentially",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "capex": {
+                    "field": "capex_q",
+                    "busd": 37.5,
+                    "display": "$37.5 billion",
+                    "period": "Q2 FY2026 (December quarter)"
+                  }
+                },
+                {
+                  "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+                  "signal": "CALL - BACKLOG: commercial remaining performance obligation (reported net of reserves) increased to $625 billion with a weighted average duration of approximately two and a half years (Hood: extended 'from around two years to two and a half', driven by longer-duration Azure contracts); roughly 25% will be recognized in revenue in the next twelve months (that portion up 39% year over year) and the portion beyond twelve months increased 56%. 'Approximately 45% of our commercial RPO balance is from OpenAI'; the other 55%, 'roughly $350 billion', spans a broad set of customers, solutions, industries and geographies and grew 28% - Hood: 'larger than most peers. More diversified than most peers.' Commercial bookings increased 23% in constant currency, driven by the large multiyear Azure commitment from OpenAI and the previously announced Anthropic commitment from November; Hood warned the OpenAI contract signed in Q2 'will result in some quarterly volatility in both bookings and RPO growth rates going forward.' Nadella said software lets Microsoft keep running the latest models on an aging fleet, and Hood said that where capacity is sold for its entire life 'the margins actually improved with time.'",
+                  "figure": "commercial RPO $625 billion; approximately 45% from OpenAI; remaining 55% (roughly $350 billion) grew 28%; commercial bookings up 23% cc",
+                  "topics": [],
+                  "capex": {
+                    "field": "backlog",
+                    "busd": 625,
+                    "display": "$625 billion",
+                    "metric": "Commercial RPO"
+                  }
                 }
               ]
             },
@@ -196,7 +237,16 @@
                   "contracts": []
                 }
               ],
-              "quarterly_data": []
+              "quarterly_data": [
+                {
+                  "quarter": "CoreWeave Q4 FY2025 (02-26-2026)",
+                  "signal": "CEO: demand is moving from 'just the GPU' out 'into storage, into CPUs' as customers extend into the application layer; AI native and enterprise customers engage 'at significantly higher rates across CPU, storage, software, and development tools'. CoreWeave plans to add NVIDIA's Vera CPU to its product portfolio alongside Rubin in the second half of 2026.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "cpu"
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -308,6 +358,14 @@
                   "figure": "Intel GM6 Plus in volume + PUZZLE Edge AI; Arm 'Phoenix'; Vera CPU; EPYC",
                   "topics": [
                     "cpu",
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Supermicro Q2 FY2026 (02-03-2026)",
+                  "signal": "Enterprise diversification (CEO/CFO): the enterprise channel segment was $2 billion in Q2, about 16% of revenue versus 31% in the prior quarter (up 42% YoY and 29% QoQ). Supermicro is sharpening its focus on traditional enterprise, cloud and edge IoT customers to diversify revenue toward higher margins. It introduced X14 and H14 solutions: preconfigured systems that ship directly from the factory, are optimized for specific AI, cloud, storage and telco edge workloads, and are 'ready to power immediately' for enterprise customers, channel partners and SMB end users. The CEO said the company is 'very aggressively growing enterprise midsized' accounts while still pursuing large accounts.",
+                  "figure": "enterprise channel revenue $2 billion (about 16% of revenue vs 31% prior quarter; up 42% YoY)",
+                  "topics": [
                     "product_launches"
                   ]
                 }
@@ -463,6 +521,39 @@
                   "quarter": "Dell Citi’s Global TMT Conference 2026 (09-10-2026)",
                   "signal": "Operating-leverage detail beyond the Q2 call's reported opex rate: Dell has guided OpEx to 8% of revenue, which Kennedy calls the most efficient we have been ever in the 42-year history of the company, against 20% of revenue six years ago, and says the P&L will find about 4.5 points of scale this year and will keep doing so. He lists four EPS levers - revenue, storage margin-rate enhancement, OpEx scale and cash from the negative cash conversion cycle - and notes the buyback was raised from $1.6 billion to $3.9 billion in 90 days between Q1 and Q2. On AI server profitability he expects the rate to stay fairly stable in the mid-single digit range.",
                   "figure": "OpEx guided to 8% of revenue (most efficient in the 42-year history of the company) vs 20% of revenue six years ago; about 4.5 points of scale this year; buyback raised from $1.6 billion to $3.9 billion in 90 days",
+                  "topics": []
+                },
+                {
+                  "quarter": "Dell Q4 FY2026 (02-26-2026)",
+                  "signal": "Record Q4 FY2026 (Jeff Clarke / David Kennedy): Q4 revenue was $33,400,000,000, up 39%, and EPS $3.89, up 45%; ISG revenue was a record $19,600,000,000, up 73% (eight consecutive quarters of double-digit growth), with ISG operating margin of 14.8%, up 240 basis points sequentially. Full-year FY2026 revenue reached $113,500,000,000, up 19%, and EPS grew 27% to $10.30. Starting this quarter Dell breaks out AI server revenue from the overall server and networking line.",
+                  "figure": "Q4 revenue $33,400,000,000, up 39%; EPS $3.89, up 45%; ISG revenue $19,600,000,000, up 73%; ISG operating margin 14.8%; FY 2026 revenue $113,500,000,000, up 19%, EPS $10.30",
+                  "topics": []
+                },
+                {
+                  "quarter": "Dell Q4 FY2026 (02-26-2026)",
+                  "signal": "AI server records in Q4 (David Kennedy): $34,100,000,000 in orders, $9,500,000,000 in shipments, $9,000,000,000 in revenue and an ending backlog of $43,000,000,000; the five-quarter pipeline grew sequentially even after converting those orders. Full-year FY2026 AI orders were $64,100,000,000 with $25,200,000,000 shipped; orders grew six times over the previous year. Management says AI servers run at a mid-single-digit operating margin and that the backlog 'will ship at mid single digits'. Shipments vs revenue differ only by in-transit gear at quarter end.",
+                  "figure": "Q4 AI orders $34,100,000,000; AI shipments $9,500,000,000; AI revenue $9,000,000,000; AI backlog $43,000,000,000; FY 2026 AI orders $64,100,000,000, shipped $25,200,000,000",
+                  "topics": []
+                },
+                {
+                  "quarter": "Dell Q4 FY2026 (02-26-2026)",
+                  "signal": "Initial FY2027 guidance (David Kennedy): about $50,000,000,000 in AI revenue (about 100% growth), reflecting backlog composition, customer readiness and delivery schedules; total revenue $138,000,000,000 to $142,000,000,000, up 23% at the midpoint of $140,000,000,000; traditional servers and storage up mid-single digits (first-half weighted); CSG up roughly 1%; operating income up approximately 18%; non-GAAP EPS $12.90, plus or minus $0.25. Q1 FY2027 guide: revenue $34,700,000,000 to $35,700,000,000, up 51% at the midpoint, with ISG up over 100% on $13,000,000,000 of AI server revenue. Jeff Clarke: the $50,000,000,000 reflects customers' building/power build-outs and 'the availability of DRAM and E1 drives and E3 drives', and Dell is 'out looking for more parts'.",
+                  "figure": "FY 2027 AI revenue $50,000,000,000 (about 100% growth); FY 2027 revenue $138,000,000,000 to $142,000,000,000 (midpoint $140,000,000,000, up 23%); EPS $12.90, plus or minus $0.25; Q1 revenue $34,700,000,000 to $35,700,000,000 with $13,000,000,000 of AI server revenue",
+                  "topics": []
+                },
+                {
+                  "quarter": "Dell Q4 FY2026 (02-26-2026)",
+                  "signal": "Traditional servers: demand significantly outpaced supply in Q4 with strong double-digit demand growth across every region; traditional server and networking revenue was $5,900,000,000, up 27%. Customers shifted to dense 16th/17th-generation configurations with more CPU, DRAM and storage; upgrading 14G to 17G consolidates at 'six to one to seven to one' (7:1), and a majority of the install base remains on 14th generation or older. AI workloads on x86 are picking up at 'AI-forward' enterprises. For FY2027 (calendar 2026) Jeff Clarke expects server 'units are clearly down, while TRUs are up', with second-half guidance kept prudent because of supply uncertainty.",
+                  "figure": "traditional server and networking revenue $5,900,000,000, up 27%; 7:1 consolidation from 14G to 17G",
+                  "topics": [
+                    "cpu",
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Dell Q4 FY2026 (02-26-2026)",
+                  "signal": "CSG (PCs): revenue up 14% to $13,500,000,000; commercial up 16% to $11,600,000,000 (sixth consecutive quarter of growth); consumer roughly flat at $1,900,000,000; CSG operating income $600,000,000, or 4.7% of revenue, reflecting deliberate share capture (business grew 18% in a market that grew 10%) before a price increase on January 6. For FY2027 David Kennedy sees the PC market 'in around that minus 11%, minus 12% range', more acute in the second half, and guides CSG to 1% revenue growth.",
+                  "figure": "CSG revenue $13,500,000,000, up 14%; commercial $11,600,000,000, up 16%; consumer $1,900,000,000; CSG operating income $600,000,000, or 4.7% of revenue; FY 2027 PC market minus 11%, minus 12%",
                   "topics": []
                 }
               ]
@@ -710,6 +801,55 @@
                   "topics": [
                     "cpu"
                   ]
+                },
+                {
+                  "quarter": "HPE Q1 FY2026 (03-09-2026)",
+                  "signal": "Q1 FY2026 results: revenue $9.3 billion, up 18% (driven primarily by the inclusion of Juniper Networks, down 4% sequentially), record non-GAAP EPS of $0.65 above the high end of the outlook, free cash flow of $708 million, gross margin 36.6% and operating margin 12.7%. Networking revenue of $2.7 billion was up 7% on a normalized basis with a 23.7% operating margin; the Networking segment is now nearly 30% of HPE revenue and more than half of operating profits. Orders significantly outpaced revenue.",
+                  "figure": "Revenue $9.3 billion, up 18%; EPS $0.65; free cash flow $708 million; gross margin 36.6%; operating margin 12.7%; Networking revenue $2.7 billion, operating margin 23.7%",
+                  "topics": []
+                },
+                {
+                  "quarter": "HPE Q1 FY2026 (03-09-2026)",
+                  "signal": "Cloud & AI segment Q1 revenue totaled $6.3 billion, down 3%, reflecting timing of AI server shipments offset by traditional server growth; operating margin 10.2%. Server revenue declined 3% as strong AUP growth in traditional server was more than offset by AI shipment timing, while Q1 server orders grew low double digits on traditional server demand, including some pull-ins ahead of rising component costs. HPE lowered full-year Cloud & AI revenue growth to mid- to high single-digit because its fiscal '26 strategy prioritizes higher-margin product orders, which may impact AI Systems revenue growth; full-year Cloud & AI operating margin range 7% to 9%.",
+                  "figure": "Cloud & AI revenue $6.3 billion, down 3%; operating margin 10.2%; FY26 Cloud & AI margin 7% to 9%",
+                  "topics": []
+                },
+                {
+                  "quarter": "HPE Q1 FY2026 (03-09-2026)",
+                  "signal": "HPE entered Q2 with a record AI Systems backlog of $5 billion, primarily enterprise and sovereign orders, with the sales pipeline multiples of backlog. Q1 AI Systems orders of $1.2 billion were largely enterprise-driven. Management expects AI demand and revenue to stay uneven this year because larger sovereign orders carry extended lead times; AI shipments ramp in the back half, with Q3 expected to be the largest AI revenue quarter. In AI, HPE focuses on enterprise first and sovereign following that; inferencing is 'growing very, very rapidly'.",
+                  "figure": "record AI Systems backlog of $5 billion; AI Systems orders of $1.2 billion",
+                  "topics": []
+                },
+                {
+                  "quarter": "HPE Q1 FY2026 (03-09-2026)",
+                  "signal": "Memory shortage: 'The IT market is facing a sharp acceleration in supply tightness and increasing component costs, most notably in DRAM and NAND. We expect elevated prices to persist well into 2027.' DRAM and NAND now make up over half of the bill of materials cost of a traditional server, lifting server and storage average unit prices; networking is more insulated. HPE expanded long-term multiyear agreements with its key silicon and memory partners, raised prices in November, December and January, shortened quote commitment cycles, reserved the right to reprice existing orders between quote and shipment, and steers demand to lower-memory configurations. CEO: 'we don't have enough supply to meet all the customer demand', though the guide has line of sight to supply; citing industry analyst reports, industry memory pricing rose triple digits between CQ4 and CQ1, and HPE continues to expect double-digit increases going forward.",
+                  "figure": "DRAM and NAND over half of traditional server bill of materials cost; elevated prices expected to persist well into 2027",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "HPE Q1 FY2026 (03-09-2026)",
+                  "signal": "Inventory ended the quarter at $6.9 billion, down year-over-year but up sequentially 'for assurance of supply purposes given industry-wide supply chain constraints, particularly in memory', and purchase commitments increased sequentially; higher purchases to secure supply for future shipments raised days payable.",
+                  "figure": "Inventory $6.9 billion, up sequentially",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "HPE Q1 FY2026 (03-09-2026)",
+                  "signal": "Server CPUs: 'On the CPU side, less constrained but constrained.' HPE's diversified ProLiant CPU portfolio lets it steer demand to the right socket, although 1 or 2 SKUs may be more constrained; 'if you have the CPU, you don't have the memory, you're kind of stuck in the middle'.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "cpu",
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "HPE Q1 FY2026 (03-09-2026)",
+                  "signal": "Raised FY2026 outlook: non-GAAP EPS raised by $0.05 to $2.30 to $2.50; free cash flow at least $2 billion (from $1.7 billion to $2 billion); Networking revenue growth raised to 68% to 73% reported (mid- to high single-digit normalized). Q2 guide: revenue $9.6 billion to $10 billion, Networking revenue growth 142% to 152% reported, EPS between $0.51 and $0.55, with a sequential increase in AI server revenue but most AI deals shipping in the second half. Long-term fiscal 2028 targets reaffirmed: at least $3 in EPS and more than $3.5 billion in free cash flow.",
+                  "figure": "FY26 EPS $2.30 to $2.50; free cash flow at least $2 billion; Networking growth 68% to 73%; Q2 revenue $9.6 billion to $10 billion; Q2 EPS between $0.51 and $0.55",
+                  "topics": []
                 }
               ]
             }
@@ -746,6 +886,18 @@
                       "value": "no specific figure",
                       "date_signed": "2026",
                       "type": "IP royalty / custom CPU deployment"
+                    },
+                    {
+                      "source": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                      "signal": "AWS launched its fifth-generation Graviton processor with 192 cores, double Graviton4's core count, with 25% higher performance and up to 33% lower latency versus Graviton4. AWS pairs Graviton with Arm-based Nitro DPUs and training accelerators to get more AI output per watt within the same power envelope.",
+                      "units": "192 cores",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "IP royalty / custom CPU launch (fifth-generation Graviton)",
+                      "topics": [
+                        "cpu",
+                        "product_launches"
+                      ]
                     }
                   ]
                 },
@@ -768,6 +920,18 @@
                       "value": "no specific figure",
                       "date_signed": "2026",
                       "type": "IP royalty / custom CPU host"
+                    },
+                    {
+                      "source": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                      "signal": "Google previewed its second Arm-based server processor. Its Axion-powered m4a instances (as transcribed) deliver up to 2x better price performance and 80% better performance per watt than comparable x86 offerings. Google has now migrated over 30,000 applications to the Arm instruction set.",
+                      "units": "over 30,000 applications migrated to Arm",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "custom CPU preview / x86-to-Arm software migration",
+                      "topics": [
+                        "cpu",
+                        "product_launches"
+                      ]
                     }
                   ]
                 },
@@ -812,6 +976,18 @@
                       "value": "no specific figure",
                       "date_signed": "2026",
                       "type": "IP royalty / custom CPU (Cobalt 200)"
+                    },
+                    {
+                      "source": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                      "signal": "Microsoft introduced Cobalt 200, built on the higher-performance Arm Neoverse CSS V3 with 132 cores. Cobalt 100 had 128 cores and was based on the prior Neoverse N2 platform.",
+                      "units": "132 cores (vs 128 in Cobalt 100)",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "CSS license / custom CPU launch (Cobalt 200)",
+                      "topics": [
+                        "cpu",
+                        "product_launches"
+                      ]
                     }
                   ]
                 },
@@ -895,6 +1071,21 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "company": "SoftBank",
+                  "relationship": "Technology licensing and design services agreement supporting SoftBank's AI compute build-out",
+                  "contracts": [
+                    {
+                      "source": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                      "signal": "Of Q3 license revenue of $505 million, Arm's 'agreement with SoftBank for Technology Licensing and Design Services contributed $200 million'. CFO Child: 'SoftBank has become an increasingly important customer as they build out their AI compute strategy, including their recent acquisitions such as Ampere and Graphcore'. Arm believes the SoftBank revenues 'are durable as they relate to current generations'. The prior quarter was '$178 for the quarter'; the step-up to about $200 is 'just a full quarter impact' and no new deals were signed. 'I would expect that $200 going forward is the right run rate going forward.' Asked about a possible Arm custom ASIC for SoftBank, management would not comment on specific products.",
+                      "units": "no specific figure",
+                      "value": "$200 million in the quarter ($178 in the prior quarter); $200 run rate going forward",
+                      "date_signed": "not stated (deals from the prior quarter)",
+                      "type": "technology licensing and design services",
+                      "topics": []
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -970,6 +1161,57 @@
                   "topics": [
                     "cpu",
                     "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                  "signal": "Q3 FY2026 CALL (December quarter) - HEADLINE: record third quarter. Revenue grew 26% year on year to $1.24 billion, the fourth consecutive billion-dollar quarter. Royalties rose 27% to a record $737 million on record units, led by smartphones (higher royalty rates per chip) and the data center (triple-digit YoY growth); automotive grew double digits. CFO Jason Child: 'we thought we'd grow about 20%. We grew 27%' (a '$30 million beat or more'). License and other revenue was $505 million, up 25%, with two new Arm Total Access Agreements and two new CSS licenses, both with leading smartphone handset OEMs. Annualized contract value (ACV) grew 28% YoY, the same 28% as in Q2 and Q1 and above the long-term mid-to-high-single-digit expectation for license revenue. Non-GAAP opex was $716 million, up 37% on R&D headcount. Non-GAAP operating income was $505 million (+14%), an operating margin of about 41%. Non-GAAP EPS was $0.43, close to the high end of guidance.",
+                  "figure": "revenue $1.24 billion (+26%); royalty $737 million (+27%); license $505 million (+25%); ACV +28%; non-GAAP EPS $0.43; operating margin about 41%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                  "signal": "Q4 FY2026 GUIDANCE (given on the Q3 call): revenue $1.47 billion plus or minus $50 million, about 18% YoY growth at the midpoint. Royalties are guided up low teens YoY and licensing up high teens YoY. Non-GAAP opex approximately $745 million; non-GAAP EPS $0.58 plus or minus $0.04. Child said the low-teens royalty growth reflects seasonality (calendar Q1 is one of the slower quarters) and lapping an unusually timed MediaTek chip release a year earlier; the memory impact is 'very minimal'. He still expects Q4 royalties to be 'stronger than what we previously expected' and full-year royalties 'in that north of you know, 20% range'. Full year FY2026: 'we said at least 20%, and I think now we're guiding to '22 at the midpoint'. FY2027 has no formal guide, but 'the 20% growth rate I think, certainly is very reasonable'. No FY2028 view yet: 'other possible offerings' are still being worked through. Opex: the Q4-to-Q1 step-up should be similar to last year's low-double-digit sequential growth, then moderate. The SoftBank licensing/design-services contribution is 'the right run rate going forward'.",
+                  "figure": "Q4 FY2026 guide $1.47 billion, plus or minus $50 million (about 18%); non-GAAP EPS $0.58, plus or minus $0.04; opex approximately $745 million",
+                  "topics": []
+                },
+                {
+                  "quarter": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                  "signal": "CLOUD AI / DATA CENTER: CEO Rene Haas said data center royalty revenue 'has grown more than 100% year on year' and continues to double YoY. The drivers are the ramp of Arm-based chips at all major hyperscaler companies and 'ongoing share gains from custom hyperscaler chips'. The AI data-center build-out also lifts deployments of networking chips, particularly DPUs and smart NICs, where Arm says it has a very high market share. Arm expects its share among the top hyperscalers to reach 50%. Sizing (disclosed once a year): data center was double-digit % of revenue at the start of the year and should now be 'somewhere in kind of the teens to probably getting closer to 20%'. Over the next two to three years it should match or exceed the smartphone business, which is '40 to 45% of total business'. Haas: 'in a few years our data center business to be our largest business, larger than mobile'. Arm has reorganized into three business units: Edge AI (smartphone, IoT), Physical AI (automotive, robotics) and Cloud AI (data center, networking). In Physical AI, Rivian's third-generation autonomy computer is the first production vehicle on a custom Arm chip, and Tesla's upcoming Optimus humanoid robot is powered by a custom Arm-based AI processor.",
+                  "figure": "data center royalty more than 100% YoY; data center teens to closer to 20% of revenue vs smartphone 40 to 45%; top-hyperscaler share expected to reach 50%",
+                  "topics": [
+                    "cpu"
+                  ]
+                },
+                {
+                  "quarter": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                  "signal": "AGENTIC INFERENCE RAISES CPU CONTENT: AI is shifting from training to inference, and that inference is increasingly agent-based: 'persistent, always on, and power constrained'. Agent coordination runs on CPUs, so customers want higher core counts and better power efficiency. Haas said the latest hyperscaler and NVIDIA CPU generations 'have increased the number of cores. And we think that only continues.' He cited four examples. AWS's fifth-generation Graviton has 192 cores, double Graviton4. NVIDIA's Vera has 88 Arm-based cores, up from 72 cores in the 'gray CPU generation' (as transcribed). Microsoft's Cobalt 200 has 132 cores on Neoverse CSS V3, up from 128 in Cobalt 100 on Neoverse N2. Google previewed its second Arm server processor (Axion-powered m4a instances). Integrated platforms raise output per watt: AWS pairs Graviton with Arm-based Nitro DPUs and training accelerators, and NVIDIA pairs GPUs with Arm-based CPUs and BlueField. Over the next three years Haas expects CPUs to take on work GPUs used to do and more custom CPU-based chips to appear. He also sees specific prefill/decode inference solutions continuing to extend.",
+                  "figure": "Graviton 192 cores; Vera 88 cores (vs 72); Cobalt 200 132 cores (vs 128)",
+                  "topics": [
+                    "cpu",
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                  "signal": "COMPUTE SUBSYSTEMS (CSS): nearly two and a half years after launch, demand 'continues to exceed expectations'. Two more CSS licenses were signed in the quarter (Edge AI tablets and smartphones), for a total of 21 CSS licenses across 12 companies. Five customers now ship CSS-based chips, two of them on a second-generation platform, and the top four Android smartphone vendors ship CSS-powered devices. CSS was 'approaching double digit' of royalties last year and is 'into the teens' this year. Child said it 'could be upwards of 50%' over the next couple of years, and every CSS customer that could renew for the next generation has done so. Each smartphone cycle brings a new CSS, generally at a higher royalty rate. Haas sees no bill-of-materials pushback: fabs moving from five to three to two nanometer shorten design windows, so faster time to market is worth more than the cost. Neoverse CSS V3 underpins Microsoft's Cobalt 200.",
+                  "figure": "21 CSS licenses across 12 companies; five customers shipping CSS chips; CSS royalty share into the teens, could be upwards of 50%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                  "signal": "MEMORY SHORTAGE vs SMARTPHONE ROYALTIES: Child noted that MediaTek talked about 'around a 15% reduction in unit volume for next year', in line with other handset makers' views on memory supply constraints. Partners are protecting the premium/flagship tier, where Arm's CSS and v9 royalties sit; the constraints should mostly hit the low end (v8 and older, with much smaller royalties). A 20% volume reduction would hit smartphone royalties by 'somewhere around a 2% or 4% at worst'. In a later answer he put it at 'at most a kind of four to 6%' within smartphones, already including contractually agreed higher per-unit rates. The effect on total royalties would be 'a 1%, maybe 2% negative impact', more than offset by cloud AI growing ahead of expectations. Memory impact on the Q4 guide is 'very minimal', and memory and other shortages affect Arm less than full-fab semiconductor companies. Haas added that Arm is highly involved in research on SRAM and alternative memory technologies for AI.",
+                  "figure": "20% smartphone unit cut -> 2% or 4% at worst (at most four to 6%) smartphone royalty impact; 1%, maybe 2% on total royalties",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Arm Holdings Q3 FY2026 (02-04-2026)",
+                  "signal": "INVESTMENT / NEXT CATALYST: rising R&D spend funds next-generation architectures, compute subsystems and 'our exploration into chiplets and complete SoCs'. The growing base of 'long-duration contracts at structurally higher royalty rates' gives Arm the confidence to invest in 'next-generation architectures, compute subsystems, and silicon'. Arm will host an event on March 24 but gave no details ahead of it. Asked whether SoftBank could get an Arm custom ASIC, Child said nothing could be shared about specific products.",
+                  "figure": "event on March 24",
+                  "topics": [
+                    "cpu"
                   ]
                 }
               ]
@@ -1048,6 +1290,14 @@
                   "topics": [
                     "cpu",
                     "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Qualcomm Q1 FY2026 (02-04-2026)",
+                  "signal": "Server-CPU roadmap adds RISC-V (CEO): 'We added a RISC V CPU now to our roadmap in addition to Orion, which is ARM compatible.' Alongside the fiscal Q1 Alphawave close, Qualcomm 'also acquired Ventana Micro Systems', 'reinforcing our leadership and commitment to expanding the RISC V standard in the ecosystem, and development of our high-performance RISC V CPU for data center workloads'. Amon reported 'positive feedback on our CPU and innovative AI processing and memory architecture for next-generation inferencing data centers' as Qualcomm engages with leading hyperscalers, cloud service providers, sovereign AI projects and other partners. A roadmap update was promised for the next investor event.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "cpu"
                   ]
                 }
               ]
@@ -1172,6 +1422,36 @@
                     "cpu",
                     "transitions"
                   ]
+                },
+                {
+                  "quarter": "AMD Q4 FY2025 (02-03-2026)",
+                  "signal": "Q4 2025 RESULTS. Lisa Su: 'fourth quarter revenue grew 34% year over year to $10.3 billion led by record EPYC, Ryzen, and Instinct processor sales. Net income increased 42% to a record $2.5 billion and free cash flow nearly doubled year over year to a record $2.1 billion.' 'Data Center segment revenue increased 39% year over year to a record $5.4 billion led by accelerating Instinct MI350 Series GPU deployments and server share gains.' CFO Jean Hu: data center revenue was 'up 39% year over year and 24% sequentially'; data center segment operating income was '$1.8 billion or 33% of revenue compared to $1.2 billion or 30% a year ago'; gross margin was 57%, or 'approximately 55%' excluding the inventory reserve release and the MI308 China revenue; diluted EPS was 'a record $1.53'. Full year 2025: 'record revenue of $34.6 billion, up 34% year over year, driven by 32% growth in our data center segment'.",
+                  "figure": "revenue $10.3 billion (34% YoY); Data Center $5.4 billion (39% YoY); gross margin 57%; EPS $1.53; full year 2025 revenue $34.6 billion",
+                  "topics": []
+                },
+                {
+                  "quarter": "AMD Q4 FY2025 (02-03-2026)",
+                  "signal": "SERVER CPU AND THE EPYC CLOUD FOOTPRINT. Lisa Su: 'adoption of fifth-gen EPYC TURN CPUs accelerated in the quarter, accounting for more than half of the total server revenue', with 'record server CPU sales to both cloud and enterprise customers in the quarter', exiting the year 'with record share'. 'EPYC-powered public cloud offerings grew significantly in the quarter, with AWS, Google, and others launching more than 230 new AMD instances. Hyperscalers launched more than 500 AMD-based instances in 2025, increasing the number of EPYC Cloud instances more than 50% year over year to nearly 1,600.' In enterprise, 'The leading server providers now offer more than 3,000 solutions powered by fourth and fifth-gen EPYC CPUs' and 'the number of large businesses deploying EPYC on-prem more than doubled in 2025'.",
+                  "figure": "more than 230 new AMD instances in the quarter; more than 500 AMD-based instances in 2025; nearly 1,600 EPYC Cloud instances (more than 50% YoY); more than 3,000 solutions",
+                  "topics": [
+                    "cpu"
+                  ]
+                },
+                {
+                  "quarter": "AMD Q4 FY2025 (02-03-2026)",
+                  "signal": "SERVER CPU DEMAND, SUPPLY AND VENICE. Lisa Su: 'we've seen the CPU order book continue to strengthen. As we go through the last few quarters and especially over the last sixty days', and 'we see server CPU growing from Q4 into Q1 in what normally is seasonally down.' She expects the 'overall server CPU TAM is going to grow, let's call it, strong double digits in 2026'. On supply: 'we have increased our supply capacity capability for server CPUs. And, you know, that's one of the reasons we're able to increase our Q1 guide as it relates to the server business', and 'we're working with our supply chain partners to increase supply as well.' On agentic workloads, AI agents spin off traditional CPU tasks and 'a vast majority of them are on x86 today.' Venice: 'Customer pull for Venice is very high with engagements underway to support large-scale cloud deployments and broad OEM platform availability when Venice launches later this year.'",
+                  "figure": "server CPU TAM to grow strong double digits in 2026; CPU order book strengthening especially over the last sixty days",
+                  "topics": [
+                    "cpu",
+                    "supply_tightness",
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "AMD Q4 FY2025 (02-03-2026)",
+                  "signal": "Q1 2026 OUTLOOK. CFO Jean Hu: 'We expect revenue to be approximately $9.8 billion plus or minus $300 million including approximately $100 million of MI308 sales to China', 'up 32% year over year' at the midpoint and 'down approximately 5%' sequentially on seasonal client, gaming and embedded declines 'partially offset by growth in our data center segment'. Non-GAAP gross margin 'approximately 55%' and non-GAAP operating expense 'approximately $3.05 billion'. In Q&A: the CPU business is normally seasonally 'down high single digit', but 'we actually guide the CPU revenue up sequentially very nicely', and data center GPU revenue, 'including China, will be also up'.",
+                  "figure": "approximately $9.8 billion plus or minus $300 million (up 32% YoY, down approximately 5% sequentially); gross margin approximately 55%",
+                  "topics": []
                 }
               ]
             },
@@ -1200,6 +1480,14 @@
                   "quarter": "Amazon Q2 FY2026 (07-30-2026)",
                   "signal": "CALL — AI PULLS THE CPU: Jassy explained WHY AI growth drives core/CPU growth — 'post-training reinforcement learning and AGENT TOOL USE is mostly done on CPUs versus AI accelerators,' an advantage for AWS because Graviton is 'the strongest CPU chip, offering up to 30-40% better price performance than other options.' GRAVITON5 IS RAMPING NEARLY 2x FASTER THAN GRAVITON4 did; Graviton used by 98% of the top 1,000 EC2 customers; chip revenue commitments up nearly 3x QoQ. The whole AWS chips business (Trainium + Graviton) crossed a >$25 BILLION annual revenue run rate growing TRIPLE-DIGIT percentages — corroborating the industry-wide CPU:GPU ratio shift toward CPUs that Intel and AMD described the same quarter.",
                   "figure": "Post-training RL + agent tool use run on CPUs; Graviton5 ramping ~2x faster than G4; chips business >$25B run rate"
+                },
+                {
+                  "quarter": "Amazon Q4 FY2025 (02-05-2026)",
+                  "signal": "CEO Andrew Jassy: AWS is adding significant EC2 core computing capacity every day, and the majority of that new compute uses its custom Graviton CPU. Graviton offers up to 40% better price performance than leading x86 processors, is used expansively by over 90% of AWS's top thousand customers, and is itself a multibillion-dollar annualized run rate business growing more than 50% year over year.",
+                  "figure": "Graviton: multibillion-dollar run rate growing more than 50% YoY; up to 40% better price performance than x86; used by over 90% of the top 1,000 AWS customers",
+                  "topics": [
+                    "cpu"
+                  ]
                 }
               ]
             },
@@ -1254,6 +1542,15 @@
                   "quarter": "NVIDIA Q2 FY2027 (08-26-2026)",
                   "signal": "Q2 FY2027 record revenue $96B, more than doubled YoY, growth accelerated for the 4th consecutive quarter; data center $89B (+18% QoQ) = hyperscale $49B (+13% QoQ) + ACIE $40B (+25% QoQ, +138% YoY). Q3 guide $108B +/-2%. Preliminary FY2028 revenue growth ~70% — a SUPPLY-CONSTRAINED outlook (customer forecasts point to ~100%); supply expected to remain a bottleneck at least through end of FY2028.",
                   "figure": "Rev $96B; DC $89B; Q3 guide $108B; FY2028 +~70% (supply-constrained)"
+                },
+                {
+                  "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+                  "signal": "Standalone Vera CPU push (Huang): 'It's the only data center CPU that supports LPDDR5', designed for very high data processing and single-threaded performance; 'Vera was designed to be an excellent CPU for post-training' where AI agents learn to use tools that run in CPU-only or CPU-plus-GPU environments; Grace was built for single-threaded performance 'and Vera is off the charts better than that.' More detail promised at GTC.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "cpu",
+                    "product_launches"
+                  ]
                 }
               ]
             },
@@ -1277,6 +1574,14 @@
                   "quarter": "Microsoft Q4 FY2026 (07-29-2026)",
                   "signal": "CALL — COBALT 200 SCALES OUT: 'When it comes to running agents, CPUs ARE JUST AS IMPORTANT AS GPUs.' Cobalt 200 racks expected in OVER 25 DATA CENTERS worldwide by month-end as Microsoft rapidly expands capacity; Cobalt VMs now power first-party workloads plus external customers including Adobe, Arm, Elastic, OPENAI, Sprinklr and TomTom. Roughly TWO-THIRDS of Microsoft's $41B quarterly capex went to SHORT-LIVED assets — 'primarily CPUs and GPUs' — 'as customers increasingly build solutions that leverage both AI and NON-AI infrastructure.' A third same-quarter hyperscaler datapoint (with AWS's Graviton commentary and Intel/AMD's parity claims) that agentic AI is pulling the CPU alongside the accelerator.",
                   "figure": "Cobalt 200 racks in 25+ DCs; 'CPUs just as important as GPUs' for agents; ~2/3 of capex = CPUs/GPUs (short-lived)"
+                },
+                {
+                  "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+                  "signal": "CALL - COBALT 200 AND THE CPU SIDE OF AI: Nadella: 'given AI workloads are not just about AI accelerators, but also consume large amounts of compute, we are pleased with the progress we are making on the CPU side as well. Cobalt 200 is another big leap forward delivering over 50% higher performance compared to our first custom-built processor for cloud-native workloads.' Hood on the Azure-only RPO: 'A lot of that is CPU basis. It's not just GPU.' In the last Q&A answer (printed in this transcript under the analyst's speaker label, but it is management's reply and refers back to the CEO's prepared remarks), management said Microsoft plans the fleet 'in ratios': an AI training job 'requires a bunch of compute and a bunch of storage very close to compute', and agent-mode inferencing requires provisioning 'computers, which are compute and storage' even though the models run on GPUs; ongoing cloud migrations (the latest SQL Server growing as an IaaS service in Azure) mean the commercial cloud has to stay balanced with the AI cloud.",
+                  "figure": "Cobalt 200: over 50% higher performance vs Microsoft's first custom-built processor",
+                  "topics": [
+                    "cpu"
+                  ]
                 }
               ]
             },
@@ -1354,6 +1659,17 @@
                       "topics": [
                         "cpu"
                       ]
+                    },
+                    {
+                      "source": "AMD Q4 FY2025 (02-03-2026)",
+                      "signal": "Lisa Su: 'EPYC-powered public cloud offerings grew significantly in the quarter, with AWS, Google, and others launching more than 230 new AMD instances.'",
+                      "units": "more than 230 new AMD instances (AWS, Google and others combined)",
+                      "value": "no specific figure",
+                      "date_signed": "instance launches in the fourth quarter",
+                      "type": "cloud instance launches",
+                      "topics": [
+                        "cpu"
+                      ]
                     }
                   ]
                 },
@@ -1368,6 +1684,17 @@
                       "value": "no specific figure",
                       "date_signed": "2026",
                       "type": "cloud deployment"
+                    },
+                    {
+                      "source": "AMD Q4 FY2025 (02-03-2026)",
+                      "signal": "Lisa Su: 'EPYC-powered public cloud offerings grew significantly in the quarter, with AWS, Google, and others launching more than 230 new AMD instances.'",
+                      "units": "more than 230 new AMD instances (AWS, Google and others combined)",
+                      "value": "no specific figure",
+                      "date_signed": "instance launches in the fourth quarter",
+                      "type": "cloud instance launches",
+                      "topics": [
+                        "cpu"
+                      ]
                     }
                   ]
                 }
@@ -1447,6 +1774,17 @@
                       "value": "no specific figure",
                       "date_signed": "2026",
                       "type": "design win / host CPU"
+                    },
+                    {
+                      "source": "Intel Q4 FY2025 (01-22-2026)",
+                      "signal": "CEO Lip-Bu Tan: 'We also continue to work closely with NVIDIA to build a custom Xeon fully integrated with their NVLink technology to bring best-in-class x86 performance to AI host nodes.'",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "custom CPU co-development (NVLink-integrated Xeon for AI host nodes)",
+                      "topics": [
+                        "cpu"
+                      ]
                     }
                   ]
                 }
@@ -1599,6 +1937,57 @@
                   "topics": [
                     "foundry"
                   ]
+                },
+                {
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
+                  "signal": "Q4 2025 RESULTS (call, CFO David Zinsner): fourth quarter revenue was $13.7 billion, 'at the high end of the range we provided in October' - the fifth consecutive quarter of revenue above guidance despite industry-wide supply constraints; AI PC, traditional server and networking revenue were all up double digits sequentially and year-over-year. Non-GAAP gross margin 37.9%, approximately 140 basis points ahead of guidance (higher revenue and lower inventory reserves, partly offset by a higher mix of outsourced client products and the early ramp of Intel 18A for Core Ultra Series 3 / Panther Lake); non-GAAP EPS $0.15 versus $0.08 guidance. Full-year 2025 revenue was $52.9 billion, 'down slightly year-over-year due to constraints across our own manufacturing network and with external suppliers'; full-year non-GAAP gross margin 36.7%; non-GAAP OpEx $16.5 billion, down 15% versus 2024.",
+                  "figure": "$13.7 billion Q4 revenue; 37.9% non-GAAP gross margin; $0.15 non-GAAP EPS; $52.9 billion full-year revenue",
+                  "topics": []
+                },
+                {
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
+                  "signal": "SEGMENTS: Intel Products Q4 revenue was $12.9 billion, up 2% sequentially, with operating profit of $3.5 billion (27% of revenue), down approximately $200 million QoQ on a higher mix of outsourced products and seasonally higher opex. DCAI revenue was $4.7 billion, up 15% sequentially - 'above expectations and the fastest sequential growth this decade' - reflecting strong demand for traditional server compute; 'Revenue would have been meaningfully higher if we had more supply.' CCG revenue was $8.2 billion, down 4% QoQ even as AI PC units grew 16%.",
+                  "figure": "DCAI $4.7 billion, up 15% sequentially; Intel Products $12.9 billion; CCG $8.2 billion",
+                  "topics": [
+                    "cpu"
+                  ]
+                },
+                {
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
+                  "signal": "WHY SERVER CPU DEMAND JUMPED: CFO Zinsner said 'all indicators point to the growing and essential role CPUs will play within hyperscale and enterprise AI data centers as inference-driven AI usage expands' - 'The world is shifting from human-prompted requests to persistent and recursive commands driven by computer-to-computer interactions', and the CPU's coordinating role will drive both traditional server refresh and new demand that grows the installed base. Six months earlier every hyperscaler was signaling higher core counts but not higher units; units 'rapidly increased over the third and fourth quarter', and after talking to a few hyperscalers right before the call he 'got the feeling like it was going to be a story we'd feel for several years'. He called the demand 'largely an x86 phenomenon' (an upgrade cycle around older networks that have to talk to AI systems). CEO Lip-Bu Tan said hyperscalers 'are willing to commit long-term agreement', so Intel prioritizes their CPU deployment, and that for hyperscale and high-end OEM/ODM customers 'Their first choice is the CPU from Intel'. Customer feedback points to 'a strong year of growth for DCAI' in 2026, and Intel is partnering with key customers to support their needs beyond 2026.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "cpu"
+                  ]
+                },
+                {
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
+                  "signal": "SERVER ROADMAP RESET: Tan centralized the data center and AI businesses under Kevork to coordinate CPUs, GPUs and platform strategy, and 'made decisive changes to simplify our server road map' - focusing resources on the 16-channel Diamond Rapids and accelerating the introduction of Coral Rapids, with which Intel will 'reintroduce multi-threading back into our data center road map' (customers are asking him to pull it in earlier). Clearwater Forest continues to be supported. Server demand benefits the ongoing Granite Rapids ramp as well as mainstream Sapphire and Emerald Rapids. Intel is also refining a broad AI/accelerated strategy that includes integrating its x86 CPU with fixed-function and programmable accelerator IP, aimed at reasoning models, agentic and physical AI and inference at scale.",
+                  "figure": "16-channel Diamond Rapids",
+                  "topics": [
+                    "cpu",
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
+                  "signal": "CUSTOM ASIC CROSSES A $1B RUN RATE: 'due to the networking demand for the AI infrastructure build-out, our custom ASIC business grew more than 50% in 2025, 26% sequentially and reached an annualized revenue run rate greater than $1 billion in Q4', giving the ASIC team 'a solid base to pursue a $100 billion TAM opportunity'. Tan is 'committing significantly more focused resources and investment dollars' to ASICs (design services, IP building blocks and manufacturing); hyperscalers 'want to build some of the purpose-built silicon with the Xeon CPU included' and are interested in Intel's advanced packaging to make it more complete.",
+                  "figure": "grew more than 50% in 2025; 26% sequentially; annualized revenue run rate greater than $1 billion; $100 billion TAM",
+                  "topics": []
+                },
+                {
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
+                  "signal": "Q1 2026 GUIDANCE - THE SUPPLY TROUGH: Intel guided Q1 revenue to $11.7 billion to $12.7 billion; the midpoint of $12.2 billion 'reflects a lower end of seasonal Q1', with non-GAAP gross margin of approximately 34.5%, an 11% tax rate and breakeven EPS. Internal supply constraints are 'most acute in Q1': buffer inventory is depleted, finished-goods inventory is 'down to kind of 40% of what it was at peak levels', and the wafer mix shift toward servers that began in Q3 'will not come out of fab until late Q1 '26' - 'it's just literally hand to mouth'. CCG is guided down more than DCAI as internal supply is prioritized to servers; within client Intel is focusing on mid- and high-end parts and pushing any excess into data center. Zinsner said Q1 would be 'well above seasonal' with full supply, expects available supply to improve beginning in Q2 and in each remaining quarter of 2026, and expects better-than-seasonal performance through the year if supply gets there. 2026 OpEx target is $16 billion; the gross-margin goal is to get to 40% first ('34.5% is by no means an acceptable level of gross margins').",
+                  "figure": "$11.7 billion to $12.7 billion; midpoint of $12.2 billion; approximately 34.5% gross margin; breakeven EPS; finished goods at 40% of what it was at peak levels",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
+                  "signal": "CASH, BALANCE SHEET AND 2026 CAPEX: Q4 operating cash flow was $4.3 billion with gross CapEx of $4 billion and positive adjusted free cash flow of $2.2 billion; 'NVIDIA's $5 billion investment closed in Q4 as expected.' For 2025, cash from operations was $9.7 billion and gross capital investments were $17.7 billion, with capital offsets of approximately $6.5 billion. Intel exited 2025 with $37.4 billion of cash and short-term investments, helped by further Mobileye monetization, the completed Altera stake sale to Silver Lake, accelerated U.S. government funding and investments by the SoftBank Group and NVIDIA; it repaid $3.7 billion of debt and plans to retire all $2.5 billion of 2026 maturities. 2026 CapEx, previously guided down, is now planned at 'a range of flat to down slightly' and weighted to the first half - 'CapEx in 2026 would be to support demand in 2027 and beyond.'",
+                  "figure": "gross CapEx of $4 billion (Q4); $17.7 billion of gross capital investments (2025); $37.4 billion of cash and short-term investments; NVIDIA's $5 billion investment closed in Q4",
+                  "topics": []
                 }
               ]
             }
@@ -2021,6 +2410,66 @@
                   "signal": "Second-quarter 2026 news release income statement: product revenue was $187,156 thousand for the six months ended June 30, 2026 versus $157,634 thousand in the six months ended June 30, 2025, and contract and other revenue $46,515 thousand versus $38,657 thousand; in the year-ago quarter (three months ended June 30, 2025) product revenue was $81.3 million and contract and other revenue $22.3 million. The third-quarter 2026 outlook also guides contract and other revenue to $25 million-$31 million.",
                   "figure": "six months ended June 30, 2026: product revenue $187,156 thousand (vs $157,634 thousand), contract and other revenue $46,515 thousand (vs $38,657 thousand); Q2 2025 product revenue $81.3 million, contract and other $22.3 million; Q3 2026 contract and other revenue guide $25 million-$31 million",
                   "topics": []
+                },
+                {
+                  "quarter": "Rambus Q4 FY2025 (02-02-2026)",
+                  "signal": "Q4 2025 results (CFO): revenue for the fourth quarter was $190.2 million, above expectations; product revenue was $96.8 million, another quarter of record product revenue, representing 32% year-over-year growth driven by continued strength in DDR5 products and ramping new product contributions; contract and other revenue was $21.8 million, predominantly Silicon IP; operating expenses of $64.9 million were flat compared to Q3; non-GAAP net income was $74.7 million. Record cash from operations of $99.8 million; free cash flow was $91.2 million in the quarter and $320.9 million for the full year (a 45% free cash flow margin); cash, cash equivalents and marketable securities totaled $761.8 million. 2025 cash from operations was a company record $360 million, up 56% from 2024. CEO: 'We closed with a strong Q4, with record revenue and earnings.'",
+                  "figure": "Q4 revenue $190.2 million; record product revenue $96.8 million (32% YoY); contract and other revenue $21.8 million; FY2025 free cash flow $320.9 million (45% margin)",
+                  "topics": []
+                },
+                {
+                  "quarter": "Rambus Q4 FY2025 (02-02-2026)",
+                  "signal": "ONE-TIME SUPPLY CHAIN ISSUE HITS Q1 2026 (CEO): in Q4 Rambus identified a back-end manufacturing issue with one of its OSATs (not named), affecting 'an extremely low number of parts'; the root cause was identified and corrective actions implemented with supply chain partners. Rambus pulled forward fresh material from inventory originally staged for Q1 to meet strong Q4 customer demand, and out of an abundance of precaution quarantined all potentially impacted production material, which is being retested with enhanced screens; this put additional strain on capacity and created a tighter supply environment that affects Q1. Only the RCD was affected; the companion chips were not affected at all. CFO: the Q1 impact would probably have been 'around a low double-digit million impact' in an already seasonally soft quarter; inventory is expected to be replenished by the end of Q1 to support Q2 2026 demand. Management: no reputational harm with customers; the product business is expected to return to strong growth in Q2 and 2026 product revenue remains on track to grow faster than the market.",
+                  "figure": "Q1 2026 revenue impact around a low double-digit million (RCD only)",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Rambus Q4 FY2025 (02-02-2026)",
+                  "signal": "Q1 2026 non-GAAP outlook (CFO): revenue guided from $172 million at the low end (the transcript prints the range as 'between $172 million and $108 million'); non-GAAP operating profit between $68 million and $78 million; $6 million of interest income; Q1 capital expenditures approximately $13 million; 2026 pro forma tax rate of 16%, driven by tax legislation changes last year; 110 million diluted shares; non-GAAP EPS between $0.56 and $0.64. Q1 product revenue is impacted by the supply chain issue, with resumption of growth expected from the second quarter onwards. Gross margin: 2025 gross margins were around 61.5%, in line with 2024 and consistent with the 60% to 65% long-term model; the business has operated in a tight 61 to 63% range over the last three years, which the CFO called a fair way to think about 2026, with continued pricing discipline and manufacturing cost savings.",
+                  "figure": "Q1 2026 revenue guide from $172 million (upper bound garbled in transcript); non-GAAP operating profit $68 million-$78 million; non-GAAP EPS $0.56-$0.64; Q1 capex approximately $13 million; 2025 gross margin around 61.5%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Rambus Q4 FY2025 (02-02-2026)",
+                  "signal": "DDR5 RCD SHARE AND GENERATION MIX (CEO): Rambus believes it ended 2025 at mid-40% share for DDR5 RCDs, up from the early forties in 2024, the result of a larger design-win footprint at every DDR5 generation; the market grew mid-single digit from 2024 to 2025 while the DDR5 portion rose and DDR4 kept shrinking. DDR5 is still early in its cycle, leaving room to gain share: 'We always said we could be between forty and fifty.' Mix: in Q4 Gen 2 was predominant and Gen 3 was starting to ramp (growing vs Q3); in 2026 Gen 3 is expected to be the predominant version of DDR5; Gen 4 will contribute but with more limited adoption because it is on a different type of core; the big next step is Gen 5, which depends on the introduction of next-generation Intel and AMD platforms. As DIMM speeds rise, customers increasingly want all module chips from the same supplier for interoperability, an indirect positive for Rambus's companion chips.",
+                  "figure": "mid-40% DDR5 RCD share in 2025 (early forties in 2024)",
+                  "topics": [
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Rambus Q4 FY2025 (02-02-2026)",
+                  "signal": "NEW PRODUCTS / COMPANION CHIPS (CFO): new products grew from low single-digit contribution in 2025 to upper single digits of product revenue in Q4, in line with expectations, and are expected to grow to about double-digit contribution of total product revenue in Q1; PMIC remains the largest contributor, with customers valuing the interplay between RCD and PMIC, and volume shipments are underway. CEO: growing adoption of DDR5 PMICs contributed to 2025 revenue growth; Rambus introduced a complete client chipset and now offers a chipset portfolio supporting all JEDEC standard DDR5 and LPDDR5 modules across server and client systems. The client market remains minimal for Rambus because clock (CKD) chip adoption is limited to the very high end of the client space, and it will still be minimal in 2026; the long-run goal is 20% share there; the vast majority of the business is in the data center.",
+                  "figure": "new products upper single digits of product revenue in Q4, about double-digit in Q1 2026; long-run client share goal 20%",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Rambus Q4 FY2025 (02-02-2026)",
+                  "signal": "MRDIMM AND SOCAMM2 TIMING (CEO): MRDIMM timing unchanged; the rollout depends on the Intel and AMD platform rollouts (the analyst cited Intel Diamond Rapids and AMD Venice). Rambus expects MRDIMM to ramp towards the very end of 2026, with only the very initial contribution towards the end of the year and the main contribution happening in 2027: 'As far as we're concerned, we are ready.' SOCAMM2: 'On SOCAM two, we have an opportunity for the SPD hub'; Rambus is taking part in defining next-generation SOCAMM chips, where power management could open further opportunities, in line with its strategy of having solutions for every JEDEC standard module on the client and data center side.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Rambus Q4 FY2025 (02-02-2026)",
+                  "signal": "SERVER MARKET BASIS AND SUPPLY CONSTRAINTS (CEO): Gartner is at 8% server growth and other sources say double-digit, but Rambus stays prudent and uses mid to high single-digit growth for the server market as its basis, because some tend to underestimate potential shortages, especially on the memory side; Rambus expects to grow faster than that on rising channel counts, new platforms and its new products. Customers say server demand is solid (the refresh cycle is not over, plus agentic AI and inference applications) but that they will be constrained by supply, and lead times continue to lengthen on the supply side: 'in 2026, the demand is solid. But we're going to be more constrained by supply than we're going to be by demand.' Agentic AI is catalyzing traditional CPU-based server demand and the need for more DIMMs per system; the average number of DIMMs per channel keeps growing but is hard to quantify, and the memory market overall is expected to be constrained.",
+                  "figure": "server market basis mid to high single-digit growth (Gartner is at 8%)",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Rambus Q4 FY2025 (02-02-2026)",
+                  "signal": "SILICON IP (CEO/CFO): increasing design wins and customer engagement led by Rambus's latest-generation HBM4, GDDR7 and PCIe7 digital IP plus its security IP; the increasing pace and diversity of AI chip designs, including custom silicon for hyperscalers, is driving wins for high-speed memory interconnect and security IP, with growing demand for interface and security IP to move and secure data in scale-up and scale-out. Customers increasingly run one-year product cadences. Rambus targets companies developing their own accelerators, inference chips and processors with a laser-focused portfolio (PCIe, CXL, HBM, GDDR and security IP) that can support a large number of customers. Asked whether chip design starts are slowing, the CFO said silicon IP performed in line with expectations in 2025 and is expected to continue to grow in 2026 in line with long-term growth expectations.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "hbm"
+                  ]
                 }
               ]
             }
@@ -2049,7 +2498,16 @@
                   "contracts": []
                 }
               ],
-              "quarterly_data": []
+              "quarterly_data": [
+                {
+                  "quarter": "NVIDIA Q4 FY2026 (02-25-2026)",
+                  "signal": "Networking 'generating $11 billion in revenue, up more than 3.5x year-over-year'; scale-up and scale-out both grew double digits sequentially on NVLink, Spectrum-X Ethernet and InfiniBand; year-over-year growth driven primarily by NVLink 72 scale-up switches. 'In Q4, we announced that we will enable AWS with NVLink to integrate with their custom silicon.' Huang: 'Every rack comes with 9 nodes of switches. And each of them has 2 chips in it. And in the future, they'll have more'; NVIDIA is 'probably the largest Ethernet networking company in the world today', with Spectrum-X scale-across linking data centers.",
+                  "figure": "networking $11 billion, up more than 3.5x YoY; 9 nodes of switches per rack, 2 chips each",
+                  "topics": [
+                    "transitions"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -2130,6 +2588,32 @@
                   "quarter": "Arista Q2 FY2026 (08-04-2026)",
                   "signal": "Q2 2026: first $3B+ quarter — revenue $3.036B (+37.7% YoY), non-GAAP EPS $1.02 (+39.7%), non-GAAP operating margin 49.9%; Q3 guided ~$3.3B. Enterprise validation: named a Leader in the 2026 Gartner Magic Quadrant for Enterprise Wired and Wireless LAN and joined the Fortune 500 — momentum built on the single-EOS architecture spanning data center to campus edge. Deferred revenue ~$6.87B total (from ~$5.37B at 2025 year-end), consistent with the stretched 6-8-quarter AI qualification cycles flagged in Q1.",
                   "figure": "First $3B qtr (+37.7%); Q3 ~$3.3B; deferred revenue ~$6.87B; Gartner MQ Leader"
+                },
+                {
+                  "quarter": "Arista Q4 FY2025 (02-12-2026)",
+                  "signal": "Q4 2025 RESULTS (CFO Chantelle Breithaupt): total revenues $2,490,000,000, up 28.9% year over year and above the upper end of the $2,300,000,000 to $2,400,000,000 guidance; gross margin 63.4% (above the 62% to 63% guide, down from 64.2% a year earlier on a higher mix of cloud and AI Titan sales); operating income $1,200,000,000 or 47.5% of revenue; net income $1,050,000,000 or 42% of revenue ('Arista delivering over $1,000,000,000 in net income for the first time'); diluted EPS $0.82, up 24.2%. International revenues $528,300,000 or 21.2% of total. Full year 2025 (CEO Jayshree Ullal): 28.6% growth to a record revenue of $9,000,000,000, non-GAAP gross margin 64.6% and non-GAAP operating margin 48.2%. CFO: fiscal 2025 diluted EPS $2.98 (+28.4%); Q4 cash from operations approximately $1,260,000,000; cash, equivalents and marketable securities approximately $10,740,000,000.",
+                  "figure": "Q4 revenue $2,490,000,000 (+28.9%); gross margin 63.4%; net income $1,050,000,000; EPS $0.82; FY2025 record revenue of $9,000,000,000 (28.6% growth)",
+                  "topics": []
+                },
+                {
+                  "quarter": "Arista Q4 FY2025 (02-12-2026)",
+                  "signal": "FY2026 OUTLOOK RAISED (point-in-time; raised again on later calls): management raised the 2026 outlook to 25% revenue growth, 'delivering approximately $11,250,000,000', despite 'the mounting supply chain allocation, rising cost of memory, and silicon fabrication', in what the CEO called 'massive and a growing TAM of $100+ billion'. Gross margin range reiterated at 62% to 64% 'inclusive of mix and anticipated supply chain cost increases for memory and silicon'; operating margin outlook raised to approximately 46%; campus revenue goal of $1,250,000,000 maintained; AI centers goal raised from $2.75 to $3,250,000,000. Q1 2026 guide: revenues of approximately $2,600,000,000, gross margin between 62–63%, operating margin approximately 46%, tax rate approximately 21.5%. CEO Jayshree Ullal on why 25% is not cautious: the network lags customer CapEx (data centers, power and accelerators come first), much of the business is new products and AI use cases, and the guide reflects 'the reality of what we can ship, not what the demand might be'. She anticipates 'one, maybe even two additional 10% customers' in 2026, with the final share depending on acceptance criteria timing and the ability to ship amid supply chain allocation.",
+                  "figure": "approximately $11,250,000,000 (25% growth); gross margin 62% to 64%; operating margin approximately 46%; Q1 revenues of approximately $2,600,000,000",
+                  "topics": []
+                },
+                {
+                  "quarter": "Arista Q4 FY2025 (02-12-2026)",
+                  "signal": "FY2025 REVENUE MIX AND NEW CUSTOMER SEGMENTATION: by customer sector, cloud and AI titans 48%, enterprise and financials 32%, and AI and specialty providers 20% - a newly bifurcated category that 'now includes Apple, Oracle, and their initiatives, as well as emerging Neo Cloud'. CEO Jayshree Ullal said the category moved because of 'Oracle's AI, Acceleron, and multitenant partnerships', which give it a dual personality (some OCI, some fully AI-based). Cloud and AI titans are defined as customers with greater than a million servers, greater than 100,000 GPUs and an R&D focus on models and sometimes their own XPUs - 'less than five or about five'. By product line: core cloud, AI and data center (7000 Series on EOS) 65% of revenue, campus and routing adjacencies approximately 18%, subscription network software and services approximately 17%. Neo clouds split in two: healthy providers pivoting to AI that Arista will invest with, and a set 'we watch more carefully, because some of them are oil money converted into AI or crypto money converted into AI', where Arista checks the health of the customer.",
+                  "figure": "cloud and AI titans 48%; enterprise and financials 32%; AI and specialty providers 20%; core 65% of revenue; adjacencies approximately 18%; software and services approximately 17%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Arista Q4 FY2025 (02-12-2026)",
+                  "signal": "MEMORY SHORTAGE AND PURCHASE COMMITMENTS: purchase commitments rose to $6,800,000,000 at year-end from $4,800,000,000 at the end of Q3, mostly chips for new products and AI deployments, with future variability from component pricing 'such as the supply constraint on DDR4 memory' and supplier lead times; inventory $2,250,000,000. CEO Jayshree Ullal: Arista absorbed much of the cost in 2025, but 'in 2026, the situation has worsened significantly' - memory prices are 'an order of magnitude exponentially higher', shortages are expected to 'lap multiple years', and 'memory is now the new gold for the AI and automotive sector'; she also expects increases from silicon fabrication because the chips are made 'essentially with one Taiwan Semiconductor'. Arista did not pre-buy all the memory it needs ('Chantelle's current commitments are not enough. We need more memory.') and expects 'a one-time increase on select especially memory-intensive SKUs'. Arista does not allocate among customers ('first in, first served'), but memory allocation could leave 'the demand is greater than our ability to supply'.",
+                  "figure": "purchase commitments $6,800,000,000, up from $4,800,000,000",
+                  "topics": [
+                    "supply_tightness"
+                  ]
                 }
               ]
             }
@@ -2271,6 +2755,18 @@
                       "topics": [
                         "foundry"
                       ]
+                    },
+                    {
+                      "source": "Intel Foundry Q4 FY2025 (01-22-2026)",
+                      "signal": "Internal wafer allocation shifted to data center: CFO Zinsner said 'Where possible, we're prioritizing our internal wafer supply to data center and leveraging an increased mix of externally sourced wafers in clients', and 'to the extent we have excess, we're pushing all of that into the data center space to meet that customer demand'; the wafer mix shift toward servers that began in Q3 'will not come out of fab until late Q1 '26'.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "internal wafer supply allocation",
+                      "topics": [
+                        "cpu",
+                        "supply_tightness"
+                      ]
                     }
                   ]
                 }
@@ -2377,6 +2873,12 @@
                   "quarter": "ASE Group Q2 FY2026 (07-30-2026)",
                   "signal": "GENERAL-MARKET OSAT OUTLOOK MORE THAN DOUBLED: the non-LEAP/general segment is now expected to grow ~30% YoY in 2026 versus the previous 13% guidance, on strong demand in INDUSTRIAL, POWER, CONNECTIVITY and STORAGE devices. Non-LEAP capacity is tight — legacy WIRE BOND and traditional advanced packaging were both tight in Q2, and assembly (led by legacy wire bond) is now growing at least as fast as test, reversing the expectation that wafer-sort-led test would outpace assembly. Blended utilization 80-85% but effectively full outside newly installed lines; ASE must add capacity for mainstream advanced packaging and test alongside LEAP. Record ATM revenue NTD 126.1B (+36% YoY) with ATM gross margin 27.3%.",
                   "figure": "general segment now +30% YoY (was 13%); wire bond tight; assembly matching test growth"
+                },
+                {
+                  "quarter": "ASE Group Q4 FY2025 (02-05-2026)",
+                  "signal": "The general (non-LEAP) segment grew 13% year-on-year in 2025 and is expected to keep growing at a similar pace in 2026 on AI proliferation plus automotive and industrial recovery (IoT, automotive, industrial). Part of the general loading comes from the AI data center (FPGA, microcontroller, power management and switch/router devices), though management cannot fully separate it from general demand. Dr. Wu: 'please remember, we are fully loaded'; the pricing environment is 'friendly', and the fully automated general process could gain share. ASE 'bought 2 factories for Infineon' and is 'buying another factory in Penang for ADI' (most likely to close in Q2 this year), and 'the Infineon loading, the ADI loading, they're also coming to us as part of the acquisition'. The communication / cell phone share stays large, with some possible fluctuation.",
+                  "figure": "general segment grew 13% in 2025, similar pace expected in 2026; 2 factories bought for Infineon plus a Penang factory for ADI",
+                  "topics": []
                 }
               ]
             },
@@ -2405,6 +2907,15 @@
                   "quarter": "Amkor Technology Q2 FY2026 (07-27-2026)",
                   "signal": "CALL-ONLY: THE DATA-CENTER CPU HDFO PROGRAM IS THE BIGGEST RAMP IN THE BUILDING. Computing set a new quarterly record, +20% SEQUENTIALLY on broad data-center demand, and is guided to ACCELERATE TO NEARLY +30% SEQUENTIALLY IN Q3 on AI data-center demand plus 'the HDFO CPU ramp' - the newest data-center CPU program began ramping in Q2 and 'is expected to continue scaling throughout the second half of the year'. Of the four 2.5D and four HDFO product launches planned for 2026, management said this CPU program 'is definitely the LARGEST from a scale perspective' (HDFO overall: 5 customers, 10 active engagements). Moving SiP out of Korea to Vietnam is explicitly designed to free Korean floor space for 'our rapidly scaling computing programs'.",
                   "figure": "Computing +20% QoQ record -> guided ~+30% QoQ in Q3; HDFO CPU program the largest 2026 launch"
+                },
+                {
+                  "quarter": "Amkor Technology Q4 FY2025 (02-09-2026)",
+                  "signal": "Data-center HDFO pipeline as of this call: 'We have two additional programs in final qualification for HDFO supporting AI data centers, in addition to the two HDFO PC devices we've discussed previously', and the Korea team is preparing to launch both into high volume in the second half of 2026. Both data-center programs are 'CPU-related'; the customers are existing Amkor customers, but 'one of them is new to the HDFO platform'. One of the HDFO CPU devices ramping this year 'includes customer commitments to support our capacity investment'. Ramp shape: one of the two devices is expected to be 'in very high volume. It'll be a pretty steep ramp', while the other is ramping but it is hard to project whether it reaches full volume by year-end - 'definitely meaningful revenue contribution'. PC-related HDFO products ramp earlier in the year (one already in production), then 'there'll be a pretty sizable step up in the CPU data center type devices' in the second half, making the revenue growth 'back-end second half loaded'. Computing (PC plus data center) is expected to grow over 20% in 2026, with PC relatively soft versus data center, and the majority of 2026 equipment investment is focused on HDFO and test.",
+                  "figure": "two data-center HDFO CPU programs in final qualification for high volume in the second half of 2026; computing to grow over 20%",
+                  "topics": [
+                    "cpu",
+                    "packaging_substrate"
+                  ]
                 }
               ]
             }

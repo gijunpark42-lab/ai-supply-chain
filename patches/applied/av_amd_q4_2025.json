@@ -1,0 +1,235 @@
+{
+  "source": "AMD Q4 FY2025 (02-03-2026)",
+  "chains": {
+    "accelerators/amd_mi450_helios.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "interconnect",
+          "sector": "Scale-up",
+          "product": "Helios rack-scale platform (Instinct + EPYC, Infinity Fabric / UALink scale-up)",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "MI450 RAMP SHAPE (first call of 2026). Lisa Su: 'the MI450 series development is going extremely well' and 'We're right on track for a second-half launch and, you know, beginning production.' On the year: 'as we get into the second half of the year, the MI450 is really an inflection point for us. So that revenue will start in the third quarter, but it will ramp significant volume in the fourth quarter as we get into 2027.' On form factor and revenue recognition: 'we do have multiple variants of the MI450 series, including an eight-way, GPU form factor. But for 2026, I would say the vast majority of it is going to be RackScale solutions. And yes, we will take revenue when we ship to the rack builder.' On execution risk: 'We've done a lot of testing already both at the rack scale level as well as, you know, at the silicon level. So far, so good.' CFO Jean Hu on gross margin (the transcript omits the direction word): 'our gross margin will be when MI450 ramp, of course, in Q4, driven largely by mix'; a new generation's margin 'tends to be lower' at the start of its ramp and improves with scale, yield and testing, with each generation expected to carry a higher gross margin over the longer term.",
+              "figure": "MI450 revenue starts in the third quarter; significant volume in the fourth quarter; vast majority of 2026 is RackScale solutions",
+              "topics": ["product_launches", "transitions"]
+            },
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "CUSTOMER BREADTH BEYOND OPENAI AND THE DATA CENTER TARGETS. Lisa Su: 'In addition to our multi-generation partnership with OpenAI to deploy six gigawatts of Instinct GPUs, We are in active discussions with other customers on at-scale multi-year deployments starting with Helios and MI450 later this year.' 'We're also working closely with a number of other customers who are very interested in ramping MI450 quickly', across 'both inference and training'. Targets: 'we are well-positioned to grow data center segment revenue by more than 60% annually, over the next three to five years and scale our AI business to tens of billions in annual revenue in 2027'; asked about 2026, 'the long-term target of let's call it, greater than 60% is certainly possible in 2026.' Company level: 'growing revenue at greater than 35% CAGR over the next three to five years' and 'annual EPS of more than $20 in the strategic time frame'.",
+              "figure": "data center segment revenue more than 60% annually over the next three to five years; AI business tens of billions in annual revenue in 2027; greater than 60% certainly possible in 2026",
+              "topics": []
+            },
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "MI400 SERIES PORTFOLIO AND THE HELIOS OEM LINE-UP. Lisa Su: the MI400 series covers 'MI455x and Helios for AI superclusters, MI430x for HPC and sovereign AI, and MI440x servers for enterprise customers requiring leadership training and inference performance in a compact eight-GPU solution'. 'Multiple OEMs publicly announced plans to launch Helios systems in 2026, with deep engineering engagement underway to support smooth production ramps.' 'In December, HPE announced that they will offer Helios Racks with purpose-built HPE Juniper Ethernet switches', and 'in January, Lenovo announced plans to offer Helios Racks.' MI430x adoption grew in the quarter, 'With new exascale-class supercomputers announced by Genc in France and HLRS in Germany.'",
+              "figure": "MI455x and Helios (AI superclusters), MI430x (HPC and sovereign AI), MI440x (compact eight-GPU); multiple OEMs launching Helios systems in 2026",
+              "topics": ["product_launches"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "OpenAI",
+              "relationship": "Instinct GPU supply for AI infrastructure",
+              "contracts": [
+                {
+                  "source": "AMD Q4 FY2025 (02-03-2026)",
+                  "signal": "Lisa Su: 'we have obviously a very strong relationship with OpenAI, and we're planning that ramp starting in the second half of the year going into 2027. That is on track.' The deal is a 'multi-generation partnership with OpenAI to deploy six gigawatts of Instinct GPUs'. Asked whether the start was still on track, she said AMD is 'very much working in partnership with OpenAI as well as our CSP partners' on the MI450 series: 'The ramp is, on schedule to start in the second half of the year. MI450 is doing, great. Helios is doing well. We are in, you know, let's call it deep co-development across all of those parties.'",
+                  "units": "six gigawatts of Instinct GPUs",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "multi-generation GPU deployment partnership (ramp status)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Instinct MI450 GPU (CDNA) + EPYC Venice CPU — Helios compute silicon",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "NEXT GENERATION: MI500 ON TWO-NANOMETER WITH HBM4E. Lisa Su: 'development of our next-generation MI500 series is well underway. MI500 is powered by our cDNA6 architecture, built on advanced two-nanometer process technology, and features high-speed HBM4e memory. We are on track to launch MI500 in 2027 and expect MI500 to deliver another major leap in AI performance'.",
+              "figure": "MI500: cDNA6 architecture, two-nanometer process technology, HBM4e memory; launch in 2027",
+              "topics": ["hbm", "foundry", "transitions", "product_launches"]
+            }
+          ]
+        },
+        {
+          "company": "HPE",
+          "layer": "interconnect",
+          "sector": "Scale-up",
+          "product": "scale-up Ethernet switch for AMD Helios rack-scale (fall 2026)",
+          "connects_to": [
+            {
+              "company": "AMD",
+              "relationship": "scale-up Ethernet switch purpose-built for the AMD Helios AI rack-scale architecture",
+              "contracts": [
+                {
+                  "source": "AMD Q4 FY2025 (02-03-2026)",
+                  "signal": "On AMD's Q4 2025 call, Lisa Su: 'In December, HPE announced that they will offer Helios Racks with purpose-built HPE Juniper Ethernet switches. And optimized software for high-bandwidth scale-up networking.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "announced in December (per AMD)",
+                  "type": "Helios rack offering with purpose-built scale-up Ethernet switches (announcement)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/amd_mi355.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Instinct MI355X GPU (CDNA4) + EPYC CPU",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "INSTINCT MI350 SERIES RAMP. Lisa Su: 'We delivered record Instinct GPU revenue in the fourth quarter led by the ramp of MI350 Series shipments.' 'Today, eight of the top 10 AI companies use Instinct to power production workloads across a growing range of use cases.' In Q&A: 'MI355 has done well, and we were pleased with the performance in Q4. And we continue to ramp that in the first half of the year.' Even after backing out China, 'you would still see growth you'll see growth from Q3 to Q4' in data center AI. Software: 'Millions of large language and multimodal models run out of the box on AMD', with new upstream integration of AMD GPUs in VLLM.",
+              "figure": "record Instinct GPU revenue in the fourth quarter; eight of the top 10 AI companies use Instinct",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "EPYC Turin (Zen 5) server CPU silicon design",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "Q4 2025 RESULTS. Lisa Su: 'fourth quarter revenue grew 34% year over year to $10.3 billion led by record EPYC, Ryzen, and Instinct processor sales. Net income increased 42% to a record $2.5 billion and free cash flow nearly doubled year over year to a record $2.1 billion.' 'Data Center segment revenue increased 39% year over year to a record $5.4 billion led by accelerating Instinct MI350 Series GPU deployments and server share gains.' CFO Jean Hu: data center revenue was 'up 39% year over year and 24% sequentially'; data center segment operating income was '$1.8 billion or 33% of revenue compared to $1.2 billion or 30% a year ago'; gross margin was 57%, or 'approximately 55%' excluding the inventory reserve release and the MI308 China revenue; diluted EPS was 'a record $1.53'. Full year 2025: 'record revenue of $34.6 billion, up 34% year over year, driven by 32% growth in our data center segment'.",
+              "figure": "revenue $10.3 billion (34% YoY); Data Center $5.4 billion (39% YoY); gross margin 57%; EPS $1.53; full year 2025 revenue $34.6 billion",
+              "topics": []
+            },
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "SERVER CPU AND THE EPYC CLOUD FOOTPRINT. Lisa Su: 'adoption of fifth-gen EPYC TURN CPUs accelerated in the quarter, accounting for more than half of the total server revenue', with 'record server CPU sales to both cloud and enterprise customers in the quarter', exiting the year 'with record share'. 'EPYC-powered public cloud offerings grew significantly in the quarter, with AWS, Google, and others launching more than 230 new AMD instances. Hyperscalers launched more than 500 AMD-based instances in 2025, increasing the number of EPYC Cloud instances more than 50% year over year to nearly 1,600.' In enterprise, 'The leading server providers now offer more than 3,000 solutions powered by fourth and fifth-gen EPYC CPUs' and 'the number of large businesses deploying EPYC on-prem more than doubled in 2025'.",
+              "figure": "more than 230 new AMD instances in the quarter; more than 500 AMD-based instances in 2025; nearly 1,600 EPYC Cloud instances (more than 50% YoY); more than 3,000 solutions",
+              "topics": ["cpu"]
+            },
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "SERVER CPU DEMAND, SUPPLY AND VENICE. Lisa Su: 'we've seen the CPU order book continue to strengthen. As we go through the last few quarters and especially over the last sixty days', and 'we see server CPU growing from Q4 into Q1 in what normally is seasonally down.' She expects the 'overall server CPU TAM is going to grow, let's call it, strong double digits in 2026'. On supply: 'we have increased our supply capacity capability for server CPUs. And, you know, that's one of the reasons we're able to increase our Q1 guide as it relates to the server business', and 'we're working with our supply chain partners to increase supply as well.' On agentic workloads, AI agents spin off traditional CPU tasks and 'a vast majority of them are on x86 today.' Venice: 'Customer pull for Venice is very high with engagements underway to support large-scale cloud deployments and broad OEM platform availability when Venice launches later this year.'",
+              "figure": "server CPU TAM to grow strong double digits in 2026; CPU order book strengthening especially over the last sixty days",
+              "topics": ["cpu", "supply_tightness", "product_launches"]
+            },
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "Q1 2026 OUTLOOK. CFO Jean Hu: 'We expect revenue to be approximately $9.8 billion plus or minus $300 million including approximately $100 million of MI308 sales to China', 'up 32% year over year' at the midpoint and 'down approximately 5%' sequentially on seasonal client, gaming and embedded declines 'partially offset by growth in our data center segment'. Non-GAAP gross margin 'approximately 55%' and non-GAAP operating expense 'approximately $3.05 billion'. In Q&A: the CPU business is normally seasonally 'down high single digit', but 'we actually guide the CPU revenue up sequentially very nicely', and data center GPU revenue, 'including China, will be also up'.",
+              "figure": "approximately $9.8 billion plus or minus $300 million (up 32% YoY, down approximately 5% sequentially); gross margin approximately 55%",
+              "topics": []
+            }
+          ]
+        },
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "finished EPYC Turin CPUs",
+          "connects_to": [
+            {
+              "company": "Amazon",
+              "relationship": "EPYC server CPUs for cloud instances",
+              "contracts": [
+                {
+                  "source": "AMD Q4 FY2025 (02-03-2026)",
+                  "signal": "Lisa Su: 'EPYC-powered public cloud offerings grew significantly in the quarter, with AWS, Google, and others launching more than 230 new AMD instances.'",
+                  "units": "more than 230 new AMD instances (AWS, Google and others combined)",
+                  "value": "no specific figure",
+                  "date_signed": "instance launches in the fourth quarter",
+                  "type": "cloud instance launches",
+                  "topics": ["cpu"]
+                }
+              ]
+            },
+            {
+              "company": "Google",
+              "relationship": "EPYC server CPUs for cloud instances",
+              "contracts": [
+                {
+                  "source": "AMD Q4 FY2025 (02-03-2026)",
+                  "signal": "Lisa Su: 'EPYC-powered public cloud offerings grew significantly in the quarter, with AWS, Google, and others launching more than 230 new AMD instances.'",
+                  "units": "more than 230 new AMD instances (AWS, Google and others combined)",
+                  "value": "no specific figure",
+                  "date_signed": "instance launches in the fourth quarter",
+                  "type": "cloud instance launches",
+                  "topics": ["cpu"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Instinct MI300X/MI325X/MI350 accelerators",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "SUPPLY PLANNING FOR THE 2026 RAMP. Asked when AMD procures HBM, Lisa Su: 'given the lead times for things like, you know, HBM and wafers and these parts of the supply chain. I mean, we're working closely with our suppliers over a multiyear time frame.' 'we've been planning for a significant ramp in our both CPU as well as our GPU business over the past, you know, couple of years', 'And now we're also doing, you know, multiyear agreements that, you know, extend beyond that, given the tightness of the supply chain.' On rack-ramp constraints: 'we are planning this at the, you know, every component level. So I think relative to our data center AI ramp, I do not believe that we will be supply limited in terms of the ramp that we put in place.' Memory-cost read-across: 'we're probably seeing the PC TAM down a bit just given some of the inflationary pressures of the commodities pricing, including memory.'",
+              "figure": "no specific figure",
+              "topics": ["hbm", "supply_tightness"]
+            }
+          ]
+        }
+      ]
+    },
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Instinct MI-series accelerators",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "INSTINCT CLOUD AVAILABILITY. Lisa Su: 'In the fourth quarter, hyperscalers expanded MI350 series availability. Leading AI companies scaled their deployments to support additional workloads. Multiple new cloud providers launched MI350 series offerings that deliver on-demand access to Instinct infrastructure in the cloud.' No provider was named.",
+              "figure": "no specific figure",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Instinct MI300/MI350 GPU accelerators and MI300X platform systems",
+          "quarterly_data": [
+            {
+              "quarter": "AMD Q4 FY2025 (02-03-2026)",
+              "signal": "CHINA MI308. CFO Jean Hu: Q4 revenue included 'approximately $390 million in revenue from MI308 sales to China, which was not included in our fourth quarter guidance.' Lisa Su: the sales came under 'a license that was approved', on orders 'from very early in 2025'; 'we're forecasting for $100 million of revenue in Q1. We are not forecasting any additional revenue from China just because it's a very dynamic situation', and 'we've submitted licenses for the MI325.' The Q4 inventory reserve release (printed as '$306 million' in the prepared remarks and '$360 million' in Q&A) also covers the $100 million expected to ship to China in Q1, so 'the Q1 gross margin guide is a very clean guide.'",
+              "figure": "approximately $390 million MI308 revenue from China in Q4; $100 million expected in Q1",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

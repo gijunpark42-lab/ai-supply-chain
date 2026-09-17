@@ -1,0 +1,163 @@
+{
+  "source": "Microsoft Q2 FY2026 (01-28-2026)",
+  "chains": {
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "Microsoft",
+          "layer": "cloud_infra",
+          "sector": "Hyperscaler Cloud",
+          "product": "AI cloud infrastructure (Cobalt + GPU instances)",
+          "quarterly_data": [
+            {
+              "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+              "signal": "Q2 FY2026 CALL (December quarter) - HEADLINE: CFO Amy Hood: 'revenue was $81.3 billion, up 17% in constant currency'; operating income up 21% in constant currency; earnings per share $4.14 (up 24% in constant currency when adjusted for the impact of the OpenAI investment); company gross margin 68% and operating margin 47%. CEO Satya Nadella: 'the Microsoft Cloud surpassed $50 billion in revenue for the first time, up 26% year over year' - Microsoft Cloud revenue was $51.5 billion at a 67% gross margin. Intelligent Cloud revenue was $32.9 billion, up 29% in constant currency; 'Azure and other cloud services, revenue grew 39% in constant currency, slightly ahead of expectations with ongoing efficiency gains across our fungible fleet enabling us to reallocate some capacity to Azure that was monetized in the quarter.' On-premises server revenue grew 21% in constant currency, helped by the SQL Server 2025 launch and 'higher transactional purchasing ahead of memory price increases.' GAAP other income and expense was $10 billion, driven by a gain tied to OpenAI's recapitalization (Microsoft still uses the equity method and now records its share of the change in OpenAI's net assets).",
+              "figure": "revenue $81.3 billion (up 17% cc); Microsoft Cloud $51.5 billion (26%); Intelligent Cloud $32.9 billion (29% cc); Azure and other cloud services 39% cc; EPS $4.14",
+              "topics": []
+            },
+            {
+              "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+              "signal": "CALL - CAPEX AND SUPPLY: capital expenditures were $37.5 billion in the quarter, and 'roughly two-thirds of our CapEx, was on short-lived assets, primarily GPUs and CPUs'; the remaining spend went to long-lived assets 'that will support monetization for the next fifteen years and beyond.' Finance leases were $6.7 billion ('primarily for large data center sites'), cash paid for PP and E was $29.9 billion, and free cash flow fell sequentially to $5.9 billion on higher cash capex. Hood: 'Our customer demand continues to exceed our supply,' so incoming supply has to be balanced across Azure demand, first-party AI usage (Microsoft 365 Copilot, GitHub Copilot), larger allocations to R and D teams, and replacement of end-of-life server and networking equipment. Q3 FY2026 outlook: capex expected to DECREASE sequentially 'due to a normal variability from cloud infrastructure build-outs and the timing of delivery of finance leases', with the short-lived-asset mix staying similar to Q2 while Microsoft works to close the gap between demand and supply. Hood added that much of the GPU capacity being bought is 'already contracted for most of their useful life' - GPU contracts, 'including for some of our largest customers', are 'sold for the entire useful life of the GPU'.",
+              "figure": "capex $37.5 billion (roughly two-thirds short-lived GPUs and CPUs); finance leases $6.7 billion; cash paid for PP and E $29.9 billion; Q3 capex to decrease sequentially",
+              "topics": ["supply_tightness"],
+              "capex": { "field": "capex_q", "busd": 37.5, "display": "$37.5 billion", "period": "Q2 FY2026 (December quarter)" }
+            },
+            {
+              "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+              "signal": "CALL - BACKLOG: commercial remaining performance obligation (reported net of reserves) increased to $625 billion with a weighted average duration of approximately two and a half years (Hood: extended 'from around two years to two and a half', driven by longer-duration Azure contracts); roughly 25% will be recognized in revenue in the next twelve months (that portion up 39% year over year) and the portion beyond twelve months increased 56%. 'Approximately 45% of our commercial RPO balance is from OpenAI'; the other 55%, 'roughly $350 billion', spans a broad set of customers, solutions, industries and geographies and grew 28% - Hood: 'larger than most peers. More diversified than most peers.' Commercial bookings increased 23% in constant currency, driven by the large multiyear Azure commitment from OpenAI and the previously announced Anthropic commitment from November; Hood warned the OpenAI contract signed in Q2 'will result in some quarterly volatility in both bookings and RPO growth rates going forward.' Nadella said software lets Microsoft keep running the latest models on an aging fleet, and Hood said that where capacity is sold for its entire life 'the margins actually improved with time.'",
+              "figure": "commercial RPO $625 billion; approximately 45% from OpenAI; remaining 55% (roughly $350 billion) grew 28%; commercial bookings up 23% cc",
+              "topics": [],
+              "capex": { "field": "backlog", "busd": 625, "display": "$625 billion", "metric": "Commercial RPO" }
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "OpenAI",
+              "relationship": "cloud compute for model training/inference",
+              "contracts": [
+                {
+                  "source": "Microsoft Q2 FY2026 (01-28-2026)",
+                  "signal": "Hood: commercial bookings rose 23% in constant currency 'driven by the previously large Azure commitment from OpenAI, reflects multiyear demand needs'; 'Approximately 45% of our commercial RPO balance is from OpenAI' (commercial RPO $625 billion); 'the significant OpenAI contract signed in Q2 represents multiyear demand needs from them'. On the relationship: 'It's a great partnership. We continue to be their provider of scale.'",
+                  "units": "no specific figure",
+                  "value": "approximately 45% of commercial RPO ($625 billion)",
+                  "date_signed": "Q2 FY2026 (contract signed in Q2)",
+                  "type": "multiyear Azure compute commitment",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Microsoft",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Cobalt 100 Arm server CPU design",
+          "quarterly_data": [
+            {
+              "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+              "signal": "CALL - COBALT 200 AND THE CPU SIDE OF AI: Nadella: 'given AI workloads are not just about AI accelerators, but also consume large amounts of compute, we are pleased with the progress we are making on the CPU side as well. Cobalt 200 is another big leap forward delivering over 50% higher performance compared to our first custom-built processor for cloud-native workloads.' Hood on the Azure-only RPO: 'A lot of that is CPU basis. It's not just GPU.' In the last Q&A answer (printed in this transcript under the analyst's speaker label, but it is management's reply and refers back to the CEO's prepared remarks), management said Microsoft plans the fleet 'in ratios': an AI training job 'requires a bunch of compute and a bunch of storage very close to compute', and agent-mode inferencing requires provisioning 'computers, which are compute and storage' even though the models run on GPUs; ongoing cloud migrations (the latest SQL Server growing as an IaaS service in Azure) mean the commercial cloud has to stay balanced with the AI cloud.",
+              "figure": "Cobalt 200: over 50% higher performance vs Microsoft's first custom-built processor",
+              "topics": ["cpu"]
+            }
+          ]
+        }
+      ]
+    },
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Microsoft",
+          "layer": "cloud_infra",
+          "sector": "Hyperscaler Cloud",
+          "product": "Azure AI training/inference datacenters",
+          "quarterly_data": [
+            {
+              "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+              "signal": "CALL - CAPACITY BUILD: Nadella: 'All up, we added nearly one gigawatt of total capacity this quarter alone.' The Atlanta and Wisconsin Fairwater sites are connected 'through an AI WAN to build a first-of-kind AI super factory', and 'Fairwater's two-story design and liquid cooling allow us to run higher GPU density and thereby improve both performance and latencies for high-scale training.' Microsoft 'announced DC investments in seven countries this quarter alone' to meet local data-residency (sovereignty) needs; the metric it optimizes is 'tokens per watt per dollar'. Hood (Q&A) said Atlanta and Wisconsin are multiyear deliveries and capacity has to be added globally, much of it in the United States, which means making sure 'we've got power and land and facilities available' and then filling the buildings with GPUs and CPUs as quickly as possible.",
+              "figure": "nearly one gigawatt of total capacity added this quarter; DC investments in seven countries",
+              "topics": ["power_cooling"]
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "Microsoft",
+          "layer": "cloud_infra",
+          "sector": "Hyperscaler Cloud",
+          "product": "Azure AI cloud capacity",
+          "quarterly_data": [
+            {
+              "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+              "signal": "CALL - GPU ALLOCATION AND Q3 FY2026 GUIDANCE: Hood said the Azure guide is best read as 'an allocated capacity guide'. New GPUs go first to first-party apps (Microsoft 365 Copilot, GitHub Copilot), then to R and D and AI talent, and the remainder serves Azure: 'if I had taken the GPUs that just came online in Q1 and Q2, in terms of GPUs and allocated them all to Azure, the KPI would have been over 40.' Nadella: 'We wanna be able to allocate capacity while we're sort of supply constrained' to build the best lifetime-value portfolio, because 'compute is also R and D'. Q3 FY2026 outlook: Azure revenue growth of 37-38% in constant currency, 'demand continues to exceed supply' and incoming supply will still be balanced against other priorities; Intelligent Cloud revenue of $34.1 to $34.4 billion (growth of 27 to 29%); total revenue of $80.65 to $81.75 billion (15 to 17%); operating expense growth of 10 to 11% 'driven by continued investment in R and D, AI compute capacity, and talent'; Microsoft Cloud gross margin roughly 65%, down year over year on AI investment. FY2026 operating margins are now expected to be up slightly.",
+              "figure": "Q3 FY2026 guide: Azure growth 37-38% cc; Intelligent Cloud $34.1 to $34.4 billion; revenue $80.65 to $81.75 billion; Azure KPI would have been over 40 had all new GPUs gone to Azure",
+              "topics": ["supply_tightness"]
+            },
+            {
+              "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+              "signal": "CALL - AI MONETIZATION (the demand behind the capacity): Nadella: 'we have built an AI business that is larger than some of our biggest franchises that took decades to build.' 15 million paid Microsoft 365 Copilot seats, with seat adds up over 160% year over year and daily active users up 10x; the number of customers with over 35,000 seats tripled (Publicis alone purchased over 95,000 seats). GitHub Copilot has 4.7 million paid subscribers, up 75% year over year. On Foundry, customers spending $1 million plus per quarter grew nearly 80%, and over 250 customers are on track to process over 1 trillion tokens this year; Fabric's annual revenue run rate is over $2 billion with revenue up 60%. Consumer Copilot app daily users rose nearly 3x, and 24 billion Copilot interactions were audited by Purview (up 9x).",
+              "figure": "15 million paid Microsoft 365 Copilot seats; 4.7 million paid GitHub Copilot subscribers (up 75%); over 250 customers on track for over 1 trillion Foundry tokens",
+              "topics": []
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Anthropic",
+              "relationship": "provides GPU compute capacity for Anthropic as part of NVIDIA-brokered expansion",
+              "contracts": [
+                {
+                  "source": "Microsoft Q2 FY2026 (01-28-2026)",
+                  "signal": "Hood: commercial bookings growth (23% in constant currency) reflected, alongside the OpenAI commitment, 'the previously announced Anthropic commitment from November'.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "November (previously announced)",
+                  "type": "customer commitment (counted in commercial bookings)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "Microsoft",
+          "layer": "cloud_infra",
+          "sector": "Hyperscaler Cloud",
+          "product": "Azure AI compute clusters",
+          "quarterly_data": [
+            {
+              "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+              "signal": "CALL - MEMORY PRICE INFLATION: Hood said on-premises server revenue benefited from 'higher transactional purchasing ahead of memory price increases', and Windows OEM from 'increased purchasing ahead of memory price increases' (channel inventory stayed elevated). Q3 FY2026 guide: on-prem server revenue to decline in the low single digits, and 'increased memory pricing could create additional volatility in transactional purchasing'; Windows OEM revenue to decline roughly 10%, with a wider-than-normal range 'in part due to the potential impact on the PC market from increased memory pricing.' On the data-center side: 'rising memory prices would impact capital expenditures, though the impact on Microsoft cloud gross margins will build more gradually. As these assets depreciate over six years.'",
+              "figure": "Windows OEM revenue to decline roughly 10% (Q3 guide); memory-driven capex impact reaches cloud gross margin gradually as assets depreciate over six years",
+              "topics": ["supply_tightness"]
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Microsoft",
+          "layer": "cloud_infra",
+          "sector": "Hyperscaler Cloud",
+          "product": "Azure AI cloud & Maia accelerators",
+          "quarterly_data": [
+            {
+              "quarter": "Microsoft Q2 FY2026 (01-28-2026)",
+              "signal": "CALL - MAIA 200 BROUGHT ONLINE (this transcript spells it 'Maya'): Nadella: 'Earlier this week, we brought online our Maya 200 accelerator. Maya 200 delivers 10 plus flops at FP4 precision with over 30% improved TCO compared to the latest generation hardware in our fleet.' Microsoft will scale it 'starting with inferencing and synthetic data gen for our superintelligence team as well as doing inferencing for Copilot and Foundry'. In Q&A he cited running GPT-5.0.2 on it at FP4 and said 'whatever we build, will be all optimized for Maya' (Microsoft is 'round tripping and working very closely with our own superintelligence team, with all of our models'). Fleet stance: 'At the silicon layer, we have NVIDIA and AMD and our own Maya chips delivering the best all-up fleet performance, cost, and supply across multiple generations of hardware'; 'we have great partnership with NVIDIA, with AMD', Microsoft does not want to be 'locked into any one thing', and 'it's not a one generation game' - the aim is a fleet with access to the best TCO at any point in time. He also named Cobalt and 'our DPU' as in-house systems capability that makes vertical integration possible without making it the only path.",
+              "figure": "Maya 200: over 30% improved TCO vs the latest generation hardware in the fleet",
+              "topics": ["product_launches"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -115,6 +115,11 @@ def find_document_for_label(label: str,
                   and _tokens_match(company, d.company_token)]
     if not candidates:
         return None
+    # The loose prefix match lets 'applieddigital' hit 'appliedmaterials' and 'lumentum' hit
+    # 'lumen'. When a file for exactly this company exists, it must win.
+    exact = [d for d in candidates if d.company_token == company]
+    if exact:
+        candidates = exact
     full = [d for d in candidates if d.is_full_transcript]
     return full[0] if full else candidates[0]
 

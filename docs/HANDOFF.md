@@ -73,6 +73,10 @@ append-only history is `enrich_log.json` (commit it).
    `curl_cffi`) → enrich → verify → one build → `investing.py done --kind conference`.
    Open structure questions for the USER: Terafab (KLA's new customer; not a node — fold into Tesla/SpaceX?),
    STMicro→SpaceX (Starlink ~90% share, satellite chips), Sanmina/Wiwynn as AMD Helios rack partners (list-named).
+1b. **US 2026 earnings-call backlog — 202 calls downloaded, NOT enriched (user will trigger).**
+   List: `docs/US_ENRICH_BACKLOG.md`; queue: `av/pending.json` (gitignored — rebuild from the list on another machine).
+   `enrich us` processes them (no `slot` on entries older than the company's latest call). Details:
+   `docs/memory/us_backlog_2026.md`.
 2. **EDGAR round 3b — "read ALL recovered tables", user scheduled it for the week of 2026-09-14.**
    Prep is finished: `transcripts/edgar/` was re-pulled 137/137 tickers (2026-09-11 night), the 5 old
    verify fails pass again. Durable archive: `C:\Users\calif\edgar_round3b\` (ledger `R3_PROGRESS.md`,
@@ -239,3 +243,46 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   conference queue 0. Memory: conference_enrichment.md, logo_fetching.md (docs/memory copies updated).
   Uncommitted: yes (chains/, graph/, web/public, patches/applied, transcripts/conferences, company_metadata.json,
   static/logos, apply_patches.py, investing.py, enrich_log.json, investing/, docs/).
+
+- **2026-09-16 (Claude)** — Asked: download (not enrich) every 2026 earnings call of US-listed nodes that the graph
+  has not enriched, full transcripts only, and record them for a later `enrich us`. Done: 150 US nodes / 445 calls
+  checked → 202 queued (199 new `transcripts/av/` files from the defeatbeta parquet, now at `data/US/…`; AMAT Q1
+  FY2026 from Motley Fool because both APIs hold a templated stub; Oracle Q3 FY2026 existing file; Intel Foundry Q4
+  FY2025 shares Intel's file). Queue in `av/pending.json` + `av/sync_state.json` saved; tracked list
+  `docs/US_ENRICH_BACKLOG.md`. Fixed `agent/corpus.py` label→file join to prefer an exact company file (it matched
+  Applied Digital→Applied Materials, Lumentum→Lumen); full verify_graph unchanged before/after. No enrichment run.
+  Uncommitted: yes (transcripts/av, agent/corpus.py, docs/).
+
+- **2026-09-16 (Claude, run 3)** — Asked: enrich + verify 40 of the US backlog transcripts with 40 parallel agents
+  (full transcripts only), plus Cerebras (newly listed as NASDAQ: CBRS). Done: the 40 newest backlog rows (38 companies)
+  + Cerebras Q1/Q2 FY2026 (`transcripts/av/cerebras_q1_2026.txt`, `_q2_2026.txt`; metadata → CBRS / NASDAQ / public)
+  → 42 patches, 40 enrichers + 40 verifiers (≤20 concurrent, waves). Verifiers edited wording/tags and removed 8-K
+  restatements; ~0 deletions. New edges: Cerebras→Amazon, Sanmina→Cerebras, TSMC→Cerebras (on the N3/N2 foundry
+  player — Cerebras is 5 nm; relationship text says so). One `apply_patches.py`, one `graph_build.py --sync`:
+  graph 352 nodes / 1,384 edges; verify_graph on the 42 labels: 299 pass / 68 unchecked / 1 warn (Flex named as
+  "Flextronics") / 0 fail. Removed only those 42 rows from `av/pending.json` (162 left; `docs/US_ENRICH_BACKLOG.md`
+  Status column). Uncommitted: yes (chains/, graph/, web/public, patches/applied, transcripts/av, company_metadata.json,
+  agent/corpus.py, enrich_log.json, docs/).
+
+- **2026-09-16 (Claude, run 4)** — Asked: raise the subagent concurrency limit to 25, add the pending edge candidates, and
+  enrich + verify the next 50 backlog transcripts. Done: `CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS=25` set in the user's
+  `~/.claude/settings.json` env (takes effect on the next Claude Code start; this session stayed at 20, so waves).
+  Next 50 newest backlog rows (49 companies) → 49 enrichers + 49 verifiers → 50 patches (~6 wording/tag edits per
+  patch on average, deletions: Synopsys→Microsoft list-mention contract, Tesla→SpaceX Terafab work-split contract,
+  Baker Hughes→Hitachi Energy off-chain grid edge). New edges kept by verifiers: Vistra→Microsoft (Pulaski PPA),
+  Semtech→NVIDIA (1.6T DR4 TIAs/drivers), Siemens Energy→Oklo (power conversion system), NextEra Energy→Google
+  (Duane Arnold). Coordinator edge patches (`patches/edge_*`): TSMC→SiTime (mature-node analog wafers, SiTime Q1),
+  Cipher Digital→Google (Barber Lake, Cipher Q1), contracts Quanta→AEP (AEP Q1) and Bloom→AEP ($2.7B, AEP Q4);
+  GE Vernova/MHI→AEP already had AEP Q2 contracts. One build: graph 352 / 1,390; verify_graph on 54 labels:
+  425 pass / 90 unchecked / 0 warn / 0 fail. `av/pending.json` 162 → 112 (processed rows only). Uncommitted: yes.
+
+- **2026-09-16 (Claude, run 5)** — Asked: finish the remaining 112 backlog transcripts the same way (parallel multi-agent
+  enrich + verify, Opus xhigh). Done in one background Workflow (`us-backlog-enrich-112`: 111 enricher + 111 verifier
+  agents, effort xhigh, pipeline so each brief was verified as soon as it was enriched) → 112 patches, ~1,003
+  quarterly_data + 60 contracts kept, 249 verifier edits, 17 deletions (e.g. a Tesla entry naming xAI, reversed-direction
+  Apple/Google/Lumen→Corning edges, collaboration/M&A edges from Cadence, ASE, Aehr, NextEra→Xcel). The coordinator also
+  removed onsemi→Lite-On from the onsemi Q4 patch (user rule from run 2). New edges: Arm→SoftBank, Astera Labs→Amazon,
+  Cadence→Samsung, Camtek→TSMC, Entergy→Hut 8, Flex→Amazon, GE Vernova→NextEra Energy, GE Vernova→Xcel Energy,
+  Linde→TSMC, NVIDIA→Tesla. One build: graph 352 / 1,400; verify_graph on 112 labels: 848 pass / 214 unchecked /
+  1 warn (Sandisk→Kioxia, transcript spells "Kyoccia") / 0 fail. `av/pending.json` → 0; the 2026 US backlog is done.
+  Uncommitted: yes.
