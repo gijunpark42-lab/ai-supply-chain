@@ -1,0 +1,38 @@
+---
+name: ai-bio-chain
+description: "chains/applications/ai_bio.json — the AI-drug-discovery chain, its layer placement, what is enriched, and which nodes have no free transcript source"
+metadata: 
+  node_type: memory
+  type: project
+  originSessionId: 04e18dca-b3a7-48ad-9506-b4dab78c625f
+  modified: 2026-09-18T10:30:59.433Z
+---
+
+`chains/applications/ai_bio.json` — AI-enabled drug discovery / precision medicine / autonomous labs.
+Built half-way by an earlier session on 2026-09-18, finished and pushed the same day (29 players,
+108 quarterly_data, 27 edges, 20 contracts; graph 380 nodes / 1,429 edges).
+
+**Layer placement** (the user's guess that "most names are application layer" is right):
+- `application` — Biopharma End Customers (9: BMS, Lilly, Sanofi, Roche-Genentech, Vertex, Jazz,
+  AstraZeneca, Bayer, Novo Nordisk), Omics Data & Biological Measurement (Illumina, Twist, 10x,
+  PacBio, Nautilus), Precision Medicine & Clinical AI (Tempus AI, SOPHiA GENETICS)
+- `ai_models` — AI-Native Drug Discovery (Recursion, Schrödinger, Absci, Relay, Evaxion, AbCellera),
+  Model-Informed Drug Development (Certara, Simulations Plus), **Frontier AI Models (Anthropic)**
+- `software_infra` Ginkgo Bioworks · `cloud_infra` Google, Amazon · `compute_hardware` NVIDIA
+
+**Edge direction is supplier → customer.** The 9 biopharma names are terminal consumers and correctly
+carry `connects_to: []`; deal detail lives on the incoming edges from the discovery platforms.
+
+**No free transcript exists** for Relay Therapeutics (RLAY), Roche-Genentech (RHHBY) and Bayer (BAYRY) —
+absent from BOTH defeatbeta and Alpha Vantage (checked 2026Q1 and 2026Q2). Those three sit at
+quarterly_data 0. Roche and Bayer are European, so the route is `investing.py` (Workflow 2d), not `av.py`.
+
+**Q2 2026 finding worth remembering:** Eli Lilly, Vertex, AstraZeneca, Novo Nordisk and Sanofi calls
+contain ZERO mentions of AI/ML/computational discovery. Only Bristol Myers Squibb (named Anthropic AND
+NVIDIA as AI partners) and Jazz (AbCellera T-cell engager collaboration) discuss it. Do not expect pharma
+customer calls to corroborate the supplier side — the AI detail comes from the platform companies' calls.
+
+**Proposed but NOT added** (structure is the user's call): BioNTech, Merck, GSK, Daiichi Sankyo, Incyte,
+LevelSet Bio, Personalis, Simcere (2096.HK), IQVIA, Crinetics. All were named only as counterparties.
+
+See [[project_state]], [[naming_rules]], [[generation_separation]].

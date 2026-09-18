@@ -311,3 +311,35 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   that queue. Updated the audit to 66 remaining direct candidates. Decisions: this run covers only the US slice;
   Korea remains company-DART-only and Japan/Taiwan remain conditional on an available full transcript/approved
   pipeline. Left open: the remaining Korea/Japan/Taiwan audit candidates and pre-existing EDGAR round 3b. Uncommitted: no.
+
+- **2026-09-18 (Claude, Opus 5 1M)** — Asked: does an AI-bio chain exist; if not build the skeleton, then
+  multi-agent parallel enrich + logos + verify + push. Found `chains/applications/ai_bio.json` already on disk
+  but UNTRACKED and half-built (28 players, 42 quarterly_data, 21 edges, 10 contracts; the 9 biopharma end
+  customers, Tempus AI, Relay and Simulations Plus all at zero; Schrödinger carried 4 entries whose source
+  transcript was not on disk at all). Took it over rather than rebuilding. Done:
+  (1) **Transcripts** — `defeatbeta-api` was not installed; installed it, then pulled 13 calls with
+  `utils/defeatbeta_fetch.py` (quota-free, parallel-safe): Schrödinger (label matched the existing one exactly,
+  so the history did not split), Tempus AI, Simulations Plus, Eli Lilly, Bristol Myers Squibb, Vertex, Jazz,
+  AstraZeneca, Novo Nordisk, Sanofi. Relay Therapeutics / Roche-Genentech / Bayer are on NEITHER defeatbeta nor
+  Alpha Vantage (checked 2026Q1+2026Q2) — those three nodes stay at quarterly_data 0 until Europe runs through
+  `investing.py`.
+  (2) **Enrichment** — 5 parallel agents wrote 10 ADD-only patches; the coordinator added 2 more. Applied:
+  **+66 quarterly_data, +10 contracts**. Chain is now 29 players / 108 quarterly_data / 27 edges / 20 contracts.
+  (3) **Schrödinger audit** — a dedicated agent re-checked all 4 pre-existing no-source-on-disk entries against
+  the newly fetched call: **4/4 CONFIRMED** verbatim (BMS Bunsen agreement, ACV $29.6M/+27%/$208M TTM, drug
+  discovery rev $23M + $10M Ajax milestone, >$750M since 2020). Nothing had been fabricated.
+  (4) **New edges from the calls** — NVIDIA→Bristol Myers Squibb and **Anthropic→Bristol Myers Squibb** (BMS CEO
+  named both as AI partners; Anthropic was already a graph node, so this made it an 18-chain hub), AbCellera→Jazz
+  (customer-side confirmation: preclinical, next-gen T-cell engagers, GI cancers), Schrödinger→Eli Lilly,
+  Tempus AI→AstraZeneca / →BMS, plus contracts filling the empty NVIDIA→Schrödinger and Google→Schrödinger edges.
+  New sector `ai_models / Frontier AI Models` for Anthropic. Kept the hedged Simulations Plus→Recursion edge
+  (management-named + existing node) with the hedge preserved verbatim in the signal.
+  (5) **Logos** — all 25 AI-bio nodes had none. Wikidata P154 with ticker proof (P249 qualifier on P414) got 12;
+  companieslogo.com sitemap→ticker-keyed image got 12 more; Evaxion came off its own site. 23 SVG + 2 PNG, every
+  SVG checked for drawable elements. manifest.json 352→377 by APPEND (no re-sort: +100 lines, 0 deletions).
+  (6) **Verify** — `graph_build.py --sync` then `verify_graph.py` on all 10 new labels: **80 entries, 65 pass,
+  15 unchecked (no numeric figure), 0 fail, 0 warn**. Graph 355→380 nodes, 1402→1429 edges. `av/pending.json`
+  drained 13→0 (all were already in the graph from the earlier session).
+  Decisions: proposed nodes NOT added (structure is the user's) — BioNTech, Merck, GSK, Daiichi Sankyo, Incyte,
+  LevelSet Bio, Personalis, Simcere (2096.HK), IQVIA, Crinetics. Notable: Eli Lilly, Vertex, AstraZeneca, Novo
+  and Sanofi Q2 calls contain **zero** AI/ML mentions — only BMS and Jazz do. Uncommitted: no (pushed).

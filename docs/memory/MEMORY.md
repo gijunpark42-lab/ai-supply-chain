@@ -33,3 +33,4 @@
 - [Conference Enrichment](conference_enrichment.md) — `enrich conference` (2026-09-10): investing.py conferences → transcripts/conferences/ → depth rule, multi-agent + verify loop; progress log of companies/conferences pulled & enriched; runs[] in investing/conferences_state.json
 - [Codex Handoff](codex_handoff.md) — since 2026-09-12 the repo is shared with Codex: AGENTS.md + docs/HANDOFF.md (session log, next up) + docs/memory/ snapshot; append to HANDOFF.md session log every session
 - [US Backlog 2026](us_backlog_2026.md) — 202 US 2026 calls queued; ALL enriched by runs 3-5 (09-16) + Cerebras (CBRS); queue empty; big batches → one Workflow pipeline (remove processed rows only, never av.py done); defeatbeta moved to data/US; AMAT stub; corpus exact-match fix
+- [AI Bio Chain](ai_bio_chain.md) — chains/applications/ai_bio.json: layer placement, supplier→customer edge rule, the 3 nodes with no free transcript (RLAY/RHHBY/BAYRY), pharma calls have no AI content
