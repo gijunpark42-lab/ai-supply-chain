@@ -77,6 +77,7 @@ export const CHAIN_COLORS: Record<string, string> = {
   aws_trainium3: "#cc7a00",
   neocloud: "#2dd4bf",
   power_semiconductor: "#eab308",
+  ai_bio: "#d946ef",
 };
 
 export const groupColor = (slug: string): string => GROUP_COLORS[slug] || "#94a3b8";

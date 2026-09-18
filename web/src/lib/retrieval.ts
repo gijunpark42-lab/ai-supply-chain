@@ -527,6 +527,10 @@ const VOCAB: VocabRule[] = [
     topics: ["foundry"],
   },
   { re: /\b(neoclouds?|gpu clouds?|gpu as a service)\b/, chains: ["neocloud"] },
+  {
+    re: /\b(drug discovery|biotech\w*|biopharma\w*|pharma\w*|genomics?|omics|sequencing|proteomics?|antibod\w*|molecules?|clinical trials?|precision medicine|protein\w*)\b/,
+    chains: ["ai_bio"],
+  },
   { re: /\b(asics?|custom silicon|xpus?|custom accelerators?)\b/, chains: ["broadcom_custom_asic"] },
   { re: /\b(sold out|allocation|allocated|shortages?|tight|tightness|constrained|constraints?|lead times?)\b/, topics: ["supply_tightness"] },
   { re: /\b(launch\w*|ramp\w*|sampling|mass production|volume production|shipping)\b/, topics: ["product_launches"] },
