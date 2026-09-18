@@ -43,3 +43,13 @@ list from `Object.keys(CHAIN_COLORS)` and `page.tsx` seeds the default-checked s
 belonging only to the unregistered chain get filtered out (the header read "355 / 380 companies,
 20 / 21 active chains"). `ai_bio` is `#d946ef`; a keyword rule was also added to the Ask router in
 `web/src/lib/retrieval.ts`. Now documented as the last step of the chain-skeleton skill.
+
+**Capture rule (user, 2026-09-18):** on an earnings call, **if MANAGEMENT said it and it is material to
+the company, capture it; ANALYST statements are not wanted.** A number an analyst raises counts only once
+management repeats or confirms it, and then it is attributed to the manager. Do NOT filter by chain theme:
+my earlier prompt said "prioritise AI/ML content", and because these pharma calls contain almost none the
+agents captured only a few headline financials (AstraZeneca 40%, Novo 45%, BMS 59% of management figures).
+A 7-agent re-read fixed it: +141 entries, coverage now 89-100%, chain at 249 quarterly_data.
+Split management from analysts by reading how questioners are introduced - usually the Operator, but on the
+AstraZeneca call the CEO introduces each analyst by name and firm, and calls carry substitute analysts who
+are not on any roster. Measure coverage with: management-spoken figures present in the graph / total.

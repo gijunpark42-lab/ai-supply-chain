@@ -354,3 +354,23 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   Chain 2D renders the full AI Bio chain; Tempus AI shows "7 signals, downstream 2"; Recursion renders its
   logo badge and "last data 2026-08-05". The chain-skeleton skill now documents this as its last step.
   Uncommitted: no (pushed).
+
+- **2026-09-18 (Claude, Opus 5 1M) — coverage pass on the AI-bio biopharma nodes** — User asked how much of each
+  call was actually read, then set a clearer capture rule: **if MANAGEMENT said it and it is material to the
+  company, capture it; ANALYST statements are not wanted.** Measured the gap first: the share of
+  management-spoken figures present in the graph was Schrödinger 96% and Tempus 86% (fine), but the biopharma
+  end customers were thin — AstraZeneca 40%, Novo 45%, BMS 59%, Vertex 62%, Sanofi 62%, Jazz 70%. Cause was my
+  own earlier prompt, which told the agents to prioritise AI/ML content; these pharma calls contain almost none,
+  so the agents captured only a few headline financials. Fix: 7 parallel agents (one per company, full-transcript
+  read, analyst/management split derived from the Operator introductions) wrote 7 ADD-only patches — **+141
+  quarterly_data**, 0 contracts, 0 new players, 0 new edges, 0 duplicates. Chain now **29 players / 249
+  quarterly_data / 27 edges / 20 contracts**; graph unchanged at 380 nodes / 1,429 edges. Coverage after:
+  Lilly 91%, BMS 98%, Vertex 100%, Jazz 89%, AstraZeneca 100%, Novo 95%, Sanofi 95%. `verify_graph.py` on all
+  7 labels: 188 entries, 139 pass, 49 unchecked (no numeric figure), **0 fail, 0 warn**. A coordinator pre-flight
+  (`preflight.py`, kept in the job tmp dir) independently re-checked every patch for leaked analyst figures,
+  numeric support, collisions and forbidden slot re-tags before applying — 0 problems.
+  Notes worth keeping: the agents corrected three errors in the speaker lists I gave them (substitute analysts
+  on the Jazz call, Carsten Lønborg Madsen is a Danske analyst not Novo management, and AstraZeneca's analysts
+  are introduced by Pascal Soriot rather than the Operator). The BMS transcript mislabels an Opdivo Qvantig
+  figure as "Sotyktu" in the oncology section; the entry keeps the number verbatim and flags the naming rather
+  than silently reassigning it. Uncommitted: no (pushed).
