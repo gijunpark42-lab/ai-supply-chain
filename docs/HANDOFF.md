@@ -374,3 +374,39 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   are introduced by Pascal Soriot rather than the Operator). The BMS transcript mislabels an Opdivo Qvantig
   figure as "Sotyktu" in the oncology section; the entry keeps the number verbatim and flags the naming rather
   than silently reassigning it. Uncommitted: no (pushed).
+
+- **2026-09-18 (Claude, Opus 5 1M) — drained the "saved but never enriched" tail** — User asked to enrich whatever
+  was left in the conference and pasted-earnings queues. **All five queue files were already at 0** (conference,
+  us, dart, intl, tw, edgar), so instead I matched every transcript on disk against the graph's label set and found
+  **7 files that had been saved, marked done, and produced no graph data at all**. Five agents handled them:
+  **NVIDIA SIGGRAPH 2026** (+9: DLSS 5 pixel-space diffusion, AI physics surrogates ~1,000,000x checkpoint
+  compression, Cosmos 3 family, the Cosmos Dreams 64 GB300 -> 16 Vera Rubin -> 1 RTX 6000 compute ladder),
+  **NVIDIA The Six Five Summit** (+5: NeMo Switchyard model router — the word appears nowhere else in the graph —
+  open-dataset-not-just-weights, DGX Station multi-tenancy, open-source token share call),
+  **Seagate The Six Five Summit** (+5: 80% of the world's data on datacenter HDD, the 55% CIO deletion-regret
+  survey, cold-tier obsolescence, object stores + metadata in memory),
+  **Dell the Six Five Summit** (+1 only — see below),
+  **IQE** (+13 qd, +2 contracts, +1 new edge) and **Naver Cloud** (+2).
+  Applied in one build: **+35 quarterly_data, +2 contracts, +1 edge**; graph 380 nodes / 1,429 -> 1,430 edges.
+  verify_graph on all 6 labels: 0 fail, 0 warn.
+  **Three corrections worth remembering.**
+  1. **IQE was mislabelled.** The file was `iqe_q2_2024.txt` with label `IQE Q2 FY2024`, because Investing.com's
+     auto-generated title said "H1 2024". The transcript body header actually reads "Full transcript - IQE PLC
+     (IQE) H1 2026", a question cites a 16-June-2025 RNS, and management speaks of 2026/2027 — it is the NEWEST
+     IQE source, not a two-year-old republish. I renamed the file to `iqe_q2_2026.txt`, corrected its header
+     (with a note explaining why), relabelled to `IQE Q2 FY2026 (09-07-2026)`, added the `revenue_growth` and
+     `guidance` slots (the Screener was still showing FY2025 as current) and added the management-stated
+     **IQE -> Tower Semiconductor** multi-year InP edge. **Never trust an Investing.com title's fiscal year —
+     check the body header and what management dates itself to.**
+  2. **Dell: 3 of 4 entries dropped.** They came from a speaker the transcript labels only "Matt, Infrastructure
+     Expert" with NO company; the only company-labelled Dell speaker is CTO John Roese. Under the project rule
+     (management speakers only) an unaffiliated "expert" on a vendor's conference track is not a company source.
+     Kept the Roese entry alone. Cost: the GPU:CPU 8:1 -> 1:1 agentic ratio datapoint, which is real but not
+     attributable to Dell.
+  3. **Naver Cloud files two 잠정실적 the same day** — consolidated and separate (parent-only). The consolidated
+     one is genuinely superseded by the 08-14 half-year report, but the SEPARATE set had no counterpart anywhere
+     in the graph. A `_separate` sibling must not be judged by its consolidated twin. I also removed an unsourced
+     "100%-owned" ownership claim the agent had added.
+  **Not a queue:** a full recursive re-scan shows 336 EDGAR files with no graph data, but `edgar/done.json` holds
+  all 1,012 as read — routine 8-Ks (dividends, officer changes) legitimately yield nothing under the completeness
+  contract. Uncommitted: no (pushed).

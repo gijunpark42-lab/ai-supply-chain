@@ -85,3 +85,18 @@ no other pipeline carries it; user chose this over YouTube captions / GDELT (202
 **How to apply:** never commit ([[feedback_no_auto_commit]]); patches only ([[concurrent_job_race]]);
 transcript-grounded only ([[feedback_transcript_only]]).
 Related: [[feedback_transcript_sourcing]], [[edgar_enrichment_2026_09_10]] (the multi-agent recipe reused).
+
+**Queue-empty does not mean enriched (2026-09-18).** All five pending.json files read 0 while 7 transcripts
+sat on disk with no graph data at all. The reliable check is to match every `# source label:` header under
+transcripts/ against the graph's label set, not to read the queue files. (EDGAR is the exception: 336 of its
+1,012 done files legitimately yield nothing — routine 8-Ks.)
+
+**Investing.com fiscal years are unreliable.** `iqe_q2_2024.txt` was labelled `IQE Q2 FY2024` from the site's
+auto-generated title; the transcript body header read "Full transcript - IQE PLC (IQE) H1 2026", a question
+cited a 16-June-2025 RNS and management spoke of 2026/2027. Renamed to `iqe_q2_2026.txt` and relabelled
+`IQE Q2 FY2026 (09-07-2026)`. Always check the body header and management's own dating.
+
+**Conference speaker attribution.** A vendor-branded conference track can feature speakers with no company
+label ("Matt, Infrastructure Expert" on Dell's Six Five track). Only company-labelled management counts —
+3 of 4 Dell entries were dropped for this. Korean dual-filers post consolidated AND separate 잠정실적 the same
+day; judge the `_separate` file on its own, it often has no counterpart in the graph.

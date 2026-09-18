@@ -2289,6 +2289,13 @@
           "chain": "cpu_datacenter"
         },
         {
+          "quarter": "Dell the Six Five Summit 2026 (08-25-2026)",
+          "signal": "DELL RUNS 'FOUR MOVING TO FIVE' DIFFERENT SOURCES OF TOKENS - THE TOKEN-ECONOMICS CASE FOR HYBRID/ON-PREM INFRASTRUCTURE. Global CTO and Chief AI Officer John Roese said the first principle of token economics in the agentic era 'is you have got to have a diverse source of intelligence... sources that range from different compliance levels, different capabilities, but also different economic strata. At Dell Technologies, I have four moving to five different fundamental sources of tokens. They have very different economics. I run open models on-prem in my data centers. I run frontier models in my data centers. I run frontier models in VPCs I control. I use APIs. I now run models on devices using things like personal agent frameworks.' He grounded it in unit economics: an agent that helps the CEO decide in real time can be worth '$100,000 a month to run', while an agent cleaning CRM records where 'each CRM record it cleans up has an economic value of $0.50' needs an environment where 'it does not cost $12 in tokens to do a $0.50 task'. A customer on 'a single provider with a single set of models over a single economic model... fundamentally wouldn't be able to do the CRM agent because it's just not affordable in that model' - the demand argument for on-prem and VPC inference capacity rather than API-only consumption.",
+          "figure": "four moving to five fundamental sources of tokens (on-prem open, on-prem frontier, VPC frontier, API, on-device); $100,000 a month agent vs a $0.50 CRM record that must not cost $12 in tokens",
+          "topics": [],
+          "chain": "cpu_datacenter"
+        },
+        {
           "quarter": "Dell Q1 FY2027 (05-28-2026)",
           "signal": "Supply-constraint rank order per Jeff Clarke: DRAM, NAND, CPUs (microprocessors), then hard drives, then 'the basket of goods around that'. Trailing semiconductor nodes are filling at greater rates, leading-edge nodes fully allocated with ~1-year lead times. Dell is 'repricing every day' in the inflationary environment, and customers are signing 3-5 year multiyear supply agreements to secure access. Year-over-year, each server carries MORE cores, MORE DRAM and MORE NAND (content growth on top of unit growth).",
           "figure": "Constraint order: DRAM > NAND > CPU > HDD; leading-edge lead times ~1 year",
@@ -15269,6 +15276,114 @@
           "chain": "nvidia_vera_rubin"
         },
         {
+          "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+          "signal": "NEMO SWITCHYARD IS A MODEL ROUTER - NVIDIA SHIPS THE ROUTING LAYER FOR A MULTI-MODEL WORLD: Nader Khalil, Director of Developer Tech at NVIDIA (previously CEO and co-founder of Brev.dev, acquired by NVIDIA), was congratulated by the moderator on Nemotron 3.5 Lightning and NeMo Switchyard and confirmed both - 'super exciting stuff' and 'Lightning is really fast' - then described the router in his own words: 'Switchyard, which is a model router'. His framing is that once there are multiple models the next frontier is knowing which one to use and when, and that many companies are now building model routers. He also made the router the IP-control layer for hybrid on-prem/cloud inference: on bursting to a frontier model you can do PII redaction, and 'Your model router can identify what is the IP, so that when you burst, you make sure you only burst with what is safe to go.' Asked what he works on now: 'The harness and the router are definitely what I am thinking about the most now'. Neither Switchyard nor the router layer appears in any NVIDIA earnings-call entry.",
+          "figure": "no specific figure",
+          "topics": [
+            "product_launches"
+          ],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+          "signal": "NVIDIA OPENS THE DATASET, NOT ONLY THE WEIGHTS - THE STATED REASON NEMOTRON EXISTS: Khalil traced the open-model market from RedPajama (data, weights and architecture open) through Stable LM (architecture withheld) and Llama 1 and Llama 2, and concluded the market found that value accrues at the data, not the weights - once Llama 2 shipped weights, nobody was looking for the Llama 1 weights any more, so weights proved ephemeral and data durable. Because enterprise and personal data is usually not enough to train a foundation model, post-training is the only option, and he said the bottleneck is having models that are fully open: 'We open everything, not just the weights and the model, but the dataset as well.' He confirmed this is a funded position - NVIDIA is 'spending money to go and accumulate this dataset that we also release' - and cited a customer who took the released data and trained its own model: 'I believe it was ServiceNow who did this.' NVIDIA also ships tooling around Nemotron because post-training, and evaluating whether a post-trained model is actually better, are hard.",
+          "figure": "no specific figure",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+          "signal": "DGX STATION AS A SHARED, MULTI-USER INFERENCE BOX - A REAL DEPLOYMENT RATHER THAN A SPEC SHEET: 'I have GLM-5.2 now running on a DGX Station.' 'I have it running at 100 tokens per second. It is 2 to 3 times faster than using Claude or ChatGPT.' The box is multi-tenant inside NVIDIA: 'What we have done is we have created API keys for the GLM-5.2 model that is running on it' so different team members all use the same DGX Station, and 'You can batch multiple users on the station.' The economics he stated for the workstation tier: 'it is cheaper than getting a data center, but it is a data center GPU that sits under your desk', with latency and known data location as the other two reasons. Consumption was additive, not substitutional - he is consuming a lot more tokens locally while 'My consumption on Claude and ChatGPT is still high' - and NVIDIA still also uses its internal compute cluster, the cloud and frontier models alongside the station.",
+          "figure": "100 tokens per second; 2 to 3 times faster than Claude or ChatGPT",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+          "signal": "OPEN-MODEL TOKEN VOLUME TO PASS CLOSED-MODEL TOKEN VOLUME WITHIN A YEAR - NVIDIA DEVELOPER-SIDE SHARE CALL: asked what would have surprised everyone by the 2027 summit, Khalil said that measured against however many tokens have been consumed from closed frontier models, users will 'consume more than those from open source', and that the industry will have felt that within a year. He was explicit that this is not a substitution - people will use more of both, because the market is in a huge scale-up and 'The pie itself is expanding', so use moving to open models does not have to come out of closed-model consumption. He also expects open source to get the credit for making agents safe to run, on the grounds that shared findings travel faster in the open.",
+          "figure": "no specific figure",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+          "signal": "WHERE THE TOKENS PHYSICALLY RUN - SMALL POST-TRAINED MODELS IN-DOMAIN, FRONTIER OUT-OF-DOMAIN, OPEN WEIGHTS AT THE EDGE: Khalil's split for enterprises holding IP is to post-train, so 'now you have a smaller model that can do tasks for cheaper' and faster because of the smaller footprint, for in-domain tasks; an unknown or out-of-domain task is 'a perfect opportunity to go use a closed source or honestly, frontier intelligence'. He placed the choice on a Pareto frontier of intelligence against speed, which is why a deployment needs an array of models and not one. Latency-bound workloads cannot use cloud frontier intelligence at all - his example was 'an ESPN replay at, say, Wimbledon or for the NBA' - and that is 'where edge hardware, edge AI is really important'; to run at the edge 'you have to have access to the weights', so 'The only option is to take an open-source model and train it', training a foundation model purely to run it at the edge being prohibitive. This is the developer-side demand argument for NVIDIA edge and workstation hardware that the financial calls do not make.",
+          "figure": "no specific figure",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+          "signal": "DLSS 5 detailed at the SIGGRAPH research keynote (first glimpsed at GTC Spring earlier this year) and shipping this fall. Edward Liu, Director of Applied Deep Learning Research: DLSS 5 adds a THIRD category of AI to real-time rendering - generation - alongside reconstruction (the current DLSS suite) and function approximation (Neural Radiance Cache, Neural Materials). The renderer still builds the world and geometry is untouched; a generative model enriches appearance, conditioned on the rendered frame plus renderer internal buffers (albedos, surface normals, lighting) and motion vectors, so it runs causally, one frame in one frame out, with no shimmer or drifting. The model is distilled from giant foundation models into a much smaller one-step pixel space diffusion transformer to fit the real-time budget: a 4K frame is about 8 million pixels and at larger than 60 FPS the whole budget is less than 16 milliseconds, most of which the game itself consumes. Second scaling lever beyond rendering: scaling the model - or just better training data and loss functions - improves image fidelity at runtime with no additional runtime cost.",
+          "figure": "4K frame about 8 million pixels; larger than 60 FPS; less than 16 milliseconds frame budget; ships this fall",
+          "topics": [
+            "product_launches"
+          ],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+          "signal": "DLSS 5 developer control surface demonstrated live by Gaff, Creative Artist: multiple DLSS 5 models (A, B, C) trained on different parameters and selectable per scene or per cut scene rather than locked per game; global structure intensity (high-frequency detail - ambient occlusion, subsurface scattering, reflections) and tone intensity (low-frequency - lighting and color); model-side auto-masking where the model understands scene semantics and can be applied to the character only; and engine-side masks, unlimited in number, each with independent intensity and tone. The demonstrated range ran from structure intensity 25%, close to the render frame, to 95%, near the maximum uplift DLSS can provide. NVIDIA said it is building more controls and working with its partners to incorporate their feedback so DLSS 5 becomes a tool for artists and art directors.",
+          "figure": "structure intensity demonstrated from 25% to 95%",
+          "topics": [
+            "product_launches"
+          ],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+          "signal": "AI surrogate models for physics simulation, presented by Neil Ashton, Researcher: an open dataset of around 2,000 aircraft simulations with more than a billion degrees of freedom generates around 200 terabytes of data; tokenized through transformer architectures developed by NVIDIA Research with research institutions, the trained model checkpoint is only around 200 megabytes - around a million times compression - and predicts an unseen geometry or boundary condition more than 10,000 times faster to within 1% or 2% accuracy, returning the flow field within a second on an RTX 6000, a relatively modest GPU, rather than hours or days, visualized with Omniverse libraries. NVIDIA supplies the stack beyond the compute: PhysicsNeMo and Earth-2 as the open source frameworks for developing these models.",
+          "figure": "around 2,000 aircraft simulations, more than a billion degrees of freedom, around 200 terabytes -> around 200 megabyte checkpoint; more than 10,000 times faster; 1% or 2% accuracy; around a million times compression; runs on an RTX 6000",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+          "signal": "Scale of the physics workload NVIDIA is targeting with AI (Neil Ashton): the reference coupled atmosphere-land-ocean Earth simulation ran on more than 20,000 GPUs at a resolution of one kilometer on a 50 billion cell grid and won the Gordon Bell Prize, and it is not feasible with today's technology to run a 20,000 GPU job every single day - the argument for AI surrogates. AI weather models trained on 40 years of ERA5 data autoregressively predict the next hour or day in seconds or minutes instead of hours or days, are as accurate or more accurate than traditional simulation, and weather centers around the world use these AI models in production today. StormScope, trained on satellite and observation data, predicts how storms merge and propagate orders of magnitude faster than simulation. Ashton named electromagnetics and structural simulation of cars and planes as the next domains to move.",
+          "figure": "more than 20,000 GPUs; one kilometer resolution; 50 billion cell grid; 40 years of ERA5 data",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+          "signal": "Cosmos world foundation model family, presented by Ming-Yu Liu, VP of Cosmos Lab: an open omnimodel on a mixture of transformers architecture with two towers - an autoregressive tower that reasons in language and a diffusion tower that generates vision, audio and action tokens - sharing multimodal attention. Action is a first-class modality encoded as geometric primitives (ego pose, effector poses, grasp and gripper), so one model covers a self-driving car, a single-arm robot, a humanoid and human egocentric video, and out of the box it supports forward dynamics, inverse dynamics and policy. Cosmos 3 Nano, a 16 billion parameter model, and Cosmos 3 Super were released last month at NVIDIA GTC Taipei; Cosmos 3 Edge, a four billion parameter model built to run real-time on device - in Jetson Thor, in RTX, in DGX Spark, with no round trip to the data center - was released at this keynote. Across eight different benchmarks spanning generation, reasoning and policy, Cosmos models rank number one.",
+          "figure": "Cosmos 3 Nano 16 billion parameters; Cosmos 3 Edge four billion parameters; number one across eight benchmarks",
+          "topics": [
+            "product_launches"
+          ],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+          "signal": "Cosmos inference cost and customization (Ming-Yu Liu): Cosmos 3 Super was pre-trained with distribution matching to reduce the number of denoising steps to four, giving a 25 times speed-up for text-to-image and image-to-video generation while remaining state of the art according to Artificial Analysis. Pre-training Cosmos on the DROID dataset produced a state-of-the-art pick-and-place policy result. NVIDIA is releasing the post-training scripts it used internally to build custom models, and both the accuracy post-training and the speed post-training can be done with a DGX Station - customization does not require data-center compute.",
+          "figure": "denoising steps reduced to four; 25 times speed-up for text-to-image and image-to-video",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+          "signal": "Cosmos platform arc and adoption (Ming-Yu Liu): Cosmos was introduced to the world in January 2025, 18 months ago, and has compounded component by component - Cosmos Predict for world generation, Cosmos Reason for world understanding, Cosmos Policy for action - all unified into a single omni-modal world model in Cosmos 3. Cosmos 3.5 has already started and will bring in multi-view and other capabilities. NVIDIA's own products are built on it: Metropolis VSS (Video Summarizing Search) for video analytics, NVIDIA Isaac for realism enhancement and variation creation in robot policy training, Cosmos Dreams, the Optane robot taxi driving policy and the GR00T humanoid policy. The platform is built with Cosmos Coalition members contributing research, data and evaluation, ships with open models, open datasets, open libraries and an open framework, and has reached millions of developers.",
+          "figure": "introduced January 2025, 18 months ago; reached millions of developers",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+          "signal": "Cosmos Dreams announced: a neural closed-loop simulator built on OmniDreams research, the first one for autonomous vehicles. A policy model (Optane) takes an action, Cosmos Dreams applies that action and generates what the sensors will see, photorealistic and frame by frame, at interactive speed - the car drives inside the simulator's imagination - so AV developers can verify policy accuracy before deploying the model in a real fleet and can generate scenarios difficult to craft in the real world, accelerating development velocity and saving operational cost. In the live demo an entire world was simulated from a single frame with PS5 controller input. The compute needed has collapsed across GPU generations: the demo first required 64 GB300 GPUs, then ran on 16 Vera Rubin GPUs, and now runs on a single RTX 6000 Ada Generation workstation GPU with the new Cosmos model.",
+          "figure": "64 GB300 GPUs -> 16 Vera Rubin GPUs -> a single RTX 6000 Ada Generation workstation GPU",
+          "topics": [
+            "product_launches"
+          ],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+          "signal": "Jensen Huang's framing of why the graphics franchise feeds physical AI: 'There is a complete reset in computer graphics.' NVIDIA wants 'the power of AI, but grounded in 3D, governed by physics, so that it is shapeable by creators', because 'Before robots operate in the real world, they will learn in virtual worlds with synthetic experiences.' He traced the inferred share of the frame from DLSS 1, where one out of every four pixels was inferred, to today, where entire patches of the screen are inferred, and said the goal is the same whether for games, cinema, robotics or factory digital twins - virtual worlds that behave with the fidelity and realism of the physical world.",
+          "figure": "DLSS 1: one out of every four pixels inferred",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
           "quarter": "NVIDIA Q2 FY2027 (08-26-2026)",
           "signal": "Grace CPU (introduced 2021) trailing-12-month revenue exceeded $5B; Vera CPU now in full production and, as a standalone product, expands TAM. Vera completes agentic tasks 1.8x faster on SPEC and provides 5x bandwidth per watt vs any other data center CPU. Expected at every major hyperscaler, neocloud, AI lab and system OEM; shipments underway to OCI, SpaceX and (this quarter) AWS.",
           "figure": "Grace TTM >$5B; Vera 1.8x agentic, 5x bandwidth/W",
@@ -18440,6 +18555,20 @@
           ],
           "counterparty": "Saudi NHC Innovation",
           "counterparty_role": "customer",
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "Naver Cloud Q2 FY2026 (08-07-2026)",
+          "signal": "Preliminary Q2 FY2026 disclosure (jamjeong-siljeok fair-disclosure filed 08-07-2026), CONSOLIDATED set (DART rcept_no 20260807800026) - filed one week before the half-year report already on this node and carrying the sequential (vs Q1 2026) comparison and two income lines the 08-14-2026 report does not state. Amounts in KRW hundred millions as the table states them. Revenue Q2 2026 33,888 against 32,411 in Q1 2026, +4.6% sequentially (and +16.2% against 29,151 a year earlier); H1 cumulative 66,298 against 57,019, +16.3%. Operating profit Q2 5,203 against 5,418 in Q1, -4.0% sequentially (-0.2% against 5,216 a year earlier); H1 10,621 against 10,269, +3.4%. Pre-tax profit from continuing operations Q2 9,020 against 3,935 in Q1, +129.2% sequentially and +32.0% against 6,836 a year earlier; H1 12,955 against 12,637, +2.5%. Net income Q2 7,043 against 2,910 in Q1, +142.0% sequentially (+41.6% against 4,974); H1 9,953 against 9,210, +8.1%. Net income attributable to owners of the parent Q2 6,986 against 2,853 in Q1, +144.8% sequentially and +42.9% against 4,888 a year earlier; H1 9,839 against 9,136, +7.7%. The filing states these are unaudited management estimates under K-IFRS that may change once the external auditor completes its review, and that results were presented the same day on a webcast conference call.",
+          "figure": "Consolidated preliminary set, amounts in KRW hundred millions: Q2 revenue 33,888 vs Q1 32,411 (+4.6% QoQ); Q2 operating profit 5,203 vs Q1 5,418 (-4.0% QoQ); Q2 pre-tax profit 9,020 vs Q1 3,935 (+129.2% QoQ, +32.0% YoY vs 6,836), H1 12,955 vs 12,637 (+2.5%); Q2 net income 7,043 vs Q1 2,910 (+142.0% QoQ); Q2 net income to owners of the parent 6,986 vs Q1 2,853 (+144.8% QoQ, +42.9% YoY vs 4,888), H1 9,839 vs 9,136 (+7.7%)",
+          "topics": [],
+          "chain": "nvidia_vera_rubin"
+        },
+        {
+          "quarter": "Naver Cloud Q2 FY2026 (08-07-2026)",
+          "signal": "Preliminary Q2 FY2026 disclosure (fair-disclosure filed 08-07-2026), SEPARATE (parent-only, non-consolidated) set (DART rcept_no 20260807800028) - a second filing made the same day beside the consolidated one. Every existing entry on this node from the 08-14-2026 half-year report is on a consolidated basis, so these parent-only figures are held nowhere else; the difference between the two sets is the subsidiary pool. Amounts in KRW hundred millions as the table states them. Revenue Q2 2026 19,292 against 18,676 in Q1 2026, +3.3% sequentially and +13.1% against 17,054 a year earlier; H1 cumulative 37,968 against 33,227, +14.3%. Operating profit Q2 4,390, flat sequentially (0.0% against Q1's 4,390) and -10.5% against 4,903 a year earlier; H1 8,781 against 9,736, -9.8%. Pre-tax profit from continuing operations Q2 6,344 against 4,759 in Q1, +33.3% sequentially and +3.6% against 6,123; H1 11,104 against 11,527, -3.7%. Net income Q2 5,035 against 3,839 in Q1, +31.2% sequentially and +10.9% against 4,539; H1 8,874 against 8,587, +3.3%. Unaudited management estimates under K-IFRS, subject to change on audit.",
+          "figure": "Separate (parent-only) preliminary set, amounts in KRW hundred millions: Q2 revenue 19,292 vs Q1 18,676 (+3.3% QoQ, +13.1% YoY vs 17,054), H1 37,968 vs 33,227 (+14.3%); Q2 operating profit 4,390 vs Q1 4,390 (0.0% QoQ, -10.5% YoY vs 4,903), H1 8,781 vs 9,736 (-9.8%); Q2 pre-tax profit 6,344 vs Q1 4,759 (+33.3% QoQ, +3.6% YoY vs 6,123), H1 11,104 vs 11,527 (-3.7%); Q2 net income 5,035 vs Q1 3,839 (+31.2% QoQ, +10.9% YoY vs 4,539), H1 8,874 vs 8,587 (+3.3%)",
+          "topics": [],
           "chain": "nvidia_vera_rubin"
         }
       ],
@@ -32366,6 +32495,51 @@
             "nand_storage"
           ],
           "chain": "nand_flash"
+        },
+        {
+          "quarter": "Seagate The Six Five Summit 2026 (08-25-2026)",
+          "signal": "80% OF THE WORLD'S DATA NOW SITS ON A HARD DRIVE IN THE DATA CENTER - THE MARKET-STRUCTURE NUMBER SEAGATE'S CALLS DO NOT GIVE. Chairman Dave Mosley on how the business moved from the PC era to mass capacity: 'Now all the data, the mass capacity data we call it, is up in data centers. The boxes that have really morphed, the whole supply chain has had to morph over the last 10 years to the point where 80% of the world's data is on a hard drive in the data center right now, and it's continuing to grow at leaps and bounds.' He attributed the acceleration to AI application breadth rather than any single workload: 'the different applications have just exploded... there's so many different fronts where you've got applications pulling data, creating data, sending it back down'. Seagate's earnings calls quantify its own exabytes and the data-center share of its revenue; this is the installed-base share of world data.",
+          "figure": "80% of the world's data is on a hard drive in the data center right now",
+          "topics": [
+            "nand_storage"
+          ],
+          "chain": "nand_flash"
+        },
+        {
+          "quarter": "Seagate The Six Five Summit 2026 (08-25-2026)",
+          "signal": "RETENTION ECONOMICS QUANTIFIED FROM SEAGATE'S OWN CIO RESEARCH: 55% SAY DELETING DATA COST THEM MONEY. Chairman Dave Mosley on a study Seagate ran with CIO-level respondents: 'I'll say 55% of the people answering the survey said, I've lost a lot of money because I deleted something that I shouldn't have deleted.' He was explicit that this is not a compliance cost: 'That's not a penalty, that's not because of compliance issues. That's because of opportunity lost, because they deleted something.' Seagate applies the same logic internally - 'Running factories ourselves, we see this every day. If we could only store information about what's going on in the factories for a little bit longer, we believe you can get utility out of that' - and expects the same on customer-acquisition and customer-service data elsewhere. This is the demand-side mechanism (delete-less behaviour) behind the retention narrative the calls assert but never size.",
+          "figure": "55% of the people answering the survey said they lost money by deleting something they should not have deleted",
+          "topics": [
+            "nand_storage"
+          ],
+          "chain": "nand_flash"
+        },
+        {
+          "quarter": "Seagate The Six Five Summit 2026 (08-25-2026)",
+          "signal": "COLD/OFFLINE STORAGE LOSES ITS ROLE AND NEARLINE BECOMES THE PREFERENTIAL TIER. Asked whether cold storage becomes a non-discussion because data now has to be hot or at least readily accessible, Chairman Dave Mosley drew the line at accessibility rather than temperature: 'We call our products nearline products. These monikers, I don't think we've all come up with the right language yet. But, to me, cold storage means it's so far offline that it's virtually unusable unless a human brings it back... That probably is not going to be very efficient in the future. I think if we can continue to really drive our technology hard and grow exabytes in our industry, then that nearline will become the preferential storage mechanism.' The condition he attaches is Seagate's own areal-density execution - the tier shift only happens if the industry keeps growing exabytes at cost.",
+          "figure": "no specific figure",
+          "topics": [
+            "nand_storage"
+          ],
+          "chain": "nand_flash"
+        },
+        {
+          "quarter": "Seagate The Six Five Summit 2026 (08-25-2026)",
+          "signal": "OBJECT STORES PLUS METADATA-IN-MEMORY ARE THE ARCHITECTURE CHANGE THAT PUTS UNSTRUCTURED DATA BACK ON HDD TIERS. Chairman Dave Mosley on the stack above the drive: 'down inside the storage layer, we've always been kind of subservient to the file systems and things above us. Now we're starting to see more what I'll call object stores. Where what's really happening at layers above us, in memory layers, say, is that you are having very fast transactions on metadata, then when you need that specific data underneath, you pull it up. That architecture was never really honed before, but it is now. What that means is all of this, the data can be stored cheaper, relatively cheaper, and you can store a lot more of it on the hard drive tiers.' In some cases 'the unstructured data is not even used, it is just the metadata around the unstructured data. You only know which data you need when the algorithm tells you you need it, you pull it up.' He also described the software stack becoming less lossy with fewer handoffs - 'People don't want to pay for that. They want to pay for actually data in the application' - producing 'a stronger tie between the ultimate application, call it agentic application if you want, down through the software stack and into the hardware'.",
+          "figure": "no specific figure",
+          "topics": [
+            "nand_storage"
+          ],
+          "chain": "nand_flash"
+        },
+        {
+          "quarter": "Seagate The Six Five Summit 2026 (08-25-2026)",
+          "signal": "CUSTOMERS NOW PUSH ON ACCESS SPEED PER DRIVE, NOT ONLY CAPACITY - AND ON DATA SOVEREIGNTY. Asked what could shift the conversation three years out, Chairman Dave Mosley put two vectors on the roadmap: 'We're going to keep driving density, and we think we can, which is great, makes the data centers more efficient. We can also drive the technology that actually makes the data more accessible on each individual hard drive or at the system level. We're going to get pushed very hard on that because it's not only more data, it's also data faster, which are the vectors that our customers are really driving.' Beyond the drive itself he flagged data protection and locality - 'making sure that you have the right data in the right location, that it's actually my data and not shared with everybody in the world... Sometimes it's called sovereign data' - as a topic he expects to get much more discussion. Closing: 'These trends are happening in our favor, and we know there is a lot riding on our shoulders. We have to keep our technology going forward so that we can keep gaining efficiency.'",
+          "figure": "no specific figure",
+          "topics": [
+            "nand_storage"
+          ],
+          "chain": "nand_flash"
         }
       ],
       "ticker": "STX",
@@ -35763,12 +35937,123 @@
           "chain": "optical_networking"
         },
         {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: the commercial model has moved from spot orders to long-term agreements, which management calls the cornerstone of the new strategy. CEO Jutta Bechwati: \"The major difference here is really that we've moved completely from a spot order approach to long-term agreements... it gives us visibility on the utilization of our assets. It gives us visibility on how to better manage really any kind of supply into the sites and really enables us to plan for capacity expansion ahead of time.\" More LTAs are in the pipeline: \"there is quite a bit in the pipeline right now that we are working on\", though \"some of these agreements will come with announcements, others will not\".",
+          "figure": "no specific figure",
+          "topics": [],
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: the commercial milestones signed in the 133 days since the strategic review concluded and MACOM invested - \"As well as the multi-year agreements with MACOM, we've also signed a multi-year Indium Phosphide agreement with Tower Semiconductor, a $14 million production order with an AI and data center customer. Just last week, we announced a purchase agreement with Quintessence for Quantum Dot Laser epitaxy.\" Management frames quantum dot lasers as \"the next wave of innovation for data center applications\".",
+          "figure": "$14 million production order from an unnamed AI and data center customer; multi-year Indium Phosphide agreement with Tower Semiconductor; Quintessence quantum dot laser epitaxy purchase agreement",
+          "topics": [
+            "optical_speed"
+          ],
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: first-half revenue GBP 64.6 million, up 43% year-on-year. Wireless GBP 26 million, up 40%, \"reflecting market share gains and increased sales of wireless mobile connectivity solutions across newly qualified customer platforms\". Photonics GBP 38.5 million, up 45%, \"driven by funding releases for certain U.S. military and defense programs, and continued growth in AI and data center-related markets\". Growth was not only year-on-year but half-on-half, and Photonics is now the larger of the two reported segments.",
+          "figure": "Revenue GBP 64.6 million (+43% YoY); Wireless GBP 26 million (+40%); Photonics GBP 38.5 million (+45%); adjusted EBITDA GBP 6 million",
+          "topics": [
+            "optical_speed"
+          ],
+          "slot": "revenue_growth",
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: the margin improvement is operational, not price-led - \"driven by better utilization of our manufacturing capacity alongside a more favorable product mix, as Photonics made up a greater proportion of sales\", plus \"yield improvements and activities around really truly reestablishing operational excellence in all of our areas\" built over the last 18 months. Management stresses the revenue expansion was delivered on the existing asset base: \"we are able to achieve the revenue expansion, really, with the existing assets\". Yields and production outputs improved across all sites, and a new COO (Matt Geen) was appointed to run operational oversight.",
+          "figure": "adjusted EBITDA GBP 6 million; revenue expansion delivered on existing assets",
+          "topics": [],
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: the balance-sheet transformation is complete and now funds the expansion - \"We have gone from being a heavily leveraged business at the year-end to now being completely free of bank debt with a cash position of GBP 41.6 million.\" Adjusted net cash was GBP 30.2 million after a GBP 4 million working-capital outflow. Management describes a \"fully funded balance sheet\" and has announced an intention to apply for a LSE main market listing, targeting admission in first half 2027.",
+          "figure": "cash GBP 41.6 million; adjusted net cash GBP 30.2 million; zero bank debt; GBP 4 million working-capital outflow",
+          "topics": [],
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: upgraded full-year guidance reiterated - \"Following our July trading update, where we've upgraded full-year guidance, we have seen the strong momentum continue into the second half of the year... As a result, we are very confident of reaching our upgraded guidance\", with the upside case tied to \"the rising demand for optical communications for data center and AI infrastructure, which is underpinned by our recently signed supply agreements\". A webcast questioner quoted the going-concern statement's at least 30% growth in both 2026 and 2027; management did not dispute it and said the outlook will only be revised once LTA visibility and the Indium Phosphide substrate bottleneck allow. A strategy reset with new long-term margin, revenue and growth targets, and a new segment reporting structure, is promised for 2027.",
+          "figure": "upgraded FY2026 guidance reiterated; going-concern statement cites at least 30% growth in both 2026 and 2027 (quoted by a webcast questioner, not disputed by management)",
+          "topics": [
+            "optical_speed"
+          ],
+          "slot": "guidance",
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: Indium Phosphide substrate supply and rare earth bottlenecks are the gating risks, and the second-half outlook already reflects them - \"there is substrate supply concerns, as well as rare earth bottlenecks that are highlighted in each of the calls that you are seeing in the industry... the second half outlook already reflects these risks... not over-committing to a number that we will not be able to hit\". On InP specifically: \"Indium Phosphide substrates are becoming some of the bottlenecks around significant volume increases. Therefore, we are working closely with everybody in the industry and with all partners to ensure that we are locking in volume allocations to secure our demand that we are currently seeing with our customers.\"",
+          "figure": "no specific figure",
+          "topics": [
+            "supply_tightness"
+          ],
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: the InP substrate diameter mix, from the epiwafer maker's own view - \"3-inch is still very dominant. Then it's 4-inch with almost half of the volume driven by 4-inch, and only then comes 6-inch as the fastest-growing sort of diameter, and it's scaling right now.\" 6-inch maturity and line yields still need to improve and \"we are not seeing truly the really demand on 6-inch yet\". Management clarified that IQE's tool conversions are material conversions (Gallium Arsenide to Indium Phosphide), which \"doesn't necessarily come with a dimension conversion\"; IQE can support 3-inch, 4-inch and 6-inch. Tightness across the three diameters is hard to rank because \"there is different types of substrates too\".",
+          "figure": "InP substrate volume mix: 3-inch dominant, 4-inch almost half of volume, 6-inch fastest growing but least mature",
+          "topics": [
+            "supply_tightness",
+            "transitions"
+          ],
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: capacity is being added by converting existing tooling in the second half \"to increase capacity to meet the strong demand for Indium Phosphide\", and every conversion is gated on a signed customer commitment - \"we will also not expand capacity without a clear customer commitment and a clear visibility on what value is going to be driven with that expansion\" and \"we are still not converting tools without customer commitments and secured demand on these tools\". Conversion cost is \"definitely insignificant compared to the cost of a new reactor\"; the real cost is the downtime of the tool. Customer prepayments are \"definitely a mechanism for us to fund our growth\", following what \"some of our players in the same ecosystem\" already do. Newport still has \"ample clean room space to add capacity\" so IQE \"can scale up rather quickly compared to others because we already have the infrastructure to house these reactors\".",
+          "figure": "no specific figure",
+          "topics": [
+            "supply_tightness",
+            "transitions"
+          ],
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: IQE's routes into AI and data center are four distinct epitaxy platforms - \"high demand for our Indium Phosphide and Gallium Arsenide optical interconnect technologies\", \"gallium nitride on silicon MicroLED epitaxy for partners serving hyperscalers for high bandwidth, energy efficient data transfer in AI data centers\", and \"gallium nitride on silicon power epitaxy, meeting the need for high efficiency power supply units within data center infrastructure\". Management stresses the reach is wider than the data center: \"we are really playing into all spaces of AI from really the rack to the edge\". On pricing, \"we are in a much better position really to demand higher pricing, especially for our bespoke solutions\", though long-term customer relationships are said to outrank short-term price increases.",
+          "figure": "no specific figure",
+          "topics": [
+            "optical_speed"
+          ],
+          "chain": "optical_networking"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: the Taiwan site is no longer for sale. The proposed divestment was \"driven of the necessity, looking at our balance sheet, and really the need to fund the existing debt structure\"; with the balance sheet repaired, \"there is no need to sell anything right now... we are not looking into selling anything at the moment, and not in the foreseeable future either\". Management now frames the multi-geography footprint as a supply hedge: the inclusion of Taiwan \"enables us really to play into geopolitical situations that we can deliver into all existing markets and really offset some of the constraints that others would be seeing\".",
+          "figure": "no specific figure",
+          "topics": [],
+          "chain": "optical_networking"
+        },
+        {
           "quarter": "IQE Q4 FY2025 (05-28-2026)",
           "signal": "GaN is one of IQE's four core markets and is being pulled by the datacenter build-out: \"In power, we see rising demand for our GaN solutions driven by data centers, aerospace and defense, and space applications.\" Management expects the 2026+ trend to create opportunities \"across indium phosphide and GaN in particular,\" and notes a mix weighted to InP/GaN carries better margin than commodity VCSEL/wireless. IQE is the world's only pure-play epitaxy foundry, growing the epitaxial compound-semiconductor layers on purchased base substrates (InP, GaN, GaAs, GaSb) at sites in the U.K., U.S. and Taiwan; existing MOCVD capacity can absorb the 2026-2028 demand increase without a material fixed-cost increase, and any tool additions for GaN or InP \"will need to come with customer commitments\" via LTA, customer co-funding, or tool consignment.",
           "figure": "no specific figure (GaN not separately disclosed; FY2025 group revenue GBP 97.3M)",
           "topics": [
             "power_cooling"
           ],
+          "chain": "power_semiconductor"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: GaN power arrived later than IQE expected but is now inflecting, and MicroLED is overtaking it - \"from a technology perspective, GaN power has shifted to the right, but we are now seeing really significant pickup on that opportunity. MicroLED as part of also the overall GaN technology application footprint is really gaining more and more momentum on that and really is almost surpassing the GaN power application.\" The data center pull is specific on both: \"gallium nitride on silicon power epitaxy, meeting the need for high efficiency power supply units within data center infrastructure\", and \"gallium nitride on silicon MicroLED epitaxy for partners serving hyperscalers for high bandwidth, energy efficient data transfer in AI data centers\".",
+          "figure": "no specific figure (GaN and MicroLED are not separately disclosed; H1 group revenue GBP 64.6 million)",
+          "topics": [
+            "power_cooling"
+          ],
+          "chain": "power_semiconductor"
+        },
+        {
+          "quarter": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: RF, defense and satcom are a second pillar for the compound-epitaxy business - \"new product qualifications and design wins across terrestrials, satellites, including low Earth orbit, and defense radar platforms\", plus an expanded gallium antimonide infrared customer base \"into new geographies around the world\". Management: \"we have been a very substantial part of the overall military and defense ecosystem in the U.S. already, especially with our infrared sensing technology based on our gallium antimonide technologies\", supplying \"the prime companies that are playing in that space\". Photonics revenue growth in the half was partly driven by \"funding releases for certain U.S. military and defense programs\".",
+          "figure": "no specific figure",
+          "topics": [],
           "chain": "power_semiconductor"
         }
       ],
@@ -77835,6 +78120,36 @@
           "date_signed": "May 28, 2026",
           "type": "long-term supply agreement",
           "topics": []
+        },
+        {
+          "source": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "H1 2026: the MACOM multi-year supply agreements are signed and in force. CEO: \"It's been 133 days since we announced the conclusion of the strategic review and the investment from MACOM and other existing shareholders in April\", a period \"defined by some key commercial milestones and the signing of long-term agreements\", and \"As well as the multi-year agreements with MACOM, we've also signed a multi-year Indium Phosphide agreement with Tower Semiconductor\".",
+          "units": "no specific figure",
+          "value": "no specific figure",
+          "date_signed": "April (announced 133 days before this call)",
+          "type": "multi-year supply agreement",
+          "topics": [
+            "optical_speed"
+          ]
+        }
+      ],
+      "chain": "optical_networking"
+    },
+    {
+      "source": "IQE",
+      "target": "Tower Semiconductor",
+      "relationship": "multi-year Indium Phosphide epiwafer supply agreement",
+      "contracts": [
+        {
+          "source": "IQE Q2 FY2026 (09-07-2026)",
+          "signal": "CEO Jutta Bechwati, listing the commercial milestones since the strategic review concluded: \"As well as the multi-year agreements with MACOM, we've also signed a multi-year Indium Phosphide agreement with Tower Semiconductor, a $14 million production order with an AI and data center customer.\" The agreements are described as building towards greater visibility of orders and revenues.",
+          "units": "no specific figure",
+          "value": "no specific figure",
+          "date_signed": "signed in the 133 days after the strategic review concluded in April 2026",
+          "type": "multi-year supply agreement",
+          "topics": [
+            "optical_speed"
+          ]
         }
       ],
       "chain": "optical_networking"

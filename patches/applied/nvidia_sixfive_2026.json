@@ -1,0 +1,50 @@
+{
+  "source": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+  "chains": {
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Vera Rubin platform (Rubin GPU, Vera CPU, NVLink switch, Spectrum-X / Quantum-X networking)",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+              "signal": "NEMO SWITCHYARD IS A MODEL ROUTER - NVIDIA SHIPS THE ROUTING LAYER FOR A MULTI-MODEL WORLD: Nader Khalil, Director of Developer Tech at NVIDIA (previously CEO and co-founder of Brev.dev, acquired by NVIDIA), was congratulated by the moderator on Nemotron 3.5 Lightning and NeMo Switchyard and confirmed both - 'super exciting stuff' and 'Lightning is really fast' - then described the router in his own words: 'Switchyard, which is a model router'. His framing is that once there are multiple models the next frontier is knowing which one to use and when, and that many companies are now building model routers. He also made the router the IP-control layer for hybrid on-prem/cloud inference: on bursting to a frontier model you can do PII redaction, and 'Your model router can identify what is the IP, so that when you burst, you make sure you only burst with what is safe to go.' Asked what he works on now: 'The harness and the router are definitely what I am thinking about the most now'. Neither Switchyard nor the router layer appears in any NVIDIA earnings-call entry.",
+              "figure": "no specific figure",
+              "topics": [
+                "product_launches"
+              ]
+            },
+            {
+              "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+              "signal": "NVIDIA OPENS THE DATASET, NOT ONLY THE WEIGHTS - THE STATED REASON NEMOTRON EXISTS: Khalil traced the open-model market from RedPajama (data, weights and architecture open) through Stable LM (architecture withheld) and Llama 1 and Llama 2, and concluded the market found that value accrues at the data, not the weights - once Llama 2 shipped weights, nobody was looking for the Llama 1 weights any more, so weights proved ephemeral and data durable. Because enterprise and personal data is usually not enough to train a foundation model, post-training is the only option, and he said the bottleneck is having models that are fully open: 'We open everything, not just the weights and the model, but the dataset as well.' He confirmed this is a funded position - NVIDIA is 'spending money to go and accumulate this dataset that we also release' - and cited a customer who took the released data and trained its own model: 'I believe it was ServiceNow who did this.' NVIDIA also ships tooling around Nemotron because post-training, and evaluating whether a post-trained model is actually better, are hard.",
+              "figure": "no specific figure",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+              "signal": "DGX STATION AS A SHARED, MULTI-USER INFERENCE BOX - A REAL DEPLOYMENT RATHER THAN A SPEC SHEET: 'I have GLM-5.2 now running on a DGX Station.' 'I have it running at 100 tokens per second. It is 2 to 3 times faster than using Claude or ChatGPT.' The box is multi-tenant inside NVIDIA: 'What we have done is we have created API keys for the GLM-5.2 model that is running on it' so different team members all use the same DGX Station, and 'You can batch multiple users on the station.' The economics he stated for the workstation tier: 'it is cheaper than getting a data center, but it is a data center GPU that sits under your desk', with latency and known data location as the other two reasons. Consumption was additive, not substitutional - he is consuming a lot more tokens locally while 'My consumption on Claude and ChatGPT is still high' - and NVIDIA still also uses its internal compute cluster, the cloud and frontier models alongside the station.",
+              "figure": "100 tokens per second; 2 to 3 times faster than Claude or ChatGPT",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+              "signal": "OPEN-MODEL TOKEN VOLUME TO PASS CLOSED-MODEL TOKEN VOLUME WITHIN A YEAR - NVIDIA DEVELOPER-SIDE SHARE CALL: asked what would have surprised everyone by the 2027 summit, Khalil said that measured against however many tokens have been consumed from closed frontier models, users will 'consume more than those from open source', and that the industry will have felt that within a year. He was explicit that this is not a substitution - people will use more of both, because the market is in a huge scale-up and 'The pie itself is expanding', so use moving to open models does not have to come out of closed-model consumption. He also expects open source to get the credit for making agents safe to run, on the grounds that shared findings travel faster in the open.",
+              "figure": "no specific figure",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA The Six Five Summit 2026 (08-27-2026)",
+              "signal": "WHERE THE TOKENS PHYSICALLY RUN - SMALL POST-TRAINED MODELS IN-DOMAIN, FRONTIER OUT-OF-DOMAIN, OPEN WEIGHTS AT THE EDGE: Khalil's split for enterprises holding IP is to post-train, so 'now you have a smaller model that can do tasks for cheaper' and faster because of the smaller footprint, for in-domain tasks; an unknown or out-of-domain task is 'a perfect opportunity to go use a closed source or honestly, frontier intelligence'. He placed the choice on a Pareto frontier of intelligence against speed, which is why a deployment needs an array of models and not one. Latency-bound workloads cannot use cloud frontier intelligence at all - his example was 'an ESPN replay at, say, Wimbledon or for the NBA' - and that is 'where edge hardware, edge AI is really important'; to run at the edge 'you have to have access to the weights', so 'The only option is to take an open-source model and train it', training a foundation model purely to run it at the edge being prohibitive. This is the developer-side demand argument for NVIDIA edge and workstation hardware that the financial calls do not make.",
+              "figure": "no specific figure",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

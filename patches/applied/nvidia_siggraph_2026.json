@@ -1,0 +1,72 @@
+{
+  "source": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+  "chains": {
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Vera Rubin platform (Rubin GPU, Vera CPU, NVLink switch, Spectrum-X / Quantum-X networking)",
+          "quarterly_data": [
+            {
+              "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+              "signal": "DLSS 5 detailed at the SIGGRAPH research keynote (first glimpsed at GTC Spring earlier this year) and shipping this fall. Edward Liu, Director of Applied Deep Learning Research: DLSS 5 adds a THIRD category of AI to real-time rendering - generation - alongside reconstruction (the current DLSS suite) and function approximation (Neural Radiance Cache, Neural Materials). The renderer still builds the world and geometry is untouched; a generative model enriches appearance, conditioned on the rendered frame plus renderer internal buffers (albedos, surface normals, lighting) and motion vectors, so it runs causally, one frame in one frame out, with no shimmer or drifting. The model is distilled from giant foundation models into a much smaller one-step pixel space diffusion transformer to fit the real-time budget: a 4K frame is about 8 million pixels and at larger than 60 FPS the whole budget is less than 16 milliseconds, most of which the game itself consumes. Second scaling lever beyond rendering: scaling the model - or just better training data and loss functions - improves image fidelity at runtime with no additional runtime cost.",
+              "figure": "4K frame about 8 million pixels; larger than 60 FPS; less than 16 milliseconds frame budget; ships this fall",
+              "topics": ["product_launches"]
+            },
+            {
+              "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+              "signal": "DLSS 5 developer control surface demonstrated live by Gaff, Creative Artist: multiple DLSS 5 models (A, B, C) trained on different parameters and selectable per scene or per cut scene rather than locked per game; global structure intensity (high-frequency detail - ambient occlusion, subsurface scattering, reflections) and tone intensity (low-frequency - lighting and color); model-side auto-masking where the model understands scene semantics and can be applied to the character only; and engine-side masks, unlimited in number, each with independent intensity and tone. The demonstrated range ran from structure intensity 25%, close to the render frame, to 95%, near the maximum uplift DLSS can provide. NVIDIA said it is building more controls and working with its partners to incorporate their feedback so DLSS 5 becomes a tool for artists and art directors.",
+              "figure": "structure intensity demonstrated from 25% to 95%",
+              "topics": ["product_launches"]
+            },
+            {
+              "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+              "signal": "AI surrogate models for physics simulation, presented by Neil Ashton, Researcher: an open dataset of around 2,000 aircraft simulations with more than a billion degrees of freedom generates around 200 terabytes of data; tokenized through transformer architectures developed by NVIDIA Research with research institutions, the trained model checkpoint is only around 200 megabytes - around a million times compression - and predicts an unseen geometry or boundary condition more than 10,000 times faster to within 1% or 2% accuracy, returning the flow field within a second on an RTX 6000, a relatively modest GPU, rather than hours or days, visualized with Omniverse libraries. NVIDIA supplies the stack beyond the compute: PhysicsNeMo and Earth-2 as the open source frameworks for developing these models.",
+              "figure": "around 2,000 aircraft simulations, more than a billion degrees of freedom, around 200 terabytes -> around 200 megabyte checkpoint; more than 10,000 times faster; 1% or 2% accuracy; around a million times compression; runs on an RTX 6000",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+              "signal": "Scale of the physics workload NVIDIA is targeting with AI (Neil Ashton): the reference coupled atmosphere-land-ocean Earth simulation ran on more than 20,000 GPUs at a resolution of one kilometer on a 50 billion cell grid and won the Gordon Bell Prize, and it is not feasible with today's technology to run a 20,000 GPU job every single day - the argument for AI surrogates. AI weather models trained on 40 years of ERA5 data autoregressively predict the next hour or day in seconds or minutes instead of hours or days, are as accurate or more accurate than traditional simulation, and weather centers around the world use these AI models in production today. StormScope, trained on satellite and observation data, predicts how storms merge and propagate orders of magnitude faster than simulation. Ashton named electromagnetics and structural simulation of cars and planes as the next domains to move.",
+              "figure": "more than 20,000 GPUs; one kilometer resolution; 50 billion cell grid; 40 years of ERA5 data",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+              "signal": "Cosmos world foundation model family, presented by Ming-Yu Liu, VP of Cosmos Lab: an open omnimodel on a mixture of transformers architecture with two towers - an autoregressive tower that reasons in language and a diffusion tower that generates vision, audio and action tokens - sharing multimodal attention. Action is a first-class modality encoded as geometric primitives (ego pose, effector poses, grasp and gripper), so one model covers a self-driving car, a single-arm robot, a humanoid and human egocentric video, and out of the box it supports forward dynamics, inverse dynamics and policy. Cosmos 3 Nano, a 16 billion parameter model, and Cosmos 3 Super were released last month at NVIDIA GTC Taipei; Cosmos 3 Edge, a four billion parameter model built to run real-time on device - in Jetson Thor, in RTX, in DGX Spark, with no round trip to the data center - was released at this keynote. Across eight different benchmarks spanning generation, reasoning and policy, Cosmos models rank number one.",
+              "figure": "Cosmos 3 Nano 16 billion parameters; Cosmos 3 Edge four billion parameters; number one across eight benchmarks",
+              "topics": ["product_launches"]
+            },
+            {
+              "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+              "signal": "Cosmos inference cost and customization (Ming-Yu Liu): Cosmos 3 Super was pre-trained with distribution matching to reduce the number of denoising steps to four, giving a 25 times speed-up for text-to-image and image-to-video generation while remaining state of the art according to Artificial Analysis. Pre-training Cosmos on the DROID dataset produced a state-of-the-art pick-and-place policy result. NVIDIA is releasing the post-training scripts it used internally to build custom models, and both the accuracy post-training and the speed post-training can be done with a DGX Station - customization does not require data-center compute.",
+              "figure": "denoising steps reduced to four; 25 times speed-up for text-to-image and image-to-video",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+              "signal": "Cosmos platform arc and adoption (Ming-Yu Liu): Cosmos was introduced to the world in January 2025, 18 months ago, and has compounded component by component - Cosmos Predict for world generation, Cosmos Reason for world understanding, Cosmos Policy for action - all unified into a single omni-modal world model in Cosmos 3. Cosmos 3.5 has already started and will bring in multi-view and other capabilities. NVIDIA's own products are built on it: Metropolis VSS (Video Summarizing Search) for video analytics, NVIDIA Isaac for realism enhancement and variation creation in robot policy training, Cosmos Dreams, the Optane robot taxi driving policy and the GR00T humanoid policy. The platform is built with Cosmos Coalition members contributing research, data and evaluation, ships with open models, open datasets, open libraries and an open framework, and has reached millions of developers.",
+              "figure": "introduced January 2025, 18 months ago; reached millions of developers",
+              "topics": []
+            },
+            {
+              "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+              "signal": "Cosmos Dreams announced: a neural closed-loop simulator built on OmniDreams research, the first one for autonomous vehicles. A policy model (Optane) takes an action, Cosmos Dreams applies that action and generates what the sensors will see, photorealistic and frame by frame, at interactive speed - the car drives inside the simulator's imagination - so AV developers can verify policy accuracy before deploying the model in a real fleet and can generate scenarios difficult to craft in the real world, accelerating development velocity and saving operational cost. In the live demo an entire world was simulated from a single frame with PS5 controller input. The compute needed has collapsed across GPU generations: the demo first required 64 GB300 GPUs, then ran on 16 Vera Rubin GPUs, and now runs on a single RTX 6000 Ada Generation workstation GPU with the new Cosmos model.",
+              "figure": "64 GB300 GPUs -> 16 Vera Rubin GPUs -> a single RTX 6000 Ada Generation workstation GPU",
+              "topics": ["product_launches"]
+            },
+            {
+              "quarter": "NVIDIA SIGGRAPH 2026 (07-20-2026)",
+              "signal": "Jensen Huang's framing of why the graphics franchise feeds physical AI: 'There is a complete reset in computer graphics.' NVIDIA wants 'the power of AI, but grounded in 3D, governed by physics, so that it is shapeable by creators', because 'Before robots operate in the real world, they will learn in virtual worlds with synthetic experiences.' He traced the inferred share of the frame from DLSS 1, where one out of every four pixels was inferred, to today, where entire patches of the screen are inferred, and said the goal is the same whether for games, cinema, robotics or factory digital twins - virtual worlds that behave with the fidelity and realism of the physical world.",
+              "figure": "DLSS 1: one out of every four pixels inferred",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}
