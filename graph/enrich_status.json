@@ -1,25 +1,31 @@
 {
- "generated": "2026-09-16 19:21",
- "labels_total": 1133,
+ "generated": "2026-09-17 18:37",
+ "labels_total": 1136,
  "pipelines": [
   {
    "id": "us",
    "name": "US earnings calls",
    "command": "enrich us",
    "source": "Alpha Vantage / defeatbeta (av.py)",
-   "files": 272,
-   "labels_on_disk": 272,
-   "in_graph": 273,
-   "entries": 2623,
-   "pending": [],
+   "files": 275,
+   "labels_on_disk": 275,
+   "in_graph": 276,
+   "entries": 2646,
+   "pending": [
+    {
+     "company": "NXP Semiconductors",
+     "label": "NXP Semiconductors Q2 FY2026 (07-28-2026)",
+     "file": "transcripts/av/nxpsemiconductors_q2_2026.txt"
+    }
+   ],
    "no_data": [],
    "skipped": 0,
    "source_range": [
     "2026-01-06",
     "2026-09-10"
    ],
-   "last_fetch": "2026-09-16",
-   "last_enriched": "2026-09-16",
+   "last_fetch": "2026-09-17",
+   "last_enriched": "2026-09-17",
    "enriched_days": [
     {
      "day": "2026-08-31",
@@ -44,6 +50,10 @@
     {
      "day": "2026-09-16",
      "labels": 203
+    },
+    {
+     "day": "2026-09-17",
+     "labels": 3
     }
    ],
    "last_sync": "2026-09-04",
@@ -559,6 +569,18 @@
    "files": 272,
    "in_graph": 273,
    "pending": 0,
+   "last_sync": "2026-09-04",
+   "source_range": [
+    "2026-01-06",
+    "2026-09-10"
+   ]
+  },
+  {
+   "day": "2026-09-17",
+   "pipeline": "us",
+   "files": 275,
+   "in_graph": 276,
+   "pending": 1,
    "last_sync": "2026-09-04",
    "source_range": [
     "2026-01-06",

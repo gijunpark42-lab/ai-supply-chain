@@ -5,7 +5,7 @@ Read `AGENTS.md` first for the load order and the hard rules. This file answers 
 **what is done, what is in flight, what comes next.** Append to the session log at the end of every
 session; edit the "Current state" and "Next up" sections in place so they stay true.
 
-Last full update: **2026-09-12** (Codex UI session; original Claude handoff history preserved below).
+Last full update: **2026-09-17** (Codex US missing-company enrichment; original Claude handoff history preserved below).
 
 ---
 
@@ -45,9 +45,10 @@ append-only history is `enrich_log.json` (commit it).
   authorized immediate deployment in this session, including the necessary commit/push. Completion notes
   are recorded in a follow-up documentation commit. The standing no-auto-commit preference still applies
   to future sessions.
-- **Graph:** 352 nodes, 1,377 edges (2026-09-16 evening: conference run 2 + SK Telecom node, onsemi→Lite-On removed).
-- **Coverage by pipeline (from `enrich_log.json`, 2026-09-11):** edgar 1,012 files / 432 in graph;
-  dart 48/48; intl 30/29; tw 17/17; conference 93 files / 89 in graph / 0 pending / 4 no-data (2026-09-16); manual 244/244.
+- **Graph:** 355 nodes, 1,402 edges after adding NXP Semiconductors, Microchip Technology and Skyworks
+  Solutions from their latest full calls on 2026-09-17.
+- **Coverage by pipeline:** US 275 files / 276 labels in graph / 0 pending after this run; edgar 1,012/432;
+  dart 48/48; intl 30/29; tw 17/17; conference 93/89 / 0 pending / 4 no-data; manual 244/245.
 - **Web app:** live; 2026-09-12 UI refresh in `web/src/app/{page.tsx,workspace.css}` and
   `web/src/components/{Sidebar.tsx,SearchBox.tsx}`: research-view headings, graph summary, scrollable
   keyboard-operated tab strip, mobile filter focus management, accessible sidebar sections/search clear,
@@ -73,10 +74,12 @@ append-only history is `enrich_log.json` (commit it).
    `curl_cffi`) → enrich → verify → one build → `investing.py done --kind conference`.
    Open structure questions for the USER: Terafab (KLA's new customer; not a node — fold into Tesla/SpaceX?),
    STMicro→SpaceX (Starlink ~90% share, satellite chips), Sanmina/Wiwynn as AMD Helios rack partners (list-named).
-1b. **US 2026 earnings-call backlog — 202 calls downloaded, NOT enriched (user will trigger).**
-   List: `docs/US_ENRICH_BACKLOG.md`; queue: `av/pending.json` (gitignored — rebuild from the list on another machine).
-   `enrich us` processes them (no `slot` on entries older than the company's latest call). Details:
-   `docs/memory/us_backlog_2026.md`.
+1b. **US 2026 earnings-call backlog: done.** All 202 calls were enriched across runs 3–5 on 2026-09-16;
+   `av/pending.json` is empty. Details: `docs/memory/us_backlog_2026.md`.
+1c. **Missing-company audit:** the three US-listed direct candidates are now added and verified. Remaining list:
+   `docs/MISSING_PUBLIC_COMPANIES_2026-09-17.md` (66 direct candidates: Korea 32, Japan 9, Taiwan 25;
+   17 review candidates; 2 distributor exclusions). Korea is DART-only; Japan/Taiwan require an immediately
+   available full transcript or approved pipeline before any add.
 2. **EDGAR round 3b — "read ALL recovered tables", user scheduled it for the week of 2026-09-14.**
    Prep is finished: `transcripts/edgar/` was re-pulled 137/137 tickers (2026-09-11 night), the 5 old
    verify fails pass again. Durable archive: `C:\Users\calif\edgar_round3b\` (ledger `R3_PROGRESS.md`,
@@ -286,3 +289,25 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   Linde→TSMC, NVIDIA→Tesla. One build: graph 352 / 1,400; verify_graph on 112 labels: 848 pass / 214 unchecked /
   1 warn (Sandisk→Kioxia, transcript spells "Kyoccia") / 0 fail. `av/pending.json` → 0; the 2026 US backlog is done.
   Uncommitted: yes.
+
+- **2026-09-17 (Codex)** — Asked: read the repo, identify US/Korean/Japanese/Taiwanese listed companies missing
+  from the graph, then enrich/add/logos; user narrowed the request mid-run because of token budget to **list only,
+  no enrichment**. Done: wrote `docs/MISSING_PUBLIC_COMPANIES_2026-09-17.md`, comparing the 352-node graph with
+  current official/thematic semiconductor and AI power/cooling baskets. Result: 69 direct (`A`) candidates, 17
+  review (`B`) candidates, and 2 explicit distributor exclusions. No nodes, metadata, logos, transcripts, patches,
+  queues, state files, generated graph files or external services changed. Decisions: enrichment/add/logo work is
+  deferred; future Korea work uses only each candidate company's own DART filing, and Japan/Taiwan proceed only when
+  a full transcript or approved pipeline is immediately available. Left open: validate sources company-by-company
+  before any future addition, starting with the `A` list. Uncommitted: yes (`docs/` only).
+
+- **2026-09-17 (Codex)** — Asked: continue with only the US-listed companies from the missing-company audit,
+  enrich them from full transcripts into the appropriate chains, add logos, modify the repo and push. Done:
+  added NXP Semiconductors (optical networking / Networking ASIC), Microchip Technology and Skyworks Solutions
+  (optical Components + Power Semiconductors) through three applied patches and three saved full-call transcripts;
+  added 21 quarterly-data entries and two transcript-named Microchip edges/contracts to Delta and Lite-On; added
+  metadata and XML-valid, visually checked SVG logos. Build + web data sync completed at 355 nodes / 1,402 edges.
+  Verification: NXP 6 pass / 0 fail; Microchip 8 pass + 2 unchecked / 0 fail; Skyworks 7 pass / 0 fail. The one
+  queued Alpha Vantage row was marked done (`av/pending.json` 1 -> 0); manual fallback transcripts never entered
+  that queue. Updated the audit to 66 remaining direct candidates. Decisions: this run covers only the US slice;
+  Korea remains company-DART-only and Japan/Taiwan remain conditional on an available full transcript/approved
+  pipeline. Left open: the remaining Korea/Japan/Taiwan audit candidates and pre-existing EDGAR round 3b. Uncommitted: no.

@@ -173,3 +173,8 @@ resets there after every call, so cd in every command and give agents absolute p
   Energy and Baker Hughes were already NASDAQ in metadata (Wikidata is stale). See [[naming-rules]].
 
 2026-09-16: +SK Telecom (new node) — companieslogo search API → slug `sk-telecom`, ticker SKM (NYSE ADR of 017670.KS) proves identity; `SKM_BIG-eccab257.svg` (SK butterfly + 'telecom' wordmark), XML-valid, readable on both chips, bg light. Manifest 349.
+
+2026-09-17: +NXP Semiconductors, Microchip Technology and Skyworks Solutions — companieslogo search
+results matched both ticker and company name (NXPI, MCHP, SWKS). Installed original SVG wordmarks, parsed
+all three as XML, rendered them locally for visual review, and set `bg: light`. Manifest 352; graph 355.
+The five graph nodes still without manifest entries are the four previously unresolved names plus Fluidstack.

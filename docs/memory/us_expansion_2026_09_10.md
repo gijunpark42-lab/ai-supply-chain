@@ -26,3 +26,10 @@ verify. Rule for edges: counterparty must be NAMED by management on the call AND
 **Known verify false alarms:** numbers spelled in words ("two and a half gigawatts" → 2.5; "more than half" → >50%).
 **Still open:** logos for the 38 new nodes (see [[logo-fetching]]); Carrier could also sit in Heat Exchanger / CDU (curated edit).
 Related: [[project-state]], [[feedback-transcript-sourcing]], [[concurrent-job-race]].
+
+**Follow-up 2026-09-17 (+3 US-listed names):** NXP Semiconductors (NXPI), Microchip Technology (MCHP)
+and Skyworks Solutions (SWKS) were added from their latest full calls via three patches. NXP was placed in
+`optical_networking` / Networking ASIC; Microchip and Skyworks in both optical Components and Power
+Semiconductors. The batch added 21 quarterly-data rows and two management-named Microchip customer edges
+to existing power-chain nodes Delta and Lite-On. All three labels verified with 0 fails; graph 355 / 1,402.
+Alpha Vantage supplied NXP; Microchip and Skyworks used full-call fallback pages after AV had no transcript.
