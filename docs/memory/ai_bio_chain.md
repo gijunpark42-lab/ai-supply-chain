@@ -36,3 +36,10 @@ customer calls to corroborate the supplier side — the AI detail comes from the
 LevelSet Bio, Personalis, Simcere (2096.HK), IQVIA, Crinetics. All were named only as counterparties.
 
 See [[project_state]], [[naming_rules]], [[generation_separation]].
+
+**UI registration gotcha (cost a second round trip):** a new chain is invisible in the web app until its
+slug is added to `CHAIN_COLORS` in `web/src/lib/taxonomy.ts` — `Sidebar.tsx` derives the whole chain filter
+list from `Object.keys(CHAIN_COLORS)` and `page.tsx` seeds the default-checked set from it, so nodes
+belonging only to the unregistered chain get filtered out (the header read "355 / 380 companies,
+20 / 21 active chains"). `ai_bio` is `#d946ef`; a keyword rule was also added to the Ask router in
+`web/src/lib/retrieval.ts`. Now documented as the last step of the chain-skeleton skill.

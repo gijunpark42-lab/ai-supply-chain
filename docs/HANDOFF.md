@@ -343,3 +343,14 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   Decisions: proposed nodes NOT added (structure is the user's) — BioNTech, Merck, GSK, Daiichi Sankyo, Incyte,
   LevelSet Bio, Personalis, Simcere (2096.HK), IQVIA, Crinetics. Notable: Eli Lilly, Vertex, AstraZeneca, Novo
   and Sanofi Q2 calls contain **zero** AI/ML mentions — only BMS and Jazz do. Uncommitted: no (pushed).
+
+- **2026-09-18 (Claude, Opus 5 1M) — follow-up** — User: "it's not on the website yet". The data WAS live
+  (gijun42.com served 380 nodes / 1,429 edges / 21 chains and all 25 logos), but the UI hid the chain: the
+  sidebar builds its list from `CHAIN_COLORS` in `web/src/lib/taxonomy.ts` (`CHAIN_SLUGS = Object.keys(...)`)
+  and `page.tsx` seeds the default-checked filters from the same map, so with no `ai_bio` entry its 25
+  exclusive nodes were filtered out — the header read "355 / 380 companies, 20 / 21 active chains". Fixed in
+  3de46a2: added `ai_bio: "#d946ef"` plus a drug-discovery/genomics keyword rule to the Ask router in
+  `retrieval.ts`. Verified in Chrome on the deployed site: 380/380 companies, 1,429 connections, 21/21 chains;
+  Chain 2D renders the full AI Bio chain; Tempus AI shows "7 signals, downstream 2"; Recursion renders its
+  logo badge and "last data 2026-08-05". The chain-skeleton skill now documents this as its last step.
+  Uncommitted: no (pushed).

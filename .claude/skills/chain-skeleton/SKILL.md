@@ -36,3 +36,27 @@ Rules to follow:
 
 ---
 
+
+## Last step — register the chain in the web app (easy to forget, silently breaks the UI)
+
+`python graph_build.py --sync` puts the new chain into `graph/` and `web/public/data/`, but the
+web app will still NOT show it. The sidebar builds its chain list from a hardcoded map:
+
+```ts
+// web/src/lib/taxonomy.ts
+export const CHAIN_COLORS: Record<string, string> = { ..., <new_slug>: "#rrggbb" };
+```
+
+`Sidebar.tsx` does `CHAIN_SLUGS = Object.keys(CHAIN_COLORS)` and `page.tsx` seeds the
+default-checked filter set from the same map. A chain missing there gets no checkbox, so every
+node that belongs ONLY to it is filtered out of the graph — the header reads e.g. "355 / 380
+companies, 20 / 21 active chains" and nothing looks obviously broken.
+
+So after the build:
+1. Add `<chain_slug>: "<hex>"` to `CHAIN_COLORS` — pick a hue not already used by the other chains.
+2. If the chain covers a distinct subject, add a keyword rule to the Ask-tab router in
+   `web/src/lib/retrieval.ts` (`{ re: /\b(...)\b/, chains: ["<chain_slug>"] }`) so questions reach it.
+3. Verify on the deployed site that "Companies" reads N/N and "Active chains" reads N/N.
+
+(Learned 2026-09-18: `ai_bio` shipped with correct data but was invisible in the UI for exactly
+this reason.)
