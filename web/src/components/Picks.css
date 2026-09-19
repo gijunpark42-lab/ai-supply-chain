@@ -234,6 +234,39 @@
 .pk-sort:hover { color: var(--ap-blue-hi); }
 .pk-sort.on { color: var(--ap-blue-hi); }
 
+/* ── "Show all screened companies": full-width toggle under the Top-15 table ── */
+.pk-uni { margin-top: 0.8rem; }
+.pk-uni-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  border: 1px dashed var(--ap-border);
+  border-radius: 14px;
+  background: var(--ap-surface);
+  color: var(--ap-text);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.pk-uni-toggle:hover { border-color: var(--ap-blue); color: var(--ap-blue-hi); }
+.pk-uni-caret { transition: transform 0.18s ease; }
+.pk-uni-caret.open { transform: rotate(180deg); }
+.pk-uni-blurb { margin-top: 0.8rem; }
+/* The list is 178-213 rows: scroll it inside its own box so the page footer and
+   the Top-15 table stay reachable, and the sticky header keeps the columns named. */
+.pk-uni-wrap { max-height: 70vh; overflow-y: auto; }
+.pk-score { font-weight: 650; color: var(--ap-text); }
+.pk-flag-top {
+  border-color: var(--ap-blue);
+  color: var(--ap-blue-hi);
+  background: rgba(41, 151, 255, 0.12);
+}
+
 .pk-foot {
   margin: 0.8rem 0 0;
   color: var(--ap-muted);

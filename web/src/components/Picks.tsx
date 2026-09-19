@@ -1,35 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { BASKETS, ENTRY_DATE, ALL_SYMBOLS, type Pick } from "@/lib/picks";
+import { BASKETS, ENTRY_DATE, ALL_SYMBOLS, money, pct, tone, type Pick, type Quotes } from "@/lib/picks";
+import PicksUniverse from "./PicksUniverse";
 import "./Picks.css";
 
 const REFRESH_MS = 60_000;
-
-interface Quote {
-  price: number | null;
-  prev_close: number | null;
-  day_pct: number | null;
-  currency: string | null;
-  market_state: string | null;
-  quote_time: number | null;
-}
-type Quotes = Record<string, Quote>;
-
-function money(v: number | null | undefined, cur: "USD" | "KRW"): string {
-  if (v == null) return "—";
-  return cur === "KRW"
-    ? "₩" + Math.round(v).toLocaleString("en-US")
-    : "$" + v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
-
-function pct(v: number | null | undefined, digits = 2): string {
-  if (v == null) return "—";
-  return (v >= 0 ? "+" : "") + v.toFixed(digits) + "%";
-}
-
-const tone = (v: number | null | undefined) =>
-  v == null ? "" : v > 0 ? " up" : v < 0 ? " down" : " flat";
 
 type SortKey = "rank" | "ret" | "day";
 
@@ -237,6 +213,12 @@ export default function Picks({ onOpen }: { onOpen: (company: string) => void })
           </tbody>
         </table>
       </div>
+
+      <PicksUniverse
+        basketKey={basket.key}
+        pickSymbols={new Set(basket.picks.map((p) => p.symbol))}
+        onOpen={onOpen}
+      />
 
       <p className="pk-foot">
         Click any row to open that company&apos;s panel — live chart, the signals on file, and
