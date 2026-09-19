@@ -17,9 +17,10 @@ import CapexBacklog from "@/components/CapexBacklog";
 import SearchBox from "@/components/SearchBox";
 import Exposure from "@/components/Exposure";
 import AskGraph from "@/components/AskGraph";
+import Picks from "@/components/Picks";
 import "./workspace.css";
 
-const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Screener", "Capex", "Coverage", "Ask", "Semi Bot"] as const;
+const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Screener", "Picks", "Capex", "Coverage", "Ask", "Semi Bot"] as const;
 // External dashboard embedded in the "Semi Bot" tab (its own Vercel project; sends no
 // X-Frame-Options / CSP frame-ancestors header, so it can be shown inline in an iframe).
 const SEMI_BOT_URL = "https://semiband-dashboard.vercel.app";
@@ -31,6 +32,7 @@ const VIEW_INFO: Record<Tab, { title: string; description: string }> = {
   Exposure: { title: "Find the companies behind a chain.", description: "Explore sourced exposure, customer concentration, and generation changes." },
   Timelines: { title: "Put the signals in sequence.", description: "Track roadmaps, capacity, and product milestones across the supply chain." },
   Screener: { title: "Compare the companies.", description: "Review the latest reported results, guidance, supply status, and catalysts." },
+  Picks: { title: "Track the picks.", description: "Two ranked one-quarter baskets, priced live against their 2026-09-18 entry." },
   Capex: { title: "Follow the investment.", description: "Compare capital spending and contracted demand across cloud infrastructure." },
   Coverage: { title: "Know what is on file.", description: "Check earnings dates, source freshness, and the enrichment queue." },
   Ask: { title: "Start with a question.", description: "Explore the stored signals and contracts with source-linked answers." },
@@ -356,6 +358,7 @@ export default function Page() {
           <Timelines resolve={resolveCompany} onOpen={openNode} />
         )}
         {viz && tab === "Screener" && <Screener byId={viz.byId} onOpen={openNode} />}
+        {viz && tab === "Picks" && <Picks onOpen={openNode} />}
         {viz && tab === "Capex" && (
           <CapexBacklog resolve={resolveCompany} onOpen={openNode} />
         )}
