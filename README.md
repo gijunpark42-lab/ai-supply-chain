@@ -6,7 +6,8 @@ Click any company and the whole supply web lights up.
 
 **Live app:** [gijun42.com](https://gijun42.com) — Next.js on Vercel (see [`web/`](web/README.md)). **Current graph:**
 
-312 companies · 1,250 directed edges · 20 product chains · 317 source documents.
+380 companies · 1,430 directed edges · 21 product chains · 1,149 source documents
+(622 earnings calls, 421 SEC filings — 10-K, 10-Q, 8-K — and 96 investor conferences, in English, Korean and Whisper-transcribed Taiwanese).
 <img width="1103" height="775" alt="graph3d" src="https://github.com/user-attachments/assets/ca4d792d-44d7-4127-a542-8d390f9d2f03" />
 <img width="1156" height="853" alt="nodedossieraehr" src="https://github.com/user-attachments/assets/78a18768-d8df-4aa0-bca0-aa98f827de54" />
 <img width="1418" height="1375" alt="generation-transitions" src="https://github.com/user-attachments/assets/8294dacd-8fdd-4b83-a2c4-b3888e87c744" />
@@ -19,7 +20,7 @@ Click any company and the whole supply web lights up.
 
 ## Quant: does "sold out" move stocks? (`quant/`)
 
-An event study on the hand-labeled **"capacity sold out"** signal across 71 US-listed earnings calls: entry at t+1 close, +5/+10/+20-trading-day windows, abnormal returns vs. SOXX/SPY/QQQ, one-sample t-tests and hit rates. Code and outputs live in [`quant/`](quant/) (`event_study.py`, `results.json`).
+An event study on the hand-labeled **"capacity sold out"** signal across 71 US-listed earnings calls: entry at t+1 close, +5/+10/+20-trading-day windows, abnormal returns vs. SOXX/SPY/QQQ, one-sample t-tests and hit rates. Result: flagged names lagged SOXX by a mean 9.4% over the 20 trading days after the call (n=15, p=0.026, hit rate 0.13), so by the time a company says it on a call the news is already in the price relative to its peers. Code and outputs live in [`quant/`](quant/) (`event_study.py`, `results.json`).
 
 ---
 
@@ -112,13 +113,13 @@ Then `npm run sync` in `web/` copies everything into `web/public/data` and a pus
 ## Repository layout
 
 ```
-chains/               one JSON per product chain (accelerators / components / manufacturing)
+chains/               one JSON per product chain, 21 in all (accelerators / applications / components / manufacturing)
 graph/                merged_graph.json — built by graph_build.py, never edited by hand
 timelines/            hand-curated thematic tables (13)
-reports/              per-company equity-research dossiers (42)
-transcripts/          source documents, one folder per sector (317 files)
+reports/              per-company equity-research dossiers (44)
+transcripts/          source documents, one folder per sector (1,737 files)
 company_metrics.json  screener — one latest-quarter row per company
-company_metadata.json tickers / exchanges / listing status (267 companies)
+company_metadata.json tickers / exchanges / listing status (380 companies)
 capex_backlog.json    hyperscaler + neocloud capex & backlog (feeds the Capex tab)
 taxonomy.py           the fixed 13-layer / 4-domain vocabulary (single source of truth)
 graph_build.py        merges all chains by company name into the nodes+edges graph
