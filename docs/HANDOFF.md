@@ -593,3 +593,12 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   SoftBank notes for OpenAI tranche, GUC HBM4E IP, Accelink 12.8T XPO, LPKF glass-substrate LOI, ...),
   42 closed as no facts; verify_graph 0 fail; two Opus verifiers: 23 entries all pass. A third sync over the
   44 round-3 sources was running at commit time (its saves go into the next commit).
+  Follow-up (same day, after the first push): the third sync over all 342 sources saved 23 releases from the
+  round-3 names -> 11 patches applied (Roche sefaxersen Ph3 / enicepatide Ph2 / Susvimo EU / Ocrevus CHMP,
+  Novo CagriSema data / Sogroya CHMP / 2030 ambitions (not guidance, no slot), BizLink closes Interplex
+  Datacom (EV US$850M) + ams OSRAM co-development demo, Schneider Motivair 3.5 MW CDU, Resonac US-JOINT start),
+  12 closed as no facts (Adobe single-customer deal and Mitsubishi Electric reference designs judged not
+  material). ir_pull.py: BOILERPLATE filter (cookie/old-browser banners never count as article text), 60-item
+  cap on per-release page reads (Horiba's 400-item archive made the sync slow), JSON link_re filter
+  (Micronics: company PDFs only), link-less EIR schedule rows skipped, JSONP/BOM/comment tolerant.
+  IR queue now holds only the 7 pre-09-18 rows. Coverage card fixed (queue closed before the build).

@@ -103,6 +103,10 @@ RESULTS = re.compile(r"\bfinancial results\b|\b(quarter|fiscal|full[- ]year|year
 END_MARKERS = re.compile(r"^(About [A-Z]|Forward[- ]Looking Statements|Safe Harbor|Cautionary|Media Contacts?|"
                          r"Investor (Relations )?Contacts?|Contact Information|Contacts?:|View source version|Source:)")
 CHROME = {"Download", "(opens in new window)", "Download as PDF", "View All News", "Print", "Share", "Email Alerts"}
+# Site-wide banners that are sentences but never article text -- without this, a page whose article
+# did not load (Merck's event pages) still passes prose_ok on its cookie / old-browser warnings.
+BOILERPLATE = re.compile(r"(?i)\bcookies?\b|outdated browser|browser is not supported|internet explorer is not "
+                         r"supported|enable javascript|javascript is disabled|consenting to share your data")
 
 
 # ---------------------------------------------------------------- small helpers
@@ -683,7 +687,7 @@ def release_body(page, title):
         for l in lines[s:]:
             if body and END_MARKERS.match(l):
                 break
-            if l not in CHROME:
+            if l not in CHROME and not BOILERPLATE.search(l):
                 body.append(l)
         if sum(len(x) for x in body) > sum(len(x) for x in best):
             best = body
