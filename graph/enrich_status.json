@@ -1,6 +1,6 @@
 {
- "generated": "2026-09-18 16:31",
- "labels_total": 1164,
+ "generated": "2026-09-25 03:42",
+ "labels_total": 1220,
  "pipelines": [
   {
    "id": "us",
@@ -9,7 +9,7 @@
    "source": "Alpha Vantage / defeatbeta (av.py)",
    "files": 297,
    "labels_on_disk": 297,
-   "in_graph": 298,
+   "in_graph": 297,
    "entries": 2915,
    "pending": [],
    "no_data": [],
@@ -43,7 +43,7 @@
     },
     {
      "day": "2026-09-16",
-     "labels": 203
+     "labels": 202
     },
     {
      "day": "2026-09-17",
@@ -152,12 +152,12 @@
     "2025-10-03",
     "2026-09-10"
    ],
-   "last_fetch": "2026-09-10",
+   "last_fetch": "2026-09-25",
    "last_enriched": "2026-09-16",
    "enriched_days": [
     {
      "day": "2026-09-10",
-     "labels": 431
+     "labels": 428
     },
     {
      "day": "2026-09-16",
@@ -212,8 +212,8 @@
     "2026-08-04",
     "2026-09-09"
    ],
-   "last_fetch": "2026-09-09",
-   "last_enriched": "2026-09-18",
+   "last_fetch": "2026-09-25",
+   "last_enriched": "2026-09-09",
    "enriched_days": [
     {
      "day": "2026-09-07",
@@ -221,10 +221,6 @@
     },
     {
      "day": "2026-09-09",
-     "labels": 1
-    },
-    {
-     "day": "2026-09-18",
      "labels": 1
     }
    ],
@@ -314,19 +310,75 @@
    "name": "Investor conferences",
    "command": "enrich conference",
    "source": "Investing.com fireside chats (investing.py conferences)",
-   "files": 93,
-   "labels_on_disk": 93,
-   "in_graph": 93,
-   "entries": 510,
-   "pending": [],
+   "files": 105,
+   "labels_on_disk": 105,
+   "in_graph": 94,
+   "entries": 535,
+   "pending": [
+    {
+     "company": "Qualcomm",
+     "label": "Qualcomm Snapdragon Summit 2026 (09-22-2026)",
+     "file": "transcripts/conferences/qualcomm_snapdragonsummit_2026-09-22.txt"
+    },
+    {
+     "company": "Analog Devices",
+     "label": "Analog Devices U.S. All Stars Conference 2026 (09-22-2026)",
+     "file": "transcripts/conferences/analogdevices_usallstarsconference_2026-09-22.txt"
+    },
+    {
+     "company": "Sanofi",
+     "label": "Sanofi Bank of America healthcare conference 2026 (09-22-2026)",
+     "file": "transcripts/conferences/sanofi_bankofamericahealthcareconference_2026-09-22.txt"
+    },
+    {
+     "company": "Hubbell",
+     "label": "Hubbell Morgan Stanley conference 2026 (09-17-2026)",
+     "file": "transcripts/conferences/hubbell_morganstanleyconference_2026-09-17.txt"
+    },
+    {
+     "company": "EMCOR",
+     "label": "EMCOR Morgan Stanley laguna conference 2026 (09-17-2026)",
+     "file": "transcripts/conferences/emcor_morganstanleylagunaconference_2026-09-17.txt"
+    },
+    {
+     "company": "Eaton",
+     "label": "Eaton Morgan Stanley laguna conference 2026 (09-16-2026)",
+     "file": "transcripts/conferences/eaton_morganstanleylagunaconference_2026-09-16.txt"
+    },
+    {
+     "company": "Jazz Pharmaceuticals",
+     "label": "Jazz Pharmaceuticals Morgan Stanley conference 2026 (09-16-2026)",
+     "file": "transcripts/conferences/jazzpharmaceuticals_morganstanleyconference_2026-09-16.txt"
+    },
+    {
+     "company": "GE Vernova",
+     "label": "GE Vernova Morgan Stanley laguna conference 2026 (09-16-2026)",
+     "file": "transcripts/conferences/gevernova_morganstanleylagunaconference_2026-09-16.txt"
+    },
+    {
+     "company": "Relay Therapeutics",
+     "label": "Relay Therapeutics Morgan Stanley conference 2026 (09-16-2026)",
+     "file": "transcripts/conferences/relaytherapeutics_morganstanleyconference_2026-09-16.txt"
+    },
+    {
+     "company": "Jazz Pharmaceuticals",
+     "label": "Jazz Pharmaceuticals Deutsche Bank Healthcare Summit 2026 (09-16-2026)",
+     "file": "transcripts/conferences/jazzpharmaceuticals_deutschebankhealthcaresummit_2026-09-16.txt"
+    },
+    {
+     "company": "Absci",
+     "label": "Absci Morgan Stanley healthcare conference 2026 (09-16-2026)",
+     "file": "transcripts/conferences/absci_morganstanleyhealthcareconference_2026-09-16.txt"
+    }
+   ],
    "no_data": [],
    "skipped": 0,
    "source_range": [
     "2026-07-20",
-    "2026-09-15"
+    "2026-09-22"
    ],
-   "last_fetch": "2026-09-16",
-   "last_enriched": "2026-09-18",
+   "last_fetch": "2026-09-22",
+   "last_enriched": "2026-09-22",
    "enriched_days": [
     {
      "day": "2026-09-16",
@@ -335,19 +387,15 @@
     {
      "day": "2026-09-18",
      "labels": 4
+    },
+    {
+     "day": "2026-09-22",
+     "labels": 1
     }
    ],
-   "last_sync": "2026-09-16",
+   "last_sync": "2026-09-22",
    "extra": {
     "runs": [
-     {
-      "at": "2026-09-10 19:46",
-      "since": "2026-03-14",
-      "pages": 3,
-      "oldest_seen": "2026-09-10",
-      "candidates": 8,
-      "saved": 8
-     },
      {
       "at": "2026-09-10 19:47",
       "since": "2026-03-14",
@@ -371,8 +419,572 @@
       "oldest_seen": "2026-05-14",
       "candidates": 4,
       "saved": 4
+     },
+     {
+      "at": "2026-09-22 18:31",
+      "since": "2026-09-14",
+      "pages": 8,
+      "oldest_seen": "2026-09-10",
+      "candidates": 12,
+      "saved": 12
+     },
+     {
+      "at": "2026-09-22 20:00",
+      "since": "2026-09-20",
+      "pages": 2,
+      "oldest_seen": "2026-09-17",
+      "candidates": 0,
+      "saved": 0
      }
     ]
+   }
+  },
+  {
+   "id": "ir",
+   "name": "Company IR press releases",
+   "command": "enrich ir",
+   "source": "Company IR RSS feeds (ir_pull.py) — company-issued, not transcripts",
+   "files": 129,
+   "labels_on_disk": 129,
+   "in_graph": 53,
+   "entries": 71,
+   "pending": [
+    {
+     "company": "Ciena",
+     "label": "Ciena press release: Ciena Launches Ciena Ventures to Expand Innovation Across (09-14-2026)",
+     "file": "transcripts/ir/ciena_2026-09-14_ciena-launches-ciena-ventures-to-expand-innovation.txt"
+    },
+    {
+     "company": "Coherent",
+     "label": "Coherent press release: Coherent Expands Pluggable Optical Line Systems Portfolio (09-17-2026)",
+     "file": "transcripts/ir/coherent_2026-09-17_coherent-expands-pluggable-optical-line-systems-po.txt"
+    },
+    {
+     "company": "Coherent",
+     "label": "Coherent press release: Coherent Brings AI Datacenter and Photonics Thought (09-08-2026)",
+     "file": "transcripts/ir/coherent_2026-09-08_coherent-brings-ai-datacenter-and-photonics-though.txt"
+    },
+    {
+     "company": "Lumentum",
+     "label": "Lumentum press release: Lumentum Experts to Share Insights at ECOC 2026 (09-15-2026)",
+     "file": "transcripts/ir/lumentum_2026-09-15_lumentum-experts-to-share-insights-at-ecoc-2026.txt"
+    },
+    {
+     "company": "Marvell",
+     "label": "Marvell press release: Microsoft, Marvell and Utimaco to Deliver Industry-first (09-17-2026)",
+     "file": "transcripts/ir/marvell_2026-09-17_microsoft-marvell-and-utimaco-to-deliver-industry-.txt"
+    },
+    {
+     "company": "Marvell",
+     "label": "Marvell press release: Marvell to Showcase End-to-End AI Data Center Connectivity (09-09-2026)",
+     "file": "transcripts/ir/marvell_2026-09-09_marvell-to-showcase-end-to-end-ai-data-center-conn.txt"
+    },
+    {
+     "company": "Ciena",
+     "label": "Ciena press release: Ciena Announces Fiscal Year 2029 Financial Targets (09-16-2026)",
+     "file": "transcripts/ir/ciena_2026-09-16_ciena-announces-fiscal-year-2029-financial-targets.txt"
+    },
+    {
+     "company": "Canon",
+     "label": "Canon press release: Canon demonstrates real-time remote sports viewing through (09-25-2026)",
+     "file": "transcripts/ir/canon_2026-09-25_canon-demonstrates-real-time-remote-sports-viewing.txt"
+    },
+    {
+     "company": "Zhen Ding",
+     "label": "Zhen Ding press release: Zhen Ding Priced US$800 Million Offering of Overseas (09-22-2026)",
+     "file": "transcripts/ir/zhending_2026-09-22_zhen-ding-priced-us-800-million-offering-of-overse.txt"
+    },
+    {
+     "company": "5N Plus",
+     "label": "5N Plus press release: 5N+ to Expand St. George, Utah Production Facility by 50% (09-22-2026)",
+     "file": "transcripts/ir/5nplus_2026-09-22_5n-to-expand-st-george-utah-production-facility-by.txt"
+    },
+    {
+     "company": "ASM International",
+     "label": "ASM International press release: ASM launches breakthrough Flowable Carbon technology for (09-22-2026)",
+     "file": "transcripts/ir/asminternational_2026-09-22_asm-launches-breakthrough-flowable-carbon-technolo.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: Announcing the New ASUS Googlebook 14 (09-23-2026)",
+     "file": "transcripts/ir/asus_2026-09-23_announcing-the-new-asus-googlebook-14.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS to Bridge the Gap from Local AI Development to (09-22-2026)",
+     "file": "transcripts/ir/asus_2026-09-22_asus-to-bridge-the-gap-from-local-ai-development-t.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Wins Ten 2026 European Hardware Association Reader (09-18-2026)",
+     "file": "transcripts/ir/asus_2026-09-18_asus-wins-ten-2026-european-hardware-association-r.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS AI Tech 2026 Seoul: Building the Infrastructure for (09-18-2026)",
+     "file": "transcripts/ir/asus_2026-09-18_asus-ai-tech-2026-seoul-building-the-infrastructur.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Announces Ascent QN10 Mini PC (09-18-2026)",
+     "file": "transcripts/ir/asus_2026-09-18_asus-announces-ascent-qn10-mini-pc.txt"
+    },
+    {
+     "company": "AT&S",
+     "label": "AT&S press release: AT&S and Marvell Technology expand collaboration to support (09-22-2026)",
+     "file": "transcripts/ir/ats_2026-09-22_at-s-and-marvell-technology-expand-collaboration-t.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink press release: Accelink at ECOC 2026: Charting the New Future of Optical (09-22-2026)",
+     "file": "transcripts/ir/accelink_2026-09-22_accelink-at-ecoc-2026-charting-the-new-future-of-o.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink press release: Accelink 12.8T XPO DR Liquid-Cooling Real-World Test: See (09-18-2026)",
+     "file": "transcripts/ir/accelink_2026-09-18_accelink-12-8t-xpo-dr-liquid-cooling-real-world-te.txt"
+    },
+    {
+     "company": "Alchip",
+     "label": "Alchip press release: Alchip collaborates with Synopsys to Address Scale Up and (09-23-2026)",
+     "file": "transcripts/ir/alchip_2026-09-23_alchip-collaborates-with-synopsys-to-address-scale.txt"
+    },
+    {
+     "company": "Comet Holding",
+     "label": "Comet Holding press release: Sustainability and resilience: Comet's new solar power (09-25-2026)",
+     "file": "transcripts/ir/cometholding_2026-09-25_sustainability-and-resilience-comet-s-new-solar-po.txt"
+    },
+    {
+     "company": "Diodes",
+     "label": "Diodes press release: Field-Plated Super Barrier Rectifier Devices from Diodes (09-24-2026)",
+     "file": "transcripts/ir/diodes_2026-09-24_field-plated-super-barrier-rectifier-devices-from-.txt"
+    },
+    {
+     "company": "Fujikura",
+     "label": "Fujikura press release: Support for Victims of the August 2026 Heavy Rains in Chiba (09-25-2026)",
+     "file": "transcripts/ir/fujikura_2026-09-25_support-for-victims-of-the-august-2026-heavy-rains.txt"
+    },
+    {
+     "company": "GUC (Global Unichip)",
+     "label": "GUC (Global Unichip) press release: GUC Announces 2nm 16 Gbps HBM4E IP (09-22-2026)",
+     "file": "transcripts/ir/gucglobalunichip_2026-09-22_guc-announces-2nm-16-gbps-hbm4e-ip.txt"
+    },
+    {
+     "company": "GlobalWafers",
+     "label": "GlobalWafers press release: release gwc-news-20260923 (09-23-2026)",
+     "file": "transcripts/ir/globalwafers_2026-09-23_release-gwc-news-20260923.txt"
+    },
+    {
+     "company": "HPE",
+     "label": "HPE press release: When AI becomes an asset, not an expense (09-24-2026)",
+     "file": "transcripts/ir/hpe_2026-09-24_when-ai-becomes-an-asset-not-an-expense.txt"
+    },
+    {
+     "company": "HPE",
+     "label": "HPE press release: HPE named a Leader in 2026 Gartner Magic Quadrant for (09-23-2026)",
+     "file": "transcripts/ir/hpe_2026-09-23_hpe-named-a-leader-in-2026-gartner-magic-quadrant-.txt"
+    },
+    {
+     "company": "HPE",
+     "label": "HPE press release: Aethos London Shoreditch redefines luxury hospitality with (09-22-2026)",
+     "file": "transcripts/ir/hpe_2026-09-22_aethos-london-shoreditch-redefines-luxury-hospital.txt"
+    },
+    {
+     "company": "Infineon",
+     "label": "Infineon press release: Infineon Wins Integrated Communication Award 2026 for (09-23-2026)",
+     "file": "transcripts/ir/infineon_2026-09-23_infineon-wins-integrated-communication-award-2026-.txt"
+    },
+    {
+     "company": "Japan Electronic Materials",
+     "label": "Japan Electronic Materials press release: release 260925-jinjiido-pdf (09-25-2026)",
+     "file": "transcripts/ir/japanelectronicmaterials_2026-09-25_release-260925-jinjiido-pdf.txt"
+    },
+    {
+     "company": "Kokusai Electric",
+     "label": "Kokusai Electric press release: Exhibit at SEMICON West 2026 (09-25-2026)",
+     "file": "transcripts/ir/kokusaielectric_2026-09-25_exhibit-at-semicon-west-2026.txt"
+    },
+    {
+     "company": "Kokusai Electric",
+     "label": "Kokusai Electric press release: Exhibit at ICSCRM2026 (09-18-2026)",
+     "file": "transcripts/ir/kokusaielectric_2026-09-18_exhibit-at-icscrm2026.txt"
+    },
+    {
+     "company": "Korea Zinc",
+     "label": "Korea Zinc press release: release ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ed-9 (09-23-2026)",
+     "file": "transcripts/ir/koreazinc_2026-09-23_release-ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ed-9.txt"
+    },
+    {
+     "company": "LG Innotek",
+     "label": "LG Innotek press release: release 1668 (09-21-2026)",
+     "file": "transcripts/ir/lginnotek_2026-09-21_release-1668.txt"
+    },
+    {
+     "company": "LG Innotek",
+     "label": "LG Innotek press release: release 1667 (09-20-2026)",
+     "file": "transcripts/ir/lginnotek_2026-09-20_release-1667.txt"
+    },
+    {
+     "company": "LPKF Laser & Electronics",
+     "label": "LPKF Laser & Electronics press release: Leading Asian advanced semiconductor packaging manufacturer (09-23-2026)",
+     "file": "transcripts/ir/lpkflaserelectronics_2026-09-23_leading-asian-advanced-semiconductor-packaging-man.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo and Schneider Electric Partner to Bring (09-21-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-21_lenovo-and-schneider-electric-partner-to-bring-dec.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Supports the 20th Asian Games and the 5th Asian Para (09-21-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-21_lenovo-supports-the-20th-asian-games-and-the-5th-a.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo and Olympic Council of Asia Partner to Help Shape (09-20-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-20_lenovo-and-olympic-council-of-asia-partner-to-help.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo's AI-enabled iChain helps improve delivery accuracy (09-18-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-18_lenovo-s-ai-enabled-ichain-helps-improve-delivery-.txt"
+    },
+    {
+     "company": "M31 Technology",
+     "label": "M31 Technology press release: M31 and Ambiq Collaborate on TSMC N12e Foundation IP to (09-24-2026)",
+     "file": "transcripts/ir/m31technology_2026-09-24_m31-and-ambiq-collaborate-on-tsmc-n12e-foundation-.txt"
+    },
+    {
+     "company": "MEC",
+     "label": "MEC press release: Transfer of Operating Officers (09-25-2026)",
+     "file": "transcripts/ir/mec_2026-09-25_transfer-of-operating-officers.txt"
+    },
+    {
+     "company": "MediaTek",
+     "label": "MediaTek press release: MediaTek Dimensity CX C10 Max Offers Flagship Performance (09-21-2026)",
+     "file": "transcripts/ir/mediatek_2026-09-21_mediatek-dimensity-cx-c10-max-offers-flagship-perf.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260925 (09-25-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-09-25_release-260925.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260924 (09-24-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-09-24_release-260924.txt"
+    },
+    {
+     "company": "Mitsubishi Heavy Industries",
+     "label": "Mitsubishi Heavy Industries press release: Announcement Regarding the Construction Work of the Giant (09-18-2026)",
+     "file": "transcripts/ir/mitsubishiheavyindustries_2026-09-18_announcement-regarding-the-construction-work-of-th.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: Mitsui Kinzoku Signs Joint Development Agreement with (09-18-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-09-18_mitsui-kinzoku-signs-joint-development-agreement-w.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Murata to Showcase New Sensing Frontiers at CEATEC 2026 (09-25-2026)",
+     "file": "transcripts/ir/murata_2026-09-25_murata-to-showcase-new-sensing-frontiers-at-ceatec.txt"
+    },
+    {
+     "company": "Nuvoton",
+     "label": "Nuvoton press release: Nuvoton Introduces I3810YYI Digital ChipCorder with (09-23-2026)",
+     "file": "transcripts/ir/nuvoton_2026-09-23_nuvoton-introduces-i3810yyi-digital-chipcorder-wit.txt"
+    },
+    {
+     "company": "Nuvoton",
+     "label": "Nuvoton press release: Nuvoton Launches NuMicro M3351 Series: A 5V High-Immunity (09-18-2026)",
+     "file": "transcripts/ir/nuvoton_2026-09-18_nuvoton-launches-numicro-m3351-series-a-5v-high-im.txt"
+    },
+    {
+     "company": "POSCO",
+     "label": "POSCO press release: [Special Interview] Dr. CHANG In Hwa, CEO of POSCO HOLDINGS (09-23-2026)",
+     "file": "transcripts/ir/posco_2026-09-23_special-interview-dr-chang-in-hwa-ceo-of-posco-hol.txt"
+    },
+    {
+     "company": "Renesas",
+     "label": "Renesas press release: Renesas Introduces Smallest Configurable GreenPAK IC with (09-24-2026)",
+     "file": "transcripts/ir/renesas_2026-09-24_renesas-introduces-smallest-configurable-greenpak-.txt"
+    },
+    {
+     "company": "SK Telecom",
+     "label": "SK Telecom press release: [Column] From \"People-to-People\" to \"People-to-AI\": Telecom (09-21-2026)",
+     "file": "transcripts/ir/sktelecom_2026-09-21_column-from-people-to-people-to-people-to-ai-telec.txt"
+    },
+    {
+     "company": "Samsung",
+     "label": "Samsung press release: Samsung at the Forefront of Korea's AI RAN Projects with KT (09-23-2026)",
+     "file": "transcripts/ir/samsung_2026-09-23_samsung-at-the-forefront-of-korea-s-ai-ran-project.txt"
+    },
+    {
+     "company": "Samsung",
+     "label": "Samsung press release: Bringing Fantasy Characters to Life: Samsung Spatial (09-23-2026)",
+     "file": "transcripts/ir/samsung_2026-09-23_bringing-fantasy-characters-to-life-samsung-spatia.txt"
+    },
+    {
+     "company": "Samsung",
+     "label": "Samsung press release: Samsung Opens Built-In Appliance Showroom in Germany To (09-22-2026)",
+     "file": "transcripts/ir/samsung_2026-09-22_samsung-opens-built-in-appliance-showroom-in-germa.txt"
+    },
+    {
+     "company": "Sanofi",
+     "label": "Sanofi press release: An Open Letter from the Chairs of AstraZeneca, Boehringer (09-22-2026)",
+     "file": "transcripts/ir/sanofi_2026-09-22_an-open-letter-from-the-chairs-of-astrazeneca-boeh.txt"
+    },
+    {
+     "company": "Sivers Semiconductors",
+     "label": "Sivers Semiconductors press release: Sivers Semiconductors gr frndringar i ledningsgruppen infr (09-24-2026)",
+     "file": "transcripts/ir/siverssemiconductors_2026-09-24_sivers-semiconductors-gr-frndringar-i-ledningsgrup.txt"
+    },
+    {
+     "company": "Sivers Semiconductors",
+     "label": "Sivers Semiconductors press release: Sivers Semiconductors Makes Changes to Senior Leadership (09-24-2026)",
+     "file": "transcripts/ir/siverssemiconductors_2026-09-24_sivers-semiconductors-makes-changes-to-senior-lead.txt"
+    },
+    {
+     "company": "Socionext",
+     "label": "Socionext press release: Socionext's Joint Technical Presentation Featured in Analog (09-21-2026)",
+     "file": "transcripts/ir/socionext_2026-09-21_socionext-s-joint-technical-presentation-featured-.txt"
+    },
+    {
+     "company": "SoftBank",
+     "label": "SoftBank press release: Issuance of Foreign Currency-Denominated Senior Notes (09-24-2026)",
+     "file": "transcripts/ir/softbank_2026-09-24_issuance-of-foreign-currency-denominated-senior-no.txt"
+    },
+    {
+     "company": "Sumitomo Electric",
+     "label": "Sumitomo Electric press release: Meta, NEC and Sumitomo Electric to Collaborate on \"Petal\", (09-22-2026)",
+     "file": "transcripts/ir/sumitomoelectric_2026-09-22_meta-nec-and-sumitomo-electric-to-collaborate-on-p.txt"
+    },
+    {
+     "company": "Sumitomo Metal Mining",
+     "label": "Sumitomo Metal Mining press release: Sumitomo Metal Mining Successfully Develops the World's (09-18-2026)",
+     "file": "transcripts/ir/sumitomometalmining_2026-09-18_sumitomo-metal-mining-successfully-develops-the-wo.txt"
+    },
+    {
+     "company": "TDK",
+     "label": "TDK press release: Announcement of personnel change (09-25-2026)",
+     "file": "transcripts/ir/tdk_2026-09-25_announcement-of-personnel-change.txt"
+    },
+    {
+     "company": "Tokyo Electron",
+     "label": "Tokyo Electron press release: Tokyo Electron Recognizes its Green Partners (09-25-2026)",
+     "file": "transcripts/ir/tokyoelectron_2026-09-25_tokyo-electron-recognizes-its-green-partners.txt"
+    },
+    {
+     "company": "Ulvac",
+     "label": "Ulvac press release: Presentation at SEMICON West 2026 (09-25-2026)",
+     "file": "transcripts/ir/ulvac_2026-09-25_presentation-at-semicon-west-2026.txt"
+    },
+    {
+     "company": "Ulvac",
+     "label": "Ulvac press release: Presentation on the Development of an Aluminum Nitride Thin (09-25-2026)",
+     "file": "transcripts/ir/ulvac_2026-09-25_presentation-on-the-development-of-an-aluminum-nit.txt"
+    }
+   ],
+   "no_data": [
+    {
+     "label": "Apple press release: Apple opens Apple Music Hall, a state-of-the-art live music (09-22-2026)",
+     "file": "transcripts/ir/apple_2026-09-22_apple-opens-apple-music-hall-a-state-of-the-art-li.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: The latest iPhone, Apple Watch, and AirPods lineups arrive (09-18-2026)",
+     "file": "transcripts/ir/apple_2026-09-18_the-latest-iphone-apple-watch-and-airpods-lineups-.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: AstraZeneca expands company's $100m+ commitment to advance (09-23-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-09-23_astrazeneca-expands-company-s-100m-commitment-to-a.txt",
+     "why": null
+    },
+    {
+     "label": "Axcelis press release: Axcelis Announces Sponsorship and Participation in the 23rd (09-21-2026)",
+     "file": "transcripts/ir/axcelis_2026-09-21_axcelis-announces-sponsorship-and-participation-in.txt",
+     "why": null
+    },
+    {
+     "label": "Bloom Energy press release: Bloom Energy Honors Louisville First Responders During ESPN (09-18-2026)",
+     "file": "transcripts/ir/bloomenergy_2026-09-18_bloom-energy-honors-louisville-first-responders-du.txt",
+     "why": null
+    },
+    {
+     "label": "Cisco press release: Cisco AI Research: AgenticOps Scaling Quickly in the (09-23-2026)",
+     "file": "transcripts/ir/cisco_2026-09-23_cisco-ai-research-agenticops-scaling-quickly-in-th.txt",
+     "why": null
+    },
+    {
+     "label": "Coherent press release: Coherent Launches PhotonLink Integrated Optics Platform for (09-21-2026)",
+     "file": "transcripts/ir/coherent_2026-09-21_coherent-launches-photonlink-integrated-optics-pla.txt",
+     "why": null
+    },
+    {
+     "label": "Credo press release: Credo to Showcase 1.6T Optical Connectivity Solutions for (09-18-2026)",
+     "file": "transcripts/ir/credo_2026-09-18_credo-to-showcase-1-6t-optical-connectivity-soluti.txt",
+     "why": null
+    },
+    {
+     "label": "Dell press release: Dell Technologies Introduces XPS Googlebook: The First XPS (09-21-2026)",
+     "file": "transcripts/ir/dell_2026-09-21_dell-technologies-introduces-xps-googlebook-the-fi.txt",
+     "why": null
+    },
+    {
+     "label": "Digital Realty press release: Digital Realty Survey Finds More Than Half of Asia Pacific (09-22-2026)",
+     "file": "transcripts/ir/digitalrealty_2026-09-22_digital-realty-survey-finds-more-than-half-of-asia.txt",
+     "why": null
+    },
+    {
+     "label": "Everpure press release: Everpure Recognized as A Leader in the 2026 Gartner Magic (09-23-2026)",
+     "file": "transcripts/ir/everpure_2026-09-23_everpure-recognized-as-a-leader-in-the-2026-gartne.txt",
+     "why": null
+    },
+    {
+     "label": "Microsoft press release: Microsoft launches $1 million Community-First Grants to (09-21-2026)",
+     "file": "transcripts/ir/microsoft_2026-09-21_microsoft-launches-1-million-community-first-grant.txt",
+     "why": null
+    },
+    {
+     "label": "NetApp press release: NetApp Hosts Technology Sessions at 2026 INSIGHT Conference (09-22-2026)",
+     "file": "transcripts/ir/netapp_2026-09-22_netapp-hosts-technology-sessions-at-2026-insight-c.txt",
+     "why": null
+    },
+    {
+     "label": "Power Integrations press release: Power Integrations Reports Inducement Grants under Nasdaq (09-18-2026)",
+     "file": "transcripts/ir/powerintegrations_2026-09-18_power-integrations-reports-inducement-grants-under.txt",
+     "why": null
+    },
+    {
+     "label": "Qnity Electronics press release: Qnity Joins PHLX Semiconductor Sector Index (SOX) (09-21-2026)",
+     "file": "transcripts/ir/qnityelectronics_2026-09-21_qnity-joins-phlx-semiconductor-sector-index-sox.txt",
+     "why": null
+    },
+    {
+     "label": "STMicroelectronics press release: STMicroelectronics delivers advanced context-aware sensors (09-22-2026)",
+     "file": "transcripts/ir/stmicroelectronics_2026-09-22_stmicroelectronics-delivers-advanced-context-aware.txt",
+     "why": null
+    },
+    {
+     "label": "Semtech press release: Semtech and Palo Alto Networks Secure Industrial IoT with (09-23-2026)",
+     "file": "transcripts/ir/semtech_2026-09-23_semtech-and-palo-alto-networks-secure-industrial-i.txt",
+     "why": null
+    },
+    {
+     "label": "Semtech press release: Semtech's LoRa Plus LR2021 Transceiver Wins 2026 EDGE Award (09-22-2026)",
+     "file": "transcripts/ir/semtech_2026-09-22_semtech-s-lora-plus-lr2021-transceiver-wins-2026-e.txt",
+     "why": null
+    },
+    {
+     "label": "Shell press release: Transaction in Own Shares (09-18-2026)",
+     "file": "transcripts/ir/shell_2026-09-18_transaction-in-own-shares.txt",
+     "why": null
+    },
+    {
+     "label": "Shell press release: Transaction in Own Shares (09-21-2026)",
+     "file": "transcripts/ir/shell_2026-09-21_transaction-in-own-shares.txt",
+     "why": null
+    },
+    {
+     "label": "Shell press release: Transaction in Own Shares (09-22-2026)",
+     "file": "transcripts/ir/shell_2026-09-22_transaction-in-own-shares.txt",
+     "why": null
+    },
+    {
+     "label": "Shell press release: Transaction in Own Shares (09-23-2026)",
+     "file": "transcripts/ir/shell_2026-09-23_transaction-in-own-shares.txt",
+     "why": null
+    },
+    {
+     "label": "Shell press release: Transaction in Own Shares (09-24-2026)",
+     "file": "transcripts/ir/shell_2026-09-24_transaction-in-own-shares.txt",
+     "why": null
+    },
+    {
+     "label": "Tower Semiconductor press release: Tower Semiconductor to Showcase Technology Innovation and (09-23-2026)",
+     "file": "transcripts/ir/towersemiconductor_2026-09-23_tower-semiconductor-to-showcase-technology-innovat.txt",
+     "why": null
+    },
+    {
+     "label": "Viavi press release: VIAVI Successfully Achieves CMMC Level 2 Certification (09-24-2026)",
+     "file": "transcripts/ir/viavi_2026-09-24_viavi-successfully-achieves-cmmc-level-2-certifica.txt",
+     "why": null
+    },
+    {
+     "label": "Vishay press release: Vishay Intertechnology Thick Film Resistor Sample Kits (09-24-2026)",
+     "file": "transcripts/ir/vishay_2026-09-24_vishay-intertechnology-thick-film-resistor-sample-.txt",
+     "why": null
+    },
+    {
+     "label": "Wesco press release: Wesco Earns 2026 Great Place To Work Certification (09-18-2026)",
+     "file": "transcripts/ir/wesco_2026-09-18_wesco-earns-2026-great-place-to-work-certification.txt",
+     "why": null
+    }
+   ],
+   "skipped": 0,
+   "source_range": [
+    "2026-09-08",
+    "2026-09-25"
+   ],
+   "last_fetch": "2026-09-25",
+   "last_enriched": "2026-09-25",
+   "enriched_days": [
+    {
+     "day": "2026-09-25",
+     "labels": 50
+    }
+   ],
+   "last_sync": "2026-09-25",
+   "extra": {
+    "runs": [
+     {
+      "at": "2026-09-25 03:26",
+      "since": "2026-09-18",
+      "feeds": 1,
+      "saved": 0,
+      "skip": 0,
+      "fail": 0,
+      "seen": 0
+     },
+     {
+      "at": "2026-09-25 03:26",
+      "since": "2026-09-18",
+      "feeds": 1,
+      "saved": 1,
+      "skip": 0,
+      "fail": 0,
+      "seen": 0
+     },
+     {
+      "at": "2026-09-25 03:26",
+      "since": "2026-09-18",
+      "feeds": 1,
+      "saved": 1,
+      "skip": 0,
+      "fail": 0,
+      "seen": 0
+     },
+     {
+      "at": "2026-09-25 03:34",
+      "since": "2026-09-18",
+      "feeds": 297,
+      "saved": 68,
+      "skip": 1,
+      "fail": 36,
+      "seen": 69
+     },
+     {
+      "at": "2026-09-25 03:40",
+      "since": "2026-09-18",
+      "feeds": 1,
+      "saved": 0,
+      "skip": 0,
+      "fail": 1,
+      "seen": 9
+     }
+    ],
+    "feeds": 298
    }
   },
   {
@@ -380,10 +992,10 @@
    "name": "Pasted transcripts",
    "command": "Transcript:<company>",
    "source": "URL / pasted text enriched directly in Claude Code",
-   "files": 244,
-   "labels_on_disk": 36,
-   "in_graph": 245,
-   "entries": 1732,
+   "files": 248,
+   "labels_on_disk": 40,
+   "in_graph": 248,
+   "entries": 1750,
    "pending": [],
    "no_data": [
     {
@@ -405,10 +1017,10 @@
    "skipped": 0,
    "source_range": [
     "2026-02-05",
-    "2026-08-27"
+    "2026-09-21"
    ],
-   "last_fetch": "2026-09-07",
-   "last_enriched": "2026-09-16",
+   "last_fetch": "2026-09-22",
+   "last_enriched": "2026-09-22",
    "enriched_days": [
     {
      "day": "2026-08-27",
@@ -425,9 +1037,13 @@
     {
      "day": "2026-09-16",
      "labels": 1
+    },
+    {
+     "day": "2026-09-22",
+     "labels": 3
     }
    ],
-   "last_sync": "2026-09-07",
+   "last_sync": "2026-09-22",
    "extra": {}
   }
  ],
@@ -622,6 +1238,66 @@
    "source_range": [
     "2026-07-20",
     "2026-09-15"
+   ]
+  },
+  {
+   "day": "2026-09-22",
+   "pipeline": "conference",
+   "files": 105,
+   "in_graph": 94,
+   "pending": 11,
+   "last_sync": "2026-09-22",
+   "source_range": [
+    "2026-07-20",
+    "2026-09-22"
+   ]
+  },
+  {
+   "day": "2026-09-22",
+   "pipeline": "manual",
+   "files": 248,
+   "in_graph": 249,
+   "pending": 0,
+   "last_sync": "2026-09-22",
+   "source_range": [
+    "2026-02-05",
+    "2026-09-21"
+   ]
+  },
+  {
+   "day": "2026-09-25",
+   "pipeline": "us",
+   "files": 297,
+   "in_graph": 297,
+   "pending": 0,
+   "last_sync": "2026-09-04",
+   "source_range": [
+    "2026-01-06",
+    "2026-09-10"
+   ]
+  },
+  {
+   "day": "2026-09-25",
+   "pipeline": "manual",
+   "files": 248,
+   "in_graph": 248,
+   "pending": 0,
+   "last_sync": "2026-09-22",
+   "source_range": [
+    "2026-02-05",
+    "2026-09-21"
+   ]
+  },
+  {
+   "day": "2026-09-25",
+   "pipeline": "ir",
+   "files": 129,
+   "in_graph": 53,
+   "pending": 67,
+   "last_sync": "2026-09-25",
+   "source_range": [
+    "2026-09-08",
+    "2026-09-25"
    ]
   }
  ]

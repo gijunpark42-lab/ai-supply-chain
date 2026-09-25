@@ -61,6 +61,9 @@ PIPELINES = [
      "dirs": ["transcripts/conferences"],        "state": "investing/conferences_state.json", "pending": "investing/pending.json",
      "pending_kind": "conference",
      "source": "Investing.com fireside chats (investing.py conferences)"},
+    {"id": "ir",         "name": "Company IR press releases",  "command": "enrich ir",
+     "dirs": ["transcripts/ir"],                 "state": "ir/sync_state.json",       "pending": "ir/pending.json",
+     "source": "Company IR RSS feeds (ir_pull.py) — company-issued, not transcripts"},
     {"id": "manual",     "name": "Pasted transcripts",         "command": "Transcript:<company>",
      "dirs": [],                                 "state": None,                       "pending": None,
      "source": "URL / pasted text enriched directly in Claude Code"},
@@ -236,6 +239,11 @@ def build_enrich_status(graph=None):
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)
+        elif pid == "ir":
+            runs = state.get("runs", [])
+            row["extra"]["runs"] = runs[-5:]
+            row["extra"]["feeds"] = len(read_json("ir/feeds.json", {}))
+            row["last_sync"] = runs[-1]["at"][:10] if runs else None
         elif pid == "conference":
             runs = state.get("runs", [])
             row["extra"]["runs"] = runs[-5:]

@@ -1,0 +1,68 @@
+{
+  "source": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+  "chains": {
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Synopsys",
+          "layer": "software_infra",
+          "sector": "EDA / Design Tools",
+          "product": "Semiconductor IP (interface / foundation IP) supplied to ASIC design houses under an IP OEM partnership (Gaonchips supplier)",
+          "quarterly_data": [
+            {
+              "quarter": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+              "signal": "Synopsys announced new collaborations with TSMC spanning A14 design enablement, AI-assisted engineering workflows, CoWoS support for multi-die designs and unified multiphysics signoff. Recent achievements include TSMC A14 certification across Synopsys digital and analog flows and enablement of agentic AI capabilities; the certified flows span implementation through signoff to accelerate design convergence on TSMC A14. In analog design, Synopsys says it is collaborating with TSMC to achieve device routing enablement on A14 (a milestone for analog place-and-route automation; not stated as completed). In the agentic AI workflows with TSMC, Custom Compiler accelerates analog migration and Fusion Compiler uses LLM-assisted analysis. No customers, units or dollar figures stated.",
+              "figure": "TSMC A14 certification across digital and analog flows; A14 analog device routing enablement in collaboration",
+              "topics": ["foundry"]
+            },
+            {
+              "quarter": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+              "signal": "Synopsys 3DIC Compiler platform now enables designers to co-design and simulate integrated voltage regulators (IVR) on TSMC CoWoS technology in a unified environment for advanced packaging, described as continued enablement for IVR multi-die designs addressing power integrity and thermal requirements for AI systems. A new agentic AI chiplet floorplan co-optimization flow on the 3DIC Compiler platform automates multi-die floorplanning and supports TSMC 3DFabric technologies. No customers or availability dates stated.",
+              "figure": "IVR co-design and simulation on TSMC CoWoS in 3DIC Compiler; agentic chiplet floorplan flow supporting TSMC 3DFabric",
+              "topics": ["packaging_substrate"]
+            },
+            {
+              "quarter": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+              "signal": "Synopsys continues to work with TSMC to enable co-packaged optics (CPO) design on TSMC COUPE technology through an integrated photonic and electronic co-design flow spanning 3DIC implementation, multiphysics analysis and optimization, to help mutual customers develop and verify optical interconnect architectures for multi-die systems. Described as continued joint enablement; no customers or availability dates stated.",
+              "figure": "no specific figure",
+              "topics": ["cpo"]
+            },
+            {
+              "quarter": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+              "signal": "Synopsys cites first-silicon success across TSMC N5, N3P and N2P. On TSMC N2P it achieved IP enablement and tape-out milestones for AI and HPC designs including PCIe 7.0, HBM4, LPDDR6/5X/5, 224G Ethernet PHY, UCIe, OTP and SLM process, voltage and temperature (PVT) monitoring IP. It demonstrated UCIe-A 32G/40G silicon on a TSMC N3P test chip integrated with a CoWoS-S interposer (a demonstration), and recently completed 64G UCIe IP tape-outs on both 2nm and 3nm process nodes (foundry not named for these tape-outs). It expanded silicon-proven Foundation, MIPI and memory IP for TSMC N3P and N2P and is developing IP on compact 'C' process technologies from 6nm through 3nm. The company calls its IP portfolio the industry's broadest (company claim).",
+              "figure": "N2P tape-out milestones: PCIe 7.0, HBM4, LPDDR6/5X/5, 224G Ethernet PHY, UCIe; UCIe-A 32G/40G silicon demo on N3P with CoWoS-S; 64G UCIe tape-outs on 2nm and 3nm",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "Synopsys",
+          "layer": "software_infra",
+          "sector": "EDA / Design Tools",
+          "product": "EDA software and chip design simulation tools accelerated by NVIDIA CUDA",
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "EDA tools for foundry chip design",
+              "contracts": [
+                {
+                  "source": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+                  "signal": "Synopsys announced new collaborations with TSMC: its digital and analog EDA flows are certified on TSMC A14; its 3DIC Compiler enables IVR co-design and simulation on TSMC CoWoS and an agentic chiplet floorplan flow supports TSMC 3DFabric; co-packaged optics design enablement on TSMC COUPE continues; and its Interface and Foundation IP reached tape-out milestones on TSMC N2P. TSMC's Aveek Sarkar named Synopsys an Open Innovation Platform (OIP) ecosystem partner supplying certified EDA solutions and silicon-proven IP.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "EDA / IP design-enablement collaboration",
+                  "topics": ["foundry"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

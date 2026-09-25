@@ -100,3 +100,25 @@ cited a 16-June-2025 RNS and management spoke of 2026/2027. Renamed to `iqe_q2_2
 label ("Matt, Infrastructure Expert" on Dell's Six Five track). Only company-labelled management counts —
 3 of 4 Dell entries were dropped for this. Korean dual-filers post consolidated AND separate 잠정실적 the same
 day; judge the `_separate` file on its own, it often has no counterpart in the graph.
+
+**ECOC 2026 (2026-09-22).** Europe's optical conference (Malaga, 09-20..24) produces very few full
+transcripts: only company-hosted, investor-webcast events get transcribed (Coherent's PhotonLink launch on
+09-21 was the only one by day 3). Technical talks and booth demos (Lumentum, Credo, Corning, Adtran) never
+do. Marvell's ECOC fireside chat was 09-22 — check again for its transcript. Split a long single-company
+keynote across agents by SPEAKER LANE (paragraph ranges), not by topic, so lanes cannot overlap; the later
+speaker often repeats the CEO's figures, so dedupe across lanes.
+**`investing.py done --kind conference` clears EVERY conference row** — to mark one file done, remove its
+row from investing/pending.json by hand (indent=1, ensure_ascii=False).
+**Topic tags are uncapped in derive.py** (only keyword-fallback rows are capped at 6), and each timeline is
+replace-with-latest per company — so tagging every entry of one event `cpo` floods that company's CPO
+timeline. Tag a topic only where it is the entry's subject (Coherent ECOC: 21 -> 7).
+`investing.py` needs `curl_cffi` (listed in requirements.txt; install it if the import fails).
+
+**ECOC 2026 part 2 (2026-09-22) — official press releases.** Marvell (09-21, 2nm 400G/lane PAM4, 2nm 800G ZR/ZR+
+MACsec on Libra, 2nm 1.6T ZR + coherent-lite O-band, 102.4T CPO platform, 38 demos) +7; Lumentum ELSFP (8-lambda
+DWDM ELSFP for OCI MSA, 24 dBm/lambda, ~12 W, availability 1H CY2027; OCS R300 on exhibit) +2; Lumentum/Qualcomm/
+Corning D2D (1060 nm VCSEL engine ~10 Tb/s, 32 Gb/s NRZ, ~1 -> ~4 Tb/s/mm shoreline) +2 Lumentum +1 Corning;
+Corning (09-17, Contour Form Micro Cable launch, multicore fiber 4 cores, MMC/PRIZM TMT) +6. Sivers: NO ECOC 2026
+release on its newsroom or Cision — only an exhibitor listing (stand 2106) with no Sivers content; nothing added.
+Marvell (Xi Wang) and Lumentum (Rafik Ward) fireside chats were both 09-22 1:00-1:55 PM Market Focus Theater — check
+Investing.com later for transcripts. Schedule-only pages (Marvell event page, Lumentum speakers release) skipped.

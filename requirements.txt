@@ -2,6 +2,8 @@
 requests
 beautifulsoup4
 curl_cffi        # investing.py -- Chrome TLS fingerprint, Investing.com rejects plain requests
+pypdf            # ir_pull.py -- press releases published only as PDF (Japanese/Taiwanese IR)
+cryptography     # pypdf needs it to open AES-encrypted PDFs (Nitto Boseki)
 yt-dlp           # tw.py -- 法說會 audio from YouTube
 faster-whisper   # tw.py -- local Chinese speech-to-text (CPU int8)
 

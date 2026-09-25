@@ -1,9 +1,26 @@
 ---
 name: enrich
-description: Enrich chains from an earnings call, filing, article or event transcript. Use for "enrich", "enrich dart", "enrich us", "enrich intl", "enrich tw", "enrich edgar", "enrich conference", "Transcript:<company>", or any pasted/URL transcript. Covers the ADD-only patch format, JOB 1-5 (quarterly_data, contracts, new nodes, new edges, topics/slot/capex tags), the canonical source-label format and the graph_build.py --sync + verify step.
+description: Enrich chains from an earnings call, filing, article or event transcript. Use for "enrich", "enrich dart", "enrich us", "enrich intl", "enrich tw", "enrich edgar", "enrich conference", "enrich ir", "Transcript:<company>", or any pasted/URL transcript. Covers the ADD-only patch format, JOB 1-5 (quarterly_data, contracts, new nodes, new edges, topics/slot/capex tags), the canonical source-label format and the graph_build.py --sync + verify step.
 ---
 
 ### Workflow 2 — Enrich a chain with a transcript or article
+
+**Source hierarchy, agent standard and verification cadence (user rule, 2026-09-24 — read before any enrich):**
+1. Transcripts: read every line; capture what MANAGEMENT said that is material to the company; exclude analyst
+   statements unless management confirms them. Never filter by chain theme.
+2. No transcript: company-issued documents only — IR press releases, SEC/DART filings, company decks. Fetch from the
+   official URL, save verbatim to `transcripts/non_transcript_sources/` with a NOT-a-transcript NOTE and a
+   `# source label:` header naming the doc type, e.g. `Marvell ECOC 2026 press release (09-21-2026)`.
+3. Articles are pointers only — find the company's own release and enrich from that. No AI-summary sites,
+   newsletters, social posts or exhibitor boilerplate. No company doc = leave the gap.
+4. Product/event releases weigh less than filings: "first"/"leading" are claims, demos are not shipping,
+   no screener slots, no edges/contracts from joint demos.
+5. Spawn enrichment and verification agents with `subagent_type: "enricher"` (pinned Opus, effort high).
+   Numeric/locator/collision checks are scripts.
+6. Script checks (pre-flight + verify_graph) run on every batch before applying. The independent Opus verifier
+   may be batched over ~5 jobs on the same chain/company group.
+7. AUTO-VERIFY without being asked: after each apply, append the labels to repo-root `verify_queue.json`; at 5+
+   pending (or at the end of a multi-job session) spawn an `enricher` verifier over them, then clear the verified rows.
 
 **Trigger:** User gives a URL or paste of an earnings call, news article, or event transcript, plus a chain filename and a source label (e.g. "NVIDIA Q1 FY2027 (05-28-2026)" — see canonical format below).
 
@@ -126,6 +143,9 @@ read its reference file and follow it together with this file.
 | `enrich tw`    | Taiwan Chinese-language 法說會 — video + whisper (`tw.py`)            | `references/tw.md`   |
 | `enrich edgar` | US-listed names — SEC 8-Ks (every exhibit whole) + 10-K / 10-Q customer, supplier, backlog paragraphs + XBRL (`edgar_pull.py`); completeness contract: read once, never reopen | `references/edgar.md` |
 | `enrich conference` | Every listed name (US too) — investor-conference fireside chats via Investing.com (`investing.py conferences`); depth rule, multi-agent + verification loop, memory update | `references/conferences.md` |
+| `enrich ir` | Company-issued IR press releases via each company's own RSS feed (`ir_pull.py`); trade-show launches, partnerships, investor-day targets; facts only | `references/ir.md` |
 
-A bare `enrich` with no region means: run the API pipelines automatically. Pasted text or a URL
-from the user overrides the pipeline — enrich that source directly under this file's rules.
+A bare `enrich` with no region means: run the API pipelines automatically — including `ir_pull.py sync`
+(company IR press releases), so one `enrich` covers calls, filings, conferences AND company releases.
+`enrich ir <Company>` runs only that company's feed (`ir_pull.py sync --company "<Company>"`).
+Pasted text or a URL from the user overrides the pipeline — enrich that source directly under this file's rules.

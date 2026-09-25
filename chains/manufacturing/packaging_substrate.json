@@ -25,6 +25,28 @@
       ]
     },
     {
+      "layer": "software_infra",
+      "sectors": [
+        {
+          "sector": "EDA / Design Tools",
+          "players": [
+            {
+              "company": "Adeia",
+              "product": "DBI hybrid-bonding IP licensing",
+              "connects_to": [
+                {
+                  "company": "AMD",
+                  "relationship": "multi-year semiconductor IP license (hybrid bonding / advanced packaging patents)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
       "layer": "cloud_infra",
       "sectors": [
         {
@@ -268,7 +290,7 @@
               "product": "glass-core substrate material",
               "connects_to": [
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "glass core for advanced substrate",
                   "contracts": []
                 },
@@ -301,6 +323,18 @@
                   "contracts": []
                 }
               ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Chemtronics",
+              "product": "glass thinning / etching (TGV) for glass-core substrates",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "JNTC",
+              "product": "TGV glass-core substrate panels",
+              "connects_to": [],
               "quarterly_data": []
             }
           ]
@@ -659,6 +693,12 @@
                     "packaging_substrate"
                   ],
                   "slot": "guidance"
+                },
+                {
+                  "quarter": "Zhen Ding press release: Zhen Ding Priced US$800 Million Offering of Overseas (09-22-2026)",
+                  "signal": "Financing: Zhen Ding priced its sixth unsecured overseas convertible bond issuance on September 22, 2026, raising a total of US$800 million (approximately NT$25.2 billion). The zero-coupon bonds have a five-year maturity and a 0.00 % yield-to-maturity, with a conversion price of NT$550.13 per share - a 12.5% conversion premium based on the pricing-date closing price. The bonds are expected to be issued on September 29, 2026 and then listed on the Singapore Exchange. Use of proceeds not stated.",
+                  "figure": "US$800 million (approximately NT$25.2 billion); conversion price NT$550.13 per share; conversion premium 12.5%",
+                  "topics": []
                 }
               ]
             },
@@ -1770,7 +1810,7 @@
               "product": "IC substrate (ABF) & high-density interconnect",
               "connects_to": [
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "substrate for advanced packaging",
                   "contracts": []
                 },
@@ -1785,6 +1825,23 @@
                       "value": "no specific figure",
                       "date_signed": "not stated",
                       "type": "supply agreement / capacity ramp",
+                      "topics": [
+                        "packaging_substrate"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "company": "Marvell",
+                  "relationship": "advanced IC substrates for Marvell AI / cloud infrastructure silicon (long-term capacity agreement, Kulim expansion)",
+                  "contracts": [
+                    {
+                      "source": "AT&S press release: AT&S and Marvell Technology expand collaboration to support (09-22-2026)",
+                      "signal": "AT&S announced an expanded collaboration with Marvell Technology under a long-term agreement to increase advanced IC substrate capacity for next-generation AI and cloud infrastructure; the agreement builds on the companies' existing relationship and supports Marvell's growing demand for advanced substrates. Marvell is the additional customer identified in AT&S's previously announced Kulim site expansion (Plant 2 fit-out plus a new facility for IC substrate cores and advanced packaging). Marvell SVP and Chief Supply Chain Officer Vinay Krishna said the expanded collaboration strengthens Marvell's supply chain foundation. No volumes, dollar value or signing date stated.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "long-term substrate capacity / supply agreement",
                       "topics": [
                         "packaging_substrate"
                       ]
@@ -1835,8 +1892,45 @@
                     "transitions"
                   ],
                   "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "AT&S press release: AT&S and Marvell Technology expand collaboration to support (09-22-2026)",
+                  "signal": "Kulim (Malaysia) expansion: AT&S states that the previously announced expansion of its Kulim site includes the fit-out of Plant 2 and the construction of a new manufacturing facility for IC substrate cores and advanced packaging, supported by long-term customer commitments/agreements, and identifies Marvell Technology as the additional customer in that expansion. CFO Gerrit Steen said the agreements supporting the expansion let AT&S invest alongside its customers while maintaining financial flexibility and a strong balance sheet. No capacity, capex or timing figures stated.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "packaging_substrate"
+                  ]
                 }
               ]
+            },
+            {
+              "company": "Victory Giant Technology",
+              "product": "HDI / high-layer-count PCBs for AI GPU boards and switch trays",
+              "connects_to": [
+                {
+                  "company": "NVIDIA",
+                  "relationship": "HDI boards for AI GPU platforms",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "HaeSung DS",
+              "product": "memory package substrates (FBGA / FC-FBGA for PC, server and mobile DRAM incl. DDR5) and leadframes",
+              "connects_to": [
+                {
+                  "company": "Samsung",
+                  "relationship": "memory package substrates (FBGA / FC-FBGA)",
+                  "contracts": []
+                },
+                {
+                  "company": "SK Hynix",
+                  "relationship": "memory package substrates (FBGA / FC-FBGA)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         },
@@ -2041,14 +2135,9 @@
               ]
             },
             {
-              "company": "Intel Foundry",
+              "company": "Intel",
               "product": "Foveros / EMIB advanced packaging",
               "connects_to": [
-                {
-                  "company": "Intel",
-                  "relationship": "advanced packaging for Xeon/GPU",
-                  "contracts": []
-                },
                 {
                   "company": "Microsoft",
                   "relationship": "advanced packaging for Maia accelerator",
@@ -2062,17 +2151,17 @@
                   "figure": "adv packaging backlog $B/yr"
                 },
                 {
-                  "quarter": "Intel Foundry Q2 FY2026 (07-23-2026)",
+                  "quarter": "Intel Q2 FY2026 (07-23-2026)",
                   "signal": "Advanced packaging elevated organizationally and commercially: Seok-Hee Lee appointed to LEAD ADVANCED PACKAGING, and CEO Lip-Bu Tan names 'advanced packaging' as one of four pillars ('CPU franchise, ASICs, advanced packaging and vast wafer foundry network'). New packaging-inclusive external win: strategic collaboration with FORTINET to develop the Fortinet Security Processor 6 using Intel's advanced design, PACKAGING and manufacturing capabilities — extending purpose-built silicon beyond networking and IPUs. Intel Foundry revenue $5.8B (+31% YoY); company 'meaningfully increasing' investment in equipment, clean-room space and SUBSTRATES to support product and foundry growth this year and next.",
                   "figure": "Dedicated adv-packaging leader named; Fortinet SP6 packaging win; substrate investment up"
                 },
                 {
-                  "quarter": "Intel Foundry Q2 FY2026 (07-23-2026)",
+                  "quarter": "Intel Q2 FY2026 (07-23-2026)",
                   "signal": "CALL — EMIB-T RAMPS TOWARD 2027: customer interest in EMIB-T is 'very high' with a GROWING BACKLOG; yield and reliability are hitting targets and Intel is ramping the technology into high volume to support CUSTOMER RAMPS IN 2027 — EMIB-T provides capabilities for advanced AI silicon 'not possible with today's mainstream offerings.' Packaging is a meaningful part of the raised >$20B 2026 capex (front-end fabs cost more per facility, so spend skews front-end, but 'both will be important'). SUPPLY CHOKE POINTS: advanced packaging, SUBSTRATES, T-GLASS and memory are 'probably our most challenged parts of the supply chain' — chunkier to expand than front-end wafers; Intel is PREPAYING substrate vendors ('putting money up in advance of getting the substrates') and moving quickly to be ready for the packaging backlog.",
                   "figure": "EMIB-T backlog growing, HVM for 2027 customer ramps; substrates/T-glass = tightest links; prepaying substrate vendors"
                 },
                 {
-                  "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
                   "signal": "ADVANCED PACKAGING OPPORTUNITIES 'WELL NORTH OF $1 BILLION' (MANY OF THEM); CUSTOMERS WILLING TO PREPAY: CFO Zinsner said advanced packaging is an early indicator of foundry success and its revenue will come in before meaningful wafer revenue; he had expected packaging opportunities to be 'measured in hundreds of millions of dollars', but 'some of the early customer engagements suggest that we'll be well north of $1 billion on many of these opportunities for advanced packaging'. CEO Tan called EMIB-T 'a very big differentiator' and said 'we have a couple of customers willing to even prepay the subscript' (printed as 'subscript' in the transcript, which describes it as a 'very big supply shortage'; the CFO earlier flagged substrates among the pressured components). Intel is improving EMIB and EMIB-T quality and yield to support customer ramps beginning in the second half of 2026; hyperscale ASIC customers also want Intel's advanced packaging alongside purpose-built silicon.",
                   "figure": "well north of $1 billion on many of these opportunities",
                   "topics": [
@@ -2162,6 +2251,23 @@
                   ]
                 }
               ]
+            }
+          ]
+        },
+        {
+          "sector": "Lids & Thermal Interface (TIM)",
+          "players": [
+            {
+              "company": "Jentech Precision",
+              "product": "copper lids / heat spreaders and stiffeners for CoWoS packages",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "lids / heat spreaders for CoWoS packages",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         }
@@ -2506,6 +2612,18 @@
                   "slot": null
                 }
               ]
+            },
+            {
+              "company": "Nepes",
+              "product": "wafer-level and fan-out packaging (PMIC / DDI)",
+              "connects_to": [
+                {
+                  "company": "Samsung",
+                  "relationship": "wafer-level packaging",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         }
@@ -3229,6 +3347,122 @@
                   "figure": "Adv packaging ~200B yen FY2026 -> +60%+ FY2027; prober >100B yen"
                 }
               ]
+            },
+            {
+              "company": "LPKF Laser & Electronics",
+              "product": "LIDE laser-induced deep etching for glass-core substrates and through-glass vias (TGV)",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "LPKF Laser & Electronics press release: Leading Asian advanced semiconductor packaging manufacturer (09-23-2026)",
+                  "signal": "LPKF received a letter of intent (LOI) to purchase NEXAR LIDE systems from an unnamed Asian advanced packaging manufacturer (described by LPKF as leading) for the production ramp-up of glass substrates. The customer already operates an LPKF system and has fully qualified the LIDE (Laser Induced Deep Etching) technology; with the follow-on orders under the LOI it is preparing the ramp-up of its first glass substrate production facility for high-performance advanced packaging. LOI volume is in the mid-single-digit million euro range, with the orders expected shortly. CEO Klaus Fiedler said LPKF expects the project to be followed by additional orders.",
+                  "figure": "LOI volume in the mid-single-digit million euro range; orders expected shortly",
+                  "topics": [
+                    "packaging_substrate"
+                  ]
+                },
+                {
+                  "quarter": "LPKF Laser & Electronics press release: Leading Asian advanced semiconductor packaging manufacturer (09-23-2026)",
+                  "signal": "Based on industry studies and market-analyst forecasts, LPKF estimates the total addressable market for its glass processing solutions at around EUR 1.7 billion by 2030, with further structural growth expected beyond 2030. LPKF says it is reviewing options to strengthen its global presence and operational capabilities and, depending on future business developments and market conditions, is evaluating financing alternatives including a potential equity raise.",
+                  "figure": "glass processing TAM around EUR 1.7 billion by 2030 (company estimate); potential equity raise under evaluation",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "Philoptics",
+              "product": "glass-core substrate TGV laser drilling and processing equipment",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "SUSS MicroTec",
+              "product": "temporary bonders / debonders for HBM wafer thinning, UV projection scanners and coaters for CoWoS, die-to-wafer hybrid bonders",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "UV projection scanners and coaters for the CoWoS process",
+                  "contracts": []
+                },
+                {
+                  "company": "SK Hynix",
+                  "relationship": "temporary bonding / debonding tools for HBM (placed in Hynix's HBM line)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "EV Group",
+              "product": "wafer-to-wafer hybrid and fusion bonding, temporary bonding systems",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Shibaura Mechatronics",
+              "product": "flip-chip / thermo-compression and hybrid bonders",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "flip-chip / multi-process bonders for TSMC advanced packaging",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Grand Process Technology",
+              "product": "wet process (clean / etch / strip) equipment for CoWoS",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "CoWoS wet-process tools",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Scientech",
+              "product": "wet process and temporary bonding / debonding equipment for CoWoS",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "CoWoS wet-process / debond tools",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "All Ring Tech",
+              "product": "dispensing, AOI and sorting equipment for CoWoS",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "CoWoS dispensing / inspection tools",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "C Sun Manufacturing",
+              "product": "curing / pressure (de-void) ovens for CoWoS and substrates",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "CoWoS curing / pressure ovens",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Protec",
+              "product": "dispensers and laser reflow bonders for semiconductor packaging",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         },
@@ -3597,6 +3831,24 @@
                   "figure": "semiconductor X-ray metrology market ~$1B today"
                 }
               ]
+            },
+            {
+              "company": "Koh Young Technology",
+              "product": "3D solder-paste / AOI inspection for SMT and advanced packaging",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "GigaVis",
+              "product": "AOI inspection and AOR laser-repair systems (plus VRS and in-line automation) for FC-BGA and other semiconductor package substrates",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Intekplus",
+              "product": "3D / 2D automated visual inspection systems for semiconductor packages, memory modules / SSDs and flip-chip substrates (WSI bump inspection)",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         },
@@ -3970,6 +4222,12 @@
                   "quarter": "Mitsui Mining & Smelting Q4 FY2026 (05-13-2026)",
                   "signal": "FY ended March 2026: ALL-RECORD results — net sales 758.5B yen (+6.5%), operating profit 130.9B yen (+75.1%), net profit 91.2B yen (+41.1%). Functional Materials: electrolytic copper foil for AI-server high-frequency boards and metal powders for electronic materials performed solidly; semiconductor-related sales up. MicroThin(TM) carrier-attached ultra-thin copper foil holds >90% GLOBAL SHARE and has become a strategic AI-infrastructure material — plan to roughly DOUBLE engineered-materials operating profit by fiscal 2030 with MicroThin capacity expansion to 2030. Dividend 245 yen -> 280 yen plan. FY2027 forecast: sales 830B yen (+9.4%) but OP 91B yen (-30.5%, metal-price/inventory normalization).",
                   "figure": "Record FY: OP 130.9B yen +75%; MicroThin >90% share; engineered-materials OP 2x by FY2030"
+                },
+                {
+                  "quarter": "Mitsui Mining & Smelting press release: Mitsui Kinzoku Signs Joint Development Agreement with (09-18-2026)",
+                  "signal": "Mitsui Kinzoku entered into a joint development agreement with Factorial Energy (headquartered in Massachusetts, U.S.) toward the commercialization of all-solid-state batteries (ASSBs). The agreement aims to advance battery cell manufacturing processes using Mitsui Kinzoku's sulfide solid electrolyte material A-SOLiD(TM): the partners will enhance solid electrolyte performance using A-SOLiD, develop layer formation technologies and verify suitability for mass production. Factorial remains the fabless cell innovator, leading cell design, process development, supply chain qualification, line integration and manufacturing validation. The release calls Factorial a global leader in solid-state battery technology (company description). No dollar figures, volumes or timelines stated.",
+                  "figure": "no specific figure",
+                  "topics": []
                 }
               ]
             },
@@ -4378,6 +4636,53 @@
                   "slot": "next_catalyst"
                 }
               ]
+            },
+            {
+              "company": "Nitto Boseki",
+              "product": "T-glass / low-Dk glass cloth for package substrates and CCL",
+              "connects_to": [
+                {
+                  "company": "Doosan Corporation",
+                  "relationship": "glass fabric for CCL (Doosan disclosure)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Asahi Kasei",
+              "product": "glass fabric and photosensitive polyimide (PIMEL) for packaging",
+              "connects_to": [
+                {
+                  "company": "Doosan Corporation",
+                  "relationship": "glass fabric for CCL (Doosan disclosure)",
+                  "contracts": []
+                },
+                {
+                  "company": "TSMC",
+                  "relationship": "advanced-packaging materials (photosensitive polyimide)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "ITEQ",
+              "product": "high-speed low-loss copper-clad laminate (CCL) for AI server / switch boards",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Solus Advanced Materials",
+              "product": "HVLP copper foil for AI accelerator / server CCL",
+              "connects_to": [
+                {
+                  "company": "Doosan Corporation",
+                  "relationship": "HVLP copper foil for CCL",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         },

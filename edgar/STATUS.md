@@ -489,11 +489,11 @@ disk as companion documents for verify_graph.py. To force one into the queue, de
 | Ichor 10-Q (08-04-2026) | transcripts/edgar/ICHR_10-Q_2026-08-04_supplychain.txt | enriched | 10-Q supplier / manufacturing / backlog paragraphs |
 | Ichor 8-K (05-18-2026) | transcripts/edgar/ICHR_8-K_2026-05-18.txt | enriched | no supply-chain content (generic) |
 | Ichor 8-K (08-03-2026) | transcripts/edgar/ICHR_8-K_2026-08-03.txt | enriched | earnings release only (call transcript covers it) |
-| Intel Foundry 10-K (01-23-2026) | transcripts/edgar/INTC_10-K_2026-01-23_customers.txt | enriched | 10-K customer concentration |
-| Intel Foundry 10-K (01-23-2026) | transcripts/edgar/INTC_10-K_2026-01-23_supplychain.txt | enriched | 10-K supplier / manufacturing / backlog paragraphs |
-| Intel Foundry 10-Q (07-24-2026) | transcripts/edgar/INTC_10-Q_2026-07-24_supplychain.txt | enriched | 10-Q supplier / manufacturing / backlog paragraphs |
-| Intel Foundry 8-K (07-23-2026) | transcripts/edgar/INTC_8-K_2026-07-23.txt | enriched | earnings release only (call transcript covers it) |
-| Intel Foundry 8-K (08-12-2026) | transcripts/edgar/INTC_8-K_2026-08-12.txt | enriched | supply-chain terms: design win, customer, guidance, wafer, foundry |
+| Intel 10-K (01-23-2026) | transcripts/edgar/INTC_10-K_2026-01-23_customers.txt | enriched | 10-K customer concentration |
+| Intel 10-K (01-23-2026) | transcripts/edgar/INTC_10-K_2026-01-23_supplychain.txt | enriched | 10-K supplier / manufacturing / backlog paragraphs |
+| Intel 10-Q (07-24-2026) | transcripts/edgar/INTC_10-Q_2026-07-24_supplychain.txt | enriched | 10-Q supplier / manufacturing / backlog paragraphs |
+| Intel 8-K (07-23-2026) | transcripts/edgar/INTC_8-K_2026-07-23.txt | enriched | earnings release only (call transcript covers it) |
+| Intel 8-K (08-12-2026) | transcripts/edgar/INTC_8-K_2026-08-12.txt | enriched | supply-chain terms: design win, customer, guidance, wafer, foundry |
 | IREN 10-K (08-27-2026) | transcripts/edgar/IREN_10-K_2026-08-27_customers.txt | enriched | 10-K customer concentration |
 | IREN 10-K (08-27-2026) | transcripts/edgar/IREN_10-K_2026-08-27_supplychain.txt | enriched | 10-K supplier / manufacturing / backlog paragraphs |
 | IREN 10-Q (05-08-2026) | transcripts/edgar/IREN_10-Q_2026-05-08_segments.txt | enriched | 10-Q XBRL segment revenue |

@@ -1,0 +1,505 @@
+{
+  "source": "Skeleton: semiconductor coverage expansion 2 (09-25-2026)",
+  "chains": {
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "TSE Co.",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "DRAM / HBM and NAND probe cards, test interface boards and test sockets",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "test interface boards / probe cards",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "test interface boards / probe cards",
+              "contracts": []
+            },
+            {
+              "company": "Micron",
+              "relationship": "DRAM / HBM probe cards",
+              "contracts": []
+            },
+            {
+              "company": "Hana Micron",
+              "relationship": "test sockets",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Komico",
+          "layer": "materials",
+          "sector": "Components & Parts Suppliers",
+          "sub_sector": null,
+          "product": "precision cleaning and specialty coating of etch / deposition chamber parts, plus ceramic parts (heaters / ESCs via its subsidiary MiCo Ceramics)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "chamber-part cleaning / coating",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "chamber-part cleaning / coating",
+              "contracts": []
+            },
+            {
+              "company": "Micron",
+              "relationship": "chamber-part cleaning / coating and ceramic parts",
+              "contracts": []
+            },
+            {
+              "company": "TSMC",
+              "relationship": "chamber-part cleaning / coating and ceramic parts",
+              "contracts": []
+            },
+            {
+              "company": "Intel",
+              "relationship": "chamber-part cleaning / coating and ceramic parts",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "AP Memory",
+          "layer": "memory",
+          "sector": "DRAM",
+          "sub_sector": null,
+          "product": "VHM custom DRAM 3D-stacked onto the SoC via wafer-on-wafer (WoW), plus S-SiCap stacked silicon capacitors and silicon-capacitor interposers for AI/HPC advanced packages",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "MiCo",
+          "layer": "materials",
+          "sector": "Components & Parts Suppliers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Komico",
+              "relationship": "coating powder and AlN powder (raw material)",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "FST",
+          "layer": "materials",
+          "sector": "Photomask & Targets",
+          "sub_sector": null,
+          "product": "photomask pellicles (EUV pellicle in development) and temperature-control chillers for etch / process tools",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "pellicles and chillers",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "S&S Tech",
+          "layer": "materials",
+          "sector": "Photomask & Targets",
+          "sub_sector": null,
+          "product": "blank masks for semiconductor and display photomasks (EUV blank mask in mass-production preparation; EUV pellicle in development)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "photomask blanks",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "SemiFive",
+          "layer": "compute_hardware",
+          "sector": "Custom AI ASIC (hyperscaler silicon)",
+          "sub_sector": null,
+          "product": "custom SoC / AI ASIC design platform and turnkey ASIC services (Samsung Foundry DSP; GlobalFoundries platinum partner)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Tekscend Photomask",
+          "layer": "materials",
+          "sector": "Photomask & Targets",
+          "sub_sector": null,
+          "product": "merchant semiconductor photomasks (binary, phase-shift, EUV) and nanoimprint molds (formerly Toppan Photomask; TSE Prime listing Oct 2025; TOPPAN Holdings holds 46.55%)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "GlobalFoundries",
+              "relationship": "advanced photomasks via AMTC Dresden, a joint venture of GlobalFoundries and Tekscend Photomask",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Sino-American Silicon",
+          "layer": "materials",
+          "sector": "Silicon Wafers (300mm)",
+          "sub_sector": null,
+          "product": "holding parent of GlobalWafers (46.64% stake; semiconductor wafers incl. 300mm reported through GlobalWafers), with its own solar silicon / cells and renewable-energy businesses",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Formosa Sumco",
+          "layer": "materials",
+          "sector": "Silicon Wafers (300mm)",
+          "sub_sector": null,
+          "product": "300mm and 200mm polished / annealed / epitaxial silicon wafers (SUMCO group holds 40.67% via SUMCO TECHXIV; Formosa Plastics group JV)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SUMCO",
+              "relationship": "silicon wafers sold to parent SUMCO TECHXIV (11.34% of 2025 net sales)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Samsung",
+          "layer": "memory",
+          "sector": "HBM",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SemiFive",
+              "relationship": "foundry for SemiFive custom SoCs (Samsung Foundry design-solution partner)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Arm Holdings",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SemiFive",
+              "relationship": "Neoverse CPU IP for custom-silicon designs (Arm Total Design partner)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "SUMCO",
+          "layer": "materials",
+          "sector": "Silicon Wafers (300mm)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Formosa Sumco",
+              "relationship": "silicon crystal blocks / ingots for wafer processing (19.37% of FST 2025 purchases)",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/packaging_substrate.json": {
+      "players": [
+        {
+          "company": "HaeSung DS",
+          "layer": "advanced_packaging",
+          "sector": "FC-BGA Substrate",
+          "sub_sector": null,
+          "product": "memory package substrates (FBGA / FC-FBGA for PC, server and mobile DRAM incl. DDR5) and leadframes",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "memory package substrates (FBGA / FC-FBGA)",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "memory package substrates (FBGA / FC-FBGA)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "GigaVis",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "AOI inspection and AOR laser-repair systems (plus VRS and in-line automation) for FC-BGA and other semiconductor package substrates",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Intekplus",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "3D / 2D automated visual inspection systems for semiconductor packages, memory modules / SSDs and flip-chip substrates (WSI bump inspection)",
+          "quarterly_data": [],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/nand_flash.json": {
+      "players": [
+        {
+          "company": "Japan Material",
+          "layer": "materials",
+          "sector": "Specialty / Process Gases",
+          "sub_sector": null,
+          "product": "fab gas / chemical supply systems and on-site facility services",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Kioxia",
+              "relationship": "on-site gas / chemical supply systems and facility services",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "Sanken Electric",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "sub_sector": null,
+          "product": "power MOSFETs, IGBTs, power-management / digital power-management ICs and IPMs (server power supply is a listed application)",
+          "quarterly_data": [],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/optical_networking.json": {
+      "players": [
+        {
+          "company": "Realtek",
+          "layer": "compute_hardware",
+          "sector": "Networking ASIC",
+          "sub_sector": null,
+          "product": "Ethernet switch / PHY and controller ICs",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "VisEra",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "CIS color-filter / micro-lens optical foundry, expanding into silicon-photonics micro-optics: photodetectors for pluggable transceivers (entering mass production) and micro-lens arrays for FAU / PIC light coupling, with CPO development (TSMC holds 67.11%)",
+          "quarterly_data": [],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "ASMedia",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "PCIe packet switches / PCIe bridges, USB4 host controllers and AMD AM4/AM5 desktop chipsets (Promontory) (ASUS subsidiary)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "AMD",
+              "relationship": "chipsets / I/O controllers for AMD platforms",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Iljin Electric",
+          "domain": "power",
+          "sector": "Grid",
+          "sub_sector": null,
+          "product": "power transformers, GIS / circuit breakers, EHV power cable (up to 400kV) and copper / aluminum rod",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Daewon Cable",
+              "relationship": "copper rod (CU-ROD) and aluminum rod (AL-ROD) for wire conductors",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Gaon Cable",
+          "domain": "power",
+          "sector": "Power Equipment Components & Materials",
+          "sub_sector": null,
+          "product": "power cable (LV / MV / HV) and busduct, including via US subsidiary LS Cable & System U.S.A. (LSCUS)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Daewon Cable",
+          "domain": "power",
+          "sector": "Power Equipment Components & Materials",
+          "sub_sector": null,
+          "product": "insulated building wire and LV / MV power cable",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "LS Eco Energy",
+          "domain": "power",
+          "sector": "Power Equipment Components & Materials",
+          "sub_sector": null,
+          "product": "HV / MV / LV power cable, Cu / Al rod and busduct (Vietnam subsidiaries LS-VINA and LS Cable & System Vietnam)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "ABB",
+              "relationship": "HV / MV power cable exported for EPC projects",
+              "contracts": []
+            },
+            {
+              "company": "Siemens",
+              "relationship": "HV / MV power cable exported for EPC projects",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Cheryong Electric",
+          "domain": "power",
+          "sector": "Grid",
+          "sub_sector": null,
+          "product": "distribution transformers (83.7% exported; US distribution-transformer market)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "LS Marine Solution",
+          "domain": "power",
+          "sector": "Grid",
+          "sub_sector": null,
+          "product": "submarine and underground power-cable installation and maintenance (also subsea telecom-cable laying)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Chicony Power",
+          "domain": "power",
+          "sector": "Datacenter Power",
+          "sub_sector": null,
+          "product": "server / data-center embedded power supplies (alongside notebook adapters)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "FSP Technology",
+          "domain": "power",
+          "sector": "Datacenter Power",
+          "sub_sector": null,
+          "product": "CRPS / M-CRPS server power supplies (incl. 3200W CRPS for AI data centers) and industrial PSUs",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Sunonwealth",
+          "domain": "thermal",
+          "sector": "Air Cooling",
+          "sub_sector": null,
+          "product": "EC axial / centrifugal fans for data centers and single- / two-phase liquid-cooling systems",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Nidec Chaun-Choung",
+          "domain": "thermal",
+          "sector": "Direct-to-Chip Liquid",
+          "sub_sector": null,
+          "product": "heat pipes, vapor chambers, thermal modules and server / rack-level liquid-cooling systems",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "TaiSol Electronics",
+          "domain": "thermal",
+          "sector": "Air Cooling",
+          "sub_sector": null,
+          "product": "thermal (heat-dissipation) modules and computer components",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "ADDA",
+          "domain": "thermal",
+          "sector": "Air Cooling",
+          "sub_sector": null,
+          "product": "DC / EC cooling fans, blowers and heatsinks",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "POSCO",
+          "domain": "power",
+          "sector": "Power Equipment Components & Materials",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Iljin Electric",
+              "relationship": "electrical (silicon) steel sheet for transformers",
+              "contracts": []
+            },
+            {
+              "company": "Cheryong Electric",
+              "relationship": "transformer core material / electrical steel",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Taihan Cable",
+          "domain": "power",
+          "sector": "Power Equipment Components & Materials",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Daewon Cable",
+              "relationship": "copper rod (CU-ROD) for wire conductors",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Infineon",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Chicony Power",
+              "relationship": "GaN power semiconductors for power supplies (adapters and ICT incl. servers)",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

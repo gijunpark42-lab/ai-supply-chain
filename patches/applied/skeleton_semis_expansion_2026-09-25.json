@@ -1,0 +1,2231 @@
+{
+  "source": "Skeleton: semiconductor coverage expansion (09-25-2026)",
+  "chains": {
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Carl Zeiss SMT",
+          "layer": "equipment",
+          "sector": "Lithography",
+          "sub_sector": null,
+          "product": "EUV and High-NA EUV projection optics and illumination mirrors (sole optics supplier to ASML)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "ASML",
+              "relationship": "EUV / High-NA EUV mirror optics for every ASML EUV scanner",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Trumpf",
+          "layer": "equipment",
+          "sector": "Lithography",
+          "sub_sector": null,
+          "product": "high-power CO2 drive laser (TRUMPF Laser Amplifier) for the EUV laser-produced-plasma light source; RF/DC plasma power supplies (TRUMPF Huettinger)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "ASML",
+              "relationship": "CO2 drive laser for EUV light source",
+              "contracts": []
+            },
+            {
+              "company": "Applied Materials",
+              "relationship": "RF / DC plasma power supplies (TRUMPF Huettinger)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Canon",
+          "layer": "equipment",
+          "sector": "Lithography",
+          "sub_sector": null,
+          "product": "KrF / i-line steppers and scanners (incl. packaging steppers) and nanoimprint lithography",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "KrF / i-line lithography for non-critical layers and advanced-packaging lithography",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Gudeng Precision",
+          "layer": "equipment",
+          "sector": "Lithography",
+          "sub_sector": null,
+          "product": "EUV reticle pods and front-opening wafer pods (FOUPs)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "EUV reticle pods and FOUPs",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Ebara",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "CMP systems and dry vacuum pumps for front-end fabs",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "CMP tools and dry vacuum pumps",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "HPSP",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "high-pressure hydrogen anneal (HPA) systems for advanced logic/DRAM nodes",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "high-pressure anneal for leading-edge logic",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "high-pressure anneal",
+              "contracts": []
+            },
+            {
+              "company": "Intel",
+              "relationship": "high-pressure hydrogen anneal systems",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "VAT Group",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "vacuum valves and motion modules for deposition / etch chambers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Lam Research",
+              "relationship": "vacuum valves for etch/dep chambers",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Comet Holding",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "RF plasma power generators and matching networks for etch / deposition tools",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Lam Research",
+              "relationship": "RF plasma power subsystems",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Inficon",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "vacuum gauges, residual gas analyzers and in-situ process-control sensors",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Lam Research",
+              "relationship": "vacuum gauges / sensors for process tools (new product introduction supplier)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Horiba",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "mass flow controllers and in-situ process monitors for semiconductor tools",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Rorze",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "wafer-transfer robots, EFEMs and sorters",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Applied Materials",
+              "relationship": "wafer-transfer robots / EFEMs built into process tools",
+              "contracts": []
+            },
+            {
+              "company": "TSMC",
+              "relationship": "wafer-handling automation (sorters / stockers / EFEMs)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "UMS Integration",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "precision-machined components and modules for front-end equipment",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Applied Materials",
+              "relationship": "precision components / modules for deposition & etch tools",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Hitachi High-Tech",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "CD-SEM / review-SEM metrology and conductor etch systems",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "CD-SEM metrology and etch",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "CD-SEM metrology",
+              "contracts": []
+            },
+            {
+              "company": "Intel",
+              "relationship": "semiconductor metrology / etch equipment (Intel Preferred Quality Supplier)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Park Systems",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "atomic force microscopes (AFM) for in-line metrology",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "in-line AFM metrology",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "in-line AFM metrology",
+              "contracts": []
+            },
+            {
+              "company": "TSMC",
+              "relationship": "AFM metrology incl. large-area AFM for advanced packaging",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Technoprobe",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "advanced probe cards for logic / SoC / AI accelerator wafer sort",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Intel",
+              "relationship": "probe cards for wafer sort",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "probe cards for wafer sort",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "MPI Corporation",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "vertical / MEMS probe cards and probers",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "CHPT (Chunghwa Precision Test)",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "probe cards and test interface boards for AI/HPC chips",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "MediaTek",
+              "relationship": "probe cards / test boards",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "WinWay Technology",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "burn-in and final-test sockets for AI GPUs / ASICs",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "test sockets for GPU burn-in / final test",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Chroma ATE",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "system-level test (SLT) platforms for AI accelerators and power test equipment",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "system-level test for AI GPUs",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "AEM Holdings",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "system-level test handlers and thermal test solutions",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Intel",
+              "relationship": "system-level test handlers (largest customer)",
+              "contracts": []
+            },
+            {
+              "company": "ASE Group",
+              "relationship": "test solutions integrated into ASE's global manufacturing network (ASE took an equity stake in AEM, 2026)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "UMC",
+          "layer": "foundry",
+          "sector": "Specialty / Mature-Node Foundry",
+          "sub_sector": null,
+          "product": "22/28nm and mature-node logic foundry; silicon interposers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "AMD",
+              "relationship": "mature-node foundry for programmable logic (AMD 10-K)",
+              "contracts": []
+            },
+            {
+              "company": "MaxLinear",
+              "relationship": "foundry (MaxLinear 10-K)",
+              "contracts": []
+            },
+            {
+              "company": "SiTime",
+              "relationship": "foundry (SiTime 10-K)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Powerchip (PSMC)",
+          "layer": "foundry",
+          "sector": "Specialty / Mature-Node Foundry",
+          "sub_sector": null,
+          "product": "mature-node logic / DRAM foundry; 3D AI Foundry silicon interposers, wafer-on-wafer (WoW) DRAM stacking; HBM post-wafer-fab (PWF) foundry services",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Micron",
+              "relationship": "long-term HBM post-wafer-fab (PWF) foundry-services partnership (alongside the Tongluo P5 fab sale)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "DB HiTek",
+          "layer": "foundry",
+          "sector": "Specialty / Mature-Node Foundry",
+          "sub_sector": null,
+          "product": "8-inch analog / power (BCD) specialty foundry; 650V GaN HEMT and 1,200V SiC MOSFET foundry processes in customer qualification",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Rapidus",
+          "layer": "foundry",
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "sub_sector": null,
+          "product": "2nm logic foundry (IIM-1 Chitose; pilot line 2025, volume production targeted 2027)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "KYEC (King Yuan Electronics)",
+          "layer": "foundry",
+          "sector": "OSAT (assembly & test)",
+          "sub_sector": null,
+          "product": "wafer sort, final test, burn-in and system-level test for AI GPUs / ASICs",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "wafer sort / final test for AI GPUs",
+              "contracts": []
+            },
+            {
+              "company": "Credo",
+              "relationship": "IC testing (Credo 10-K)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Sigurd Microelectronics",
+          "layer": "foundry",
+          "sector": "OSAT (assembly & test)",
+          "sub_sector": null,
+          "product": "wafer testing and final test",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Credo",
+              "relationship": "IC testing (Credo 10-K)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Tenstorrent",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "sub_sector": null,
+          "product": "Wormhole / Blackhole Tensix AI accelerators (RISC-V) and licensable RISC-V CPU / AI chiplet IP",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "d-Matrix",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "sub_sector": null,
+          "product": "Corsair digital in-memory-compute inference accelerator",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Etched",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "sub_sector": null,
+          "product": "Sohu transformer-specific inference ASIC",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Rebellions",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "sub_sector": null,
+          "product": "ATOM-Max / REBEL-Quad NPU inference accelerators (merged with SAPEON Korea, Dec 2024)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SK Telecom",
+              "relationship": "NPU inference accelerators for SKT AI datacenters",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "FuriosaAI",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "sub_sector": null,
+          "product": "RNGD (Renegade) tensor-contraction inference accelerator",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Air Liquide",
+          "layer": "materials",
+          "sector": "Specialty / Process Gases",
+          "sub_sector": null,
+          "product": "ultra-high-purity carrier gases and electronic specialty gases",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "on-site UHP gases and electronic specialty gases",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "industrial / electronic specialty gases (Cheonan, Korea site)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Nippon Sanso Holdings",
+          "layer": "materials",
+          "sector": "Specialty / Process Gases",
+          "sub_sector": null,
+          "product": "electronic specialty and bulk gases (Taiyo Nippon Sanso, Nippon Sanso Matheson)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Merck KGaA",
+          "layer": "materials",
+          "sector": "Process Chemicals & Slurries",
+          "sub_sector": null,
+          "product": "EMD Electronics: specialty gases / precursors, patterning materials and CMP slurries",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "semiconductor materials",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "semiconductor materials",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Fujifilm",
+          "layer": "materials",
+          "sector": "Photoresist",
+          "sub_sector": null,
+          "product": "EUV / ArF photoresists, CMP slurries and polyimides",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "photoresists and CMP slurries",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "AGC",
+          "layer": "materials",
+          "sector": "Photomask & Targets",
+          "sub_sector": null,
+          "product": "EUV mask blanks",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Kinik",
+          "layer": "materials",
+          "sector": "Process Chemicals & Slurries",
+          "sub_sector": null,
+          "product": "CMP diamond pad conditioners and reclaimed wafers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "CMP pad conditioners / wafer reclaim",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Ferrotec",
+          "layer": "materials",
+          "sector": "Components & Parts Suppliers",
+          "sub_sector": null,
+          "product": "quartz / ceramic / CVD-SiC chamber parts, vacuum feedthroughs and parts cleaning",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Tokyo Electron",
+              "relationship": "quartz / ceramic chamber parts",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "PDF Solutions",
+          "layer": "software_infra",
+          "sector": "EDA / Design Tools",
+          "sub_sector": null,
+          "product": "Exensio yield / manufacturing analytics and DFI for fabs",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "eMemory",
+          "layer": "software_infra",
+          "sector": "EDA / Design Tools",
+          "sub_sector": null,
+          "product": "NeoFuse OTP and PUF-based security IP",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "embedded NVM / security IP on TSMC processes",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "M31 Technology",
+          "layer": "software_infra",
+          "sector": "EDA / Design Tools",
+          "sub_sector": null,
+          "product": "foundation IP (SRAM compilers, standard cells) and high-speed interface IP",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "foundation / interface IP on TSMC processes",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Andes Technology",
+          "layer": "software_infra",
+          "sector": "EDA / Design Tools",
+          "sub_sector": null,
+          "product": "RISC-V CPU / vector processor IP (NX27V, AX45MPV, AX66) for AI accelerators",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Meta",
+              "relationship": "RISC-V cores in Meta's MTIA accelerator",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Arteris",
+          "layer": "software_infra",
+          "sector": "EDA / Design Tools",
+          "sub_sector": null,
+          "product": "network-on-chip (NoC) interconnect IP for AI SoCs",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Tenstorrent",
+              "relationship": "FlexNoC / Ncore network-on-chip interconnect IP for AI / RISC-V chiplets",
+              "contracts": []
+            },
+            {
+              "company": "Rebellions",
+              "relationship": "FlexNoC interconnect IP + Magillem SoC integration software for its next-gen NPU",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "CEVA",
+          "layer": "software_infra",
+          "sector": "EDA / Design Tools",
+          "sub_sector": null,
+          "product": "DSP / NPU and wireless-connectivity IP",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Photronics",
+          "layer": "materials",
+          "sector": "Photomask & Targets",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "UMC",
+              "relationship": "photomasks",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "ASML",
+          "layer": "equipment",
+          "sector": "Lithography",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Rapidus",
+              "relationship": "EUV scanners installed at Rapidus IIM-1",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "TSMC",
+          "layer": "advanced_packaging",
+          "sector": "Wafer-Level Packaging (CoWoS, SoIC)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Tenstorrent",
+              "relationship": "foundry for Blackhole AI accelerator",
+              "contracts": []
+            },
+            {
+              "company": "d-Matrix",
+              "relationship": "foundry for Corsair",
+              "contracts": []
+            },
+            {
+              "company": "Etched",
+              "relationship": "foundry for Sohu",
+              "contracts": []
+            },
+            {
+              "company": "FuriosaAI",
+              "relationship": "foundry for RNGD",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Samsung",
+          "layer": "memory",
+          "sector": "HBM",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Tenstorrent",
+              "relationship": "foundry (SF4X 4nm) for Tenstorrent's next-generation AI chiplets",
+              "contracts": []
+            },
+            {
+              "company": "Rebellions",
+              "relationship": "foundry for ATOM / REBEL",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "SK Hynix",
+          "layer": "memory",
+          "sector": "HBM",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "FuriosaAI",
+              "relationship": "HBM3 (and HBM3E for the 2026 RNGD upgrade) for RNGD",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "GUC (Global Unichip)",
+          "layer": "compute_hardware",
+          "sector": "Custom AI ASIC (hyperscaler silicon)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "FuriosaAI",
+              "relationship": "ASIC design-service partner for RNGD",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "Ulvac",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "PVD sputtering and vacuum deposition systems for memory fabs",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Eugene Technology",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "LPCVD / ALD single-wafer and batch deposition systems for DRAM",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SK Hynix",
+              "relationship": "LPCVD / ALD deposition for DRAM",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "LPCVD / ALD deposition",
+              "contracts": []
+            },
+            {
+              "company": "Micron",
+              "relationship": "LPCVD / batch ALD deposition systems",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "TES",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "PECVD and gas-phase etch systems for DRAM/NAND",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SK Hynix",
+              "relationship": "PECVD / gas-phase etch",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "PECVD",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Zeus",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "batch / single-wafer wet cleaning systems (incl. HBM TSV cleaning) and transfer robots",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SK Hynix",
+              "relationship": "wet cleaning systems",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "single-wafer / batch wet cleaning systems for HBM (TSV) processes",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "KC Tech",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "sub_sector": null,
+          "product": "CMP equipment and ceria slurries",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "CMP tools and slurries (Samsung holds a 5.2% stake)",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "CMP tools",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Global Standard Technology",
+          "layer": "equipment",
+          "sector": "Sub-fab Equipment (Scrubbers / Chillers)",
+          "sub_sector": null,
+          "product": "exhaust-gas scrubbers and temperature-control chillers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "sub-fab scrubbers and chillers",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "sub-fab scrubbers",
+              "contracts": []
+            },
+            {
+              "company": "Micron",
+              "relationship": "exhaust-gas scrubbers and chillers",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Unisem Co.",
+          "layer": "equipment",
+          "sector": "Sub-fab Equipment (Scrubbers / Chillers)",
+          "sub_sector": null,
+          "product": "scrubbers and chillers for memory fabs",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "sub-fab scrubbers and chillers",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "gas scrubbers and chillers (annual supply-price contract)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Nextin",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "2D patterned-wafer optical inspection systems",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "patterned-wafer inspection",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "patterned-wafer optical inspection systems (KROKY)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Auros Technology",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "overlay metrology systems (front-end and bump/TSV packaging overlay) and wafer-warpage inspection for DRAM / NAND / HBM",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SK Hynix",
+              "relationship": "overlay metrology",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "overlay metrology",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Exicon",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "memory component (CLT) testers, SSD testers and interface boards; CXL tester in development",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "memory component testers",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "DI Corporation",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "DDR5 / NAND burn-in testers (Samsung) and HBM4 wafer testers via subsidiary Digital Frontier (SK hynix)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "DRAM / HBM burn-in testers",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "HBM4 wafer testers (via subsidiary Digital Frontier)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "YC",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "high-speed DRAM / NAND memory wafer testers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "memory wafer testers (Samsung holds an 11.7% stake)",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "memory wafer testers (MT60xx / MT61xx DRAM reference testers)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "UniTest",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "memory burn-in and component testers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SK Hynix",
+              "relationship": "memory testers",
+              "contracts": []
+            },
+            {
+              "company": "Hana Micron",
+              "relationship": "semiconductor test equipment",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Micronics Japan",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "DRAM / HBM probe cards",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Micron",
+              "relationship": "DRAM / HBM probe cards",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "DRAM / HBM probe cards",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Japan Electronic Materials",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "advanced probe cards for DRAM / NAND",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Micron",
+              "relationship": "memory probe cards",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "PVA TePla",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "scanning acoustic microscopy (SAM) inspection for HBM stacks and advanced packages; crystal-growing systems",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Hana Micron",
+          "layer": "foundry",
+          "sector": "OSAT (assembly & test)",
+          "sub_sector": null,
+          "product": "memory packaging and test (DRAM / NAND, modules)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "memory packaging & test",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "memory packaging & test",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "ChipMOS",
+          "layer": "foundry",
+          "sector": "OSAT (assembly & test)",
+          "sub_sector": null,
+          "product": "memory (DRAM / NAND) and display-driver assembly & test",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Micron",
+              "relationship": "memory assembly & test",
+              "contracts": []
+            },
+            {
+              "company": "Winbond Electronics",
+              "relationship": "memory assembly & test services",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Winbond Electronics",
+          "layer": "memory",
+          "sector": "DRAM",
+          "sub_sector": null,
+          "product": "specialty / legacy DRAM (DDR4 / LPDDR4), CUBE custom memory and NOR flash",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "TLB",
+          "layer": "advanced_packaging",
+          "sector": "FC-BGA Substrate",
+          "sub_sector": null,
+          "product": "PCBs for DDR5 server memory modules (R-DIMM / U-DIMM / SO-DIMM), SSDs and back-end test equipment",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "memory-module PCBs",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "memory-module PCBs",
+              "contracts": []
+            },
+            {
+              "company": "Micron",
+              "relationship": "memory-module and SSD PCBs",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Tri Chemical Laboratories",
+          "layer": "materials",
+          "sector": "Process Chemicals & Slurries",
+          "sub_sector": null,
+          "product": "high-k (Zr / Hf) and ALD precursors",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SK Trichem",
+              "relationship": "high-k / ALD precursors sold to SK Tri Chem (Tri Chemical holds 35% of the JV)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Hansol Chemical",
+          "layer": "materials",
+          "sector": "Process Chemicals & Slurries",
+          "sub_sector": null,
+          "product": "semiconductor-grade hydrogen peroxide and silicon / metal precursors (DIPAS, BDEAS, TSA, CpCo(CO)2)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "H2O2 and precursors",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "H2O2 and precursors",
+              "contracts": []
+            },
+            {
+              "company": "Micron",
+              "relationship": "semiconductor-grade H2O2 and precursors",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "ENF Technology",
+          "layer": "materials",
+          "sector": "Process Chemicals & Slurries",
+          "sub_sector": null,
+          "product": "etchants, thinners and strippers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "wet chemicals",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "wet chemicals",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Wonik Materials",
+          "layer": "materials",
+          "sector": "Specialty / Process Gases",
+          "sub_sector": null,
+          "product": "specialty process gases for deposition / etch",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "specialty process gases",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "specialty process gases",
+              "contracts": []
+            },
+            {
+              "company": "Micron",
+              "relationship": "specialty process gases",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Foosung",
+          "layer": "materials",
+          "sector": "Specialty / Process Gases",
+          "sub_sector": null,
+          "product": "semiconductor specialty gases: C4F6 etching gas and WF6 tungsten-deposition gas",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "WF6 / fluorinated gases",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "WF6 / fluorinated gases",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Hana Materials",
+          "layer": "materials",
+          "sector": "Components & Parts Suppliers",
+          "sub_sector": null,
+          "product": "silicon and SiC electrodes (cathodes) and rings - etch-chamber consumables",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Tokyo Electron",
+              "relationship": "etch-chamber silicon parts",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "etch-chamber silicon parts",
+              "contracts": []
+            },
+            {
+              "company": "Applied Materials",
+              "relationship": "silicon / SiC electrodes and rings for etch chambers",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Tokai Carbon Korea",
+          "layer": "materials",
+          "sector": "Components & Parts Suppliers",
+          "sub_sector": null,
+          "product": "CVD-SiC focus rings for etch chambers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Lam Research",
+              "relationship": "CVD-SiC focus rings for etch tools",
+              "contracts": []
+            },
+            {
+              "company": "Tokyo Electron",
+              "relationship": "CVD-SiC focus rings for etch tools",
+              "contracts": []
+            },
+            {
+              "company": "Applied Materials",
+              "relationship": "CVD-SiC focus rings for etch tools",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "MiCo",
+          "layer": "materials",
+          "sector": "Components & Parts Suppliers",
+          "sub_sector": null,
+          "product": "ceramic heaters / ESCs (MiCo Ceramics) and chamber-part cleaning & coating (Komico) for deposition / etch tools",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "ceramic heaters / chamber parts",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "chamber-part cleaning/coating and ceramic heaters / parts",
+              "contracts": []
+            },
+            {
+              "company": "Micron",
+              "relationship": "chamber-part cleaning/coating and ceramic parts",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Duksan Hi-Metal",
+          "layer": "materials",
+          "sector": "Solder & Bonding Materials",
+          "sub_sector": null,
+          "product": "solder balls and micro solder balls (<130 µm) for BGA / CSP semiconductor packaging",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SFA Semiconductor",
+              "relationship": "solder balls (SFA disclosure)",
+              "contracts": []
+            },
+            {
+              "company": "Signetics",
+              "relationship": "solder balls (Signetics disclosure)",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "solder balls / micro solder balls",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "solder balls / micro solder balls",
+              "contracts": []
+            },
+            {
+              "company": "Amkor Technology",
+              "relationship": "solder balls",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "MK Electron",
+          "layer": "materials",
+          "sector": "Solder & Bonding Materials",
+          "sub_sector": null,
+          "product": "gold bonding wire and solder balls",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SFA Semiconductor",
+              "relationship": "gold wire / solder balls (SFA disclosure)",
+              "contracts": []
+            },
+            {
+              "company": "Signetics",
+              "relationship": "gold wire (Signetics disclosure)",
+              "contracts": []
+            },
+            {
+              "company": "Korea Circuit",
+              "relationship": "gold wire (Korea Circuit disclosure)",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "bonding wire / solder balls",
+              "contracts": []
+            },
+            {
+              "company": "ASE Group",
+              "relationship": "bonding wire / solder balls",
+              "contracts": []
+            },
+            {
+              "company": "JCET",
+              "relationship": "bonding wire / solder balls",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Mirae Industry",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Yangtze Memory Technologies",
+              "relationship": "test handlers (two 2026 supply contracts)",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/packaging_substrate.json": {
+      "players": [
+        {
+          "company": "LPKF Laser & Electronics",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "LIDE laser-induced deep etching for glass-core substrates and through-glass vias (TGV)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Philoptics",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "glass-core substrate TGV laser drilling and processing equipment",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "SUSS MicroTec",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "temporary bonders / debonders for HBM wafer thinning, UV projection scanners and coaters for CoWoS, die-to-wafer hybrid bonders",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "UV projection scanners and coaters for the CoWoS process",
+              "contracts": []
+            },
+            {
+              "company": "SK Hynix",
+              "relationship": "temporary bonding / debonding tools for HBM (placed in Hynix's HBM line)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "EV Group",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "wafer-to-wafer hybrid and fusion bonding, temporary bonding systems",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Shibaura Mechatronics",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "flip-chip / thermo-compression and hybrid bonders",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "flip-chip / multi-process bonders for TSMC advanced packaging",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Grand Process Technology",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "wet process (clean / etch / strip) equipment for CoWoS",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "CoWoS wet-process tools",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Scientech",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "wet process and temporary bonding / debonding equipment for CoWoS",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "CoWoS wet-process / debond tools",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "All Ring Tech",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "dispensing, AOI and sorting equipment for CoWoS",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "CoWoS dispensing / inspection tools",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "C Sun Manufacturing",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "curing / pressure (de-void) ovens for CoWoS and substrates",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "CoWoS curing / pressure ovens",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Protec",
+          "layer": "equipment",
+          "sector": "Advanced Packaging Equipment",
+          "sub_sector": null,
+          "product": "dispensers and laser reflow bonders for semiconductor packaging",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Koh Young Technology",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "sub_sector": null,
+          "product": "3D solder-paste / AOI inspection for SMT and advanced packaging",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Nepes",
+          "layer": "foundry",
+          "sector": "OSAT (assembly & test)",
+          "sub_sector": null,
+          "product": "wafer-level and fan-out packaging (PMIC / DDI)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "wafer-level packaging",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Jentech Precision",
+          "layer": "advanced_packaging",
+          "sector": "Lids & Thermal Interface (TIM)",
+          "sub_sector": null,
+          "product": "copper lids / heat spreaders and stiffeners for CoWoS packages",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TSMC",
+              "relationship": "lids / heat spreaders for CoWoS packages",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Victory Giant Technology",
+          "layer": "advanced_packaging",
+          "sector": "FC-BGA Substrate",
+          "sub_sector": null,
+          "product": "HDI / high-layer-count PCBs for AI GPU boards and switch trays",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "HDI boards for AI GPU platforms",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Chemtronics",
+          "layer": "advanced_packaging",
+          "sector": "Glass-Core Substrate",
+          "sub_sector": null,
+          "product": "glass thinning / etching (TGV) for glass-core substrates",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "JNTC",
+          "layer": "advanced_packaging",
+          "sector": "Glass-Core Substrate",
+          "sub_sector": null,
+          "product": "TGV glass-core substrate panels",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Nitto Boseki",
+          "layer": "materials",
+          "sector": "Substrate Materials (ABF/BT)",
+          "sub_sector": null,
+          "product": "T-glass / low-Dk glass cloth for package substrates and CCL",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Doosan Corporation",
+              "relationship": "glass fabric for CCL (Doosan disclosure)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Asahi Kasei",
+          "layer": "materials",
+          "sector": "Substrate Materials (ABF/BT)",
+          "sub_sector": null,
+          "product": "glass fabric and photosensitive polyimide (PIMEL) for packaging",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Doosan Corporation",
+              "relationship": "glass fabric for CCL (Doosan disclosure)",
+              "contracts": []
+            },
+            {
+              "company": "TSMC",
+              "relationship": "advanced-packaging materials (photosensitive polyimide)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "ITEQ",
+          "layer": "materials",
+          "sector": "Substrate Materials (ABF/BT)",
+          "sub_sector": null,
+          "product": "high-speed low-loss copper-clad laminate (CCL) for AI server / switch boards",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Solus Advanced Materials",
+          "layer": "materials",
+          "sector": "Substrate Materials (ABF/BT)",
+          "sub_sector": null,
+          "product": "HVLP copper foil for AI accelerator / server CCL",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Doosan Corporation",
+              "relationship": "HVLP copper foil for CCL",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Adeia",
+          "layer": "software_infra",
+          "sector": "EDA / Design Tools",
+          "sub_sector": null,
+          "product": "DBI hybrid-bonding IP licensing",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "AMD",
+              "relationship": "multi-year semiconductor IP license (hybrid bonding / advanced packaging patents)",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "Powerchip (PSMC)",
+          "layer": "foundry",
+          "sector": "Compound Semi Foundry (GaN/SiC/InP)",
+          "sub_sector": null,
+          "product": "8-inch (200mm, Fab 8B) GaN-on-Si power foundry, 100V-650V, for 800V HVDC / 48V AI power",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Navitas",
+              "relationship": "GaN-on-Si wafer production partner",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Vanguard International Semiconductor",
+          "layer": "foundry",
+          "sector": "Compound Semi Foundry (GaN/SiC/InP)",
+          "sub_sector": null,
+          "product": "8-inch specialty foundry (PMIC / power discretes) with GaN-on-QST power platform; TSMC-licensed 650V/80V GaN-on-Si (development from early 2026, production targeted 1H 2028); VSMC 300mm JV fab in Singapore with NXP (production from 2027)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "NXP Semiconductors",
+              "relationship": "VSMC 12-inch joint-venture fab capacity",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Alpha and Omega Semiconductor",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "sub_sector": null,
+          "product": "smart power stages / DrMOS and MOSFETs for GPU VRMs; 800V HVDC devices",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "NVIDIA 800 VDC architecture silicon partner",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Rohm",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "sub_sector": null,
+          "product": "SiC MOSFETs and GaN devices for 800V HVDC AI power",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "NVIDIA 800V HVDC architecture partner",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Innoscience",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "sub_sector": null,
+          "product": "8-inch GaN-on-Si power devices for 800V HVDC and 48V server power",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "NVIDIA 800V HVDC architecture partner",
+              "contracts": []
+            },
+            {
+              "company": "onsemi",
+              "relationship": "GaN device partnership (onsemi call)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "uPI Semiconductor",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "sub_sector": null,
+          "product": "multiphase VRM controllers and power stages for GPUs / CPUs",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Silergy",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "sub_sector": null,
+          "product": "PMICs and DC-DC converters",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Diodes",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "sub_sector": null,
+          "product": "discretes, power MOSFETs and PCIe clock / switch ICs for servers",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Littelfuse",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "sub_sector": null,
+          "product": "circuit protection (eFuses, TVS) and power semiconductors for datacenter power",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Bel Fuse",
+          "domain": "power",
+          "sector": "Datacenter Power",
+          "sub_sector": null,
+          "product": "AC-DC power shelves / PSUs and connectivity for AI servers",
+          "quarterly_data": [],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/optical_networking.json": {
+      "players": [
+        {
+          "company": "Win Semiconductors",
+          "layer": "foundry",
+          "sector": "Compound Semi Foundry (GaN/SiC/InP)",
+          "sub_sector": null,
+          "product": "GaAs / InP optoelectronic foundry (VCSELs, photodiodes, lasers)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Bizlink",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "active electrical cable (AEC) manufacturing and high-speed / power cable assemblies",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Credo",
+              "relationship": "manufactures Credo's AEC products (Credo S-1 Ex.10.9 development & manufacturing agreement)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Lightmatter",
+          "layer": "interconnect",
+          "sector": "Scale-up",
+          "sub_sector": null,
+          "product": "Passage photonic interconnect (M1000 / L200 co-packaged optics)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Furukawa Electric",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "optical fiber / cable and external laser sources (ELS) for co-packaged optics",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Mitsubishi Electric",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "EML / DFB laser chips for 800G / 1.6T optical transceivers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "POET Technologies",
+              "relationship": "400G EML laser chips integrated on POET optical interposer for 1.6T/3.2T optical engines",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "POET Technologies",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "optical-interposer transmit / receive engines for 800G / 1.6T",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Luxshare",
+              "relationship": "transmit/receive optical engines for Luxshare Tech 400G/800G pluggable transceivers",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Lightwave Logic",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "electro-optic polymer modulators",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Tower Semiconductor",
+              "relationship": "EO-polymer modulator integration on Tower's silicon-photonics platform",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Korea Zinc",
+          "layer": "minerals",
+          "sector": "Indium",
+          "sub_sector": null,
+          "product": "refined indium recovered from zinc smelting (germanium plant at Onsan planned, pilot 1H 2028)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Umicore",
+          "layer": "minerals",
+          "sector": "Germanium",
+          "sub_sector": null,
+          "product": "germanium tetrachloride for optical-fiber cores and germanium substrates",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "5N Plus",
+          "layer": "minerals",
+          "sector": "Germanium",
+          "sub_sector": null,
+          "product": "ultra-high-purity germanium, gallium, indium and tellurium; germanium substrates",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "GlobalFoundries",
+          "layer": "interconnect",
+          "sector": "Components",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Lightmatter",
+              "relationship": "mass-production foundry for Passage 3D silicon-photonics interconnect (GF Fotonix)",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/nand_flash.json": {
+      "players": [
+        {
+          "company": "FADU",
+          "layer": "memory",
+          "sector": "NAND Flash",
+          "sub_sector": null,
+          "product": "enterprise PCIe Gen5 SSD controllers for hyperscaler SSDs",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Yangtze Memory Technologies",
+          "layer": "memory",
+          "sector": "NAND Flash",
+          "sub_sector": null,
+          "product": "Xtacking 3D NAND flash and enterprise SSDs",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Macronix",
+          "layer": "memory",
+          "sector": "NAND Flash",
+          "sub_sector": null,
+          "product": "NOR flash (server BIOS / boot) and SLC NAND",
+          "quarterly_data": [],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "Montage Technology",
+          "layer": "memory",
+          "sector": "DRAM",
+          "sub_sector": null,
+          "product": "DDR5 RCD / DB, MRDIMM MRCD / MDB, CXL memory-expander controllers and PCIe retimers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SK Hynix",
+              "relationship": "DDR5 RDIMM / MRDIMM interface chips",
+              "contracts": []
+            },
+            {
+              "company": "Samsung",
+              "relationship": "DDR5 RDIMM interface chips",
+              "contracts": []
+            },
+            {
+              "company": "Micron",
+              "relationship": "DDR5 RDIMM / MRDIMM memory-interface chips (RCD / DB)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "Lattice Semiconductor",
+          "layer": "compute_hardware",
+          "sector": "Server Management (BMC)",
+          "sub_sector": null,
+          "product": "MachXO5-NX control FPGAs and Mach-NX / MachXO3D hardware root-of-trust (PFR) FPGAs on server boards",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Nuvoton",
+          "layer": "compute_hardware",
+          "sector": "Server Management (BMC)",
+          "sub_sector": null,
+          "product": "Arbel NPCM8mnx server BMCs (incl. BMC SiP for AI servers) and TPM security chips",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "King Slide",
+          "layer": "system_integration",
+          "sector": "Server Mechanical Components",
+          "sub_sector": null,
+          "product": "server slide rails for AI racks",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Lotes",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "server CPU LGA sockets and high-speed connectors",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Parade Technologies",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "PCIe / CXL retimers and high-speed interface ICs",
+          "quarterly_data": [],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "Lenovo",
+          "layer": "system_integration",
+          "sector": "Server / Rack OEM",
+          "sub_sector": null,
+          "product": "ThinkSystem AI servers (Neptune liquid cooling) and AMD Helios racks",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "IREN",
+              "relationship": "GPU server hardware supplier (IREN 10-K)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "ASUS",
+          "layer": "system_integration",
+          "sector": "Server / Rack OEM",
+          "sub_sector": null,
+          "product": "ESC AI servers and GB200 / GB300 NVL72 racks",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "FuriosaAI",
+              "relationship": "RNGD card / server production partner (FuriosaAI blog)",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "MiTAC Holdings",
+          "layer": "system_integration",
+          "sector": "Server / Rack OEM",
+          "sub_sector": null,
+          "product": "AI / HPC servers (MiTAC Computing / Tyan)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Lenovo",
+              "relationship": "GPUs / HGX platforms for Lenovo AI servers",
+              "contracts": []
+            },
+            {
+              "company": "ASUS",
+              "relationship": "GPUs / NVL72 platforms for ASUS AI servers",
+              "contracts": []
+            }
+          ]
+        },
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Lenovo",
+              "relationship": "Instinct MI455X / Helios rack-scale platform for Lenovo AI racks (availability 4Q 2026)",
+              "contracts": []
+            },
+            {
+              "company": "MiTAC Holdings",
+              "relationship": "Instinct MI355X / MI350X GPUs and EPYC CPUs for MiTAC AI servers (G4826Z5, G8825Z5)",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "Luxshare",
+          "layer": "interconnect",
+          "sector": "Components",
+          "sub_sector": null,
+          "product": "NVLink copper cable cartridges, high-speed connectors and cable assemblies for NVL72 racks",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "NVLink copper interconnect for NVL72-class racks",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/mlcc.json": {
+      "players": [
+        {
+          "company": "Toray",
+          "layer": "materials",
+          "sector": "Passive Component Materials",
+          "sub_sector": null,
+          "product": "MLCC stacking-base (carrier) film",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samsung Electro-Mechanics",
+              "relationship": "stacking-base film (SEMCO disclosure)",
+              "contracts": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Auras Technology",
+          "domain": "thermal",
+          "sector": "Direct-to-Chip Liquid",
+          "sub_sector": null,
+          "product": "cold plates, manifolds and liquid-cooling modules for AI racks",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "AVC (Asia Vital Components)",
+          "domain": "thermal",
+          "sector": "Direct-to-Chip Liquid",
+          "sub_sector": null,
+          "product": "cold plates, 3D vapor chambers and liquid-cooling modules for AI servers",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Kaori Heat Treatment",
+          "domain": "thermal",
+          "sector": "Heat Exchanger / CDU",
+          "sub_sector": null,
+          "product": "brazed-plate heat exchangers and coolant distribution units (CDUs)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "MP Materials",
+          "layer": "minerals",
+          "sector": "Rare Earths",
+          "sub_sector": null,
+          "product": "NdPr oxide and sintered NdFeB permanent magnets",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Lynas Rare Earths",
+          "layer": "minerals",
+          "sector": "Rare Earths",
+          "sub_sector": null,
+          "product": "separated rare earths (NdPr, Dy, Tb)",
+          "quarterly_data": [],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

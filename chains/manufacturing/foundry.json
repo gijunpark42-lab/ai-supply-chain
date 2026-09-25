@@ -114,8 +114,110 @@
                   "signal": "Portfolio refocus: the planned sale of the processor IP (ARC) business to GlobalFoundries narrows the IP focus to interconnect and foundation IP, where management sees the bigger growth opportunity (many customers now design their own processors with Synopsys EDA). ARC stays in the financials until the deal closes, and its size was not disclosed. The CEO said GF would be a partner on both the interface IP and EDA sides with joint customers.",
                   "figure": "no specific figure",
                   "topics": []
+                },
+                {
+                  "quarter": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+                  "signal": "Synopsys announced new collaborations with TSMC spanning A14 design enablement, AI-assisted engineering workflows, CoWoS support for multi-die designs and unified multiphysics signoff. Recent achievements include TSMC A14 certification across Synopsys digital and analog flows and enablement of agentic AI capabilities; the certified flows span implementation through signoff to accelerate design convergence on TSMC A14. In analog design, Synopsys says it is collaborating with TSMC to achieve device routing enablement on A14 (a milestone for analog place-and-route automation; not stated as completed). In the agentic AI workflows with TSMC, Custom Compiler accelerates analog migration and Fusion Compiler uses LLM-assisted analysis. No customers, units or dollar figures stated.",
+                  "figure": "TSMC A14 certification across digital and analog flows; A14 analog device routing enablement in collaboration",
+                  "topics": [
+                    "foundry"
+                  ]
+                },
+                {
+                  "quarter": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+                  "signal": "Synopsys 3DIC Compiler platform now enables designers to co-design and simulate integrated voltage regulators (IVR) on TSMC CoWoS technology in a unified environment for advanced packaging, described as continued enablement for IVR multi-die designs addressing power integrity and thermal requirements for AI systems. A new agentic AI chiplet floorplan co-optimization flow on the 3DIC Compiler platform automates multi-die floorplanning and supports TSMC 3DFabric technologies. No customers or availability dates stated.",
+                  "figure": "IVR co-design and simulation on TSMC CoWoS in 3DIC Compiler; agentic chiplet floorplan flow supporting TSMC 3DFabric",
+                  "topics": [
+                    "packaging_substrate"
+                  ]
+                },
+                {
+                  "quarter": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+                  "signal": "Synopsys continues to work with TSMC to enable co-packaged optics (CPO) design on TSMC COUPE technology through an integrated photonic and electronic co-design flow spanning 3DIC implementation, multiphysics analysis and optimization, to help mutual customers develop and verify optical interconnect architectures for multi-die systems. Described as continued joint enablement; no customers or availability dates stated.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "cpo"
+                  ]
+                },
+                {
+                  "quarter": "Synopsys press release: Synopsys and TSMC Partner to Accelerate AI Systems (09-23-2026)",
+                  "signal": "Synopsys cites first-silicon success across TSMC N5, N3P and N2P. On TSMC N2P it achieved IP enablement and tape-out milestones for AI and HPC designs including PCIe 7.0, HBM4, LPDDR6/5X/5, 224G Ethernet PHY, UCIe, OTP and SLM process, voltage and temperature (PVT) monitoring IP. It demonstrated UCIe-A 32G/40G silicon on a TSMC N3P test chip integrated with a CoWoS-S interposer (a demonstration), and recently completed 64G UCIe IP tape-outs on both 2nm and 3nm process nodes (foundry not named for these tape-outs). It expanded silicon-proven Foundation, MIPI and memory IP for TSMC N3P and N2P and is developing IP on compact 'C' process technologies from 6nm through 3nm. The company calls its IP portfolio the industry's broadest (company claim).",
+                  "figure": "N2P tape-out milestones: PCIe 7.0, HBM4, LPDDR6/5X/5, 224G Ethernet PHY, UCIe; UCIe-A 32G/40G silicon demo on N3P with CoWoS-S; 64G UCIe tape-outs on 2nm and 3nm",
+                  "topics": []
                 }
               ]
+            },
+            {
+              "company": "PDF Solutions",
+              "product": "Exensio yield / manufacturing analytics and DFI for fabs",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "eMemory",
+              "product": "NeoFuse OTP and PUF-based security IP",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "embedded NVM / security IP on TSMC processes",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "M31 Technology",
+              "product": "foundation IP (SRAM compilers, standard cells) and high-speed interface IP",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "foundation / interface IP on TSMC processes",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": [
+                {
+                  "quarter": "M31 Technology press release: M31 and Ambiq Collaborate on TSMC N12e Foundation IP to (09-24-2026)",
+                  "signal": "M31 and Ambiq announced a joint ultra-low-power Foundation IP solution on TSMC's N12e process (at the TSMC 2026 North America OIP Ecosystem Forum) for Ambiq's platforms, targeting AIoT, wearables and always-on edge applications. It pairs an N12e ULL (Ultra Low Leakage) SPSRAM memory compiler, whose dual-rail architecture achieves close to 500 MHz at near-threshold periphery voltage in low-power mode while keeping VCCA retention leakage within 1.05-1.1x of total bit-cell retention leakage (initial instances show PPA gains; full compiler development is ongoing), with an N12e standard-cell library that achieves approximately 50% leakage power savings through design-level collaboration with Ambiq. Ambiq's CTO said the collaboration contributed building blocks to Ambiq's next-generation flagship platform on TSMC N12e. No volumes or dates stated.",
+                  "figure": "SPSRAM compiler close to 500 MHz at near-threshold voltage; approximately 50% leakage power savings (standard cells); full compiler development ongoing",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "Andes Technology",
+              "product": "RISC-V CPU / vector processor IP (NX27V, AX45MPV, AX66) for AI accelerators",
+              "connects_to": [
+                {
+                  "company": "Meta",
+                  "relationship": "RISC-V cores in Meta's MTIA accelerator",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Arteris",
+              "product": "network-on-chip (NoC) interconnect IP for AI SoCs",
+              "connects_to": [
+                {
+                  "company": "Tenstorrent",
+                  "relationship": "FlexNoC / Ncore network-on-chip interconnect IP for AI / RISC-V chiplets",
+                  "contracts": []
+                },
+                {
+                  "company": "Rebellions",
+                  "relationship": "FlexNoC interconnect IP + Magillem SoC integration software for its next-gen NPU",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "CEVA",
+              "product": "DSP / NPU and wireless-connectivity IP",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         }
@@ -549,6 +651,11 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "company": "FuriosaAI",
+                  "relationship": "ASIC design-service partner for RNGD",
+                  "contracts": []
                 }
               ],
               "quarterly_data": [
@@ -606,6 +713,14 @@
                   "topics": [
                     "cpo",
                     "silicon_photonics",
+                    "hbm"
+                  ]
+                },
+                {
+                  "quarter": "GUC (Global Unichip) press release: GUC Announces 2nm 16 Gbps HBM4E IP (09-22-2026)",
+                  "signal": "GUC announced that its HBM4E PHY and Controller IP is design-ready and has been adopted in customer AI ASICs (customers not named). Implemented on TSMC's N2P process, the HBM4E PHY has taped out on TSMC CoWoS-L advanced packaging. Building on GUC's silicon-proven 12 Gbps HBM4 IP on TSMC N3P, the HBM4E IP pushes data transfer speeds up to 16 Gbps across all signed-off operating conditions (GUC claims industry-leading power efficiency and a compact area), with its proprietary interposer layout optimized for SI/PI across TSMC CoWoS packaging configurations. A face-up variant is engineered as a bottom die in TSMC SoIC-X, with dedicated TSVs for signal pull-out and feedthrough power delivery to top dies; the IP incorporates proteanTecs interconnect monitoring. CTO Igor Elkanovich said uniting face-up HBM, face-up UCIe and GLink-3D IPs gives GUC a complete interface IP portfolio for 3D SoIC architectures.",
+                  "figure": "HBM4E up to 16 Gbps on TSMC N2P (from 12 Gbps HBM4 on N3P); PHY taped out on CoWoS-L; adopted in customer AI ASICs",
+                  "topics": [
                     "hbm"
                   ]
                 }
@@ -1078,6 +1193,12 @@
                   ]
                 }
               ]
+            },
+            {
+              "company": "SemiFive",
+              "product": "custom SoC / AI ASIC design platform and turnkey ASIC services (Samsung Foundry DSP; GlobalFoundries platinum partner)",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         },
@@ -1206,6 +1327,12 @@
                   "signal": "In-house silicon as a margin and roadmap lever. Cook: 'Apple silicon has just been an incredible game-changer for us. Starting with iPhone and then on iPad and, of course, the Mac as of a few years ago. And so we believe it's a game-changer and a major advantage.' CFO Parekh: Apple has been 'investing in core technologies like our own silicon and our own modem'; these 'do provide opportunities for cost savings' as well as differentiation and 'more control of our roadmap', and 'we are seeing... investments in our core technologies impacting... gross margin in a positive way.'",
                   "figure": "no specific figure",
                   "topics": []
+                },
+                {
+                  "quarter": "Apple press release: The new Mac mini and Mac Studio are available today (09-22-2026)",
+                  "signal": "Apple's new Mac mini and Mac Studio became available starting September 22, 2026, powered by new Apple silicon: Mac mini with the all-new M6 and with M5 Pro, and Mac Studio with M5 Max and the all-new M5 Ultra. M6: 12-core CPU, 12-core GPU with Neural Accelerators built into each core, the all-new Dual 16-core Neural Engine, 16GB of unified memory configurable up to 32GB, memory bandwidth up to 170GB/s; Apple says M6 brings up to 4x faster AI performance versus the previous-generation Mac mini with M4. M5 Pro: up-to-18-core CPU, up-to-20-core GPU, up to 64GB of unified memory with 307GB/s of bandwidth. M5 Max: 18-core CPU, up-to-40-core GPU, up to 128GB of unified memory. M5 Ultra: up-to-36-core CPU, up-to-80-core GPU, up to 512GB of unified memory with 1.2TB/s of memory bandwidth; Apple says Mac Studio brings up to 4.3x faster AI performance (Apple testing). Thunderbolt 5 with RDMA lets multiple Mac Studio systems be clustered for up to 3x faster distributed AI inference versus a single system. Mac Studio with 512GB of unified memory is coming in late October. Starting prices: Mac mini with M6 $899, with M5 Pro $1,699; Mac Studio with M5 Max $2,499, with M5 Ultra $5,499. The release does not name the foundry or process node.",
+                  "figure": "M6 and M5 Ultra launched (available September 22); M5 Ultra up to 512GB unified memory at 1.2TB/s; 512GB Mac Studio coming in late October; Mac mini from $899, Mac Studio from $2,499",
+                  "topics": []
                 }
               ]
             },
@@ -1246,8 +1373,54 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "company": "SemiFive",
+                  "relationship": "Neoverse CPU IP for custom-silicon designs (Arm Total Design partner)",
+                  "contracts": []
                 }
               ],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Dedicated Inference Accelerators",
+          "players": [
+            {
+              "company": "Tenstorrent",
+              "product": "Wormhole / Blackhole Tensix AI accelerators (RISC-V) and licensable RISC-V CPU / AI chiplet IP",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "d-Matrix",
+              "product": "Corsair digital in-memory-compute inference accelerator",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Etched",
+              "product": "Sohu transformer-specific inference ASIC",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Rebellions",
+              "product": "ATOM-Max / REBEL-Quad NPU inference accelerators (merged with SAPEON Korea, Dec 2024)",
+              "connects_to": [
+                {
+                  "company": "SK Telecom",
+                  "relationship": "NPU inference accelerators for SKT AI datacenters",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "FuriosaAI",
+              "product": "RNGD (Renegade) tensor-contraction inference accelerator",
+              "connects_to": [],
               "quarterly_data": []
             }
           ]
@@ -1272,6 +1445,11 @@
                 {
                   "company": "NVIDIA",
                   "relationship": "HBM supply qualified into GPU modules",
+                  "contracts": []
+                },
+                {
+                  "company": "FuriosaAI",
+                  "relationship": "HBM3 (and HBM3E for the 2026 RNGD upgrade) for RNGD",
                   "contracts": []
                 }
               ],
@@ -1354,6 +1532,21 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "company": "Tenstorrent",
+                  "relationship": "foundry (SF4X 4nm) for Tenstorrent's next-generation AI chiplets",
+                  "contracts": []
+                },
+                {
+                  "company": "Rebellions",
+                  "relationship": "foundry for ATOM / REBEL",
+                  "contracts": []
+                },
+                {
+                  "company": "SemiFive",
+                  "relationship": "foundry for SemiFive custom SoCs (Samsung Foundry design-solution partner)",
+                  "contracts": []
                 }
               ],
               "quarterly_data": [
@@ -1530,6 +1723,26 @@
                 {
                   "company": "Marvell",
                   "relationship": "packaged custom silicon returned",
+                  "contracts": []
+                },
+                {
+                  "company": "Tenstorrent",
+                  "relationship": "foundry for Blackhole AI accelerator",
+                  "contracts": []
+                },
+                {
+                  "company": "d-Matrix",
+                  "relationship": "foundry for Corsair",
+                  "contracts": []
+                },
+                {
+                  "company": "Etched",
+                  "relationship": "foundry for Sohu",
+                  "contracts": []
+                },
+                {
+                  "company": "FuriosaAI",
+                  "relationship": "foundry for RNGD",
                   "contracts": []
                 }
               ],
@@ -1977,7 +2190,7 @@
               ]
             },
             {
-              "company": "Intel Foundry",
+              "company": "Intel",
               "product": "18A RibbonFET/PowerVia wafer fab",
               "connects_to": [
                 {
@@ -2008,23 +2221,23 @@
                   "figure": "TeraFab (SpaceX/xAI/Tesla); tool spend +25%"
                 },
                 {
-                  "quarter": "Intel Foundry Q2 FY2026 (07-23-2026)",
+                  "quarter": "Intel Q2 FY2026 (07-23-2026)",
                   "signal": "Intel Foundry revenue $5.8B, UP 31% YoY. INTEL 18A-P ENTERED RISK PRODUCTION on the timeline shared with customers and partners a year earlier, extending the 18A platform with enhanced performance, power and thermal resistance; Xeon 6+ launched as Intel's first server-class product on Intel 18A. Intel Foundry ENTERED HIGH-VOLUME MANUFACTURING for a subset of Core Ultra Series 3 (Panther Lake) using ASML's EXE HIGH-NA EUV. Purpose-built silicon expanded beyond networking/IPUs via a strategic collaboration with FORTINET to build the Fortinet Security Processor 6 using Intel's advanced design, PACKAGING and manufacturing. Capacity: €5B investment announced to expand manufacturing and increase production of Xeon 6 and next-generation Xeon on INTEL 3; Bowers campus expanded to grow Intel Mask Operations capability for leading-edge process development. Seok-Hee Lee appointed to lead ADVANCED PACKAGING. CEO frames the opportunity as 'CPU franchise, ASICs, ADVANCED PACKAGING and vast wafer foundry network'.",
                   "figure": "Foundry $5.8B (+31% YoY); 18A-P risk production; High-NA EUV HVM; Fortinet SP6; EUR5B on Intel 3"
                 },
                 {
-                  "quarter": "Intel Foundry Q2 FY2026 (07-23-2026)",
+                  "quarter": "Intel Q2 FY2026 (07-23-2026)",
                   "signal": "CALL — 18A EXECUTION AND THE 14A COMMIT: 18A output came in ~25% ABOVE TARGET and rose MORE THAN 50% QoQ; Q3 quarter-to-date 18A yields are trending ahead of the targets set in March. The primary PANTHER LAKE SKU's cost is DOWN ~50% YEAR-TO-DATE with another ~20% reduction planned this year and further meaningful cuts in 2027 — Panther Lake margins are still below corporate average (early lifecycle) but are expected to rise ABOVE it as yields improve. INTEL 14A: PDK 0.5 complete, PDK 0.9 on track for October; 256Mb SRAM yield, defect density and transistor performance all AHEAD of an aggressive internal schedule, with defect density OUTPACING 18A at the same stage; risk production H2 2027 (internal), and Intel made the DECISION IN Q2 TO FULLY COMMIT TO HIGH-VOLUME 14A RAMP IN 2028. External foundry revenue $293M; foundry operating loss narrowed $348M QoQ to $2.1B on yields/cycle-time/scale. External-customer psychology: 'the moment they see PDK 0.9 and the yield, they start to get excited about what product to run and how much capacity we can provide.' CAPEX: 2026 raised to MORE THAN $20B with TOOLING SPEND +40% vs 2025 (space largely built); 2027 to be SIGNIFICANTLY ABOVE 2026, vast majority in the US — 2021-2026 US tools+space spend approaching $100 BILLION, more than any other semiconductor company; AMIC returns $0.35 per $1 of US investment; CUSTOMER PREPAYS are already unlocking capacity; longer node lifetimes (the Intel 7 pattern) underpin returns.",
                   "figure": "18A output +25% vs target, +>50% QoQ; Panther Lake cost -50% YTD; 14A HVM 2028 FULLY COMMITTED; capex >$20B (tooling +40%), 2027 up big; US spend ~$100B 2021-26"
                 },
                 {
-                  "quarter": "Intel Foundry 10-K (01-23-2026)",
+                  "quarter": "Intel 10-K (01-23-2026)",
                   "signal": "Intel's 10-K: Intel Foundry segment revenue was $17.8 billion in 2025, up $509 million from 2024; intersegment revenue was $17.5 billion, up $361 million, primarily due to higher back-end services revenue and higher wafer volume from the Intel 3, Intel 4 and Intel 18A nodes, partially offset by lower intersegment samples revenue. Third-party foundry and assembly and test revenue from external customers was $307 million in 2025, up $148 million ($159 million in 2024 and $547 million in 2023). Intel Foundry's 2025 operating loss was $10,318 million.",
                   "figure": "Intel Foundry 2025 revenue $17.8 billion (+$509 million); external revenue $307 million (+$148 million; $159 million in 2024, $547 million in 2023); 2025 operating loss $10,318 million",
                   "topics": []
                 },
                 {
-                  "quarter": "Intel Foundry 10-K (01-23-2026)",
+                  "quarter": "Intel 10-K (01-23-2026)",
                   "signal": "Intel's 10-K: Intel ramped Intel 18A into high-volume production in 2025 (first high-volume manufacturing in late 2025). Its key production fabs in 2025 were in Oregon (ramping Intel 18A), Arizona (Intel 7 and ramping Intel 18A), Ireland (Intel 4 and Intel 3) and Israel (Intel 7); key assembly and test facilities were in China, New Mexico, Vietnam and Malaysia, with New Mexico its key advanced packaging facility and a new advanced packaging facility being built in Malaysia. In 2025 Intel initiated the consolidation of its Costa Rica assembly and test operations into other facilities (expected to be completed by the end of 2026), slowed construction of its new Ohio fab and discontinued planned expansions in Germany (fab) and Poland (assembly and test). As of this 10-K (filed January 23, 2026), Intel stated that if it is unable to secure a significant external foundry customer for Intel 14A, it may pause or discontinue its pursuit of Intel 14A and successor leading-edge process technologies.",
                   "figure": "no specific figure",
                   "topics": [
@@ -2032,7 +2245,7 @@
                   ]
                 },
                 {
-                  "quarter": "Intel Foundry 10-Q (07-24-2026)",
+                  "quarter": "Intel 10-Q (07-24-2026)",
                   "signal": "Intel's 10-Q: Intel Foundry external revenue in Q2 2026 was up $271 million from Q2 2025, and YTD 2026 external revenue was $467 million, up $414 million, primarily due to Altera's transition to an external customer following its deconsolidation in Q3 2025. YTD 2026 Intel Foundry revenue was $11.2 billion, up $2.1 billion, with intersegment revenue of $10.7 billion driven by higher wafer volumes from the Intel 18A, Intel 3 and Intel 4 nodes. YTD 2026 operating loss was $4.5 billion versus $5.5 billion in YTD 2025. The Q2 2026 operating loss compared with an operating loss of $3.2 billion in Q2 2025; the improvement was partially offset by $340 million of lower product profit in Q2 2026, driven by an increased mix of higher-cost wafers manufactured on Intel 18A.",
                   "figure": "YTD 2026 revenue $11.2 billion (+$2.1 billion); YTD external revenue $467 million (+$414 million), Q2 2026 external +$271 million vs Q2 2025 (Altera); YTD 2026 operating loss $4.5 billion (vs $5.5 billion YTD 2025); Q2 2025 operating loss $3.2 billion; $340 million lower Q2 2026 product profit on Intel 18A wafer mix",
                   "topics": [
@@ -2040,7 +2253,7 @@
                   ]
                 },
                 {
-                  "quarter": "Intel Foundry 10-K (01-23-2026)",
+                  "quarter": "Intel 10-K (01-23-2026)",
                   "signal": "Intel's 10-K: Intel Foundry recorded $849 million of higher 2025 intersegment inventory reserves (lower of cost or net realizable value charges) for products manufactured on the early ramp of the Intel 18A process node. Company-wide (consolidated gross profit), 2025 inventory reserves were $878 million higher, primarily for the same early-ramp Intel 18A products. Intel Foundry's operating loss was $13.3 billion in 2024; the 2025 loss was smaller, primarily because of a reduction in asset impairments and accelerated depreciation charges.",
                   "figure": "$849 million higher 2025 intersegment inventory reserves on early-ramp Intel 18A products (company-wide $878 million); Intel Foundry operating loss $13.3 billion (2024)",
                   "topics": [
@@ -2048,7 +2261,7 @@
                   ]
                 },
                 {
-                  "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
                   "signal": "Q4 2025 FOUNDRY SEGMENT (Intel call, CFO David Zinsner): Intel Foundry revenue was $4.5 billion, up 6.4% sequentially on increased EUV wafer mix; EUV wafer revenue grew from less than 1% of wafers out in 2023 to greater than 10% in 2025. External foundry revenue was $222 million in the quarter, driven by projects with the U.S. government and the deconsolidation of Altera. Operating loss was $2.5 billion, $188 million worse quarter-over-quarter, driven by the early ramp of Intel 18A. Q1 2026 outlook: Intel Foundry revenue 'up double digits quarter-over-quarter, helped by continued mix shift to EUV wafers and Intel 18A pricing'.",
                   "figure": "revenue $4.5 billion, up 6.4% sequentially; external foundry revenue $222 million; operating loss $2.5 billion ($188 million worse quarter-over-quarter); EUV greater than 10% of wafers out in 2025",
                   "topics": [
@@ -2056,7 +2269,7 @@
                   ]
                 },
                 {
-                  "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
                   "signal": "INTEL 18A SHIPPING FOR REVENUE, YIELDS STILL BELOW TARGET: Intel is now shipping its first products on Intel 18A (Core Ultra Series 3 / Panther Lake - 3 SKUs delivered by end-2025 against a commitment of one); with that launch, 'Intel Foundry is the only semiconductor manufacturer in the world shipping gate-all-around transistors with backside power for revenue', with the wafers coming off production lines in Oregon and Arizona. CEO Lip-Bu Tan said yields are improving at '7%, 8% yield improvement per month' and are 'in line with our internal plans' but 'still below what I want them to be' and 'not quite to the industry-leading standard yet'; accelerating yield improvement is a key 2026 lever. The early 18A ramp weighed on Q4 gross margin, and Panther Lake is still dilutive to the corporate average in Q1, expected to turn accretive as yields and throughput improve. Intel 18A-P continues to progress, with the 1.0 PDK delivered at the end of last year and engagement with internal and external customers.",
                   "figure": "7%, 8% yield improvement per month",
                   "topics": [
@@ -2064,7 +2277,7 @@
                   ]
                 },
                 {
-                  "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
                   "signal": "INTEL 14A - CUSTOMER DECISIONS 2H26-1H27, VOLUME 2028, CAPACITY HELD UNTIL COMMITTED: Tan said 14A development 'remains on track', the process flow has been simplified and the 14A PDK 0.5 came in the first quarter; a couple of key customers are already engaging on PDK 0.5, looking at test chips and the specific products they would run, and discussing capacity and pricing. Customers are expected to make firm supplier decisions starting in the second half of 2026 and extending into the first half of 2027. Timeline: 'risk production in the later part of 2027 and real production, volume production in 2028', which Tan said is similar to the time frame of a leading foundry. Per CFO Zinsner, Intel will not spend on 14A capacity - only technology-development/R&D spend - until customers are secured, and High NA 'is targeted at 14A'.",
                   "figure": "risk production in the later part of 2027; volume production in 2028; PDK 0.5",
                   "topics": [
@@ -2072,7 +2285,7 @@
                   ]
                 },
                 {
-                  "quarter": "Intel Foundry Q4 FY2025 (01-22-2026)",
+                  "quarter": "Intel Q4 FY2025 (01-22-2026)",
                   "signal": "CAPACITY PLAN - TOOLS UP, SPACE DOWN, 14A ON HOLD: Zinsner said 2026 capex is 'down significantly in space' (Intel has a good cleanroom footprint) while tool spending is ramping 'quite a bit in '26 relative to '25' to address the supply shortfall; wafer starts are increasing every quarter 'pretty much across the board across Intel 7, Intel 3 and 18A', and Intel is 'aggressively getting tools' on those nodes. What is held back is 14A, which 'is really linked to foundry customers'. The near-term supply lever is better yields and cycle times on existing tools and footprint, which need no incremental capital. Supply should improve in Q2 and through 2026, though Intel 'won't be completely out of the woods' in Q2.",
                   "figure": "no specific figure",
                   "topics": [
@@ -2081,6 +2294,12 @@
                   ]
                 }
               ]
+            },
+            {
+              "company": "Rapidus",
+              "product": "2nm logic foundry (IIM-1 Chitose; pilot line 2025, volume production targeted 2027)",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         },
@@ -2127,6 +2346,80 @@
                   ]
                 }
               ]
+            },
+            {
+              "company": "KYEC (King Yuan Electronics)",
+              "product": "wafer sort, final test, burn-in and system-level test for AI GPUs / ASICs",
+              "connects_to": [
+                {
+                  "company": "NVIDIA",
+                  "relationship": "wafer sort / final test for AI GPUs",
+                  "contracts": []
+                },
+                {
+                  "company": "Credo",
+                  "relationship": "IC testing (Credo 10-K)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Sigurd Microelectronics",
+              "product": "wafer testing and final test",
+              "connects_to": [
+                {
+                  "company": "Credo",
+                  "relationship": "IC testing (Credo 10-K)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Specialty / Mature-Node Foundry",
+          "players": [
+            {
+              "company": "UMC",
+              "product": "22/28nm and mature-node logic foundry; silicon interposers",
+              "connects_to": [
+                {
+                  "company": "AMD",
+                  "relationship": "mature-node foundry for programmable logic (AMD 10-K)",
+                  "contracts": []
+                },
+                {
+                  "company": "MaxLinear",
+                  "relationship": "foundry (MaxLinear 10-K)",
+                  "contracts": []
+                },
+                {
+                  "company": "SiTime",
+                  "relationship": "foundry (SiTime 10-K)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Powerchip (PSMC)",
+              "product": "mature-node logic / DRAM foundry; 3D AI Foundry silicon interposers, wafer-on-wafer (WoW) DRAM stacking; HBM post-wafer-fab (PWF) foundry services",
+              "connects_to": [
+                {
+                  "company": "Micron",
+                  "relationship": "long-term HBM post-wafer-fab (PWF) foundry-services partnership (alongside the Tongluo P5 fab sale)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "DB HiTek",
+              "product": "8-inch analog / power (BCD) specialty foundry; 650V GaN HEMT and 1,200V SiC MOSFET foundry processes in customer qualification",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         }
@@ -2153,7 +2446,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "High-NA EUV scanners for 18A/14A",
                   "contracts": [
                     {
@@ -2165,7 +2458,7 @@
                       "type": "lithography equipment supply (first High-NA production insertion)"
                     },
                     {
-                      "source": "Intel Foundry 10-K (01-23-2026)",
+                      "source": "Intel 10-K (01-23-2026)",
                       "signal": "Intel's 10-K: ASML is currently the sole supplier of the EUV lithography tools Intel is deploying in its Intel 4, Intel 3, Intel 18A and planned future leading-edge process nodes, and increases in lead times or delays in these tools could delay the development or ramp of future nodes. Intel uses new manufacturing technologies such as high-NA EUV lithography in developing Intel 14A, which is being designed to potentially incorporate an industry-first use of high-NA EUV lithography in high-volume semiconductor logic manufacturing.",
                       "units": "no specific figure",
                       "value": "no specific figure",
@@ -2176,6 +2469,11 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "company": "Rapidus",
+                  "relationship": "EUV scanners installed at Rapidus IIM-1",
+                  "contracts": []
                 }
               ],
               "quarterly_data": [
@@ -2276,7 +2574,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "EUV mask inspection",
                   "contracts": []
                 }
@@ -2303,6 +2601,59 @@
                   "figure": "9M production -34.7% total; buyback JPY 12B completed"
                 }
               ]
+            },
+            {
+              "company": "Carl Zeiss SMT",
+              "product": "EUV and High-NA EUV projection optics and illumination mirrors (sole optics supplier to ASML)",
+              "connects_to": [
+                {
+                  "company": "ASML",
+                  "relationship": "EUV / High-NA EUV mirror optics for every ASML EUV scanner",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Trumpf",
+              "product": "high-power CO2 drive laser (TRUMPF Laser Amplifier) for the EUV laser-produced-plasma light source; RF/DC plasma power supplies (TRUMPF Huettinger)",
+              "connects_to": [
+                {
+                  "company": "ASML",
+                  "relationship": "CO2 drive laser for EUV light source",
+                  "contracts": []
+                },
+                {
+                  "company": "Applied Materials",
+                  "relationship": "RF / DC plasma power supplies (TRUMPF Huettinger)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Canon",
+              "product": "KrF / i-line steppers and scanners (incl. packaging steppers) and nanoimprint lithography",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "KrF / i-line lithography for non-critical layers and advanced-packaging lithography",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Gudeng Precision",
+              "product": "EUV reticle pods and front-opening wafer pods (FOUPs)",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "EUV reticle pods and FOUPs",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         },
@@ -2333,7 +2684,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "GAA/RibbonFET process tools",
                   "contracts": []
                 },
@@ -2583,7 +2934,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "etch & deposition systems",
                   "contracts": []
                 }
@@ -2799,7 +3150,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "coater/developer & etch tools",
                   "contracts": []
                 }
@@ -2881,12 +3232,21 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "ALD/epi tools for leading-edge nodes",
                   "contracts": []
                 }
               ],
-              "quarterly_data": []
+              "quarterly_data": [
+                {
+                  "quarter": "ASM International press release: ASM launches breakthrough Flowable Carbon technology for (09-22-2026)",
+                  "signal": "ASM launched XP8 Vertos Flowable Carbon, which the company says is the market's first plasma-enhanced chemical vapor deposition (PECVD) flowable carbon film. It combines gap fill and planarization in a single PECVD process: the film fills high-aspect-ratio features from the bottom up without voids or seams and self-planarizes, which ASM says eliminates downstream chemical mechanical planarization or etch-back steps. ASM states it has initial deployment in high-volume manufacturing and applicability across both logic and memory devices (3D architectures). No customers, units or dollar figures stated.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "product_launches"
+                  ]
+                }
+              ]
             },
             {
               "company": "SCREEN Holdings",
@@ -2903,7 +3263,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "single-wafer cleaning tools",
                   "contracts": []
                 }
@@ -4446,6 +4806,111 @@
                   ]
                 }
               ]
+            },
+            {
+              "company": "Ebara",
+              "product": "CMP systems and dry vacuum pumps for front-end fabs",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "CMP tools and dry vacuum pumps",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "HPSP",
+              "product": "high-pressure hydrogen anneal (HPA) systems for advanced logic/DRAM nodes",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "high-pressure anneal for leading-edge logic",
+                  "contracts": []
+                },
+                {
+                  "company": "Samsung",
+                  "relationship": "high-pressure anneal",
+                  "contracts": []
+                },
+                {
+                  "company": "Intel",
+                  "relationship": "high-pressure hydrogen anneal systems",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "VAT Group",
+              "product": "vacuum valves and motion modules for deposition / etch chambers",
+              "connects_to": [
+                {
+                  "company": "Lam Research",
+                  "relationship": "vacuum valves for etch/dep chambers",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Comet Holding",
+              "product": "RF plasma power generators and matching networks for etch / deposition tools",
+              "connects_to": [
+                {
+                  "company": "Lam Research",
+                  "relationship": "RF plasma power subsystems",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Inficon",
+              "product": "vacuum gauges, residual gas analyzers and in-situ process-control sensors",
+              "connects_to": [
+                {
+                  "company": "Lam Research",
+                  "relationship": "vacuum gauges / sensors for process tools (new product introduction supplier)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Horiba",
+              "product": "mass flow controllers and in-situ process monitors for semiconductor tools",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Rorze",
+              "product": "wafer-transfer robots, EFEMs and sorters",
+              "connects_to": [
+                {
+                  "company": "Applied Materials",
+                  "relationship": "wafer-transfer robots / EFEMs built into process tools",
+                  "contracts": []
+                },
+                {
+                  "company": "TSMC",
+                  "relationship": "wafer-handling automation (sorters / stockers / EFEMs)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "UMS Integration",
+              "product": "precision-machined components and modules for front-end equipment",
+              "connects_to": [
+                {
+                  "company": "Applied Materials",
+                  "relationship": "precision components / modules for deposition & etch tools",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         },
@@ -4467,7 +4932,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "inspection & metrology tools",
                   "contracts": []
                 }
@@ -4787,6 +5252,14 @@
                   "figure": "Product Test grew 8% in 2025; MultiLane JV close expected in Q2 '26 with Teradyne as majority owner; accretive in 2026 with de minimis EPS impact",
                   "topics": [
                     "silicon_photonics"
+                  ]
+                },
+                {
+                  "quarter": "Teradyne press release: Teradyne Introduces Iris 100: Production-Proven Test System (09-21-2026)",
+                  "signal": "Teradyne announced Iris 100, which it calls a production-ready (\"production-proven\") optical test platform for microLED devices. It measures every individual emitter in an array with a spectrometer and high-resolution camera (spectral response, per-pixel luminance and uniformity), integrates directly with the Teradyne UltraFLEXplus platform for combined optical and electrical test, runs on Teradyne's IG-XL software to detect dead/stuck pixels and cluster defects early in manufacturing, and uses a NIST-traceable calibration workflow to correlate lots, wafers and manufacturing sites. It supports wafer and final test, with a roadmap to support photodetector test in the same insertion. Target devices are microLED arrays for AR microdisplays and optical data interconnects for AI data center architectures, which the company says contain hundreds of thousands to millions of individual emitters. Shannon Poulin, president of the Semiconductor Test division, said \"MicroLED is shifting from lab to volume production for both AR microdisplays and, increasingly, optical interconnects, which are becoming foundational to how AI data centers scale beyond copper,\" and that Iris 100 delivers per-emitter test at production throughput \"today on test infrastructure our customers already run at scale.\" Teradyne says it follows the Photon 100 introduction for silicon photonics and co-packaged optics test earlier this year. No customers named.",
+                  "figure": "Iris 100 microLED optical test platform launched; wafer and final test; arrays of hundreds of thousands to millions of emitters",
+                  "topics": [
+                    "product_launches"
                   ]
                 }
               ]
@@ -5194,7 +5667,7 @@
                   ]
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "probe cards for data-center CPUs and foundry test (long-term major customer)",
                   "contracts": [
                     {
@@ -5433,7 +5906,7 @@
               "product": "dimensional & materials metrology for leading-edge nodes",
               "connects_to": [
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "metrology supplier to Intel (EPIC Supplier Award-level engagement)",
                   "contracts": [
                     {
@@ -6015,6 +6488,126 @@
                   ]
                 }
               ]
+            },
+            {
+              "company": "Hitachi High-Tech",
+              "product": "CD-SEM / review-SEM metrology and conductor etch systems",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "CD-SEM metrology and etch",
+                  "contracts": []
+                },
+                {
+                  "company": "Samsung",
+                  "relationship": "CD-SEM metrology",
+                  "contracts": []
+                },
+                {
+                  "company": "Intel",
+                  "relationship": "semiconductor metrology / etch equipment (Intel Preferred Quality Supplier)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Park Systems",
+              "product": "atomic force microscopes (AFM) for in-line metrology",
+              "connects_to": [
+                {
+                  "company": "Samsung",
+                  "relationship": "in-line AFM metrology",
+                  "contracts": []
+                },
+                {
+                  "company": "SK Hynix",
+                  "relationship": "in-line AFM metrology",
+                  "contracts": []
+                },
+                {
+                  "company": "TSMC",
+                  "relationship": "AFM metrology incl. large-area AFM for advanced packaging",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Technoprobe",
+              "product": "advanced probe cards for logic / SoC / AI accelerator wafer sort",
+              "connects_to": [
+                {
+                  "company": "Intel",
+                  "relationship": "probe cards for wafer sort",
+                  "contracts": []
+                },
+                {
+                  "company": "Samsung",
+                  "relationship": "probe cards for wafer sort",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "MPI Corporation",
+              "product": "vertical / MEMS probe cards and probers",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "CHPT (Chunghwa Precision Test)",
+              "product": "probe cards and test interface boards for AI/HPC chips",
+              "connects_to": [
+                {
+                  "company": "MediaTek",
+                  "relationship": "probe cards / test boards",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "WinWay Technology",
+              "product": "burn-in and final-test sockets for AI GPUs / ASICs",
+              "connects_to": [
+                {
+                  "company": "NVIDIA",
+                  "relationship": "test sockets for GPU burn-in / final test",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Chroma ATE",
+              "product": "system-level test (SLT) platforms for AI accelerators and power test equipment",
+              "connects_to": [
+                {
+                  "company": "NVIDIA",
+                  "relationship": "system-level test for AI GPUs",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "AEM Holdings",
+              "product": "system-level test handlers and thermal test solutions",
+              "connects_to": [
+                {
+                  "company": "Intel",
+                  "relationship": "system-level test handlers (largest customer)",
+                  "contracts": []
+                },
+                {
+                  "company": "ASE Group",
+                  "relationship": "test solutions integrated into ASE's global manufacturing network (ASE took an equity stake in AEM, 2026)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         }
@@ -6041,7 +6634,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "silicon wafers & photoresist",
                   "contracts": []
                 }
@@ -6084,8 +6677,13 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "silicon substrate wafers",
+                  "contracts": []
+                },
+                {
+                  "company": "Formosa Sumco",
+                  "relationship": "silicon crystal blocks / ingots for wafer processing (19.37% of FST 2025 purchases)",
                   "contracts": []
                 }
               ],
@@ -6268,6 +6866,24 @@
                 }
               ],
               "quarterly_data": []
+            },
+            {
+              "company": "Sino-American Silicon",
+              "product": "holding parent of GlobalWafers (46.64% stake; semiconductor wafers incl. 300mm reported through GlobalWafers), with its own solar silicon / cells and renewable-energy businesses",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Formosa Sumco",
+              "product": "300mm and 200mm polished / annealed / epitaxial silicon wafers (SUMCO group holds 40.67% via SUMCO TECHXIV; Formosa Plastics group JV)",
+              "connects_to": [
+                {
+                  "company": "SUMCO",
+                  "relationship": "silicon wafers sold to parent SUMCO TECHXIV (11.34% of 2025 net sales)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         },
@@ -6289,7 +6905,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "EUV photoresist",
                   "contracts": []
                 }
@@ -6311,7 +6927,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "EUV photoresist",
                   "contracts": []
                 }
@@ -6507,6 +7123,18 @@
                   "counterparty_role": "supplier"
                 }
               ]
+            },
+            {
+              "company": "Fujifilm",
+              "product": "EUV / ArF photoresists, CMP slurries and polyimides",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "photoresists and CMP slurries",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         },
@@ -6538,7 +7166,7 @@
                   "contracts": []
                 },
                 {
-                  "company": "Intel Foundry",
+                  "company": "Intel",
                   "relationship": "contamination control & materials handling",
                   "contracts": []
                 }
@@ -6894,6 +7522,29 @@
                   "topics": []
                 }
               ]
+            },
+            {
+              "company": "Air Liquide",
+              "product": "ultra-high-purity carrier gases and electronic specialty gases",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "on-site UHP gases and electronic specialty gases",
+                  "contracts": []
+                },
+                {
+                  "company": "Samsung",
+                  "relationship": "industrial / electronic specialty gases (Cheonan, Korea site)",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Nippon Sanso Holdings",
+              "product": "electronic specialty and bulk gases (Taiyo Nippon Sanso, Nippon Sanso Matheson)",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         },
@@ -7120,6 +7771,11 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "company": "UMC",
+                  "relationship": "photomasks",
+                  "contracts": []
                 }
               ],
               "quarterly_data": [
@@ -7387,6 +8043,48 @@
                   ]
                 }
               ]
+            },
+            {
+              "company": "AGC",
+              "product": "EUV mask blanks",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "FST",
+              "product": "photomask pellicles (EUV pellicle in development) and temperature-control chillers for etch / process tools",
+              "connects_to": [
+                {
+                  "company": "Samsung",
+                  "relationship": "pellicles and chillers",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "S&S Tech",
+              "product": "blank masks for semiconductor and display photomasks (EUV blank mask in mass-production preparation; EUV pellicle in development)",
+              "connects_to": [
+                {
+                  "company": "Samsung",
+                  "relationship": "photomask blanks",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Tekscend Photomask",
+              "product": "merchant semiconductor photomasks (binary, phase-shift, EUV) and nanoimprint molds (formerly Toppan Photomask; TSE Prime listing Oct 2025; TOPPAN Holdings holds 46.55%)",
+              "connects_to": [
+                {
+                  "company": "GlobalFoundries",
+                  "relationship": "advanced photomasks via AMTC Dresden, a joint venture of GlobalFoundries and Tekscend Photomask",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         },
@@ -7715,6 +8413,52 @@
                   "topics": []
                 }
               ]
+            },
+            {
+              "company": "Merck KGaA",
+              "product": "EMD Electronics: specialty gases / precursors, patterning materials and CMP slurries",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "semiconductor materials",
+                  "contracts": []
+                },
+                {
+                  "company": "Samsung",
+                  "relationship": "semiconductor materials",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Kinik",
+              "product": "CMP diamond pad conditioners and reclaimed wafers",
+              "connects_to": [
+                {
+                  "company": "TSMC",
+                  "relationship": "CMP pad conditioners / wafer reclaim",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Components & Parts Suppliers",
+          "players": [
+            {
+              "company": "Ferrotec",
+              "product": "quartz / ceramic / CVD-SiC chamber parts, vacuum feedthroughs and parts cleaning",
+              "connects_to": [
+                {
+                  "company": "Tokyo Electron",
+                  "relationship": "quartz / ceramic chamber parts",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         }

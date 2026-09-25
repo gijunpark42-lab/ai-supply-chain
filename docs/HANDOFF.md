@@ -45,8 +45,8 @@ append-only history is `enrich_log.json` (commit it).
   authorized immediate deployment in this session, including the necessary commit/push. Completion notes
   are recorded in a follow-up documentation commit. The standing no-auto-commit preference still applies
   to future sessions.
-- **Graph:** 355 nodes, 1,402 edges after adding NXP Semiconductors, Microchip Technology and Skyworks
-  Solutions from their latest full calls on 2026-09-17.
+- **Graph:** 541 nodes, 1,619 edges after the two 2026-09-25 semiconductor coverage expansions (+133 and +29 skeleton nodes
+  with `quarterly_data: []`, first `minerals` layer; see session log). Uncommitted.
 - **Coverage by pipeline:** US 275 files / 276 labels in graph / 0 pending after this run; edgar 1,012/432;
   dart 48/48; intl 30/29; tw 17/17; conference 93/89 / 0 pending / 4 no-data; manual 244/245.
 - **Web app:** live; 2026-09-12 UI refresh in `web/src/app/{page.tsx,workspace.css}` and
@@ -59,6 +59,15 @@ append-only history is `enrich_log.json` (commit it).
   `dpl_7cgbLTAkTqPEXkSjfM2WehPDaur2` (`reticulum-kh7fd65v2-gijun42.vercel.app`), Ready.
   Live desktop/phone verification passed at 2026-09-12 14:39 PDT; the complete served graph matches the
   unchanged local JSON after parsing (Windows CRLF versus Linux LF is the only raw-byte difference).
+- **Standalone future-civilization Site:** `kardashev-scroll/` is a separate static Site, **The Power Age**, live
+  publicly at `https://the-power-age.californiajune.chatgpt.site`. It is a scroll-only English cinematic from
+  present-day power through embodied AI, recursive robot production, semiconductor cost compression, mass
+  data-center scaling, planetary solar buildout, Solar System industry, Dyson-scale power and Type III civilization.
+  Site project `appgprj_6ab1d0d4a8448191aca0b7492ea3cab7`; published version 2 from nested Site commit
+  `69402bdae92a854dd1d12a5252b885e64ba0bd69`. This does not change the main earnings graph or Vercel app.
+  User later created GitHub repo `gijunpark42-lab/the-power-age`; a fresh local nested repo now has commit
+  `854a7f8`, pushed to its `main`. Vercel project `gijun42/kardashev-scroll` is connected to canonical GitHub
+  repo `gijunpark42-lab/The-Power-Age` and live at `https://kardashev-scroll.vercel.app`.
 - **Ask tab:** answered by a LOCAL Claude runner (`local-ask/`) behind a Cloudflare tunnel. `ask 실행` starts it
   (`node local-ask/up.mjs`), `ask 종료` stops it. No Gemini, no Anthropic API (removed in 3bfb0dc).
   If the runner is down the tab falls back after ~3 min. Codex cannot run this engine (it shells out to `claude -p`).
@@ -80,6 +89,12 @@ append-only history is `enrich_log.json` (commit it).
    `docs/MISSING_PUBLIC_COMPANIES_2026-09-17.md` (66 direct candidates: Korea 32, Japan 9, Taiwan 25;
    17 review candidates; 2 distributor exclusions). Korea is DART-only; Japan/Taiwan require an immediately
    available full transcript or approved pipeline before any add.
+   UPDATE 2026-09-25: the user ordered a knowledge-built skeleton for 133 semiconductor names (session log);
+   38 of the list above landed with it; the user then approved the rest ("yes do it all") and batch 2 added the
+   remaining 17 semiconductor + 12 power/thermal A-list names. Not added: Doosan Tesna and the B-review names.
+   Surfaced, not changed: GlobalWafers metadata should be 6488.TWO / TPEx; Toppan's product overlaps Tekscend.
+1d. **Enrich the 162 skeleton nodes added 2026-09-25** (all `quarterly_data: []`): their tickers are in
+   company_metadata.json, so `enrich us` / `enrich dart` / `enrich intl` / `enrich ir` pick them up on the next sync.
 2. **EDGAR round 3b — "read ALL recovered tables", user scheduled it for the week of 2026-09-14.**
    Prep is finished: `transcripts/edgar/` was re-pulled 137/137 tickers (2026-09-11 night), the 5 old
    verify fails pass again. Durable archive: `C:\Users\calif\edgar_round3b\` (ledger `R3_PROGRESS.md`,
@@ -100,6 +115,8 @@ append-only history is `enrich_log.json` (commit it).
 5. **Rejected / do not re-propose:** news pipelines or knowledge-based edges (`feedback_transcript_only.md`),
    a Quant tab in the web app, turning off the Vercel plugin, adding Core42 / AES / Nanjing Casela as nodes,
    auto-committing, GitHub Actions scheduler (not until the core loop is declared solid by the user).
+6. **The Power Age:** complete and live on both Sites and Vercel; source is in the separate GitHub repo
+   `gijunpark42-lab/The-Power-Age` at commit `854a7f8`. Do not push the parent `reticulum-ai` repository.
 
 ## 5. Standing decisions and gotchas (the ones that bite)
 
@@ -410,3 +427,169 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   **Not a queue:** a full recursive re-scan shows 336 EDGAR files with no graph data, but `edgar/done.json` holds
   all 1,012 as read — routine 8-Ks (dividends, officer changes) legitimately yield nothing under the completeness
   contract. Uncommitted: no (pushed).
+
+- **2026-09-21 (Codex) — built and published “The Power Age” scroll story.** User asked for a public, game-like,
+  scroll-only journey from present civilization to a galactic Kardashev civilization, then corrected the first
+  version because it jumped to space too quickly. Done: created the separate static Site under
+  `kardashev-scroll/`; generated and integrated six cinematic chapter assets; added the full causal bridge
+  **AI gets a body → robots build robots → autonomous semiconductor fab → raw silicon (<$1 illustrative) vs
+  fabricated logic die (~$300) vs accelerator module (~$3,000+) → data-center mass scaling → Earth-scale solar
+  grid → robotic Solar System data centers → Dyson swarm → Type III galaxy**. Verified 14 sections, 9 image
+  placements, JavaScript syntax, HTTP 200, and visually checked the opening, robot-factory, semiconductor-cost,
+  Solar System and finale scenes in the in-app browser. Published Site version 2 successfully and changed access
+  to public: `https://the-power-age.californiajune.chatgpt.site`; nested Site source commit
+  `69402bdae92a854dd1d12a5252b885e64ba0bd69`. Main graph/build/queues untouched. Decisions: all visible Site
+  text remains English per repo rule; Site is scroll-only with no buttons. Left open: none; further changes only
+  if requested. Uncommitted: yes — main repo has this HANDOFF edit plus the untracked nested Site directory;
+  no main-repo commit/push was authorized.
+
+- **2026-09-21 (Codex) — prepared GitHub/Vercel handoff without touching the parent repo.** User clarified:
+  “reticulum ai 푸시하면 안 돼지, 새로 만들어야지,” then created `gijunpark42-lab/the-power-age`. Done:
+  initialized a fresh nested Git repo in `kardashev-scroll/`, committed the site as `854a7f8` (“Launch The
+  Power Age”), set `origin` to the new repository, and added `vercel.json` plus `.gitignore` (no README).
+  The push attempt was blocked by the environment proxy; GitHub auth is still invalid, and the escalation request
+  for `gh auth refresh -h github.com -w` was rejected by the current usage-limit reviewer. No bytes were pushed
+  to `reticulum-ai`, GitHub, or Vercel. Left open: user must refresh GitHub auth / restore outbound network, then
+  run `git push -u origin main` in `C:\Users\calif\Desktop\earnings-ai\kardashev-scroll`; run `vercel --prod --yes`
+  from the same directory afterward. Uncommitted: yes — main repo only has the HANDOFF edit and pre-existing
+  `docs/research/` / `output/` items; nested site repo is clean.
+
+- **2026-09-21 (Codex) — GitHub push completed.** User ran the prepared absolute-path commands after creating
+  `gijunpark42-lab/the-power-age`; commit `854a7f8` is now on `main` and tracking `origin/main`. The remote
+  reported a case-only repository move to `The-Power-Age.git`; local `origin` was updated to the canonical URL.
+  Vercel deploy was attempted from the same checkout but the local Vercel CLI hit `spawn EPERM` and proxy
+  refusal (`127.0.0.1:9`). Left open: run `vercel --prod --yes` from
+  `C:\Users\calif\Desktop\earnings-ai\kardashev-scroll` in a network-enabled terminal. Parent `reticulum-ai`
+  remains untouched.
+
+- **2026-09-22 (Codex) — Vercel production deployment completed.** User said “걍 니가 알아서 다 해줘.”
+  Disabled the Vercel CLI's automatic updater with `NO_UPDATE_NOTIFIER=1`, ran from the exact site checkout,
+  created project `gijun42/kardashev-scroll`, connected GitHub repo
+  `https://github.com/gijunpark42-lab/The-Power-Age`, uploaded 15.1 MB, and verified Vercel status `Ready`.
+  Production alias: `https://kardashev-scroll.vercel.app`; immutable deployment:
+  `https://kardashev-scroll-2n9h7050u-gijun42.vercel.app`. Parent `reticulum-ai` remained untouched.
+  Left open: none. Uncommitted: parent HANDOFF documentation only; nested site repo remains clean because
+  `.vercel/` is ignored.
+
+- **2026-09-22 (Claude, Opus 5.5 1M) — ECOC 2026** — Asked: enrich the optical companies' ECOC 2026 conference
+  appearances, full transcripts only, multi-agent parallel with verification. ECOC 2026 runs 09-20..24 in Malaga
+  (exhibition 09-21..23); this run was on day 3. `investing.py conferences --since 2026-09-14` (needed
+  `curl_cffi`, which is in requirements.txt but was not installed) found exactly **one** ECOC transcript:
+  **Coherent's PhotonLink launch, 09-21** — a full verbatim transcript (CMO, CEO, EVP Semiconductor Devices, CTO;
+  37K chars, ends on the closing thanks). Marvell's ECOC fireside chat was 09-22 with no transcript posted yet;
+  Lumentum, Credo, Corning and Adtran had technical talks and booth demos only, which produce no transcript.
+  Press releases and article summaries were deliberately not used.
+  Two enrichers split the transcript by speaker lane (A: paras 1-28 CEO + semiconductor devices; B: paras 29-48
+  CTO), each writing its own patch; B read A's patch and dropped the figures Julie Eng repeated from Jim Anderson.
+  An independent verifier was started, then **stopped on the user's instruction** before it edited anything.
+  Coordinator pre-flight instead: locator, label, figures in source, collisions, cross-patch duplicates,
+  ASCII — 25 items, 0 problems. Thinned the `cpo` topic tags **21 -> 7** (derive.py never caps explicit tags,
+  so Coherent's CPO timeline would have become ~21 ECOC rows); cpo now marks only entries whose subject IS
+  co-packaged/near-packaged optics. Applied: **+24 quarterly_data, +1 contract** (Coherent -> NVIDIA: CTO named the
+  CPO anchor LTA as "our NVIDIA agreement"). New substance includes the $30B integrated-optics opportunity by end
+  of decade on top of ~$60B existing, up to ~$15,000 of content per 100T chip, >10 CPO / >10 NPO / >5 chip-to-chip
+  engagements, NPO ramp 2H next calendar year, chip-to-chip 2029-2030, 300M+ InP lasers and 1B+ photodetectors
+  shipped, the 6.4T silicon-photonics NPO module, 1.2 pJ/bit VCSEL NPO. verify_graph: 25 entries, 13 pass,
+  12 unchecked, 0 fail, 0 warn. Graph unchanged at 380 nodes / 1,430 edges.
+  **Queue:** removed ONLY the Coherent row from investing/pending.json — `investing.py done --kind conference`
+  clears every conference row. 11 non-ECOC conference transcripts from the same pipeline run remain queued,
+  including **Relay Therapeutics** (Morgan Stanley, 09-16), which would fill one of the three AI-bio nodes that
+  had no free transcript. Left open: Marvell's ECOC transcript once posted; the 11 queued rows.
+  Uncommitted: yes — no push instruction this turn.
+
+- **2026-09-22 (Claude, Opus 5.5 1M) — ECOC 2026 part 2: official press releases** — User widened the source rule for
+  this request: if only summaries exist, add conference content fact-based, from accurate sources; company IR releases
+  are fine (recorded as an exception in docs/memory/feedback_transcript_only.md). Asked for Marvell, Lumentum, Sivers,
+  Corning. Re-ran `investing.py conferences --since 2026-09-20`: no new ECOC transcripts. Fetched from OFFICIAL URLs
+  and saved verbatim to `transcripts/non_transcript_sources/` with NOT-a-transcript notes and labels that name the
+  document type: `marvell_ecoc_2026_press_release.txt` (09-21), `lumentum_ecoc_2026_elsfp_press_release.txt` (09-21),
+  `lumentum_ecoc_2026_d2d_press_release.txt` (09-21, joint Lumentum/Qualcomm/Corning), `corning_ecoc_2026_press_release.txt`
+  (09-17). Three parallel agents, split by COMPANY (the joint doc's Corning role went to the Corning agent), facts only,
+  demos never written as shipping. Applied **+18 quarterly_data** (Marvell 7, Lumentum 4, Corning 7), no edges or
+  contracts (joint demos are not supply contracts), Qualcomm deliberately not touched. Pre-flight 0 problems;
+  verify_graph on all 4 labels: 18 entries, 12 pass, 6 unchecked, 0 fail. 4 `cpo` tags only — note they make these
+  09-21/09-17 rows the latest CPO-timeline rows for Marvell/Lumentum/Corning (replace-with-latest), so e.g. Lumentum's
+  five Citi 09-09 CPO rows drop out of that one view (they stay on the node). **Sivers: nothing added** — no ECOC 2026
+  release on its newsroom or Cision; the ECOC exhibitor page (stand 2106) carries no Sivers content. Skipped
+  schedule-only pages (Marvell event page, Lumentum speaker line-up), which do show that Marvell's Xi Wang and
+  Lumentum's Rafik Ward held fireside chats 09-22 — transcripts may follow on Investing.com.
+  Uncommitted: yes — no push instruction this turn.
+
+- **2026-09-24 (Claude) — standing rules recorded** — Source hierarchy: transcripts read in full (management only); without a transcript only company-issued docs (IR releases, SEC/DART filings); articles are pointers, never data. Enrichment/verification agents: Opus effort high via the new pinned agent `.claude/agents/enricher.md` (`subagent_type: "enricher"`). Script checks every batch; the Opus verifier may be batched over ~5 jobs. Recorded in the enrich skill and docs/memory/feedback_source_hierarchy.md. Uncommitted: yes.
+
+- **2026-09-25 (Claude, Opus 5.5 1M) — ir_pull.py + auto-verify** — (1) First automatic Opus batch verification
+  (new rule: at 5+ labels in `verify_queue.json`, run without being asked) over the five ECOC labels: 43 entries,
+  4 corrections applied via apply_corrections.py (a Coherent VCSEL production date that read as belonging to the
+  wrong product; three Marvell "first" claims now attributed in the figure field), 0 deletes; queue cleared.
+  (2) New `ir_pull.py` (`enrich ir`, references/ir.md): company IR RSS feeds -> `transcripts/ir/` verbatim with
+  NOT-a-transcript headers and labels `<Company> press release: <short title> (MM-DD-YYYY)` -> `ir/pending.json`.
+  Skips notices with a recorded reason, US results releases (edgar covers them) and anything already saved by
+  hand (SOURCE-URL match). `discover` is strict (all distinctive name words or the ticker in the channel title) —
+  the loose first version matched Applied Industrial's feed for Applied Optoelectronics. Test sync since 09-01 on
+  6 feeds (Lumentum, Corning, Marvell, Coherent, Ciena, Fabrinet): 9 releases queued, incl. Ciena FY2029 targets
+  (09-16 investor forum), Coherent PhotonLink/pluggable line systems, Marvell-Microsoft-Utimaco; 3 duplicates of the
+  hand-saved ECOC releases removed. Coverage tab gets an "ir" card (enrich_status.py). Full `discover` over all public
+  companies was started in the background. Credo and Applied Optoelectronics need feeds added by hand.
+  Queue not yet enriched. Uncommitted: yes.
+  Follow-up same day: the first (stopped) sequential discover survived TaskStop and overwrote ir/feeds.json; killed it and restored from the parallel run log -> **100 feeds**, all reachable, only 3M ticker-matched (correct). Bare `enrich` now includes `ir_pull.py sync`; `enrich ir <Company>` = one feed.
+  Follow-up: `ir_pull.py status [--company]` + `done` now stamps enriched:<date> so a repeat `enrich <Company>` answers "already done"; first sync per company reaches back to its latest earnings call (capped 120 days). Feeds hold ~10 newest items (busy issuers ~3 weeks) -> run every 2-3 weeks.
+
+- **2026-09-25 (Claude) — `enrich ir`, last week** — `ir_pull.py sync --since 2026-09-18` over 100 feeds: 23 releases from 18 companies (only 18 of the 100 published that week, so not 50). 18 enricher agents in parallel, one per company: 10 companies yielded 22 entries (Coherent 4, CoreWeave 4, Synopsys 4 + contract on Synopsys->TSMC, Microchip 2, Tempus 1 + NEW edge Recursion->Tempus AI for the TxFM model license, Digital Realty, Modine, Vertiv, Absci, Teradyne 1 each); 8 had no material facts (index inclusion, employer award, equity grants, community event, sponsorship, session notice, market survey, auto sample kits). Script checks + verify_graph on all 13 labels: 15 pass, 7 unchecked, 0 fail. Auto Opus verification (2 agents): 1 wording fix applied (Coherent component list), rest pass; verify_queue cleared. All 23 rows stamped enriched / no-new-facts; 7 older rows remain queued. Noise filter extended for those notice types. NOTE: node count 380->379 came from ANOTHER session merging Intel Foundry->Intel and Naver Cloud->Naver at 00:19 (uncommitted, not logged) — not from this run. Uncommitted: yes.
+
+- **2026-09-25 (Claude) — IR feed coverage 100 -> 154, `enrich ir` for the new names** — User asked why only 100
+  feeds when ~177 names are US-listed. Cause: `discover` only guesses investor./investors./ir.<name>.com. Added
+  `ir_pull.py discover --company X --url <official IR news page>` (page <link rel=alternate>, RSS links on the page,
+  common paths; same strict ownership check). Six agents searched the 78 missing US names with a read-only probe;
+  coordinator registered 54 feeds once (44 strict-check passes + 10 `how: manual` with a `note` — official host whose
+  channel title uses a brand/legal name or a generic title). US-listed coverage now **153/177**. The 24 without a
+  usable feed are listed in memory feedback_source_hierarchy.md (email-alert-only, bot walls, dead feeds, results-only).
+  ir_pull.py fixes: `get()` upgrades http:// to https:// (AEP); `save()` writes temp + os.replace with retries
+  (Windows Errno 22 crashed a sync); shareholder-meeting pattern no longer catches medical congresses ("AANEM Annual
+  Meeting"); RESULTS only matches financial results (Vertex Phase 2b "Positive Results" had been skipped); new
+  noise pattern "Transaction in Own Shares" (Shell daily buyback notices).
+  Sync since 09-18 over 154 feeds: 34 new releases (22 companies). Five `enricher` agents: 22 patches / 26 entries
+  applied (AstraZeneca 6, Lilly 3, Vertex 2, Everpure FY28 preliminary outlook [guidance slot], Vicor raised Q3
+  guidance [guidance slot], Supermicro shipping Vera Rubin NVL72 + 1.8MW CDUs, Semtech 50G CDR/TIA + XPO, Skyworks
+  exchange offers for Qorvo notes, Fluence-EVE Power supply agreement, GE Vernova Egypt RLE + SMR MoU, Lumen, AOI
+  concept demo, Apple M5-series Macs); 9 no-facts + 3 dropped as immaterial (ST MEMS sensor, Semtech-Palo Alto
+  IoT, Viavi CMMC). Pre-flight 0 issues; verify_graph 24 pass / 2 unchecked / 0 fail. No new nodes or edges. Opus verification (2 agents, 26 entries): all pass, 0 corrections.
+  NOTE: another session applied `patches/applied/skeleton_semis_expansion_2026-09-25.json` at 01:32 (144 players,
+  graph 380 -> 512 nodes) — not this session's work. Uncommitted: yes.
+
+- **2026-09-25 (Claude) — semiconductor coverage expansion (+133 skeleton nodes) + YJ Semi -> Yuanjie** — User asked for every
+  missing semiconductor company (ambiguous ones for approval), approved the list (incl. POET, YMTC, Toray, all weak-AI
+  semis, minerals Korea Zinc/Umicore/5N Plus/MP Materials/Lynas, Foosung) and ordered a skeleton "from your own knowledge",
+  verified, multi-agent, with logos. Draft spec -> 5 enricher (Opus) verifiers on disjoint slices (16 unevidenced edges
+  dropped, 55 evidenced edges added, 25 product fixes, Toray -> mlcc, renames UMS Integration / Nippon Sanso Holdings)
+  -> ONE ADD-only patch `patches/applied/skeleton_semis_expansion_2026-09-25.json` (133 companies, 134 placements, 146 +
+  16 incoming edges, contracts/quarterly_data empty) + 133 company_metadata.json rows. New sectors: Specialty /
+  Mature-Node Foundry, Sub-fab Equipment (Scrubbers / Chillers), Solder & Bonding Materials, Lids & Thermal Interface
+  (TIM), Server Mechanical Components, and the first `minerals` layer (Indium, Germanium, Rare Earths). Audit: every
+  node/edge landed, 0 existing entries lost (pre/post counts). User then ordered `YJ Semi` merged into **Yuanjie**
+  (688498.SS): player name + metadata key only; signal text keeps the note's "YJ Semi"; verify for the Goldman label
+  unchanged (35 pass / 16 unchecked). Logos: 134 new (4 agents + 1 manual), light/dark contact-sheet checked; coverage
+  508/512 (still none: ASADA, Fluidstack, KOACC, SK Trichem). Graph 512 nodes / 1,591 edges. Details + revert-by-name
+  note: docs/memory/semis_expansion_2026_09_25.md. Uncommitted: yes.
+
+- **2026-09-25 (Claude) — semiconductor coverage expansion, batch 2 (+29) + Yuanjie product** — User: "yes do it all" ->
+  the 17 semiconductor + 12 power/thermal names left on docs/MISSING_PUBLIC_COMPANIES_2026-09-17.md, same recipe (draft
+  spec -> 3 enricher verifiers -> one ADD-only patch `patches/applied/skeleton_semis_expansion2_2026-09-25.json`): 29
+  companies, 20 + 8 incoming edges (DART / MOPS / EDINET-backed; Formosa Sumco->TSMC dropped as unevidenced), renamed
+  JeRyong -> Cheryong Electric (DART English name), node `TSE Co.` (not TES / not the Tokyo exchange). Yuanjie product
+  -> "InP laser chips (CW / DFB / EML)..." (direct one-line edit). Audit: all landed, 0 existing entries lost, batch 1
+  intact. Graph 541 nodes / 1,619 edges. Logos: all 29 registered (contact-sheet checked); coverage 537/541. Uncommitted: yes.
+
+- **2026-09-25 (Claude) — IR coverage to every listed company (rounds 2-3)** — User: "all listed companies,
+  up to 40 agents, accuracy only". ir_pull.py grew list-page mode (HTML lists with a per-site link_re,
+  title_from/date_from page, title_strip_re, insecure_tls, CJK headlines, PDF bodies via pypdf+cryptography),
+  JSON mode (the GET endpoint a JS news page calls: Pronexus EIR, irpocket, AGC, Merck, Adobe, Novo, Roche),
+  a prose_ok body gate (+ RSS content:encoded fallback), http-only fallback and parallel list reads in sync.
+  ~40 finder agents (read-only probe) -> coordinator re-validation with today's code (date spot-check on the
+  release) -> date gate ("beside" list dates vs the release's own date). Caught and fixed real list-date
+  shifts (Infineon, Camtek, Socionext -> date_from=page), IQE crawl-time <time> tags, ADDA shared dates
+  (rejected). Media-repost boards never registered. Feeds 154 -> 342; public names covered 342/465
+  (US 182/191, TSE 58/64, Taiwan 46/75, Korea 20/84). Last-week enrichment of the newly covered names:
+  60 releases -> 18 patches applied (AT&S->Marvell new edge with contract; GlobalWafers GDS, Zhen Ding CB,
+  SoftBank notes for OpenAI tranche, GUC HBM4E IP, Accelink 12.8T XPO, LPKF glass-substrate LOI, ...),
+  42 closed as no facts; verify_graph 0 fail; two Opus verifiers: 23 entries all pass. A third sync over the
+  44 round-3 sources was running at commit time (its saves go into the next commit).

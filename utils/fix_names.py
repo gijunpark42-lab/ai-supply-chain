@@ -11,6 +11,7 @@ RENAMES = {
     "StacyX AI":         "SpaceX",
     "Pure Storage":      "Everpure",
     "Cipher Mining":     "Cipher Digital",
+    "Naver Cloud":       "Naver",
 }
 
 def rename_all(obj, renames):

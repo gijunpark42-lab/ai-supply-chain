@@ -27,3 +27,15 @@ The user prefers a smaller, fully-trusted map over a denser, mixed-provenance on
   expect the user may revert after seeing it live; keep such work cleanly revertable
   (no commits until explicitly ordered — this saved the day here).
 - Related: [[project-state]]
+
+**EXCEPTION granted by the user, 2026-09-22 (ECOC 2026):** "if only a summary exists, add conference content
+fact-based — but it must be an accurate source; the company's own IR release is fine." So for a conference with no
+full transcript, OFFICIAL COMPANY-ISSUED documents (IR press releases on the company's own site / Business Wire)
+may be used. Rules applied: fetch from the official URL, save verbatim to transcripts/non_transcript_sources/ with a
+NOT-a-transcript NOTE and a `# source label:` header; label names the document type
+("Marvell ECOC 2026 press release (09-21-2026)") so it never mixes with transcript labels; facts only (specs,
+availability, counts), marketing adjectives dropped, demos never written as shipping products, hedges kept, no
+edges/contracts from joint demos. Third-party articles, newsletters and exhibitor boilerplate are still NOT sources.
+This does not reopen the reverted news-pipeline program; it is per-request.
+
+**NARROWED 2026-09-24:** the exception above is now a standing rule limited to company-issued documents (IR releases, SEC/DART filings); articles are pointers only. Full rule: [[feedback-source-hierarchy]].
