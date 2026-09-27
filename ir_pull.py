@@ -63,6 +63,8 @@ except ImportError:
     sys.exit("pip install curl_cffi  (listed in requirements.txt)")
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+from taxonomy import MARKETS, market_of      # noqa: E402  (home market of a company, for `pending --market`)
 META = ROOT / "company_metadata.json"
 FEEDS = ROOT / "ir" / "feeds.json"
 STATE = ROOT / "ir" / "sync_state.json"
@@ -94,6 +96,23 @@ NOISE = [
     (r"決算説明会|法人說明會|法說會|기업설명회|IR\s*개최", "event notice"),
     (r"自己株式の取得|自己株式取得|庫藏股|자기주식|자사주", "buyback notice"),
     (r"株式報酬|ストックオプション|新株予約権|員工認股|주식매수선택권", "equity-grant notice"),
+    # added 2026-09-26 -- "important releases only" (enrich SKILL.md, capture rules). Tested on the 81 saved
+    # releases that yielded no entries: these five catch 29 more; of the 64 releases that did yield entries,
+    # one would be skipped (an HPE analyst-ranking release that also gave a customer count). Kept narrow:
+    # "Wins ... Contract Award" is a deal, not an award; "study finds" can be a clinical result, not skipped.
+    # personnel: "appoints/names" only with a role word -- "appoints X as packaging partner" is a deal
+    (r"\b(appoints?|appointment of|names|named)\b[^:]{0,60}\b(chief|CEO|CFO|COO|CTO|president|director|officer"
+     r"|chair(man|woman|person)?|head of|general manager)\b|\bpersonnel change"
+     r"|\bchanges? (in|to) [\w'’ ]{0,25}(board|leadership|management)|\bboard of directors\b|\boperating officers\b"
+     r"|\bledningsgrupp|人事異動|役員人事|인사\s*발령|임원\s*인사", "personnel"),
+    (r"^(exhibit|presentation|presenting) (at|on)\b|\bto (showcase|exhibit)\b"
+     r"|^[\w .&-]{0,20}\b(SEMICON|CEATEC|ICSCRM)\b[\w ]{0,10}20\d\d$", "exhibit / presentation notice"),
+    (r"\bsupport(s|ing)? (for )?(the )?(victims|\d+(st|nd|rd|th)|communit)|\bUNICEF\b|\bcommunity-first\b"
+     r"|\bgreen partners\b|^sustainability\b|\bsustainability report\b|\bolympic\b|\basian (para )?games\b"
+     r"|\bheavy rains?\b|\$[\d.,]+m\+? commitment", "CSR / community"),
+    (r"\bwins?\b(?![^:]*\bcontract)[^:]{0,60}\baward\b|\bpartner of the year\b|\bmagic quadrant\b"
+     r"|\brecogni[sz](ed|es) (as a leader|its)\b|\breader'?s?'? (choice|awards?)\b", "award / ranking"),
+    (r"^\[column\]|\bopen letter\b|\bsurvey finds\b|^[\w ]+ AI Research:", "column / survey / letter"),
 ]
 # Quarterly/annual FINANCIAL results only -- not "targets"/"outlook", and not clinical results
 # ("Vertex Announces Positive Results From Phase 2b ..." is news, not an earnings release).
@@ -961,7 +980,8 @@ def main():
     s = sub.add_parser("sync"); s.add_argument("--since"); s.add_argument("--company")
     f = sub.add_parser("fetch"); f.add_argument("url"); f.add_argument("--company", required=True)
     f.add_argument("--title", help="headline, if the page title is not usable"); f.add_argument("--date", help="MM-DD-YYYY")
-    sub.add_parser("pending")
+    pn = sub.add_parser("pending")
+    pn.add_argument("--market", choices=[m for m, _ in MARKETS], help="only companies from this home market")
     st = sub.add_parser("status"); st.add_argument("--company")
     dn = sub.add_parser("done"); dn.add_argument("--label"); dn.add_argument("--all", action="store_true")
     dn.add_argument("--why", help="e.g. 'no new facts' when a release yielded nothing")
@@ -1002,6 +1022,8 @@ def main():
         save(STATE, state)
     elif args.cmd == "pending":
         rows = load(PENDING, [])
+        if args.market:          # a market command (`enrich korea`) works only its own rows
+            rows = [r for r in rows if market_of(public_companies().get(r["company"], {}).get("exchange")) == args.market]
         for r in rows:
             print("%-10s %-22s %s" % (r["date"], r["company"], r["label"]))
         print("%d pending" % len(rows))

@@ -1392,6 +1392,125 @@ table.data th.active .sort-arrow {
   font-size: 0.72rem;
   margin-top: 6px;
 }
+/* Status tab (was Coverage): the market board from enrich_status.py — graph/enrich_status.json
+   "board", the same content as ENRICH_STATUS.md. Run next list, markets table, per-market details. */
+.board-h {
+  margin: 1rem 0 0.3rem;
+}
+.board-run {
+  list-style: none;
+  margin: 0.4rem 0 0.6rem;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.board-run > li {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  min-width: 0;
+}
+.board-run .run-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.board-run .run-n {
+  color: var(--ap-muted);
+  font-size: 0.78rem;
+  min-width: 1.2em;
+}
+.board-run .run-cmd {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.board-run ul {
+  margin: 6px 0 0;
+  padding-left: 20px;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+.board-shared {
+  color: var(--ap-muted);
+  font-size: 0.78rem;
+  margin: 0 0 0.4rem;
+}
+.board .warn {
+  color: #d29922;
+}
+.board-setup li {
+  color: #d29922;
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+.board-setup li.board-question {
+  color: inherit;
+}
+.board-markets td.cmd {
+  white-space: nowrap;
+}
+.board-markets td.warn {
+  color: #d29922;
+  font-weight: 600;
+}
+.board-markets td.bad {
+  color: #f85149;
+  font-weight: 600;
+}
+.board-due {
+  color: #f85149;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+.board-market {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  min-width: 0;
+}
+.board-market summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.board-market dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  row-gap: 6px;
+  margin: 8px 0 2px;
+  font-size: 0.8rem;
+}
+.board-market dt {
+  color: var(--ap-muted);
+  white-space: nowrap;
+}
+.board-market dd {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  min-width: 0;
+}
+.board-name {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+.board-gap {
+  flex-basis: 100%;
+}
+.board-notes {
+  font-size: 0.8rem;
+  padding-left: 18px;
+}
+@media (max-width: 640px) {
+  .board-market dl {
+    grid-template-columns: 1fr;
+  }
+}
 .cov-chip {
   display: inline-block;
   border: 1px solid;

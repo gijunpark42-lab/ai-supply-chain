@@ -20,7 +20,7 @@ import AskGraph from "@/components/AskGraph";
 import Picks from "@/components/Picks";
 import "./workspace.css";
 
-const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Screener", "Picks", "Capex", "Coverage", "Ask", "Semi Bot"] as const;
+const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Screener", "Picks", "Capex", "Status", "Ask", "Semi Bot"] as const;
 // External dashboard embedded in the "Semi Bot" tab (its own Vercel project; sends no
 // X-Frame-Options / CSP frame-ancestors header, so it can be shown inline in an iframe).
 const SEMI_BOT_URL = "https://semiband-dashboard.vercel.app";
@@ -34,7 +34,7 @@ const VIEW_INFO: Record<Tab, { title: string; description: string }> = {
   Screener: { title: "Compare the companies.", description: "Review the latest reported results, guidance, supply status, and catalysts." },
   Picks: { title: "Track the picks.", description: "Two ranked one-quarter baskets, priced live against their 2026-09-18 entry." },
   Capex: { title: "Follow the investment.", description: "Compare capital spending and contracted demand across cloud infrastructure." },
-  Coverage: { title: "Know what is on file.", description: "Check earnings dates, source freshness, and the enrichment queue." },
+  Status: { title: "Know what to enrich next.", description: "See what is waiting, what is overdue, and which enrich command to run next." },
   Ask: { title: "Start with a question.", description: "Explore the stored signals and contracts with source-linked answers." },
   "Semi Bot": { title: "Your Semi Bot workspace.", description: "Open the trading dashboard alongside your supply-chain research." },
 };
@@ -365,7 +365,7 @@ export default function Page() {
         {viz && tab === "Exposure" && (
           <Exposure nodes={viz.nodes} byId={viz.byId} onOpen={openNode} />
         )}
-        {viz && tab === "Coverage" && <Coverage nodes={viz.nodes} onSelect={setSelected} />}
+        {viz && tab === "Status" && <Coverage nodes={viz.nodes} onSelect={setSelected} />}
         {viz && tab === "Ask" && (
           <AskGraph nodes={viz.nodes} links={viz.links} onOpen={openNode} />
         )}

@@ -105,7 +105,11 @@ as a `====` block with its own header/label, oldest at the top. The full 공시 
   - `IV~VI. 이사회, 주주, 임원` — usually nothing; still read, JV/투자 결의 can appear here.
   - `VII~IX. 계열회사, 이해관계자 거래, 기타` — related-party supply (e.g. 삼성전자 ↔ 삼성전기),
     material contracts signed after period end.
-- Amounts are KRW; keep them as written in `figure` (e.g. `매출 27조 8,000억원`) — do not convert to USD.
+- Amounts are KRW: keep them in KRW but write them in English (`KRW 27.8 trillion`, `KRW 45,946M`) — do not
+  convert to USD, and never paste the Korean (`27조 8,000억원` fails verify's English-only check).
+- One fact, one node (enrich skill §6): a company-wide fact from a filing goes on the placement that holds the
+  company's company-wide entries — never copy it into every chain the company appears in (one half-year report
+  was once written into 14 chains).
 - Company names inside the filing are Korean (`SK하이닉스`, `삼성전자`, `한미반도체`). Map to the
   canonical English node name already in the chain (`SK Hynix`, `Samsung`, `Hanmi Semiconductor`);
   never add a Korean-named duplicate.

@@ -63,6 +63,39 @@ GROUP_NAMES  = {**LAYER_NAMES, **DOMAIN_NAMES}
 LAYER_SLUGS  = set(LAYER_COLORS)
 DOMAIN_SLUGS = set(DOMAIN_COLORS)
 
+# ── Home markets (the enrichment status board and the `enrich <market>` commands) ────
+# A company's market comes from its `exchange` in company_metadata.json. That file spells
+# some exchanges two ways ("EPA" / "Euronext Paris", "STO" / "OMX Stockholm"), so every
+# spelling seen there is listed. Order of MARKETS = display order on the status board.
+MARKETS = [
+    ("US",    "United States"),
+    ("KR",    "Korea"),
+    ("TW",    "Taiwan"),
+    ("JP",    "Japan"),
+    ("EU",    "Europe"),
+    ("CN",    "China / Hong Kong"),
+    ("other", "Other listed"),
+]
+MARKET_OF_EXCHANGE = {
+    "NASDAQ": "US", "NYSE": "US", "NYSE American": "US", "AMEX": "US", "OTC": "US",
+    "KOSPI": "KR", "KOSDAQ": "KR", "KRX": "KR",
+    "TWSE": "TW", "TPEx": "TW",
+    "TSE": "JP", "OSE": "JP",
+    "SSE": "CN", "SZSE": "CN", "HKEX": "CN",
+    "XETRA": "EU", "SIX": "EU", "Euronext Paris": "EU", "EPA": "EU", "MIL": "EU",
+    "OMX Stockholm": "EU", "STO": "EU", "AMS": "EU", "Euronext Amsterdam": "EU",
+    "Euronext Brussels": "EU", "VIE": "EU", "LSE": "EU",
+    "SGX": "other", "IDX": "other", "TSX": "other", "ASX": "other",
+}
+
+
+def market_of(exchange):
+    """'NASDAQ' -> 'US', 'KOSDAQ' -> 'KR'. No exchange (a private company) -> None.
+    An exchange missing from the table -> 'other' (add it above when a new one appears)."""
+    if not exchange:
+        return None
+    return MARKET_OF_EXCHANGE.get(exchange, "other")
+
 
 def iter_players(chain):
     """Walk every player in a chain file, regardless of nesting depth.

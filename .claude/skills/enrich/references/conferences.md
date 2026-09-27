@@ -25,10 +25,11 @@ Same scraping caveat as `enrich intl` (Chrome TLS fingerprint, one request per s
    backfill 2026-09-10 stopped at `oldest_seen` 2026-08-06 with 84 files saved); `get()` now waits
    a minute and retries, but if a run still stops short, re-run later — it skips what it has and
    keeps walking back.
-2. `python investing.py pending` — rows whose first column is `conference` are this workflow's
-   queue (rows marked `transcript` belong to `enrich intl` — leave them). Never enrich a file
-   that is not in the queue.
-3. **Enrich each file under the depth rule below** (Workflow 2, JOB 1–5, ADD-only, patches only).
+2. `python investing.py pending --kind conference` — this workflow's queue (rows marked `transcript`
+   belong to `enrich intl` — leave them). A market command works only its own rows:
+   `--kind conference --market US|KR|TW|JP|EU|CN`. Never enrich a file that is not in the queue.
+3. **Enrich each file under the depth rule below** (Workflow 2, JOB 1–5, ADD-only, patches only);
+   pre-flight every patch with `python -X utf8 utils/check_patch.py <patch>` until clean.
 4. `python graph_build.py --sync` — ONE run by the coordinator after all patches are in. It applies
    the patches and runs `verify_graph.py` on the labels just applied.
 5. **Verification loop:** read every `[fail]` / `[warn]` line. For each `[fail]`, re-open the
@@ -36,11 +37,13 @@ Same scraping caveat as `enrich intl` (Chrome TLS fingerprint, one request per s
    (fix the `source_quote` / label), re-run `python -X utf8 verify_graph.py --label "<label>"`,
    and repeat until the labels from this run show 0 fail. Warnings that are explainable (e.g.
    a number the speaker rounds differently) are listed in the report, not silenced.
-6. `python investing.py done --kind conference` (keeps the `enrich intl` rows).
+6. `python investing.py done --kind conference` (keeps the `enrich intl` rows; a market command adds
+   `--market <its market>` so other markets' rows stay queued).
 7. Report per company: label, what was added, what was skipped as a restatement, verify result.
    Then **update memory** (`conference_enrichment.md` in this project's memory dir): run date,
    window walked (`oldest_seen`), the companies + conferences enriched, the ones skipped as
-   restatements, open problems. The user wants to be able to ask "where did we get to?" later.
+   restatements, open problems. The user wants to be able to ask "where did we get to?" later —
+   the status board (`ENRICH_STATUS.md`) now answers that too; keep the memory note short.
 If the queue is empty after step 1, say so and stop.
 
 **Depth rule — only what the earnings call did not already say.** A fireside chat two weeks after
@@ -61,8 +64,8 @@ not management's unless management confirms it. Only management speakers are sou
 `[Company] [Conference] [YYYY] (MM-DD-YYYY)`, e.g. `Credo Goldman Sachs conference 2026 (09-10-2026)`.
 The date is the article publish date, which is the event day. `[Company]` is the canonical node name.
 
-**Multi-agent (when the queue has more than ~5 rows) — the recipe that worked for `enrich edgar`:**
-- Coordinator splits the `conference` rows by company into ≤ 8 batches (all of one company's
+**Multi-agent (the default — up to 20 agents, fewer for a small queue) — the recipe that worked for `enrich edgar`:**
+- Coordinator splits the `conference` rows by company into up to 20 batches (all of one company's
   conferences in one batch so the depth rule is applied consistently).
 - One **enricher** agent per batch: reads each transcript in full, applies the depth rule, writes
   only `patches/conf_<file stem>.json` — never `chains/` (see `concurrent_job_race` memory).

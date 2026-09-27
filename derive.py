@@ -521,6 +521,8 @@ def derive_capex(graph):
 
 EXPOSURE_PATH = os.path.join(OUT_DIR, "exposure.json")
 CHAINS_DIR = "chains"
+# Contract `type`s that state "customer X is n% of the supplier's revenue" (lower case).
+CONCENTRATION_TYPES = {"customer share", "10-k customer concentration", "10-q customer concentration"}
 
 ROLE_WEIGHT = {
     "compute_hardware": 3, "memory": 3, "interconnect": 3, "advanced_packaging": 3, "foundry": 3,
@@ -664,7 +666,9 @@ def derive_exposure(graph, today=None):
                 bump_topics(company, c)
             # A "customer share" contract is a filed major-customer fact on an edge: the
             # target is x% of the source's revenue -> a concentration fact for the source.
-            if (c.get("type") or "").strip().lower() == "customer share":
+            # `enrich edgar` writes the same fact as "10-K / 10-Q customer concentration";
+            # before 2026-09-26 only "customer share" was read, so those never reached Exposure.
+            if (c.get("type") or "").strip().lower() in CONCENTRATION_TYPES:
                 text = c.get("signal", "")
                 if has_figure(c.get("value")):
                     text = "%s — %s" % (text, c["value"])

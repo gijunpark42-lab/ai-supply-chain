@@ -9,8 +9,12 @@ tells you where they are and in what order to load them.
 1. `CLAUDE.md` — the project: graph model, data shape, fixed layer/domain slugs, workflow table, hard rules.
 2. `docs/HANDOFF.md` — WHERE WE ARE: what is done, what is queued, what the user decided, what to do next.
    Updated at the end of every working session (by whichever agent worked). Append; never rewrite history.
-3. `.claude/skills/enrich/SKILL.md` — the enrichment procedure (patch format, JOB 1–5, labels, build + verify).
-   Its `references/*.md` hold the per-pipeline procedures (us / dart / intl / tw / edgar / conferences).
+3. `.claude/skills/enrich/SKILL.md` — the enrichment procedure: common rules §0–§8 (status board, what to
+   capture, patch format, JOB 1–5, labels, slot table, checks + verification, English only).
+   Its `references/*.md` hold the per-market (`markets.md`) and per-pipeline procedures
+   (us / dart / intl / tw / edgar / conferences / ir).
+   Before any enrich run read `ENRICH_STATUS.md` (the generated status board: what is waiting, which market
+   command to run next); refresh it with `python -X utf8 enrich_status.py`.
    `.claude/skills/chain-skeleton/SKILL.md` — how to build a new chain file. `ask-server` — the Ask tab engine.
 4. `docs/memory/*.md` — a snapshot (2026-09-12) of Claude's persistent memory for this project: user
    preferences, decisions, rulings, gotchas, run histories. `MEMORY.md` there is the index. Read the index,
@@ -76,8 +80,9 @@ start of EVERY session before doing anything — the other agent may have worked
 
 ## Standard end-of-work sequence
 
-1. `python graph_build.py --sync`  (applies patches → merged graph → derived views → web/public sync;
-   also runs `verify_graph.py` on the labels just applied — read every `[fail]` / `[warn]` line).
+1. `python -X utf8 utils/check_patch.py <patches>` until clean, then `python graph_build.py --sync`
+   (applies patches → merged graph → derived views → status board → web/public sync; also runs
+   `verify_graph.py` on the labels just applied — read every `[fail]` / `[warn]` line).
 2. Fix the patch and rebuild until 0 fail.
 3. Mark the pipeline queue done (`av.py done`, `investing.py done --kind conference`, `edgar_pull.py done`, ...).
 4. Record progress as described above (session log entry + §3/§4 refresh + docs/memory if a rule changed).
