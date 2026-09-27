@@ -1,11 +1,11 @@
 {
- "generated": "2026-09-25 04:20",
+ "generated": "2026-09-26 17:11",
  "labels_total": 1231,
  "pipelines": [
   {
    "id": "us",
    "name": "US earnings calls",
-   "command": "enrich us",
+   "command": "enrich us calls",
    "source": "Alpha Vantage / defeatbeta (av.py)",
    "files": 297,
    "labels_on_disk": 297,
@@ -1270,5 +1270,765 @@
     "2026-09-21"
    ]
   }
- ]
+ ],
+ "board": {
+  "today": "2026-09-26",
+  "markets": [
+   {
+    "id": "US",
+    "name": "United States",
+    "command": "enrich us",
+    "companies": 193,
+    "call_current": 171,
+    "overdue": [
+     {
+      "company": "Applied Digital",
+      "last_call": "2026-04-09"
+     },
+     {
+      "company": "Simulations Plus",
+      "last_call": "2026-04-09"
+     },
+     {
+      "company": "3M",
+      "last_call": "2026-04-21"
+     },
+     {
+      "company": "Texas Instruments",
+      "last_call": "2026-04-22"
+     }
+    ],
+    "never": [
+     "Adeia",
+     "Alpha and Omega Semiconductor",
+     "Arteris",
+     "Bel Fuse",
+     "CEVA",
+     "ChipMOS",
+     "Diodes",
+     "Lattice Semiconductor",
+     "Lightwave Logic",
+     "Littelfuse",
+     "MP Materials",
+     "PDF Solutions",
+     "POET Technologies",
+     "Shell",
+     "UMC"
+    ],
+    "nothing": [
+     "Adeia",
+     "Alpha and Omega Semiconductor",
+     "Arteris",
+     "Bayer",
+     "Bel Fuse",
+     "CEVA",
+     "ChipMOS",
+     "Diodes",
+     "Lattice Semiconductor",
+     "Lightwave Logic",
+     "Littelfuse",
+     "MP Materials",
+     "PDF Solutions",
+     "POET Technologies",
+     "Relay Therapeutics",
+     "Shell",
+     "UMC"
+    ],
+    "dart_never": [],
+    "marked": [
+     {
+      "company": "Bayer",
+      "source": "call",
+      "why": "no free transcript source (AI-bio chain check, recorded 2026-09-18)",
+      "recheck": "2026-12-25"
+     },
+     {
+      "company": "Relay Therapeutics",
+      "source": "call",
+      "why": "no free transcript source (AI-bio chain check, recorded 2026-09-18)",
+      "recheck": "2026-12-25"
+     },
+     {
+      "company": "Roche-Genentech",
+      "source": "call",
+      "why": "no free transcript source (AI-bio chain check, recorded 2026-09-18)",
+      "recheck": "2026-12-25"
+     }
+    ],
+    "feeds": 183,
+    "waiting": {
+     "conference": 11,
+     "ir": 7
+    },
+    "collectors": {
+     "us": "2026-09-04"
+    }
+   },
+   {
+    "id": "KR",
+    "name": "Korea",
+    "command": "enrich korea",
+    "companies": 84,
+    "call_current": 0,
+    "overdue": [
+     {
+      "company": "SK Hynix",
+      "last_call": "2026-04-23"
+     },
+     {
+      "company": "Samsung",
+      "last_call": "2026-04-30"
+     },
+     {
+      "company": "Samsung Electro-Mechanics",
+      "last_call": "2026-04-30"
+     }
+    ],
+    "never": [
+     "AD Technology",
+     "Auros Technology",
+     "Chemtronics",
+     "Cheryong Electric",
+     "DB HiTek",
+     "DI Corporation",
+     "Daeduck Electronics",
+     "Daewon Cable",
+     "Dongjin Semichem",
+     "Doosan Corporation",
+     "Doosan Enerbility",
+     "Duksan Hi-Metal",
+     "ENF Technology",
+     "EO Technics",
+     "Eugene Technology",
+     "Exicon",
+     "FADU",
+     "FST",
+     "Foosung",
+     "Gaon Cable",
+     "Gaonchips",
+     "GigaVis",
+     "Global Standard Technology",
+     "HD Hyundai Electric",
+     "HPSP",
+     "HaeSung DS",
+     "Hana Materials",
+     "Hana Micron",
+     "Hanmi Semiconductor",
+     "Hansol Chemical",
+     "Hyosung Heavy Industries",
+     "ISC",
+     "Iljin Electric",
+     "Intekplus",
+     "Isu Petasys",
+     "JNTC",
+     "Jusung Engineering",
+     "KC Tech",
+     "Koh Young Technology",
+     "Komico",
+     "Korea Circuit",
+     "Korea Zinc",
+     "LG Innotek",
+     "LS Eco Energy",
+     "LS Electric",
+     "LS Marine Solution",
+     "Leeno Industrial",
+     "MK Electron",
+     "MiCo",
+     "Mirae Industry",
+     "Naver",
+     "Nepes",
+     "Nextin",
+     "POSCO",
+     "PSK Holdings",
+     "PSK Inc.",
+     "Park Systems",
+     "Philoptics",
+     "Protec",
+     "S&S Tech",
+     "SFA Semiconductor",
+     "SK Telecom",
+     "Sanil Electric",
+     "SemiFive",
+     "Signetics",
+     "Simmtech",
+     "Solus Advanced Materials",
+     "Soulbrain",
+     "TES",
+     "TLB",
+     "TSE Co.",
+     "Taihan Cable",
+     "Techwing",
+     "Tokai Carbon Korea",
+     "UniTest",
+     "Unisem Co.",
+     "Wonik IPS",
+     "Wonik Materials",
+     "Wonik QnC",
+     "YC",
+     "Zeus"
+    ],
+    "nothing": [
+     "Auros Technology",
+     "Chemtronics",
+     "Cheryong Electric",
+     "DB HiTek",
+     "DI Corporation",
+     "Daewon Cable",
+     "Duksan Hi-Metal",
+     "ENF Technology",
+     "Eugene Technology",
+     "Exicon",
+     "FADU",
+     "FST",
+     "Foosung",
+     "Gaon Cable",
+     "GigaVis",
+     "Global Standard Technology",
+     "HPSP",
+     "HaeSung DS",
+     "Hana Materials",
+     "Hana Micron",
+     "Hansol Chemical",
+     "Iljin Electric",
+     "Intekplus",
+     "JNTC",
+     "KC Tech",
+     "Koh Young Technology",
+     "Komico",
+     "Korea Zinc",
+     "LS Eco Energy",
+     "LS Marine Solution",
+     "MK Electron",
+     "MiCo",
+     "Nepes",
+     "Nextin",
+     "Park Systems",
+     "Philoptics",
+     "Protec",
+     "S&S Tech",
+     "SK Telecom",
+     "SemiFive",
+     "Solus Advanced Materials",
+     "TES",
+     "TLB",
+     "TSE Co.",
+     "Tokai Carbon Korea",
+     "UniTest",
+     "Unisem Co.",
+     "Wonik Materials",
+     "YC",
+     "Zeus"
+    ],
+    "dart_never": [
+     "Auros Technology",
+     "Chemtronics",
+     "Cheryong Electric",
+     "DB HiTek",
+     "DI Corporation",
+     "Daewon Cable",
+     "Duksan Hi-Metal",
+     "ENF Technology",
+     "Eugene Technology",
+     "Exicon",
+     "FADU",
+     "FST",
+     "Foosung",
+     "Gaon Cable",
+     "GigaVis",
+     "Global Standard Technology",
+     "HPSP",
+     "HaeSung DS",
+     "Hana Materials",
+     "Hana Micron",
+     "Hansol Chemical",
+     "Iljin Electric",
+     "Intekplus",
+     "JNTC",
+     "KC Tech",
+     "Koh Young Technology",
+     "Komico",
+     "Korea Zinc",
+     "LS Eco Energy",
+     "LS Marine Solution",
+     "MK Electron",
+     "MiCo",
+     "Nepes",
+     "Nextin",
+     "Park Systems",
+     "Philoptics",
+     "Protec",
+     "S&S Tech",
+     "SK Telecom",
+     "SemiFive",
+     "Solus Advanced Materials",
+     "TES",
+     "TLB",
+     "TSE Co.",
+     "Tokai Carbon Korea",
+     "UniTest",
+     "Unisem Co.",
+     "Wonik Materials",
+     "YC",
+     "Zeus"
+    ],
+    "marked": [],
+    "feeds": 20,
+    "waiting": {},
+    "collectors": {
+     "dart": "2026-09-10"
+    }
+   },
+   {
+    "id": "TW",
+    "name": "Taiwan",
+    "command": "enrich taiwan",
+    "companies": 75,
+    "call_current": 17,
+    "overdue": [
+     {
+      "company": "Wiwynn",
+      "last_call": "2026-02-26"
+     },
+     {
+      "company": "Inventec",
+      "last_call": "2026-05-12"
+     },
+     {
+      "company": "Gigabyte",
+      "last_call": "2026-05-15"
+     },
+     {
+      "company": "VPEC",
+      "last_call": "2026-05-27"
+     }
+    ],
+    "never": [
+     "ADDA",
+     "AP Memory",
+     "ASMedia",
+     "ASPEED",
+     "ASUS",
+     "AVC (Asia Vital Components)",
+     "Accton Technology",
+     "All Ring Tech",
+     "Andes Technology",
+     "Auras Technology",
+     "Bizlink",
+     "C Sun Manufacturing",
+     "CHPT (Chunghwa Precision Test)",
+     "Chenbro",
+     "Chicony Power",
+     "Chroma ATE",
+     "Elite Material",
+     "FSP Technology",
+     "Faraday Technology",
+     "Formosa Sumco",
+     "GlobalWafers",
+     "Grand Process Technology",
+     "Gudeng Precision",
+     "ITEQ",
+     "Jentech Precision",
+     "KYEC (King Yuan Electronics)",
+     "Kaori Heat Treatment",
+     "King Slide",
+     "Kinik",
+     "Kinsus",
+     "Lotes",
+     "M31 Technology",
+     "MPI Corporation",
+     "Macronix",
+     "MiTAC Holdings",
+     "Nan Ya PCB",
+     "Nidec Chaun-Choung",
+     "Nuvoton",
+     "Parade Technologies",
+     "Powerchip (PSMC)",
+     "Realtek",
+     "Scientech",
+     "Sigurd Microelectronics",
+     "Silergy",
+     "Sino-American Silicon",
+     "Sunonwealth",
+     "TaiSol Electronics",
+     "Vanguard International Semiconductor",
+     "VisEra",
+     "Win Semiconductors",
+     "WinWay Technology",
+     "Winbond Electronics",
+     "eMemory",
+     "uPI Semiconductor"
+    ],
+    "nothing": [
+     "ADDA",
+     "AP Memory",
+     "ASMedia",
+     "ASPEED",
+     "ASUS",
+     "AVC (Asia Vital Components)",
+     "All Ring Tech",
+     "Andes Technology",
+     "Auras Technology",
+     "C Sun Manufacturing",
+     "CHPT (Chunghwa Precision Test)",
+     "Chenbro",
+     "Chicony Power",
+     "Chroma ATE",
+     "Elite Material",
+     "FSP Technology",
+     "Faraday Technology",
+     "Formosa Sumco",
+     "Grand Process Technology",
+     "Gudeng Precision",
+     "ITEQ",
+     "Jentech Precision",
+     "KYEC (King Yuan Electronics)",
+     "Kaori Heat Treatment",
+     "King Slide",
+     "Kinik",
+     "Kinsus",
+     "Lotes",
+     "MPI Corporation",
+     "Macronix",
+     "MiTAC Holdings",
+     "Nan Ya PCB",
+     "Nidec Chaun-Choung",
+     "Nuvoton",
+     "Parade Technologies",
+     "Powerchip (PSMC)",
+     "Realtek",
+     "Scientech",
+     "Sigurd Microelectronics",
+     "Silergy",
+     "Sino-American Silicon",
+     "Sunonwealth",
+     "TaiSol Electronics",
+     "Vanguard International Semiconductor",
+     "VisEra",
+     "Win Semiconductors",
+     "WinWay Technology",
+     "Winbond Electronics",
+     "eMemory",
+     "uPI Semiconductor"
+    ],
+    "dart_never": [],
+    "marked": [],
+    "feeds": 46,
+    "waiting": {},
+    "collectors": {
+     "intl": "2026-09-18",
+     "tw": "2026-09-07"
+    }
+   },
+   {
+    "id": "JP",
+    "name": "Japan",
+    "command": "enrich japan",
+    "companies": 65,
+    "call_current": 10,
+    "overdue": [
+     {
+      "company": "Murata",
+      "last_call": "2026-04-30"
+     }
+    ],
+    "never": [
+     "AGC",
+     "Accretech (Tokyo Seimitsu)",
+     "Asahi Kasei",
+     "Asetek",
+     "Canon",
+     "Dai Nippon Printing",
+     "Disco Corporation",
+     "Ebara",
+     "Ferrotec",
+     "Fujifilm",
+     "Fujikura",
+     "Fujimi",
+     "Furukawa Electric",
+     "HOYA",
+     "Horiba",
+     "JX Advanced Metals",
+     "Japan Electronic Materials",
+     "Japan Material",
+     "Kyocera",
+     "Lasertec",
+     "MEC",
+     "Micronics Japan",
+     "Mitsubishi Electric",
+     "Mitsubishi Gas Chemical",
+     "Mitsubishi Heavy Industries",
+     "Mitsui Mining & Smelting",
+     "Nidec",
+     "Nippon Chemical Industrial",
+     "Nippon Sanso Holdings",
+     "Nippon Steel",
+     "Nitto Boseki",
+     "Resonac (Showa Denko)",
+     "Rigaku",
+     "Rohm",
+     "Rorze",
+     "SUMCO",
+     "Sakai Chemical Industry",
+     "Sanken Electric",
+     "Shibaura Mechatronics",
+     "Shin-Etsu Chemical",
+     "Socionext",
+     "Sumitomo Bakelite",
+     "Sumitomo Electric",
+     "Sumitomo Metal Mining",
+     "TOWA",
+     "Taiyo Holdings",
+     "Taiyo Yuden",
+     "Tekscend Photomask",
+     "Toho Titanium",
+     "Tokyo Ohka Kogyo",
+     "Toppan",
+     "Toray",
+     "Tri Chemical Laboratories",
+     "Ulvac"
+    ],
+    "nothing": [
+     "AGC",
+     "Accretech (Tokyo Seimitsu)",
+     "Asahi Kasei",
+     "Asetek",
+     "Canon",
+     "Dai Nippon Printing",
+     "Ebara",
+     "Ferrotec",
+     "Fujifilm",
+     "Fujikura",
+     "Fujimi",
+     "Furukawa Electric",
+     "HOYA",
+     "Horiba",
+     "JX Advanced Metals",
+     "Japan Electronic Materials",
+     "Japan Material",
+     "Kyocera",
+     "MEC",
+     "Micronics Japan",
+     "Mitsubishi Electric",
+     "Mitsubishi Heavy Industries",
+     "Nidec",
+     "Nippon Chemical Industrial",
+     "Nippon Sanso Holdings",
+     "Nitto Boseki",
+     "Rigaku",
+     "Rohm",
+     "Rorze",
+     "Sanken Electric",
+     "Shibaura Mechatronics",
+     "Socionext",
+     "TOWA",
+     "Taiyo Holdings",
+     "Tekscend Photomask",
+     "Toppan",
+     "Toray",
+     "Tri Chemical Laboratories",
+     "Ulvac"
+    ],
+    "dart_never": [],
+    "marked": [],
+    "feeds": 59,
+    "waiting": {},
+    "collectors": {
+     "intl": "2026-09-18"
+    }
+   },
+   {
+    "id": "EU",
+    "name": "Europe",
+    "command": "enrich europe",
+    "companies": 28,
+    "call_current": 12,
+    "overdue": [
+     {
+      "company": "Schneider Electric",
+      "last_call": "2026-04-30"
+     },
+     {
+      "company": "Legrand",
+      "last_call": "2026-05-12"
+     },
+     {
+      "company": "AT&S",
+      "last_call": "2026-05-21"
+     }
+    ],
+    "never": [
+     "ASM International",
+     "Air Liquide",
+     "Comet Holding",
+     "Inficon",
+     "LPKF Laser & Electronics",
+     "Merck KGaA",
+     "PVA TePla",
+     "Prysmian",
+     "SUSS MicroTec",
+     "Siemens Energy",
+     "Technoprobe",
+     "Umicore",
+     "VAT Group"
+    ],
+    "nothing": [
+     "Air Liquide",
+     "Comet Holding",
+     "Inficon",
+     "Merck KGaA",
+     "PVA TePla",
+     "Prysmian",
+     "SUSS MicroTec",
+     "Siemens Energy",
+     "Technoprobe",
+     "Umicore",
+     "VAT Group"
+    ],
+    "dart_never": [],
+    "marked": [],
+    "feeds": 21,
+    "waiting": {},
+    "collectors": {
+     "intl": "2026-09-18"
+    }
+   },
+   {
+    "id": "CN",
+    "name": "China / Hong Kong",
+    "command": "enrich china",
+    "companies": 15,
+    "call_current": 1,
+    "overdue": [],
+    "never": [
+     "Accelink",
+     "Eoptolink",
+     "Huatian Technology",
+     "Innolight",
+     "Innoscience",
+     "JCET",
+     "Lenovo",
+     "Luxshare",
+     "Montage Technology",
+     "TFC Optical",
+     "TFME",
+     "Victory Giant Technology",
+     "WUS Printed Circuit",
+     "Yuanjie"
+    ],
+    "nothing": [
+     "Eoptolink",
+     "Huatian Technology",
+     "Innolight",
+     "Innoscience",
+     "JCET",
+     "Lenovo",
+     "Luxshare",
+     "Montage Technology",
+     "TFC Optical",
+     "TFME",
+     "Victory Giant Technology",
+     "WUS Printed Circuit",
+     "Yuanjie"
+    ],
+    "dart_never": [],
+    "marked": [],
+    "feeds": 11,
+    "waiting": {},
+    "collectors": {
+     "intl": "2026-09-18"
+    }
+   },
+   {
+    "id": "other",
+    "name": "Other listed",
+    "command": "enrich intl",
+    "companies": 5,
+    "call_current": 0,
+    "overdue": [],
+    "never": [
+     "5N Plus",
+     "AEM Holdings",
+     "Indosat",
+     "Lynas Rare Earths",
+     "UMS Integration"
+    ],
+    "nothing": [
+     "AEM Holdings",
+     "Indosat",
+     "Lynas Rare Earths",
+     "UMS Integration"
+    ],
+    "dart_never": [],
+    "marked": [],
+    "feeds": 2,
+    "waiting": {},
+    "collectors": {
+     "intl": "2026-09-18"
+    }
+   }
+  ],
+  "next_actions": [
+   {
+    "command": "enrich us",
+    "reasons": [
+     "18 fetched file(s) waiting to be enriched (11 conference, 7 IR release)",
+     "US call sync (av.py) last ran 22 days ago (2026-09-04)",
+     "4 overdue for a call: Applied Digital (last 2026-04-09), Simulations Plus (last 2026-04-09), 3M (last 2026-04-21), Texas Instruments (last 2026-04-22)",
+     "15 never had a call enriched (fetch with defeatbeta, mark the ones with none): Adeia, Alpha and Omega Semiconductor, Arteris, Bel Fuse, CEVA, ChipMOS … +9 more"
+    ]
+   },
+   {
+    "command": "enrich korea",
+    "reasons": [
+     "DART sync (dart.py) last ran 16 days ago (2026-09-10)",
+     "50 have no DART filing enriched (backfill with `dart.py fetch`): Auros Technology, Chemtronics, Cheryong Electric, DB HiTek, DI Corporation, Daewon Cable … +44 more"
+    ]
+   },
+   {
+    "command": "enrich edgar",
+    "reasons": [
+     "last pulled 16 days ago, 2026-09-10 (weekly)"
+    ]
+   },
+   {
+    "command": "enrich taiwan",
+    "reasons": [
+     "Investing.com call sync (investing.py) last ran 8 days ago (2026-09-18) — one sync serves Taiwan, Japan, Europe and China",
+     "Taiwan Chinese-call sync (tw.py) last ran 19 days ago (2026-09-07)",
+     "4 overdue for a call: Wiwynn (last 2026-02-26), Inventec (last 2026-05-12), Gigabyte (last 2026-05-15), VPEC (last 2026-05-27)"
+    ]
+   },
+   {
+    "command": "enrich japan",
+    "reasons": [
+     "1 overdue for a call: Murata (last 2026-04-30)"
+    ]
+   },
+   {
+    "command": "enrich europe",
+    "reasons": [
+     "3 overdue for a call: Schneider Electric (last 2026-04-30), Legrand (last 2026-05-12), AT&S (last 2026-05-21)"
+    ]
+   }
+  ],
+  "setup": [
+   "Korean earnings calls have no pipeline: investing.py skips KRX/KOSPI/KOSDAQ and dart.py pulls filings only. The last calls in the graph are SK Hynix 2026-04-23, Samsung 2026-04-30, Samsung Electro-Mechanics 2026-04-30 (pasted by hand); 81 Korean companies never had one. Adding them needs a label fix too (DART reports share the call label shape)."
+  ],
+  "questions": [],
+  "shared": {
+   "ir": {
+    "last_sync": "2026-09-25",
+    "days": 1,
+    "due": false,
+    "feeds": 342
+   },
+   "conference": {
+    "last_sync": "2026-09-22",
+    "days": 4,
+    "due": false
+   }
+  },
+  "verify_pending": 0,
+  "notes": []
+ }
 }

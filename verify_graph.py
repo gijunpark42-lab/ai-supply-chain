@@ -54,7 +54,8 @@ Plus one check per EDGE (not per entry) — the real "cross" in cross-verificati
         no_contracts  : skeleton edge (curated structure, no deal data yet) — not judged.
 
 Verdict per entry:  pass | warn | fail | unchecked
-  fail      — source file missing, or a number is not in the document, or Korean chars.
+  fail      — source file missing, or a number is not in the document, or Korean / Chinese /
+              Japanese characters in the entry (chains/ are English only).
   warn      — counterparty not found in the document, label format off, or every missing
               number is only a decimal-shift near miss ("3.7" in the transcript for "3.07")
               or transparent arithmetic on the field's other, verified numbers
@@ -942,10 +943,14 @@ def check_entry(label, docs, fields, counterparty=None):
     issues = []
     detail = {}
 
-    # HYGIENE
+    # HYGIENE — chains/ are English only. Hangul keeps its old issue name; Chinese / Japanese
+    # script (漢字, かな) fails the same way since 2026-09-26 — an IR release had put "14.32億美元"
+    # into an entry and only Hangul was being checked.
     all_text = " ".join(v for v in fields.values() if isinstance(v, str)) + " " + label
     if KOREAN.search(all_text):
         issues.append("korean_characters")
+    elif CJK.search(all_text):
+        issues.append("cjk_characters")
     if not (LABEL_EARNINGS.match(label) or LABEL_OTHER.match(label)):
         issues.append("label_format")
 
@@ -995,7 +1000,7 @@ def check_entry(label, docs, fields, counterparty=None):
             issues.append("counterparty_not_in_source")
             detail["counterparty"] = "not_found"
 
-    if "korean_characters" in issues or "number_not_in_source" in issues:
+    if {"korean_characters", "cjk_characters", "number_not_in_source"} & set(issues):
         return "fail", issues, detail
     if issues:
         return "warn", issues, detail

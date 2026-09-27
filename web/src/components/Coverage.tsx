@@ -2,11 +2,13 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { VizNode } from "@/lib/types";
+import StatusBoard, { type Board } from "@/components/StatusBoard";
 
-// Coverage — the enrichment workflow dashboard. Joins each tracked company's
-// next/last earnings-call date (Yahoo, via /api/earnings) with the graph's own
-// data freshness (lastData from source labels) to answer: WHAT SHOULD I ENRICH
-// NEXT? A call that already happened with no newer data = "enrich now".
+// Status tab (was "Coverage" until 2026-09-26) — the enrichment workflow dashboard.
+// Top: the status board from enrich_status.py (which `enrich <market>` to run next and why).
+// Below: one card per pipeline, then each tracked company's next/last earnings-call date
+// (Yahoo, via /api/earnings) joined with the graph's own data freshness (lastData from
+// source labels). A call that already happened with no newer data = "enrich now".
 
 interface Earn {
   ts: number | null;
@@ -63,6 +65,7 @@ interface EnrichStatus {
   generated: string;
   labels_total: number;
   pipelines: Pipeline[];
+  board?: Board; // the market board (enrich_status.py, since 2026-09-26)
 }
 
 const STATUS_META: Record<Status, { chip: string; cls: string }> = {
@@ -252,14 +255,17 @@ export default function Coverage({
 
   return (
     <div>
-      <h3>📡 Coverage</h3>
+      <h3>📡 Status</h3>
       <p className="caption">
-        The enrichment queue: each company&apos;s next / most recent earnings call (Yahoo
-        Finance) joined with the freshness of its data in the graph. A call that already
-        happened with no newer data = <b>Enrich now</b> — the 📋 button copies the{" "}
-        <code>Transcript:&lt;company&gt;</code> command for Claude Code.
-        {unlisted > 0 && <> {unlisted} private/unlisted companies not shown.</>}
+        Which enrich to run next, and why: what is fetched and waiting, which companies are overdue
+        for a call or were never enriched, per home market. The 📋 buttons copy the command for
+        Claude Code. Built by <code>enrich_status.py</code> on every graph build and at the end of
+        every enrich run (the same page as <code>ENRICH_STATUS.md</code> in the repo).
       </p>
+
+      {pipes?.board && (
+        <StatusBoard board={pipes.board} generated={pipes.generated} nodes={nodes} onSelect={onSelect} />
+      )}
 
       {pipes && pipes.pipelines.length > 0 && (
         <>
@@ -374,6 +380,14 @@ export default function Coverage({
           </div>
         </>
       )}
+
+      <h4 style={{ margin: "1rem 0 0.2rem" }}>🗓 Companies — earnings calendar</h4>
+      <p className="caption" style={{ marginTop: 0 }}>
+        Each listed company&apos;s next / most recent earnings call (Yahoo Finance) joined with the
+        freshness of its data in the graph. A call that already happened with no newer data ={" "}
+        <b>Enrich now</b> — the 📋 button copies the <code>Transcript:&lt;company&gt;</code> command.
+        {unlisted > 0 && <> {unlisted} private/unlisted companies not shown.</>}
+      </p>
 
       {!apiOk && loaded && (
         <p className="caption" style={{ color: "#d29922" }}>

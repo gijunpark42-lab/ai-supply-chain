@@ -61,6 +61,8 @@ from pathlib import Path
 
 from curl_cffi import requests
 
+from taxonomy import MARKETS, market_of
+
 ROOT = Path(__file__).parent
 METADATA = ROOT / "company_metadata.json"
 OUT_DIR = ROOT / "transcripts" / "investing"
@@ -553,9 +555,13 @@ if __name__ == "__main__":
     cf = sub.add_parser("conferences"); cf.add_argument("--since", help="YYYY-MM-DD; default = 180 days ago")
     cf.add_argument("--pages", type=int, default=400, help="max listing pages to walk (36 articles each)")
     f = sub.add_parser("fetch"); f.add_argument("url"); f.add_argument("--company", help="override the name read from the title")
-    sub.add_parser("pending")
-    dn = sub.add_parser("done"); dn.add_argument("--kind", choices=["transcript", "conference"],
-                                                 help="clear only this kind of row (default: whole queue)")
+    # --kind / --market narrow `pending` and `done` to one row kind and/or one home market, so a
+    # market command (`enrich japan`) clears only its own rows (market codes: taxonomy.MARKETS).
+    pn = sub.add_parser("pending")
+    dn = sub.add_parser("done")
+    for p in (pn, dn):
+        p.add_argument("--kind", choices=["transcript", "conference"], help="only this kind of row")
+        p.add_argument("--market", choices=[m for m, _ in MARKETS], help="only rows of companies from this market")
     args = ap.parse_args()
 
     if args.cmd == "sync":
@@ -580,13 +586,24 @@ if __name__ == "__main__":
         STATE.write_text(json.dumps(state, indent=1), encoding="utf-8")
         _queue([(name, path, label)])
         print(f"saved {label} -> {path.relative_to(ROOT)}")
-    elif args.cmd == "pending":
+    elif args.cmd in ("pending", "done"):
         rows = json.loads(PENDING.read_text(encoding="utf-8")) if PENDING.exists() else []
-        for r in rows:
-            print(f"{r.get('kind', 'transcript'):10s} {r['company']:32s} {r['label'][:70]:70s} {r['file']}")
-        print(f"{len(rows)} pending")
-    elif args.cmd == "done":
-        rows = json.loads(PENDING.read_text(encoding="utf-8")) if PENDING.exists() else []
-        keep = [r for r in rows if args.kind and r.get("kind", "transcript") != args.kind]
-        PENDING.write_text(json.dumps(keep, ensure_ascii=False, indent=1), encoding="utf-8")
-        print(f"queue cleared: {len(rows) - len(keep)} row(s) removed, {len(keep)} kept")
+        meta = json.loads(METADATA.read_text(encoding="utf-8"))
+
+        def selected(r):
+            """True when the row matches every filter given (no filter = every row)."""
+            if args.kind and r.get("kind", "transcript") != args.kind:
+                return False
+            if args.market and market_of((meta.get(r["company"]) or {}).get("exchange")) != args.market:
+                return False
+            return True
+
+        if args.cmd == "pending":
+            picked = [r for r in rows if selected(r)]
+            for r in picked:
+                print(f"{r.get('kind', 'transcript'):10s} {r['company']:32s} {r['label'][:70]:70s} {r['file']}")
+            print(f"{len(picked)} pending" + (f" (of {len(rows)} in the queue)" if len(picked) != len(rows) else ""))
+        else:
+            keep = [r for r in rows if not selected(r)]
+            PENDING.write_text(json.dumps(keep, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"queue cleared: {len(rows) - len(keep)} row(s) removed, {len(keep)} kept")

@@ -22,7 +22,10 @@ neither is an enrichment source.
    Workflow 2b language rules: the source txt is Chinese; everything written into chains/ is
    ENGLISH (translate as you go, grep the additions for Chinese characters before finishing).
    The transcript has no speaker labels and STT can garble numbers — when a figure looks off,
-   cross-check the company's MOPS deck or monthly revenue before writing it.
+   cross-check the company's MOPS deck or monthly revenue before writing it. Management-only rule
+   without speaker labels: take the prepared remarks and the answers phrased as the company's own
+   ("we", "our", "公司", "我們"); skip anything phrased as a question or attributed to a broker or
+   analyst; when unsure whether a sentence is management's, leave it out.
 4. `python graph_build.py --sync` (verify_graph runs on the labels just applied), then `python tw.py done`.
 5. Report per company: label, what was added, verify result.
 

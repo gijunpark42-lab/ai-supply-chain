@@ -6,7 +6,8 @@ Risk Factors sections name their suppliers and whose notes disclose customer con
 Earnings-release 8-Ks (Item 2.02 only) are pulled but never queued — the call transcript for that quarter
 (`enrich us`) is the richer source, and the release stays on disk only as a companion document for `verify_graph.py`.
 
-**Trigger: the user says `enrich edgar`.** Run the whole loop:
+**Trigger: the user says `enrich edgar`** — weekly, separate from the daily `enrich us` (user, 2026-09-26; the
+status board recommends it once the last pull is more than 7 days old). Run the whole loop:
 1. `python edgar_pull.py` — for every mapped US ticker: every 8-K since `--since` (default 120 days), the latest 10-K
    and the latest 10-Q (see the coverage table below). Existing files are skipped. Do NOT use `--force` on files that
    were already enriched unless you follow rule 2 of the completeness contract.
@@ -93,8 +94,8 @@ pass with the same enricher + verifier pattern:
 - Only then one `graph_build.py --sync`; `verify_graph` must report 0 fail, and no entry may sit on two nodes.
 - `edgar_pull.py done` last.
 
-**6. Large queues — multi-agent recipe.** `python -X utf8 utils/edgar_batches.py <N>` splits `edgar/pending.json` by
-company (a company never spans two agents) into `edgar/batches/batch_NN.json`. One enricher per batch writes only its
+**6. Multi-agent recipe (the default — N up to 20, fewer for a small queue).** `python -X utf8 utils/edgar_batches.py <N>`
+splits `edgar/pending.json` by company (a company never spans two agents) into `edgar/batches/batch_NN.json`. One enricher per batch writes only its
 own patches; one verifier per batch starts when its enricher finishes; only the coordinator runs `graph_build.py`.
 
 ---
@@ -136,7 +137,8 @@ own patches; one verifier per batch starts when its enricher finishes; only the 
   company's company-wide call entries (the slot-tagged ones). A segment that maps to exactly one placement → that
   placement; an ambiguous segment → the company-wide placement. Each fact on ONE node, never copied across chains.
 - **No restated duplicates.** Skip numbers + period already stated on that node by the earnings call; the year-ago
-  comparison alone may be written when it is the only new figure.
+  comparison alone may be written when it is the only new figure. Also skip facts the same-day company IR release
+  already put on the node (`enrich us` enriches releases daily; an 8-K exhibit is usually that release).
 - **M&A / merger filings:** only operating capacity facts not already in the chain — never the deal price,
   pro-forma combined-company figures or proxy material.
 - **No implied generation.** A deal fact whose filing names no product generation → the edge already recording that
@@ -158,7 +160,8 @@ own patches; one verifier per batch starts when its enricher finishes; only the 
 - **`slot`:** omit by default; only on an 8-K entry newer than every same-slot entry of that node; never on 10-K /
   10-Q. Never create a second same-date entry with the same slot (derive.py `latest_only` keeps both — ambiguous).
 - **Renamed node** (the file's label prefix ≠ the node name) → `python edgar_pull.py --tickers <T> --force` before enriching.
-- **New nodes** only with the user's approval and the litmus test. Decided: Fluidstack added; Core42, AES and Nanjing
+- **New nodes** only with the litmus test and an independent Claude verifier's approval (enrich skill JOB 3; the user
+  handed approval to Claude on 2026-09-26). Decided earlier by the user: Fluidstack added; Core42, AES and Nanjing
   Casela are NOT to be added.
 
 ## Labels

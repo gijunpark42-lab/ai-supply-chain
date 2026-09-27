@@ -12,19 +12,21 @@ in Chrome and paste (Workflow 2) under the same label.
 **Trigger: the user says `enrich intl`.**
 1. `python investing.py sync` — one site search per company, downloads every transcript not yet
    saved. Prints `saved` / `FAIL`. Takes ~2–3 minutes.
-2. `python investing.py pending` — the queue. Enrich every row (Workflow 2, all four jobs + JOB 5),
+2. `python investing.py pending --kind transcript` — the queue (a market command adds `--market TW|JP|EU|CN`
+   and later closes only its rows with `done --kind transcript --market …`). Enrich every row (Workflow 2, JOB 1–5),
    but **at most the 2 most recent quarters per company** — anything older in the queue is marked
    done without enriching (history, not signal). Duplicates never reach the queue: `sync` skips a
    call the graph already carries under another source and same-call repeat articles.
-3. `python graph_build.py --sync` (verify_graph runs on the labels just applied), then `python investing.py done`.
+3. `python graph_build.py --sync` (verify_graph runs on the labels just applied), then
+   `python investing.py done --kind transcript` (a bare `done` would also clear the conference rows).
 4. Report per company: label, what was added, verify result.
 
 **Coverage reality (checked 2026-08-31):** Investing.com has Alchip, MediaTek, ASMPT, Nanya
 Technology, Tokyo Electron, Advantest, SUMCO, Infineon, Sivers … It does NOT have the companies
 whose calls are held in Chinese/Japanese — Quanta, Wiwynn, Wistron, Unimicron, Foxconn, GlobalWafers,
-Yageo, Lasertec. For those the only free sources are the MOPS 法說會 deck + TWSE monthly revenue
-(`openapi.twse.com.tw/v1/opendata/t187ap05_L`), which are not transcripts — do not enrich from
-them unless the user decides to (open question, see memory).
+Yageo, Lasertec. Taiwan's Chinese-language calls are covered by `tw.py` (Workflow 2e, decided 2026-08-31);
+MOPS decks and TWSE monthly revenue are not transcripts and are never enrichment sources. Japanese-only
+calls have no source: once checked, mark them on the status board (`enrich_status.py mark … --source call`).
 
 File format `transcripts/investing/<slug>_q<N>_<year>.txt`: `SOURCE:` (article URL) / `TITLE:` /
 `CALL DATE:` (article publish date) / `QUARTER:` / `# source label:` header, then one paragraph per

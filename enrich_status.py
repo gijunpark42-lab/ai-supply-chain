@@ -13,13 +13,24 @@ For every pipeline (enrich us / dart / intl / tw / edgar / conference, plus the 
   * the merged graph             (graph/merged_graph.json)                        -> which source labels landed
   * the patch receipts           (patches/applied/*.json)                         -> when each label was enriched
 
-Two outputs:
-  graph/enrich_status.json   GENERATED every build (never hand-edit) — read by web/ via `npm run sync`.
+On top of the pipeline cards it builds the MARKET BOARD (added 2026-09-26): per home market
+(US, Korea, Taiwan, Japan, Europe, China) which companies are current / overdue / never enriched,
+what is fetched and waiting, and the ordered "Run next" list of `enrich <market>` commands.
+
+Outputs:
+  graph/enrich_status.json   GENERATED every build (never hand-edit) — read by web/ via `npm run sync`;
+                             the board sits under the "board" key.
+  ENRICH_STATUS.md           GENERATED — the same board as a page: read it first before any enrich run.
   enrich_log.json            APPEND-ONLY record at the repo root, committed. One row per (day, pipeline)
                              whenever the counts change, so the run history survives a fresh clone
                              (file mtimes and patch receipts do not).
+  enrich_marks.json          HAND-RECORDED by the coordinator through `mark` / `unmark` / `note` / `ask` /
+                             `resolve` below (facts no script can infer: "no free transcript exists",
+                             "stopped at ...", and open questions for the user).
 
 Run by graph_build.py after the graph is built; can also be run alone:  python -X utf8 enrich_status.py
+Record a fact:  python -X utf8 enrich_status.py mark "Bayer" --source call --why "no free transcript"
+                python -X utf8 enrich_status.py note US "AV quota hit after 25 calls; 3 left"
 """
 
 import glob
@@ -27,12 +38,13 @@ import json
 import os
 import re
 from collections import Counter, defaultdict
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # verify_graph.py already knows how to turn a source label into the file it came from
 # (header "# source label:", filename join, event-name match). Reuse it instead of
 # re-implementing the matching rules here.
 from verify_graph import load_documents, resolve_label
+from taxonomy import MARKETS, market_of
 
 GRAPH_FILE = os.path.join("graph", "merged_graph.json")
 STATUS_FILE = os.path.join("graph", "enrich_status.json")
@@ -41,7 +53,7 @@ LOG_FILE = "enrich_log.json"
 # One entry per pipeline. `dirs` = the transcript folders the pipeline writes; a file's
 # folder decides which pipeline it belongs to. Order = display order in the web app.
 PIPELINES = [
-    {"id": "us",         "name": "US earnings calls",          "command": "enrich us",
+    {"id": "us",         "name": "US earnings calls",          "command": "enrich us calls",
      "dirs": ["transcripts/av"],                 "state": "av/sync_state.json",       "pending": "av/pending.json",
      "source": "Alpha Vantage / defeatbeta (av.py)"},
     {"id": "edgar",      "name": "US SEC filings",             "command": "enrich edgar",
@@ -133,6 +145,325 @@ def applied_dates():
     return out
 
 
+# ---------------------------------------------------------------------------
+# Market board — "which enrich should I run next?"
+# ---------------------------------------------------------------------------
+# The pipeline cards answer "when did each pipeline run". The board answers the user's
+# question: per HOME MARKET (US, Korea, Taiwan, Japan, Europe, China), what is still missing
+# and which `enrich <market>` command to run. It reads only what is already on disk (graph,
+# queues, sync states) plus enrich_marks.json — the one file written by hand, through
+# `python enrich_status.py mark / note`, for facts no script can infer ("Bayer has no free
+# transcript"). Parallel enrich agents never write it: they report, one coordinator records.
+
+MARKS_FILE = "enrich_marks.json"
+BOARD_FILE = "ENRICH_STATUS.md"
+EARNINGS_LABEL = re.compile(r" Q[1-4] FY20\d\d \(")
+# The label shape "X Q2 FY2026 (…)" is shared by calls, DART periodic reports and a few results
+# press releases, so the FILE decides: a call pipeline's folder, or a pasted call under a sector
+# folder — but not a company document (non_transcript_sources/, *_press_release, *_tanshin,
+# *_dart). A label whose file is not on disk is not counted as a call.
+NOT_A_CALL_FILE = re.compile(r"non_transcript_sources/|press_release|tanshin|_dart\.txt$")
+MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan", "JP": "enrich japan",
+                  "EU": "enrich europe", "CN": "enrich china", "other": "enrich intl"}
+# The collectors that fetch each market's calls / filings. IR feeds and the conference listing
+# serve every market at once, so they are reported once ("shared collectors"), not per market.
+MARKET_COLLECTORS = {"US": ["us"], "KR": ["dart"], "TW": ["intl", "tw"], "JP": ["intl"],
+                     "EU": ["intl"], "CN": ["intl"], "other": ["intl"]}
+SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7}   # days
+COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)",
+                   "intl": "Investing.com call sync (investing.py)", "tw": "Taiwan Chinese-call sync (tw.py)",
+                   "edgar": "EDGAR pull (edgar_pull.py)", "ir": "IR feed sync (ir_pull.py)",
+                   "conference": "conference listing (investing.py conferences)"}
+WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing",
+                 "conference": "conference", "ir": "IR release"}
+LIST_MAX = 12        # names printed per list on ENRICH_STATUS.md (the JSON keeps every name)
+
+
+def days_between(a, b):
+    """Whole days from ISO date `a` to ISO date `b`."""
+    return (datetime.strptime(b, "%Y-%m-%d") - datetime.strptime(a, "%Y-%m-%d")).days
+
+
+def load_marks():
+    """enrich_marks.json -> {"marks", "notes", "questions" (open, for the user), "answered"} lists
+    (the file is created by the first mark / note / ask)."""
+    data = read_json(MARKS_FILE, {})
+    for key in ("marks", "notes", "questions", "answered"):
+        data.setdefault(key, [])
+    return data
+
+
+def active_marks(marks, today):
+    """(company, source) -> mark, for marks whose recheck date has not passed. An expired mark
+    drops out on its own, so the company shows up as missing again and gets re-tried."""
+    out = {}
+    for m in marks["marks"]:
+        if (m.get("recheck") or "9999-12-31") >= today:
+            out[(m["company"], m["source"])] = m
+    return out
+
+
+def call_state(call_dates, today):
+    """('current' | 'overdue' | 'never', last call date) for one company.
+    The company's own rhythm decides: the median gap between its calls (quarterly ~91 days,
+    half-yearly ~182). A call is overdue once that gap plus three weeks has passed."""
+    if not call_dates:
+        return "never", None
+    gaps = sorted(days_between(a, b) for a, b in zip(call_dates, call_dates[1:]))
+    gaps = [g for g in gaps if g >= 45]          # two labels for one quarter are not a rhythm
+    cadence = gaps[len(gaps) // 2] if gaps else 91
+    overdue = days_between(call_dates[-1], today) > cadence + 21
+    return ("overdue" if overdue else "current"), call_dates[-1]
+
+
+def is_call(label, pid, path):
+    """True when this label is an earnings call (see NOT_A_CALL_FILE above)."""
+    if not path or not EARNINGS_LABEL.search(label):
+        return False
+    if pid in ("us", "intl", "tw"):
+        return True
+    return pid == "manual" and not NOT_A_CALL_FILE.search(path)
+
+
+def own_sources(graph, label_pipeline, label_file):
+    """company -> {"calls": [ISO dates], "latest": {kind: ISO date}} from the company's OWN
+    documents only (the label starts with its name). Another company's call that mentions it
+    is not its own disclosure and does not count."""
+    labels_of = defaultdict(set)
+    for node in graph["nodes"]:
+        for q in node.get("quarterly_data", []):
+            labels_of[node["id"]].add(q.get("quarter", ""))
+    for edge in graph["edges"]:
+        for c in edge.get("contracts", []):
+            for end in (edge.get("source"), edge.get("target")):
+                labels_of[end].add(c.get("source", ""))
+    out = {}
+    for company, labels in labels_of.items():
+        calls, latest = set(), {}
+        for lab in labels:
+            day = label_date(lab)
+            if not day or not lab.startswith(company + " "):
+                continue
+            pid = label_pipeline.get(lab, "manual")
+            if is_call(lab, pid, label_file.get(lab)):
+                kind = "call"
+                calls.add(day)
+            else:
+                kind = pid if pid in ("dart", "edgar", "conference", "ir") else "other"
+            latest[kind] = max(latest.get(kind, ""), day)
+        out[company] = {"calls": sorted(calls), "latest": latest}
+    return out
+
+
+def market_board(graph, label_pipeline, label_file, pipelines, today):
+    """Per-market rollup + the ordered 'Run next' list + setup items (see ENRICH_STATUS.md)."""
+    meta = read_json("company_metadata.json", {})
+    marks = load_marks()
+    marked = active_marks(marks, today)
+    own = own_sources(graph, label_pipeline, label_file)
+    by_id = {p["id"]: p for p in pipelines}
+    feeds = read_json("ir/feeds.json", {})
+
+    def market_of_company(name):
+        return market_of((meta.get(name) or {}).get("exchange"))
+
+    def age(pid):
+        day = by_id.get(pid, {}).get("last_sync")
+        return (days_between(day, today), day) if day else (None, None)
+
+    # Fetched but not yet enriched, per market (EDGAR has its own weekly command, counted there).
+    waiting = defaultdict(Counter)
+    for p in pipelines:
+        if p["id"] in ("edgar", "manual"):
+            continue
+        for r in p["pending"]:
+            m = market_of_company(r.get("company"))
+            if m:
+                waiting[m][p["id"]] += 1
+
+    companies = sorted(n["id"] for n in graph["nodes"])
+    markets = []
+    for mid, mname in MARKETS:
+        names = [n for n in companies if market_of_company(n) == mid]
+        row = {"id": mid, "name": mname, "command": MARKET_COMMAND[mid], "companies": len(names),
+               "call_current": 0, "overdue": [], "never": [], "nothing": [], "dart_never": [],
+               "marked": [], "feeds": sum(1 for n in names if n in feeds),
+               "waiting": dict(waiting[mid]),
+               "collectors": {pid: by_id.get(pid, {}).get("last_sync") for pid in MARKET_COLLECTORS[mid]}}
+        for n in names:
+            o = own.get(n, {"calls": [], "latest": {}})
+            if not o["latest"]:
+                row["nothing"].append(n)
+            for (company, source), m in marked.items():
+                if company == n:
+                    row["marked"].append({"company": n, "source": source, "why": m.get("why"),
+                                          "recheck": m.get("recheck")})
+            if mid == "KR" and "dart" not in o["latest"] and (n, "dart") not in marked:
+                row["dart_never"].append(n)
+            if (n, "call") in marked:
+                continue
+            state, last = call_state(o["calls"], today)
+            if state == "current":
+                row["call_current"] += 1
+            elif state == "overdue":
+                row["overdue"].append({"company": n, "last_call": last})
+            else:
+                row["never"].append(n)
+        row["overdue"].sort(key=lambda r: r["last_call"])
+        markets.append(row)
+
+    # ── Run next: the commands worth running now, with the reasons ──────────────────
+    actions = []
+    vq = read_json("verify_queue.json", {}).get("pending", [])
+    if len(vq) >= 5:
+        actions.append({"command": "Opus verifier over verify_queue.json",
+                        "reasons": ["%d applied labels are waiting for the independent check (rule: at 5+)" % len(vq)]})
+    by_market = {m["id"]: m for m in markets}
+    intl_said = False            # the shared Investing.com sync is named once, on the first market that needs it
+    for key in ["US", "KR", "edgar", "TW", "JP", "EU", "CN", "other"]:
+        reasons = []
+        if key == "edgar":
+            days, day = age("edgar")
+            queued = len(by_id.get("edgar", {}).get("pending", []))
+            if days is None or days > SYNC_EVERY["edgar"]:
+                reasons.append("last pulled %s (weekly)" % ("%d days ago, %s" % (days, day) if day else "never"))
+            if queued:
+                reasons.append("%d filings queued" % queued)
+            if reasons:
+                actions.append({"command": "enrich edgar", "reasons": reasons})
+            continue
+        m = by_market[key]
+        if not m["companies"]:
+            continue
+        total = sum(m["waiting"].values())
+        if total:
+            parts = ", ".join("%d %s" % (n, WAITING_NAMES.get(pid, pid)) for pid, n in sorted(m["waiting"].items()))
+            reasons.append("%d fetched file(s) waiting to be enriched (%s)" % (total, parts))
+        # A stale collector is a reason only where it can find something: US and Korea have their own
+        # collectors (daily/every other day); the shared Investing.com sync counts for a market only when
+        # that market already has calls in the graph (otherwise it is its first-time setup, not routine).
+        if key in ("US", "KR") or m["call_current"] or m["overdue"]:
+            for pid in MARKET_COLLECTORS[key]:
+                days, day = age(pid)
+                if pid == "intl" and intl_said:
+                    continue
+                if days is None or days > SYNC_EVERY[pid]:
+                    reasons.append("%s last ran %s%s" % (
+                        COLLECTOR_NAMES[pid], "%d days ago (%s)" % (days, day) if day else "never",
+                        " — one sync serves Taiwan, Japan, Europe and China" if pid == "intl" else ""))
+                    intl_said = intl_said or pid == "intl"
+        if m["overdue"] and key != "KR":        # Korea has no call pipeline yet — see the setup list
+            reasons.append("%d overdue for a call: %s" % (len(m["overdue"]), short_list(
+                ["%s (last %s)" % (r["company"], r["last_call"]) for r in m["overdue"]], 6)))
+        if key == "US" and m["never"]:
+            reasons.append("%d never had a call enriched (fetch with defeatbeta, mark the ones with none): %s"
+                           % (len(m["never"]), short_list(m["never"], 6)))
+        if key == "KR" and m["dart_never"]:
+            reasons.append("%d have no DART filing enriched (backfill with `dart.py fetch`): %s"
+                           % (len(m["dart_never"]), short_list(m["dart_never"], 6)))
+        if reasons:
+            actions.append({"command": m["command"], "reasons": reasons})
+
+    # ── Setup / decisions no command can fix ────────────────────────────────────────
+    setup = []
+    kr = by_market["KR"]
+    kr_calls = sorted(((n, own[n]["calls"][-1]) for n in companies
+                       if market_of_company(n) == "KR" and own.get(n, {}).get("calls")), key=lambda x: x[1])
+    if kr["companies"]:
+        setup.append("Korean earnings calls have no pipeline: investing.py skips KRX/KOSPI/KOSDAQ and dart.py pulls "
+                     "filings only. The last calls in the graph are %s (pasted by hand); %d Korean companies never had "
+                     "one. Adding them needs a label fix too (DART reports share the call label shape)."
+                     % (short_list(["%s %s" % x for x in kr_calls], 8) or "none", kr["companies"] - len(kr_calls)))
+
+    shared = {}
+    for pid in ("ir", "conference"):
+        days, day = age(pid)
+        shared[pid] = {"last_sync": day, "days": days, "due": days is None or days > SYNC_EVERY[pid]}
+    shared["ir"]["feeds"] = len(feeds)
+    notes = sorted(marks["notes"], key=lambda r: r.get("at", ""), reverse=True)[:10]
+    return {"today": today, "markets": markets, "next_actions": actions, "setup": setup,
+            "questions": marks["questions"], "shared": shared, "verify_pending": len(vq), "notes": notes}
+
+
+def short_list(items, n=LIST_MAX):
+    items = list(items)
+    return ", ".join(items[:n]) + (" … +%d more" % (len(items) - n) if len(items) > n else "")
+
+
+def write_board(board, pipelines, generated):
+    """ENRICH_STATUS.md — the page a person or a new agent reads to know what to run next."""
+    L = ["# Enrichment status board", "",
+         "Generated %s by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run "
+         "ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`" % generated,
+         "",
+         "Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. "
+         "Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with "
+         "`python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).",
+         "", "## Run next", ""]
+    if board["next_actions"]:
+        for i, a in enumerate(board["next_actions"], 1):
+            L.append("%d. **`%s`** — %s" % (i, a["command"], "; ".join(a["reasons"])))
+    else:
+        L.append("Nothing is due. Every market is current and no queue holds work.")
+    sh = board["shared"]
+    L += ["", "Shared collectors (every market command runs them first when due): IR feeds synced %s (%d feeds)%s; "
+          "conference listing walked %s%s." % (
+              sh["ir"]["last_sync"] or "never", sh["ir"]["feeds"], " — due" if sh["ir"]["due"] else "",
+              sh["conference"]["last_sync"] or "never", " — due" if sh["conference"]["due"] else ""),
+          "Opus verification queue: %d label(s) waiting (runs at 5+)." % board["verify_pending"], ""]
+    if board["questions"] or board["setup"]:
+        L += ["## Needs a decision or setup", ""]
+        L += ["- **Question for the user — %s:** %s%s (asked %s; answer, then `enrich_status.py resolve \"%s\" --answer \"…\"`)"
+              % (q["subject"], q["question"], " — source: %s" % q["label"] if q.get("label") else "", q.get("at", ""),
+                 q["subject"]) for q in board["questions"]]
+        L += ["- " + s for s in board["setup"]] + [""]
+    L += ["## Markets", "",
+          "| Market | Companies | Call current | Overdue | Never had a call | No own data | Waiting | IR feeds | Collector last ran |",
+          "|---|---|---|---|---|---|---|---|---|"]
+    for m in board["markets"]:
+        if not m["companies"]:
+            continue
+        coll = ", ".join("%s %s" % (pid, d or "never") for pid, d in m["collectors"].items())
+        L.append("| %s — %s | %d | %d | %d | %d | %d | %d | %d | %s |" % (
+            m["id"], m["name"], m["companies"], m["call_current"], len(m["overdue"]), len(m["never"]),
+            len(m["nothing"]), sum(m["waiting"].values()), m["feeds"], coll))
+    L += ["", "`Call current` = the latest own earnings call is within the company's usual gap + 3 weeks. "
+          "`No own data` = not one entry from the company's own documents yet (new nodes land here). "
+          "Marked companies (no source exists) are left out of Overdue / Never.", "", "## Details by market", ""]
+    for m in board["markets"]:
+        if not m["companies"]:
+            continue
+        L.append("### %s — %s (`%s`)" % (m["id"], m["name"], m["command"]))
+        if m["overdue"]:
+            L.append("- Overdue for a call: " + short_list("%s (last %s)" % (r["company"], r["last_call"]) for r in m["overdue"]))
+        if m["never"] and m["id"] != "KR":          # Korea: no call pipeline yet (see the setup list)
+            L.append("- Never had a call enriched: " + short_list(m["never"]))
+        if m["dart_never"]:
+            L.append("- No DART filing enriched: " + short_list(m["dart_never"]))
+        if m["waiting"]:
+            L.append("- Waiting to enrich: " + ", ".join("%d %s" % (n, WAITING_NAMES.get(p, p)) for p, n in sorted(m["waiting"].items())))
+        if m["marked"]:
+            L.append("- Known gaps, do not re-search: " + short_list(
+                "%s (%s: %s; recheck %s)" % (x["company"], x["source"], x["why"], x["recheck"] or "never") for x in m["marked"]))
+        L.append("")
+    L += ["## Pipelines", "", "| Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |", "|---|---|---|---|---|---|---|"]
+    for p in pipelines:
+        L.append("| %s | `%s` | %s | %s | %d | %d | %d |" % (p["name"], p["command"], p["last_sync"] or "-",
+                                                         p["last_enriched"] or "-", len(p["pending"]), p["files"], p["in_graph"]))
+    L += ["", "## Coordinator notes (newest first)", ""]
+    L += ["- %s %s: %s" % (n.get("at", ""), n.get("market", ""), n.get("text", "")) for n in board["notes"]] or ["- none yet"]
+    L += ["", "## Recording what no script can know (coordinator only)", "",
+          "- A source that does not exist: `python -X utf8 enrich_status.py mark \"<Company>\" [\"<Company>\" …] --source call --why \"<reason>\" [--recheck YYYY-MM-DD]` "
+          "(sources: call, dart, ir, conference, edgar; default recheck in 90 days).",
+          "- Undo: `python -X utf8 enrich_status.py unmark \"<Company>\" --source call`",
+          "- Where a run stopped: `python -X utf8 enrich_status.py note US \"AV quota hit after 25 calls; 3 left for tomorrow\"`",
+          "- A judgment for the user (an ambiguous new company, an unclear placement): `python -X utf8 enrich_status.py ask \"<subject>\" --question \"…\" [--label \"<source label>\"]`; "
+          "after the answer: `python -X utf8 enrich_status.py resolve \"<subject>\" --answer \"…\"`",
+          "- Parallel enrich agents never write these; they put it in their report and the coordinator records it.", ""]
+    with open(BOARD_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(L))
+
+
 def build_enrich_status(graph=None):
     """Compute the per-pipeline status, write graph/enrich_status.json, append to enrich_log.json."""
     if graph is None:
@@ -142,10 +473,11 @@ def build_enrich_status(graph=None):
     cache = {}
 
     # 1) Attribute every graph label to a pipeline through the file it resolves to.
-    label_pipeline = {}
+    label_pipeline, label_file = {}, {}
     for label in labels:
         doc = resolve_label(label, by_label, all_docs, None, cache)
         label_pipeline[label] = pipeline_of(doc.path) if doc else "manual"
+        label_file[label] = doc.path.replace("\\", "/") if doc else None
 
     enriched_on = applied_dates()
 
@@ -265,22 +597,29 @@ def build_enrich_status(graph=None):
             row["last_sync"] = row["last_fetch"]
         pipelines.append(row)
 
+    generated = datetime.now().strftime("%Y-%m-%d %H:%M")
+    board = market_board(graph, label_pipeline, label_file, pipelines, generated[:10])
     status = {
-        "generated": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "generated": generated,
         "labels_total": len(labels),
         "pipelines": pipelines,
         "history": append_log(pipelines),
+        "board": board,
     }
     os.makedirs("graph", exist_ok=True)
     with open(STATUS_FILE, "w", encoding="utf-8") as f:
         json.dump(status, f, ensure_ascii=False, indent=1)
+    write_board(board, pipelines, generated)
 
-    print("enrich_status — %d labels attributed; wrote %s" % (len(labels), STATUS_FILE))
+    print("enrich_status — %d labels attributed; wrote %s and %s" % (len(labels), STATUS_FILE, BOARD_FILE))
     for r in pipelines:
         print("  %-11s files %4d  in graph %4d  pending %3d  no-data %3d  sync %s  enriched %s  range %s"
               % (r["id"], r["files"], r["in_graph"], len(r["pending"]), len(r["no_data"]),
                  r["last_sync"] or "-", r["last_enriched"] or "-",
                  "%s..%s" % tuple(r["source_range"]) if r["source_range"] else "-"))
+    print("  Run next:" if board["next_actions"] else "  Run next: nothing due")
+    for i, a in enumerate(board["next_actions"], 1):
+        print("    %d. %s — %s" % (i, a["command"], "; ".join(a["reasons"])[:200]))
     return status
 
 
@@ -306,5 +645,75 @@ def append_log(pipelines):
     return log["runs"]
 
 
+def record(args):
+    """`mark` / `unmark` / `note`: the coordinator's hand-written facts, kept in enrich_marks.json."""
+    data = load_marks()
+    data["_rule"] = ("Facts no script can infer, recorded ONLY by the coordinator of an enrich run through "
+                     "`python enrich_status.py mark / unmark / note / ask / resolve` (parallel agents report, never "
+                     "write). A mark keeps a company out of the board's missing lists until its recheck date; a "
+                     "question waits under 'Needs a decision' until the user answers it.")
+    now = datetime.now()
+    if args.cmd == "mark":
+        recheck = args.recheck or (now + timedelta(days=90)).strftime("%Y-%m-%d")
+        known = read_json("company_metadata.json", {})
+        unknown = [c for c in args.companies if c not in known]
+        if unknown:                          # a typo would create a mark that matches nothing
+            print("not a company in company_metadata.json (use the canonical node name): %s" % ", ".join(unknown))
+            args.companies = [c for c in args.companies if c in known]
+        for company in args.companies:
+            data["marks"] = [m for m in data["marks"] if (m["company"], m["source"]) != (company, args.source)]
+            data["marks"].append({"company": company, "source": args.source, "status": "no_source",
+                                  "why": args.why, "at": now.strftime("%Y-%m-%d"), "recheck": recheck})
+        print("marked %d compan%s: %s no_source until %s" % (len(args.companies), "y" if len(args.companies) == 1 else "ies",
+                                                            args.source, recheck))
+    elif args.cmd == "unmark":
+        before = len(data["marks"])
+        data["marks"] = [m for m in data["marks"] if not (m["company"] in args.companies and m["source"] == args.source)]
+        print("removed %d mark(s)" % (before - len(data["marks"])))
+    elif args.cmd == "note":
+        data["notes"].append({"at": now.strftime("%Y-%m-%d %H:%M"), "market": args.market, "text": args.text})
+        print("note recorded")
+    elif args.cmd == "ask":
+        data["questions"] = [q for q in data["questions"] if q["subject"] != args.subject]
+        data["questions"].append({"subject": args.subject, "question": args.question, "label": args.label,
+                                  "at": now.strftime("%Y-%m-%d")})
+        print("question recorded for the user: %s" % args.subject)
+    elif args.cmd == "resolve":
+        hit = [q for q in data["questions"] if q["subject"] == args.subject]
+        data["questions"] = [q for q in data["questions"] if q["subject"] != args.subject]
+        for q in hit:                         # keep the decision as history
+            data["answered"].append(dict(q, answer=args.answer, answered=now.strftime("%Y-%m-%d")))
+        print("resolved %d question(s) for %s" % (len(hit), args.subject))
+    data["marks"].sort(key=lambda m: (m["source"], m["company"]))
+    with open(MARKS_FILE, "w", encoding="utf-8") as f:
+        json.dump({"_rule": data["_rule"], "marks": data["marks"], "notes": data["notes"],
+                   "questions": data["questions"], "answered": data["answered"]}, f, ensure_ascii=False, indent=1)
+
+
 if __name__ == "__main__":
+    import argparse
+    ap = argparse.ArgumentParser(description="Rebuild the enrichment status (no arguments), or record a fact for the board.")
+    sub = ap.add_subparsers(dest="cmd")
+    SOURCES = ["call", "dart", "ir", "conference", "edgar"]
+    mk = sub.add_parser("mark", help="record that a source does not exist for these companies (until --recheck)")
+    mk.add_argument("companies", nargs="+")
+    mk.add_argument("--source", required=True, choices=SOURCES)
+    mk.add_argument("--why", required=True, help="what was checked, e.g. 'no free transcript (AV, defeatbeta, Investing.com)'")
+    mk.add_argument("--recheck", help="YYYY-MM-DD; default = 90 days from today")
+    um = sub.add_parser("unmark", help="remove a mark")
+    um.add_argument("companies", nargs="+")
+    um.add_argument("--source", required=True, choices=SOURCES)
+    nt = sub.add_parser("note", help="record where a run stopped / what the next run should know")
+    nt.add_argument("market", choices=[m for m, _ in MARKETS] + ["all"])
+    nt.add_argument("text")
+    ak = sub.add_parser("ask", help="record a judgment for the user (shown under 'Needs a decision' until resolved)")
+    ak.add_argument("subject", help="a company name or a short topic")
+    ak.add_argument("--question", required=True)
+    ak.add_argument("--label", help="the source label the question comes from")
+    rs = sub.add_parser("resolve", help="close a question with the user's answer (kept as history)")
+    rs.add_argument("subject")
+    rs.add_argument("--answer", required=True)
+    args = ap.parse_args()
+    if args.cmd:
+        record(args)
     build_enrich_status()

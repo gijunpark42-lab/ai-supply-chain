@@ -31,6 +31,8 @@ new concepts. Prefer clarity over cleverness.
 2. **Division of labor:**
    - The **human** owns the chain STRUCTURE — which companies, which layers/sectors, which edges, multi-layer
      placement. This is domain research and is the competitive moat. AI must not silently change it.
+     (Since 2026-09-26 the user lets an independent Claude verifier approve NEW companies found during
+     enrichment — litmus test + naming rules, always reported; moves, renames and deletions stay the user's.)
    - The **AI** owns the repetitive enrichment — extracting deal/figure data from a transcript and
      attaching it to the right existing node or edge.
 
@@ -206,13 +208,19 @@ Power and thermal are real sub-chains that attach to datacenter/compute nodes vi
 
 ## How enrichment works (the transcript loop)
 
-The user gives a URL (earnings call, news article, GTC-style event). The system:
+The pipelines (or the user) supply a company source — an earnings call, an investor-conference talk,
+an SEC/DART filing, an important company IR press release (never a third-party article; those are
+pointers only). What is captured: facts, company guidance and management's own comments — never
+analyst opinion (enrich skill §2). The system:
 
 1. **Fetches** the transcript → saves to `transcripts/`.
 2. **Analyzes** it against a chain with these jobs (ADD-only):
    - add `quarterly_data` to existing nodes (figures about the company).
    - add `contracts` entries to existing edges (deal detail: units, value, date).
-   - ADD a new company ONLY IF it passes the litmus test, with empty `contracts`/`quarterly_data`.
+   - ADD a new company only if it passes the litmus test AND an independent Claude (Opus) verifier approves it
+     (enrich skill JOB 3 — the user delegated this approval to Claude on 2026-09-26); every addition is reported.
+     Banks, lenders, distributors, contractors and the like are rejected without asking; genuinely ambiguous
+     cases are asked to the user (`enrich_status.py ask`, shown on the status board).
    - ADD a new edge ONLY IF the transcript states a real relationship (e.g. "AWS supports
      Anthropic compute") → add/extend that `connects_to` entry.
 3. **Saves** the additions as a patch in `patches/`; `apply_patches.py` merges it into the chain
@@ -284,6 +292,11 @@ earnings-ai/
 ├── derive.py                 # graph → Timelines / Screener / Capex views (graph/timelines.bundle.json, graph/company_metrics.json, graph/capex_backlog.json)
 ├── enrich_status.py          # per-PIPELINE dashboard (enrich us/edgar/dart/intl/tw/conference/manual): last sync, source date range,
 │                             #   pending queue, saved-but-no-data files → graph/enrich_status.json (Coverage tab, top cards); run by graph_build.py
+│                             #   + the MARKET BOARD (US/KR/TW/JP/EU/CN: overdue, never enriched, waiting, "Run next") → ENRICH_STATUS.md
+│                             #   `enrich_status.py mark / unmark / note` = the coordinator's hand-recorded facts → enrich_marks.json
+├── ENRICH_STATUS.md          # GENERATED status board — read it FIRST before any enrich run; says which `enrich <market>` to run next
+├── enrich_marks.json         # "no source exists" marks + coordinator notes (written only via enrich_status.py mark/note) — commit it
+├── utils/check_patch.py      # pre-flight check of ANY patch before graph_build (numbers, English only, slot rules, one fact one node)
 ├── enrich_log.json           # APPEND-ONLY run record written by enrich_status.py (one row per day+pipeline when counts change) — commit it
 ├── timelines/                # hand-curated BASELINE tables — INPUT to derive.py, never auto-written
 ├── company_metrics.json      # hand-curated screener BASELINE — input, never auto-written
@@ -344,9 +357,10 @@ and follow it — do not improvise the procedure from this table.**
 | The user says | Invoke skill | What it does |
 |---|---|---|
 | "build chain skeleton for X" / "make a chain for X" | `chain-skeleton` | Workflow 1 — write a new `chains/<product>.json` with layers, sectors, players and `connects_to` edges (empty `contracts`), then `graph_build.py --sync`. |
-| a URL / pasted transcript, `Transcript:<company>`, or bare `enrich` | `enrich` | Workflow 2 — the ADD-only patch format, JOB 1–5 (quarterly_data, contracts, new nodes, new edges, topics/slot/capex tags), canonical source labels, `graph_build.py --sync` + `verify_graph.py`. |
+| a URL / pasted transcript, `Transcript:<company>`, or bare `enrich` | `enrich` | Workflow 2 — status board first (`ENRICH_STATUS.md`; bare `enrich` runs its "Run next" list), what to capture (facts, company guidance, management comments — no analyst opinion), the ADD-only patch format, JOB 1–5, canonical labels, slot table, `utils/check_patch.py` → `graph_build.py --sync` → verify. |
+| `enrich us` / `enrich korea` / `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | `enrich` → `references/markets.md` | One home market, every source that serves it, in order (calls → filings → conferences → IR releases); `enrich us` is daily and excludes SEC filings (`enrich edgar`, weekly). |
 | `enrich dart` | `enrich` → `references/dart.md` | Workflow 2b — Korean names via DART (정기보고서 / 잠정실적 / 공급계약), English-only rule, read-every-line rule. |
-| `enrich us` | `enrich` → `references/us.md` | Workflow 2c — US names via Alpha Vantage (`av.py sync → pending → done`). |
+| `enrich us calls` | `enrich` → `references/us.md` | Workflow 2c — US calls only via Alpha Vantage (`av.py sync → pending → done`), defeatbeta fallback. |
 | `enrich intl` | `enrich` → `references/intl.md` | Workflow 2d — Taiwan/Japan/Europe/HK/China via Investing.com (`investing.py`). |
 | `enrich tw` | `enrich` → `references/tw.md` | Workflow 2e — Taiwan Chinese-language 法說會 via video + whisper (`tw.py`). |
 | `enrich edgar` | `enrich` → `references/edgar.md` | Workflow 2f — US names via SEC EDGAR (`edgar_pull.py` → queue → done): 8-Ks with every exhibit whole, 10-K/10-Q customer + supplier/backlog paragraphs + XBRL. COMPLETENESS CONTRACT: every filing read once to the last page (`utils/show_filing.py`), enriched files immutable (re-pull → delta only), `utils/check_edgar_patch.py` pre-flight, enricher + independent verifier, settled rulings. |
@@ -369,7 +383,13 @@ Nothing was dropped when these moved out of this file — each skill holds the o
   Same-layer edges allowed when real (e.g. HBM → CoWoS). No-relationship nodes get `connects_to: []`.
 - Edges are objects carrying `contracts[]`; skeleton leaves contracts empty, transcripts fill them.
 - Follow FIXED layer/domain slugs and the `{company, product, connects_to, quarterly_data}` player shape (nested under layer→sector).
-- Apply the litmus test before adding any company.
+- Apply the litmus test before adding any company; during enrichment a new company needs an independent Claude
+  verifier's approval (enrich skill JOB 3) and is always named in the report.
+- When a rule does not settle a judgment, ask the user instead of guessing: record it with
+  `python -X utf8 enrich_status.py ask "<subject>" --question "…"` (it shows on the status board / web Status tab).
+- Enrichment runs as parallel `enricher` agents by default (up to 20, fewer for small queues; split by company).
+- Every enrich run starts by reading `ENRICH_STATUS.md` and ends with the board rebuilt (graph_build.py does it;
+  otherwise `python -X utf8 enrich_status.py`). The enrich skill's common rules (§0–§8) win over older notes.
 - Tag every new `quarterly_data` / `contracts` entry with `topics` (plus `slot` / `capex` where relevant) —
   the Timelines, Screener and Capex tabs are derived from these tags (Workflow 2, JOB 5). Never hand-edit `graph/`.
 - Keep new Python explicit and commented; explain new concepts to the builder.
