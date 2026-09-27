@@ -25,6 +25,8 @@ Proposal file  (patches/corrections/<reviewer>_<n>.json)
       "set": {"figure": "...", "units": "...", "value": "...", "signal": "..."},   # action=set: only listed keys change
                                           # ("slot": "guidance" moves a screener cell here; "slot": null removes it)
       "new_label": "SK Hynix Q2 FY2026 (08-13-2026)",                             # action=relabel
+      "chains": ["components/nand_flash.json"],   # OPTIONAL: act only in these chain files (e.g. delete the extra
+                                                  # copies of a company-wide fact, keeping it on one node)
       "reason": "one line: what the source actually says",
       "evidence": "verbatim snippet from the source (<= 200 chars)"
     }
@@ -33,7 +35,8 @@ Proposal file  (patches/corrections/<reviewer>_<n>.json)
 
 Locating an entry: the (company, target, label, signal_prefix) tuple must match EXACTLY ONE
 entry per chain file; the same entry may legitimately live in several chain files (a company
-figure copied into two chains) -- then it is corrected in all of them.
+figure copied into two chains) -- then it is corrected in all of them, unless the item lists
+`chains`: then only those files are touched, and each of them must hold the entry.
 
 Usage
 -----
@@ -113,7 +116,14 @@ def validate(item, path):
         problems.append("relabel needs new_label")
     if len(item.get("signal_prefix", "")) < 20:
         problems.append("signal_prefix shorter than 20 chars (too ambiguous)")
+    if "chains" in item and (not isinstance(item["chains"], list) or not item["chains"]):
+        problems.append("chains must be a non-empty list of chain files (relative to chains/)")
     return problems
+
+
+def chain_rel(path):
+    """chains/components/nand_flash.json -> 'components/nand_flash.json' (the form items use)."""
+    return os.path.relpath(path, CHAINS_DIR).replace("\\", "/")
 
 
 def run(files, apply):
@@ -140,8 +150,15 @@ def run(files, apply):
                 total["errors"] += 1
                 file_ok = False
                 continue
-            where = [(f, locate(c[0], item)) for f, c in chains.items()]
+            scope = set(item.get("chains") or [])
+            where = [(f, locate(c[0], item)) for f, c in chains.items() if not scope or chain_rel(f) in scope]
             where = [(f, h) for f, h in where if h]
+            missing = scope - {chain_rel(f) for f, _h in where}
+            if missing:
+                print(f"  [error] item {n} not in the listed chains {sorted(missing)}: {item['company']} | {item['signal_prefix'][:50]}")
+                total["errors"] += 1
+                file_ok = False
+                continue
             if not where:
                 print(f"  [error] item {n} not found: {item['kind']} {item['company']} -> {item.get('target')} | {item['label']} | {item['signal_prefix'][:50]}")
                 total["errors"] += 1

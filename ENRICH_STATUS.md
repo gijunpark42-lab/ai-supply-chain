@@ -1,13 +1,13 @@
 # Enrichment status board
 
-Generated 2026-09-26 17:11 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-09-26 22:29 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
 ## Run next
 
 1. **`enrich us`** — 18 fetched file(s) waiting to be enriched (11 conference, 7 IR release); US call sync (av.py) last ran 22 days ago (2026-09-04); 4 overdue for a call: Applied Digital (last 2026-04-09), Simulations Plus (last 2026-04-09), 3M (last 2026-04-21), Texas Instruments (last 2026-04-22); 15 never had a call enriched (fetch with defeatbeta, mark the ones with none): Adeia, Alpha and Omega Semiconductor, Arteris, Bel Fuse, CEVA, ChipMOS … +9 more
-2. **`enrich korea`** — DART sync (dart.py) last ran 16 days ago (2026-09-10); 50 have no DART filing enriched (backfill with `dart.py fetch`): Auros Technology, Chemtronics, Cheryong Electric, DB HiTek, DI Corporation, Daewon Cable … +44 more
+2. **`enrich korea`** — 48 fetched file(s) waiting to be enriched (47 IR deck, 1 call); DART sync (dart.py) last ran 16 days ago (2026-09-10); 50 have no DART filing enriched (backfill with `dart.py fetch`): Auros Technology, Chemtronics, Cheryong Electric, DB HiTek, DI Corporation, Daewon Cable … +44 more
 3. **`enrich edgar`** — last pulled 16 days ago, 2026-09-10 (weekly)
 4. **`enrich taiwan`** — Investing.com call sync (investing.py) last ran 8 days ago (2026-09-18) — one sync serves Taiwan, Japan, Europe and China; Taiwan Chinese-call sync (tw.py) last ran 19 days ago (2026-09-07); 4 overdue for a call: Wiwynn (last 2026-02-26), Inventec (last 2026-05-12), Gigabyte (last 2026-05-15), VPEC (last 2026-05-27)
 5. **`enrich japan`** — 1 overdue for a call: Murata (last 2026-04-30)
@@ -18,14 +18,14 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 ## Needs a decision or setup
 
-- Korean earnings calls have no pipeline: investing.py skips KRX/KOSPI/KOSDAQ and dart.py pulls filings only. The last calls in the graph are SK Hynix 2026-04-23, Samsung 2026-04-30, Samsung Electro-Mechanics 2026-04-30 (pasted by hand); 81 Korean companies never had one. Adding them needs a label fix too (DART reports share the call label shape).
+- Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are SK Hynix 2026-04-23, Samsung 2026-04-30, Samsung Electro-Mechanics 2026-04-30; 81 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual.
 
 ## Markets
 
 | Market | Companies | Call current | Overdue | Never had a call | No own data | Waiting | IR feeds | Collector last ran |
 |---|---|---|---|---|---|---|---|---|
 | US — United States | 193 | 171 | 4 | 15 | 17 | 18 | 183 | us 2026-09-04 |
-| KR — Korea | 84 | 0 | 3 | 81 | 50 | 0 | 20 | dart 2026-09-10 |
+| KR — Korea | 84 | 0 | 3 | 81 | 50 | 48 | 20 | dart 2026-09-10, kind 2026-09-26 |
 | TW — Taiwan | 75 | 17 | 4 | 54 | 50 | 0 | 46 | intl 2026-09-18, tw 2026-09-07 |
 | JP — Japan | 65 | 10 | 1 | 54 | 39 | 0 | 59 | intl 2026-09-18 |
 | EU — Europe | 28 | 12 | 3 | 13 | 11 | 0 | 21 | intl 2026-09-18 |
@@ -45,6 +45,7 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 ### KR — Korea (`enrich korea`)
 - Overdue for a call: SK Hynix (last 2026-04-23), Samsung (last 2026-04-30), Samsung Electro-Mechanics (last 2026-04-30)
 - No DART filing enriched: Auros Technology, Chemtronics, Cheryong Electric, DB HiTek, DI Corporation, Daewon Cable, Duksan Hi-Metal, ENF Technology, Eugene Technology, Exicon, FADU, FST … +38 more
+- Waiting to enrich: 47 IR deck, 1 call
 
 ### TW — Taiwan (`enrich taiwan`)
 - Overdue for a call: Wiwynn (last 2026-02-26), Inventec (last 2026-05-12), Gigabyte (last 2026-05-15), VPEC (last 2026-05-27)
@@ -74,7 +75,9 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 | Taiwan / Japan / Europe calls | `enrich intl` | 2026-09-18 | 2026-09-18 | 0 | 30 | 30 |
 | Taiwan Chinese 法說會 | `enrich tw` | 2026-09-07 | 2026-09-07 | 0 | 17 | 17 |
 | Investor conferences | `enrich conference` | 2026-09-22 | 2026-09-25 | 11 | 105 | 94 |
-| Company IR press releases | `enrich ir` | 2026-09-25 | 2026-09-25 | 7 | 152 | 64 |
+| Company IR press releases | `enrich ir` | 2026-09-25 | 2026-09-25 | 7 | 152 | 63 |
+| Korea IR decks (KIND) | `enrich korea` | 2026-09-26 | - | 47 | 47 | 0 |
+| Korea earnings-call scripts | `enrich korea` | 2026-09-26 | - | 1 | 1 | 0 |
 | Pasted transcripts | `Transcript:<company>` | 2026-09-25 | 2026-09-25 | 0 | 248 | 248 |
 
 ## Coordinator notes (newest first)

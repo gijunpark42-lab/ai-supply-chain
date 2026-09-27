@@ -45,9 +45,13 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    English only).
 2. Board gap "no DART filing enriched" (mostly new Korean nodes): fetch each one's latest periodic report —
    `python dart.py fetch "<Company>" <year> <quarter 1-4>` — and enrich it (≤ 10 reports per agent; they are long).
-3. Korean earnings calls: NO PIPELINE YET (investing.py skips Korean exchanges, dart.py pulls filings only). The
-   board lists this under "Needs a decision or setup". A call the user pastes is enriched as usual — label = the
-   call date; the DART report of the same quarter keeps its own filing date.
+2b. IR presentations and calls: `python kind.py sync` (the KRX KIND library — 34 of our Korean companies post decks
+   there — plus six large-cap IR sites: Samsung's official call script and the SK Hynix / SEMCO / LG Innotek / NAVER /
+   SK Telecom results decks) → `python kind.py pending` → enrich every row (references/kind.md; a `call` row is a
+   transcript, a `deck` row a company document) → `python kind.py done --label "<label>"` each.
+3. Other Korean earnings calls: none is published as a transcript (only Samsung's script, taken in 2b); the board
+   explains it under "Needs a decision or setup". A call the user pastes is enriched as usual — label = the call
+   date; the DART report of the same quarter keeps its own filing date.
 4. Conference talks: `python investing.py pending --kind conference --market KR`.
 5. IR releases: `python ir_pull.py pending --market KR`. Korean results releases are KEPT (US ones are skipped):
    with no call pipeline they are often the only place the company's own outlook and commentary appear — add only

@@ -291,9 +291,15 @@ class ResolverIntegrationTest(unittest.TestCase):
                 self.skipTest("missing " + p)
 
     def test_longest_company_match(self):
-        self.need("transcripts/power/samsung_electro_q1_2026.txt", "transcripts/memory/samsung_q1_2026.txt")
-        self.assertEqual(self.docs("Samsung Electro-Mechanics Q1 FY2026 (04-30-2026)"), ["transcripts/power/samsung_electro_q1_2026.txt"])
-        self.assertEqual(self.docs("Samsung Q1 FY2026 (04-30-2026)"), ["transcripts/memory/samsung_q1_2026.txt"])
+        # each call keeps its own same-day results deck (kind.py) as a companion, never the other company's files
+        self.need("transcripts/power/samsung_electro_q1_2026.txt", "transcripts/memory/samsung_q1_2026.txt",
+                  "transcripts/kind/samsungelectromechanics_2026-04-30_q1_2026_site.txt",
+                  "transcripts/kind/samsung_2026-04-30_q1_2026_site.txt")
+        self.assertEqual(self.docs("Samsung Electro-Mechanics Q1 FY2026 (04-30-2026)"),
+                         ["transcripts/power/samsung_electro_q1_2026.txt",
+                          "transcripts/kind/samsungelectromechanics_2026-04-30_q1_2026_site.txt"])
+        self.assertEqual(self.docs("Samsung Q1 FY2026 (04-30-2026)"),
+                         ["transcripts/memory/samsung_q1_2026.txt", "transcripts/kind/samsung_2026-04-30_q1_2026_site.txt"])
 
     def test_quarter_never_contradicts_label(self):
         self.need("transcripts/non_transcript_sources/apld_q4_fy2026_earnings_release.txt", "transcripts/bigtech/applied_digital_q3_2026.txt")

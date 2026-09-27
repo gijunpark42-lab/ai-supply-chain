@@ -33,10 +33,10 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 |---|---|
 | `enrich` | The board's **Run next** list, top to bottom (refresh the board first). |
 | `enrich us` | Every US gap except SEC filings — calls (+ defeatbeta fallback), overdue / never-enriched companies, conference talks, IR releases. Meant to run daily. |
-| `enrich korea` | DART filings (+ backfill of Korean companies with no filing enriched), conference talks, IR releases. Korean calls have no pipeline yet (board: "Needs a decision or setup"). |
+| `enrich korea` | DART filings (+ backfill of Korean companies with no filing enriched), IR presentations and Samsung's official call script (`kind.py`: KRX KIND library + six large-cap IR sites), conference talks, IR releases. |
 | `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | That market's calls (Investing.com; Taiwan Chinese-language calls via tw.py), conference talks, IR releases. |
 | `enrich edgar` | SEC 8-K / 10-K / 10-Q (weekly; not part of `enrich us`). |
-| `enrich us calls` · `enrich dart` · `enrich intl` · `enrich tw` · `enrich conference` · `enrich ir` | One source, across every market it covers (reference table below). |
+| `enrich us calls` · `enrich dart` · `enrich kind` · `enrich intl` · `enrich tw` · `enrich conference` · `enrich ir` | One source, across every market it covers (reference table below). |
 | a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py`; others: the market's source) and state the call date before enriching. |
 
 The step-by-step market procedures are in `references/markets.md`.
@@ -198,6 +198,7 @@ which slot:
 | DART supply contract with an undisclosed customer | `backlog_or_b2b` only |
 | 8-K | any, but only when newer than every same-slot entry of the company; otherwise none |
 | 10-K / 10-Q | none |
+| Company IR presentation (deck; `kind.py`) | same as a company IR press release (next row); never `revenue_growth` — DART holds the quarter's numbers |
 | Company IR press release | `guidance` (company guidance / targets), `next_catalyst` (a new product launch, availability, production or shipment start with a date), `backlog_or_b2b` (a named order, contract or design win), `supply_status` (capacity, utilisation, sold-out) — only what the release itself states; never `revenue_growth`; a demo never fills a slot |
 
 Never give a company a second entry with the same slot and the same date (the screener cannot choose), and leave
@@ -213,6 +214,8 @@ the key out when an entry fills no slot (never `"slot": null`). `utils/check_pat
 | SEC filing | `[Company] 8-K` / `10-K` / `10-Q` `(MM-DD-YYYY)` | `Lumentum 8-K (08-11-2026)` |
 | Investor conference / company event | `[Company] [Event] [YYYY] (MM-DD-YYYY)` | `Credo Goldman Sachs conference 2026 (09-10-2026)` |
 | Company IR press release (saved by `ir_pull.py` or by hand) | `[Company] press release: [headline, ≤ 60 chars] (MM-DD-YYYY)`; a non-English headline becomes `release <id from the URL>` | `Supermicro press release: Supermicro Now Shipping NVIDIA Vera Rubin NVL72 Racks (09-23-2026)` |
+| Korean IR presentation from KRX KIND (`kind.py`) | `[Company] IR presentation: KIND <irSeq> (MM-DD-YYYY)`, dated the IR event | `Nepes IR presentation: KIND 19356 (09-18-2026)` |
+| Korean large-cap results deck from its own IR site (`kind.py`) | `[Company] IR presentation: Q[N] [YYYY] results (MM-DD-YYYY)`, dated the DART earnings day | `SK Hynix IR presentation: Q2 2026 results (07-29-2026)` |
 | Other company document (deck, investor-day material) | `[Company] [document type]: [title] (MM-DD-YYYY)` | — |
 | Third-party note | legacy only — no new ones (articles are pointers, §2) | `Goldman Sachs optical note (04-17-2026)` |
 
@@ -288,6 +291,7 @@ These build ON TOP of everything above. When a command fires, read its reference
 |---|---|---|
 | `enrich us` / `korea` / `taiwan` / `japan` / `europe` / `china` | one home market, every source that serves it, in order | `references/markets.md` |
 | `enrich dart` | Korean listed names — DART filings (정기보고서 / 잠정실적 / 공급계약) | `references/dart.md` |
+| `enrich kind` | Korean listed names — IR presentations from the KRX KIND IR library (`kind.py`) | `references/kind.md` |
 | `enrich us calls` | US-listed names — Alpha Vantage full call transcripts (`av.py`), defeatbeta fallback | `references/us.md` |
 | `enrich intl` | Taiwan / Japan / Europe / HK / China — Investing.com (`investing.py`) | `references/intl.md` |
 | `enrich tw` | Taiwan Chinese-language 法說會 — video + whisper (`tw.py`) | `references/tw.md` |

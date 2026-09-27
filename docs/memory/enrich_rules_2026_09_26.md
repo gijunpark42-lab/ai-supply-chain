@@ -43,3 +43,11 @@ releases, same-date slot collisions, 10-K concentration facts that never reached
   not settle → `enrich_status.py ask "<subject>" --question …` (board + web Status tab "Needs a decision"); the
   user's answer → `resolve … --answer …` (kept under `answered` in enrich_marks.json).
 - Korean earnings calls still have no pipeline (decision pending with the user).
+- Korean IR materials pipeline (user, 2026-09-27: build it so an agent does not have to look each time): `kind.py`
+  = the KRX KIND IR library (34 of our 84 Korean companies post decks there, mostly KOSDAQ) + six large-cap IR sites
+  (Samsung's OFFICIAL call script -> transcripts/kr_calls as a call; SK Hynix / SEMCO / LG Innotek / NAVER / SK Telecom
+  results decks). Labels `<Co> IR presentation: KIND <irSeq> (event date)` and `<Co> IR presentation: Q<N> <YYYY>
+  results (DART earnings day)`. Queue kind/pending.json (kind = deck | call); part of `enrich korea`; board pipelines
+  `kind` + `krcalls`. No other Korean large cap publishes a call transcript (SK Hynix: third-party only).
+- Gotcha 2026-09-27: defeatbeta (the `enrich us` fallback) fails for every ticker — Hugging Face 404 on
+  data/stock_earning_call_transcripts.parquet (dataset moved?). Needs a package update / fix before relying on it.
