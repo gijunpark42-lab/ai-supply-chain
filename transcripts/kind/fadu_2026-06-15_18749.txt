@@ -1,0 +1,1579 @@
+SOURCE: https://kind.krx.co.kr/external/dst/irReference/18749/1Q26%20IR%20Book_KOR_260512.pdf
+KIND ITEM: irSeq 18749 — 기업설명회(IR) 개최 — files: 1Q26 IR Book_KOR_260512.pdf, 1Q26 IR Book_ENG_260512.pdf
+EVENT DATE: 2026-06-15   (the IR event date KIND lists, not the upload date)
+COMPANY: FADU (KIND: 파두)
+# NOTE: NOT a transcript — a company-issued IR presentation (slides). Enrich facts and company targets
+#       only; attribute claims; write every entry in English (enrich skill §2, §8).
+# source label: FADU IR presentation: KIND 18749 (06-15-2026)
+==== 1Q26 IR Book_KOR_260512.pdf — page 1 ====
+Ticker :  440110 KOSDAQ
+FADU 2026 Q1 
+Pushing the Storage Frontier: 
+Next-Generation SSDs for Tomorrow’s Datacenters
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 2 ====
+Disclaimer
+본 자료에 포함된 재무성과에 대한 모든 정보는 한국채택회계기준(K-IFRS)에 따라
+연결 기준으로 작성되었습니다.
+2026년 1분기 실적은 외부감사인의 감사가 완료되지 않은 상태에서 투자자 여러분의
+편의를 위해 작성되었습니다. 따라서 내용 중 일부는 외부감사인의 감사 과정에서
+달라질 수 있습니다. 
+본 자료는 현재의 사업 환경과 당사의 경영전략 등을 고려하여 작성된 것으로, 
+이러한 예측 정보는 그 성격의 불확실성으로 인해 회사의 미래 실적과 중대한 차이가
+있을 수 있음을 양지하시기 바랍니다.
+2
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 3 ====
+2026 Q1
+Company Presentation
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 4 ====
+Company Overview
+Fabless Semiconductor Company
+Headquarter
+Silicon Valley Office
+FADU Technology(Sales/R&D Office)
+EEUM(Connectivity Solution Biz./SSD R&D)
+FADU(Shanghai) Technology
+- Sales/R&D Office
+1Q’26 임직원(본사기준) : 전체 306 / Engineering 272
+서울대학교 산업공학과 학사
+서울대학교 산업공학과 석사
+펜실베니아대학교 와튼스쿨 MBA
+Bain & Company 파트너
+이 지 효 President
+서울대학교 전기공학과 학사
+서울대학교 컴퓨터공학 박사
+SK텔레콤
+남 이 현 대표이사/CTO
+서울대학교 경영학과 학사
+사파이어테크놀로지
+이 대 근 COO
+서울대학교 조경학과 학사
+컬럼비아대학교 MBA
+Bain & Company 파트너
+삼성SDS
+원 종 택 CFO
+김 태 균 CBO
+성균관대학교 전자공학과 학사
+삼성전자 DS 상무
+삼성 전략혁신센터(SSIC) 
+신사업기획 상무
+4 
+Executive Leadership
+미주/유럽/APAC 등 글로벌 Sales/R&D 거점 확대 중
+김 진 수 CRO
+서울대학교 컴퓨터공학과 학사
+서울대학교 컴퓨터공학 박사
+서울대학교 컴퓨터공학부 교수
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 5 ====
+Enterprise Pure Player
+Enterprise PCIe NVMe SSD Controller Solution
+Hyperscale datacenter향 Customized solution
+HW/SW의 최적화된 조합을 통한 차별화된 아키텍처
+SW의 다수기능을 HW로 Offload: Fast/Efficient  
+data transfer↑, Power consumption↓
+NAND 업체와의 파트너십 기반으로 약 1.5년 이상의 개발/검
+증기간을 거쳐 안정적 장기공급 (3~5년)
+Flexible eSSD Solutions to fit customers’ needs
+White label SSD with customers’ brand
+Customer Self-built SSD with customers’ preferences
+Enterprise SSDMajor Product
+Power Solution (2025~)
+CXL Solution
+Future Data Center Portfolio
+5 
+Controller
+PLP(Power Loss Protection)
+Multi-channel PMIC
+NAND
+Packages
+SSD Device
+NAND
+Die
+SSD 핵심반도체 Controller
+HOST
+(CPU)
+PCIe NVMe
+Interface
+Controller
+Enterprise SSD의 성능과 신뢰성을
+책임지는 핵심반도체
+*NAND Packages: 하나의 NAND Package는 여러 개의 Die로 구성
+** Die: 가장 작은 저장단위 *Channel: NAND 
+ Controller 간 데이터전송 통로
+Firmware
+(SW)
+Controller 
+(ASIC HW)
+CPUs
+NIC(Network I/F Card)
+DRAM Modules
+SSDs
+*Server 기본구성요소: CPU + DRAM + NIC + Storage
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 6 ====
+혁신적인 고효율 FADU 아키텍처
+6 
+성능 향상을 위해 핵심기능은 자체 개발한 가속기 HW에서 처리
+Data Interconnect 
+Command 
+Interconnect
+ SW로처리되던
+기능의상당부분을
+반도체HW로처리해
+고성능/저전력/소형화
+고속P2P 
+통신망으로
+병목해결
+FADU 아키텍처
+HW  offloaded 
+accelerators
+PCIe / 
+NVMe
+Ctrl.
+NAND
+Ctrl.
+Memory
+Light core system
+Simple FW
+기존 아키텍처
+Memory
+Complex many core system
+성능향상 대응
+위해 단순히
+코어 수 증가
+성능향상 시
+병목 발생
+컨트롤러의
+단순 조합
+Complex FW
+PCIe / 
+NVMe
+Ctrl.
+NAND
+Ctrl.
+Shared Interconnect(e.g.,AXI)
+인터페이스
+(USB, SATA, 
+PCIe NVMe..)
+*Source: 2025 FMS
+AI Training (Checkpoint Performance)
+* Queue Depth: 동시에 처리되기를 대기하고 있는 I/O 작업의 수
+AI Inference (RAG Performance)
+데이터 처리량의 급격한 증가로 기존 SSD 아키텍처의 한계점 대두(발열 및 고전력 이슈발생)
+혁신적인 아키텍처 제안을 통한 성능과 전력효율성 동시 충족
+시스템 전체 최적화를 위해 아키텍처 전체를 원점부터 새롭게 설계, 주요 IP들 모두 자체개발 (Open-
+source RISC-V 기반 설계)
+Sequential Write Throughput (MB/s)
+10,900
+6,151
+10,702
+7,166
+0
+2,000
+4,000
+6,000
+8,000
+10,000
+12,000
+FADU Competitor CCompetitor A Competitor B
+FADU Competitor A Competitor B Competitor C
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+3,500
+QD128 QD256 QD512 QD1024
+KIOPS
+1,615
+2,645
+3,328 3,328 >3.3M IOPS
+Random Read Bandwidth / IOPS
+Power Efficiency (MB/s / Watt)
+507
+294
+488
+310
+0
+200
+400
+600
+FADU Competitor CCompetitor A Competitor B
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 7 ====
+PCIe 3.0
+PCIe 4.0
+PCIe 5.0
+2018
+2020
+2022
+2026
+PCIe 6.0
+FC6161
+Gen6
+연속읽기 14,000 MB/s
+연속쓰기 11,000 MB/s
+임의읽기 3,400 KIOPS
+임의쓰기 500 KIOPS
+연속읽기 3,400 MB/s
+연속쓰기 2,400 MB/s
+임의읽기 800 KIOPS
+임의쓰기 95 KIOPS *Source: fadu.io
+연속읽기 7,050 MB/s
+연속쓰기 4,200 MB/s
+임의읽기 1,350 KIOPS
+임의쓰기 200 KIOPS
+7
+글로벌 Top tier업체들과의 파트너쉽 확대 중
+고객다변화 본격화,
+시장입지 강화
+• 고효율 AI SSD 구현을 위한 기술 요구조건 확대로 Controller 중요성 확대
+• 기존 Controller 경쟁업체들의 기술경쟁우위 하락으로 시장이탈 가속화
+• NAND사들은 다양한 Hyperscalers 고객사 대응 경험과 유연한 개발
+플랫폼을 갖춘 전문 Controller사와의 협업 확대
+Enhance Market Presence 
+주요 Hyperscalers의
+대부분을 고객사로 확보 추진
+Global Hyperscalers
+Top6 NAND Manufacturers
+Enterprise SSD FADU Controller Solutions
+28,500 MB/s
+28,500 MB/s
+6,900 KIOPS
+1,000 KIOPS
+연속읽기
+연속쓰기
+임의읽기
+임의쓰기 x2 Performance
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 8 ====
+Enterprise SSD 
+연간 출하량
+71M
+82M
+Y2025 Y2026
+8
+Enterprise SSD Market
+*Source: 1Q26 Forward Insights
+80%
+시장 참여자
+SSD 공급업체
+20%
+SSD 구매업체
+Hyperscalers
+Server OEMs
+Storage Platform 
+builders
+FADU 현황
+전략적 NAND 파트너십을
+기반으로 다수의
+하이퍼스케일러 및 서버
+OEM사로 고객다변화 진행중
+글로벌 하이퍼스케일러 대응
+Track Records를 통한
+기술력 입증
+Server OEM/ODMs
+Storage Platform 
+builders
+일반 기업체, 정부기관 등
+Value chain1: In-house Controller + NAND Players
+Value chain2: 3rd Party Controller + NAND Players
+Falcon-2   
+SSD Providers(Non-NAND 제조업체)
+Value chain: 
+3rd Party Controller → Channel Distributors
+Module Houses
+*Controller 업체 BM
+White label SSD with customers’ brand
+Customer Self-built SSD with customers’ preferences
+NAND Player-driven Market
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 9 ====
+모든 컴퓨팅 구성요소의 아키텍처 혁신 요구
+Compute(연산)
+CPU중심 → GPU/XPUs
+병렬 연산 / 저정밀 연산
+GPU중심 연산이 컴퓨팅
+HW/SW 아키텍처 변화 주도
+Interconnect / Network
+Low latency(저지연)
+환경에서 대규모 데이터
+이동과 보안체크 이행
+데이터 흐름 확대
+→ Scale Out/Across  
+NIC에 부착된 DPU가
+Context memory storage 
+탑재
+→ Compute offload 및
+Storage access 확대
+Memory
+Commodity → Domain-specific customization
+Host(CPU) System Memory
+GPU HBM 
+Network Memory
+Storage → 가장 느린 Domain, 
+Inference의 병목
+3 Key Performance 요구 :       
+Bandwidth / IOPS / Capacity
+단순 저장 역할에서 Compute 역량을
+높이는 조력자
+GPU Direct Storage, HBF(High
+bandwidth Flash), Memory tiering
+*Inference 주요 워크로드 환경
+- Multi-tenant(다수사용자):  
+1) QoS(Throughput 일관성, Low latency)
+2) 보안요건 강화
+- RAG(데이터검색/보관): 대규모 데이터
+Random Read 성능 중요
+AI Workload Evolution
+Training
+Compute Power
+Inference
+Storage Capability
+Memory Access
+GPU Utilization 극대화(idle time 축소)
+Power & TCO 감소
+효율적 Inference를 위한
+Memory의 계층화(Tiering)
+9
+속도
+용량
+*RAG(Retrieval-Augmented Generation): 대규모 언어모델의 출력을
+최적화하여 응답을 생성하기 전에 학습 데이터 소스 외부의 신뢰할 수 있는
+지식베이스를 참조하도록 하는 프로세스
+AI Datacenter Computing Environment 
+수익화 추론서비스로 관심 이동
+Agentic AI & Reasoning
+Multi-Modality
+Long-context & KV Cache expansion
+Multi-tenant, multi-application 
+environments
+MoE(Mixture of Experts)
+Tier 1
+Most frequently 
+accessed data
+HDD
+Frozen/Archive data
+NVMe SSD
+Lack SSD: Cold KV spill, 
+Long-term Context etc.
+Network SSD: RAG data etc.
+*High Performance Controller 요구
+System Memory
+(Host DRAM)
+Warm KV Cache, 
+Request/Session state etc.
+HBM
+Hot KV Cache, 
+Model weights etc.
+Tier 2
+Moderately 
+accessed data
+Tier 3
+Least frequently 
+accessed data
+Infrastructure Impact
+AI Cluster Size explosion
+Memory bandwidth constraints
+Power constraints
+TCO pressure
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 10 ====
+10
+Performance의 한계 Capacity의 한계
+• 랜덤 읽기(Random-
+read) 중심 워크로드에
+대한 최적화
+• 저지연(Low-latency) 
+데이터 경로 설계
+• Muti-tenant
+환경에서의 높은
+QoS(Throughput의
+일관성) 보장66%
+33%
+19%
+53%
+2025 2026
+PCIe 4 PCIe 5
+Others
+*Source: 1Q26 TrendForce eSSD Tracker(bit basis)
+88%
+79%
+12%
+21%
+2025 2026
+TLC QLC
+Inference Storage의 한계
+• Controller의 고도화
+- TLC/QLC 모두
+지원(*FADU 현재가능)
+- 낮은 QLC의 신뢰도 →
+고도화된 ECC(에러정정) 
+엔진 필요
+- 쓰기 작업량 증가 →
+저지연을 위한 Buffer 메모리
+사이즈 증가
+• DRAM 용량 증가
+- Mapping table 사이즈
+증가 (*Mapping table: 
+NAND 저장공간 주소)
+효율적인 AI SSD 구현을 위한 Controller의 해결과제
+AI Stages
+Model Training
+(with Checkpointing)
+Inference (with RAG)
+• Compute SSD(Rack SSD) 주로 사용
+• Checkpoint와 Restore: 대용량 데이터에 대한
+연속쓰기/읽기 성능 중요
+• 대규모 전력 소비
+FADU Value 
+Top-tier
+Throughput(데이터 출력량)
+FADU Value 
+Industry-leading
+임의읽기 IOPS & QoS 
+- Low Latency(저지연)
+FADU Value 
+전력 효율성 (TCO 축소)
+- FDP (Flexible Data Placement) S/W추가
+쓰기작업 감소
+World-class
+• Compute SSD 주로 사용
+• Storage SSD(Network SSD) for RAG
+• 임의읽기 성능 중요
+• SSD 성능은 NAND만으로 결정되지 않으며, 컨트롤러 아키텍처에 의해 차별화
+• AI 추론에서 SSD는 더 이상 단순한 범용 저장장치가 아니라 컴퓨팅시스템 성능 개선과 TCO를 좌우하는 핵심 인프라
+구성요소임
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 11 ====
+Corporate Responsi
+bility
+LOW 
+POWER
+ / LOW 
+THERMAL
+FADU
+는
+ 전력소비
+ 감소에
+ 집중하는
+ 기업입니다
+.
+빠르기만
+ 한
+ 컨트롤러
+ 제품을
+ 만드는
+ 것은
+ 비교적
+ 쉬울
+ 수
+ 있으나
+, 
+고성능과
+ 함께
+ 전력효율성을
+ 모두
+ 갖춘
+ 컨트롤러를
+ 만드는
+ 것은
+ 매우
+어려운
+ 과제입니다
+. 
+FADU
+는
+ PCIe Gen3
+부터
+ Gen6
+ Controller
+까지
+ 세계
+ 최고의
+전력효율성을
+ 갖춘
+ 제품을
+ 시장에
+ 선보였습니다
+. 
+11*Source: 2025 FMS
+The best place for people to 
+create innovation
+2024년 대한민국 일·생활 균형
+우수기업 선정
+2023년 글로벌 스타팹리스
+30 선정
+여성 임직원 비율
+1,720
+52
+60
+63
+2023 2024 2025
+2025 전체 임직원 290
+여성 임직원 비율 22%
+평균 근속연수
+1,720
+유연근무제 도입을 통한
+업무생산성 강화
+모든 임직원들을 위한
+유연근무제도 이행
+활발한 글로벌 인재 유입을
+위한 재택근무제도 이행
+여성 임직원
+25.98%
+63.08%
+10.68%
+우리사주, 
+0.10%
+자사주, 
+0.16%
+경영진
+국내투자자
+해외투자자
+우리사주
+자사주
+지분구조
+(1Q’26)
+이사회
+ 구성
+(1Q’26)
+이사회
+전체
+6
+독립이사
+3
+독립이사 비율 : 50% 
+독립이사 수 : 3
+발행주식수(천주): 50,075
+유통주식수(천주): 40,958(81.79%)
+Pursuit of environment
+-
+friendly technology 
+ Shareholding Status & 
+Corporate Governance
+전력 효율성(MB/s / Watt)
+507
+294
+488
+310
+0
+100
+200
+300
+400
+500
+600
+FADU Competitor CCompetitor A Competitor B
+2023년 일자리 으뜸기업 선정
+2.9 년
+3.0 년
+3.6 년
+2024
+2023
+2025
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 12 ====
+2026 Q1
+Financial Performance
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 13 ====
+매출
+2025 매출
+YoY   112.4%↑  
+연도별
+2024 2025
+Controller
+기타매출
+전체 매출
+43.5
+전체 매출
+92.4
+단위: 십억원
+분기별
+19.2 
+23.7 25.6 23.9 
+59.5 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q26
+단위: 십억원
+■ 전체 매출
+1Q’26 매출
+QoQ   +149.4% ↑  /   YoY   +209.8% ↑  
+13
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 14 ====
+수익성
+매출총이익
+ 영업이익
+14
+분기별
+단위: 십억원 단위: 십억원
+연도별
+5.8 
+43.7 
+2024 2025
+10.2 10.2 11.9 11.4 
+34.7 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q'26
+-95.0 
+-65.5 
+2024 2025
+-12.0 -12.6 
+-11.4 
+-29.5 
+7.7 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q'26
+분기별연도별
+당기순이익
+분기별연도별
+단위: 십억원
+-91.5 
+-76.2 
+2024 2025
+-12.1 -14.8 -10.9 
+-38.4 
+10.2 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q'261Q’26
+* 4Q’25 : PCIe Gen6 Controller 
+NRE비용 110억원 반영 * 4Q’25: 전환사채관련
+파생상품평가손실 100억원 반영
+흑자전환
+ 흑자전환
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 15 ====
+판관비
+분기별
+판관비
+15
+연도별 임직원(본사기준)
+66.1 68.7 
+2024 2025
+R&D
+전체 판관비
+전체
+100.8
+전체
+109.1
+단위: 십억원
+임직원
+232
+250
+251
+253
+253
+254
+272
+2023년말
+2024년말
+1Q'25
+2Q'25
+3Q'25
+4Q'25
+1Q'26
+Engineers 전체 임직원
+12.8 14.8 14.6 
+26.5 
+14.6 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q'26
+R&D
+전체 판관비
+전체
+22.8
+전체
+27.0전체
+22.1
+전체
+23.3
+전체 256
+전체 283
+전체 285
+전체 287
+전체 287
+전체 290전체
+40.9
+* 4Q’25 : PCIe Gen6 Controller 
+NRE비용 110억원 반영 전체 306
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 16 ====
+재무 상태
+16
+45.8 
+29.9 
+38.0 
+25.0 
+41.3 
+44.2 
+14.5 14.5 
+26.5 
+23.5 23.5 23.5 
+2024년말 1Q'25 2Q'25 3Q'25 4Q'25 1Q'26
+현금 차입금단위: 십억원
+* 현금 = 현금 및 현금성자산 + 단기금융상품 등
+** 차입금 =  단기차입금 + 유동성장기부채+ 장기차입금 + 사채 등
+*2Q’25 전환사채 발행
+(120억원)
+*4Q’25 선수금 수령
+(243억원)
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 17 ====
+첨부 1. 연결 재무상태표(Unaudited)
+E1.s 15mm 16CH   |   Unthrottled Power
+17
+Account 2025.1Q 2025.2Q 2025.3Q 2025.4Q 2026.1Q 2023 2024 2025
+유동자산 84,410 83,770 76,612 96,118 122,495 203,276 98,648 96,118
+비유동자산 33,574 31,802 29,659 26,310 23,040 40,386 35,780 26,310
+자산총계 117,984 115,571 106,272 122,427 145,536 243,662 134,427 122,427
+유동부채 27,106 40,210 44,665 90,068 100,176 50,212 31,263 90,068
+비유동부채 4,402 3,795 2,881 12,565 11,262 7,101 5,217 12,565
+부채총계 31,508 44,005 47,546 102,633 111,438 57,314 36,480 102,633
+자본금 4,941 4,944 4,945 4,949 5,008 4,875 4,936 4,949
+자본잉여금 233,870 234,157 234,371 234,946 239,080 230,751 233,690 234,946
+이익잉여금(결손금) (153,455) (168,046) (178,790) (217,132) (206,725) (50,944) (141,508) (217,132)
+기타자본 (555) (869) (2,347) (3,456) (3,970) 197 (1,042) (3,456)
+비지배지분 1,675 1,381 547 487 706 1,469 1,871 487
+자본총계 86,476 71,566 58,725 19,794 34,098 186,348 97,947 19,794
+단위: 백만원
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 18 ====
+첨부 2. 연결 손익계산서(Unaudited)
+E1.s 15mm 16CH   |   Unthrottled Power
+18
+단위: 백만원
+Account 2025.1Q 2025.2Q 2025.3Q 2025.4Q 2026.1Q 2023 2024 2025
+매출 19,219 23,679 25,644 23,877 59,538 22,471 43,503 92,419 
+매출원가 9,063 13,493 13,737 12,467 24,886 11,375 37,734 48,761
+매출총이익 10,156 10,186 11,907 11,409 34,652 11,096 5,769 43,658 
+판관비 22,142 22,750 23,333 40,903 26,967 69,665 100,817 109,128 
+- 연구개발비 12,788 14,824 14,615 26,489 14,641 51,742 66,093 68,716 
+영업이익 (11,986) (12,564) (11,426) (29,494) 7,686 (58,569) (95,048) (65,470) 
+영업외이익 560 438 693 3,444 3,901 4,179 7,140 5,135 
+영업외비용 680 2,621 133 11,903 1,370 2,442 3,559 15,336 
+법인세차감전순이익 (12,105) (14,747) (10,866) (37,953) 10,217 (56,833) (91,467) (75,672) 
+법인세 32 4 16 495 2 - 41 547 
+당기순이익 (12,136) (14,751) (10,883) (38,448) 10,215 (56,833) (91,509) (76,218)
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 19 ====
+첨부 3. 연결 현금흐름표(Unaudited)
+E1.s 15mm 16CH   |   Unthrottled Power
+19
+단위: 백만원
+Account 2025.Q1 2025.Q2 2025.Q3 2025.Q4 2026.Q1 2023 2024 2025
+기초현금 45,763 29,931 38,014 24,953 41,304 10,427 179,386 45,763 
+영업활동 현금흐름 (13,528) (1,049) (7,147) 18,020 847 (42,165) (108,840) (3,704)
+- 당기순이익 (12,136) (14,751) (10,883) (38,448) 10,215 (56,833) (91,509) (76,218)
+- 재고자산평가손실 - (3,767) (4,438) (177) (368) 3,374 13,534 (8,382)
+- 이자비용 425 505 585 533 543 1,935 2,641 2,049 
+- 감가상각비 2,763 2,759 2,879 1,986 2,595 8,663 11,110 10,387 
+- 운전자본변동 (5,027) 12,244 6,167 43,887 (11,364) (1,446) (41,983) 57,272 
+투자활동 현금흐름 (1,632) (583) (756) (276) (1,016) (14,018) (4,102) (3,247)
+CAPEX (1,526) (516) (766) (1,330) (1,276) (10,947) (7,218) (4,138)
+재무활동 현금흐름 (694) 11,246 (6,218) (696) 1,975 225,265 (21,790) 3,637 
+유상증자 72 12,188 153 411 2,893 209,926 1,597 12,825 
+차입금 증감 - - (3,000) - - 25,000 (20,000) (3,000)
+환율 변동 22 (1,530) 1,059 (698) 1,080 (123) 1,109 (1,146)
+현금 변동 (15,832) 8,083 (13,061) 16,350 2,886 168,958 (133,623) (4,459)
+기말현금 29,931 38,014 24,953 41,304 44,190 179,386 45,763 41,304 
+* 현금 = 현금 및 현금성자산 + 단기금융상품 + 그외 운휴자금 운영목적 금융상품 포함
+** 운전자본 = 매출채권 + 매입채무 + 재고자산 + 기타수취채권 + 기타지급채무
+*** CAPEX : 유무형자산 취득금액 등의 합계
+**** 유상증자 : 신주발행비를 차감한 순현금유입액 기준으로 스톡옵션 행사 포함
+
+==== 1Q26 IR Book_KOR_260512.pdf — page 20 ====
+Creating Future
+Company Website: https://www.fadu.io
+IR Website: https://ir.fadu.io
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 1 ====
+Ticker :  440110 KOSDAQ
+FADU 2026 Q1 
+Pushing the Storage Frontier: 
+Next-Generation SSDs for Tomorrow’s Datacenters
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 2 ====
+Disclaimer
+2 
+All financial information contained herein is based on a consolidated basis in accordance with International 
+Financial Reporting Standards (“IFRS”).
+Review of the FY2026 Q1 financial results has not been finalized and was solely for the convenience of 
+investors prior to being reviewed by the external auditor. Hence, figures in this earnings release are subject 
+to changes during the independent auditing process. 
+The presentation may contain statements that reflect FADU Inc.’s beliefs and expectations about the future. 
+These forward-looking statements are based on a number of assumptions about the future, some of which 
+are beyond FADU Inc.’s control. Such forward-looking statements are subject to certain risks and 
+uncertainties that could cause actual results to differ materially from those contemplated by the relevant 
+forward-looking statements. 
+FADU Inc. does not undertake any obligation to update any forward-looking statements to reflect events that 
+occur or circumstances that arise after the date of this presentation.
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 3 ====
+2026 Q1
+Company Presentation
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 4 ====
+Company Overview
+Fabless Semiconductor Company
+Headquarter
+Silicon Valley Office
+FADU Technology(Sales/R&D Office)
+EEUM(Connectivity Solution Biz./SSD R&D)
+FADU(Shanghai) Technology
+- Sales/R&D Office
+1Q’26 Employees(based on HQ) : Total 306 / R&D 272
+Seoul National University, 
+MS/BS
+The Wharton School, MBA
+Partner, Bain & Company
+Jihyo Lee, President
+Seoul National University, 
+PhD/BS in Computer Science & 
+Electrical Engineering
+SKT
+Ehyun Nam, CEO/CTO
+Seoul National University, BBA
+Sapphire Technology
+Daekeun Lee, COO
+Seoul National University, BS
+Columbia University, MBA
+Partner, Bain & Company
+Samsung SDS
+Jongtaek Won, CFO
+Taekyun Kim, CBO
+Sungkyunkwan University, BS
+VP of Samsung DS
+VP of Samsung Strategy 
+Innovation Center(SSIC)
+4 
+Executive Leadership
+Expanding global Sales/R&D Hubs across the US, EU and APAC 
+Jin-Soo Kim, CRO
+Seoul National University, 
+PhD/BS in Computer Engineering
+Professor of the Department of 
+Computer Science and 
+Engineering at Seoul National 
+University
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 5 ====
+Enterprise Pure Player
+Enterprise PCIe NVMe SSD Controller Solution
+Customized solutions for Hyperscale datacenters
+A differentiated architecture built on optimized 
+HW/SW
+Multiple SW functions offloaded to HW: 
+Fast/Efficient data transfer↑, Power consumption↓
+Based on partnerships with NAND manufacturers,
+secure a stable long-term supply(3~5 years) 
+following 1.5+ years of collaboration and qualification 
+process
+Flexible eSSD Solutions to fit customers’ needs
+White label SSD with customers’ brand
+Customer Self-built SSD with customers’ preferences
+Enterprise SSDMajor Product
+Power Solution (2025~)
+CXL Solution
+Future Data Center Portfolio
+5 
+Controller
+PLP(Power Loss Protection)
+Multi-channel PMIC
+NAND
+Packages
+SSD Device
+NAND
+Die
+SSD Core Logic, Controller
+HOST
+(CPU)
+PCIe NVMe
+Interface
+Controller
+Crucial component especially in 
+Data Center ensuring performance 
+and reliability of SSDs 
+*NAND Packages: A single NAND Package consists of multiple dies. 
+** Die: The smallest unit of NAND storage *Channel: Data transfer path between NAND and the Controller
+Firmware
+(SW)
+Controller 
+(ASIC HW)
+CPUs
+NIC(Network I/F Card)
+DRAM Modules
+SSDs
+*Server basic configuration: CPU + DRAM + NIC + Storage
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 6 ====
+6 
+For performance improvement, key functionalities are 
+processed within FADU’s own developed accelerator
+Data Interconnect 
+Command 
+Interconnect
+ Offloading through 
+HW accelerators, 
+previously handled 
+by SW
+Resolve data flow 
+bottlenecks using 
+high-speed P2P 
+communication
+FADU 
+Architecture
+HW  offloaded 
+accelerators
+PCIe / 
+NVMe
+Ctrl.
+NAND
+Ctrl.
+Memory
+Light core system
+Simple FW
+Legacy
+Architecture
+Memory
+Complex many core system
+Multiple complex
+many core 
+system to 
+improve 
+performance
+Data flow 
+bottleneck occurs 
+with increasing 
+performance
+Simple 
+integration of 
+the controller
+Complex FW
+PCIe / 
+NVMe
+Ctrl.
+NAND
+Ctrl.
+Shared Interconnect(e.g.,AXI)
+Interface
+(USB, SATA, 
+PCIe NVMe..)
+*Source: 2025 FMS
+AI Training (Checkpoint Performance)
+Sequential Write Throughput (MB/s)
+10,900
+6,151
+10,702
+7,166
+0
+2,000
+4,000
+6,000
+8,000
+10,000
+12,000
+FADU Competitor CCompetitor A Competitor B
+AI Inference (RAG Performance)
+FADU Competitor A Competitor B Competitor C
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+3,500
+QD128 QD256 QD512 QD1024
+KIOPS
+1,615
+2,645
+3,328 3,328 >3.3M IOPS
+Random Read Bandwidth / IOPS
+Power Efficiency (MB/s / Watt)
+507
+294
+488
+310
+0
+200
+400
+600
+FADU Competitor CCompetitor A Competitor B
+Emergence of legacy architectures’ limitation due to the exponential growth of data processing 
+volume(resulting in heat and thermal issues)
+Delivering both high performance and power efficiency through an innovative architecture
+To optimize the entire system, FADU rebuilt the architecture from scratch and developed all 
+major IPs internally(based on open-source RISC-V)
+Innovative High-efficiency FADU Architecture
+* QD(Queue Depth): The number of I/O operations that are waiting to be 
+processed at the same time.
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 7 ====
+PCIe 3.0
+PCIe 4.0
+PCIe 5.0
+2018
+2020
+2022
+2026
+PCIe 6.0
+FC6161
+Gen6
+Seq. Read 14,000 MB/s
+Seq. Write 11,000 MB/s
+Ran. Read 3,400 KIOPS
+Ran. Write 500 KIOPS
+*Source: fadu.io
+7
+Expanding partnerships with 
+global Top-tier players
+Accelerating 
+customer 
+diversification and 
+strengthening 
+market presence
+• Rising controller importance driven by growing technical 
+requirements for high-efficiency AI SSD.
+• The incumbents with legacy architectures are losing ground and their 
+exit from the market is accelerating.
+• NAND players are expanding collaboration with specialized controller 
+vendors with the experience to address diverse hyperscaler
+requirements and flexible development platforms. 
+Enhance Market Presence 
+Actively pursuing 
+the majority of 
+leading hyperscalers
+as customers
+ Global Hyperscalers
+Top6 NAND Manufacturers
+Enterprise SSD FADU Controller Solutions
+7,050 MB/s
+4,200 MB/s
+1,350 KIOPS
+200 KIOPS
+Seq. Read
+Seq. Write
+Ran. Read
+Ran. Write
+3,400 MB/s
+2,400 MB/s
+800 KIOPS
+95 KIOPS
+Seq. Read
+Seq. Write
+Ran. Read
+Ran. Write
+Seq. Read 28,500 MB/s
+Seq. Write 28,500 MB/s
+Ran. Read 6,900 KIOPS
+Ran. Write 1,000 KIOPS x2 Performance
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 8 ====
+Yearly Enterprise 
+SSD Shipments
+71M
+82M
+Y2025 Y2026
+8
+Enterprise SSD Market
+*Source: 1Q26 Forward Insights
+80%
+Market Participants
+SSD Supplier
+20%
+SSD Buyer
+Hyperscalers
+Server OEMs
+Storage Platform 
+builders
+FADU Status
+Accelerating customer 
+diversification across 
+multiple hyperscalers and 
+server OEMs by leveraging 
+strategic NAND 
+partnerships
+Proven technology 
+competence through track 
+records with global 
+hyperscalers
+Server OEM/ODMs
+Storage Platform 
+builders
+Enterprises
+Value chain1: In-house Controller + NAND Players
+Value chain2: 3rd Party Controller + NAND Players
+Falcon-2   
+SSD Providers(Non-NAND Manufacturers)
+Value chain: 
+3rd Party Controller → Channel Distributors
+Module Houses
+*Controller vendor’s BM
+White label SSD with customers’ brand
+Customer Self-built SSD with customers’ preferences
+NAND Player-driven Market
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 9 ====
+Growing needs for architectural innovation 
+across the entire computing stack
+Compute
+CPU → GPU/XPUs
+Parallel / Low-precision compute
+GPU-centric computing driving 
+shifts in HW/SW architectures
+Interconnect / Network
+Massive data movement       
+and security checks               
+with low latency
+Expanding Data flows
+→ Scale Out/Across  
+NIC-attached DPU carrying 
+Context memory storage
+→ Enhancing Compute offload 
+and Storage access  
+Memory
+Commodity → Domain-specific customization
+Host(CPU) System Memory
+GPU HBM 
+Network Memory
+Storage → The slowest domain,  
+becoming a bottleneck for Inference
+3 Key performance requirements : 
+Bandwidth / IOPS / Capacity
+An enabler that elevates compute 
+capabilities beyond simple storage
+GPU Direct Storage, HBF(High
+bandwidth Flash), Memory tiering
+*Key Inference workload environments
+- Multi-tenant:  
+1) QoS(Throughput consistency,      
+Low latency)
+2) Heightened Security requirements 
+RAG(Data retrieval/Storage):     
+Random Read performance is critical 
+for large datasets
+Training
+Compute Power
+Inference
+Storage Capability
+Memory Access
+Memory Tiering for efficient Inference
+9
+Speed
+Capacity
+Tier 1
+Most frequently 
+accessed data
+HDD
+Frozen/Archive data
+NVMe SSD
+Lack SSD: Cold KV spill, 
+Long-term Context etc.
+Network SSD: RAG data etc.
+*Require High Performance Controller
+System Memory
+(Host DRAM)
+Warm KV Cache, 
+Request/Session state etc.
+HBM
+Hot KV Cache, 
+Model weights etc.
+Tier 2
+Moderately 
+accessed data
+Tier 3
+Least frequently 
+accessed data
+*RAG(Retrieval-Augmented Generation): The process of optimizing the output 
+of a large language model, so it references an authoritative knowledge base 
+outside of its training data sources before generating a response
+Shifting interest toward 
+monetized Inference services
+Maximize GPU Utilization(idle time↓)
+Lower Power & TCO
+AI Datacenter Computing Environment 
+AI Workload Evolution
+Agentic AI & Reasoning
+Multi-Modality
+Long-context & KV Cache expansion
+Multi-tenant, multi-application 
+environments
+MoE(Mixture of Experts)
+Infrastructure Impact
+AI Cluster Size explosion
+Memory bandwidth constraints
+Power constraints
+TCO pressure
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 10 ====
+10
+Performance Constraints Capacity Constraints
+66%
+33%
+19%
+53%
+2025 2026
+PCIe 4 PCIe 5
+Others
+*Source: 1Q26 TrendForce eSSD Tracker(bit basis)
+88%
+79%
+12%
+21%
+2025 2026
+TLC QLC
+Inference Storage Constraints
+• Advance Controller capability
+- Support for both TLC and QLC 
+(*currently available at FADU)
+- Lower QLC reliability 
+→ require advanced ECC(Error 
+Correction Code) engine
+- Growing Write workloads 
+→ require larger buffer memory 
+to maintain low latency
+• Higher DRAM Capacity
+- Growth in mapping table 
+size(*Mapping table: NAND 
+storage address)
+Controller Challenges for efficient AI SSDs
+AI Stages
+Model Training
+(with Checkpointing)
+Inference (with RAG)
+• Mainly using Compute SSDs(Rack SSDs)
+• Checkpoint and Restore: Require High Sequential Write/Read 
+performance 
+• High power consumption at scale
+FADU Value
+Top-tier
+Data Throughput
+FADU Value
+Industry-leading
+Random Read IOPS & QoS 
+- Lower Latency
+FADU Value
+Power Efficiency(Lower TCO)
+- Add S/W stack such as FDP (Flexible Data Placement) 
+resulting in lower WAF(Write Amplification Factor) 
+World-class
+• Mainly using Compute SSDs
+• Storage SSDs(Network SSDs) for RAG
+• Require High Random Read performance 
+• Optimization for 
+Random-read dominant 
+workloads
+• Low-latency data path 
+design
+• High QoS in Multi-
+tenant environment 
+• SSD performance is not determined by NAND alone, but differentiated by controller architecture
+• In AI inference, SSDs evolve from commodity storage to performance-critical infrastructure that 
+drives computing system efficiency and TCO
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 11 ====
+Corporate Responsi
+bility
+LOW 
+POWER
+ / LOW 
+THERMAL
+FADU is addicted to POWER EFFICIENCY. 
+Building a fast controller is easy, 
+But creating one that is both power
+-
+efficient and high
+-
+performing controller is an entirely different challenge.
+FADU has introduced the world’s most power
+-
+efficient 
+controllers to the market, ranging from PCIe Gen3 to Gen6.
+11*Source: 2025 FMS
+Pursuit of environment
+-
+friendly technology 
+ Shareholding Status & 
+Corporate Governance
+Power Efficiency(MB/s / Watt)
+507
+294
+488
+310
+0
+100
+200
+300
+400
+500
+600
+FADU Competitor CCompetitor A Competitor B
+The best place for people to 
+create innovation
+Y2024 Outstanding Work-
+Life Balance Companies 
+Y2023 Global Star Fabless 
+to grow into a top tier
+Female Ratio
+1,720
+2025 Total Employees  290
+Female Ratio  22%
+Years of Service
+1,720
+Enhance work 
+productivity through 
+Flexible Work 
+Arrangements
+Flextime System for all 
+employees
+Remote Work Policy 
+including working from 
+home to enable Global 
+talents engagement
+Female 
+Employee
+25.98%
+63.08%
+10.68%
+ESOP, 0.10%
+Treasury Stock, 
+0.16%
+In-house Management
+Domestic Investors
+Foreign Investors
+ESOP
+Treasury Stock
+Shareholding Status (1Q’26)
+Board of Directors (1Q’26)
+Total 
+BOD
+6
+Independent
+3
+Shares Outstanding(K): 50,075
+Shares Free Float(K): 40,958(81.79%)
+Outside Ratio : 50% 
+Number of Independent : 3
+Y2023 Top Employment 
+Company
+52
+60
+63
+2023 2024 2025
+2.9 Years
+3.0 Years
+3.6 Years
+2024
+2023
+2025
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 12 ====
+2026 Q1
+Financial Performance
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 13 ====
+13
+Revenue
+Yearly
+2024 2025
+Controller
+Others
+Total Revenue
+43.5
+Total Revenue
+92.4
+Quarterly
+19.2 
+23.7 25.6 23.9 
+59.5 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q26
+■ Total Revenue
+2025 Revenue
+YoY   112.4%↑  
+1Q’26 Revenue
+QoQ   +149.4%↑  /   YoY   +209.8% ↑  
+Unit: Bil. KRW Unit: Bil. KRW
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 14 ====
+14
+Profitability
+Gross Profit
+ Operating Profit
+QuarterlyYearly
+Net Profit
+QuarterlyYearly QuarterlyYearly
+Unit: Bil. KRW Unit: Bil. KRW Unit: Bil. KRW
+* 4Q’25 : Reflected KRW 11 Bil. in NRE 
+expenses for the PCIe Gen6 Controller
+5.8 
+43.7 
+2024 2025
+10.2 10.2 11.9 11.4 
+34.7 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q'26
+-95.0 
+-65.5 
+2024 2025
+-12.0 -12.6 
+-11.4 
+-29.5 
+7.7 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q'26
+-91.5 
+-76.2 
+2024 2025
+-12.1 -14.8 -10.9 
+-38.4 
+10.2 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q'261Q’26
+Turn to 
+Profitability
+Turn to 
+Profitability
+* 4Q’25: Reflected KRW 10 Bil. in 
+Derivative valuation loss related to CB
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 15 ====
+15
+OPEX
+OPEX
+Employees
+QuarterlyYearly Employees(based on HQ)
+232
+250
+251
+253
+253
+254
+272
+2023 YE
+2024 YE
+1Q'25
+2Q'25
+3Q'25
+4Q'25
+1Q'26
+Engineers Total Employees
+Total 256
+Total 283
+Total 285
+Total 287
+Unit: Bil. KRW
+Total 287
+Total 290
+66.1 68.7 
+2024 2025
+R&D
+Total SG&A
+Total
+100.8
+Total
+109.1
+12.8 14.8 14.6 
+26.5 
+14.6 
+1Q'25 2Q'25 3Q'25 4Q'25 1Q'26
+R&D
+Total SG&A
+Total
+22.8
+Total
+22.1
+Total
+27.0Total
+23.3
+* 4Q’25 : Reflected KRW 11 Bil. in NRE 
+expenses for the PCIe Gen6 Controller
+Total
+40.9
+Total 306
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 16 ====
+16
+Financial Position
+45.8 
+29.9 
+38.0 
+25.0 
+41.3 
+44.2 
+14.5 14.5 
+26.5 
+23.5 23.5 23.5 
+2024 YE 1Q'25 2Q'25 3Q'25 4Q'25 1Q'26
+Cash Balance DebtUnit: Bil. KRW
+* Cash Balance  = Cash & Cash Equivalents + Short-term Financial Instruments etc.
+** Debt =  Short-term Borrowings + Current portion of Long-term Borrowings + Long-term Borrowings + Debentures + Bonds etc.
+*2Q’25 CB Issuance
+(KRW 12 Bil.)
+*4Q’25 Advance Payments 
+(KRW 24 Bil.)
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 17 ====
+17
+Appendix1. Consolidated Financial Position(Unaudited)
+E1.s 15mm 16CH   |   Unthrottled PowerAccount 2025.1Q 2025.2Q 2025.3Q 2025.4Q 2026.1Q 2023 2024 2025
+Current Assets 84,410 83,770 76,612 96,118 122,495 203,276 98,648 96,118
+Non-current Assets 33,574 31,802 29,659 26,310 23,040 40,386 35,780 26,310
+TotalAssets 117,984 115,571 106,272 122,427 145,536 243,662 134,427 122,427
+Current Liabilities 27,106 40,210 44,665 90,068 100,176 50,212 31,263 90,068
+Non-current Liabilities 4,402 3,795 2,881 12,565 11,262 7,101 5,217 12,565
+TotalLiabilities 31,508 44,005 47,546 102,633 111,438 57,314 36,480 102,633
+Paid-in Capital 4,941 4,944 4,945 4,949 5,008 4,875 4,936 4,949
+Capital Surplus 233,870 234,157 234,371 234,946 239,080 230,751 233,690 234,946
+RetainedEarnings(Loss) (153,455) (168,046) (178,790) (217,132) (206,725) (50,944) (141,508) (217,132)
+OtherEquity (555) (869) (2,347) (3,456) (3,970) 197 (1,042) (3,456)
+Non-controlling interests 1,675 1,381 547 487 706 1,469 1,871 487
+TotalShareholders’ Equity 86,476 71,566 58,725 19,794 34,098 186,348 97,947 19,794
+Unit: Mil. KRW
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 18 ====
+18
+Appendix2. Consolidated Income Statement(Unaudited)
+E1.s 15mm 16CH   |   Unthrottled Power
+Unit: Mil. KRW
+Account 2025.1Q 2025.2Q 2025.3Q 2025.4Q 2026.1Q 2023 2024 2025
+Revenue 19,219 23,679 25,644 23,877 59,538 22,471 43,503 92,419 
+Cost ofGoodsSold 9,063 13,493 13,737 12,467 24,886 11,375 37,734 48,761
+Gross Profit 10,156 10,186 11,907 11,409 34,652 11,096 5,769 43,658 
+SG&A 22,142 22,750 23,333 40,903 26,967 69,665 100,817 109,128 
+- R&D 12,788 14,824 14,615 26,489 14,641 51,742 66,093 68,716 
+OperatingProfit (11,986) (12,564) (11,426) (29,494) 7,686 (58,569) (95,048) (65,470) 
+Non-operating Income 560 438 693 3,444 3,901 4,179 7,140 5,135 
+Non-operating Expenses 680 2,621 133 11,903 1,370 2,442 3,559 15,336 
+EBIT (12,105) (14,747) (10,866) (37,953) 10,217 (56,833) (91,467) (75,672) 
+Income Tax 32 4 16 495 2 - 41 547 
+Net Income (12,136) (14,751) (10,883) (38,448) 10,215 (56,833) (91,509) (76,218)
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 19 ====
+19
+Appendix3. Consolidated Cash Flow(Unaudited)
+E1.s 15mm 16CH   |   Unthrottled Power
+Unit: Mil. KRW
+Account 2025.Q1 2025.Q2 2025.Q3 2025.Q4 2026.Q1 2023 2024 2025
+Beginning Cash Balance 45,763 29,931 38,014 24,953 41,304 10,427 179,386 45,763 
+Net Cash From Operating Activities (13,528) (1,049) (7,147) 18,020 847 (42,165) (108,840) (3,704)
+- Net income (12,136) (14,751) (10,883) (38,448) 10,215 (56,833) (91,509) (76,218)
+- Evaluation loss on inventories - (3,767) (4,438) (177) (368) 3,374 13,534 (8,382)
+- Interest expenses 425 505 585 533 543 1,935 2,641 2,049 
+- Depreciation 2,763 2,759 2,879 1,986 2,595 8,663 11,110 10,387 
+- Changes in working capitals etc. (5,027) 12,244 6,167 43,887 (11,364) (1,446) (41,983) 57,272 
+Net cash from investing activities (1,632) (583) (756) (276) (1,016) (14,018) (4,102) (3,247)
+CAPEX (1,526) (516) (766) (1,330) (1,276) (10,947) (7,218) (4,138)
+Net cash from financing activities (694) 11,246 (6,218) (696) 1,975 225,265 (21,790) 3,637 
+Paid in capital increase 72 12,188 153 411 2,893 209,926 1,597 12,825 
+Changes in borrowings - - (3,000) - - 25,000 (20,000) (3,000)
+Changes in FX 22 (1,530) 1,059 (698) 1,080 (123) 1,109 (1,146)
+Changes in cash (15,832) 8,083 (13,061) 16,350 2,886 168,958 (133,623) (4,459)
+Ending cash balance 29,931 38,014 24,953 41,304 44,190 179,386 45,763 41,304 
+* Cash includes cash and cash equivalents and short-term financial instruments etc., which is available for actual operation 
+** Working Capitals = Accounts receivable + Accounts payable + Inventories + Other receivables + Other payables 
+*** CAPEX is the aggregate of the purchase amount of tangible and intangible assets 
+**** Paid in Capital is net cash flow excluding cost of new shares issuance and including execution of stock options
+
+==== 1Q26 IR Book_ENG_260512.pdf — page 20 ====
+Creating Future
+Company Website: https://www.fadu.io
+IR Website: https://ir.fadu.io

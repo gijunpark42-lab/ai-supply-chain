@@ -47,6 +47,8 @@ const WAITING_NAMES: Record<string, string> = {
   dart: "DART filing",
   conference: "conference",
   ir: "IR release",
+  kind: "IR deck",
+  krcalls: "call",
 };
 
 const waitingText = (w: Record<string, number>) =>

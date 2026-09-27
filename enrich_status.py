@@ -76,6 +76,14 @@ PIPELINES = [
     {"id": "ir",         "name": "Company IR press releases",  "command": "enrich ir",
      "dirs": ["transcripts/ir"],                 "state": "ir/sync_state.json",       "pending": "ir/pending.json",
      "source": "Company IR RSS feeds (ir_pull.py) — company-issued, not transcripts"},
+    {"id": "kind",       "name": "Korea IR decks (KIND)",      "command": "enrich korea",
+     "dirs": ["transcripts/kind"],               "state": "kind/sync_state.json",     "pending": "kind/pending.json",
+     "pending_kind": "deck",
+     "source": "KRX KIND IR library + large-cap IR sites (kind.py) — company IR presentations, not transcripts"},
+    {"id": "krcalls",    "name": "Korea earnings-call scripts", "command": "enrich korea",
+     "dirs": ["transcripts/kr_calls"],           "state": "kind/sync_state.json",     "pending": "kind/pending.json",
+     "pending_kind": "call",
+     "source": "Samsung's official earnings-call script (kind.py)"},
     {"id": "manual",     "name": "Pasted transcripts",         "command": "Transcript:<company>",
      "dirs": [],                                 "state": None,                       "pending": None,
      "source": "URL / pasted text enriched directly in Claude Code"},
@@ -167,14 +175,14 @@ MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan"
                   "EU": "enrich europe", "CN": "enrich china", "other": "enrich intl"}
 # The collectors that fetch each market's calls / filings. IR feeds and the conference listing
 # serve every market at once, so they are reported once ("shared collectors"), not per market.
-MARKET_COLLECTORS = {"US": ["us"], "KR": ["dart"], "TW": ["intl", "tw"], "JP": ["intl"],
+MARKET_COLLECTORS = {"US": ["us"], "KR": ["dart", "kind"], "TW": ["intl", "tw"], "JP": ["intl"],
                      "EU": ["intl"], "CN": ["intl"], "other": ["intl"]}
-SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7}   # days
-COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)",
+SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7, "kind": 3}   # days
+COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", "kind": "KIND IR deck sync (kind.py)",
                    "intl": "Investing.com call sync (investing.py)", "tw": "Taiwan Chinese-call sync (tw.py)",
                    "edgar": "EDGAR pull (edgar_pull.py)", "ir": "IR feed sync (ir_pull.py)",
                    "conference": "conference listing (investing.py conferences)"}
-WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing",
+WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing", "kind": "IR deck", "krcalls": "call",
                  "conference": "conference", "ir": "IR release"}
 LIST_MAX = 12        # names printed per list on ENRICH_STATUS.md (the JSON keeps every name)
 
@@ -220,7 +228,7 @@ def is_call(label, pid, path):
     """True when this label is an earnings call (see NOT_A_CALL_FILE above)."""
     if not path or not EARNINGS_LABEL.search(label):
         return False
-    if pid in ("us", "intl", "tw"):
+    if pid in ("us", "intl", "tw", "krcalls"):
         return True
     return pid == "manual" and not NOT_A_CALL_FILE.search(path)
 
@@ -249,7 +257,7 @@ def own_sources(graph, label_pipeline, label_file):
                 kind = "call"
                 calls.add(day)
             else:
-                kind = pid if pid in ("dart", "edgar", "conference", "ir") else "other"
+                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind") else "other"
             latest[kind] = max(latest.get(kind, ""), day)
         out[company] = {"calls": sorted(calls), "latest": latest}
     return out
@@ -370,9 +378,11 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
     kr_calls = sorted(((n, own[n]["calls"][-1]) for n in companies
                        if market_of_company(n) == "KR" and own.get(n, {}).get("calls")), key=lambda x: x[1])
     if kr["companies"]:
-        setup.append("Korean earnings calls have no pipeline: investing.py skips KRX/KOSPI/KOSDAQ and dart.py pulls "
-                     "filings only. The last calls in the graph are %s (pasted by hand); %d Korean companies never had "
-                     "one. Adding them needs a label fix too (DART reports share the call label shape)."
+        setup.append("Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). "
+                     "SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio "
+                     "replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks "
+                     "come through kind.py). The last calls in the graph are %s; %d Korean companies never had one. A "
+                     "call pasted by the user (Transcript:<company>) is enriched as usual."
                      % (short_list(["%s %s" % x for x in kr_calls], 8) or "none", kr["companies"] - len(kr_calls)))
 
     shared = {}
@@ -571,6 +581,9 @@ def build_enrich_status(graph=None):
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)
+        elif pid in ("kind", "krcalls"):
+            row["last_sync"] = state.get("last_sync")
+            row["extra"]["runs"] = state.get("runs", [])[-5:]
         elif pid == "ir":
             runs = state.get("runs", [])
             row["extra"]["runs"] = runs[-5:]

@@ -93,6 +93,8 @@ def source_kind(label, doc_path):
         return "DART supply contract"
     if " press release" in label:
         return "press release"
+    if " IR presentation" in label:
+        return "IR presentation"
     if doc_path and "_prelim_" in doc_path:
         return "DART preliminary results"
     return "call / conference / periodic report"
@@ -105,6 +107,7 @@ ALLOWED_SLOTS = {
     "DART supply contract": {"backlog_or_b2b"},
     # what the release itself states: guidance / a dated product launch / a named order / capacity — never revenue
     "press release": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},
+    "IR presentation": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},   # a company deck (kind.py)
     "DART preliminary results": {"revenue_growth"},
     "call / conference / periodic report": SLOTS,
 }
@@ -138,7 +141,7 @@ def check_tags(where, entry, label, kind, company, seen_slots):
         say("ERROR", f"{where}: invalid slot {slot!r}")
         return
     if slot not in ALLOWED_SLOTS[kind]:
-        say("ERROR", f"{where}: a {kind} may not fill slot {slot!r} (allowed: {sorted(ALLOWED_SLOTS[kind]) or 'none'})")
+        say("ERROR", f"{where}: source kind '{kind}' may not fill slot {slot!r} (allowed: {sorted(ALLOWED_SLOTS[kind]) or 'none'})")
     if (company, slot) in seen_slots:
         say("ERROR", f"{where}: slot {slot!r} already used by another entry of this patch — tag the ONE best entry")
     seen_slots.add((company, slot))

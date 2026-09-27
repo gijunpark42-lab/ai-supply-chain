@@ -59,15 +59,15 @@ append-only history is `enrich_log.json` (commit it).
   `dpl_7cgbLTAkTqPEXkSjfM2WehPDaur2` (`reticulum-kh7fd65v2-gijun42.vercel.app`), Ready.
   Live desktop/phone verification passed at 2026-09-12 14:39 PDT; the complete served graph matches the
   unchanged local JSON after parsing (Windows CRLF versus Linux LF is the only raw-byte difference).
-- **Standalone future-civilization Site:** `kardashev-scroll/` is a separate static Site, **The Power Age**, live
-  publicly at `https://the-power-age.californiajune.chatgpt.site`. It is a scroll-only English cinematic from
-  present-day power through embodied AI, recursive robot production, semiconductor cost compression, mass
-  data-center scaling, planetary solar buildout, Solar System industry, Dyson-scale power and Type III civilization.
-  Site project `appgprj_6ab1d0d4a8448191aca0b7492ea3cab7`; published version 2 from nested Site commit
-  `69402bdae92a854dd1d12a5252b885e64ba0bd69`. This does not change the main earnings graph or Vercel app.
-  User later created GitHub repo `gijunpark42-lab/the-power-age`; a fresh local nested repo now has commit
-  `854a7f8`, pushed to its `main`. Vercel project `gijun42/kardashev-scroll` is connected to canonical GitHub
-  repo `gijunpark42-lab/The-Power-Age` and live at `https://kardashev-scroll.vercel.app`.
+- **Standalone future-civilization Site:** `kardashev-scroll/` is a separate static Site, **The Power Age**. The
+  original cinematic scroll story remains live at `https://the-power-age.californiajune.chatgpt.site`; the Vercel
+  site is now **Power Seed**, a playable English single-civilization strategy game: field bodies → refinery →
+  precision fab → data-center lattice → planetary solar fabric → orbital industry → stellar collectors → interstellar
+  seed. It uses the existing future-civilization assets rather than a flat map; its live resource loop, phase art,
+  keyboard Pulse control, responsive cards and reset path were browser-tested. GitHub source remains the separate
+  nested repo `gijunpark42-lab/The-Power-Age` at commit `854a7f8`; Vercel project `gijun42/kardashev-scroll` is
+  live at `https://kardashev-scroll.vercel.app` (latest direct deployment `dpl_ATf6zYUSx3xTE7TYWRVQ1cTwknKY`).
+  This does not change the main earnings graph or Vercel app.
 - **Ask tab:** answered by a LOCAL Claude runner (`local-ask/`) behind a Cloudflare tunnel. `ask 실행` starts it
   (`node local-ask/up.mjs`), `ask 종료` stops it. No Gemini, no Anthropic API (removed in 3bfb0dc).
   If the runner is down the tab falls back after ~3 min. Codex cannot run this engine (it shells out to `claude -p`).
@@ -118,13 +118,13 @@ append-only history is `enrich_log.json` (commit it).
    `enrich edgar` (weekly), `enrich korea` / `taiwan` / `japan` / `europe` / `china` — procedures in
    `.claude/skills/enrich/references/markets.md`. Source commands (`enrich us calls`, `enrich dart`, `enrich intl`,
    `enrich tw`, `enrich conference`, `enrich ir`) still work. Every patch → `utils/check_patch.py` before the build.
-3b. **Waiting for the USER's go (found in the 2026-09-26 rule review; nothing applied):** remove the GlobalWafers
-   GDS-terms entry (Chinese characters 億/萬/美元 + financing) and the two CoreWeave convertible-note entries
-   (financing) via a correction; resolve 7 same-company same-date slot collisions (Adobe / Oracle / Everpure 8-K vs
-   call, Baker Hughes 8-K vs conference) and 8 `slot: null` entries; de-duplicate the SK Hynix half-year-report
-   entries copied into 14 chains; decide whether to add Korean earnings calls (no pipeline: SK Hynix / Samsung /
-   SEMCO stop at Q1 calls; needs the DART-label caveat). Web Status tab: built and checked locally; deploy =
-   the user's commit + push.
+3b. **Done 2026-09-27 (data cleanup, see session log):** financing entries removed (GlobalWafers GDS, CoreWeave
+   notes), 7 same-date slot collisions and every `slot: null` fixed, 170 cross-chain copies de-duplicated.
+   **Korean IR materials:** `kind.py` built 2026-09-27 (KIND library + six large-cap sites; Samsung call script) — 48
+   decks/calls queued for `enrich korea`. **Still open:** other Korean calls have no official transcript;
+   122 pre-existing verify fails in a FULL `verify_graph.py` run (mostly Korean DART half-year labels
+   `number_not_in_source` + 24 `source_not_found`) — worth a check (KRW number formats may be false alarms).
+   Web Status tab: live since PR #1.
 4. **Open curation items for the USER (do not do these unprompted):** logos for the 38 US nodes added
    2026-09-10 (`docs/memory/logo_fetching.md`); Carrier could also sit in Heat Exchanger / CDU; GE Vernova has no
    gas-turbine node (Power-segment facts were dropped); pre-existing GE Vernova → AEP edge; Eaton / Eversource
@@ -132,8 +132,9 @@ append-only history is `enrich_log.json` (commit it).
 5. **Rejected / do not re-propose:** news pipelines or knowledge-based edges (`feedback_transcript_only.md`),
    a Quant tab in the web app, turning off the Vercel plugin, adding Core42 / AES / Nanjing Casela as nodes,
    auto-committing, GitHub Actions scheduler (not until the core loop is declared solid by the user).
-6. **The Power Age:** complete and live on both Sites and Vercel; source is in the separate GitHub repo
-   `gijunpark42-lab/The-Power-Age` at commit `854a7f8`. Do not push the parent `reticulum-ai` repository.
+6. **The Power Age / Power Seed:** live: cinematic scroll remains on Sites; playable Power Seed is on Vercel.
+   Source is the separate GitHub repo `gijunpark42-lab/The-Power-Age` at commit `854a7f8`; the new game changes are
+   deployed directly and intentionally uncommitted. Do not push the parent `reticulum-ai` repository.
 
 ## 5. Standing decisions and gotchas (the ones that bite)
 
@@ -667,3 +668,61 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   enrich_marks.json, shown under "Needs a decision" in ENRICH_STATUS.md and the web Status tab; check_patch refuses a
   held (`ask_user`) node. The whole 2026-09-26 work went to branch `enrich-status-board` + a PR (background sessions
   may not push to main); merging the PR deploys the Status tab. Uncommitted: no (on the branch).
+
+- **2026-09-27 (Claude) — data cleanup (the five items from the rule review)** — User: "데이터정리 5가지하고 한국콜
+  파이프라인 추가여부는 추천좀". Done through `apply_corrections.py` (single writer; proposal kept as receipt
+  `patches/corrections/applied/data_cleanup_2026-09-27.json`, 75 items): deleted the GlobalWafers GDS-terms entry
+  (Chinese characters + financing; its 2 operating-fact entries stay) and the 2 CoreWeave convertible-note entries;
+  removed `slot` from the 8-K side of 7 same-date slot collisions (Adobe x2, Oracle x2, Everpure x2, Baker Hughes)
+  and every `"slot": null` key (36 entries); one fact one node — 29 entries copied into 2-15 chain files each kept
+  in the company's home placement, 170 copies removed (Samsung 74, SK Hynix 65, NVIDIA 20, SEMCO 6, ADI 4,
+  Supermicro 1 — the slot-tagged copy kept). `apply_corrections.py` gained an optional per-item `chains` scope.
+  Audit: 173 entry keys removed, 0 added; merged graph qd 6428 -> 6425 (only CoreWeave -2, GlobalWafers -1: the
+  copies were already merged by name); full verify: 0 CJK, 0 slot collisions, 122 pre-existing fails (see §4 3b).
+  Korean calls: Investing.com search finds none for SK Hynix / Samsung / SEMCO / LG Innotek / Naver / Hanmi (only
+  SK Telecom) -> recommendation given to the user (no pipeline built). Uncommitted: yes.
+
+- **2026-09-27 (Claude) — Korean IR materials pipeline (`kind.py`)** — User: build a pipeline over the Korean companies'
+  IR sites so an agent does not have to look each time. Findings: 46 of our 84 Korean companies filed 87 DART
+  기업설명회 notices in 85 days; the decks sit in the KRX KIND IR library (KOSDAQ names) or on company sites (KOSPI
+  names). Built `kind.py`: (1) the KIND IR library — one POST lists every company, static PDF downloads, pypdf text,
+  dedupe by file hash, image-only decks skipped; (2) six large-cap IR sites for the two latest quarters — Samsung's
+  OFFICIAL call script (the only Korean large cap that publishes one) -> transcripts/kr_calls as a call, and the
+  results decks of SK Hynix / SEMCO / LG Innotek / NAVER / SK Telecom; site labels dated the DART 영업(잠정)실적 day.
+  Queue kind/pending.json (deck | call); board pipelines `kind` + `krcalls` (KR collector); check_patch knows the
+  "IR presentation" source kind (slots like a press release, never revenue_growth); rules in
+  .claude/skills/enrich/references/kind.md + SKILL.md / markets.md / CLAUDE.md. First sync: KIND 504 decks listed,
+  50 ours -> 36 saved, 14 skipped (11 duplicate files, 3 image-only); sites 12 saved, 1 skipped (Samsung Q1 call
+  already in the graph). Queue 48 (47 decks + 1 call) from 27 companies — NOT yet enriched (`enrich korea`).
+  Gotcha: defeatbeta (enrich us fallback) is down for every ticker (Hugging Face 404). Uncommitted: yes.
+
+- **2026-09-26 (Claude) — Nightly routine (`routine/nightly.ps1`)** — User: run the enrich every night at 23:00 on THIS
+  computer (no API, no cloud), everything weekly.
+  - Built `routine/nightly.ps1` and the Windows Task Scheduler task "earnings-ai nightly enrich": daily 23:00,
+    StartWhenAvailable, WakeToRun, runs on battery, 9 h limit.
+  - Monday–Saturday it runs `enrich us`; Sunday it runs bare `enrich`.
+  - Each run is one background session (`claude --bg --permission-mode auto -n "nightly enrich … MM-DD"`) on the user's
+    own login; ANTHROPIC_API_KEY is cleared.
+  - The prompt carries the unattended rules: never wait (use `enrich_status.py ask`), never commit or push, report in Korean.
+  - The script skips a night while the previous nightly session is still working. It keeps the laptop from idle-sleeping
+    until the session stops (it polls `claude agents --json`, max 8 h) and logs to .claude/nightly.log.
+  - The laptop uses Modern Standby: if it is asleep or off at 23:00, the run starts when it is next on.
+  - Tested end to end through Task Scheduler (`-Test`): the session started, wrote in place in main (bgIsolation none
+    holds), finished, was logged, and the task returned 0.
+  - First real run: Sunday 2026-09-27 23:00, a full `enrich`.
+  - Gotcha: a session inside a worktree cannot launch powershell.exe against main; test through Task Scheduler instead.
+  - Uncommitted: yes.
+
+- **2026-09-26 (Codex) — converted The Power Age into a playable Power Seed game.** User asked for a futuristic
+  one-civilization / Plague-Inc-like game based on the AI embodiment → recursive production → semiconductors →
+  power → Kardashev discussion, explicitly rejecting a conventional map. Done: replaced the Vercel site's
+  `kardashev-scroll/dist/index.html` with the single-page Power Seed strategy loop: live Power/Matter/Cognition
+  production; field body, refinery, precision fab, data-center, planetary solar, orbital, stellar and interstellar
+  orders; Earth through Type III phase changes; canvas particle field, responsive controls, Space/Pulse and reset.
+  Reused the six existing cinematic assets. QA: JavaScript syntax clean; all six assets HTTP 200 locally; browser
+  exercised through Type I (body → refinery → fab → data center → two solar fabrics) with no console errors; live
+  Vercel alias test confirms game, first order and Pulse with no console errors. Vercel direct deployment
+  `dpl_ATf6zYUSx3xTE7TYWRVQ1cTwknKY` is Ready at `https://kardashev-scroll.vercel.app`. Decisions: Vercel was
+  published without a GitHub commit/push; parent `reticulum-ai` remains untouched. Left open: nested repo has
+  uncommitted `dist/index.html` (and pre-existing `.gitignore`) if the user later explicitly requests a GitHub push.
+  Uncommitted: yes.
