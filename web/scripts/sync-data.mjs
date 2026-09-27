@@ -68,6 +68,8 @@ async function main() {
     [["graph/evidence.json"], "evidence.json"],
     // Added 2026-09-11: per-pipeline enrichment status (enrich_status.py) for the Coverage tab.
     [["graph/enrich_status.json"], "enrich_status.json"],
+    // Added 2026-09-27: Korean company names for the graph search box (graph_build.py).
+    [["graph/company_ko.json"], "company_ko.json"],
   ];
   for (const [candidates, out] of singles) {
     let picked = null;

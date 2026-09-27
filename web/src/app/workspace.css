@@ -123,6 +123,8 @@
 .workspace-map-note { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 1px; color: var(--ap-muted); font-size: 0.72rem; line-height: 1.5; }
 .workspace-map-note button { background: none; border: 0; padding: 0; color: #a8d7ff; font: inherit; cursor: pointer; }
 .workspace-all-visible { color: #a6b8c9; white-space: nowrap; }
+/* "Showing “hbm” · 28 companies ✕" — the component view picked in the search box. */
+.workspace-map-note .workspace-group-chip { margin-left: auto; max-width: 100%; padding: 3px 10px; border: 1px solid rgba(86, 172, 255, 0.35); border-radius: 999px; background: rgba(41, 151, 255, 0.12); color: #cfe8ff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .workspace-map { position: relative; isolation: isolate; }
 .workspace-map-empty { position: absolute; inset: 0; display: grid; place-items: center; z-index: 9; border-radius: 16px; background: rgba(13, 20, 30, 0.92); padding: 24px; text-align: center; }
 .workspace-map-empty > div { max-width: 360px; }
