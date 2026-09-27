@@ -1,0 +1,51 @@
+{
+  "source": "LS Marine Solution Q2 FY2026 (08-14-2026)",
+  "new_nodes": {
+    "LS Cable & System": {
+      "ticker": null,
+      "exchange": null,
+      "country": "KR",
+      "why": "cable maker at the centre of the LS cable group: buys power cable from Gaon Cable and LS Eco Energy and cable installation from LS Marine Solution for grid projects",
+      "evidence": "named as main / only >10% customer in the Q2 FY2026 DART reports of LS Marine Solution, Gaon Cable and LS Eco Energy",
+      "approved": "user 2026-09-27: new node LS Cable & System (private, KR), power / Grid; LS affiliates' related-party facts move onto supplier -> LS Cable & System edges"
+    }
+  },
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "LS Cable & System",
+          "domain": "power",
+          "sector": "Grid",
+          "product": "extra-high-voltage underground and submarine power cable systems",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "LS Marine Solution",
+          "domain": "power",
+          "sector": "Grid",
+          "product": "submarine and underground power-cable installation and maintenance (also subsea telecom-cable laying)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "LS Cable & System",
+              "relationship": "submarine and underground power-cable installation for LS Cable & System",
+              "contracts": [
+                {
+                  "source": "LS Marine Solution Q2 FY2026 (08-14-2026)",
+                  "signal": "Parent LS Cable & System is the main customer: related-party sales to LS Cable & System were KRW 113,239,243 thousand in H1 2026 (H1 2025: KRW 71,880,789 thousand); the underground segment pursues orders jointly with LS Cable & System through strategic collaboration. Open contracts include LS Cable & System Singapore 230kV underground projects NDC 409 (KRW 128,320 million, 2.9% complete), NDC 355 (KRW 126,840 million), NDC 343 (KRW 126,769 million), NDC 376 (KRW 87,186 million) and NDC 403 (KRW 43,627 million, signed 12-10-2025).",
+                  "units": "no specific figure",
+                  "value": "H1 2026 sales to LS Cable & System KRW 113,239,243 thousand (H1 2025 KRW 71,880,789 thousand)",
+                  "date_signed": "not stated",
+                  "type": "related-party sales / installation contracts",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

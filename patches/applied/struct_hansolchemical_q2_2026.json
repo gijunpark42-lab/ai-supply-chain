@@ -1,0 +1,51 @@
+{
+  "source": "Hansol Chemical Q2 FY2026 (08-13-2026)",
+  "new_nodes": {
+    "Samyoung Pure Chemicals": {
+      "ticker": null,
+      "exchange": null,
+      "country": "KR",
+      "why": "chemical maker (Cheonan) and Hansol Chemical's largest customer",
+      "evidence": "the only customer above 10% of Hansol Chemical's revenue is Samyoung Pure Chemicals (DART half-year report 08-13-2026)",
+      "approved": "user 2026-09-27: new node Samyoung Pure Chemicals (private, KR) in hbm_memory materials / Process Chemicals & Slurries; Hansol Chemical customer-concentration fact moves onto the edge"
+    }
+  },
+  "chains": {
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "Samyoung Pure Chemicals",
+          "layer": "materials",
+          "sector": "Process Chemicals & Slurries",
+          "product": "process chemicals (Cheonan) - Hansol Chemical's largest customer",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Hansol Chemical",
+          "layer": "materials",
+          "sector": "Process Chemicals & Slurries",
+          "product": "semiconductor-grade hydrogen peroxide and silicon / metal precursors (DIPAS, BDEAS, TSA, CpCo(CO)2)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Samyoung Pure Chemicals",
+              "relationship": "chemical sales to Samyoung Pure Chemicals (largest customer)",
+              "contracts": [
+                {
+                  "source": "Hansol Chemical Q2 FY2026 (08-13-2026)",
+                  "signal": "Customers and concentration (DART half-year report filed 08-13-2026): the only customer above 10% of revenue is SAMYOUNG PURE CHEMICALS (a related-party chemical maker in Cheonan) with KRW 83,732,098 thousand of H1 2026 revenue = 0.1747 of consolidated revenue (H1 2025: KRW 72,618,819 thousand, 0.1683) and 0.2331 of parent revenue. Major customers listed for the parent: Samyoung Pure Chemicals, Samsung Display, Hansol Paper (group affiliate, KRW 34,076M of H1 sales), Innos Taiwan and Mirae Nanotech; subsidiary Tapex lists LG Energy Solution, Samsung SDI, Samsung Display, Samsung Electro-Mechanics, Murata and SK On among its customers. The filing says Hansol supplies precursors to major domestic and overseas semiconductor makers and offers customised products and joint development to electronic-materials customers; most sales are direct to end users. No order backlog is disclosed.",
+                  "units": "no specific figure",
+                  "value": "Samyoung Pure Chemicals KRW 83,732,098 thousand = 0.1747 of H1 2026 consolidated revenue (H1 2025: 0.1683); no other customer above 10%",
+                  "date_signed": "not stated",
+                  "type": "customer share",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

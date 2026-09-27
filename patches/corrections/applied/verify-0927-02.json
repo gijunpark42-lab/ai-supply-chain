@@ -1,0 +1,31 @@
+{
+  "reviewer": "verify-0927-02",
+  "items": [
+    {
+      "kind": "contract",
+      "company": "NVIDIA",
+      "target": "Amazon",
+      "label": "NVIDIA press release: AWS and NVIDIA to Deliver 2 Million Additional GPUs and (08-26-2026)",
+      "signal_prefix": "Release detail beyond the call: AWS plans to deploy the additional 2 million NVI",
+      "action": "set",
+      "set": {
+        "signal": "Release detail beyond the call: AWS plans to deploy the additional 2 million NVIDIA GPUs - Blackwell Ultra, Rubin and Rubin Ultra - in 2027-2028 across AWS Global Infrastructure, after demand exceeded the more than 1 million GPUs AWS announced at GTC 2026. AWS and NVIDIA plan to build AI factories for the U.S. government, including 100,000 GPUs on secure AWS infrastructure for federal and national-security workloads (Impact Level 6 and above). AWS will expand Blackwell capacity with RTX PRO 4500 Blackwell Server Edition GPUs in EC2 G7 instances (the release says AWS is the first major cloud provider to offer RTX PRO 4500-accelerated instances; G7 instances deliver 4.6x AI inference performance vs G6), and the companies collaborate on Spectrum networking. Jensen Huang: 'demand is running ahead of every forecast'."
+      },
+      "reason": "'First major cloud' is a release claim (skill 2.4: 'first' claims must be attributed), not a stated fact.",
+      "evidence": "AWS is the first major cloud provider to offer compute instances accelerated by RTX PRO 4500."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NVIDIA",
+      "target": null,
+      "label": "NVIDIA press release: NVIDIA Expands AI Infrastructure Capacity in Partnership (09-09-2026)",
+      "signal_prefix": "Australia build-out partners named: NVIDIA Cloud Partners and AI infrastructure ",
+      "action": "set",
+      "set": {
+        "signal": "Australia build-out partners named: NVIDIA Cloud Partners and AI infrastructure partners Firmus, Sharon AI, IREN, Megaport, ResetData, CDC, NEXTDC and AirTrunk will expand land, power and shell capacity for NVIDIA DSX AI factories - up to a 2-gigawatt buildout by 2027 - with the providers operating the AI factories and NVIDIA delivering the DSX platform, accelerated computing, networking and software. Sharon AI is deploying up to 68,000 NVIDIA GPUs connected with Quantum InfiniBand and Spectrum-X Ethernet; IREN co-CEO Daniel Roberts: IREN is applying the NVIDIA DSX reference-architecture blueprint to its 800-megawatt Bundey campus in South Australia; Firmus is expanding Project Southgate."
+      },
+      "reason": "The 800-megawatt Bundey campus figure comes only from IREN co-CEO Daniel Roberts' quote, a third party's statement; attribute it rather than present it as NVIDIA's own fact.",
+      "evidence": "We are applying that blueprint across our development portfolio, bringing IREN’s proven international delivery and operating experience to our 800-megawatt Bundey campus in South Australia."
+    }
+  ]
+}

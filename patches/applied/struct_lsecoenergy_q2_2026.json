@@ -1,0 +1,51 @@
+{
+  "source": "LS Eco Energy Q2 FY2026 (08-14-2026)",
+  "new_nodes": {
+    "LS Cable & System": {
+      "ticker": null,
+      "exchange": null,
+      "country": "KR",
+      "why": "cable maker at the centre of the LS cable group: buys power cable from Gaon Cable and LS Eco Energy and cable installation from LS Marine Solution for grid projects",
+      "evidence": "named as main / only >10% customer in the Q2 FY2026 DART reports of LS Marine Solution, Gaon Cable and LS Eco Energy",
+      "approved": "user 2026-09-27: new node LS Cable & System (private, KR), power / Grid; LS affiliates' related-party facts move onto supplier -> LS Cable & System edges"
+    }
+  },
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "LS Cable & System",
+          "domain": "power",
+          "sector": "Grid",
+          "product": "extra-high-voltage underground and submarine power cable systems",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "LS Eco Energy",
+          "domain": "power",
+          "sector": "Power Equipment Components & Materials",
+          "product": "HV / MV / LV power cable, Cu / Al rod and busduct (Vietnam subsidiaries LS-VINA and LS Cable & System Vietnam)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "LS Cable & System",
+              "relationship": "power cable (incl. extra-high-voltage cable) supply to LS Cable & System",
+              "contracts": [
+                {
+                  "source": "LS Eco Energy Q2 FY2026 (08-14-2026)",
+                  "signal": "Customer LS Cable & System (parent): H1 2026 related-party sales to LS Cable & System KRW 69,537,227 thousand (H1 2025 KRW 92,274,559 thousand); group affiliates also bought product - PT. LSAG Cable Indonesia KRW 14,596,355 thousand and LS Cable & System U.S.A. KRW 8,198,902 thousand (KRW 19,599,173 thousand in H1 2025). The Denmark extra-high-voltage power cable contract with LS Cable & System (original amount KRW 42,575,806,074, term to 12-31-2026) delivered KRW 28,660,361,873 in H1 2026 and KRW 47,215,098,707 cumulatively. LS-VINA's largest outside customers in H1 2026 were Dong Giang (KRW 77,807M) and Daphaco (KRW 47,072M).",
+                  "units": "no specific figure",
+                  "value": "KRW 69,537,227 thousand related-party sales to LS Cable & System; H1 2026",
+                  "date_signed": "not stated",
+                  "type": "customer share",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

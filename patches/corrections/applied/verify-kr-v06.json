@@ -1,0 +1,59 @@
+{
+  "reviewer": "verify-kr-v06",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Park Systems",
+      "target": null,
+      "label": "Park Systems Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "2026 outlook in the half-year report: the company expects 2026 chip investme",
+      "action": "set",
+      "set": {
+        "signal": "2026 outlook in the half-year report: the company expects 2026 chip investment to keep centring on HBM, leading-edge logic and advanced packaging on AI server and data-center demand; it expects next-generation DRAM scaling and wider EUV adoption to raise demand for precision metrology and interest in its AFM solutions, and sees advanced packaging as a new growth opportunity. It plans to keep expanding R&D and cooperation with major chipmakers. The company expects the AFM market to grow fastest among microscopes, partly absorbing the SEM market, and believes it will grow faster than external forecasts.",
+        "figure": "no specific figure"
+      },
+      "reason": "Third-party market-research data (MarketsandMarkets AFM market US$541.8M -> US$762.2M) is not captured (skill section 2); the company's own outlook is kept.",
+      "evidence": "MarketsandMarkets에서 발간한 시장 보고서 ... 2025년도 $542M에서 2030년도 $762M ... 당사에서는 원자현미경 시장의 성장속도는 이보다 더 빠를 것으로 추정"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Park Systems",
+      "target": null,
+      "label": "Park Systems IR presentation: KIND 18691 (05-29-2026)",
+      "signal_prefix": "The company claims the No. 1 share of the AFM market, citing a 2024",
+      "action": "set",
+      "set": {
+        "signal": "Company claim in the Q1 2026 IR deck: Park Systems says it holds the No. 1 share of the AFM market, showing a 2024 AFM market-share chart of Park Systems 21.7%, Bruker 15.8% and Oxford Instruments 14.3% (the deck credits annual reports, press releases, investor presentations, expert interviews and MarketsandMarkets analysis). The company also says it has grown a steady 20-30% a year, with revenue rising on demand for industrial AFMs.",
+        "figure": "company-claimed AFM market share 21.7% in 2024 (Bruker 15.8%, Oxford Instruments 14.3%)"
+      },
+      "reason": "Share figures kept only as the company's claim; the deck's source line lists annual reports, press releases, investor presentations, expert interviews and MarketsandMarkets, not 'company materials'.",
+      "evidence": "파크시스템스는 AFM 시장에서 점유율 1위를 차지하고 있으며 ... Source: Annual Reports, Press Releases, Investor Presentations, Interviews with Experts, and Markets and Markets Analysis"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "ISC",
+      "target": null,
+      "label": "ISC IR presentation: KIND 18766 (06-10-2026)",
+      "signal_prefix": "Company targets in the IR Book 2026: scale-up milestones of AI revenue shar",
+      "action": "set",
+      "set": {
+        "signal": "Company targets in the IR Book 2026: scale-up milestones of AI revenue share 60% (with back-end solution portfolio expansion), then 70% (with a Vietnam plant expansion and process upgrades to sustain high profitability), then 80% together with the No. 1 global test-socket market share; ROE of 20% in 2027, to be reached by growing high-value non-memory mass-production socket sales, operational improvement and cost reduction."
+      },
+      "reason": "ESG rating target removed (CSR / governance, not captured per skill section 2); the rest is verbatim-accurate.",
+      "evidence": "'27년 ESG등급 \"A\" ... '27년 ROE 20% ▪ 고부가 비메모리 반도체 양산 테스트 소켓 매출 확대 ▪ O/I를 통한 공정개선, 원가절감"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "ISC",
+      "target": null,
+      "label": "ISC IR presentation: KIND 18766 (06-10-2026)",
+      "signal_prefix": "AI test-socket roadmap in the IR Book 2026: memory sockets move from 0.2",
+      "action": "set",
+      "set": {
+        "signal": "AI test-socket roadmap in the IR Book 2026: memory sockets move from 0.27mm ball pitch (2024) to 0.25mm (2025) and 0.23mm/0.2mm (2026), then to HBM/HBF, stacked LPDDR and FO-PLP sockets in 2027-2030; for AI computing and data-center advanced packages, the system-chip socket roadmap shows I/O counts rising from about 5,000 and 7,000 to about 15,000 and 25,000 across the NSP/TNSP, G3, WiDER, WiDER-Flex and WiDER+ families (2023 through 2026-2029) as package sizes grow from 70x50mm to over 130-150mm, with next-generation chiplet, FO-PLP and glass-substrate sockets from 2030. Portfolio phase 3 (in progress) extends from sockets into testers for AI, CPO, 3D packaging and HBM/HBF test."
+      },
+      "reason": "The slide's text layer does not tie ~7,000 I/O to NSP/TNSP in 2023 (it lists ~5,000 at 70x50mm and ~7,000 at 100x70mm across 2023-2024); rewritten without the unsupported pairing.",
+      "evidence": "'23 '25~27 <NSP/TNSP> <WiDER> ~7,000 ~15,000 ~25,000 <WiDER-Flex> <G3> '24 120 x 100 >130~150 '26~29 <WiDER + > '30~ ... 100X70 ~5,000 70X50"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer": "verify-kr-v04",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "FADU",
+      "target": null,
+      "label": "FADU IR presentation: KIND 18749 (06-15-2026)",
+      "signal_prefix": "Q1 2026 (unaudited, per the deck): revenue KRW 59,538 million",
+      "action": "set",
+      "set": {
+        "signal": "Q1 2026 (unaudited, per the deck): revenue KRW 59,538 million, up 149.4% QoQ and 209.8% YoY; operating profit KRW 7,686 million vs a KRW 29,494 million loss in Q4 2025 (turn to profitability); the deck's financial-position chart notes KRW 24 Bil. of advance payments received in Q4 2025"
+      },
+      "reason": "The KRW 24 Bil. advance payments are a footnote on the Financial Position (cash balance) slide, not part of Q4 2025 results; the old wording implied they were included in Q4 results.",
+      "evidence": "Financial Position ... Cash Balance Debt ... *4Q'25 Advance Payments (KRW 24 Bil.)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Intekplus",
+      "target": null,
+      "label": "Intekplus Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Order backlog at 06-30-2026 of KRW 126,169 million for 136 systems",
+      "action": "set",
+      "set": {
+        "signal": "Order backlog at 06-30-2026 of KRW 126,169 million for 136 systems (orders 2024-2026, delivery 2025-2027), of which semiconductor visual inspection KRW 103,950 million (96 units) and display/battery inspection KRW 22,219 million (40 units); customer advances (contract liabilities) KRW 18,378,727 thousand vs KRW 13,731,192 thousand at end-2025; inventory KRW 43,681,800 thousand vs KRW 23,630,938 thousand at end-2025"
+      },
+      "reason": "The report does not tie the inventory rise to systems being built; removed the unsupported causal clause and gave the stated prior-period figure instead.",
+      "evidence": "재고자산 | 43,681,800 | 23,630,938 | 45,577,569"
+    }
+  ]
+}

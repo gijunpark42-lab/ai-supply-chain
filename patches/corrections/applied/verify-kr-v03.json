@@ -1,0 +1,110 @@
+{
+  "reviewer": "verify-kr-v03",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "SK Telecom",
+      "target": null,
+      "label": "SK Telecom Q2 FY2026 (08-13-2026)",
+      "signal_prefix": "H1 2026 half-year report (DART, filed 08-13-2026, ",
+      "action": "set",
+      "set": {
+        "signal": "H1 2026 half-year report (DART, filed 08-13-2026, consolidated): Q2 2026 revenue KRW 4,359,057M vs KRW 4,338,760M in Q2 2025; Q2 operating income KRW 566,043M vs KRW 338,260M; H1 revenue KRW 8,751,369M vs KRW 8,792,477M in H1 2025; H1 operating income KRW 1,103,634M vs KRW 905,644M; H1 net income KRW 782,395M vs KRW 444,822M. H1 external revenue by segment: wireless KRW 6,497,465M (74%), fixed-line KRW 2,106,992M (24%), other KRW 146,912M (2%); segment operating income wireless KRW 847,784M, fixed-line KRW 253,686M. Subsidiary SK Broadband's H1 2026 consolidated revenue of KRW 2.31 trillion rose 3.43% from KRW 2.2333 trillion a year earlier, which the report attributes to broadband subscriber growth and B2B growth centred on new data centers (DC); its fixed-line communications segment grew 6.81% YoY."
+      },
+      "reason": "The 3.43% growth belongs to SK Broadband's consolidated H1 revenue (KRW 2.31tn vs KRW 2.2333tn); KRW 2,316,037M is a different figure from the subsidiary summary note (it implies ~3.55%). Mixed figures.",
+      "evidence": "SK브로드밴드는 2026년 반기 연결기준 매출액 2조 3,100억원을 달성하였습니다. 이는 전년 동기 2조 2,333억원 대비 3.43% 증가"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Telecom",
+      "target": null,
+      "label": "SK Telecom Q2 FY2026 (08-13-2026)",
+      "signal_prefix": "AI data center build-out (half-year report, board ",
+      "action": "set",
+      "set": {
+        "signal": "AI data center build-out (half-year report, board resolutions and subsequent events): on 07-23-2026 the board resolved to establish a new subsidiary, SK Hyper, to strengthen the competitiveness of the AI data center business. The report says enterprise-business growth opportunities are widening around new areas such as AI data centers (AI DC) and that the company is focusing on securing core infrastructure such as data centers and leased lines. SK Broadband invested KRW 370 billion in H1 2026 in network, systems and DC (standalone basis); consolidated H1 cash paid for property, plant and equipment was KRW 809,967M.",
+        "figure": "SK Broadband H1 network/system/DC investment KRW 370 billion; consolidated H1 PP&E purchases KRW 809,967M"
+      },
+      "reason": "Strip investment amounts: the KRW 750,000M / 330,000M capital commitment into subsidiary SK Hyper and the 'AI Co.' capital commitment are equity contributions (capture rule: no investment amounts). Capex facts kept.",
+      "evidence": "에스케이하이퍼(주)를 설립하고, 2030년 12월까지 7,500억을 분할 출자하기로 결정"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Telecom",
+      "target": null,
+      "label": "SK Telecom Q2 FY2026 (08-13-2026)",
+      "signal_prefix": "Supplier Amazon Web Services: the commitments note",
+      "action": "set",
+      "set": {
+        "signal": "Supplier Amazon Web Services: the commitments note states SK Telecom signed an agreement with SK Inc. for the use of Amazon Web Services (AWS) services, under which SK Telecom can receive AWS services for 10 years from July 2025, with a total commitment of USD 800,000,000."
+      },
+      "reason": "Confirmed a service-purchase commitment (not an investment), but the contract is between SK Telecom and SK Inc. (for AWS services), not 'SK Telecom and SK Inc.' jointly signing with AWS.",
+      "evidence": "지배기업은 SK(주)와 Amazon Web Service(이하 \"AWS\") 서비스 이용에 관한 계약을 체결하였습니다. 계약에 따라 2025년 7월부터 향후 10년 간 AWS 서비스를 제공받을 수 있으며, 총 약정금액은 USD 800,000,000"
+    },
+    {
+      "kind": "contract",
+      "company": "Rebellions",
+      "target": "SK Telecom",
+      "label": "SK Telecom Q2 FY2026 (08-13-2026)",
+      "signal_prefix": "SK Telecom half-year report (R&D results): Korean/",
+      "action": "set",
+      "set": {
+        "signal": "SK Telecom half-year report (R&D results): Korean/English integrated streaming TTS for the A. (A-dot) voice conversation service was put into commercial use with integration of the Rebellions ATOM-Max NPU."
+      },
+      "reason": "Strip ownership stake (14.4% voting / 35.1% common) and equity-method carrying value; keep the ATOM-Max NPU commercial deployment.",
+      "evidence": "에이닷 음성대화 한/영 통합 스트리밍 TTS 상용 적용 (리벨리온 ATOM-Max NPU 연동)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Telecom",
+      "target": null,
+      "label": "SK Telecom press release: SK Telecom Launches AI Data Center Infrastructure Company (08-27-2026)",
+      "signal_prefix": "SK Telecom will split its wholly owned subsidiary ",
+      "action": "set",
+      "set": {
+        "signal": "SK Telecom will split its wholly owned subsidiary SK Broadband into a surviving company and a new company, SK Horizon, which takes over SK Broadband's data center and submarine cable businesses. SK Horizon will expand its infrastructure to a total capacity of 318 MW, covering eight data centers already in operation (Seocho, Ilsan (2 locations), Bundang, Gasan, Centum, Yangju and Pangyo) and new AIDCs under construction including Ulsan and Guro, and will pursue phased expansion of submarine cable infrastructure. SKT will oversee the group's AIDC strategy and collaborate with global big tech companies; SK Hyper (established in July) will develop new AIDC projects, with 5 GW of capacity targeted for phased opening in 2029 and expansion toward a total of 15 GW in 2035. The spin-off and new company are targeted for the first quarter of next year, subject to an extraordinary shareholders' meeting and government approvals."
+      },
+      "reason": "Remove the ownership outcome of the KKR / IMM KRW 3.08tn equity deal (SKT 51% largest shareholder); financing terms themselves were already excluded.",
+      "evidence": "SKT will retain management control as the largest shareholder with a 51% stake."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "LS Eco Energy",
+      "target": null,
+      "label": "LS Eco Energy Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Rare-earth metal business (half-year report): on 0",
+      "action": "set",
+      "set": {
+        "signal": "Rare-earth metal business (half-year report): on 03-26-2026 LS Eco Energy signed a binding framework agreement with Lynas Rare Earths to receive rare-earth oxide from Lynas and to set up a rare-earth metal manufacturing subsidiary in Vietnam, cooperating with Lynas on metallization; an oxide supply contract is still being negotiated, and the metal plant is to be built on LS Cable & System Vietnam's site with about KRW 28.5 billion of planned investment (board plan of 12-17-2025). An earlier 500 t a year oxide purchase contract with Vietnamese miner HungThinh Mineral (January 2024) has not delivered. [partnership; signed 03-26-2026]"
+      },
+      "reason": "Strip financing term: the mutual convertible-bond issuance / Lynas convertible note subscription.",
+      "evidence": "Lynas Rare Earths Ltd.와의 전략적 파트너십 구축을 위해 상호 전환사채(CB) 발행을 진행"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "LS Eco Energy",
+      "target": null,
+      "label": "LS Eco Energy Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Customer LS Cable & System (parent, 64.32% owner):",
+      "action": "set",
+      "set": {
+        "signal": "Customer LS Cable & System (parent): H1 2026 related-party sales to LS Cable & System KRW 69,537,227 thousand (H1 2025 KRW 92,274,559 thousand); group affiliates also bought product - PT. LSAG Cable Indonesia KRW 14,596,355 thousand and LS Cable & System U.S.A. KRW 8,198,902 thousand (KRW 19,599,173 thousand in H1 2025). The Denmark extra-high-voltage power cable contract with LS Cable & System (original amount KRW 42,575,806,074, term to 12-31-2026) delivered KRW 28,660,361,873 in H1 2026 and KRW 47,215,098,707 cumulatively. LS-VINA's largest outside customers in H1 2026 were Dong Giang (KRW 77,807M) and Daphaco (KRW 47,072M). [customer share]"
+      },
+      "reason": "Strip ownership stake (64.32%); the related-party sales facts stay.",
+      "evidence": "엘에스전선(주) | 19,699,457 | 64.32"
+    },
+    {
+      "kind": "contract",
+      "company": "LS Eco Energy",
+      "target": "Gaon Cable",
+      "label": "LS Eco Energy press release: release board (09-15-2026)",
+      "signal_prefix": "LS Eco Energy supplied MV underground cable to a U",
+      "action": "set",
+      "set": {
+        "type": "contract manufacturing / supply"
+      },
+      "reason": "Edge kept (explicit supply: LS-VINA made the cable sold by Gaon Cable's US subsidiary LSCUS), but no LS Eco-Gaon 'supply agreement' is stated; LSCUS signed with the end customer.",
+      "evidence": "가온전선의 미국 자회사 LSCUS가 현지 고객과 계약하고, LS에코에너지의 베트남 생산법인 LS-VINA가 제품을 생산하는 방식"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "reviewer": "verify-kr-v13",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "UniTest",
+      "target": null,
+      "label": "UniTest Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "H1 2026 product mix (consolidated): memory component testers",
+      "action": "set",
+      "set": {"signal": "H1 2026 product mix (consolidated): memory component testers / high-speed burn-in testers / SSD testers / convergence testers (UNI5900, UNI5400, UNI938, UNI940, UNI940A, UNI201, UNI93K, UNI92K, UNI610H) KRW 65,310,055 thousand (89.56%); memory module testers KRW 15,090 thousand (0.02%); solar EPC / inverters KRW 5,555,308 thousand (7.62%); program sales KRW 407,077 thousand (0.56%); maintenance and other KRW 1,503,438 thousand (2.06%). Exports KRW 44,454,160 thousand, domestic KRW 28,472,023 thousand. H1 revenue by customer location: Korea KRW 28,380,821 thousand, China KRW 21,389,273 thousand, Taiwan KRW 14,923,578 thousand, US KRW 8,223,258 thousand. The company says test equipment revenue swings widely by year and quarter depending on orders."},
+      "reason": "'maintenance and other 2.62%' is arithmetic (0.56% program sales + 2.06% maintenance); the table states the two lines separately",
+      "evidence": "기타 | - | 프로그램 판매 등 | - | 407,077(0.56%) / 기타 관리 및 보수 등 | - | 1,503,438(2.06%)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "UniTest",
+      "target": null,
+      "label": "UniTest Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Customer concentration (H1 2026, customers with 10%+ of revenue",
+      "action": "set",
+      "set": {
+        "signal": "Customer concentration (H1 2026, customers with 10%+ of revenue, unnamed): customer 1 KRW 20,929,549 thousand, customer 2 KRW 19,098,060 thousand, customer 3 KRW 8,223,258 thousand. The related-party note shows product sales of KRW 20,929,549 thousand (H1 2025: KRW 23,062,092 thousand) to its Chinese associate Seichi Semiconductor Technologies Hefei, with a trade receivable of KRW 18,839,458 thousand at period end.",
+        "figure": "customer 1 KRW 20,929,549 thousand; customer 2 KRW 19,098,060 thousand; customer 3 KRW 8,223,258 thousand; Seichi Semiconductor Technologies Hefei product sales KRW 20,929,549 thousand"
+      },
+      "reason": "capture rule: no ownership stakes -- drop the 40% equity stake in the associate; sales figures unchanged",
+      "evidence": "관계기업 | Seichi Semiconductor Technologies Hefei Limited | 제품매출 | 20,929,549 | 23,062,092"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Zeus",
+      "target": null,
+      "label": "Zeus Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Half-year report: H1 2026 consolidated revenue KRW 137,282M",
+      "action": "set",
+      "set": {"signal": "Half-year report: H1 2026 consolidated revenue KRW 137,282M, down 30.57% from KRW 197,728M in H1 2025, with an operating loss of KRW 26,774M (H1 2025 operating profit KRW 277M) and a net loss of KRW 12,640M. Q2 alone: revenue KRW 82,392M (Q2 2025 KRW 116,164M) and an operating loss of KRW 9,635M (Q2 2025 operating profit KRW 672M). Product sales fell 36.68% to KRW 76,011M; the equipment segment posted an operating loss of KRW 25,300M. Japanese subsidiary J.E.T. (batch cleaning) had H1 revenue KRW 54,821,066 thousand and a net loss of KRW 10,772,765 thousand."},
+      "reason": "capture rule: no ownership stakes -- drop '66.28% owned'",
+      "evidence": "J.E.T. | 반도체 제조용 기계 제조업 | 18,292,266 | ㈜제우스 | 66.28 | 일본"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "JNTC",
+      "target": null,
+      "label": "JNTC Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Product mix, H1 2026: connectors (mobile USB Type-C waterproof",
+      "action": "set",
+      "set": {"signal": "Product mix, H1 2026: connectors (mobile USB Type-C waterproof interfaces, all made at domestic plant 1) KRW 44,830M or 56.9% of revenue; tempered glass (mobile cover glass, camera windows, automotive and wearable glass, mostly made at the Vietnam subsidiary JNTC VINA) KRW 33,981M or 43.1%. Tempered-glass revenue had fallen to KRW 100,304M in FY2025 (54.0%) from KRW 194,334M in FY2024 as volumes from its Greater-China end customer declined. The new businesses (semiconductor TGV glass substrates and HDD glass platters) are not yet broken out in the revenue table."},
+      "reason": "capture rule: no ownership stakes -- drop '100%' subsidiary stake",
+      "evidence": "현재 대부분의 생산은 100% 자회사인 베트남 법인에서 진행되며"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "JNTC",
+      "target": null,
+      "label": "JNTC Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Capex: H1 2026 cash paid for property, plant and equipment was",
+      "action": "set",
+      "set": {
+        "signal": "Capex: H1 2026 cash paid for property, plant and equipment was KRW 65,363,031,560 (H1 2025: KRW 15,123,579,945), mostly overseas additions of KRW 59,423M; commitments to acquire PP&E stood at KRW 54,285,717 thousand at June 30 versus KRW 13,884,562 thousand at end-2025. PP&E purchased from the parent company Jinwoo Engineering totalled KRW 59,926,597 thousand in H1.",
+        "figure": "H1 PP&E acquisitions KRW 65,363,031,560; PP&E commitments KRW 54,285,717 thousand"
+      },
+      "reason": "capture rule: no financing terms / use of proceeds / investment amounts -- drop the KRW 52,623,500 thousand cash injection into JNTC VINA and the exchangeable-bond / private-bond proceeds sentence; 'factory-automation equipment maker' is not stated in the report; '(Vietnam)' not stated for the overseas additions",
+      "evidence": "(*) 당사는 당반기 중 JNTC VINA에 52,623,500천원을 현금 출자 하였습니다. / 7-2. 증권의 발행을 통해 조달된 자금의 사용실적"
+    }
+  ]
+}

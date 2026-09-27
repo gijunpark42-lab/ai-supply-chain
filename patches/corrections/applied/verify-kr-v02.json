@@ -1,0 +1,60 @@
+{
+  "reviewer": "verify-kr-v02",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Naver",
+      "target": null,
+      "label": "Naver press release: NAVER Lee Haejin Meets Brookfield's Bruce Flatt, Confirms (09-04-2026)",
+      "signal_prefix": "NAVER founder Lee Haejin met Brookfield chairman Bruce Flatt on ",
+      "action": "set",
+      "set": {
+        "signal": "NAVER release (09-04-2026): NAVER says its 1 GW AI factory project with NVIDIA is on track; the project's first phase is 200 MW.",
+        "figure": "1 GW AI factory project; 200 MW first phase"
+      },
+      "reason": "Meeting release kept for capacity facts only: removed the investor's US$9 billion investment commitment (investment amount / financing, skill section 2), the meeting details and the investor chairman's statements (third-party, not company operating facts).",
+      "evidence": "has committed to investing up to US$9 billion in the 200 MW first phase of NAVER and NVIDIA's 1 GW AI factory project"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Naver",
+      "target": null,
+      "label": "Naver IR presentation: Q2 2026 results (08-07-2026)",
+      "signal_prefix": "Q2 2026 deck, NAVER AI Factory Phase 1 200MW business structure (plan)",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 deck, NAVER AI Factory Phase 1 200MW business structure (plan): the AI Factory Operating Co. sells a full-stack computing service to off-takers (customers) for computing revenue per MW and pays a computing expense per MW to an SPV that holds GPU and data-center ownership; the SPV purchases the GPUs from NVIDIA and handles site acquisition or lease.",
+        "figure": "Phase 1 200MW (plan)"
+      },
+      "reason": "Removed financing terms and ownership stakes (NVIDIA's $1B investment into NAVER, 100% consolidation, Brookfield up to $9B and majority / minority SPV stakes) per skill section 2; kept the operating structure (capacity, GPU purchase from NVIDIA, off-taker computing service).",
+      "evidence": "NAVER AI Factory Phase1 200MW Business Structure (Plan) ... GPU purchase ... Off-takers (Customers) Computing revenue ($ x + a per MW) Full stack computing service"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Naver",
+      "target": null,
+      "label": "Naver press release: TEAM NAVER Digital Twin Platform Adopted as Saudi Arabia's (08-20-2026)",
+      "signal_prefix": "Customer Saudi Ministry of Municipalities and Housing: TEAM NAVER's cl",
+      "action": "set",
+      "set": {
+        "figure": "national standard digital twin platform (DGA approval announced 08-20-2026); no contract value stated"
+      },
+      "reason": "The release does not date the DGA approval; 08-20-2026 is the announcement date.",
+      "evidence": "TEAM NAVER announced on August 20 that its cloud-based digital twin platform has received official approval from Saudi Arabia's Digital Government Authority (DGA)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "LG Innotek",
+      "target": null,
+      "label": "LG Innotek press release: release 1666 (09-09-2026)",
+      "signal_prefix": "At KPCA show 2026 (09-09 to 09-11-2026, Songdo) LG Innote",
+      "action": "set",
+      "set": {
+        "signal": "LG Innotek targets mass production in 2027 of high-value FC-BGA for AI training and inference, including AI accelerators. Its first FC-BGA for AI accelerators (GPUs, NPUs), unveiled as an exhibit piece in this release, is a large-area substrate more than 100mm per side, requiring higher circuit density and large-area design than general FC-BGA.",
+        "figure": "AI FC-BGA mass production target 2027; AI-accelerator FC-BGA over 100mm per side"
+      },
+      "reason": "Trade-show exhibit release: kept only the operating facts (2027 mass-production target, product spec); removed the show dates / venue and the exhibit-only samples and chip-embedding demo (event / demo content, skill section 2 items 3-4). The slot now rests on the dated production target, not on the exhibit.",
+      "evidence": "AI 가속기용 FC-BGA 는 한 변의 길이가 100mm 를 넘는 대면적 기판이다 ... 회사는 AI 가속기를 포함한 AI 학습 및 추론용 고부가 FC-BGA 를 2027 년 양산한다는 목표다"
+    }
+  ]
+}

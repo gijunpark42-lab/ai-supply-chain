@@ -1,0 +1,67 @@
+{
+  "reviewer": "verify-kr-v11",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Simmtech",
+      "target": null,
+      "label": "Simmtech IR presentation: KIND 18996 (08-06-2026)",
+      "signal_prefix": "End-market outlook in Simmtech's IR deck (company ",
+      "action": "delete",
+      "reason": "Third-party market-research forecasts (deck page 7 cites Source: Gartner, Omdia) - not the company's own data (skill section 2).",
+      "evidence": "(Source : Omdia, Simmtech) ... GDDR market : '26~'30 CAGR 18% growth expected"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SemiFive",
+      "target": null,
+      "label": "SemiFive IR presentation: KIND 18885 (07-02-2026)",
+      "signal_prefix": "Business mix per the deck: 1Q26 revenue rose 137.1",
+      "action": "set",
+      "set": {
+        "signal": "Business mix per the deck: 1Q26 revenue rose 137.1% YoY and 54.0% QoQ, split into IP business KRW 16.3bn and ASIC development KRW 28.0bn, with the remainder from mass production. FY2025 revenue KRW 121.0bn: ASIC development KRW 70.9bn, IP KRW 30.5bn and mass production KRW 19.6bn (more than 2x YoY as products whose development began in the company's early years entered full mass production from 2H25). Management commentary: the IP business is shifting to high-margin off-the-shelf and leading-edge (2/3nm) IP, with analog IP demand rising as thermal and power management gain importance in datacenter AI ASICs; the ASIC development portfolio pairs high-value 2/4nm datacenter AI ASICs with 5/8nm edge and device AI ASICs."
+      },
+      "reason": "Drop the AI ASIC market-size forecast (market-research style figure, not a company fact).",
+      "evidence": "글로벌 AI ASIC 시장은 29년 3천억달러 이상으로성장 전망"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Hansol Chemical",
+      "target": null,
+      "label": "Hansol Chemical Q2 FY2026 (08-13-2026)",
+      "signal_prefix": "H1 2026 (DART half-year report filed 08-13-2026, c",
+      "action": "set",
+      "set": {
+        "signal": "H1 2026 (DART half-year report filed 08-13-2026, consolidated, K-IFRS): revenue KRW 479,408M vs KRW 431,488M in H1 2025; operating profit KRW 94,166M vs KRW 90,550,547,033; net income KRW 96,200M vs KRW 84,169M; basic EPS KRW 8,523 vs KRW 7,730. Q2 2026 alone: revenue KRW 247,539,416,450 vs KRW 221,915,819,187, operating profit KRW 49,753,611,306 vs KRW 48,854,536,364, net income KRW 53,664,875,084 vs KRW 48,626,211,174. Consolidated revenue by product group (H1 2026 vs H1 2025): electronic materials KRW 163,525,261 thousand vs KRW 164,409,889 thousand (flat), fine chemicals (incl. hydrogen peroxide) KRW 143,513,200 thousand vs KRW 127,542,595 thousand, paper/environment KRW 63,499,451 thousand vs KRW 54,192,345 thousand, tapes (Tapex) KRW 79,327,894 thousand vs KRW 66,898,635 thousand, specialty gases (Soulmaterials) KRW 15,401,760 thousand vs KRW 9,433,648 thousand, other KRW 14,140,774 thousand. By destination: Korea KRW 305,406,649 thousand, China KRW 77,777,889 thousand, other countries KRW 96,223,801 thousand. Parent-only: revenue KRW 359,287M vs KRW 337,252M but operating profit fell to KRW 76,253M from KRW 83,018,879,746 (Q2 parent OP KRW 39,993,406,974 vs KRW 44,703,253,723). Parent product mix: electronic and secondary-battery materials KRW 158,405M = 44.2% of sales (+0.4% YoY; exports KRW 83,288M, domestic KRW 75,117M), fine chemicals KRW 120,701M = 33.6% (+12.4%), paper/environment KRW 63,759M = 17.7% (+11.3%). Subsidiaries H1 revenue: Hansol Electronic Materials (Xi'an, hydrogen peroxide) KRW 22,776,765 thousand (vs KRW 20,097,129 thousand), Soulmaterials (specialty gases, Cheongju) KRW 15,927,893 thousand (vs KRW 9,904,020 thousand), HS Materials KRW 13,284,410 thousand, Tapex KRW 79,329,358 thousand (vs KRW 66,908,995 thousand). FY2025 reference: revenue KRW 883,969M, OP KRW 156,233M."
+      },
+      "reason": "Remove ownership stake / equity-method investment income (skill section 2: no ownership stakes).",
+      "evidence": "관계기업투자손익 | 6,522,400,132 | 13,456,145,425"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Hansol Chemical",
+      "target": null,
+      "label": "Hansol Chemical Q2 FY2026 (08-13-2026)",
+      "signal_prefix": "Customers and concentration (DART half-year report",
+      "action": "set",
+      "set": {
+        "signal": "Customers and concentration (DART half-year report filed 08-13-2026): the only customer above 10% of revenue is SAMYOUNG PURE CHEMICALS (a related-party chemical maker in Cheonan) with KRW 83,732,098 thousand of H1 2026 revenue = 0.1747 of consolidated revenue (H1 2025: KRW 72,618,819 thousand, 0.1683) and 0.2331 of parent revenue. Major customers listed for the parent: Samyoung Pure Chemicals, Samsung Display, Hansol Paper (group affiliate, KRW 34,076M of H1 sales), Innos Taiwan and Mirae Nanotech; subsidiary Tapex lists LG Energy Solution, Samsung SDI, Samsung Display, Samsung Electro-Mechanics, Murata and SK On among its customers. The filing says Hansol supplies precursors to major domestic and overseas semiconductor makers and offers customised products and joint development to electronic-materials customers; most sales are direct to end users. No order backlog is disclosed."
+      },
+      "reason": "Remove ownership stake, the associate's own financials and dividends received (section 2), and the derived 17.47% (filing prints 0.1747).",
+      "evidence": "기업전체 수익에 대한 비율 | 0.1747"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Hansol Chemical",
+      "target": null,
+      "label": "Hansol Chemical Q2 FY2026 (08-13-2026)",
+      "signal_prefix": "Capacity, utilisation and capex (DART half-year re",
+      "action": "set",
+      "set": {
+        "signal": "Capacity, utilisation and capex (DART half-year report filed 08-13-2026): H1 2026 capacity (175 operating days) - Ulsan fine chemicals 39.2 thousand tonnes; Jeonju plant 106.7 thousand tonnes (fine chemicals 38.5, paper/environment 57.7, electronic and secondary-battery materials 10.5). Production H1: Ulsan 33.0, Jeonju 82.3 thousand tonnes (electronic and battery materials 3.4). UTILISATION: fine chemicals Ulsan 84.2% and Jeonju 92.4%, paper/environment 75.1%, but electronic and secondary-battery materials only 32.7% (1,374 of 4,200 available hours); Tapex electronic-materials tape 68.5%. Capex: consolidated PP&E acquisitions KRW 41,905M in H1 (KRW 42,072M a year earlier); parent construction-in-progress rose to KRW 36,038M from KRW 12,396M; depreciation KRW 30,093,915,977 (vs KRW 25,148,866,398). The board approved a production-facility investment on 2026-02-10. Inventories KRW 142,414M (vs KRW 123,785M). After the period, on 2026-08-11 the board decided to set up a 100%-owned subsidiary in Taiwan."
+      },
+      "reason": "Remove financing terms (facility loans, bond issue and coupon) - section 2.",
+      "evidence": "원화장기차입금 한국산업은행 ..."
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "source": "SK Telecom Q2 FY2026 (08-13-2026)",
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "SK Telecom",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "Haein sovereign AI GPU cluster run as a sovereign neocloud in Korea",
+          "quarterly_data": [
+            {
+              "quarter": "SK Telecom Q2 FY2026 (08-13-2026)",
+              "signal": "H1 2026 half-year report (DART, filed 08-13-2026, consolidated): Q2 2026 revenue KRW 4,359,057M vs KRW 4,338,760M in Q2 2025; Q2 operating income KRW 566,043M vs KRW 338,260M; H1 revenue KRW 8,751,369M vs KRW 8,792,477M in H1 2025; H1 operating income KRW 1,103,634M vs KRW 905,644M; H1 net income KRW 782,395M vs KRW 444,822M. H1 external revenue by segment: wireless KRW 6,497,465M (74%), fixed-line KRW 2,106,992M (24%), other KRW 146,912M (2%); segment operating income wireless KRW 847,784M, fixed-line KRW 253,686M. Subsidiary SK Broadband's H1 revenue (KRW 2,316,037M) rose 3.43% YoY, which the report attributes to broadband subscriber growth and B2B growth centred on new data centers (DC); its fixed-line communications segment grew 6.81% YoY.",
+              "figure": "Q2 rev KRW 4,359,057M (vs 4,338,760M); Q2 OP KRW 566,043M (vs 338,260M); H1 rev KRW 8,751,369M; H1 OP KRW 1,103,634M",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "SK Telecom Q2 FY2026 (08-13-2026)",
+              "signal": "AI data center build-out (half-year report, board resolutions and subsequent events): on 07-23-2026 the board resolved to establish a new subsidiary, SK Hyper, to strengthen the competitiveness of the AI data center business, with a total capital commitment of KRW 750,000M, of which KRW 330,000M was contributed on 07-23-2026 and the remainder is to be contributed by 12-31-2030 as the business progresses; the board had approved an 'AI Co.' capital commitment on 06-25-2026. The report says enterprise-business growth opportunities are widening around new areas such as AI data centers (AI DC) and that the company is focusing on securing core infrastructure such as data centers and leased lines. SK Broadband invested KRW 370 billion in H1 2026 in network, systems and DC (standalone basis); consolidated H1 cash paid for property, plant and equipment was KRW 809,967M.",
+              "figure": "SK Hyper commitment KRW 750,000M (KRW 330,000M contributed 07-23-2026, rest by 12-31-2030); SK Broadband H1 network/system/DC investment KRW 370 billion",
+              "topics": []
+            },
+            {
+              "quarter": "SK Telecom Q2 FY2026 (08-13-2026)",
+              "signal": "Customer SK Biopharm: the board approved a GPU cloud service supply transaction with SK Biopharm (an SK group affiliate) on 04-27-2026, alongside an asset transfer of manufacturing-AI assets from SK Inc.",
+              "figure": "no specific figure",
+              "topics": [],
+              "slot": "backlog_or_b2b",
+              "counterparty": "SK Biopharm",
+              "counterparty_role": "customer"
+            },
+            {
+              "quarter": "SK Telecom Q2 FY2026 (08-13-2026)",
+              "signal": "Supplier Amazon Web Services: the commitments note states SK Telecom and SK Inc. signed an Amazon Web Services (AWS) service agreement under which SK Telecom can receive AWS services for 10 years from July 2025, with a total commitment of USD 800,000,000.",
+              "figure": "USD 800,000,000 total commitment, 10 years from July 2025",
+              "topics": [],
+              "counterparty": "Amazon",
+              "counterparty_role": "supplier"
+            }
+          ]
+        },
+        {
+          "company": "Penguin Solutions",
+          "layer": "system_integration",
+          "sector": "Server / Rack OEM",
+          "product": "AI cluster design/integration & managed services (plus Smart Modular memory)",
+          "connects_to": [
+            {
+              "company": "SK Telecom",
+              "relationship": "designs, deploys and operates the Haein sovereign AI cluster (ClusterWare-managed services)",
+              "contracts": [
+                {
+                  "source": "SK Telecom Q2 FY2026 (08-13-2026)",
+                  "signal": "SK Telecom's half-year report lists Penguin Solutions, Inc. among its associates in the related-party note; the SK Telecom group's operating expenses to Penguin Solutions were KRW 1,911M in Q2 2026 (KRW 1,911M for H1 2026).",
+                  "units": "no specific figure",
+                  "value": "KRW 1,911M (H1 2026 related-party operating expenses)",
+                  "date_signed": "not stated",
+                  "type": "related-party purchases",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Rebellions",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "product": "ATOM-Max / REBEL-Quad NPU inference accelerators (merged with SAPEON Korea, Dec 2024)",
+          "connects_to": [
+            {
+              "company": "SK Telecom",
+              "relationship": "NPU inference accelerators for SKT AI datacenters",
+              "contracts": [
+                {
+                  "source": "SK Telecom Q2 FY2026 (08-13-2026)",
+                  "signal": "SK Telecom half-year report (R&D results): Korean/English integrated streaming TTS for the A. (A-dot) voice conversation service was put into commercial use with integration of the Rebellions ATOM-Max NPU. SK Telecom holds 14.4% of Rebellions' voting shares (35.1% common-share ratio applied for equity accounting), carrying value KRW 157,184M at 06-30-2026.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "deployment",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

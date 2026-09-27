@@ -1,0 +1,78 @@
+SOURCE: Cerebras official press release -- https://investors.cerebras.ai/news-releases/news-release-details/cerebras-unveils-cs-4-30-times-faster-gpu-based-solutions
+TITLE: Cerebras Unveils CS-4: Up to 30 Times Faster than GPU-based Solutions
+DATE: 08-18-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-09-26.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Cerebras press release: Cerebras Unveils CS-4: Up to 30 Times Faster than GPU-based (08-18-2026)
+
+---
+Cerebras Unveils CS-4: Up to 30 Times Faster than GPU-based Solutions - August 18, 2026
+
+Skip to main navigation
+
+Cerebras Unveils CS-4: Up to 30 Times Faster than GPU-based Solutions
+
+August 18, 2026
+
+PDF Version
+
+Up to 10x more throughput per watt and 2x the speed of the industry-leading CS-3
+
+SUNNYVALE, Calif., Aug. 18, 2026 (GLOBE NEWSWIRE) -- Cerebras Systems (NASDAQ: CBRS) today introduced the Cerebras CS-4, the fastest AI accelerator in the industry. The CS-4 is a rack-scale solution built from three new Wafer Scale Engines and revolutionary rack and system designs. The CS-4 is the first member of the next-generation Cerebras Nexus rack-scale platform architecture. It is up to twice as fast as the CS-3, bringing the CS-4s advantage in tokens-per-second-per-user over GPUs to up to 30x more.
+
+The CS-4 solution also delivers up to 10x more throughput per watt than the CS-3, vastly improving data center economics. Because fast tokens are more valuable than slow tokens, the CS-4 delivers both higher-value tokens and more total tokens within a given power budget—enabling datacenters to be vastly more profitable.
+
+“In AI, speed is productivity,” said Andrew Feldman, CEO and co-founder of Cerebras. “Historically, fast inference meant using smaller and less capable models. Cerebras CS-4 delivers industry-leading speeds on the largest frontier models, fundamentally changing the paradigm. Every aspect of the design has been optimized to deliver the highest speeds with massive throughput. With the CS-4, AI is so fast that it fundamentally reshapes product experiences.”
+
+The rack scale CS-4 is built from three of the newly released Wafer Scale Engine 3 Turbo (WSE-3T). The CS-4 delivers 750 PFLOPs of AI compute, 7.2 terabits per second of I/O, and 129.6 petabytes per second of memory bandwidth. Total compute fabric bandwidth jumps to 160.5 petabytes per second, and wafer to wafer latency drops as low as two microseconds, enabling the creation of very large clusters and the support of models with over 50 trillion parameters.
+
+“CS-4 makes dramatic improvements in system deployability, reliability, and networking, which enables scaling performance to larger models for large scale token factories,” said Dylan Patel, founder and CEO, SemiAnalysis. “CS-4 will scale ultrafast tokens for larger models and significant user volumes. The Cerebras Backpack is focused on time to market. As ultrafast inference continues to grow, Cerebras’ newest hardware will help ensure frontier speeds.”
+
+A New Leader in AI Inference Speed and Capacity
+
+The CS-4 sets a new high watermark for inference speed. In a head-to-head comparison on GPT-OSS-120B, when given identical prompts, the CS-4 delivers [1] more than 4,400 tokens second per user (TPS/user), up to 30 times faster than GPU solutions.
+
+“Being 30 times faster doesn’t just make a response feel fast. It gives an agentic system room for more than an order of magnitude as much reasoning, verification, or tool use in the same wall-clock time,” said Sean Lie, CTO and co-founder of Cerebras. “That’s the difference CS-4 makes for real production workloads.”
+
+A New Processor
+
+CS-4 is powered by the newly announced WSE-3 Turbo (WSE-3T). Like the WSE-3, the WSE-3T is the largest AI processor ever built, containing four trillion transistors and 900,000 AI-optimized cores across 46,225 square millimeters of silicon, with 44GB of SRAM integrated directly on the wafer.
+
+The WSE-3T doubles AI compute to 250 PFLOPS per wafer and doubles memory bandwidth to 43.2 petabytes per second. And since memory bandwidth is the determining factor in driving speed and throughput, this translates to a step-change improvement in both. The on-chip fabric bandwidth and off-chip I/O both double to 53.5 petabytes per second and 2.4 terabits per second respectively. I/O latency shrinks from five microseconds to as low as two microseconds.
+
+New System and Rack Design
+
+CS-4 is the first iteration of the new Cerebras Nexus Platform Architecture. It is built around a modular concept with three foundational elements: Compute, Power and I/O. Cerebras brings significant innovation to each element. Modularity enables each element to scale independently so innovations get to market faster. The modular architecture also supports extremely rapid deployment and upgrades.
+
+Pluggable Backpack Design: Cerebras has fundamentally re-imagined the compute subsystem into a rear mounted “backpack” that attaches vertically to the power array. Each Wafer-Scale Backpack is a self-contained assembly that folds power conversion, direct liquid cooling, high-speed I/O, and control electronics into a compact, three-dimensional package built directly around the wafer. By decoupling compute from the power supplies, the Wafer-Scale Backpack simplifies manufacturing and reduces deployment time from days to hours. Compared with the prior-generation system, the Wafer-Scale Backpack has 50% fewer components and uses 60% more automated manufacturing.
+
+High-Density Power Delivery: The Nexus Platform Architecture drives significant power delivery improvements. For example, by moving power conversion 100x closer to the processors – from roughly 50 millimeters away from the processor as on conventional GPU boards to approximately 0.5 millimeters – CS-4 nearly eliminates board-level power loss. This delivers twice as much power to the WSE-3T, enabling higher operating frequencies and faster token generation.
+
+New Modular I/O Subsystem: CS-4 introduces a new programmable I/O subsystem that supports two connectivity modes while doubling I/O bandwidth and reducing latency . More bandwidth and lower latency benefits both aggregated and disaggregated solutions.
+
+The fully programmable Wafer I/O Module supports standards-based RoCE v2 RDMA over Ethernet for seamless integration into existing infrastructure and with an ecosystem of heterogeneous systems. Aggregate off-wafer bandwidth doubles to 2.4 terabits per second per wafer and 7.2 terabits per CS-4 rack solution.
+
+The Wafer I/O Module also supports a new communication mode, called Direct Wafer Links, which enables wafers to be linked within and across racks without a switch. Direct Wafer Links enables wafer-to-wafer latency as low as two microseconds. This low latency communication will allow the creation of massive CS-4 clusters and the ability to support models with more than 50 trillion parameters.
+
+Programmable low latency I/O is particularly beneficial for heterogeneous disaggregated inference, in which a purpose-built prefill engine processes an incoming prompt and then hands it to Cerebras for ultra-low latency decode. The combination of programmability, standards-based interfaces, and very low latency will allow the rapid creation of disaggregated solutions from different Cerebras ecosystem partners, like AMD Helios and AWS Trainium.
+
+CS-3 vs. CS-4: Key Specifications
+
+Metric CS-3 (one wafer) CS-4 (3 wafers)
+
+AI compute 125 PFLOPS 750 PFLOPS
+
+Memory bandwidth 21.6 PByte/s 129.6 PByte/s
+
+On-chip fabric bandwidth 26.7 PByte/s 160.5 PByte/s
+
+System I/O bandwidth 1.2 Tbit/s 7.2 Tbit/s
+
+I/O latency 5 microseconds 2 microseconds
+
+Availability
+
+First CS-4 shipments begin this quarter. Full system specifications are available in the CS-4 datasheet at https://www.cerebras.ai/cs4-datasheet .
+
+[1] Actual throughput varies by model architecture, context length, precision, and serving configuration.

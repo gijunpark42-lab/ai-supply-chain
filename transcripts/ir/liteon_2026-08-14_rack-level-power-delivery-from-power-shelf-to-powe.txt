@@ -1,0 +1,170 @@
+SOURCE: Lite-On official press release -- https://www.liteon.com/en/news/press-center/content/rack-level-power-delivery
+TITLE: Rack-Level Power Delivery: From Power Shelf to Power Rack Architecture
+DATE: 08-14-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-09-26.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Lite-On press release: Rack-Level Power Delivery: From Power Shelf to Power Rack (08-14-2026)
+
+---
+Rack-Level Power Delivery: From Power Shelf to Power Rack Architecture
+
+Summary
+
+LITEON helps AI data centers build a next-generation power architecture from a rack-level perspective — combining high-voltage DC distribution, Power Shelves, energy buffering, digital monitoring, OCP-based customization, and system-level power management to improve efficiency, serviceability, and resilience under dynamic AI workloads.
+
+Author : Bob Weng ｜LITEON Cloud Infrastructure Platform & Solution
+
+Written & Interviewed by : LITEON Editorial Team (Corporate Brand Value Development Center)
+
+Technical review : LITEON Center of Core Competence
+
+As AI clusters evolve from kilowatt-scale server planning to dense accelerator rows, the rack is no longer just a metal frame for holding IT equipment. It is becoming a key electrical control point for data center infrastructure. IEA estimates that global data center electricity use was 415 TWh in 2024, or 1.5% of global electricity use, and could rise to 945 TWh by 2030 in its base case. This illustrates why rack design must now be considered part of the energy infrastructure itself.
+
+As GPU quantity increases and computing communication requirements continue to rise, the power required by each rack is growing rapidly. At lower power levels, power shelves and related equipment may still fit inside traditional IT Racks. However, as rack-level power demand moves toward 330kW and potentially 660kW-class architectures, the IT Rack can no longer reserve enough space for both compute hardware and power equipment.
+
+As GPU quantity increases and computing communication requirements continue to rise, the power required by each rack is growing rapidly. At lower power levels, power shelves and related equipment may still fit inside traditional IT Racks. However, as rack-level power demand moves toward 330kW and potentially 660kW-class architectures, the IT Rack can no longer reserve enough space for both compute hardware and power equipment.
+
+This is where rack-level power delivery begins to change the design logic. When the IT Rack reaches its physical limit, the power supply architecture must shift toward an independent and centralized Power Rack. In this structure, Power Shelves are separated from the IT Rack and managed as part of a dedicated power infrastructure layer. However, moving large amounts of power from a Power Rack to IT Racks creates another challenge: current-related conduction loss. If the system continues using traditional 48V or 50V transmission, the current becomes extremely high, increasing I²R loss, cable burden, copper usage, and heat generation. To reduce current and improve transmission efficiency, the architecture must move toward 800 VDC high-voltage transmission.
+
+In short, the next stage of rack-level power delivery is defined by two core directions: higher power and higher voltage. For LITEON, this evolution is not only about increasing wattage. It is about integrating high-voltage power delivery, digital control, redundant power design, energy buffering, rack-level communication, and customer-specific configuration into a scalable power architecture for AI infrastructure.
+
+A. The Evolution Toward Power Rack Architecture and 800 VDC Transmission
+
+Power Demand Is Outgrowing the IT Rack
+
+As AI workloads scale, GPU density and accelerator-to-accelerator communication requirements continue to increase. This drives rack-level power demand from traditional server-scale planning toward 100kW, 330kW, and potentially 660kW-class infrastructure. At lower power levels, power equipment can still be placed inside the IT Rack. However, as Power Shelf capacity rises and compute hardware occupies more internal space, traditional IT Rack layouts become increasingly constrained.
+
+When power demand reaches a certain level, the architecture must move toward a centralized Power Rack that separates power equipment from the compute rack. This shift allows the IT Rack to preserve more space for GPUs, accelerator trays, networking, and thermal components, while the Power Rack becomes a dedicated platform for power conversion, distribution, backup, monitoring, and control.
+
+800 VDC Transmission Reduces Current Loss
+
+Once power equipment is centralized in the Power Rack, large amounts of power must be transmitted to IT Racks. If this transmission remains at 48V or 50V, the current becomes extremely high, which increases conductor loss, cable volume, busbar size, connector heating, and rack-space pressure. By moving toward 800 VDC high-voltage transmission, the system can reduce current for the same power level. Lower current helps reduce I²R loss, decrease copper and cabling requirements, and improve overall power delivery efficiency. This voltage upgrade is not only an electrical specification change. It is a structural shift in AI data center power architecture. Higher power creates the need for centralized Power Rack design, while higher voltage makes long-distance, high-power transmission more practical.
+
+Efficiency Improvement Starts Before Cooling
+
+In high-density AI infrastructure, every watt lost during power transmission becomes heat that must later be removed. By reducing current-related transmission loss, 800 VDC architecture helps improve efficiency before the cooling system even begins its work. This is why power optimization must be considered at the architecture level.
+
+Efficient rack-level power delivery depends not only on individual power module performance, but also on voltage level, transmission distance, current path, connector design, digital control, and system-level coordination. LITEON’s rack-level power approach reflects this direction. By combining Power Rack architecture, 800 VDC transmission, high-efficiency power modules, redundant power design, and digital management, LITEON helps customers build AI infrastructure that is more efficient, scalable, and reliable.
+
+B. Demand-Driven System Configuration: A Highly Flexible Rack-Level Power Architecture
+
+Configured Around Demand
+
+A modern rack-level power design should not be regarded as a fixed box of identical modules. However, it is more of an electrical architecture that can be tuned to the customer's compute envelope, service model, redundancy philosophy, and deployment roadmap.
+
+Power Shelves as Planning Variables
+
+The number of power shelves, reserve margin, and power ratio can be selected based on the number of accelerators, expected transient behavior, maintenance policy, and failure-impact analysis. So, the rack is sized based on the workload risk and not on the nameplate capacity.
+
+Workloads Shape Allocation Logic
+
+Training clusters, inference pools, mixed AI-HPC nodes, and burst-heavy services all stress the supply path in different ways. Thus, allocation rules may prioritize sustained delivery, fast ramp response, or segmented capacity depending on how the customer monetizes compute time.
+
+Availability Becomes an Electrical Strategy
+
+Uptime in the context of an AI power rack is not just protected by spare hardware. However, the plan is to deploy power scheduling with critical trays, priority jobs, and degraded mode operation planned out in advance so that capacity can be preserved where it counts.
+
+Modules Need a Shared Control Plane
+
+Aggregated management utilizes digital communication interfaces such as CAN or PMBus-class links, to allow rectifier shelves, DC/DC stages, backup elements, and supervisory controllers to exchange telemetry, synchronize load sharing, and coordinate fault responses in real time.
+
+Flexibility Fits Real CSP Operations
+
+Configuration flexibility is important for CSPs and AI data centers because rack standards, facility feeds, hardware generations, and operating models vary widely. That is why open rack initiatives concentrate on rack-and-power system standards. Along these lines, LITEON is putting its in-server, in-rack, and sidecar power designs for a range of deployment needs.
+
+C. The Hardware-Level Stability Defense:
+
+Bulk Capacitor Energy Storage and Digital Monitoring Technology
+
+Energy First, Firmware Second
+
+Physical joules are the start of stability. Big bulk capacitor banks can be installed on the input bus and the regulated output path for local reservoirs with usable hold-up energy proportional to ½CΔV². Hence, the system has support prior to upstream sources being able to respond.
+
+Absorbing the First Shock
+
+These capacitors provide short-term compensation during an accelerator demand step exceeding the settling time of the supply chain. It alleviates bus droop, overshoot, and stress on the control loop during typical sudden load jumps or input side disturbances in AI data centers.
+
+Seeing the Disturbance Early
+
+The rack level power controller, with the help of complete digital control, can sample input voltage, current slope, ripple, and phase behavior in real time and distinguish a harmless transient from a developing abnormal event before output regulation has lost margin.
+
+Turning Stored Charge into Voltage Continuity
+
+When instability is detected, firmware can control the conversion stages to draw from stored capacitor energy while adjusting duty cycle, phase shift, or current sharing. It maintains output voltage within the allowed window, rather than forcing compute trays into reset.
+
+Prioritizing Compute in Microseconds
+
+Smart Load Shedding provides an additional line of defense by detecting mission-critical nodes within microseconds and determining which accelerator boards, memory domains, or control services must be kept powered, and which lower-priority loads can be temporarily reduced.
+
+Protecting the Workload, Not Just the Hardware
+
+Rather than all nodes dropping out together, the AI power rack can drop non-essential demand first so that active training checkpoints, inference control paths, and cluster-management logic can be preserved during outages, voltage dips, or other abnormal power events.
+
+Resilience Becomes the Real Output
+
+The goal is not simply cleaner voltage. It is ongoing compute continuity at scale for the changing AI loads. LITEON's focus on high-efficiency modules, DC distribution, system-level energy management, and intelligent load management supports a more resilient power architecture.
+
+D. Technical Foundation and Real-World Practice: Customization Flexibility and Quality Indicators Under the OCP Framework
+
+Open Framework, Real Deployment
+
+Open Compute Project gives the industry a shared rack-and-power language for mechanical fit, busbar alignment, serviceability, and infrastructure interoperability. However, real CSP deployment does not stop at the standard. Each CSP may bring its own facility feed, rack population rule, redundancy model, validation checklist, service preference, and interoperability requirement. This means the actual engineering value lies in translating an open framework into a customer-ready rack-level power architecture.
+
+Customization Starts Where the Standard Ends
+
+LITEON’s value is not only in providing standard power modules. It also lies in fast electrical tuning, firmware adjustment, mechanical refinement, and verification based on long-cycle power-supply development experience. For AI infrastructure, customer requirements may change quickly as GPU platforms, rack configurations, and facility designs evolve. Compared with more rigid suppliers, LITEON can provide stronger customization flexibility and faster development response. This allows customers to adjust specifications while still maintaining reliability, quality, and deployment readiness.
+
+Co-Developing Customer-Specific Specifications
+
+In advanced AI data center projects, power suppliers must often work closely with customers to define specifications rather than simply respond to finalized requirements. Output tolerance, inrush behavior, connector temperature rise, current-sharing accuracy, hot-plug sequencing, communication interfaces, and transient response may all need to be customized according to the customer’s server topology and rack-level architecture. Through early collaboration, LITEON helps customers define practical specifications that can move from design concept to mass deployment. This customer co-development capability is one of the key values LITEON provides beyond technology itself.
+
+Mixed Operation and Cross-Brand Stability
+
+In real CSP environments, rack-level power systems may need to operate with power modules from different suppliers or across different platform generations. This makes mixed operation and cross-brand interoperability an important part of deployment flexibility. LITEON’s power solutions are designed and validated to support stable operation in practical rack environments, including scenarios where compatibility, communication behavior, load sharing, and serviceability must be verified under customer-specific conditions. This mixed-operation stability helps customers reduce integration risk, preserve deployment flexibility, and manage infrastructure upgrades more smoothly over time.
+
+Quality Becomes Measurable
+
+Low defect rate, zero power drop, and stable hot-swap behavior are practical engineering benchmarks. These indicators reflect manufacturing control, component derating, protection timing, connector design, and service reliability after repeated insertions, load transitions, and long field operating hours. The risks are physical and practical. Voltage instability can cause system resets, connector deformation can increase contact resistance, and hot-plugging stress can create arcing, bounce, or brief discontinuity if the electrical and mechanical interface is not designed as one system. LITEON’s quality value lies in combining design reliability, manufacturing control, validation discipline, and field experience. This gives customers more confidence that rack-level power infrastructure can maintain stable performance under real AI data center operating conditions.
+
+Reliability Extends the Data Center Lifecycle
+
+Power quality, connector integrity, communication stability, hot-plug behavior, and service procedures must be validated together. These factors help AI data centers achieve longer operating life, fewer maintenance interruptions, and more predictable capacity planning. This is where LITEON’s OCP power shelf, BBU, management control, digital control design, and rack-level power portfolio come together. By integrating power modules, communication interfaces, redundancy strategy, and customer-specific configuration, LITEON helps customers build rack-level power infrastructure that is not only technically advanced, but also reliable and practical to operate.
+
+E. Defining a New Stability Benchmark for AI Infrastructure Through Professional Experience and System-Level Resilience
+
+AI infrastructure is changing from component-by-component optimization to a discipline that co-designs electrical delivery, power redundancy, energy buffering, communication control, serviceability, and system-level resilience as one operating fabric. The trend is driven by two core directions: higher power and higher voltage. As GPU quantity increases and accelerator communication requirements rise, rack-level power demand continues to grow. Once power demand reaches levels where the IT Rack can no longer accommodate both compute hardware and power equipment, the architecture must shift toward a centralized Power Rack. At the same time, power transmission must move from traditional 48V or 50V architecture toward 800 VDC high-voltage transmission to reduce current loss and improve efficiency.
+
+Beyond this power architecture shift, the practical value of LITEON lies in making rack-level power deployable, stable, and customizable for real AI data center environments. LITEON combines high-efficiency power modules, redundant power strategy, BBU-related backup capability, bulk capacitor energy buffering, digital control, CAN / RJ45 / management communication interfaces, and customer-specific specification development. For customers, this means more than receiving individual power components. It means working with a partner that can support reliable design, plug-and-play deployment, mixed-operation stability, and flexible customization according to real CSP requirements.
+
+LITEON’s demonstrations of 800 VDC Power Rack , high-capacity Power Shelf, BBU, power brick, management control, and intelligent load management show how rack-level power delivery is becoming practical for megawatt-scale AI deployments. For operators planning reliable, scalable, and future-ready AI capacity, LITEON provides the engineering experience and system-level portfolio needed to make power resilience an infrastructure standard.
+
+FAQs
+
+What are LITEON’s advantages in rack-level power solutions?
+
+LITEON offers a comprehensive power portfolio spanning in-server, in-rack, and system-level architectures, combining power modules, BBU (battery backup units), DC distribution, and energy management capabilities. By supporting OCP-based designs, 800 VDC power architectures, and intelligent load management, LITEON enables highly customizable configurations tailored to diverse AI workloads. This helps data centers achieve greater reliability, energy efficiency, and system resilience in high-density computing environments.
+
+How does 800 VDC improve efficiency and density in AI racks?
+
+High-voltage distribution, such as 800 VDC, reduces the required current for the same power level, which helps minimize conductor losses (I²R loss), lower heat generation, and reduce the amount of copper and cabling needed. This results in a more streamlined power delivery path, while also decreasing the thermal and spatial burden of the power system—ultimately enabling higher overall efficiency and rack-level deployment density.
+
+What is rack-level power, and why is it becoming increasingly important in AI infrastructure?
+
+Rack-level power is an architectural approach that integrates power conversion, distribution, short-duration backup, busbar routing, and monitoring within a single rack. As AI compute density continues to rise, the rack is evolving from a simple equipment enclosure into a central node for power and thermal management. This integrated design improves space utilization while supporting higher power densities and more stable system operation.
+
+Authors
+
+Bob Weng
+
+LITEON Cloud Infrastructure Platform & Solution
+
+Back to list
+
+Welcome to LITE-ON Technology Corporation
+
+Active Noise Cancellation Beyond the Basics: How Hybrid ANC Is Shaping Intelligent Audio Systems
+
+LITEON Technology Reports Consolidated August Sales of NT$19.6 Billion, Up 3% M-o-M and 25% Y-o-Y
+
+LITEON Announces Strategic Investment in Liquid Cooling Technology Company DCX Advancing AI Infrastructure Value Chain Through Integrated Power Management and Cooling Technologies

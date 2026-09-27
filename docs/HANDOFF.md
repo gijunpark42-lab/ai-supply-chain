@@ -63,10 +63,11 @@ append-only history is `enrich_log.json` (commit it).
   original cinematic scroll story remains live at `https://the-power-age.californiajune.chatgpt.site`; the Vercel
   site is now **Power Seed**, a playable English single-civilization strategy game: field bodies → refinery →
   precision fab → data-center lattice → planetary solar fabric → orbital industry → stellar collectors → interstellar
-  seed. It uses the existing future-civilization assets rather than a flat map; its live resource loop, phase art,
-  keyboard Pulse control, responsive cards and reset path were browser-tested. GitHub source remains the separate
-  nested repo `gijunpark42-lab/The-Power-Age` at commit `854a7f8`; Vercel project `gijun42/kardashev-scroll` is
-  live at `https://kardashev-scroll.vercel.app` (latest direct deployment `dpl_ATf6zYUSx3xTE7TYWRVQ1cTwknKY`).
+  seed. The interface now has nine contextual science/constraint chapters, stronger resource and goal hierarchy,
+  and a local Three.js WebGL scene: rotating 3D globe, orbital bodies, chip lattice, collector swarm, star and galaxy,
+  with pointer orbit, build flash, production pulses and image fallback. GitHub source remains the separate nested
+  repo `gijunpark42-lab/The-Power-Age` at commit `854a7f8`; Vercel project `gijun42/kardashev-scroll` is live at
+  `https://kardashev-scroll.vercel.app` (latest direct deployment `dpl_Bf16fo4PY4h13vjY9CBePvL3RWvC`).
   This does not change the main earnings graph or Vercel app.
 - **Ask tab:** answered by a LOCAL Claude runner (`local-ask/`) behind a Cloudflare tunnel. `ask 실행` starts it
   (`node local-ask/up.mjs`), `ask 종료` stops it. No Gemini, no Anthropic API (removed in 3bfb0dc).
@@ -121,7 +122,7 @@ append-only history is `enrich_log.json` (commit it).
 3b. **Done 2026-09-27 (data cleanup, see session log):** financing entries removed (GlobalWafers GDS, CoreWeave
    notes), 7 same-date slot collisions and every `slot: null` fixed, 170 cross-chain copies de-duplicated.
    **Korean IR materials:** `kind.py` built 2026-09-27 (KIND library + six large-cap sites; Samsung call script) — 48
-   decks/calls queued for `enrich korea`. **Still open:** other Korean calls have no official transcript;
+   decks/calls queued, enriched 2026-09-27 (`enrich korea`, see session log). **Still open:** other Korean calls have no official transcript;
    122 pre-existing verify fails in a FULL `verify_graph.py` run (mostly Korean DART half-year labels
    `number_not_in_source` + 24 `source_not_found`) — worth a check (KRW number formats may be false alarms).
    Web Status tab: live since PR #1.
@@ -132,7 +133,7 @@ append-only history is `enrich_log.json` (commit it).
 5. **Rejected / do not re-propose:** news pipelines or knowledge-based edges (`feedback_transcript_only.md`),
    a Quant tab in the web app, turning off the Vercel plugin, adding Core42 / AES / Nanjing Casela as nodes,
    auto-committing, GitHub Actions scheduler (not until the core loop is declared solid by the user).
-6. **The Power Age / Power Seed:** live: cinematic scroll remains on Sites; playable Power Seed is on Vercel.
+6. **The Power Age / Power Seed:** live: cinematic scroll remains on Sites; playable, animated 3D Power Seed is on Vercel.
    Source is the separate GitHub repo `gijunpark42-lab/The-Power-Age` at commit `854a7f8`; the new game changes are
    deployed directly and intentionally uncommitted. Do not push the parent `reticulum-ai` repository.
 
@@ -726,3 +727,40 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   published without a GitHub commit/push; parent `reticulum-ai` remains untouched. Left open: nested repo has
   uncommitted `dist/index.html` (and pre-existing `.gitignore`) if the user later explicitly requests a GitHub push.
   Uncommitted: yes.
+
+- **2026-09-26 (Codex) — improved Power Seed's UI, content and 3D animation.** User requested better UI and
+  content, then clarified that the static scene felt like a slideshow and asked for more 3D and animation. Done:
+  split the Vercel game's source into `dist/index.html`, `dist/game.css`, `dist/game.js`, `dist/scene3d.js`;
+  rebuilt the interface around a readable live world, prominent build/pulse actions, resource status, objective,
+  progress track and construction cards. Added nine stage-specific explanations of the breakthrough, remaining
+  constraint and next goal. Clarified that resource units and Kardashev targets are game abstractions, not measured
+  output. Added local save/reload. Added a vendored MIT-licensed Three.js runtime and a real-time WebGL scene with
+  rotating Earth, orbiting robots/satellites, chip lattice, energy arcs, Dyson-like solar collectors, sun and galaxy;
+  mouse drag orbits the view; builds and pulses trigger visible reactions. WebGL failure retains the cinematic image.
+  QA: JavaScript syntax and local assets pass; browser playthrough reached every era and ending (8 transitions, no
+  errors); 390 px phone had no horizontal overflow; save/reload worked; live Vercel returned the 3D canvas with no
+  console errors. Deployments: UI/content `dpl_91kc3TWNJLVEDtCdwSj4oBh9N8Ui`, then 3D
+  `dpl_Bf16fo4PY4h13vjY9CBePvL3RWvC` Ready at `https://kardashev-scroll.vercel.app`. Decisions: no GitHub
+  commit/push; parent earnings repo untouched except these handoff/memory notes. Left open: nested site changes
+  remain uncommitted if the user later requests a GitHub push. Uncommitted: yes.
+
+- **2026-09-27 (Claude) — `enrich korea` (first full Korean run)** — User: "enrich Korea". Ran alongside the
+  nightly-style `enrich US` session (separate queues; graph_build only when no other build ran).
+  Done: `dart.py sync` (9 supply contracts 09-11..09-22); backfilled the 50 KR companies with no DART filing
+  (`dart.py fetch <co> 2026 2`, all 50 OK); `kind.py` queue (47 decks + Samsung Q2 call script); 61 KR IR releases.
+  20 parallel Opus enrich agents → 107 patches (468 entries; 12 IR releases + 38 decks patched, 49 releases and
+  10 decks closed as no facts / restatement / image-only). Coordinator removed 4 list-only customer edges from the
+  MK Electron deck and dropped a consumer-SSD Samsung release. 14 Opus verifiers: 88 set + 1 delete
+  (`patches/corrections/applied/verify-kr-v01..v14.json`) — mostly ownership stakes, bond/financing terms,
+  third-party market data (MarketsandMarkets, Gartner/Omdia, OMDIA share, Grand View), computed percentages;
+  18 new edges all kept (Protec x7, DB HiTek x6 suppliers/licensors, PSK Inc.->Micron, YC->Exicon,
+  Duksan Hi-Metal->SEMCO, LS Eco Energy->Gaon Cable). Full verify: 0 fail on these labels (122 pre-existing).
+  User decisions the same day (board questions resolved): LG Innotek new placement edge_ai / Autonomous Vehicles
+  (Zoox camera modules); NEW NODES LS Cable & System (private, power/Grid), TerraPower (private, power/Generation),
+  Samyoung Pure Chemicals (private), Tokai Carbon Co. (TSE 5301) + metadata; Korea Zinc second placement
+  hbm_memory / Process Chemicals & Slurries (sulfuric acid); Solus product text changed (copper-foil business
+  sold 04-28-2026), placement kept; Seichi (UniTest affiliate) stays a counterparty only. Facts were MOVED to the
+  new edges/placements (patches `struct_*`, corrections `struct-0927_1.json`, 8 deletes). Notes: SK Hynix Q1 call
+  transcript says LPDDR6/SOCAMM2 "1z-nm" while the deck and DART say 1c (entries left faithful to the call);
+  PSK Inc. facts carry the PSK Holdings group-deck label (KIND 19244 deduped as the same file). Transient
+  Errno 22 / copyfile errors on graph/ + web sync — re-run fixed them. Uncommitted: yes.
