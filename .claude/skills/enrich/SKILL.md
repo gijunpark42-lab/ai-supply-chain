@@ -1,6 +1,6 @@
 ---
 name: enrich
-description: Enrich the supply-chain graph from company sources — earnings calls, investor-conference talks, SEC/DART filings and important company IR press releases. Use for "enrich" (runs what ENRICH_STATUS.md recommends), the market commands "enrich us", "enrich korea", "enrich taiwan", "enrich japan", "enrich europe", "enrich china", the source commands "enrich us calls", "enrich edgar", "enrich dart", "enrich tdnet", "enrich intl", "enrich tw", "enrich conference", "enrich ir", "Transcript:<company>", or a pasted/URL transcript or company release. Covers the status board, what to capture (facts, company guidance and management comments — never analyst opinion), the ADD-only patch format, JOB 1-5, labels, screener slots, checks and verification.
+description: Enrich the supply-chain graph from company sources — earnings calls, investor-conference talks, SEC/DART filings and important company IR press releases. Use for "enrich" (runs what ENRICH_STATUS.md recommends), the market commands "enrich us", "enrich korea", "enrich taiwan", "enrich japan", "enrich europe", "enrich china", the source commands "enrich us calls", "enrich edgar", "enrich dart", "enrich tdnet", "enrich intl", "enrich tw", "enrich conference", "enrich ir", "enrich waitlist", "Transcript:<company>", or a pasted/URL transcript or company release. Covers the status board, what to capture (facts, company guidance and management comments — never analyst opinion), the ADD-only patch format, JOB 1-5, labels, screener slots, checks and verification.
 ---
 
 # Workflow 2 — Enrich
@@ -36,6 +36,7 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 | `enrich korea` | DART filings (+ backfill of Korean companies with no filing enriched), IR presentations and Samsung's official call script (`kind.py`: KRX KIND library + six large-cap IR sites), conference talks, IR releases. |
 | `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | That market's calls (Investing.com; Taiwan Chinese-language calls via tw.py), conference talks, IR releases; Taiwan also its MOPS filings (`mops.py`: 法說會 decks, important 重大訊息, monthly revenue); China also the A-share IR activity records and investor Q&A answers (`cninfo.py`); Japan also its TDnet timely disclosures (`tdnet.py`: results, forecast revisions, capex, plans, agreements, M&A). |
 | `enrich edgar` | SEC 8-K / 10-K / 10-Q (weekly; not part of `enrich us`). |
+| `enrich waitlist` / `enrich waitlist <market>` | Onboard the user-pre-approved new companies queued in `enrich_waitlist.json`, each market by its own rules (`references/waitlist.md`). |
 | `enrich us calls` · `enrich dart` · `enrich kind` · `enrich tdnet` · `enrich intl` · `enrich tw` · `enrich conference` · `enrich ir` | One source, across every market it covers (reference table below). |
 | a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py`; others: the market's source) and state the call date before enriching. |
 
@@ -334,6 +335,7 @@ These build ON TOP of everything above. When a command fires, read its reference
 | `enrich ir` | Company-issued IR press releases via each company's own feed (`ir_pull.py`); important releases only, facts only | `references/ir.md` |
 | `enrich china` (step 1b) | China A-share names — IR activity records (投资者关系活动记录表) from cninfo / SSE e互动 and the company's answers on SZSE 互动易 / SSE e互动 (`cninfo.py`); management Q&A, answers only | `references/cninfo.md` |
 | `enrich us` (monthly step) | US utilities' own IRPs, large-load reports and data-center tariffs (`utility_filings.py`; full text + `_load` extract) | `references/utility_filings.md` |
+| `enrich waitlist` | New companies queued in `enrich_waitlist.json` (user pre-approved 2026-09-28) — metadata first, then each market's collectors, first patch adds the node | `references/waitlist.md` |
 
 `enrich ir <Company>` runs only that company's feed (`ir_pull.py sync --company "<Company>"`).
 Pasted text or a URL from the user overrides the pipelines — enrich that source directly under this file's rules.

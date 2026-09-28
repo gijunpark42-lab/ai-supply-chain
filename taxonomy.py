@@ -78,13 +78,13 @@ MARKETS = [
 ]
 MARKET_OF_EXCHANGE = {
     "NASDAQ": "US", "NYSE": "US", "NYSE American": "US", "AMEX": "US", "OTC": "US",
-    "KOSPI": "KR", "KOSDAQ": "KR", "KRX": "KR",
+    "KOSPI": "KR", "KOSDAQ": "KR", "KRX": "KR", "KONEX": "KR",
     "TWSE": "TW", "TPEx": "TW",
     "TSE": "JP", "OSE": "JP",
     "SSE": "CN", "SZSE": "CN", "HKEX": "CN",
     "XETRA": "EU", "SIX": "EU", "Euronext Paris": "EU", "EPA": "EU", "MIL": "EU",
     "OMX Stockholm": "EU", "STO": "EU", "AMS": "EU", "Euronext Amsterdam": "EU",
-    "Euronext Brussels": "EU", "VIE": "EU", "LSE": "EU",
+    "Euronext Brussels": "EU", "VIE": "EU", "LSE": "EU", "OMX Helsinki": "EU",
     "SGX": "other", "IDX": "other", "TSX": "other", "ASX": "other",
 }
 
