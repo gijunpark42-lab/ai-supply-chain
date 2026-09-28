@@ -12,6 +12,8 @@ import {
 // The prompt module is plain JavaScript shared with the server routes and the
 // local runner (tsconfig has allowJs); only its no-model helpers are used here.
 import { guessIntent, normalizeIntent, LOCAL_MODEL_ID } from "@/lib/askPrompt.mjs";
+import { t, name, useLang, type Lang } from "@/lib/i18n";
+import { slugLabel } from "@/lib/taxonomy";
 import "./AskGraph.css";
 
 // AskGraph — the "Ask" tab. Type a question → three steps:
@@ -29,10 +31,10 @@ import "./AskGraph.css";
 // clickable → NodePanel), and "Context used" lists everything that was sent.
 // The thread is a CONVERSATION: a follow-up question carries the last few
 // completed Q&A pairs (history) to the rewrite step and to the model, so
-// "what about Samsung?" is understood. The answer language (English / 한국어)
-// is a toggle next to the box. Turns stay in component state only — nothing is
-// persisted except the language choice (localStorage), nothing is sent except
-// the question, the snippets, the intent, the language and the history.
+// "what about Samsung?" is understood. The answer language follows the site's
+// language switch (EN / 한국어 / 中文 / 日本語). Turns stay in component state only —
+// nothing is persisted, nothing is sent except the question, the snippets, the
+// intent, the language and the history.
 
 type Status = "loading" | "streaming" | "done" | "error";
 /** Sub-steps of "loading", shown as the phase line under the question. */
@@ -41,8 +43,6 @@ type Phase = "rewriting" | "reading" | "thinking";
 type Intent = "lookup" | "compare" | "rank" | "timeline";
 /** Which back-end answered, as reported by the route's "done" line. */
 type Engine = "local" | "groq" | "openai-compatible";
-/** Answer language the user picked. */
-type Lang = "en" | "ko";
 /** One earlier Q&A pair, as sent to the server for a follow-up question. */
 interface HistoryTurn {
   question: string;
@@ -73,7 +73,6 @@ interface Turn {
 const MAX_TURNS = 8; // turns kept on screen; older ones scroll off the top of the thread
 const HISTORY_TURNS = 4; // completed turns sent along with a follow-up question …
 const HISTORY_ANSWER_CHARS = 2000; // … each answer trimmed to this many characters
-const LANG_KEY = "ask.lang"; // localStorage key for the answer-language choice
 const REWRITE_TIMEOUT_MS = 8_000; // past this the rewrite step is skipped, not waited for
 const SLOW_HINT_AFTER_S = 15; // seconds of "Thinking…" before the local-engine caption shows
 
@@ -102,23 +101,8 @@ export default function AskGraph({
   const [turns, setTurns] = useState<Turn[]>([]);
   const [busy, setBusy] = useState(false);
   const [setupNeeded, setSetupNeeded] = useState(false);
-  // Answer language. Remembered per browser; localStorage may be unavailable
-  // (private window, blocked storage), so every access is guarded.
-  const [lang, setLang] = useState<Lang>(() => {
-    try {
-      return localStorage.getItem(LANG_KEY) === "ko" ? "ko" : "en";
-    } catch {
-      return "en";
-    }
-  });
-  const pickLang = (l: Lang) => {
-    setLang(l);
-    try {
-      localStorage.setItem(LANG_KEY, l);
-    } catch {
-      /* fine — the choice just lasts for this page */
-    }
-  };
+  // Answer language = the site language (lib/i18n.tsx, header switch).
+  const { lang } = useLang();
   const ctrlRef = useRef<AbortController | null>(null);
   const nextId = useRef(1);
 
@@ -265,48 +249,23 @@ export default function AskGraph({
         type="text"
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder={inConversation ? "Ask a follow-up…" : "e.g. Who supplies HBM4 for NVIDIA Vera Rubin?"}
+        placeholder={inConversation ? t("Ask a follow-up…") : t("e.g. Who supplies HBM4 for NVIDIA Vera Rubin?")}
         maxLength={500}
         disabled={busy}
-        aria-label={inConversation ? "Your follow-up question" : "Your question"}
+        aria-label={inConversation ? t("Your follow-up question") : t("Your question")}
         autoComplete="off"
       />
-      <div className="ask-lang" role="group" aria-label="Answer language">
-        <button
-          type="button"
-          className={lang === "en" ? "on" : ""}
-          aria-pressed={lang === "en"}
-          disabled={busy}
-          onClick={() => pickLang("en")}
-          title="Answer in English"
-        >
-          English
-        </button>
-        <button
-          type="button"
-          className={lang === "ko" ? "on" : ""}
-          aria-pressed={lang === "ko"}
-          disabled={busy}
-          onClick={() => pickLang("ko")}
-          title="한국어로 답변"
-        >
-          한국어
-        </button>
-      </div>
       <button type="submit" className="btn ask-send" disabled={busy || !q.trim()}>
-        {busy ? "Thinking…" : inConversation ? "Follow up" : "Ask"}
+        {busy ? t("Thinking…") : inConversation ? t("Follow up") : t("Ask")}
       </button>
     </form>
   );
 
   return (
     <div className="ask">
-      <h3>💬 Ask the Graph</h3>
+      <h3>💬 {t("Ask the Graph")}</h3>
       <p className="caption ask-intro">
-        Ask in English or Korean and pick the answer language next to the box. The answer is
-        written only from the signals and contracts stored in this graph (transcript-grounded
-        data) — every claim is cited to its source label, and when the graph does not contain the
-        answer it says so. Follow-up questions see the earlier answers of the conversation.
+        {t("Ask in English or Korean; the answer comes in the language picked at the top of the page. The answer is written only from the signals and contracts stored in this graph (transcript-grounded data) — every claim is cited to its source label, and when the graph does not contain the answer it says so. Follow-up questions see the earlier answers of the conversation.")}
       </p>
 
       {setupNeeded && <SetupNotice />}
@@ -314,10 +273,12 @@ export default function AskGraph({
       {!inConversation && form}
 
       {!inConversation && suggestions.length > 0 && (
-        <div className="ask-chips" aria-label="Suggested questions">
+        <div className="ask-chips" aria-label={t("Suggested questions")}>
+          {/* The chip shows the question in the site language; the ENGLISH question is
+              what gets asked (retrieval matches the graph's English vocabulary). */}
           {suggestions.map((s) => (
             <button key={s} type="button" className="ask-chip" disabled={busy} onClick={() => ask(s)}>
-              {s}
+              {t(s)}
             </button>
           ))}
         </div>
@@ -327,8 +288,7 @@ export default function AskGraph({
         <div className="ask-thread" aria-live="polite">
           <div className="ask-thread-head">
             <span className="caption">
-              Conversation · {turns.length} of up to {MAX_TURNS} turns — a follow-up sees the earlier
-              answers. Kept only while this tab is open.
+              {t("Conversation · {n} of up to {max} turns — a follow-up sees the earlier answers. Kept only while this tab is open.", { n: turns.length, max: MAX_TURNS })}
             </span>
             <button
               type="button"
@@ -338,7 +298,7 @@ export default function AskGraph({
                 setTurns([]);
               }}
             >
-              New conversation
+              {t("New conversation")}
             </button>
           </div>
           {turns.map((t) => (
@@ -355,6 +315,7 @@ export default function AskGraph({
 // ── One question + its answer ──────────────────────────────────────────────
 
 function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }) {
+  useLang();
   const [active, setActive] = useState<number | null>(null); // which [n] chip is open
   const { snippets, companies, chains, topics } = turn.meta;
   const activeSnippet = active !== null ? snippets[active - 1] : undefined;
@@ -364,15 +325,15 @@ function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }
   const seconds = useElapsedSeconds(turn.thinkingSince, thinking);
 
   const matched: ReactNode[] = [];
-  if (companies.length) matched.push(<span key="c"><b>{companies.join(", ")}</b></span>);
-  if (chains.length) matched.push(<span key="ch">chains: {chains.join(", ")}</span>);
-  if (topics.length) matched.push(<span key="t">topics: {topics.join(", ")}</span>);
+  if (companies.length) matched.push(<span key="c"><b>{companies.map(name).join(", ")}</b></span>);
+  if (chains.length) matched.push(<span key="ch">{t("chains:")} {chains.map(slugLabel).join(", ")}</span>);
+  if (topics.length) matched.push(<span key="t">{t("topics:")} {topics.map(slugLabel).join(", ")}</span>);
 
   return (
     <article className="ask-turn" id={`ask-turn-${turn.id}`}>
       <p className="ask-q">{turn.question}</p>
       <div className="ask-match">
-        {snippets.length} snippet{snippets.length === 1 ? "" : "s"} matched
+        {t(snippets.length === 1 ? "{n} snippet matched" : "{n} snippets matched", { n: snippets.length })}
         {matched.length > 0 && <> · </>}
         {matched.map((m, i) => (
           <span key={i}>
@@ -382,7 +343,7 @@ function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }
         ))}
         {turn.queries.length > 0 && (
           <div className="ask-queries">
-            intent: {turn.intent} · searched: {turn.queries.join(" · ")}
+            {t("intent:")} {t(turn.intent)} · {t("searched:")} {turn.queries.join(" · ")}
           </div>
         )}
       </div>
@@ -390,14 +351,13 @@ function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }
       {turn.status === "loading" && (
         <div className="ask-thinking">
           <span className="ask-phase">
-            {PHASE_LABEL[turn.phase]}
+            {t(PHASE_LABEL[turn.phase])}
             {/* aria-hidden: the thread is an aria-live region — announce the phase once, not every second */}
             {thinking && <span aria-hidden="true"> {seconds} s</span>}
           </span>
           {thinking && seconds >= SLOW_HINT_AFTER_S && (
             <div className="ask-hint">
-              The local engine (Opus, max effort) takes 15–60 s for most questions and up to a few minutes for a
-              ranking in Korean.
+              {t("The local engine (Opus, max effort) takes 15–60 s for most questions and up to a few minutes for a ranking in Korean.")}
             </div>
           )}
         </div>
@@ -430,20 +390,19 @@ function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }
               {/* Some OpenAI-compatible streams send no usage — then just name the model. */}
               {turn.usage && turn.usage.input_tokens + turn.usage.output_tokens > 0 && (
                 <>
-                  {" "}· {turn.usage.input_tokens.toLocaleString()} in /{" "}
-                  {turn.usage.output_tokens.toLocaleString()} out tokens
+                  {" "}· {t("{in} in / {out} out tokens", { in: turn.usage.input_tokens.toLocaleString(), out: turn.usage.output_tokens.toLocaleString() })}
                 </>
               )}
             </span>
           )}
-          {turn.stopReason === "max_tokens" && <span>· answer cut at the token limit</span>}
-          {turn.stopReason === "refusal" && <span>· the model declined to answer this</span>}
+          {turn.stopReason === "max_tokens" && <span>· {t("answer cut at the token limit")}</span>}
+          {turn.stopReason === "refusal" && <span>· {t("the model declined to answer this")}</span>}
         </div>
       )}
 
       {snippets.length > 0 && (
         <details className="ask-context">
-          <summary>Context used — {snippets.length} snippets sent to the model</summary>
+          <summary>{t("Context used — {n} snippets sent to the model", { n: snippets.length })}</summary>
           <ol>
             {snippets.map((s, i) => (
               <li key={i}>
@@ -474,19 +433,19 @@ function SnippetView({
     <div className={"ask-snip" + (highlight ? " on" : "")}>
       <div className="ask-snip-head">
         <span className="ask-n">[{n}]</span>
-        <span className={"ask-kind " + s.kind}>{s.kind}</span>
-        <button type="button" className="ask-co" onClick={() => onOpen(s.company)} title={`Open ${s.company}`}>
-          {s.company}
+        <span className={"ask-kind " + s.kind}>{t(s.kind)}</span>
+        <button type="button" className="ask-co" onClick={() => onOpen(s.company)} title={t("Open {name}", { name: name(s.company) })}>
+          {name(s.company)}
         </button>
         {s.target && (
           <>
             <span>→</span>
-            <button type="button" className="ask-co" onClick={() => onOpen(s.target!)} title={`Open ${s.target}`}>
-              {s.target}
+            <button type="button" className="ask-co" onClick={() => onOpen(s.target!)} title={t("Open {name}", { name: name(s.target) })}>
+              {name(s.target)}
             </button>
           </>
         )}
-        {s.chain && <span className="ask-chain">· {s.chain.replace(/_/g, " ")}</span>}
+        {s.chain && <span className="ask-chain">· {slugLabel(s.chain)}</span>}
         <span className="ask-label">· {s.label}</span>
       </div>
       <div className="ask-snip-text">{s.text}</div>
@@ -502,8 +461,9 @@ const INLINE_RE = /(\*\*[^*]+\*\*|\[\d{1,2}(?:\s*[,\-–]\s*\d{1,2})*\])/g;
 const NUMBERED_RE = /^(\d{1,2})[.)]\s+(.*)$/;
 // The three sections the answer prompt asks for, at the start of a paragraph or
 // list item, with or without ** ** around them: "Best answer:", "**Evidence:**",
-// "**Gaps**:" — and their Korean labels when the answer language is 한국어.
-const SECTION_RE = /^(?:\*\*)?(Best answer|Evidence|Gaps|답변|근거|빈틈)(?:\*\*)?:(?:\*\*)?\s*(.*)$/i;
+// "**Gaps**:" — and their Korean / Chinese / Japanese labels (askPrompt.mjs
+// LANGUAGE_RULES). A full-width colon "：" is accepted too.
+const SECTION_RE = /^(?:\*\*)?(Best answer|Evidence|Gaps|답변|근거|빈틈|答案|依据|缺口|回答|根拠|不足)(?:\*\*)?[:：](?:\*\*)?\s*(.*)$/i;
 
 /** "2, 4-6" → [2, 4, 5, 6], keeping only numbers that exist in the context list. */
 function citeNumbers(inner: string, count: number): number[] {
@@ -552,7 +512,7 @@ function AnswerBody({
                 type="button"
                 className={"ask-cite" + (active === n ? " on" : "")}
                 onClick={() => onCite(n)}
-                title={`Show snippet ${n}`}
+                title={t("Show snippet {n}", { n })}
               >
                 {n}
               </button>
@@ -698,11 +658,11 @@ function useElapsedSeconds(since: number | undefined, active: boolean): number {
  * "claude-opus-5 · effort max · your machine" or "llama-3.3-70b-versatile · effort default · Groq".
  * Kept generic on purpose: other models will be mixed in later.
  */
-function modelBadge(t: Turn): string {
-  const parts: string[] = [t.model || (t.engine === "local" ? LOCAL_MODEL_ID : "model")];
-  if (t.effort && t.effort !== "default") parts.push(`effort ${t.effort}`);
-  if (t.engine === "local") parts.push("your machine");
-  else if (t.engine) parts.push(ENGINE_LABEL[t.engine] || t.engine);
+function modelBadge(turn: Turn): string {
+  const parts: string[] = [turn.model || (turn.engine === "local" ? LOCAL_MODEL_ID : "model")];
+  if (turn.effort && turn.effort !== "default") parts.push(t("effort {e}", { e: turn.effort }));
+  if (turn.engine === "local") parts.push(t("your machine"));
+  else if (turn.engine) parts.push(ENGINE_LABEL[turn.engine] || turn.engine);
   return parts.join(" · ");
 }
 
@@ -728,22 +688,19 @@ function scrollToTurn(id: number) {
 
 function noMatchMessage(meta: RetrievalResult): string {
   if (meta.companies.length)
-    return (
-      `The graph has a node for ${meta.companies.join(", ")} but no stored signals or contracts ` +
-      `matched this question, so there is nothing to answer from yet. Enrich its latest earnings call ` +
-      `or filing to fill this in.`
+    return t(
+      "The graph has a node for {names} but no stored signals or contracts matched this question, so there is nothing to answer from yet. Enrich its latest earnings call or filing to fill this in.",
+      { names: meta.companies.map(name).join(", ") }
     );
-  return (
-    "No stored signal or contract matched this question, so there is nothing to answer from. " +
-    "Try naming a company (SK Hynix, TSMC, Vertiv…) or a product generation " +
-    "(Vera Rubin, B200, MI450 Helios, TPU v8, Trainium3), or a topic like HBM, CoWoS, CPO or transformers."
+  return t(
+    "No stored signal or contract matched this question, so there is nothing to answer from. Try naming a company (SK Hynix, TSMC, Vertiv…) or a product generation (Vera Rubin, B200, MI450 Helios, TPU v8, Trainium3), or a topic like HBM, CoWoS, CPO or transformers."
   );
 }
 
 function SetupNotice() {
   return (
     <div className="ask-setup" role="status">
-      <b>Ask the Graph has no answer engine configured yet.</b>
+      <b>{t("Ask the Graph has no answer engine configured yet.")}</b>
       <ol>
         <li>
           <b>Default (Claude Opus on your own machine):</b> run the local runner (see{" "}

@@ -18,6 +18,7 @@ import {
   type EvidenceKind,
   type EvidenceRef,
 } from "@/lib/evidence";
+import { t, useLang } from "@/lib/i18n";
 import "./Evidence.css";
 
 export interface EvidenceButtonProps {
@@ -45,18 +46,18 @@ function renderExcerpt(excerpt: string) {
 
 function statusLine(entry: EvidenceEntry): { text: string; tone: "" | "ev-warn" | "ev-miss" } {
   if (entry.status === "no_source") {
-    return { text: "Source text is not on disk for this label", tone: "ev-miss" };
+    return { text: t("Source text is not on disk for this label"), tone: "ev-miss" };
   }
   if (entry.status === "no_match") {
-    return { text: "Number not found in source — flagged for review", tone: "ev-warn" };
+    return { text: t("Number not found in source — flagged for review"), tone: "ev-warn" };
   }
   if (entry.via === "number") {
-    return { text: "Number located in the source text", tone: "" };
+    return { text: t("Number located in the source text"), tone: "" };
   }
   if (entry.via === "counterparty") {
-    return { text: "Counterparty named in the source text (no number to check)", tone: "" };
+    return { text: t("Counterparty named in the source text (no number to check)"), tone: "" };
   }
-  return { text: "Signal wording located in the source text (no number to check)", tone: "" };
+  return { text: t("Signal wording located in the source text (no number to check)"), tone: "" };
 }
 
 function EvidenceBody({ entry }: { entry: EvidenceEntry }) {
@@ -66,12 +67,12 @@ function EvidenceBody({ entry }: { entry: EvidenceEntry }) {
       <span className={"ev-status " + status.tone}>{status.text}</span>
       {entry.unmatched && entry.unmatched.length > 0 && entry.status !== "no_match" && (
         <span className="ev-status ev-warn">
-          Not found in source: {entry.unmatched.join(", ")}
+          {t("Not found in source:")} {entry.unmatched.join(", ")}
         </span>
       )}
       {entry.excerpt && (
         <>
-          {entry.status === "no_match" && <span className="ev-status">Nearest passage:</span>}
+          {entry.status === "no_match" && <span className="ev-status">{t("Nearest passage:")}</span>}
           <span className="ev-excerpt">{renderExcerpt(entry.excerpt)}</span>
         </>
       )}
@@ -81,6 +82,7 @@ function EvidenceBody({ entry }: { entry: EvidenceEntry }) {
 }
 
 export function EvidenceButton({ kind, company, target = "", label, signal }: EvidenceButtonProps) {
+  useLang();
   const [open, setOpen] = useState(false);
   // undefined = not looked up yet, null = looked up but no record for this key
   const [entry, setEntry] = useState<EvidenceEntry | null | undefined>(undefined);
@@ -103,17 +105,17 @@ export function EvidenceButton({ kind, company, target = "", label, signal }: Ev
         className={"ev-pill" + (open ? " ev-open" : "")}
         aria-expanded={open}
         aria-controls={boxId}
-        title="Show the source passage"
+        title={t("Show the source passage")}
         onClick={toggle}
       >
-        source
+        {t("source")}
       </button>
       {open && (
-        <span className="ev-box" id={boxId} role="region" aria-label="Source evidence" aria-busy={entry === undefined}>
-          {entry === undefined && <span className="ev-status">Loading source…</span>}
+        <span className="ev-box" id={boxId} role="region" aria-label={t("Source evidence")} aria-busy={entry === undefined}>
+          {entry === undefined && <span className="ev-status">{t("Loading source…")}</span>}
           {entry === null && (
             <span className="ev-status ev-warn">
-              No evidence record for this entry yet — run evidence.py and sync.
+              {t("No evidence record for this entry yet — run evidence.py and sync.")}
             </span>
           )}
           {entry && <EvidenceBody entry={entry} />}
@@ -146,11 +148,11 @@ export function EvidenceSummary({ entries }: { entries: EvidenceRef[] }) {
   }, [entries]);
 
   if (!counts || entries.length === 0) return null;
-  const parts = [`${counts.found} located`];
-  if (counts.no_match) parts.push(`${counts.no_match} flagged`);
-  if (counts.no_source) parts.push(`${counts.no_source} no source text`);
-  if (counts.missing) parts.push(`${counts.missing} not indexed`);
-  return <span className="ev-summary">Sources: {parts.join(" · ")}</span>;
+  const parts = [t("{n} located", { n: counts.found })];
+  if (counts.no_match) parts.push(t("{n} flagged", { n: counts.no_match }));
+  if (counts.no_source) parts.push(t("{n} no source text", { n: counts.no_source }));
+  if (counts.missing) parts.push(t("{n} not indexed", { n: counts.missing }));
+  return <span className="ev-summary">{t("Sources:")} {parts.join(" · ")}</span>;
 }
 
 export default EvidenceButton;

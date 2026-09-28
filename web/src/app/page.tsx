@@ -5,6 +5,7 @@ import type { MergedGraph, LogoManifest, VizNode } from "@/lib/types";
 import { fetchJson, buildViz } from "@/lib/data";
 import { CHAIN_COLORS, LAYERS, DOMAINS } from "@/lib/taxonomy";
 import { buildResolver } from "@/lib/company";
+import { LangProvider, LangSwitch, useLang, localNames } from "@/lib/i18n";
 import Sidebar from "@/components/Sidebar";
 import Graph3D from "@/components/Graph3D";
 import NodePanel from "@/components/NodePanel";
@@ -39,7 +40,17 @@ const VIEW_INFO: Record<Tab, { title: string; description: string }> = {
   "Semi Bot": { title: "Your Semi Bot workspace.", description: "Open the trading dashboard alongside your supply-chain research." },
 };
 
+// The language provider wraps the whole workspace so every view can translate.
 export default function Page() {
+  return (
+    <LangProvider>
+      <Workspace />
+    </LangProvider>
+  );
+}
+
+function Workspace() {
+  const { t, rev } = useLang();
   const [graph, setGraph] = useState<MergedGraph | null>(null);
   const [manifest, setManifest] = useState<LogoManifest>({});
   const [reportKeys, setReportKeys] = useState<Set<string>>(new Set());
@@ -59,6 +70,18 @@ export default function Page() {
   const [focusId, setFocusId] = useState<string | null>(null);
   // Korean company names for the search box (company_ko.json; {} until loaded or if missing).
   const [koNames, setKoNames] = useState<Record<string, string[]>>({});
+  // Search aliases = Korean names + the localised company names (company_names.json),
+  // so a company can be found by any of its names whatever the UI language.
+  const aliases = useMemo(() => {
+    const out: Record<string, string[]> = {};
+    for (const n of graph?.nodes || []) {
+      const extra = [...(koNames[n.id] || []), ...localNames(n.id)];
+      if (extra.length) out[n.id] = [...new Set(extra)];
+    }
+    return out;
+    // `rev` changes when company_names.json arrives.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [graph, koNames, rev]);
   // A component picked in the search box ("hbm"): the graph shows only the companies that make it.
   const [group, setGroup] = useState<{ label: string; ids: Set<string> } | null>(null);
 
@@ -231,7 +254,7 @@ export default function Page() {
 
   return (
     <div className="app">
-      <a className="workspace-skip" href="#research-panel">Skip to research</a>
+      <a className="workspace-skip" href="#research-panel">{t("Skip to research")}</a>
       <Sidebar
         open={navOpen}
         onClose={closeNav}
@@ -256,31 +279,32 @@ export default function Page() {
             <button
               className="nav-toggle"
               onClick={() => setNavOpen(true)}
-              aria-label="Open filters"
+              aria-label={t("Open filters")}
               aria-expanded={navOpen}
               aria-controls="graph-filters"
             >
-              ☰<span className="nav-toggle-text">Filters</span>
+              ☰<span className="nav-toggle-text">{t("Filters")}</span>
             </button>
-            <h1 className="app-title">AI Supply Chain</h1>
+            <h1 className="app-title">{t("AI Supply Chain")}</h1>
             <p className="app-sub">
-              Research the companies behind AI.
+              {t("Research the companies behind AI.")}
             </p>
-            <span className="workspace-source">Transcript-grounded research</span>
+            <span className="workspace-source">{t("Transcript-grounded research")}</span>
+            <LangSwitch />
           </div>
-          <div className="tabs" role="tablist" aria-label="Research views" ref={tabsRef} onKeyDown={navigateTabs}>
-            {TABS.map((t, index) => (
+          <div className="tabs" role="tablist" aria-label={t("Research views")} ref={tabsRef} onKeyDown={navigateTabs}>
+            {TABS.map((tabName, index) => (
               <button
-                key={t}
+                key={tabName}
                 id={`research-tab-${index}`}
                 className="tab"
                 role="tab"
-                aria-selected={tab === t}
+                aria-selected={tab === tabName}
                 aria-controls="research-panel"
-                tabIndex={tab === t ? 0 : -1}
-                onClick={() => setTab(t)}
+                tabIndex={tab === tabName ? 0 : -1}
+                onClick={() => setTab(tabName)}
               >
-                {t}
+                {t(tabName)}
               </button>
             ))}
           </div>
@@ -290,26 +314,26 @@ export default function Page() {
           aria-labelledby={`research-tab-${TABS.indexOf(tab)}`} tabIndex={0}>
         <div className="workspace-intro">
           <div>
-            <p className="workspace-eyebrow">RESEARCH WORKSPACE <span aria-hidden="true">/</span> {tab}</p>
-            <h2>{VIEW_INFO[tab].title}</h2>
-            <p>{VIEW_INFO[tab].description}</p>
+            <p className="workspace-eyebrow">{t("RESEARCH WORKSPACE")} <span aria-hidden="true">/</span> {t(tab)}</p>
+            <h2>{t(VIEW_INFO[tab].title)}</h2>
+            <p>{t(VIEW_INFO[tab].description)}</p>
           </div>
-          {tab === "Graph" && <div className="workspace-map-badge"><span aria-hidden="true" />Interactive 3D map</div>}
+          {tab === "Graph" && <div className="workspace-map-badge"><span aria-hidden="true" />{t("Interactive 3D map")}</div>}
         </div>
 
         {err && tab !== "Semi Bot" && (
           <div className="workspace-state" role="alert">
             <span className="workspace-state-icon" aria-hidden="true">!</span>
-            <h3>We couldn&apos;t load your research.</h3>
-            <p>Check your connection and try again. Your filter selections will stay in place.</p>
-            <button className="btn" onClick={() => setLoadAttempt((attempt) => attempt + 1)}>Try again</button>
+            <h3>{t("We couldn't load your research.")}</h3>
+            <p>{t("Check your connection and try again. Your filter selections will stay in place.")}</p>
+            <button className="btn" onClick={() => setLoadAttempt((attempt) => attempt + 1)}>{t("Try again")}</button>
           </div>
         )}
         {!viz && !err && tab !== "Semi Bot" && (
           <div className="workspace-state workspace-loading" role="status">
             <span className="workspace-loader" aria-hidden="true" />
-            <h3>Loading your research workspace</h3>
-            <p>Connecting companies, product chains, and source documents…</p>
+            <h3>{t("Loading your research workspace")}</h3>
+            <p>{t("Connecting companies, product chains, and source documents…")}</p>
           </div>
         )}
 
@@ -318,14 +342,14 @@ export default function Page() {
             <div className="workspace-graph-tools">
               <div className="workspace-search">
                 <div className="workspace-search-label">
-                  <label className="field-label" htmlFor="graph-company-search">Find a company</label>
-                  <span className="workspace-shortcut"><kbd>/</kbd> to search</span>
+                  <label className="field-label" htmlFor="graph-company-search">{t("Find a company")}</label>
+                  <span className="workspace-shortcut"><kbd>/</kbd> {t("to search")}</span>
                 </div>
                 <SearchBox
                   inputId="graph-company-search"
                   shortcut={!selected && !navOpen}
                   nodes={searchNodes}
-                  aliases={koNames}
+                  aliases={aliases}
                   onPick={(id) => {
                     // A company outside the component view would be hidden: leave that view first.
                     if (group && !group.ids.has(id)) setGroup(null);
@@ -341,20 +365,20 @@ export default function Page() {
                   }}
                 />
               </div>
-              <dl className="workspace-stats" aria-label="Visible graph summary">
-                <div><dt>Companies</dt><dd>{graphIds.size.toLocaleString("en-US")}<span> / {viz.nodes.length.toLocaleString("en-US")}</span></dd></div>
-                <div><dt>Connections</dt><dd>{linkCount.toLocaleString("en-US")}</dd></div>
-                <div><dt>Active chains</dt><dd>{chains.size}<span> / {Object.keys(CHAIN_COLORS).length}</span></dd></div>
+              <dl className="workspace-stats" aria-label={t("Visible graph summary")}>
+                <div><dt>{t("Companies")}</dt><dd>{graphIds.size.toLocaleString("en-US")}<span> / {viz.nodes.length.toLocaleString("en-US")}</span></dd></div>
+                <div><dt>{t("Connections")}</dt><dd>{linkCount.toLocaleString("en-US")}</dd></div>
+                <div><dt>{t("Active chains")}</dt><dd>{chains.size}<span> / {Object.keys(CHAIN_COLORS).length}</span></dd></div>
               </dl>
             </div>
             <div className="workspace-map-note">
-              <span>Click a company for details. Drag to rotate · Scroll to zoom.</span>
+              <span>{t("Click a company for details. Drag to rotate · Scroll to zoom.")}</span>
               {group && (
-                <button className="workspace-group-chip" onClick={() => setGroup(null)} aria-label={`Stop showing only ${group.label} makers`}>
-                  Showing “{group.label}” · {graphIds.size} companies ✕
+                <button className="workspace-group-chip" onClick={() => setGroup(null)} aria-label={t("Stop showing only {label} makers", { label: group.label })}>
+                  {t("Showing “{label}” · {n} companies", { label: group.label, n: graphIds.size })} ✕
                 </button>
               )}
-              {filtersChanged ? <button onClick={resetFilters}>Reset graph filters ↗</button> : <span className="workspace-all-visible">All filters selected</span>}
+              {filtersChanged ? <button onClick={resetFilters}>{t("Reset graph filters")} ↗</button> : <span className="workspace-all-visible">{t("All filters selected")}</span>}
             </div>
             <div className="workspace-map">
             <Graph3D
@@ -373,9 +397,9 @@ export default function Page() {
               <div className="workspace-map-empty" role="status">
                 <div>
                   <span className="workspace-state-icon" aria-hidden="true">⌕</span>
-                  <h3>No companies in this view</h3>
-                  <p>Choose another chain, layer, or domain, or restore all graph filters.</p>
-                  <button className="btn" onClick={resetFilters}>Show all companies</button>
+                  <h3>{t("No companies in this view")}</h3>
+                  <p>{t("Choose another chain, layer, or domain, or restore all graph filters.")}</p>
+                  <button className="btn" onClick={resetFilters}>{t("Show all companies")}</button>
                 </div>
               </div>
             )}
@@ -405,15 +429,15 @@ export default function Page() {
         {tab === "Semi Bot" && (
           <div className="embed">
             <p className="caption embed-caption">
-              Semi Bot dashboard, shown inline.{" "}
+              {t("Semi Bot dashboard, shown inline.")}{" "}
               <a href={SEMI_BOT_URL} target="_blank" rel="noopener noreferrer">
-                Open in a new tab ↗
+                {t("Open in a new tab")} ↗
               </a>
             </p>
             <iframe
               className="embed-frame"
               src={SEMI_BOT_URL}
-              title="Semi Bot dashboard"
+              title={t("Semi Bot dashboard")}
               loading="lazy"
               allow="clipboard-write; fullscreen"
             />

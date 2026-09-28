@@ -1,6 +1,10 @@
 // taxonomy.ts — port of taxonomy.py, the single source of truth for the
 // supply-chain vocabulary (layers, domains, colors, display names, order).
 // Data files store SLUGS for `layer`/`domain`; display names come from here.
+// The English names below are also the i18n keys: groupName()/slugLabel() pass
+// them through t(), which looks them up in ui-strings.ts for ko/zh/ja.
+
+import { t } from "./i18n";
 
 type Row = [slug: string, name: string, color: string];
 
@@ -81,8 +85,48 @@ export const CHAIN_COLORS: Record<string, string> = {
 };
 
 export const groupColor = (slug: string): string => GROUP_COLORS[slug] || "#94a3b8";
-export const groupName = (slug: string): string => GROUP_NAMES[slug] || slug;
+// Display name of a layer/domain slug in the current language.
+export const groupName = (slug: string): string => (GROUP_NAMES[slug] ? t(GROUP_NAMES[slug]) : slug);
 export const chainColor = (slug: string): string => CHAIN_COLORS[slug] || "#8b949e";
 
-// Turn a chain slug into a readable label ("nvda_b200" -> "nvda b200").
-export const slugLabel = (slug: string): string => slug.replace(/_/g, " ");
+// Display names for chain slugs and topic tags (English = the i18n key).
+export const SLUG_NAMES: Record<string, string> = {
+  // chains
+  nvidia_vera_rubin: "NVIDIA Vera Rubin",
+  google_tpu_v7_ironwood: "Google TPU v7 (Ironwood)",
+  nvda_b200: "NVIDIA B200 (Blackwell)",
+  optical_networking: "Optical Networking",
+  broadcom_custom_asic: "Broadcom Custom ASIC",
+  hbm_memory: "HBM Memory",
+  nand_flash: "NAND Flash",
+  cpu_datacenter: "Data Center CPU",
+  mlcc: "MLCC",
+  power_cooling: "Power & Cooling",
+  foundry: "Foundry",
+  amd_mi450_helios: "AMD MI450 / Helios",
+  aws_trainium2: "AWS Trainium2",
+  packaging_substrate: "Packaging & Substrate",
+  tpu_v8t: "Google TPU v8t",
+  tpu_v8i: "Google TPU v8i",
+  amd_mi355: "AMD MI355",
+  aws_trainium3: "AWS Trainium3",
+  neocloud: "Neocloud",
+  power_semiconductor: "Power Semiconductors",
+  ai_bio: "AI Bio",
+  // topic tags (quarterly_data / contracts `topics`)
+  supply_tightness: "Supply tightness",
+  transitions: "Generation transitions",
+  product_launches: "Product launches",
+  hbm: "HBM",
+  nand_storage: "NAND & storage",
+  optical_speed: "Optical speed",
+  silicon_photonics: "Silicon photonics",
+  cpo: "CPO",
+  cpu: "CPU",
+  ocs: "OCS",
+};
+
+// Turn a chain slug / topic tag into a readable label in the current language
+// ("nvda_b200" -> "NVIDIA B200 (Blackwell)"; unknown slugs -> "some slug").
+export const slugLabel = (slug: string): string =>
+  SLUG_NAMES[slug] ? t(SLUG_NAMES[slug]) : slug.replace(/_/g, " ");

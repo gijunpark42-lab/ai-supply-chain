@@ -7,6 +7,7 @@
 
 import { useEffect, useState } from "react";
 import type { Fundamentals as F } from "@/lib/types";
+import { useLang } from "@/lib/i18n";
 
 const REFRESH_MS = 30_000; // auto-refresh interval while the panel is open
 
@@ -28,6 +29,7 @@ export default function Fundamentals({
   ticker: string;
   exchange: string | null;
 }) {
+  const { t } = useLang();
   const [data, setData] = useState<F | null>(null);
 
   useEffect(() => {
@@ -49,31 +51,31 @@ export default function Fundamentals({
   if (!data) return null;
 
   const cells: [string, string, string][] = [
-    ["P/E", x(data.trailing_pe), "Trailing 12-month P/E"],
-    ["Fwd P/E", x(data.forward_pe), "Forward P/E (next fiscal year consensus EPS)"],
-    ["PEG", data.peg == null ? "—" : data.peg.toFixed(2), "PEG ratio"],
-    ["P/B", x(data.pb), "Price / book"],
-    ["P/S", x(data.ps), "Price / sales (TTM)"],
-    ["EV/EBITDA", x(data.ev_ebitda), "Enterprise value / EBITDA"],
-    ["ROE", pct(data.roe), "Return on equity"],
-    ["Rev g", pct(data.revenue_growth), "Revenue growth, latest quarter YoY"],
-    ["GM", pct(data.gross_margin), "Gross margin (TTM)"],
-    ["OPM", pct(data.op_margin), "Operating margin (TTM)"],
+    ["P/E", x(data.trailing_pe), t("Trailing 12-month P/E")],
+    ["Fwd P/E", x(data.forward_pe), t("Forward P/E (next fiscal year consensus EPS)")],
+    ["PEG", data.peg == null ? "—" : data.peg.toFixed(2), t("PEG ratio")],
+    ["P/B", x(data.pb), t("Price / book")],
+    ["P/S", x(data.ps), t("Price / sales (TTM)")],
+    ["EV/EBITDA", x(data.ev_ebitda), t("Enterprise value / EBITDA")],
+    ["ROE", pct(data.roe), t("Return on equity")],
+    ["Rev g", pct(data.revenue_growth), t("Revenue growth, latest quarter YoY")],
+    ["GM", pct(data.gross_margin), t("Gross margin (TTM)")],
+    ["OPM", pct(data.op_margin), t("Operating margin (TTM)")],
   ];
-  if (data.dividend_yield) cells.push(["Div", pct(data.dividend_yield), "Dividend yield"]);
+  if (data.dividend_yield) cells.push(["Div", pct(data.dividend_yield), t("Dividend yield")]);
   if (data.target_mean != null)
     cells.push([
       "Target",
       data.target_mean.toLocaleString(undefined, { maximumFractionDigits: 0 }) +
         (data.analysts ? ` (${data.analysts})` : ""),
-      "Analyst mean price target (number of analysts)",
+      t("Analyst mean price target (number of analysts)"),
     ]);
 
   return (
     <div className="fund">
       {cells.map(([k, v, tip]) => (
         <div className="fund-cell" key={k} title={tip}>
-          <span className="fund-k">{k}</span>
+          <span className="fund-k">{t(k)}</span>
           <span className="fund-v">{v}</span>
         </div>
       ))}

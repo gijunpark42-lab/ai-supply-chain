@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { fetchJson } from "@/lib/data";
 import { ENTRY_DATE, money, pct, tone, type Quotes } from "@/lib/picks";
+import { useLang } from "@/lib/i18n";
 
 // One screened company in /data/picks_universe.json — every listed name the
 // screen scored, not just the 15 that made a basket.
@@ -31,6 +32,7 @@ export default function PicksUniverse({
   pickSymbols: Set<string>; // the current basket's 15, to badge them in the list
   onOpen: (company: string) => void;
 }) {
+  const { t, name } = useLang();
   const [open, setOpen] = useState(false);
   const [all, setAll] = useState<URow[] | null>(null);
   const [err, setErr] = useState(false);
@@ -98,52 +100,50 @@ export default function PicksUniverse({
         aria-controls="pk-uni-panel"
         onClick={() => setOpen((o) => !o)}
       >
-        <span>{open ? "Hide" : "Show"} all {total} screened companies</span>
+        <span>{t(open ? "Hide all {n} screened companies" : "Show all {n} screened companies", { n: total })}</span>
         <span className={"pk-uni-caret" + (open ? " open" : "")} aria-hidden="true">▾</span>
       </button>
 
       {open && (
         <div id="pk-uni-panel">
-          {err && <div className="pk-state" role="alert">We couldn&apos;t load the screened list. Try again in a moment.</div>}
-          {!err && !all && <div className="pk-state" role="status">Loading the full list…</div>}
+          {err && <div className="pk-state" role="alert">{t("We couldn't load the screened list. Try again in a moment.")}</div>}
+          {!err && !all && <div className="pk-state" role="status">{t("Loading the full list…")}</div>}
           {all && (
             <>
               <p className="pk-blurb pk-uni-blurb">
-                Every company the screen scored, best first. <strong>Score</strong> is the 0–10
-                one-quarter rating; <strong>Off high</strong> is how far the stock sat below its
-                6-month high at the {ENTRY_DATE} close.
-                {priced < list.length && ` Pricing ${priced} of ${list.length}…`}
+                {t("Every company the screen scored, best first. Score is the 0–10 one-quarter rating; Off high is how far the stock sat below its 6-month high at the {date} close.", { date: ENTRY_DATE })}
+                {priced < list.length && " " + t("Pricing {n} of {total}…", { n: priced, total: list.length })}
               </p>
               <div className="pk-tablewrap pk-uni-wrap">
                 <table className="pk-table">
                   <thead>
                     <tr>
                       <th className="pk-num">#</th>
-                      <th>Company</th>
-                      <th className="pk-hide-sm">Ticker</th>
+                      <th>{t("Company")}</th>
+                      <th className="pk-hide-sm">{t("Ticker")}</th>
                       <th className="pk-r">
                         <button className={"pk-sort" + (sort === "score" ? " on" : "")} onClick={() => setSort("score")}>
-                          Score
+                          {t("Score")}
                         </button>
                       </th>
-                      <th className="pk-r pk-hide-sm">Entry ({ENTRY_DATE.slice(5)})</th>
-                      <th className="pk-r">Last</th>
+                      <th className="pk-r pk-hide-sm">{t("Entry ({date})", { date: ENTRY_DATE.slice(5) })}</th>
+                      <th className="pk-r">{t("Last")}</th>
                       <th className="pk-r">
                         <button className={"pk-sort" + (sort === "ret" ? " on" : "")} onClick={() => setSort("ret")}>
-                          vs entry
+                          {t("vs entry")}
                         </button>
                       </th>
-                      <th className="pk-r pk-hide-sm">Off high</th>
+                      <th className="pk-r pk-hide-sm">{t("Off high")}</th>
                     </tr>
                   </thead>
                   <tbody>
                     {rows.map(({ r, pos, price, ret }) => (
                       <tr key={r.company} onClick={() => onOpen(r.company)} tabIndex={0}
                           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(r.company); } }}
-                          title={`Open ${r.company}`}>
+                          title={t("Open {name}", { name: name(r.company) })}>
                         <td className="pk-num">{pos}</td>
                         <td className="pk-co">
-                          <span className="co-link">{r.company}</span>
+                          <span className="co-link">{name(r.company)}</span>
                           {r.market === "KR" && <span className="pk-flag">KR</span>}
                           {pickSymbols.has(r.symbol) && <span className="pk-flag pk-flag-top">TOP 15</span>}
                         </td>

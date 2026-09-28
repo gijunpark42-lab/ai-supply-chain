@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { VizNode, VizLink } from "@/lib/types";
 import { BADGE_EMOJI } from "@/lib/signals";
 import { LAYERS, DOMAINS, GROUP_COLORS, groupName } from "@/lib/taxonomy";
+import { useLang } from "@/lib/i18n";
 import "./Graph.css";
 
 // react-force-graph-3d is ESM + touches window/three at import time, so we load
@@ -115,6 +116,7 @@ export default function Graph3D({
   showLegend = true,
   labelLimit = 80,
 }: Props) {
+  const { t, name, rev } = useLang();
   const fgRef = useRef<any>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -360,7 +362,7 @@ export default function Graph3D({
       const hop = focus.hop.get(id) || 0;
       const el = document.createElement("div");
       el.className = "gx-label" + (hop === 0 ? " focus" : hop === 1 ? " near" : "");
-      el.textContent = id;
+      el.textContent = name(id);
       el.style.borderLeftColor = n.color;
       host.appendChild(el);
       objs.push({ n, el, rWorld: 4 * Math.cbrt(n.val) });
@@ -370,7 +372,8 @@ export default function Graph3D({
       host.innerHTML = "";
       labelObjsRef.current = [];
     };
-  }, [focus, nodes, labelLimit]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focus, nodes, labelLimit, rev]);
 
   // Fly the camera to a searched node (only if it is currently visible).
   useEffect(() => {
@@ -432,15 +435,16 @@ export default function Graph3D({
     const counts = new Map<string, number>();
     for (const n of nodes) if (visibleIds.has(n.id)) counts.set(n.primary, (counts.get(n.primary) || 0) + 1);
     const rows: { slug: string; name: string; color: string; count: number }[] = [];
-    for (const [slug, name, color] of [...LAYERS, ...DOMAINS]) {
+    for (const [slug, en, color] of [...LAYERS, ...DOMAINS]) {
       const c = counts.get(slug);
-      if (c) rows.push({ slug, name, color, count: c });
+      if (c) rows.push({ slug, name: t(en), color, count: c });
     }
     let other = 0;
     for (const [slug, c] of counts) if (!(slug in GROUP_COLORS)) other += c;
-    if (other) rows.push({ slug: "other", name: "Other", color: "#94a3b8", count: other });
+    if (other) rows.push({ slug: "other", name: t("Other"), color: "#94a3b8", count: other });
     return rows;
-  }, [nodes, visibleIds]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nodes, visibleIds, rev]);
 
   // ── Accessors handed to the force graph (memoised: a new function identity
   //    makes the library re-walk every node/link's material) ──────────────
@@ -468,18 +472,19 @@ export default function Graph3D({
       const chains = n.chains ? n.chains.length : 0;
       const meta = [
         groupName(n.primary),
-        `${chains} chain${chains === 1 ? "" : "s"}`,
-        n.lastData ? `last data ${n.lastData}` : "no dated signals",
+        t(chains === 1 ? "{n} chain" : "{n} chains", { n: chains }),
+        n.lastData ? t("last data {date}", { date: n.lastData }) : t("no dated signals"),
       ].join(" · ");
       const out = focus && !focus.nodes.has(n.id)
-        ? `<div class="gx-tip-h">outside the current focus</div>`
+        ? `<div class="gx-tip-h">${escHtml(t("outside the current focus"))}</div>`
         : "";
       return (
-        `<div class="gx-tip"><div class="gx-tip-t">${escHtml(n.id)}${em ? " " + em : ""}</div>` +
+        `<div class="gx-tip"><div class="gx-tip-t">${escHtml(name(n.id))}${em ? " " + em : ""}</div>` +
         `<div class="gx-tip-m">${escHtml(meta)}</div>${out}</div>`
       );
     },
-    [focus]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [focus, rev]
   );
 
   // Particles and arrows are per-link THREE meshes: at 253 contract links (x2
@@ -506,8 +511,8 @@ export default function Graph3D({
     <div ref={wrapRef} className="graph-wrap gx-graph">
       <div ref={overlayRef} className="nodelogos" />
       <div ref={labelsRef} className="gx-labels" />
-      {loadErr && <div className="graph-msg">Failed to load 3D graph library: {loadErr}</div>}
-      {!FG && !loadErr && <div className="graph-msg">Initializing 3D engine…</div>}
+      {loadErr && <div className="graph-msg">{t("Failed to load 3D graph library:")} {loadErr}</div>}
+      {!FG && !loadErr && <div className="graph-msg">{t("Initializing 3D engine…")}</div>}
       {FG && (
         <FG
           ref={fgRef}
@@ -556,37 +561,37 @@ export default function Graph3D({
 
       {/* Overlay controls. Rendered even before the engine is ready so the layout
           does not jump; the handlers simply no-op until fgRef is set. */}
-      <div className="gx-toolbar" role="toolbar" aria-label="Graph controls">
-        <button type="button" className="gx-btn" onClick={fitView} title="Frame every visible company (or the focused neighborhood)">
-          Fit view
+      <div className="gx-toolbar" role="toolbar" aria-label={t("Graph controls")}>
+        <button type="button" className="gx-btn" onClick={fitView} title={t("Frame every visible company (or the focused neighborhood)")}>
+          {t("Fit view")}
         </button>
-        <button type="button" className="gx-btn" onClick={reset} title="Leave focus mode and frame the whole graph">
-          Reset
+        <button type="button" className="gx-btn" onClick={reset} title={t("Leave focus mode and frame the whole graph")}>
+          {t("Reset")}
         </button>
         {focus && (
           <>
-            <span className="gx-seg" role="group" aria-label="Neighborhood depth">
+            <span className="gx-seg" role="group" aria-label={t("Neighborhood depth")}>
               <button
                 type="button"
                 className={"gx-seg-b" + (hops === 1 ? " on" : "")}
                 aria-pressed={hops === 1}
                 onClick={() => setHops(1)}
-                title="Direct suppliers and customers only"
+                title={t("Direct suppliers and customers only")}
               >
-                1 hop
+                {t("1 hop")}
               </button>
               <button
                 type="button"
                 className={"gx-seg-b" + (hops === 2 ? " on" : "")}
                 aria-pressed={hops === 2}
                 onClick={() => setHops(2)}
-                title="Also the suppliers' suppliers and the customers' customers"
+                title={t("Also the suppliers' suppliers and the customers' customers")}
               >
-                2 hops
+                {t("2 hops")}
               </button>
             </span>
-            <span className="gx-chip" title={`${focus.nodes.size - 1} companies within ${hops} hop${hops === 1 ? "" : "s"} of ${focus.id}`}>
-              Focus: <b>{focus.id}</b> · {focus.nodes.size - 1} neighbor{focus.nodes.size - 1 === 1 ? "" : "s"} · Esc to exit
+            <span className="gx-chip" title={t("{n} companies within {h} hop(s) of {name}", { n: focus.nodes.size - 1, h: hops, name: name(focus.id) })}>
+              {t("Focus:")} <b>{name(focus.id)}</b> · {t(focus.nodes.size - 1 === 1 ? "{n} neighbor" : "{n} neighbors", { n: focus.nodes.size - 1 })} · {t("Esc to exit")}
             </span>
           </>
         )}
@@ -599,9 +604,9 @@ export default function Graph3D({
             className="gx-legend-t"
             onClick={() => setLegendOpen((o) => !o)}
             aria-expanded={legendOpen}
-            title="Node color = the company's primary layer"
+            title={t("Node color = the company's primary layer")}
           >
-            Layers {legendOpen ? "▾" : "▸"}
+            {t("Layers")} {legendOpen ? "▾" : "▸"}
           </button>
           {legendOpen && (
             <ul className="gx-legend-l">

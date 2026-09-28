@@ -2,7 +2,8 @@
 
 import { memo, useEffect, useId, useMemo, useRef, useState } from "react";
 import type { VizNode } from "@/lib/types";
-import { GROUP_NAMES } from "@/lib/taxonomy";
+import { groupName } from "@/lib/taxonomy";
+import { useLang } from "@/lib/i18n";
 import { buildSearchIndex, searchNodes, loadRecent, pushRecent, type SearchHit } from "@/lib/search";
 // The `.srch-*` styles live in Sidebar.css (this agent's shared stylesheet).
 // Next's app router lets any client component import a global CSS file; the
@@ -36,10 +37,11 @@ export default function SearchBox({
   onClear,
   aliases,
   onPickGroup,
-  placeholder = "Search company, ticker, product…",
+  placeholder,
   inputId,
   shortcut = false,
 }: Props) {
+  const { t, name } = useLang();
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0); // index of the highlighted row
@@ -104,7 +106,7 @@ export default function SearchBox({
 
   const pick = (id: string) => {
     setRecent(pushRecent(id));
-    setQ(id); // leave the chosen name in the box so the user sees what is focused
+    setQ(name(id)); // leave the chosen name in the box so the user sees what is focused
     setOpen(false);
     onPick(id);
   };
@@ -169,11 +171,11 @@ export default function SearchBox({
           aria-controls={`${listId}-list`}
           aria-autocomplete="list"
           aria-activedescendant={activeId}
-          aria-label="Search company, ticker, or product"
+          aria-label={t("Search company, ticker, or product")}
           aria-keyshortcuts={shortcut ? "/" : undefined}
           autoComplete="off"
           spellCheck={false}
-          placeholder={placeholder}
+          placeholder={placeholder ?? t("Search company, ticker, product…")}
           value={q}
           onChange={(e) => {
             setQ(e.target.value);
@@ -191,7 +193,7 @@ export default function SearchBox({
           <button
             type="button"
             className="srch-clear"
-            aria-label="Clear search"
+            aria-label={t("Clear search")}
             // Keep pointer focus in the input; click also supports Enter/Space.
             onMouseDown={(e) => {
               e.preventDefault();
@@ -216,8 +218,8 @@ export default function SearchBox({
           // before the row's onClick could fire).
           onMouseDown={(e) => e.preventDefault()}
         >
-          {showingRecent && <div className="srch-sec">Recent</div>}
-          {rows.length === 0 && <div className="srch-empty">No company matches “{query}”</div>}
+          {showingRecent && <div className="srch-sec">{t("Recent")}</div>}
+          {rows.length === 0 && <div className="srch-empty">{t("No company matches “{q}”", { q: query })}</div>}
           {group && (
             <button
               type="button"
@@ -236,7 +238,7 @@ export default function SearchBox({
                 {group.terms.length > 0 && <span className="srch-group-terms"> → {group.terms.join(", ")}</span>}
               </span>
               <span className="srch-hint">
-                {group.ids.length} companies · show on graph
+                {t("{n} companies · show on graph", { n: group.ids.length })}
               </span>
             </button>
           )}
@@ -252,7 +254,7 @@ export default function SearchBox({
             />
           ))}
           {rows.length > 0 && (
-            <div className="srch-kbd">↑ ↓ to move · Enter to open · Esc to close</div>
+            <div className="srch-kbd">{t("↑ ↓ to move · Enter to open · Esc to close")}</div>
           )}
         </div>
       )}
@@ -277,6 +279,7 @@ const ResultRow = memo(function ResultRow({
   onHover: (i: number) => void;
   onPick: (id: string) => void;
 }) {
+  const { t, tr, name } = useLang();
   const n = hit.node;
   const chains = n.chains.length;
   return (
@@ -292,16 +295,16 @@ const ResultRow = memo(function ResultRow({
       onClick={() => onPick(n.id)}
     >
       <span className="srch-dot" style={{ background: n.color }} />
-      <span className="srch-name">{n.id}</span>
+      <span className="srch-name">{name(n.id)}</span>
       {n.ticker && <span className="srch-tick">{n.ticker}</span>}
       {(hit.kind === "product" || hit.kind === "ko") && hit.why && (
-        <span className="srch-why" title={hit.why}>
-          {hit.why}
+        <span className="srch-why" title={hit.kind === "product" ? tr(hit.why) : hit.why}>
+          {hit.kind === "product" ? tr(hit.why) : hit.why}
         </span>
       )}
       <span className="srch-hint">
-        {GROUP_NAMES[n.primary] || n.primary}
-        {chains > 0 ? ` · ${chains} chain${chains === 1 ? "" : "s"}` : ""}
+        {groupName(n.primary)}
+        {chains > 0 ? " · " + t(chains === 1 ? "{n} chain" : "{n} chains", { n: chains }) : ""}
       </span>
     </button>
   );

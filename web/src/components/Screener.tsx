@@ -3,11 +3,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { VizNode } from "@/lib/types";
 import { fetchJson } from "@/lib/data";
-import { GROUP_NAMES, LAYER_ORDER, DOMAIN_ORDER, slugLabel } from "@/lib/taxonomy";
+import { GROUP_NAMES, LAYER_ORDER, DOMAIN_ORDER, groupName, slugLabel } from "@/lib/taxonomy";
+import { t, tr, name, useLang } from "@/lib/i18n";
 import {
   AGING_DAYS,
   FRESH_DAYS,
-  FRESHNESS_LABEL,
+  freshnessLabel,
   copyToClipboard,
   csvFilename,
   downloadCsv,
@@ -121,6 +122,7 @@ export default function Screener({
   // the NodePanel directly — no name resolution needed here.
   onOpen: (id: string) => void;
 }) {
+  const { rev } = useLang(["metrics"]);
   const [metrics, setMetrics] = useState<Record<string, Metric>>({});
   const [gLayer, setGLayer] = useState("All");
   const [gSector, setGSector] = useState("All");
@@ -179,8 +181,8 @@ export default function Screener({
     const groups = new Set<string>();
     const sectors = new Set<string>();
     const chns = new Set<string>();
-    for (const name of Object.keys(metrics)) {
-      const n = byId.get(name);
+    for (const id of Object.keys(metrics)) {
+      const n = byId.get(id);
       if (!n) continue;
       n.layers.forEach((l) => groups.add(l));
       n.domains.forEach((d) => groups.add(d));
@@ -199,12 +201,12 @@ export default function Screener({
   // Step 1 — every company, with its graph facts and freshness worked out once.
   const allRows = useMemo<Row[]>(() => {
     const out: Row[] = [];
-    for (const [name, m] of Object.entries(metrics)) {
-      const n = byId.get(name);
+    for (const [id, m] of Object.entries(metrics)) {
+      const n = byId.get(id);
       const { bucket, days } = freshnessBucket(m.asof, now);
       const primary = n ? n.layers[0] || n.domains[0] || "" : "";
       out.push({
-        company: name,
+        company: id,
         ticker: n?.ticker || "",
         exchange: n?.exchange || "",
         layer: primary ? GROUP_NAMES[primary] || primary : "",
@@ -236,17 +238,20 @@ export default function Screener({
         if (gSector !== "All" && !n.sectors.includes(gSector)) return false;
         if (gChain !== "All" && !n.chains.includes(gChain)) return false;
       }
+      // Search the English text and what is on screen (names / translations).
       if (
         q &&
         !matchesQuery(
-          [r.company, r.ticker, r.exchange, r.layer, r.growth, r.guidance, r.backlog, r.supply, r.catalyst, r.asof],
+          [r.company, r.ticker, r.exchange, r.layer, r.growth, r.guidance, r.backlog, r.supply, r.catalyst, r.asof,
+            name(r.company), t(r.layer), tr(r.growth), tr(r.guidance), tr(r.backlog), tr(r.supply), tr(r.catalyst)],
           q
         )
       )
         return false;
       return true;
     });
-  }, [allRows, byId, gLayer, gSector, gChain, query]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allRows, byId, gLayer, gSector, gChain, query, rev]);
 
   const freshCounts = useMemo(() => {
     const c: Record<Freshness, number> = { fresh: 0, aging: 0, stale: 0, unknown: 0 };
@@ -306,54 +311,65 @@ export default function Screener({
   };
   // Button text: momentary "Copied ✓" / "Copy failed" feedback, else the label.
   const btnText = (key: string, label: string) =>
-    flashed === key ? "Copied ✓" : flashed === `${key}-fail` ? "Copy failed" : label;
+    flashed === key ? t("Copied ✓") : flashed === `${key}-fail` ? t("Copy failed") : label;
+
+  // What a cell shows: slot text is data (overlay), the layer name is UI text.
+  const shown = (r: Row, k: ColKey): string => {
+    const v = r[k];
+    if (!v) return "";
+    if (k === "layer") return t(v);
+    if (k === "ticker" || k === "exchange" || k === "asof" || k === "company") return v;
+    return tr(v);
+  };
+  // detailFor() matches the ENGLISH cell text; only its output is translated.
+  const shownDetail = (company: string, value: string): CellDetail | undefined => {
+    const d = detailFor(company, value);
+    return d ? { source: d.source, signal: d.signal ? tr(d.signal) : d.signal } : undefined;
+  };
 
   const hiddenStale = hideStale ? freshCounts.stale : 0;
   const tickerCount = new Set(rows.map((r) => r.ticker).filter(Boolean)).size;
 
   return (
     <div>
-      <h3>🔎 Company Screener</h3>
+      <h3>🔎 {t("Company Screener")}</h3>
       <p className="caption">
-        Headline operational metrics per company — no share prices, just signals. Filter by
-        layer, sector, chain or text; click a column header to sort. The &quot;As of&quot;
-        colour is the age of the source call: green ≤{FRESH_DAYS} days, amber ≤{AGING_DAYS},
-        red older.
+        {t("Headline operational metrics per company — no share prices, just signals. Filter by layer, sector, chain or text; click a column header to sort. The \"As of\" colour is the age of the source call: green ≤{fresh} days, amber ≤{aging}, red older.", { fresh: FRESH_DAYS, aging: AGING_DAYS })}
       </p>
 
       <div className="tb-toolbar">
         <div className="tb-field">
           <label className="field-label" htmlFor="scr-layer">
-            Layer / Domain
+            {t("Layer / Domain")}
           </label>
           <select id="scr-layer" value={gLayer} onChange={(e) => setGLayer(e.target.value)}>
-            <option value="All">All</option>
+            <option value="All">{t("All")}</option>
             {groupOpts.map((g) => (
               <option key={g} value={g}>
-                {GROUP_NAMES[g] || g}
+                {groupName(g)}
               </option>
             ))}
           </select>
         </div>
         <div className="tb-field">
           <label className="field-label" htmlFor="scr-sector">
-            Sector
+            {t("Sector")}
           </label>
           <select id="scr-sector" value={gSector} onChange={(e) => setGSector(e.target.value)}>
-            <option value="All">All</option>
+            <option value="All">{t("All")}</option>
             {sectorOpts.map((s) => (
               <option key={s} value={s}>
-                {s}
+                {tr(s)}
               </option>
             ))}
           </select>
         </div>
         <div className="tb-field">
           <label className="field-label" htmlFor="scr-chain">
-            Chain
+            {t("Chain")}
           </label>
           <select id="scr-chain" value={gChain} onChange={(e) => setGChain(e.target.value)}>
-            <option value="All">All</option>
+            <option value="All">{t("All")}</option>
             {chainOpts.map((c) => (
               <option key={c} value={c}>
                 {slugLabel(c)}
@@ -363,12 +379,12 @@ export default function Screener({
         </div>
         <div className="tb-field tb-search">
           <label className="field-label" htmlFor="scr-q">
-            Search
+            {t("Search")}
           </label>
           <input
             id="scr-q"
             type="search"
-            placeholder="Company, ticker, or any word in the metrics…"
+            placeholder={t("Company, ticker, or any word in the metrics…")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -379,15 +395,15 @@ export default function Screener({
             className="tb-btn"
             aria-pressed={hideStale}
             onClick={() => setHideStale((v) => !v)}
-            title={`Hide companies whose latest source is older than ${AGING_DAYS} days`}
+            title={t("Hide companies whose latest source is older than {n} days", { n: AGING_DAYS })}
           >
-            Hide stale
+            {t("Hide stale")}
           </button>
           <details className="tb-menu" ref={menuRef}>
-            <summary className="tb-btn" title="Show or hide columns">
-              Columns ▾
+            <summary className="tb-btn" title={t("Show or hide columns")}>
+              {t("Columns")} ▾
             </summary>
-            <div className="tb-menu-panel" role="group" aria-label="Show or hide columns">
+            <div className="tb-menu-panel" role="group" aria-label={t("Show or hide columns")}>
               {COLS.filter((c) => c.key !== "company").map((c) => (
                 <label key={c.key} className="tb-check">
                   <input
@@ -395,7 +411,7 @@ export default function Screener({
                     checked={visibleCols.has(c.key)}
                     onChange={() => toggleCol(c.key)}
                   />
-                  {c.label}
+                  {t(c.label)}
                 </label>
               ))}
               <button
@@ -403,7 +419,7 @@ export default function Screener({
                 className="tb-link"
                 onClick={() => setVisibleCols(new Set(DEFAULT_COLS))}
               >
-                Reset to default
+                {t("Reset to default")}
               </button>
             </div>
           </details>
@@ -412,48 +428,48 @@ export default function Screener({
             className="tb-btn"
             onClick={copyTickers}
             disabled={tickerCount === 0}
-            title="Copy the visible rows' tickers as a comma-separated list (for a watchlist)"
+            title={t("Copy the visible rows' tickers as a comma-separated list (for a watchlist)")}
           >
-            {btnText("tickers", `Copy tickers (${tickerCount})`)}
+            {btnText("tickers", t("Copy tickers ({n})", { n: tickerCount }))}
           </button>
           <button
             type="button"
             className="tb-btn"
             onClick={copyCsv}
             disabled={rows.length === 0}
-            title="Copy the visible rows as CSV"
+            title={t("Copy the visible rows as CSV")}
           >
-            {btnText("csv", "Copy CSV")}
+            {btnText("csv", t("Copy CSV"))}
           </button>
           <button
             type="button"
             className="tb-btn"
             onClick={download}
             disabled={rows.length === 0}
-            title="Download the visible rows as a CSV file"
+            title={t("Download the visible rows as a CSV file")}
           >
-            Download CSV
+            {t("Download CSV")}
           </button>
         </div>
       </div>
 
       <div className="tb-summary">
         <span>
-          Showing <strong>{rows.length}</strong> of {allRows.length} companies
-          {hiddenStale > 0 && <> · {hiddenStale} stale hidden</>}
+          {t("Showing {n} of {total} companies", { n: rows.length, total: allRows.length })}
+          {hiddenStale > 0 && <> · {t("{n} stale hidden", { n: hiddenStale })}</>}
         </span>
-        <span className="tb-legend" aria-label="Freshness of the visible rows">
-          <span title={FRESHNESS_LABEL.fresh}>
+        <span className="tb-legend" aria-label={t("Freshness of the visible rows")}>
+          <span title={freshnessLabel("fresh")}>
             <span className="tb-dot fresh" aria-hidden="true" />
-            {freshCounts.fresh} fresh
+            {t("{n} fresh", { n: freshCounts.fresh })}
           </span>
-          <span title={FRESHNESS_LABEL.aging}>
+          <span title={freshnessLabel("aging")}>
             <span className="tb-dot aging" aria-hidden="true" />
-            {freshCounts.aging} aging
+            {t("{n} aging", { n: freshCounts.aging })}
           </span>
-          <span title={FRESHNESS_LABEL.stale}>
+          <span title={freshnessLabel("stale")}>
             <span className="tb-dot stale" aria-hidden="true" />
-            {freshCounts.stale} stale
+            {t("{n} stale", { n: freshCounts.stale })}
           </span>
         </span>
       </div>
@@ -475,7 +491,7 @@ export default function Screener({
                     sortKey === c.key ? (sortDir === 1 ? "ascending" : "descending") : "none"
                   }
                   tabIndex={0}
-                  title={`Sort by ${c.label}`}
+                  title={t("Sort by {col}", { col: t(c.label) })}
                   onClick={() => onSort(c.key)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
@@ -484,7 +500,7 @@ export default function Screener({
                     }
                   }}
                 >
-                  <span className="th-label">{c.label}</span>
+                  <span className="th-label">{t(c.label)}</span>
                   <span className="sort-arrow" aria-hidden="true">
                     {sortKey === c.key ? (sortDir === 1 ? "▲" : "▼") : "↕"}
                   </span>
@@ -496,26 +512,26 @@ export default function Screener({
             {rows.length === 0 && (
               <tr>
                 <td colSpan={cols.length} className="tb-empty">
-                  No companies match the current filters.
+                  {t("No companies match the current filters.")}
                 </td>
               </tr>
             )}
             {rows.map((r) => (
               <tr key={r.company}>
                 {cols.map((c) => (
-                  <td key={c.key} data-label={c.label} className={c.bold ? "co" : ""}>
+                  <td key={c.key} data-label={t(c.label)} className={c.bold ? "co" : ""}>
                     {c.key === "company" ? (
-                      <div className="cell" title={r.hasNode ? `Open ${r.company}` : undefined}>
+                      <div className="cell" title={r.hasNode ? t("Open {name}", { name: name(r.company) }) : undefined}>
                         {r.hasNode ? (
                           <button
                             type="button"
                             className="co-link"
                             onClick={() => onOpen(r.company)}
                           >
-                            {r.company}
+                            {name(r.company)}
                           </button>
                         ) : (
-                          r.company
+                          name(r.company)
                         )}
                       </div>
                     ) : c.key === "asof" ? (
@@ -523,8 +539,8 @@ export default function Screener({
                         className={`cell tb-asof ${r.fresh}`}
                         title={
                           r.asof
-                            ? `${FRESHNESS_LABEL[r.fresh]} — source dated ${r.asof} (${formatAge(r.days)})`
-                            : "No source date"
+                            ? t("{label} — source dated {date} ({age})", { label: freshnessLabel(r.fresh), date: r.asof, age: formatAge(r.days) })
+                            : t("No source date")
                         }
                       >
                         <span className={`tb-dot ${r.fresh}`} aria-hidden="true" />
@@ -533,11 +549,11 @@ export default function Screener({
                       </div>
                     ) : (
                       <CellText
-                        text={r[c.key] || "—"}
-                        label={c.label}
-                        subject={r.company}
+                        text={shown(r, c.key) || "—"}
+                        label={t(c.label)}
+                        subject={name(r.company)}
                         className={c.nowrap ? "nowrap" : undefined}
-                        detail={detailFor(r.company, r[c.key])}
+                        detail={shownDetail(r.company, r[c.key])}
                       />
                     )}
                   </td>
@@ -548,8 +564,7 @@ export default function Screener({
         </table>
       </div>
       <p className="caption" style={{ marginTop: "0.6rem" }}>
-        {rows.length} companies shown · {Object.keys(metrics).length} total in
-        company_metrics.json · exports include the visible rows only
+        {t("{n} companies shown · {total} total in company_metrics.json · exports include the visible rows only", { n: rows.length, total: Object.keys(metrics).length })}
       </p>
     </div>
   );

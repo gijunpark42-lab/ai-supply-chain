@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { CHAIN_COLORS, LAYERS, DOMAINS, slugLabel } from "@/lib/taxonomy";
+import { t, useLang } from "@/lib/i18n";
 import "./Sidebar.css";
 
 // Optional: how many currently VISIBLE nodes each chain / layer / domain has.
@@ -57,9 +58,9 @@ function AllNone({ kind, bulk }: { kind: "chain" | "layer" | "domain"; bulk: Pro
   };
   return (
     <span className="allnone">
-      <button aria-label={`Select all ${kind}s`} onClick={stop(() => bulk(kind, true))}>All</button>
+      <button aria-label={t(`Select all ${kind}s`)} onClick={stop(() => bulk(kind, true))}>{t("All")}</button>
       <span>·</span>
-      <button aria-label={`Clear all ${kind}s`} onClick={stop(() => bulk(kind, false))}>None</button>
+      <button aria-label={t(`Clear all ${kind}s`)} onClick={stop(() => bulk(kind, false))}>{t("None")}</button>
     </span>
   );
 }
@@ -85,7 +86,7 @@ function Row({
       <span className="dot" style={{ background: color }} />
       <span className="row-label">{label}</span>
       {count !== undefined && (
-        <span className={"sbx-cnt" + (count === 0 ? " zero" : "")} title={`${count} visible companies`}>
+        <span className={"sbx-cnt" + (count === 0 ? " zero" : "")} title={t("{n} visible companies", { n: count })}>
           {count}
         </span>
       )}
@@ -137,23 +138,23 @@ function Legend() {
     <div className="sbx-legend">
       <button className="sbx-legend-head" aria-expanded={open} aria-controls={legendId} onClick={() => setOpen(!open)}>
         <span className="sb-caret">{open ? "▾" : "▸"}</span>
-        <span className="sb-title">Legend</span>
-        <span className="sb-count">node colors</span>
+        <span className="sb-title">{t("Legend")}</span>
+        <span className="sb-count">{t("node colors")}</span>
       </button>
       {open && (
         <div className="sbx-legend-grid" id={legendId}>
-          <div className="sbx-legend-sub">Layers (top → bottom)</div>
+          <div className="sbx-legend-sub">{t("Layers (top → bottom)")}</div>
           {LAYERS.map(([slug, name, color]) => (
-            <span className="sbx-lg" key={slug} title={name}>
+            <span className="sbx-lg" key={slug} title={t(name)}>
               <span className="dot" style={{ background: color }} />
-              {name}
+              {t(name)}
             </span>
           ))}
-          <div className="sbx-legend-sub">Domains</div>
+          <div className="sbx-legend-sub">{t("Domains")}</div>
           {DOMAINS.map(([slug, name, color]) => (
-            <span className="sbx-lg" key={slug} title={name}>
+            <span className="sbx-lg" key={slug} title={t(name)}>
               <span className="dot" style={{ background: color }} />
-              {name}
+              {t(name)}
             </span>
           ))}
         </div>
@@ -178,6 +179,7 @@ export default function Sidebar({
   setDimStale,
   visibleCounts,
 }: Props) {
+  useLang(); // re-render on language change
   const [q, setQ] = useState("");
   const [mobile, setMobile] = useState(false);
   const drawerRef = useRef<HTMLElement>(null);
@@ -221,13 +223,15 @@ export default function Sidebar({
     };
   }, [open, mobile, onClose]);
   const query = q.trim().toLowerCase();
-  const match = (label: string) => !query || label.toLowerCase().includes(query);
+  // Match the displayed (translated) name and the English one.
+  const match = (label: string, en = "") =>
+    !query || label.toLowerCase().includes(query) || en.toLowerCase().includes(query);
 
   const chainRows = CHAIN_SLUGS.map((slug) => ({ slug, label: slugLabel(slug), color: CHAIN_COLORS[slug] })).filter(
-    (r) => match(r.label)
+    (r) => match(r.label, r.slug.replace(/_/g, " "))
   );
-  const layerRows = LAYERS.filter(([, name]) => match(name));
-  const domainRows = DOMAINS.filter(([, name]) => match(name));
+  const layerRows = LAYERS.filter(([, name]) => match(t(name), name));
+  const domainRows = DOMAINS.filter(([, name]) => match(t(name), name));
 
   // How many checkboxes are currently OFF across the three sections — drives the
   // "Reset filters" button (disabled when there is nothing to reset).
@@ -247,19 +251,19 @@ export default function Sidebar({
   return (
     <aside id="graph-filters" ref={drawerRef} className={"sidebar" + (open ? " open" : "")}
       role={mobile && open ? "dialog" : undefined} aria-modal={mobile && open ? true : undefined}
-      aria-label="Graph filters">
-      <button ref={closeRef} className="sb-close" onClick={onClose} aria-label="Close filters">
+      aria-label={t("Graph filters")}>
+      <button ref={closeRef} className="sb-close" onClick={onClose} aria-label={t("Close filters")}>
         ✕
       </button>
-      <p className="sbx-eyebrow">EXPLORE THE NETWORK</p>
-      <h2 className="sbx-heading">Graph filters</h2>
-      <p className="sbx-intro">Narrow the Graph by product chain, layer, or domain. Other views have their own filters.</p>
+      <p className="sbx-eyebrow">{t("EXPLORE THE NETWORK")}</p>
+      <h2 className="sbx-heading">{t("Graph filters")}</h2>
+      <p className="sbx-intro">{t("Narrow the Graph by product chain, layer, or domain. Other views have their own filters.")}</p>
 
       <input
         className="sb-search"
         type="search"
-        placeholder="Filter chains, layers…"
-        aria-label="Find a chain, layer, or domain filter"
+        placeholder={t("Filter chains, layers…")}
+        aria-label={t("Find a chain, layer, or domain filter")}
         value={q}
         onChange={(e) => setQ(e.target.value)}
       />
@@ -268,24 +272,24 @@ export default function Sidebar({
           className="sbx-reset"
           onClick={reset}
           disabled={offCount === 0 && !query}
-          title="Turn every chain, layer and domain back on"
+          title={t("Turn every chain, layer and domain back on")}
         >
-          ↺ Reset filters
+          ↺ {t("Reset filters")}
         </button>
         {offCount > 0 && (
           <span className="sbx-off">
-            {offCount} filter{offCount === 1 ? "" : "s"} off
+            {t(offCount === 1 ? "{n} filter off" : "{n} filters off", { n: offCount })}
           </span>
         )}
       </div>
       <div className="sb-legend">
-        <span className="dot" style={{ background: "#7dd3fc" }} /> dot = each item&apos;s color
-        in the graph{visibleCounts ? " · number = visible companies" : ""}
+        <span className="dot" style={{ background: "#7dd3fc" }} /> {t("dot = each item's color in the graph")}
+        {visibleCounts ? " · " + t("number = visible companies") : ""}
       </div>
 
       <Section
         storageKey="chains"
-        title="Chains"
+        title={t("Chains")}
         kind="chain"
         bulk={bulk}
         forceOpen={!!query}
@@ -298,16 +302,16 @@ export default function Sidebar({
             onChange={() => toggle("chain", r.slug)}
             color={r.color}
             label={r.label}
-            title={`${r.label} — this chain's edge color in the graph`}
+            title={`${r.label} — ${t("this chain's edge color in the graph")}`}
             count={cnt("chains", r.slug)}
           />
         ))}
-        {chainRows.length === 0 && <div className="sb-empty">no match</div>}
+        {chainRows.length === 0 && <div className="sb-empty">{t("no match")}</div>}
       </Section>
 
       <Section
         storageKey="layers"
-        title="Layers"
+        title={t("Layers")}
         kind="layer"
         bulk={bulk}
         forceOpen={!!query}
@@ -319,17 +323,17 @@ export default function Sidebar({
             checked={layers.has(slug)}
             onChange={() => toggle("layer", slug)}
             color={color}
-            label={name}
-            title={`${name} — layer node color in the graph`}
+            label={t(name)}
+            title={`${t(name)} — ${t("layer node color in the graph")}`}
             count={cnt("layers", slug)}
           />
         ))}
-        {layerRows.length === 0 && <div className="sb-empty">no match</div>}
+        {layerRows.length === 0 && <div className="sb-empty">{t("no match")}</div>}
       </Section>
 
       <Section
         storageKey="domains"
-        title="Domains"
+        title={t("Domains")}
         kind="domain"
         bulk={bulk}
         forceOpen={!!query}
@@ -341,28 +345,28 @@ export default function Sidebar({
             checked={domains.has(slug)}
             onChange={() => toggle("domain", slug)}
             color={color}
-            label={name}
-            title={`${name} — domain node color in the graph`}
+            label={t(name)}
+            title={`${t(name)} — ${t("domain node color in the graph")}`}
             count={cnt("domains", slug)}
           />
         ))}
-        {domainRows.length === 0 && <div className="sb-empty">no match</div>}
+        {domainRows.length === 0 && <div className="sb-empty">{t("no match")}</div>}
       </Section>
 
       <Legend />
 
       <hr className="sep" />
 
-      <label className="check-row" title="Fade companies with no data in the last 180 days">
+      <label className="check-row" title={t("Fade companies with no data in the last 180 days")}>
         <input type="checkbox" checked={dimStale} onChange={() => setDimStale(!dimStale)} />
-        <span className="row-label">Dim stale nodes (180d)</span>
+        <span className="row-label">{t("Dim stale nodes (180d)")}</span>
       </label>
 
       <div className="sidebar-footer">
-        <span className="sb-foot-label">⚙ Appearance</span>
-        <label className="check-row" title="Frosted-glass panel material">
+        <span className="sb-foot-label">⚙ {t("Appearance")}</span>
+        <label className="check-row" title={t("Frosted-glass panel material")}>
           <input type="checkbox" checked={glass} onChange={() => setGlass(!glass)} />
-          <span className="row-label">✨ Liquid Glass</span>
+          <span className="row-label">✨ {t("Liquid Glass")}</span>
         </label>
       </div>
     </aside>

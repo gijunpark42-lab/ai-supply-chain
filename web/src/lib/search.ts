@@ -27,6 +27,9 @@
 import type { VizNode } from "./types";
 
 const HANGUL = /[가-힣]/; // one complete Korean syllable (가 … 힣)
+// Japanese kana or a Chinese/Japanese character: such a query can only match a
+// company's local-name aliases (company_names.json zh/ja names).
+const KANA_HAN = /[\u3040-\u30ff\u3400-\u9fff]/;
 
 // Lowercase, strip accents, collapse anything that is not a letter, digit or Korean
 // syllable into a single space. "Résonac (Showa Denko)" -> "resonac showa denko".
@@ -36,7 +39,7 @@ export function normalize(s: string): string {
     .replace(/[̀-ͯ]/g, "") // the accents NFD split off (U+0300..U+036F)
     .normalize("NFC") // NFD also splits Korean syllables into letters; put them back together
     .toLowerCase()
-    .replace(/[^a-z0-9가-힣]+/g, " ")
+    .replace(/[^a-z0-9가-힣\u3040-\u30ff\u3400-\u9fff]+/g, " ")
     .trim();
 }
 
@@ -216,7 +219,7 @@ export function searchNodes(index: IndexedNode[], query: string, limit = 10): Se
     if (it.name.startsWith(q)) tier = 0;
     else if (it.name.includes(" " + q)) tier = 1;
     else if (it.name.includes(q)) tier = 2;
-    else if (korean && it.ko.some((k) => k.includes(qk))) {
+    else if ((korean || KANA_HAN.test(q)) && it.ko.some((k) => k.includes(qk))) {
       const i = it.ko.findIndex((k) => k.includes(qk));
       tier = it.ko[i].startsWith(qk) ? 0 : 1;
       kind = "ko";

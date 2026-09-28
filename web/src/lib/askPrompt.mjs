@@ -13,11 +13,11 @@
 // Nothing in this file is secret and nothing here touches the network.
 
 /** @typedef {"lookup" | "compare" | "rank" | "timeline"} Intent */
-/** @typedef {"en" | "ko"} Lang */
+/** @typedef {"en" | "ko" | "zh" | "ja"} Lang */
 /** @typedef {{ question: string, answer: string }} HistoryTurn */
 
 export const INTENTS = ["lookup", "compare", "rank", "timeline"];
-export const LANGS = ["en", "ko"];
+export const LANGS = ["en", "ko", "zh", "ja"];
 
 /** The engine id the UI badge shows when the local `claude -p` runner answered. */
 export const LOCAL_MODEL_ID = "claude-code-local";
@@ -27,9 +27,9 @@ export function normalizeIntent(value) {
   return typeof value === "string" && INTENTS.includes(value) ? value : "lookup";
 }
 
-/** Answer language: "ko" or "en" (the default). */
+/** Answer language: "ko", "zh" (Simplified Chinese), "ja" or "en" (the default). */
 export function normalizeLang(value) {
-  return value === "ko" ? "ko" : "en";
+  return typeof value === "string" && LANGS.includes(value) ? value : "en";
 }
 
 // ── Conversation history (follow-up questions) ─────────────────────────────
@@ -184,12 +184,15 @@ const HOUSE_RULES = `House rules:
 // Appended when the intent is "rank" or "compare" — verbatim from the spec.
 export const RANK_SUFFIX = `The question asks for a ranking. You must produce an ordered list from the numbers in the snippets even if no snippet states the ranking explicitly.`;
 
-// Appended when the user chose Korean answers. Names, labels and figures stay
-// as written in the (English) snippets so the citation chips and the evidence
-// buttons keep matching.
+// Appended for the answer language (the site's language switch). Names, labels
+// and figures stay as written in the (English) snippets so the citation chips and
+// the evidence buttons keep matching. The section labels must match SECTION_RE in
+// components/AskGraph.tsx.
 const LANGUAGE_RULES = {
   en: `Language: write the answer in English.`,
   ko: `Language: write the entire answer in natural Korean (한국어), the tone of a Korean sell-side analyst. Keep company names, product names, source labels (e.g. "SK Hynix Q2 FY2026 (08-14-2026)") and every figure exactly as they appear in the snippets — do not translate or transliterate them. Use the section labels "답변:", "근거:", "빈틈:" instead of "Best answer:", "Evidence:", "Gaps:".`,
+  zh: `Language: write the entire answer in natural Simplified Chinese (简体中文), the tone of a Chinese sell-side analyst. Keep company names, product names, source labels (e.g. "SK Hynix Q2 FY2026 (08-14-2026)") and every figure exactly as they appear in the snippets — do not translate or transliterate them. Use the section labels "答案:", "依据:", "缺口:" instead of "Best answer:", "Evidence:", "Gaps:".`,
+  ja: `Language: write the entire answer in natural Japanese (日本語), the tone of a Japanese sell-side analyst. Keep company names, product names, source labels (e.g. "SK Hynix Q2 FY2026 (08-14-2026)") and every figure exactly as they appear in the snippets — do not translate or transliterate them. Use the section labels "回答:", "根拠:", "不足:" instead of "Best answer:", "Evidence:", "Gaps:".`,
 };
 
 /**

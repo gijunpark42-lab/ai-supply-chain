@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { t } from "@/lib/i18n";
 
 export interface CellDetail {
   /** Source label the value came from, e.g. "Analog Devices Q3 FY2026 (08-19-2026)". */
@@ -135,9 +136,10 @@ export default function CellText({
     .join(" ");
 
   // Accessible name for the button role: what pressing it will do.
-  const action = isExpanded ? "Collapse" : "Show full";
   const ariaLabel = interactive
-    ? `${action} ${label}${subject ? " for " + subject : ""}`
+    ? subject
+      ? t(isExpanded ? "Collapse {label} for {subject}" : "Show full {label} for {subject}", { label, subject })
+      : t(isExpanded ? "Collapse {label}" : "Show full {label}", { label })
     : undefined;
 
   return (
@@ -147,7 +149,7 @@ export default function CellText({
         className={cls}
         // Only an interactive cell gets a tooltip: the full text while it is
         // clipped (a plain mouse hover), a hint once it is expanded.
-        title={clipped ? text : isExpanded ? "Click to collapse" : undefined}
+        title={clipped ? text : isExpanded ? t("Click to collapse") : undefined}
         role={interactive ? "button" : undefined}
         tabIndex={interactive ? 0 : undefined}
         aria-label={ariaLabel}
@@ -213,7 +215,7 @@ function CellDialog({
         aria-label={`${subject ? subject + " — " : ""}${label}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="panel-close" onClick={onClose} aria-label="Close">
+        <button className="panel-close" onClick={onClose} aria-label={t("Close")}>
           ✕
         </button>
         <div className="cell-modal-head">
@@ -224,7 +226,7 @@ function CellDialog({
         {extra && (
           <div className="cell-modal-detail">
             <div className="cell-modal-detail-h">
-              Full signal
+              {t("Full signal")}
               {/* The source label is a proper name ("NVIDIA Q1 FY2027 …"); the
                   heading is uppercased, so it rides in its own normal-case span. */}
               {detail?.source && <span className="cell-modal-src">{detail.source}</span>}
@@ -234,7 +236,7 @@ function CellDialog({
         )}
         {!extra && detail?.source && (
           <div className="cell-modal-detail-h" style={{ marginTop: "0.9rem" }}>
-            Source
+            {t("Source")}
             <span className="cell-modal-src">{detail.source}</span>
           </div>
         )}

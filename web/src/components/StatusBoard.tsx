@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { VizNode } from "@/lib/types";
+import { t, name as localName, useLang } from "@/lib/i18n";
 
 // Status board — the market board enrich_status.py writes into graph/enrich_status.json
 // (key "board"; the same content as ENRICH_STATUS.md in the repo). It answers the user's
@@ -54,7 +55,7 @@ const WAITING_NAMES: Record<string, string> = {
 const waitingText = (w: Record<string, number>) =>
   Object.entries(w)
     .sort()
-    .map(([pid, n]) => `${n} ${WAITING_NAMES[pid] || pid}`)
+    .map(([pid, n]) => `${n} ${WAITING_NAMES[pid] ? t(WAITING_NAMES[pid]) : pid}`)
     .join(", ");
 
 export default function StatusBoard({
@@ -68,6 +69,8 @@ export default function StatusBoard({
   nodes: VizNode[];
   onSelect: (n: VizNode) => void;
 }) {
+  // Chrome only: reasons, setup lines, questions and notes are operator text (English).
+  useLang();
   const [copied, setCopied] = useState<string | null>(null);
   const byId = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes]);
   const due = useMemo(() => new Set(board.next_actions.map((a) => a.command)), [board]);
@@ -83,9 +86,9 @@ export default function StatusBoard({
   // A company name opens its node panel when the graph has it; otherwise plain text.
   const name = (id: string, suffix?: string) => {
     const node = byId.get(id);
-    const label = suffix ? `${id} (${suffix})` : id;
+    const label = suffix ? `${localName(id)} (${suffix})` : localName(id);
     return node ? (
-      <button key={label} type="button" className="co-link board-name" onClick={() => onSelect(node)} title={`Open ${id}`}>
+      <button key={label} type="button" className="co-link board-name" onClick={() => onSelect(node)} title={t("Open {name}", { name: localName(id) })}>
         {label}
       </button>
     ) : (
@@ -99,9 +102,9 @@ export default function StatusBoard({
 
   return (
     <div className="board">
-      <h4 className="board-h">Run next</h4>
+      <h4 className="board-h">{t("Run next")}</h4>
       {board.next_actions.length === 0 ? (
-        <p className="caption">Nothing is due. Every market is current and no queue holds work.</p>
+        <p className="caption">{t("Nothing is due. Every market is current and no queue holds work.")}</p>
       ) : (
         <ol className="board-run">
           {board.next_actions.map((a, i) => (
@@ -109,8 +112,8 @@ export default function StatusBoard({
               <div className="run-head">
                 <span className="run-n">{i + 1}</span>
                 <code className="run-cmd">{a.command}</code>
-                <button type="button" className="copy-btn" title={`Copy "${a.command}"`} onClick={() => copy(a.command)}>
-                  {copied === a.command ? "✓ copied" : "📋 Copy"}
+                <button type="button" className="copy-btn" title={t("Copy \"{cmd}\"", { cmd: a.command })} onClick={() => copy(a.command)}>
+                  {copied === a.command ? "✓ " + t("copied") : "📋 " + t("Copy")}
                 </button>
               </div>
               <ul>
@@ -123,24 +126,24 @@ export default function StatusBoard({
         </ol>
       )}
       <p className="board-shared">
-        Shared collectors (every market command runs them first when due): IR feeds synced{" "}
-        {board.shared.ir.last_sync || "never"}
-        {board.shared.ir.feeds != null && <> ({board.shared.ir.feeds} feeds)</>}
-        {board.shared.ir.due && <b className="warn"> · due</b>}; conference listing walked{" "}
-        {board.shared.conference.last_sync || "never"}
-        {board.shared.conference.due && <b className="warn"> · due</b>}. Opus verification queue:{" "}
-        {board.verify_pending} label(s) waiting (runs at 5+). Board generated {generated}.
+        {t("Shared collectors (every market command runs them first when due): IR feeds synced")}{" "}
+        {board.shared.ir.last_sync || t("never")}
+        {board.shared.ir.feeds != null && <> ({t("{n} feeds", { n: board.shared.ir.feeds })})</>}
+        {board.shared.ir.due && <b className="warn"> · {t("due")}</b>}; {t("conference listing walked")}{" "}
+        {board.shared.conference.last_sync || t("never")}
+        {board.shared.conference.due && <b className="warn"> · {t("due")}</b>}.{" "}
+        {t("Opus verification queue: {n} label(s) waiting (runs at 5+). Board generated {date}.", { n: board.verify_pending, date: generated })}
       </p>
 
       {(board.setup.length > 0 || (board.questions?.length ?? 0) > 0) && (
         <>
-          <h4 className="board-h">Needs a decision or setup</h4>
+          <h4 className="board-h">{t("Needs a decision or setup")}</h4>
           <ul className="board-setup">
             {(board.questions || []).map((q) => (
               <li key={q.subject} className="board-question">
-                <b>Question — {q.subject}:</b> {q.question}
-                {q.label && <span className="muted"> · source: {q.label}</span>}
-                <span className="muted"> · asked {q.at}</span>
+                <b>{t("Question")} — {q.subject}:</b> {q.question}
+                {q.label && <span className="muted"> · {t("source")}: {q.label}</span>}
+                <span className="muted"> · {t("asked {date}", { date: q.at })}</span>
               </li>
             ))}
             {board.setup.map((s, i) => (
@@ -150,21 +153,21 @@ export default function StatusBoard({
         </>
       )}
 
-      <h4 className="board-h">Markets</h4>
+      <h4 className="board-h">{t("Markets")}</h4>
       <div className="tbl-wrap">
         <table className="data board-markets">
           <thead>
             <tr>
-              <th>Market</th>
-              <th>Command</th>
-              <th>Companies</th>
-              <th>Call current</th>
-              <th>Overdue</th>
-              <th>Never had a call</th>
-              <th>No own data</th>
-              <th>Waiting</th>
-              <th>IR feeds</th>
-              <th>Collector last ran</th>
+              <th>{t("Market")}</th>
+              <th>{t("Command")}</th>
+              <th>{t("Companies")}</th>
+              <th>{t("Call current")}</th>
+              <th>{t("Overdue")}</th>
+              <th>{t("Never had a call")}</th>
+              <th>{t("No own data")}</th>
+              <th>{t("Waiting")}</th>
+              <th>{t("IR feeds")}</th>
+              <th>{t("Collector last ran")}</th>
             </tr>
           </thead>
           <tbody>
@@ -172,27 +175,27 @@ export default function StatusBoard({
               const waiting = Object.values(m.waiting).reduce((a, b) => a + b, 0);
               return (
                 <tr key={m.id}>
-                  <td data-label="Market">
+                  <td data-label={t("Market")}>
                     <b>{m.id}</b> <span className="muted">{m.name}</span>
                   </td>
-                  <td data-label="Command" className="cmd">
+                  <td data-label={t("Command")} className="cmd">
                     <code>{m.command}</code>
-                    {due.has(m.command) && <span className="board-due"> · run</span>}
+                    {due.has(m.command) && <span className="board-due"> · {t("run")}</span>}
                   </td>
-                  <td data-label="Companies">{m.companies}</td>
-                  <td data-label="Call current">{m.call_current}</td>
-                  <td data-label="Overdue" className={m.overdue.length ? "warn" : ""}>
+                  <td data-label={t("Companies")}>{m.companies}</td>
+                  <td data-label={t("Call current")}>{m.call_current}</td>
+                  <td data-label={t("Overdue")} className={m.overdue.length ? "warn" : ""}>
                     {m.overdue.length}
                   </td>
-                  <td data-label="Never had a call">{m.never.length}</td>
-                  <td data-label="No own data">{m.nothing.length}</td>
-                  <td data-label="Waiting" className={waiting ? "bad" : ""}>
+                  <td data-label={t("Never had a call")}>{m.never.length}</td>
+                  <td data-label={t("No own data")}>{m.nothing.length}</td>
+                  <td data-label={t("Waiting")} className={waiting ? "bad" : ""}>
                     {waiting}
                   </td>
-                  <td data-label="IR feeds">{m.feeds}</td>
-                  <td data-label="Collector last ran" className="nowrap">
+                  <td data-label={t("IR feeds")}>{m.feeds}</td>
+                  <td data-label={t("Collector last ran")} className="nowrap">
                     {Object.entries(m.collectors)
-                      .map(([pid, d]) => `${pid} ${d || "never"}`)
+                      .map(([pid, d]) => `${pid} ${d || t("never")}`)
                       .join(" · ")}
                   </td>
                 </tr>
@@ -202,12 +205,10 @@ export default function StatusBoard({
         </table>
       </div>
       <p className="caption">
-        Call current = the latest own earnings call is within the company&apos;s usual gap + 3 weeks. No own data =
-        not one entry from the company&apos;s own documents yet (new nodes land here). Companies marked &quot;no
-        source exists&quot; are left out of Overdue / Never until their recheck date.
+        {t("Call current = the latest own earnings call is within the company's usual gap + 3 weeks. No own data = not one entry from the company's own documents yet (new nodes land here). Companies marked \"no source exists\" are left out of Overdue / Never until their recheck date.")}
       </p>
 
-      <h4 className="board-h">Details by market</h4>
+      <h4 className="board-h">{t("Details by market")}</h4>
       {markets.map((m) => {
         const empty =
           !m.overdue.length && !m.never.length && !m.dart_never.length && !m.marked.length && !Object.keys(m.waiting).length;
@@ -217,41 +218,41 @@ export default function StatusBoard({
               {m.id} — {m.name} <code>{m.command}</code>
             </summary>
             {empty ? (
-              <p className="caption">Nothing missing.</p>
+              <p className="caption">{t("Nothing missing.")}</p>
             ) : (
               <dl>
                 {Object.keys(m.waiting).length > 0 && (
                   <>
-                    <dt>Waiting to enrich</dt>
+                    <dt>{t("Waiting to enrich")}</dt>
                     <dd>{waitingText(m.waiting)}</dd>
                   </>
                 )}
                 {m.overdue.length > 0 && (
                   <>
-                    <dt>Overdue for a call</dt>
-                    <dd>{m.overdue.map((r) => name(r.company, `last ${r.last_call}`))}</dd>
+                    <dt>{t("Overdue for a call")}</dt>
+                    <dd>{m.overdue.map((r) => name(r.company, t("last {date}", { date: r.last_call })))}</dd>
                   </>
                 )}
                 {m.never.length > 0 && m.id !== "KR" && (
                   <>
-                    <dt>Never had a call</dt>
+                    <dt>{t("Never had a call")}</dt>
                     <dd>{m.never.map((c) => name(c))}</dd>
                   </>
                 )}
                 {m.dart_never.length > 0 && (
                   <>
-                    <dt>No DART filing</dt>
+                    <dt>{t("No DART filing")}</dt>
                     <dd>{m.dart_never.map((c) => name(c))}</dd>
                   </>
                 )}
                 {m.marked.length > 0 && (
                   <>
-                    <dt>Known gaps</dt>
+                    <dt>{t("Known gaps")}</dt>
                     <dd>
                       {m.marked.map((x) => (
                         <span key={x.company + x.source} className="board-gap">
                           {name(x.company)} — {x.source}: {x.why}
-                          {x.recheck && <span className="muted"> (recheck {x.recheck})</span>}
+                          {x.recheck && <span className="muted"> ({t("recheck {date}", { date: x.recheck })})</span>}
                         </span>
                       ))}
                     </dd>
@@ -265,7 +266,7 @@ export default function StatusBoard({
 
       {board.notes.length > 0 && (
         <>
-          <h4 className="board-h">Coordinator notes</h4>
+          <h4 className="board-h">{t("Coordinator notes")}</h4>
           <ul className="board-notes">
             {board.notes.map((n, i) => (
               <li key={i}>

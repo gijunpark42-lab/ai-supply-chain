@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BASKETS, ENTRY_DATE, ALL_SYMBOLS, money, pct, tone, type Pick, type Quotes } from "@/lib/picks";
 import PicksUniverse from "./PicksUniverse";
+import { useLang } from "@/lib/i18n";
 import "./Picks.css";
 
 const REFRESH_MS = 60_000;
@@ -10,6 +11,9 @@ const REFRESH_MS = 60_000;
 type SortKey = "rank" | "ret" | "day";
 
 export default function Picks({ onOpen }: { onOpen: (company: string) => void }) {
+  // Basket labels, blurbs and pick notes are hand-written in lib/picks.ts, so they
+  // are UI strings (t), not overlay data.
+  const { t, name } = useLang();
   const [basketKey, setBasketKey] = useState(BASKETS[1].key); // default: the combined list
   const [quotes, setQuotes] = useState<Quotes>({});
   const [state, setState] = useState<"loading" | "ok" | "err">("loading");
@@ -100,7 +104,7 @@ export default function Picks({ onOpen }: { onOpen: (company: string) => void })
   return (
     <div className="pk">
       <div className="pk-bar">
-        <div className="pk-tabs" role="tablist" aria-label="Basket">
+        <div className="pk-tabs" role="tablist" aria-label={t("Basket")}>
           {BASKETS.map((b) => (
             <button
               key={b.key}
@@ -109,59 +113,58 @@ export default function Picks({ onOpen }: { onOpen: (company: string) => void })
               className={"pk-tab" + (b.key === basketKey ? " on" : "")}
               onClick={() => setBasketKey(b.key)}
             >
-              {b.label}
+              {t(b.label)}
             </button>
           ))}
         </div>
         <div className="pk-meta">
           <span className={"pk-dot" + (live ? " live" : "")} aria-hidden="true" />
           <span>
-            {live ? "Market open" : "Market closed"}
-            {updated && ` · updated ${updated.toLocaleTimeString()}`}
+            {live ? t("Market open") : t("Market closed")}
+            {updated && " · " + t("updated {time}", { time: updated.toLocaleTimeString() })}
           </span>
           <button className="pk-refresh" onClick={load} disabled={busy}>
-            {busy ? "Refreshing…" : "Refresh"}
+            {busy ? t("Refreshing…") : t("Refresh")}
           </button>
         </div>
       </div>
 
       <p className="pk-blurb">
-        {basket.blurb} Entry price is the <strong>{ENTRY_DATE} close</strong>; every return
-        below is measured against it and updates while the market is open.
+        {t(basket.blurb)} {t("Entry price is the {date} close; every return below is measured against it and updates while the market is open.", { date: ENTRY_DATE })}
       </p>
 
       {state === "err" && (
         <div className="pk-state" role="alert">
-          <h3>We couldn&apos;t reach the quote feed.</h3>
-          <p>The entry prices below are unaffected. Try again in a moment.</p>
-          <button className="pk-refresh" onClick={load}>Try again</button>
+          <h3>{t("We couldn't reach the quote feed.")}</h3>
+          <p>{t("The entry prices below are unaffected. Try again in a moment.")}</p>
+          <button className="pk-refresh" onClick={load}>{t("Try again")}</button>
         </div>
       )}
-      {state === "loading" && <div className="pk-state" role="status">Loading live prices…</div>}
+      {state === "loading" && <div className="pk-state" role="status">{t("Loading live prices…")}</div>}
 
       {state === "ok" && stats && (
         <div className="pk-cards">
           <div className={"pk-card big" + tone(stats.avg)}>
-            <span className="pk-card-k">Basket return</span>
+            <span className="pk-card-k">{t("Basket return")}</span>
             <span className="pk-card-v">{pct(stats.avg)}</span>
-            <span className="pk-card-s">equal weight · {stats.n} of {basket.picks.length} priced</span>
+            <span className="pk-card-s">{t("equal weight · {n} of {total} priced", { n: stats.n, total: basket.picks.length })}</span>
           </div>
           <div className="pk-card">
-            <span className="pk-card-k">Up / down</span>
+            <span className="pk-card-k">{t("Up / down")}</span>
             <span className="pk-card-v">
               <span className="up">{stats.up}</span> / <span className="down">{stats.down}</span>
             </span>
-            <span className="pk-card-s">since {ENTRY_DATE}</span>
+            <span className="pk-card-s">{t("since {date}", { date: ENTRY_DATE })}</span>
           </div>
           <div className={"pk-card" + tone(stats.best.ret)}>
-            <span className="pk-card-k">Best</span>
+            <span className="pk-card-k">{t("Best")}</span>
             <span className="pk-card-v">{pct(stats.best.ret)}</span>
-            <span className="pk-card-s">{stats.best.p.company}</span>
+            <span className="pk-card-s">{name(stats.best.p.company)}</span>
           </div>
           <div className={"pk-card" + tone(stats.worst.ret)}>
-            <span className="pk-card-k">Worst</span>
+            <span className="pk-card-k">{t("Worst")}</span>
             <span className="pk-card-v">{pct(stats.worst.ret)}</span>
-            <span className="pk-card-s">{stats.worst.p.company}</span>
+            <span className="pk-card-s">{name(stats.worst.p.company)}</span>
           </div>
         </div>
       )}
@@ -175,31 +178,31 @@ export default function Picks({ onOpen }: { onOpen: (company: string) => void })
                   #
                 </button>
               </th>
-              <th>Company</th>
-              <th className="pk-hide-sm">Ticker</th>
-              <th className="pk-r">Entry ({ENTRY_DATE.slice(5)})</th>
-              <th className="pk-r">Last</th>
+              <th>{t("Company")}</th>
+              <th className="pk-hide-sm">{t("Ticker")}</th>
+              <th className="pk-r">{t("Entry ({date})", { date: ENTRY_DATE.slice(5) })}</th>
+              <th className="pk-r">{t("Last")}</th>
               <th className="pk-r">
                 <button className={"pk-sort" + (sort === "ret" ? " on" : "")} onClick={() => setSort("ret")}>
-                  vs entry
+                  {t("vs entry")}
                 </button>
               </th>
               <th className="pk-r pk-hide-sm">
                 <button className={"pk-sort" + (sort === "day" ? " on" : "")} onClick={() => setSort("day")}>
-                  Day
+                  {t("Day")}
                 </button>
               </th>
-              <th className="pk-hide-md">Why it is on the list</th>
+              <th className="pk-hide-md">{t("Why it is on the list")}</th>
             </tr>
           </thead>
           <tbody>
             {rows.map(({ p, q, price, ret }) => (
               <tr key={p.symbol} onClick={() => onOpen(p.company)} tabIndex={0}
                   onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(p.company); } }}
-                  title={`Open ${p.company}`}>
+                  title={t("Open {name}", { name: name(p.company) })}>
                 <td className="pk-num">{p.rank}</td>
                 <td className="pk-co">
-                  <span className="co-link">{p.company}</span>
+                  <span className="co-link">{name(p.company)}</span>
                   {p.currency === "KRW" && <span className="pk-flag">KR</span>}
                 </td>
                 <td className="pk-hide-sm pk-mono">{p.ticker}</td>
@@ -207,7 +210,7 @@ export default function Picks({ onOpen }: { onOpen: (company: string) => void })
                 <td className="pk-r pk-mono">{money(price, p.currency)}</td>
                 <td className={"pk-r pk-mono pk-ret" + tone(ret)}>{pct(ret)}</td>
                 <td className={"pk-r pk-mono pk-hide-sm" + tone(q?.day_pct)}>{pct(q?.day_pct)}</td>
-                <td className="pk-note pk-hide-md">{p.note}</td>
+                <td className="pk-note pk-hide-md">{t(p.note)}</td>
               </tr>
             ))}
           </tbody>
@@ -221,9 +224,7 @@ export default function Picks({ onOpen }: { onOpen: (company: string) => void })
       />
 
       <p className="pk-foot">
-        Click any row to open that company&apos;s panel — live chart, the signals on file, and
-        its place in the supply chain. Korean names are measured in won, so the basket return
-        ignores the currency move. Research, not investment advice.
+        {t("Click any row to open that company's panel — live chart, the signals on file, and its place in the supply chain. Korean names are measured in won, so the basket return ignores the currency move. Research, not investment advice.")}
       </p>
     </div>
   );

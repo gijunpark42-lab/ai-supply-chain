@@ -16,6 +16,7 @@ import {
 } from "@/lib/table";
 import CompanyLink from "./CompanyLink";
 import CellText from "./CellText";
+import { t, tr, useLang } from "@/lib/i18n";
 import "./Tables.css";
 
 // One table inside a topic. Curated tables are hand-written in timelines/;
@@ -63,6 +64,10 @@ const SINCE: { label: string; days: number | null }[] = [
   { label: "180d", days: 180 },
   { label: "All", days: null },
 ];
+// Columns whose cells stay in English: they are logic keys (dates parsed, company
+// names resolved, source labels) — the same list the translation extractor skips.
+const KEEP_EN_COLS = new Set(["date", "company", "source", "sources", "ticker"]);
+const keepEn = (col: string | undefined) => KEEP_EN_COLS.has((col || "").trim().toLowerCase());
 // Which generated-table columns can be sorted (the others are prose).
 const SORTABLE = new Set(["Date", "Company", "Source"]);
 // Fixed column widths for the generated table, by column name.
@@ -84,6 +89,7 @@ export default function Timelines({
   resolve: Resolver;
   onOpen: (id: string) => void;
 }) {
+  const { rev } = useLang(["timelines"]);
   const [tls, setTls] = useState<Timeline[]>([]);
   const [topicId, setTopicId] = useState<string>("");
   const [query, setQuery] = useState("");
@@ -153,14 +159,16 @@ export default function Timelines({
             return d !== null && d >= cutoff;
           });
       }
-      if (q) rows = rows.filter((r) => matchesQuery(r, q));
+      // Search the English cells and what is on screen (their translations).
+      if (q) rows = rows.filter((r) => matchesQuery([...r, ...r.map((c) => tr(c))], q));
       if (tbl.generated) {
         const ci = Math.min(sortCol, tbl.columns.length - 1);
         rows = sortRows(rows, (r) => r[ci], sortDir);
       }
       return { tbl, rows, total: tbl.rows.length };
     });
-  }, [topic, query, sinceDays, now, sortCol, sortDir]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [topic, query, sinceDays, now, sortCol, sortDir, rev]);
 
   // The auto-derived rows currently on screen — what the CSV export contains.
   const { genRows, genCols } = useMemo(() => {
@@ -224,38 +232,36 @@ export default function Timelines({
       );
     if (col === "Date") return <div className="cell tb-nowrap">{cell}</div>;
     if (col === "Source") return <div className="cell tb-src">{cell}</div>;
-    return <CellText text={cell} label={col} subject={subject} className="tb-clamp" inline />;
+    return <CellText text={tr(cell)} label={tr(col)} subject={subject} className="tb-clamp" inline />;
   };
 
   return (
     <div>
-      <h3>📈 Technology &amp; Product Timelines</h3>
+      <h3>📈 {t("Technology & Product Timelines")}</h3>
       <p className="caption">
-        Forward market-size, adoption and launch views — when each technology ramps, how big
-        it gets, and which models adopt it. Curated tables are hand-maintained; the
-        auto-derived table under each topic is generated from the graph&apos;s latest signals.
+        {t("Forward market-size, adoption and launch views — when each technology ramps, how big it gets, and which models adopt it. Curated tables are hand-maintained; the auto-derived table under each topic is generated from the graph's latest signals.")}
       </p>
 
       {/* Topic pills, grouped by category, each with its total row count. */}
-      <div className="tb-pills" role="tablist" aria-label="Timeline topics">
+      <div className="tb-pills" role="tablist" aria-label={t("Timeline topics")}>
         {pillGroups.map((g) => (
           <Fragment key={g.cat}>
-            <span className="tb-pill-cat">{CAT_LABEL[g.cat] || cap(g.cat)}</span>
-            {g.topics.map((t) => {
-              const curated = t.tables.filter((x) => !x.generated).reduce((s, x) => s + x.rows.length, 0);
-              const auto = rowCount(t) - curated;
+            <span className="tb-pill-cat">{CAT_LABEL[g.cat] ? t(CAT_LABEL[g.cat]) : cap(g.cat)}</span>
+            {g.topics.map((tl) => {
+              const curated = tl.tables.filter((x) => !x.generated).reduce((s, x) => s + x.rows.length, 0);
+              const auto = rowCount(tl) - curated;
               return (
                 <button
-                  key={t.id}
+                  key={tl.id}
                   type="button"
                   role="tab"
                   className="tb-pill"
-                  aria-selected={topic?.id === t.id}
-                  onClick={() => setTopicId(t.id)}
-                  title={`${curated} curated rows · ${auto} auto-derived signals`}
+                  aria-selected={topic?.id === tl.id}
+                  onClick={() => setTopicId(tl.id)}
+                  title={t("{c} curated rows · {a} auto-derived signals", { c: curated, a: auto })}
                 >
-                  {t.name || t.id}
-                  <span className="tb-pill-n">{rowCount(t)}</span>
+                  {tl.name ? tr(tl.name) : tl.id}
+                  <span className="tb-pill-n">{rowCount(tl)}</span>
                 </button>
               );
             })}
@@ -268,19 +274,19 @@ export default function Timelines({
           <div className="tb-toolbar">
             <div className="tb-field tb-search">
               <label className="field-label" htmlFor="tl-q">
-                Search this topic
+                {t("Search this topic")}
               </label>
               <input
                 id="tl-q"
                 type="search"
-                placeholder="Company, product, figure… (matches every table below)"
+                placeholder={t("Company, product, figure… (matches every table below)")}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
             </div>
             <div className="tb-field" style={{ flex: "0 0 auto", maxWidth: "none" }}>
-              <span className="field-label">Auto-derived rows since</span>
-              <div className="tb-seg" role="group" aria-label="Show auto-derived rows since">
+              <span className="field-label">{t("Auto-derived rows since")}</span>
+              <div className="tb-seg" role="group" aria-label={t("Show auto-derived rows since")}>
                 {SINCE.map((s) => (
                   <button
                     key={s.label}
@@ -289,7 +295,7 @@ export default function Timelines({
                     aria-pressed={sinceKey === s.label}
                     onClick={() => setSinceKey(s.label)}
                   >
-                    {s.label}
+                    {t(s.label)}
                   </button>
                 ))}
               </div>
@@ -300,34 +306,34 @@ export default function Timelines({
                 className="tb-btn"
                 aria-pressed={groupBy}
                 onClick={() => setGroupBy((v) => !v)}
-                title="Group the auto-derived rows under each company"
+                title={t("Group the auto-derived rows under each company")}
               >
-                Group by company
+                {t("Group by company")}
               </button>
               <button
                 type="button"
                 className="tb-btn"
                 onClick={copyCsv}
                 disabled={genRows.length === 0}
-                title="Copy the visible auto-derived rows as CSV"
+                title={t("Copy the visible auto-derived rows as CSV")}
               >
-                {flashed === "csv" ? "Copied ✓" : flashed === "csv-fail" ? "Copy failed" : "Copy CSV"}
+                {flashed === "csv" ? t("Copied ✓") : flashed === "csv-fail" ? t("Copy failed") : t("Copy CSV")}
               </button>
               <button
                 type="button"
                 className="tb-btn"
                 onClick={download}
                 disabled={genRows.length === 0}
-                title="Download the visible auto-derived rows as a CSV file"
+                title={t("Download the visible auto-derived rows as a CSV file")}
               >
-                Download CSV
+                {t("Download CSV")}
               </button>
             </div>
           </div>
 
-          <div className="tb-topic-title">{topic.name || topic.id}</div>
-          {topic.source && <div className="caption">Source: {topic.source}</div>}
-          {topic.note && <div className="caption">{topic.note}</div>}
+          <div className="tb-topic-title">{topic.name ? tr(topic.name) : topic.id}</div>
+          {topic.source && <div className="caption">{t("Source:")} {topic.source}</div>}
+          {topic.note && <div className="caption">{tr(topic.note)}</div>}
 
           {views.map(({ tbl, rows, total }, ti) => {
             const gen = !!tbl.generated;
@@ -344,7 +350,7 @@ export default function Timelines({
             const renderRow = (r: string[]) => (
               <tr key={keyOf(r)}>
                 {r.map((cell, ci) => (
-                  <td key={ci} data-label={tbl.columns[ci]}>
+                  <td key={ci} data-label={tr(tbl.columns[ci])}>
                     {gen ? (
                       genCell(tbl.columns[ci], cell, coIdx >= 0 ? r[coIdx] : "")
                     ) : (
@@ -352,7 +358,12 @@ export default function Timelines({
                         {/* Any cell whose whole text names a company in the
                             graph becomes a link to its NodePanel; the rest
                             ("Volume", "2027", a prose detail) stay text. */}
-                        <CompanyLink text={cell} resolve={resolve} onOpen={onOpen} />
+                        <CompanyLink
+                          text={cell}
+                          display={keepEn(tbl.columns[ci]) ? cell : tr(cell)}
+                          resolve={resolve}
+                          onOpen={onOpen}
+                        />
                       </div>
                     )}
                   </td>
@@ -365,21 +376,21 @@ export default function Timelines({
               <div key={ti}>
                 <div className="tb-table-head">
                   <span className="tb-table-title">
-                    {tbl.title || (gen ? "Latest graph signals" : "Table")}
+                    {tbl.title ? tr(tbl.title) : gen ? t("Latest graph signals") : t("Table")}
                   </span>
                   <span className={"tb-badge " + (gen ? "auto" : "curated")}>
-                    {gen ? "Auto-derived from graph" : "Curated"}
+                    {gen ? t("Auto-derived from graph") : t("Curated")}
                   </span>
                   <span className="tb-rowcount">
-                    {rows.length === total ? `${total} rows` : `${rows.length} of ${total} rows`}
-                    {gen && groups ? ` · ${groups.length} companies` : ""}
+                    {rows.length === total ? t("{n} rows", { n: total }) : t("{n} of {total} rows", { n: rows.length, total })}
+                    {gen && groups ? " · " + t("{n} companies", { n: groups.length }) : ""}
                   </span>
                 </div>
                 {rows.length === 0 ? (
                   <div className="tb-empty">
-                    No rows match
+                    {t("No rows match")}
                     {query.trim() ? ` "${query.trim()}"` : ""}
-                    {gen && sinceDays !== null ? ` in the last ${sinceDays} days` : ""}.
+                    {gen && sinceDays !== null ? " " + t("in the last {n} days", { n: sinceDays }) : ""}.
                   </div>
                 ) : (
                   <div className="tbl-wrap">
@@ -409,7 +420,7 @@ export default function Timelines({
                                     : "none"
                                 }
                                 tabIndex={0}
-                                title={`Sort by ${c}`}
+                                title={t("Sort by {col}", { col: tr(c) })}
                                 onClick={() => onSort(ci)}
                                 onKeyDown={(e) => {
                                   if (e.key === "Enter" || e.key === " ") {
@@ -418,14 +429,14 @@ export default function Timelines({
                                   }
                                 }}
                               >
-                                <span className="th-label">{c}</span>
+                                <span className="th-label">{tr(c)}</span>
                                 <span className="sort-arrow" aria-hidden="true">
                                   {sortCol === ci ? (sortDir === 1 ? "▲" : "▼") : "↕"}
                                 </span>
                               </th>
                             ) : (
                               <th key={ci} className="tb-static">
-                                {c}
+                                {tr(c)}
                               </th>
                             )
                           )}
@@ -439,8 +450,8 @@ export default function Timelines({
                                   <td colSpan={tbl.columns.length}>
                                     <CompanyLink text={g.company} resolve={resolve} onOpen={onOpen} />
                                     <span className="tb-group-n">
-                                      {g.rows.length} {g.rows.length === 1 ? "signal" : "signals"}
-                                      {g.latest ? ` · latest ${g.latest}` : ""}
+                                      {t(g.rows.length === 1 ? "{n} signal" : "{n} signals", { n: g.rows.length })}
+                                      {g.latest ? " · " + t("latest {date}", { date: g.latest }) : ""}
                                     </span>
                                   </td>
                                 </tr>
@@ -454,7 +465,7 @@ export default function Timelines({
                 )}
                 {tbl.note && (
                   <div className="caption" style={{ marginTop: "0.3rem" }}>
-                    {tbl.note}
+                    {tr(tbl.note)}
                   </div>
                 )}
               </div>

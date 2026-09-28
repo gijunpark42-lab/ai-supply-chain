@@ -377,37 +377,6 @@ body.glass .ask-turn {
   }
 }
 
-/* ── Answer-language toggle (English / 한국어), sits between the box and the button ── */
-.ask-lang {
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-self: stretch;
-  border: 1px solid var(--ap-border, rgba(255, 255, 255, 0.14));
-  border-radius: 10px;
-  overflow: hidden;
-}
-.ask-lang button {
-  background: transparent;
-  color: var(--ap-fg-muted, #aab);
-  border: 0;
-  padding: 0 12px;
-  font: inherit;
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-.ask-lang button + button {
-  border-left: 1px solid var(--ap-border, rgba(255, 255, 255, 0.14));
-}
-.ask-lang button.on {
-  background: rgba(120, 160, 255, 0.22);
-  color: var(--ap-fg, #fff);
-  font-weight: 600;
-}
-.ask-lang button:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
 /* ── Conversation mode: the box moves under the thread; new turns scroll into view ── */
 .ask-form-follow {
   margin-top: 0.9rem;
