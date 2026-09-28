@@ -308,3 +308,7 @@ if __name__ == "__main__":
         result = subprocess.run("npm run sync", cwd="web", shell=True)
         if result.returncode != 0:
             print("  WARNING: npm run sync failed (exit %d) — web/public/data NOT refreshed" % result.returncode)
+        # Language modes (ko / zh / ja): rebuild the translation overlays for what the site now shows
+        # and print how many new strings still need translating (i18n.py; the enrich skill's translate step).
+        print("\nRebuilding translation overlays (i18n.py build) ...")
+        subprocess.run([sys.executable, "-X", "utf8", "i18n.py", "build"])

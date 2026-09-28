@@ -281,6 +281,21 @@ canonical English node (`SK하이닉스` → `SK Hynix`, never a Korean-named du
 in English: "KRW 27.8 trillion", "US$1.43 billion (NT$45.4 billion)" — not "27조 8,000억원" or "14.32億美元".
 `verify_graph.py` and `utils/check_patch.py` fail on any Hangul, kanji / hanzi or kana (since 2026-09-26).
 
+## 9. Web language modes — translate what the run added (user, 2026-09-27)
+
+The site has EN / 한국어 / 中文 (Simplified) / 日本語 modes. chains/ stays English (§8); translations live in
+`i18n/translations/<ko|zh|ja>.json` (`{sha1(text)[:12]: text}`) and `graph_build.py --sync` rebuilds the overlays
+(`i18n.py build`), printing how many displayed strings are still untranslated. At the END of every enrich run, after
+the last `graph_build.py --sync` (and after the verifier's corrections, which change the text):
+1. `python -X utf8 i18n.py pending` → chunk files in `i18n/pending/chunks/` (new / changed strings only).
+2. Translate them with Sonnet (or better) agents following `i18n/BRIEF.md` — one agent per chunk, parallel, no
+   sub-agents; numbers, money amounts, company / product names and source labels stay verbatim.
+3. `python -X utf8 i18n.py validate i18n/pending` until clean → `python -X utf8 i18n.py merge i18n/pending` →
+   `python -X utf8 i18n.py build`. Commit `i18n/translations/` and `web/public/data/i18n/` with the run.
+A new company node gets its official local-script name in `i18n/company_names.json` only when the language matches
+its home market (KR → ko from DART `corp_name`; JP → ja; CN / HK / TW → zh in Simplified characters); otherwise
+the English name is shown.
+
 ---
 
 ## Source-specific pipelines — read the matching reference file
