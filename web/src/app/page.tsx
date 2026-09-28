@@ -57,6 +57,10 @@ export default function Page() {
 
   const [selected, setSelected] = useState<VizNode | null>(null);
   const [focusId, setFocusId] = useState<string | null>(null);
+  // Korean company names for the search box (company_ko.json; {} until loaded or if missing).
+  const [koNames, setKoNames] = useState<Record<string, string[]>>({});
+  // A component picked in the search box ("hbm"): the graph shows only the companies that make it.
+  const [group, setGroup] = useState<{ label: string; ids: Set<string> } | null>(null);
 
   // Load curated data once.
   useEffect(() => {
@@ -76,6 +80,10 @@ export default function Page() {
         setGraph(g);
         setManifest(m);
         setReportKeys(new Set(rk));
+        // Optional extra: without it the search box just does not know Korean names.
+        fetchJson<Record<string, string[]>>("/data/company_ko.json")
+          .then((ko) => { if (!cancelled) setKoNames(ko); })
+          .catch(() => {});
       } catch (e: any) {
         if (!cancelled) setErr(e?.message || String(e));
       }
@@ -140,15 +148,22 @@ export default function Page() {
     return s;
   }, [viz, chains, layers, domains]);
 
+  // What the graph draws: the sidebar filters, narrowed to the picked component's
+  // makers when there is one. (The search box keeps searching all of `visibleIds`.)
+  const graphIds = useMemo(() => {
+    if (!group) return visibleIds;
+    return new Set([...visibleIds].filter((id) => group.ids.has(id)));
+  }, [visibleIds, group]);
+
   const linkCount = useMemo(() => {
     if (!graph) return 0;
     let c = 0;
     // The force renderer replaces visual-link IDs with node objects. Count the
     // untouched source edges so changing filters cannot turn this total to zero.
     for (const l of graph.edges)
-      if (chains.has(l.chain) && visibleIds.has(l.source) && visibleIds.has(l.target)) c++;
+      if (chains.has(l.chain) && graphIds.has(l.source) && graphIds.has(l.target)) c++;
     return c;
-  }, [graph, chains, visibleIds]);
+  }, [graph, chains, graphIds]);
 
   const toggle = (kind: "chain" | "layer" | "domain", slug: string) => {
     const map = { chain: [chains, setChains], layer: [layers, setLayers], domain: [domains, setDomains] } as const;
@@ -175,6 +190,7 @@ export default function Page() {
     bulk("layer", true);
     bulk("domain", true);
     setFocusId(null);
+    setGroup(null);
   };
   const filtersChanged = chains.size !== Object.keys(CHAIN_COLORS).length ||
     layers.size !== LAYERS.length || domains.size !== DOMAINS.length;
@@ -313,25 +329,42 @@ export default function Page() {
                   inputId="graph-company-search"
                   shortcut={!selected && !navOpen}
                   nodes={searchNodes}
-                  onPick={(id) => setFocusId(id)}
-                  onClear={() => setFocusId(null)}
+                  aliases={koNames}
+                  onPick={(id) => {
+                    // A company outside the component view would be hidden: leave that view first.
+                    if (group && !group.ids.has(id)) setGroup(null);
+                    setFocusId(id);
+                  }}
+                  onPickGroup={(label, ids) => {
+                    setGroup({ label, ids: new Set(ids) });
+                    setFocusId(null);
+                  }}
+                  onClear={() => {
+                    setFocusId(null);
+                    setGroup(null);
+                  }}
                 />
               </div>
               <dl className="workspace-stats" aria-label="Visible graph summary">
-                <div><dt>Companies</dt><dd>{visibleIds.size.toLocaleString("en-US")}<span> / {viz.nodes.length.toLocaleString("en-US")}</span></dd></div>
+                <div><dt>Companies</dt><dd>{graphIds.size.toLocaleString("en-US")}<span> / {viz.nodes.length.toLocaleString("en-US")}</span></dd></div>
                 <div><dt>Connections</dt><dd>{linkCount.toLocaleString("en-US")}</dd></div>
                 <div><dt>Active chains</dt><dd>{chains.size}<span> / {Object.keys(CHAIN_COLORS).length}</span></dd></div>
               </dl>
             </div>
             <div className="workspace-map-note">
               <span>Click a company for details. Drag to rotate · Scroll to zoom.</span>
+              {group && (
+                <button className="workspace-group-chip" onClick={() => setGroup(null)} aria-label={`Stop showing only ${group.label} makers`}>
+                  Showing “{group.label}” · {graphIds.size} companies ✕
+                </button>
+              )}
               {filtersChanged ? <button onClick={resetFilters}>Reset graph filters ↗</button> : <span className="workspace-all-visible">All filters selected</span>}
             </div>
             <div className="workspace-map">
             <Graph3D
               nodes={viz.nodes}
               links={viz.links}
-              visibleIds={visibleIds}
+              visibleIds={graphIds}
               visibleChains={chains}
               dimStale={dimStale}
               glass={glass}
@@ -340,7 +373,7 @@ export default function Page() {
               onBackgroundClick={() => setSelected(null)}
               onFocusChange={setFocusId}
             />
-            {visibleIds.size === 0 && (
+            {graphIds.size === 0 && (
               <div className="workspace-map-empty" role="status">
                 <div>
                   <span className="workspace-state-icon" aria-hidden="true">⌕</span>

@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import ast
 import json
@@ -231,6 +232,39 @@ def build_graph(chains_dir="chains", output_path="graph/merged_graph.json"):
     return graph
 
 
+def write_company_ko(graph, output_path="graph/company_ko.json"):
+    """Write every company's Korean names for the web search box ("삼성전자" finds Samsung).
+
+    - A listed Korean company gets DART's official name through its stock code
+      (dart/corp_codes.json: "000660" -> "SK하이닉스").
+    - Every Korean spelling in verify_graph.KO_ALIASES is added on top: short names
+      ("하이닉스"), private companies, Korean spellings of foreign names ("키옥시아").
+    Output: {"SK Hynix": ["SK하이닉스", "에스케이하이닉스", "하이닉스"], ...}, only companies that have one.
+    """
+    from verify_graph import KO_ALIASES
+    hangul = re.compile(r"[가-힣]")
+    corp_codes = {}
+    if os.path.exists("dart/corp_codes.json"):
+        with open("dart/corp_codes.json", encoding="utf-8") as f:
+            corp_codes = json.load(f)
+
+    names_by_company = {}
+    for node in graph["nodes"]:
+        names = []
+        stock_code = (node.get("ticker") or "").split(".")[0]  # "000660.KS" -> "000660"
+        if node.get("country") == "KR" and stock_code in corp_codes:
+            names.append(corp_codes[stock_code]["corp_name"])
+        for alias in KO_ALIASES.get(node["id"], []):
+            if hangul.search(alias) and alias not in names:
+                names.append(alias)
+        if names:
+            names_by_company[node["id"]] = names
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(names_by_company, f, indent=1, ensure_ascii=False, sort_keys=True)
+    print(f"Korean search names: {len(names_by_company)} companies -> {output_path}")
+
+
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")  # chain text contains → and non-ASCII names
 
@@ -251,6 +285,9 @@ if __name__ == "__main__":
     # (graph/evidence.json, shown by the "source" button in the web app). See evidence.py.
     from evidence import build_evidence
     build_evidence(graph)
+
+    # Korean company names for the web search box (graph/company_ko.json).
+    write_company_ko(graph)
 
     # Pipeline dashboard: which enrich pipeline ran when, what it covers, what is still
     # pending (graph/enrich_status.json for the Coverage tab + the enrich_log.json record).

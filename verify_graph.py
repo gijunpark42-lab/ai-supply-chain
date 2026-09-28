@@ -157,6 +157,11 @@ KO_ALIASES = {
     "Techwing": ["테크윙"],
     "Wonik IPS": ["원익IPS", "원익아이피에스"],
     "Wonik QnC": ["원익QnC", "원익큐엔씨"],
+    # private Korean companies: no DART stock code, so their Korean names live only here
+    "FuriosaAI": ["퓨리오사AI", "퓨리오사"],
+    "LS Cable & System": ["LS전선"],
+    "Rebellions": ["리벨리온"],
+    "Samyoung Pure Chemicals": ["삼영순화"],
     # --- Japanese nodes (Japanese script + the Korean spelling a DART filing would use) ----
     "Advantest": ["어드반테스트", "アドバンテスト"],
     "Dai Nippon Printing": ["DNP", "大日本印刷"],
