@@ -54,6 +54,7 @@ const MODES: [Mode, string][] = [
 export default function TowerPage() {
   const [graph, setGraph] = useState<MergedGraph | null>(null);
   const [logos, setLogos] = useState<LogoManifest>({});
+  const [koNames, setKoNames] = useState<Record<string, string[]>>({}); // Korean names for the search box
   const [chainList, setChainList] = useState<ChainInfo[]>([]);
   const [err, setErr] = useState<string | null>(null);
   const [mode, setMode] = useState<Mode>("chains");
@@ -72,9 +73,13 @@ export default function TowerPage() {
         setChainList(chains);
       })
       .catch((e) => setErr(String(e?.message || e)));
-    // Logo badges are a nicety: without the manifest the tower simply shows none.
+    // Logo badges and Korean search names are niceties: without them the tower shows no
+    // logos, and the search box knows only English names.
     fetchJson<LogoManifest>("/logos/manifest.json")
       .then(setLogos)
+      .catch(() => {});
+    fetchJson<Record<string, string[]>>("/data/company_ko.json")
+      .then(setKoNames)
       .catch(() => {});
   }, []);
 
@@ -165,7 +170,7 @@ export default function TowerPage() {
 
         {viz && (
           <div className="tw-search">
-            <SearchBox nodes={viz.nodes} onPick={(id) => setCompany(id)} onClear={() => setCompany(null)} />
+            <SearchBox nodes={viz.nodes} aliases={koNames} onPick={(id) => setCompany(id)} onClear={() => setCompany(null)} />
           </div>
         )}
 
