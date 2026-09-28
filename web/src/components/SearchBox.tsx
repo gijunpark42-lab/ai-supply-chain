@@ -13,20 +13,29 @@ interface Props {
   nodes: VizNode[]; // the companies to search over (pass the VISIBLE ones)
   onPick: (id: string) => void; // called with the node id the user chose
   onClear?: () => void; // optional: called when the ✕ button empties the box
+  // Optional: Korean names per company ({ "SK Hynix": ["SK하이닉스", …] }) so Korean input works.
+  aliases?: Record<string, string[]>;
+  // Optional: called with the typed component and the ids of EVERY company that makes it
+  // when the user picks the "show on graph" row. Without it that row is not offered.
+  onPickGroup?: (label: string, ids: string[]) => void;
   placeholder?: string;
   inputId?: string;
   shortcut?: boolean;
 }
 
-const MAX_ROWS = 10;
+// A component can have 100+ makers ("power"), and the user asked to see them all —
+// the list scrolls (max-height in Sidebar.css).
+const MAX_ROWS = 200;
 
-// A typeahead search box: type a company name, ticker, product or sector and
-// pick a result with the mouse or ↑ ↓ Enter. With an empty query it offers the
-// last 8 picks (remembered in localStorage under "aisc.recent").
+// A typeahead search box: type a company name (English or Korean), ticker, product,
+// component or sector and pick a result with the mouse or ↑ ↓ Enter. With an empty
+// query it offers the last 8 picks (remembered in localStorage under "aisc.recent").
 export default function SearchBox({
   nodes,
   onPick,
   onClear,
+  aliases,
+  onPickGroup,
   placeholder = "Search company, ticker, product…",
   inputId,
   shortcut = false,
@@ -59,24 +68,31 @@ export default function SearchBox({
   }, [shortcut]);
 
   // Built once per node list, not per keystroke.
-  const index = useMemo(() => buildSearchIndex(nodes), [nodes]);
+  const index = useMemo(() => buildSearchIndex(nodes, aliases), [nodes, aliases]);
   const byId = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes]);
 
   const query = q.trim();
+  const result = useMemo(() => (query ? searchNodes(index, query, MAX_ROWS) : null), [query, index]);
   const rows: SearchHit[] = useMemo(() => {
-    if (query) return searchNodes(index, query, MAX_ROWS);
+    if (result) return result.hits;
     // Empty query → recent picks, but only the ones still in the current list.
     return recent
       .map((id) => byId.get(id))
       .filter((n): n is VizNode => !!n)
       .map((node) => ({ node, kind: "name" as const, why: null, score: 0 }));
-  }, [query, index, recent, byId]);
+  }, [result, recent, byId]);
   const showingRecent = !query && rows.length > 0;
+
+  // The "show on graph" row for a component (2+ makers). It sits first in the list, so
+  // the keyboard index counts it as row 0 and the companies start at `offset`.
+  const group = onPickGroup && result?.group ? result.group : null;
+  const offset = group ? 1 : 0;
+  const total = rows.length + offset;
 
   // Whenever the list changes, highlight its first row again.
   useEffect(() => {
     setActive(0);
-  }, [query, rows.length]);
+  }, [query, total]);
 
   // Keep the highlighted row scrolled into view while arrowing through a long list.
   useEffect(() => {
@@ -93,6 +109,13 @@ export default function SearchBox({
     onPick(id);
   };
 
+  // Show every maker of the typed component on the graph. The text stays in the box.
+  const pickGroup = () => {
+    if (!group || !onPickGroup) return;
+    setOpen(false);
+    onPickGroup(group.label, group.ids);
+  };
+
   const clear = () => {
     setQ("");
     setOpen(false);
@@ -103,12 +126,17 @@ export default function SearchBox({
     if (e.key === "ArrowDown") {
       e.preventDefault();
       if (!open) setOpen(true);
-      else setActive((a) => Math.min(a + 1, Math.max(rows.length - 1, 0)));
+      else setActive((a) => Math.min(a + 1, Math.max(total - 1, 0)));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActive((a) => Math.max(a - 1, 0));
     } else if (e.key === "Enter") {
-      const hit = rows[active] || rows[0];
+      if (open && group && active === 0) {
+        e.preventDefault();
+        pickGroup();
+        return;
+      }
+      const hit = rows[active - offset] || rows[0];
       if (open && hit) {
         e.preventDefault();
         pick(hit.node.id);
@@ -126,7 +154,7 @@ export default function SearchBox({
     }
   };
 
-  const activeId = open && rows[active] ? `${listId}-opt-${active}` : undefined;
+  const activeId = open && active < total ? `${listId}-opt-${active}` : undefined;
 
   return (
     <div className="srch">
@@ -190,13 +218,35 @@ export default function SearchBox({
         >
           {showingRecent && <div className="srch-sec">Recent</div>}
           {rows.length === 0 && <div className="srch-empty">No company matches “{query}”</div>}
+          {group && (
+            <button
+              type="button"
+              id={`${listId}-opt-0`}
+              role="option"
+              tabIndex={-1}
+              aria-selected={active === 0}
+              data-idx={0}
+              className={"srch-row srch-group" + (active === 0 ? " on" : "")}
+              onMouseEnter={() => setActive(0)}
+              onClick={pickGroup}
+            >
+              <span className="srch-group-icon" aria-hidden="true">◎</span>
+              <span className="srch-name">
+                “{group.label}”
+                {group.terms.length > 0 && <span className="srch-group-terms"> → {group.terms.join(", ")}</span>}
+              </span>
+              <span className="srch-hint">
+                {group.ids.length} companies · show on graph
+              </span>
+            </button>
+          )}
           {rows.map((h, i) => (
             <ResultRow
               key={h.node.id}
-              id={`${listId}-opt-${i}`}
-              idx={i}
+              id={`${listId}-opt-${i + offset}`}
+              idx={i + offset}
               hit={h}
-              on={i === active}
+              on={i + offset === active}
               onHover={setActive}
               onPick={pick}
             />
@@ -244,7 +294,7 @@ const ResultRow = memo(function ResultRow({
       <span className="srch-dot" style={{ background: n.color }} />
       <span className="srch-name">{n.id}</span>
       {n.ticker && <span className="srch-tick">{n.ticker}</span>}
-      {hit.kind === "product" && hit.why && (
+      {(hit.kind === "product" || hit.kind === "ko") && hit.why && (
         <span className="srch-why" title={hit.why}>
           {hit.why}
         </span>

@@ -208,6 +208,27 @@ body.glass .srch-list {
   color: var(--ap-muted);
   white-space: nowrap;
 }
+/* The "show on graph" row of a component search ("hbm" → every HBM maker): first in
+   the list, set apart from the company rows under it. */
+.srch-group {
+  border-bottom: 1px solid var(--ap-border);
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 4px;
+}
+.srch-group .srch-name {
+  color: var(--ap-blue-hi);
+  max-width: 60%;
+}
+.srch-group-icon {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--ap-blue-hi);
+}
+.srch-group-terms {
+  font-weight: 400;
+  color: var(--ap-muted);
+}
 .srch-empty {
   padding: 8px 10px;
   font-size: 0.8rem;
