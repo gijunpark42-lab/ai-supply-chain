@@ -72,7 +72,7 @@ The map records **facts** and **what the company itself says**.
    `transcripts/non_transcript_sources/` with a NOT-a-transcript NOTE and a `# source label:` header).
 3. **IR press releases: only the important ones** — a named supply / customer agreement or design win, capacity /
    capex / production facts, company guidance or targets, a product launch or availability with specs and dates,
-   the operating facts of an acquisition (never its price), a fab / facility start. Anything else yields no entry:
+   the operating facts of an acquisition (never its price), a fab / facility start; for ai_bio pharma / biotech nodes also a regulatory approval — FDA / EC approval or CHMP positive opinion (user, 2026-09-27; trial readouts, priority reviews and filings still yield nothing). Orders from a segment outside the node's chain yield nothing (user, 2026-09-27: e.g. Baker Hughes oilfield / OFSE orders on its power node). Anything else yields no entry:
    close the row with `python ir_pull.py done --label "<label>" --why "no material facts"`. (`ir_pull.py` already
    skips the clear notices by headline: dividends, buybacks, event and results-date notices, personnel, awards,
    CSR, trade-show exhibit notices, columns and surveys.)

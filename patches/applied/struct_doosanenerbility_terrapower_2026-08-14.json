@@ -1,0 +1,51 @@
+{
+  "source": "Doosan Enerbility press release: Doosan Enerbility Signs Contract with TerraPower to (08-14-2026)",
+  "new_nodes": {
+    "TerraPower": {
+      "ticker": null,
+      "exchange": null,
+      "country": "US",
+      "why": "Natrium sodium-cooled fast reactor developer buying reactor equipment for nuclear generation",
+      "evidence": "Doosan Enerbility signed a contract to manufacture key equipment for TerraPower's Natrium reactor (release 08-14-2026)",
+      "approved": "user 2026-09-27: new node TerraPower (private, US), power / Generation; Doosan Enerbility contract moves onto the Doosan Enerbility -> TerraPower edge"
+    }
+  },
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "TerraPower",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "Natrium sodium-cooled fast reactor (345 MW first unit in Kemmerer, Wyoming)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Doosan Enerbility",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "gas turbines & SMR for data-center power",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "TerraPower",
+              "relationship": "Natrium reactor key equipment manufacturing (guard vessels, support and internal structures)",
+              "contracts": [
+                {
+                  "source": "Doosan Enerbility press release: Doosan Enerbility Signs Contract with TerraPower to (08-14-2026)",
+                  "signal": "Customer TerraPower: Doosan Enerbility signed a contract to manufacture key equipment for TerraPower's Natrium reactor - reactor guard vessels, reactor support structures and reactor internal structures - for the First-of-a-Kind (FOAK) unit in Kemmerer, Wyoming, a 345 MW sodium-cooled fast reactor (output can rise to 500 MW with molten salt energy storage) that began construction in spring 2026 after an NRC construction permit. The order follows a manufacturability review contract signed in December 2024. Nuclear Business Group CEO Jongdoo Kim: the company will continue to strengthen its SMR manufacturing capabilities and expand its role as a global supplier.",
+                  "units": "FOAK unit 345 MW (up to 500 MW with storage)",
+                  "value": "contract value not disclosed",
+                  "date_signed": "announced 08-14-2026",
+                  "type": "supply agreement",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

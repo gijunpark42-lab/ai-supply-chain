@@ -1,5 +1,5 @@
 {
- "_rule": "Facts no script can infer, recorded ONLY by the coordinator of an enrich run through `python enrich_status.py mark / unmark / note` (parallel agents report, never write). A mark keeps a company out of the board's missing lists until its recheck date.",
+ "_rule": "Facts no script can infer, recorded ONLY by the coordinator of an enrich run through `python enrich_status.py mark / unmark / note / ask / resolve` (parallel agents report, never write). A mark keeps a company out of the board's missing lists until its recheck date; a question waits under 'Needs a decision' until the user answers it.",
  "marks": [
   {
    "company": "Bayer",
@@ -26,5 +26,102 @@
    "recheck": "2026-12-25"
   }
  ],
- "notes": []
+ "notes": [
+  {
+   "at": "2026-09-27 00:27",
+   "market": "US",
+   "text": "09-27 enrich us: AV quota hit after 9 calls; defeatbeta still 404. Carry over: Dell, ChipMOS, Simulations Plus (AV waiting), Applied Digital, 3M, Texas Instruments (overdue), MP Materials, PDF Solutions, POET, Shell, UMC (never). Air Products 09-16 release left pending: page body is JS-rendered navigation only; paste the release text by hand. av.py sync assigns the wrong fiscal quarter to June-FY companies with no prior label (AOS) - check before trusting a first-call label. EMCOR 09-17 conference: CEO turns labelled Moderator by investing.py."
+  }
+ ],
+ "questions": [],
+ "answered": [
+  {
+   "subject": "Alpha and Omega Semiconductor",
+   "question": "The Alpha Vantage transcript saved as 'Alpha and Omega Semiconductor Q2 FY2026 (08-12-2026)' is really the 02-05-2026 call (fiscal Q2 = Dec quarter; AOS FY ends June). Its patch (9 entries, check-clean) is held at patches/held/alphaandomegasemiconductor_q2_fy2026.json (not applied). OK to relabel the file to (02-05-2026) and apply? The real August call is Q4 FY2026: av.py fetch AOSL 2026Q4 --date 2026-08-12.",
+   "label": "Alpha and Omega Semiconductor Q2 FY2026 (08-12-2026)",
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: relabel to Q2 FY2026 (02-05-2026) and apply; fetch the August Q4 FY2026 call (AV quota was spent on 09-27 — av.py fetch AOSL 2026Q4 --date 2026-08-12 next run).",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "ai_bio regulatory approvals",
+   "question": "Earlier runs put FDA/EU approvals and CHMP opinions on AstraZeneca / Eli Lilly / Roche / Novo nodes (e.g. Onswik 09-24, Inluriyo 09-18, Susvimo, Sogroya CHMP). The 09-27 enrich us closed ~20 approval and trial releases as no facts. Should approvals count as product launch/availability for ai_bio end-customer nodes, or were the earlier entries over-capture? Kept open: Novo FREHEMGO CHMP (09-17-2026), which states a Q4 2026 EU launch.",
+   "label": "Novo Nordisk press release: Novo: CHMP recommends EU approval of FREHEMGO (denecimig), (09-17-2026)",
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: include FDA / EU approvals and CHMP opinions (rule added to SKILL §2.3); the 8 approval releases closed on 09-27 were enriched.",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "Baker Hughes oilfield orders",
+   "question": "Should named orders from Baker Hughes' oilfield (OFSE) segment go on its power/Generation node? The 09-27 run skipped the Kutei Northern subsea award (17 deepwater trees, 08-10-2026) and enriched only IET turbine/compressor orders.",
+   "label": null,
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: exclude oilfield (OFSE) orders (rule added to SKILL §2.3).",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "Cisco -> Supermicro edge",
+   "question": "The edge Cisco -> Supermicro in components/optical_networking.json (created by 'Cisco Goldman Sachs conference 2026 (09-08-2026)') may be reversed: in Cisco's 08-25-2026 release Supermicro supplies rack-scale systems that Cisco resells (Supermicro -> Cisco). Flip it?",
+   "label": null,
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: flipped to Supermicro -> Cisco in components/optical_networking.json, both contracts kept.",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "Seichi Semiconductor Technologies Hefei",
+   "question": "UniTest's 40%-owned Chinese associate is its largest customer (KRW 20,929,549 thousand H1 2026 sales per DART). Add it as a node, or keep it as UniTest's counterparty only?",
+   "label": "UniTest Q2 FY2026 (08-14-2026)",
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: keep as UniTest's counterparty only; no node.",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "Solus Advanced Materials placement",
+   "question": "Solus sits in packaging_substrate as 'HVLP copper foil for AI accelerator / server CCL' with an edge to Doosan Corporation, but its H1 2026 DART report says the whole copper-foil business (Circuit Foil Luxembourg) was sold, completed 04-28-2026; what remains is battery foil, OLED and advanced materials. Keep, re-describe, or remove the node/edge?",
+   "label": "Solus Advanced Materials Q2 FY2026 (08-14-2026)",
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: change the description only. Product now: OLED and advanced materials maker; HVLP copper-foil business (CFL) sold 04-28-2026. Placement and edge unchanged.",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "LG Innotek autonomous-vehicle placement",
+   "question": "Should LG Innotek get a placement in edge_ai / Autonomous Vehicles (nvidia_vera_rubin.json) so its camera-module supply to Zoox (release 08-27-2026, and release 1664) can be recorded? Currently its only placement is FC-BGA substrates, so the Zoox deal was closed as outside the node's chain.",
+   "label": "LG Innotek press release: LG Innotek Supplying Camera Modules for Zoox (08-27-2026)",
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: add. LG Innotek now also placed in edge_ai / Autonomous Vehicles (nvidia_vera_rubin.json); Zoox camera-module release enriched there.",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "LS Cable & System",
+   "question": "LS Cable & System (private; parent of LS Marine Solution and Gaon Cable) is the largest customer of both per their H1 2026 DART reports (LSMS KRW 113.2B, Gaon KRW 399.2B). Add it as a node (e.g. power / Grid), or keep it as a counterparty only?",
+   "label": "Gaon Cable Q2 FY2026 (08-14-2026)",
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: add as node. Private node in power / Grid (power_cooling.json); edges from LS Marine Solution, Gaon Cable, LS Eco Energy carry the DART facts.",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "TerraPower",
+   "question": "TerraPower (private) contracted Doosan Enerbility for Natrium FOAK reactor vessels/internals (08-14-2026). Add TerraPower as a node in power / Generation, or keep as Doosan's counterparty only?",
+   "label": "Doosan Enerbility press release: Doosan Enerbility Signs Contract with TerraPower to (08-14-2026)",
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: add as node. Private node in power / Generation; Doosan Enerbility -> TerraPower edge carries the Natrium contract.",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "Korea Zinc sulfuric acid placement",
+   "question": "Korea Zinc is placed only at minerals / Indium (optical_networking.json), but it supplies about 60% of Korea's semiconductor-grade sulfuric acid (capacity 280kt -> 320kt, release 09-04-2026). Add a second placement at hbm_memory / materials / Process Chemicals & Slurries? (The acid facts sit on the Indium node for now.)",
+   "label": "Korea Zinc Q2 FY2026 (08-14-2026)",
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: add. Second placement hbm_memory / materials / Process Chemicals & Slurries; the 09-04 sulfuric-acid entries moved there.",
+   "answered": "2026-09-27"
+  },
+  {
+   "subject": "Affiliate suppliers/customers from DART (Samyoung Pure Chemicals, Tokai Carbon Co.)",
+   "question": "Two affiliates are the filer's key counterparty: Samyoung Pure Chemicals (Hansol Chemical's 49% associate, 17.47% of Hansol revenue) and Tokai Carbon Co., Ltd. (Japan; Tokai Carbon Korea's 52.63% parent and sole graphite supplier). Add either as a node, or keep as counterparty text?",
+   "label": "Hansol Chemical Q2 FY2026 (08-13-2026)",
+   "at": "2026-09-27",
+   "answer": "User 2026-09-27: add both. Samyoung Pure Chemicals (private) with edge Hansol Chemical -> Samyoung; Tokai Carbon Co. (TSE 5301) with edge Tokai Carbon Co. -> Tokai Carbon Korea.",
+   "answered": "2026-09-27"
+  }
+ ]
 }

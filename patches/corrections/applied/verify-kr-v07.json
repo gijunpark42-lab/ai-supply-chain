@@ -1,0 +1,46 @@
+{
+  "reviewer": "verify-kr-v07",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Koh Young Technology",
+      "target": null,
+      "label": "Koh Young Technology Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Half-year report: H1 2026 consolidated revenue and operating profit grew 56% and 328% YoY",
+      "action": "set",
+      "set": {
+        "signal": "Half-year report: H1 2026 consolidated revenue KRW 161,492,756,928 vs KRW 103,215,237,840 in H1 2025 and operating profit KRW 24,404,695,198 vs KRW 5,700,621,637; Q2 2026 revenue and operating profit rose sharply versus Q2 2025 (Q2 2025 operating profit was KRW 2,513,135,606)",
+        "figure": "H1 revenue KRW 161,493M vs KRW 103,215,237,840; H1 operating profit KRW 24,405M vs KRW 5,700,621,637; Q2 revenue KRW 88,759,068,557 vs KRW 52,090,079,755; Q2 operating profit KRW 14,552,561,107 vs KRW 2,513,135,606"
+      },
+      "reason": "The 56% / 328% H1 growth rates are computed; the half-year report states only the H1 2026 and H1 2025 amounts (no arithmetic in figures). Replaced with the filed prior-year amounts.",
+      "evidence": "매출액 (주25,36) | 88,759,068,557 | 161,492,756,928 | 52,090,079,755 | 103,215,237,840 ... 영업이익 | 14,552,561,107 | 24,404,695,198 | 2,513,135,606 | 5,700,621,637"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Nepes",
+      "target": null,
+      "label": "Nepes Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "R&D and technology roadmap (DART half-year report filed 08-14-2026): H1 2026 R&D spend",
+      "action": "set",
+      "set": {
+        "signal": "R&D and technology roadmap (DART half-year report filed 08-14-2026): H1 2026 R&D spend KRW 13,000M (4.52% of revenue). Ongoing programmes include a chiplet heterogeneous-integration high-performance AI semiconductor package (embedded Si bridge RDL interposer, since 2023-04), a 2.5D SiP integrating a processor with high-speed stacked memory (PIM), a petaflops-class compute plus GB-class DRAM PIM platform (since 2025-04), nPoP chip-last and a domestic backside-protection EMC film for system semiconductors; a FOWLP antenna-in-package development ran 2021-04 to 2023-12. The electronic-materials business supplies developer, etchant, photoresist and cleaner chemicals and focuses on materials used in the HBM process."
+      },
+      "reason": "FOWLP antenna-in-package project is listed as completed ('21.04 ~ '23.12), not ongoing; the 10% Deca Technologies stake / associate revenue is an ownership stake (skill section 2: no ownership stakes) and is dropped.",
+      "evidence": "FOWLP 기판 안테나 집적형 패키지 (Antenna-in-Package, AIP) 개발 | '21. 04 ~ '23.12 | 밀리미터파 대역 응용을 위한 FO-AiP 개발"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "TLB",
+      "target": null,
+      "label": "TLB IR presentation: KIND 19039 (08-13-2026)",
+      "signal_prefix": "Order backlog (IR deck 08-13-2026): the company says longer SOCAMM p",
+      "action": "set",
+      "set": {
+        "signal": "Order backlog (IR deck 08-13-2026): the company says longer SOCAMM production lead times pushed its high-value order backlog to a record high in Q2 2026; the order slide shows quarterly backlog of 362, 442, 445, 526 and 539 from Q1 2025 to Q1 2026 and Q1 orders of 582 (2024), 892 (2025) and 1,297 (2026), up 45% YoY (the slide prints no unit; the deck's other financial slides are in KRW hundred million).",
+        "figure": "Backlog 539 at Q1 2026 (slide unit not printed); Q1 2026 orders 1,297 (+45% YoY); record high-value backlog stated for Q2 2026"
+      },
+      "reason": "The record-backlog claim is in the deck's 2Q26 status, not attached to the Q1 2026 539 figure; the order/backlog slide prints no unit, so the KRW hundred million unit is an assumption and is now flagged as such.",
+      "evidence": "분기별 수주 잔고('25 1Q ~ '26 1Q)3개년 수주 추이('24 1Q ~ '26 1Q) 582 892 1,297 ... 362 442 445 526 539 ... 2Q26 현황 - 高부가 제품 위주의 역대 최고 수주 잔고"
+    }
+  ]
+}

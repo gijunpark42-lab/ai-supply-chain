@@ -1,0 +1,63 @@
+{
+  "source": "Techwing IR presentation: KIND 18865 (06-29-2026)",
+  "chains": {
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "Techwing",
+          "layer": "equipment",
+          "sector": "Metrology / Inspection",
+          "product": "memory test handlers & HBM cube probers",
+          "quarterly_data": [
+            {
+              "quarter": "Techwing IR presentation: KIND 18865 (06-29-2026)",
+              "signal": "Outlook in the Q1 2026 IR book: the company attributes Q1 growth (preliminary revenue KRW 52,400M, operating profit KRW 9,702M) to a surge in DRAM/NAND demand lifting memory test-equipment sales plus higher COK and board parts sales, and expects DRAM/NAND demand to persist through Q2 and H2 so that revenue keeps growing after Q1; it expects continued Cube Prober orders from the customer it is already delivering to and additional orders from the customer that placed an initial order.",
+              "figure": "Q1 revenue KRW 52,400M; operating profit KRW 9,702M; revenue growth expected to continue in Q2 and H2",
+              "topics": ["hbm"],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "Techwing IR presentation: KIND 18865 (06-29-2026)",
+              "signal": "HBM Cube Prober status by customer: supplying mass-production units to Samsung Electronics with order volume rising; orders secured from SK Hynix with volume expected to rise; Micron is evaluating the equipment. Management's view: from HBM4E onward 100% inspection of individual dies becomes mandatory rather than a differentiator, and the Cube Prober is the most economical way to do it (fewer tools, lower power and maintenance cost). The deck also says Techwing expects to enter the co-packaged optics (CPO) inspection-equipment market (optical alignment, silicon photonics chip, mechanical/thermal and high-speed electrical tests), citing its ultra-precision control, sub-1nm vision and DLP handler technology.",
+              "figure": "Cube Prober: mass production at Samsung, orders secured at SK Hynix, evaluation at Micron",
+              "topics": ["hbm", "cpo"],
+              "slot": "next_catalyst"
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "SK Hynix",
+              "relationship": "test handlers for memory/HBM test lines",
+              "contracts": [
+                {
+                  "source": "Techwing IR presentation: KIND 18865 (06-29-2026)",
+                  "signal": "Techwing's Q1 2026 IR book states it has secured HBM Cube Prober orders from SK Hynix and expects the order volume to increase; SK Hynix is also listed with Micron as a memory test-handler customer.",
+                  "units": "HBM Cube Prober",
+                  "value": "no specific figure",
+                  "date_signed": "not stated (reported 06-29-2026)",
+                  "type": "purchase order",
+                  "topics": ["hbm"]
+                }
+              ]
+            },
+            {
+              "company": "Samsung",
+              "relationship": "HBM test equipment (Cube Prober) and memory test handlers",
+              "contracts": [
+                {
+                  "source": "Techwing IR presentation: KIND 18865 (06-29-2026)",
+                  "signal": "Techwing's Q1 2026 IR book states it is supplying mass-production HBM Cube Probers to Samsung Electronics and that the order volume is increasing.",
+                  "units": "HBM Cube Prober, mass production",
+                  "value": "no specific figure",
+                  "date_signed": "not stated (reported 06-29-2026)",
+                  "type": "supply agreement",
+                  "topics": ["hbm"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

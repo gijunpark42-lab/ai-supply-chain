@@ -1,0 +1,49 @@
+{
+  "reviewer": "verify-kr-v12",
+  "items": [
+    {
+      "kind": "contract",
+      "company": "Protec",
+      "target": "Samsung",
+      "label": "Protec Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Protec's half-year report lists Samsung Electronics first",
+      "action": "set",
+      "set": {"signal": "Protec's half-year report lists Samsung Electronics first among its domestic customers (sales terms: cash / electronic settlement) and states it supplies its dispenser machines to Samsung Electronics."},
+      "reason": "customer table does not tie Samsung to die bonders, laser reflow bonders or solder-ball attach; only dispensers are stated as supplied to Samsung",
+      "evidence": "국내의 삼성전자, LG전자, 하이닉스반도체, ASE코리아, 스태츠칩팩코리아, 암코테크놀러지코리아 등에 제품을 공급 (Dispenser M/C); 국내 | 삼성전자, SK하이닉스, ... 삼성전기 등 | 현금, 전자결제 등"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Protec",
+      "target": null,
+      "label": "Protec Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Products and R&D per the half-year report: Protec lists a laser bonder (2024)",
+      "action": "set",
+      "set": {"signal": "Products and R&D per the half-year report: Protec lists a laser bonder (2024) that uses a laser heat source from below to bond high-performance chips such as GPU logic dies or HBM onto interposers or PCB substrates, with sales generated; a next-generation laser-assisted bonder (2022) using an in-house large-area laser source and controller in place of imported parts, with sales generated; a Micro Solder Ball Attachment System (2022, Minami) with sales; and a Copper Pin Attachment System (2025, Minami) for high-aspect-ratio copper pins replacing solder balls. It signed a technology-royalty agreement on 2024-12-21 under which it pays an undisclosed overseas company A for use of A's technology, for sales beyond that counterparty. The report states demand for HBM and 2.5D/3D heterogeneous packaging keeps rising and HBM and related advanced-packaging equipment demand is expected to expand, and that the company is developing bonder and laser-application equipment for future growth. Consolidated R&D spend KRW 7,447,334K = 5.3% of revenue; patents held 318."},
+      "reason": "clarify direction of the royalty agreement: Protec pays royalties to company A (기술료지급계약)",
+      "evidence": "<기술료지급계약>계약상대방 : \"A사\"(해외)계약체결일 : 2024.12.21계약의 목적 및 내용 : 계약상대방 기술의 사용료 지급(계약상대방외 추가판매목적)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Tokai Carbon Korea",
+      "target": null,
+      "label": "Tokai Carbon Korea Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Supplier: Tokai Carbon Korea buys its main raw material, high-p",
+      "action": "set",
+      "set": {"signal": "Supplier: Tokai Carbon Korea buys its main raw material, high-purity graphite, from its parent Tokai Carbon Co., Ltd. (Japan), with unit prices negotiated each year in yen; H1 raw-material purchases were graphite KRW 14,206M (95.0%) and graphite foil etc. KRW 754M (5.0%). Related-party purchases from Tokai Carbon Co., Ltd. were KRW 12,569,838K in H1 2026 (H1 2025: KRW 15,699,911K) and technology royalties under a 2019 technology licence (10 years from 2019-01-01, auto-renewing) KRW 5,100,690K (KRW 3,687,442K). A sales-support fee agreement with KC Co. (2% of Solid SiC ring sales; KRW 2,988,772K in H1) was amended on 2026-03-31 to end on 2026-12-31 without renewal. Sales to group affiliate Tokai Carbon (Dalian) were KRW 5,306,338K."},
+      "reason": "capture rule: no ownership stakes - removed the parent's 52.63% shareholding",
+      "evidence": "TOKAI CARBON CO., LTD.사가 보유한 주식수는 발행주식 총수 11,179,416주 중 5,883,250주로 52.63%를 보유"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Tokai Carbon Korea",
+      "target": null,
+      "label": "Tokai Carbon Korea Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "Order backlog at 06-30-2026 of 1,993.7 in units of KRW 100 million",
+      "action": "set",
+      "set": {"signal": "Order backlog at 06-30-2026 of 1,993.7 in units of KRW 100 million: Solid SiC 1,763.0, graphite 192.9, susceptors 37.7 (orders are received continuously per customer, so delivered amounts are not shown). Customers above the disclosure threshold (names undisclosed) contributed H1 revenue of KRW 37,879,162K (customer 1), KRW 41,678,379K (customer 2), KRW 29,889,096K (customer 3) and KRW 28,007,229K (customer 4), vs KRW 19,592,312K, KRW 34,768,188K, KRW 19,561,027K and KRW 31,849,551K in H1 2025. The report describes main customers as semiconductor makers and makers of solar ingots and LED chips, and says its localized SiC cathodes and SiC rings hold a high market share. Trade receivables rose to KRW 66,125,363K from KRW 45,764,045K at year-end."},
+      "reason": "source names main customers as semiconductor / solar-ingot / LED-chip / semiconductor producers, not semiconductor equipment makers",
+      "evidence": "주요 매출처는 반도체 제조 및 태양광용 잉곳, LED용 칩, 반도체 생산업체입니다"
+    }
+  ]
+}

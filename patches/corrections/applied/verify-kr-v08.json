@@ -1,0 +1,185 @@
+{
+ "reviewer": "verify-kr-v08",
+ "items": [
+  {
+   "kind": "quarterly_data",
+   "company": "S&S Tech",
+   "target": null,
+   "label": "S&S Tech Q2 FY2026 (08-13-2026)",
+   "signal_prefix": "Company outlook in the half-year report: demand is",
+   "action": "set",
+   "set": {
+    "signal": "Company outlook in the half-year report: demand is expected to grow for high-end semiconductor products centred on major customers and for display products as OLED adoption widens, and overseas demand is expected to continue on the back of capacity investment by Chinese foundries and panel makers; the company notes China's push to localise its supply chain is accelerating fabless and foundry growth and, with OLED expansion, blank-mask demand is rising quickly.",
+    "figure": "no specific figure"
+   },
+   "chains": [
+    "manufacturing/foundry.json"
+   ],
+   "reason": "Skill 2: investment amounts and corporate-structure items (subsidiary capital injection USD 40M into S&S Suzhou, new Singapore / HK holding subsidiaries) are not captured; the Suzhou unit has no stated operating activity. Outlook part kept.",
+   "evidence": "S&S Advanced Materials Limited는 2031년 06월까지 USD 40,000,000을 출자할 계획입니다."
+  },
+  {
+   "kind": "contract",
+   "company": "S&S Tech",
+   "target": "Samsung",
+   "label": "S&S Tech Q2 FY2026 (08-13-2026)",
+   "signal_prefix": "Half-year report, transactions with interested par",
+   "action": "set",
+   "set": {
+    "signal": "Half-year report, transactions with interested parties: S&S Tech sold blank masks to Samsung Electronics worth KRW 7,824 million in H1 2026 vs KRW 6,613 million in H1 2025."
+   },
+   "chains": [
+    "manufacturing/foundry.json"
+   ],
+   "reason": "Skill 2: ownership stakes are not captured; the sale figures stay.",
+   "evidence": "삼성전자 주식회사(지분율 8.0%) 와의 거래가 있습니다. 그 종류는 블랭크마스크 매출이며, 거래 금액은 당반기 7,824백만원, 전반기 6,613백만원입니다."
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "S&S Tech",
+   "target": null,
+   "label": "S&S Tech IR presentation: KIND 18720 (06-09-2026)",
+   "signal_prefix": "Deck strategy: EUV mask blanks have advanced into ",
+   "action": "set",
+   "set": {
+    "signal": "Deck strategy: EUV mask blanks have advanced into the mass-production (HVM) preparation phase; the company has a strategic cooperation with a leading global semiconductor manufacturer (not named) and product qualification is under way toward HVM readiness, after which full-scale mass production and supply capabilities will be expanded; it has internalised core EUV mask-blank technology and supplied samples for evaluation, and completed the Yongin EUV Center (Oct. 2025), which the deck places near its key customer and the Yongin semiconductor cluster. In DUV/FPD mask blanks it targets demand from legacy-node foundry fab expansions in China (multi-patterning raising photomask use) and new display fabs, is raising the share of high-end mask blanks to improve mix and margins, and is expanding supply for OLED adoption in mobile, IT and automotive panels."
+   },
+   "chains": [
+    "manufacturing/foundry.json"
+   ],
+   "reason": "The deck lists sample supply and the Yongin EUV Center completion as separate bullets; it does not say the samples came from Yongin.",
+   "evidence": "Internalization of core EUV Mask Blanks technologies and supply of samples for evaluation. / Completion of the Yongin EUV Center (Oct. 2025)."
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Duksan Hi-Metal",
+   "target": null,
+   "label": "Duksan Hi-Metal Q2 FY2026 (08-13-2026)",
+   "signal_prefix": "Half-year report (consolidated, K-IFRS): Q2 2026 r",
+   "action": "set",
+   "set": {
+    "signal": "Half-year report (consolidated, K-IFRS): Q2 2026 revenue KRW 90,753,036,174 vs KRW 57,408,052,168 in Q2 2025; Q2 operating profit KRW 10,078,195,954 vs KRW 2,580,609,710; H1 2026 revenue KRW 159,453,856,342 vs KRW 101,559,099,903; H1 operating profit KRW 9,409,736,905 vs KRW 1,187,991,073; H1 net income KRW 17,616,607,092 vs a loss of KRW 586,982,133. The solder business (metal materials segment, i.e. the parent company: solder balls, powder, paste) had Q2 revenue KRW 57,709,456,340 vs KRW 30,725,786,513 and Q2 operating profit KRW 8,656,577,063 vs KRW 4,655,083,226; H1 revenue KRW 100,341,751,153 vs KRW 56,887,055,618 (FY2025 full year: KRW 126,318,034,393) with H1 operating profit KRW 10,939,345,184 vs KRW 7,750,355,085. Solder H1 sales were KRW 89,254,504K export and KRW 11,087,247K domestic; the solder business was 62.93% of consolidated H1 revenue, the defense/aerospace navigation subsidiary 14.90% (KRW 23,769,259K) and the high-pressure gas-cylinder subsidiary 22.23% (KRW 35,443,904K). The largest customer (customer A, unnamed) bought KRW 32,828,903K, a ratio of 0.2059 of consolidated revenue (H1 2025: KRW 18,653,389K, 0.1837); the top five solder customers are about 49.94% of sales. Separate R&D spend KRW 2,298,254K = 2.29% of sales."
+   },
+   "chains": [
+    "components/hbm_memory.json"
+   ],
+   "reason": "Filing states the ratio as 0.2059 / 0.1837; written as stated (no conversion).",
+   "evidence": "A사 주요 매출처에 대한 매출액 | 32,828,903 주요 매출처 비율 | 0.2059 ... 18,653,389 | 0.1837"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Duksan Hi-Metal",
+   "target": null,
+   "label": "Duksan Hi-Metal Q2 FY2026 (08-13-2026)",
+   "signal_prefix": "Company outlook in the half-year report: it expect",
+   "action": "set",
+   "set": {
+    "signal": "Company outlook in the half-year report: it expects stable demand growth to continue as the market grows around AI, HBM and high-performance semiconductors, and is strengthening its solder-ball and related-material technology for advanced packaging."
+   },
+   "chains": [
+    "components/hbm_memory.json"
+   ],
+   "reason": "Skill 2: third-party market-research figures (Grand View Research) are not captured; the company outlook stays.",
+   "evidence": "글로벌 시장조사기관 Grand View Research에 따르면 ... 2026년 약 19.4억 달러 수준에서 2030년 약 28.4억 달러"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "ENF Technology",
+   "target": null,
+   "label": "ENF Technology Q2 FY2026 (08-13-2026)",
+   "signal_prefix": "Half-year report (consolidated, K-IFRS): Q2 2026 r",
+   "action": "set",
+   "set": {
+    "signal": "Half-year report (consolidated, K-IFRS): Q2 2026 revenue KRW 179,010,795,049 vs KRW 164,227,404,225 in Q2 2025; Q2 operating profit KRW 27,254,732,720 vs KRW 23,502,016,591. H1 2026 revenue KRW 349,879,852,207 vs KRW 322,017,907,097; H1 operating profit KRW 52,172,911,677 vs KRW 44,962,083,971; H1 net income KRW 35,127,649,624 vs KRW 28,849,473,050. Own-product sales rose to KRW 313,465,057,086 in H1 from KRW 253,461,964,263 while merchandise sales fell to KRW 31,580,075,045 from KRW 63,445,654,442. H1 sales were KRW 283,146,669K domestic and KRW 66,733,183K direct export. Three customers above 10% of revenue (names undisclosed): customer AAA KRW 83,167,912K (ratio 0.2377), BBB KRW 61,981,511K (0.1772), CCC KRW 37,607,862K (0.1075) (H1 2025: AAA 0.2349, BBB 0.1645). Revenue by region before eliminations: Korea KRW 322,451,354K, East Asia KRW 68,867,836K, North/Central America KRW 17,786,612K. Average selling price of process chemicals KRW 2,479/kg (FY2025: KRW 2,447/kg) and of fine chemicals (photoresist raw materials) KRW 648,569/kg (KRW 516,910/kg). The US unit (ENF USA Holdings, Kyle, Texas plant) had H1 revenue KRW 9,879,570K and a net loss of KRW 8,837,922K. R&D spend KRW 12,474,080K = 3.57% of revenue. FY2025 reference: electronic-materials revenue KRW 670,896,290K, up 15.2%."
+   },
+   "chains": [
+    "components/hbm_memory.json"
+   ],
+   "reason": "Filing states the customer ratios as decimals (0.2377 etc.); written as stated.",
+   "evidence": "기업전체 수익에 대한 비율 | 0.2411 | 0.2377 | 0.1816 | 0.1772 | 0.1052 | 0.1075 ... 0.2349 | 0.1643 | 0.1645"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "ENF Technology",
+   "target": null,
+   "label": "ENF Technology Q2 FY2026 (08-13-2026)",
+   "signal_prefix": "Portfolio changes: PAM Technology (a Korean semico",
+   "action": "set",
+   "set": {
+    "signal": "Portfolio changes: PAM Technology (an electronic-materials company) moved from joint venture to consolidated subsidiary in H1 2026 after ENF acquired additional shares; PAM had H1 revenue of KRW 39,226,277K. R&D completed in 2026: a Cu cleaner for the hybrid-bonding process (removes Si and organic particles after dicing to raise hybrid-bonding yield) and a Cu etchant for new Cu/Ti films; completed in 2025: organic EUV polymer, EUV photoresist developer, Cu VMS for TSV Cu bumps, PSPI polymer and a high-selectivity DRAM etchant. The company expects demand for high-value materials to rise over the mid to long term as AI spreads and HBM and AI-server memory grow.",
+    "figure": "PAM Technology consolidated; PAM H1 revenue KRW 39,226,277K"
+   },
+   "chains": [
+    "components/hbm_memory.json"
+   ],
+   "reason": "Skill 2: ownership stakes / share purchases (78.87%, 32.44%, 46.43%, UB Materials 79.39%) are not captured; the consolidation fact and R&D stay.",
+   "evidence": "㈜팸테크놀로지는 당반기 중 주식을 추가 취득하여 공동기업에서 종속기업으로 변동되어 연결범위에 포함되었습니다."
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Eugene Technology",
+   "target": null,
+   "label": "Eugene Technology Q2 FY2026 (08-14-2026)",
+   "signal_prefix": "H1 2026 half-year report (DART, filed 08-14-2026, ",
+   "action": "set",
+   "set": {
+    "signal": "H1 2026 half-year report (DART, filed 08-14-2026, consolidated): H1 revenue KRW 223,984M vs KRW 188,078,377,367 in H1 2025; H1 operating profit KRW 37,054M vs KRW 28,942,597,260. Q2 alone: revenue KRW 122,110,438,487 (Q2 2025: KRW 104,924,667,101), operating profit KRW 18,220,532,842 (Q2 2025: KRW 19,739,955,399). Semiconductor-equipment segment revenue KRW 216,270,569 thousand with operating profit KRW 34,978,848 thousand; industrial gas / precursor subsidiary EGTM revenue KRW 7,714M. Exports KRW 72,115M (32.20% of revenue). H1 net profit of KRW 88,773M was lifted by an income-tax benefit of KRW 36,298,836 thousand that the report attributes to a corporate-tax refund claim.",
+    "figure": "H1 revenue KRW 223,984M (H1 2025 KRW 188,078,377,367); H1 OP KRW 37,054M (H1 2025 KRW 28,942,597,260); Q2 revenue KRW 122,110,438,487, Q2 OP KRW 18,220,532,842; net profit KRW 88,773M incl. tax benefit"
+   },
+   "chains": [
+    "components/hbm_memory.json"
+   ],
+   "reason": "Several amounts were rounded to KRW M by the enricher (28,943 / 104,925 / 18,221 / 19,740 / 216,271 / 34,979 are not in the filing); replaced with the stated figures.",
+   "evidence": "영업이익(손실) | 18,220,532,842 | 37,054,075,769 | 19,739,955,399 | 28,942,597,260; 수익 | 216,270,569 | 7,713,710 | 223,984,279"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Eugene Technology",
+   "target": null,
+   "label": "Eugene Technology Q2 FY2026 (08-14-2026)",
+   "signal_prefix": "R&D and next-generation tools: H1 2026 R&D spendin",
+   "action": "set",
+   "set": {
+    "signal": "R&D and next-generation tools: H1 2026 R&D spending KRW 54,372M (24.3% of revenue), with 215 of 499 group employees in R&D. Projects in progress: TiN / TSN ALD deposition tools and processes for capacitor electrodes of 10nm-class DRAM (since 2021.12), a batch-type ALD system for insulating films (since 2023.07) and multi-wafer-loaded epitaxial deposition (since 2024.07); capitalised development programmes include FALCON, BENNU-L, Harrier-M, IBIS and SIERRA, which the company says are in joint development (joint evaluation) with customers or in preparation for it. The earlier mini-batch ALD tool for 3D NAND is in sales. Kokusai Electric and one other plaintiff have four patent cases against the company (claims KRW 1,200M); the Korean patent tribunal invalidated 16 claims in one case, and two others are on appeal."
+   },
+   "chains": [
+    "components/hbm_memory.json"
+   ],
+   "reason": "Hedge kept: the note says the capitalised projects are in, or preparing for, joint development / evaluation with customers.",
+   "evidence": "현재 개발비로 계상된 개별자산은 고객사와 공동개발(공동평가)을 진행중에 있거나 준비중에 있습니다."
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Exicon",
+   "target": null,
+   "label": "Exicon Q2 FY2026 (08-14-2026)",
+   "signal_prefix": "H1 2026 half-year report (DART, filed 08-14-2026, ",
+   "action": "set",
+   "set": {
+    "signal": "H1 2026 half-year report (DART, filed 08-14-2026, consolidated): H1 revenue KRW 41,274,152,310 vs KRW 9,482,919,995 in H1 2025; H1 operating profit KRW 2,169,021,007 vs an operating loss of KRW 8,586,837,702. Q2 alone: revenue KRW 31,468,619,657 (Q2 2025: KRW 7,567,410,445), operating profit KRW 4,134,899,033 (Q2 2025: loss of KRW 2,880,133,626). H1 net profit KRW 8,521M included an equity-method gain of KRW 3,797M, mostly from affiliate SEMCNS. Product mix: memory testers including burn-in and CLT KRW 37,600M (91.1%), SSD testers KRW 3,674M (8.9%), SoC testers nil; domestic sales KRW 39,189M (94.9%), with India KRW 1,471,215 thousand.",
+    "figure": "H1 revenue KRW 41,274,152,310 (H1 2025 KRW 9,482,919,995); H1 OP KRW 2,169,021,007 (H1 2025 loss KRW 8,586,837,702); Q2 revenue KRW 31,468,619,657, Q2 OP KRW 4,134,899,033; memory testers 91.1%"
+   },
+   "chains": [
+    "components/hbm_memory.json"
+   ],
+   "reason": "Rounded amounts (9,483 / 8,587 / 31,469 / 4,135 as KRW M) are not in the filing; replaced with the stated figures.",
+   "evidence": "수익 | 31,468,619,657 | 41,274,152,310 | 7,567,410,445 | 9,482,919,995 / 영업이익 | 4,134,899,033 | 2,169,021,007 | (2,880,133,626) | (8,586,837,702)"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Exicon",
+   "target": null,
+   "label": "Exicon Q2 FY2026 (08-14-2026)",
+   "signal_prefix": "Order backlog (disclosed orders): KRW 101,801M ord",
+   "action": "set",
+   "set": {
+    "signal": "Order backlog (disclosed orders): KRW 101,801M ordered, KRW 17,203M delivered, KRW 84,598M outstanding -- CLT and related testers KRW 30,200M (ordered 2026-02-27, due 2026-12-31, KRW 14,200M outstanding), CIB boards KRW 9,686M (due 2026-09-04, KRW 8,483M outstanding), CIB and others KRW 12,065M (due 2026-12-31) and SSD testers and others KRW 49,850M (ordered 2026-07-07, due 2026-12-31). Inventories rose to KRW 46,493,561,959 from KRW 28,947,059,891 at the start of the year."
+   },
+   "chains": [
+    "components/hbm_memory.json"
+   ],
+   "reason": "46,494 is a rounding not in the filing; stated figures used.",
+   "evidence": "재고자산 | 46,493,561,959 | - | 28,947,059,891"
+  }
+ ]
+}

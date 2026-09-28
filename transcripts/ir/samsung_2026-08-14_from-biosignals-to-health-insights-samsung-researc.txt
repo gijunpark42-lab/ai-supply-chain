@@ -1,0 +1,42 @@
+SOURCE: Samsung official press release -- https://news.samsung.com/global/from-biosignals-to-health-insights-samsung-researchs-work-on-health-foundation-models
+TITLE: From Biosignals to Health Insights: Samsung Research's Work on Health Foundation Models
+DATE: 08-14-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-09-26.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Samsung press release: From Biosignals to Health Insights: Samsung Research's Work (08-14-2026)
+
+---
+AI is being widely used to analyze biosignals measured by wearable devices such as smartwatches. By identifying meaningful patterns in health data — including sleep, heart rate, and physical activity — AI is helping users better understand and manage their health.
+
+The Health Forum held at Galaxy Unpacked July 2026 also shared Samsung’s Connected Care vision for the next chapter of digital health — a future where care moves from reactive treatment toward preventive, personalized, and connected experiences, supported by trusted health innovation and partnerships across the healthcare ecosystem. One technology that is helping power these new consumer experiences is the health foundation model.
+
+Researchers from the Digital Health Team at Samsung Research America (SRA) are developing new AI technologies to continuously understand a person’s health state from biosignals, generate health insights, and offer appropriate health guidance.
+
+Samsung researchers recently introduced two foundation models based on wearable data: xMAE (Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning) , which learns the temporal relationship between different biosignals, and HiMAE (Hierarchical Masked Autoencoder) , which understands health patterns across different time scales in wearable time-series data. Both studies demonstrate advancement of health AI models that can better understand the physiological relationships and temporal structure of biosignals.
+
+Samsung’s work on xMAE and HiMAE models was accepted to the International Conference on Machine Learning (ICML), and the International Conference on Learning Representations (ICLR), respectively, highlighting the significance of this research.
+
+Health Foundation Models That Read the Body’s Signals: Why They Matter for Health
+
+A health foundation model is an AI model that uses self-supervised learning to learn meaningful features from unlabeled biosignal data. After being pretrained on large-scale health data, the models can be applied to perform a wide range of downstream health tasks, including biosignal analysis, developing new or improved biomarkers, and health issue prediction.
+
+xMAE AI model: Continuous Cardiac Insight from Wearables
+
+An electrocardiogram (ECG) on wearables directly measures the electrical activity of the heart and is useful for measuring heart rate and heart rate variability, identifying abnormal heart rhythms and risks for conditions such as atrial fibrillation. ECG is highly accurate, but typically requires users to pause and take an active measurement. On the other hand, photoplethysmography (PPG) can indirectly measure cardiac function by detecting changes in blood flow and can be passively and continuously measured through sensors in wearable devices such as smartwatches.
+
+The two signals originate from the same cardiac activity, but they appear with a certain time difference, much like thunder is heard after lightning is seen. xMAE is a biosignal pretraining framework designed to learn the temporal relationship between the two signals by reconstructing masked portions of the ECG signal using the more easily and continuously measured PPG signal. As a result, cardiovascular health-related features can be analyzed more precisely using PPG without requiring separate manual ECG measurements.
+
+The researchers pretrained xMAE using approximately 9,400 hours of ECG and PPG data. The model outperformed unimodal biosignal models and existing multimodal learning methods in 15 of 19 evaluation tasks, including cardiovascular disease prediction, abnormal test-result detection, and sleep-stage classification. The study also confirmed the potential to use the learned features across different sensor devices, body locations and data-gathering environments.
+
+HiMAE AI model: Reading the Body at Every Time Scale on the Device
+
+Health data measured from wearable devices can reveal different information depending on the time scale at which it is analyzed. For example, short time segments can reveal rapidly changing signals such as heartbeats, while longer time segments can uncover patterns that accumulate over time, such as sleep or physical activity. This is similar to examining different information by zooming in and out of an image.
+
+HiMAE is a self-supervised learning model that learns representation from wearable data across multiple time scales. It uses multiple encoders to analyze short and long segments separately, allowing the model to identify information required for each health task, such as heart rate analysis or sleep prediction, at the appropriate time scale. During training, the model reconstructs masked parts of the data. This enables it to learn key patterns in biosignals even when labeled data is limited.
+
+A single pretrained HiMAE model handles classification, numerical prediction and data generation. The model achieved high performance while being smaller than existing models. It also improved computational efficiency to the point where it can produce results in less than one millisecond on a smartwatch-class central processing unit (CPU). Most importantly, HiMAE demonstrates the potential of on-device health foundation models for the first time — analyzing raw health signals in real time, without relying on cloud servers.
+
+The Next Step Toward Connected Care
+
+Together, xMAE and HiMAE, represent an advance in AI models that precisely understand the physiological relationships and temporal structures unique to biosignals. Both models aim to deliver precise, continuous, personalized health insights and to generalize across many health tasks from a single pretrained model. Hear more from the researchers behind this work below.

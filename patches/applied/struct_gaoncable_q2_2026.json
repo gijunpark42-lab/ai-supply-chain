@@ -1,0 +1,51 @@
+{
+  "source": "Gaon Cable Q2 FY2026 (08-14-2026)",
+  "new_nodes": {
+    "LS Cable & System": {
+      "ticker": null,
+      "exchange": null,
+      "country": "KR",
+      "why": "cable maker at the centre of the LS cable group: buys power cable from Gaon Cable and LS Eco Energy and cable installation from LS Marine Solution for grid projects",
+      "evidence": "named as main / only >10% customer in the Q2 FY2026 DART reports of LS Marine Solution, Gaon Cable and LS Eco Energy",
+      "approved": "user 2026-09-27: new node LS Cable & System (private, KR), power / Grid; LS affiliates' related-party facts move onto supplier -> LS Cable & System edges"
+    }
+  },
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "LS Cable & System",
+          "domain": "power",
+          "sector": "Grid",
+          "product": "extra-high-voltage underground and submarine power cable systems",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Gaon Cable",
+          "domain": "power",
+          "sector": "Power Equipment Components & Materials",
+          "product": "power cable (LV / MV / HV) and busduct, including via US subsidiary LS Cable & System U.S.A. (LSCUS)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "LS Cable & System",
+              "relationship": "power cable sales to LS Cable & System",
+              "contracts": [
+                {
+                  "source": "Gaon Cable Q2 FY2026 (08-14-2026)",
+                  "signal": "Parent LS Cable & System is the only customer above 10% of revenue: H1 2026 sales to LS Cable & System KRW 399,243,183 thousand (H1 2025 KRW 287,761,970 thousand); purchases from LS Cable & System KRW 350,182,182 thousand. Copper: the power segment bought copper cathode (for base wire rod) worth KRW 854,912 million (52.03% of purchases) from LS MnM and others, and related-party purchases from affiliate LS MnM were KRW 253,697,768 thousand in H1; the business section says the group buys its copper cathode mainly through IXM S.A. and others, priced off the LME.",
+                  "units": "no specific figure",
+                  "value": "Sales to LS Cable & System KRW 399,243,183 thousand; purchases KRW 350,182,182 thousand",
+                  "date_signed": "not stated",
+                  "type": "customer share",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

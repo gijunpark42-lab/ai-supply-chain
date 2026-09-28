@@ -1,0 +1,52 @@
+{
+  "source": "Samsung IR presentation: Q1 2026 results (04-30-2026)",
+  "chains": {
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Samsung",
+          "layer": "memory",
+          "sector": "HBM",
+          "product": "HBM3E memory stacks",
+          "quarterly_data": [
+            {
+              "quarter": "Samsung IR presentation: Q1 2026 results (04-30-2026)",
+              "signal": "Q1 2026 results deck (04-30-2026), figures the Q1 call did not give: gross profit KRW 81.9 trillion (61.2% of sales vs 47.2% in Q4 2025); EBITDA margin 51%; ROE 41%; EPS KRW 7,123 (common). Segment Q1 sales / operating profit: DS KRW 81.7 trillion (+86% QoQ, +225% YoY) / KRW 53.7 trillion (66% margin), of which Memory sales KRW 74.8 trillion (+101% QoQ, +292% YoY); DX KRW 52.7 trillion / KRW 3.0 trillion; SDC KRW 6.7 trillion / KRW 0.4 trillion; Harman KRW 3.8 trillion / KRW 0.2 trillion. Q1 operating cash flow KRW 40.27 trillion; PP&E purchases KRW 17.13 trillion; net cash KRW 119.24 trillion at 03-31-2026. Outlook slides: memory to proactively capture early demand for new GPUs/CPUs launching in H2 and lead the initial PCIe Gen6 eSSD market with products focused on KV cache; foundry to ramp mass production of 4nm memory products and LPU for AI/HPC and diversify into AI/HPC, automotive and aerospace; DA to enter the AI datacenter HVAC market.",
+              "figure": "Q1 gross margin 61.2%; DS OP KRW 53.7 trillion (66%); Memory sales KRW 74.8 trillion (+292% YoY); Q1 operating cash flow KRW 40.27 trillion; net cash KRW 119.24 trillion",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "Samsung",
+          "layer": "memory",
+          "sector": "HBM",
+          "product": "HBM3E DRAM stacks (advanced TC-bonded cubes)",
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "HBM supply",
+              "contracts": [
+                {
+                  "source": "Samsung IR presentation: Q1 2026 results (04-30-2026)",
+                  "signal": "Q1 2026 results deck: Samsung commenced the industry's first mass product sales of HBM4 and SOCAMM2 for the NVIDIA Vera Rubin platform (company claim of industry first).",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "Q1 2026",
+                  "type": "HBM4 and SOCAMM2 supply (mass product sales)",
+                  "topics": [
+                    "hbm"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

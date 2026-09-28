@@ -1,0 +1,64 @@
+{
+  "source": "Nepes Q2 FY2026 (08-14-2026)",
+  "chains": {
+    "manufacturing/packaging_substrate.json": {
+      "players": [
+        {
+          "company": "Nepes",
+          "layer": "foundry",
+          "sector": "OSAT (assembly & test)",
+          "product": "wafer-level and fan-out packaging (PMIC / DDI)",
+          "quarterly_data": [
+            {
+              "quarter": "Nepes Q2 FY2026 (08-14-2026)",
+              "signal": "H1 2026 results (DART half-year report filed 08-14-2026, consolidated): revenue KRW 287,666,730,725 vs KRW 260,278,986,322 in H1 2025; gross profit KRW 66,726,982,737; operating profit KRW 25,464,379,501 vs KRW 11,634,983,727; net income KRW 19,434,134,709 (continuing operations KRW 16,237,730,374, discontinued operations KRW 3,196,404,335). Q2 alone: revenue KRW 153,704,779,819 vs KRW 130,909,286,542 in Q2 2025; operating profit KRW 14,594,820,419 vs KRW 7,999,469,438; net income KRW 18,272,718,837. SEGMENTS (H1, external revenue, KRW thousand): semiconductor (bumping, test, package) 205,557,926 vs 182,695,933 with segment operating profit 24,089,101 vs 9,424,874; electronic materials 53,386,266 vs 42,075,045 (operating profit 1,362,722); secondary-battery lead tabs 28,341,046 vs 35,156,492 (operating loss 490,252). Product mix (H1, KRW M): WLP bumping etc. (Nepes) 173,320 = 60.25%; test (Nepes Ark) 60,876 = 21.16%; developer / chemicals 25,088 = 8.72%; lead tabs 28,104 = 9.77%. Exports KRW 265,279M vs domestic KRW 56,329M (before eliminations). Revenue by region (H1, KRW thousand): Korea 229,676,958, Taiwan 8,629,123, Japan 6,550,396, US 5,359,588, other 37,450,666. The filing says the advanced-packaging business is expanding customers and end markets with AI-driven technology and expects rapid growth.",
+              "figure": "H1 revenue KRW 287,667M, OP KRW 25,464M (vs KRW 11,635M); Q2 revenue KRW 153,704,779,819, Q2 OP KRW 14,594,820,419; semiconductor segment OP KRW 24,089,101 thousand",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "Nepes Q2 FY2026 (08-14-2026)",
+              "signal": "Capacity, utilisation, pricing and capex (DART half-year report filed 08-14-2026): semiconductor (WLP etc., bumping, 24h/day basis) H1 2026 capacity 493,300 wafers vs 1,062,000 for full-year 2025; production 421,452 wafers; average UTILISATION 85.4% (electronic materials 47.6%, lead tabs 36.9%). Average WLP price (bumping revenue / wafers sold) KRW 175,660 per wafer in H1 2026 vs KRW 157,636 in 2025 and KRW 156,317 in 2024. Consolidated H1 PP&E additions KRW 57,374,903,684 vs KRW 24,687,979,993 in H1 2025 (parent KRW 27,188,698,817); open machinery purchase commitment KRW 10,107,000 thousand; construction-in-progress transferred to PP&E KRW 6,273,044 thousand. Semiconductor raw-material purchases KRW 59,953M in H1 (targets KRW 9,946M, plating solution KRW 14,142M), with target prices at KRW 7,353,076 vs KRW 5,693,923 in 2025. Orders are placed roughly monthly, so no order backlog is reported.",
+              "figure": "WLP utilisation 85.4% (421,452 of 493,300 wafers); ASP KRW 175,660/wafer vs KRW 157,636; H1 capex KRW 57,374,903,684 vs KRW 24,687,979,993",
+              "topics": [
+                "packaging_substrate"
+              ],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Nepes Q2 FY2026 (08-14-2026)",
+              "signal": "Customer concentration (DART half-year report filed 08-14-2026): one unnamed major customer ('Company A') accounted for KRW 170,080,242 thousand of H1 2026 consolidated revenue (Q2: KRW 87,706,657 thousand) vs KRW 152,106,284 thousand in H1 2025. The segment note lists Samsung Electronics and others as the semiconductor segment's major customers, LG Chem and others for lead tabs, and LG Display and others for electronic materials.",
+              "figure": "Company A KRW 170,080,242 thousand of H1 revenue (Q2 KRW 87,706,657 thousand)",
+              "topics": []
+            },
+            {
+              "quarter": "Nepes Q2 FY2026 (08-14-2026)",
+              "signal": "R&D and technology roadmap (DART half-year report filed 08-14-2026): H1 2026 R&D spend KRW 13,000M (4.52% of revenue). Ongoing programmes include a chiplet heterogeneous-integration high-performance AI semiconductor package (embedded Si bridge RDL interposer, since 2023-04), a 2.5D SiP integrating a processor with high-speed stacked memory (PIM), a petaflops-class compute plus GB-class DRAM PIM platform (since 2025-04), nPoP chip-last, FOWLP antenna-in-package and a domestic backside-protection EMC film for system semiconductors. The electronic-materials business supplies developer, etchant, photoresist and cleaner chemicals and focuses on materials used in the HBM process. Nepes holds 10% of Deca Technologies Inc. (equity-method associate, H1 revenue KRW 7,702,866 thousand).",
+              "figure": "R&D KRW 13,000M (4.52% of revenue); chiplet embedded-Si-bridge RDL interposer and 2.5D PIM SiP in development",
+              "topics": [
+                "packaging_substrate"
+              ]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Samsung",
+              "relationship": "wafer-level packaging",
+              "contracts": [
+                {
+                  "source": "Nepes Q2 FY2026 (08-14-2026)",
+                  "signal": "DART half-year report segment note names Samsung Electronics (and others) as the major customer of Nepes's semiconductor segment (bumping, test and package), which had H1 2026 external revenue of KRW 205,557,926 thousand.",
+                  "units": "semiconductor segment (bumping, test, package), H1 2026",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "major customer (segment disclosure)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

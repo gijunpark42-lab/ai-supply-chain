@@ -1,16 +1,16 @@
 {
- "generated": "2026-09-26 22:29",
- "labels_total": 1230,
+ "generated": "2026-09-27 02:39",
+ "labels_total": 1478,
  "pipelines": [
   {
    "id": "us",
    "name": "US earnings calls",
    "command": "enrich us calls",
    "source": "Alpha Vantage / defeatbeta (av.py)",
-   "files": 297,
-   "labels_on_disk": 297,
-   "in_graph": 297,
-   "entries": 2915,
+   "files": 306,
+   "labels_on_disk": 306,
+   "in_graph": 306,
+   "entries": 3000,
    "pending": [],
    "no_data": [],
    "skipped": 0,
@@ -18,8 +18,8 @@
     "2026-01-06",
     "2026-09-10"
    ],
-   "last_fetch": "2026-09-18",
-   "last_enriched": "2026-09-18",
+   "last_fetch": "2026-09-27",
+   "last_enriched": "2026-09-27",
    "enriched_days": [
     {
      "day": "2026-08-31",
@@ -52,12 +52,16 @@
     {
      "day": "2026-09-18",
      "labels": 22
+    },
+    {
+     "day": "2026-09-27",
+     "labels": 9
     }
    ],
-   "last_sync": "2026-09-04",
+   "last_sync": "2026-09-26",
    "extra": {
     "waiting": [],
-    "saved_pairs": 220
+    "saved_pairs": 229
    }
   },
   {
@@ -201,19 +205,25 @@
    "name": "Korea DART filings",
    "command": "enrich dart",
    "source": "DART 정기보고서 / 잠정실적 / 공급계약 (dart.py)",
-   "files": 48,
-   "labels_on_disk": 49,
-   "in_graph": 49,
-   "entries": 527,
+   "files": 104,
+   "labels_on_disk": 107,
+   "in_graph": 106,
+   "entries": 872,
    "pending": [],
-   "no_data": [],
+   "no_data": [
+    {
+     "label": "Hyosung Heavy Industries DART supply contract (09-14-2026)",
+     "file": "supply_contracts/hyosungheavyindustries.txt",
+     "why": null
+    }
+   ],
    "skipped": 0,
    "source_range": [
     "2026-08-04",
-    "2026-09-09"
+    "2026-09-22"
    ],
-   "last_fetch": "2026-09-25",
-   "last_enriched": "2026-09-09",
+   "last_fetch": "2026-09-27",
+   "last_enriched": "2026-09-27",
    "enriched_days": [
     {
      "day": "2026-09-07",
@@ -222,11 +232,15 @@
     {
      "day": "2026-09-09",
      "labels": 1
+    },
+    {
+     "day": "2026-09-27",
+     "labels": 57
     }
    ],
-   "last_sync": "2026-09-10",
+   "last_sync": "2026-09-27",
    "extra": {
-    "filings_seen": 43
+    "filings_seen": 52
    }
   },
   {
@@ -312,65 +326,9 @@
    "source": "Investing.com fireside chats (investing.py conferences)",
    "files": 105,
    "labels_on_disk": 105,
-   "in_graph": 94,
-   "entries": 535,
-   "pending": [
-    {
-     "company": "Qualcomm",
-     "label": "Qualcomm Snapdragon Summit 2026 (09-22-2026)",
-     "file": "transcripts/conferences/qualcomm_snapdragonsummit_2026-09-22.txt"
-    },
-    {
-     "company": "Analog Devices",
-     "label": "Analog Devices U.S. All Stars Conference 2026 (09-22-2026)",
-     "file": "transcripts/conferences/analogdevices_usallstarsconference_2026-09-22.txt"
-    },
-    {
-     "company": "Sanofi",
-     "label": "Sanofi Bank of America healthcare conference 2026 (09-22-2026)",
-     "file": "transcripts/conferences/sanofi_bankofamericahealthcareconference_2026-09-22.txt"
-    },
-    {
-     "company": "Hubbell",
-     "label": "Hubbell Morgan Stanley conference 2026 (09-17-2026)",
-     "file": "transcripts/conferences/hubbell_morganstanleyconference_2026-09-17.txt"
-    },
-    {
-     "company": "EMCOR",
-     "label": "EMCOR Morgan Stanley laguna conference 2026 (09-17-2026)",
-     "file": "transcripts/conferences/emcor_morganstanleylagunaconference_2026-09-17.txt"
-    },
-    {
-     "company": "Eaton",
-     "label": "Eaton Morgan Stanley laguna conference 2026 (09-16-2026)",
-     "file": "transcripts/conferences/eaton_morganstanleylagunaconference_2026-09-16.txt"
-    },
-    {
-     "company": "Jazz Pharmaceuticals",
-     "label": "Jazz Pharmaceuticals Morgan Stanley conference 2026 (09-16-2026)",
-     "file": "transcripts/conferences/jazzpharmaceuticals_morganstanleyconference_2026-09-16.txt"
-    },
-    {
-     "company": "GE Vernova",
-     "label": "GE Vernova Morgan Stanley laguna conference 2026 (09-16-2026)",
-     "file": "transcripts/conferences/gevernova_morganstanleylagunaconference_2026-09-16.txt"
-    },
-    {
-     "company": "Relay Therapeutics",
-     "label": "Relay Therapeutics Morgan Stanley conference 2026 (09-16-2026)",
-     "file": "transcripts/conferences/relaytherapeutics_morganstanleyconference_2026-09-16.txt"
-    },
-    {
-     "company": "Jazz Pharmaceuticals",
-     "label": "Jazz Pharmaceuticals Deutsche Bank Healthcare Summit 2026 (09-16-2026)",
-     "file": "transcripts/conferences/jazzpharmaceuticals_deutschebankhealthcaresummit_2026-09-16.txt"
-    },
-    {
-     "company": "Absci",
-     "label": "Absci Morgan Stanley healthcare conference 2026 (09-16-2026)",
-     "file": "transcripts/conferences/absci_morganstanleyhealthcareconference_2026-09-16.txt"
-    }
-   ],
+   "in_graph": 105,
+   "entries": 590,
+   "pending": [],
    "no_data": [],
    "skipped": 0,
    "source_range": [
@@ -378,7 +336,7 @@
     "2026-09-22"
    ],
    "last_fetch": "2026-09-25",
-   "last_enriched": "2026-09-25",
+   "last_enriched": "2026-09-27",
    "enriched_days": [
     {
      "day": "2026-09-16",
@@ -391,6 +349,10 @@
     {
      "day": "2026-09-25",
      "labels": 1
+    },
+    {
+     "day": "2026-09-27",
+     "labels": 11
     }
    ],
    "last_sync": "2026-09-22",
@@ -444,51 +406,1621 @@
    "name": "Company IR press releases",
    "command": "enrich ir",
    "source": "Company IR RSS feeds (ir_pull.py) — company-issued, not transcripts",
-   "files": 152,
-   "labels_on_disk": 152,
-   "in_graph": 63,
-   "entries": 79,
+   "files": 843,
+   "labels_on_disk": 842,
+   "in_graph": 196,
+   "entries": 223,
    "pending": [
     {
-     "company": "Ciena",
-     "label": "Ciena press release: Ciena Launches Ciena Ventures to Expand Innovation Across (09-14-2026)",
-     "file": "transcripts/ir/ciena_2026-09-14_ciena-launches-ciena-ventures-to-expand-innovation.txt"
+     "company": "5N Plus",
+     "label": "5N Plus press release: 5N+ Selected to Establish Domestic Production of Gallium (09-03-2026)",
+     "file": "transcripts/ir/5nplus_2026-09-03_5n-selected-to-establish-domestic-production-of-ga.txt"
     },
     {
-     "company": "Coherent",
-     "label": "Coherent press release: Coherent Expands Pluggable Optical Line Systems Portfolio (09-17-2026)",
-     "file": "transcripts/ir/coherent_2026-09-17_coherent-expands-pluggable-optical-line-systems-po.txt"
+     "company": "AEM Holdings",
+     "label": "AEM Holdings press release: Share Buy Back - Daily Share Buy-Back Notice::Share Buy (09-01-2026)",
+     "file": "transcripts/ir/aemholdings_2026-09-01_share-buy-back-daily-share-buy-back-notice-share-b.txt"
     },
     {
-     "company": "Coherent",
-     "label": "Coherent press release: Coherent Brings AI Datacenter and Photonics Thought (09-08-2026)",
-     "file": "transcripts/ir/coherent_2026-09-08_coherent-brings-ai-datacenter-and-photonics-though.txt"
+     "company": "AEM Holdings",
+     "label": "AEM Holdings press release: Disclosure of Interest/ Changes in Interest of Director/ (09-01-2026)",
+     "file": "transcripts/ir/aemholdings_2026-09-01_disclosure-of-interest-changes-in-interest-of-dire.txt"
     },
     {
-     "company": "Lumentum",
-     "label": "Lumentum press release: Lumentum Experts to Share Insights at ECOC 2026 (09-15-2026)",
-     "file": "transcripts/ir/lumentum_2026-09-15_lumentum-experts-to-share-insights-at-ecoc-2026.txt"
+     "company": "AEM Holdings",
+     "label": "AEM Holdings press release: Employee Stock Option/ Share Scheme: Grant of Awards of (09-01-2026)",
+     "file": "transcripts/ir/aemholdings_2026-09-01_employee-stock-option-share-scheme-grant-of-awards.txt"
     },
     {
-     "company": "Marvell",
-     "label": "Marvell press release: Microsoft, Marvell and Utimaco to Deliver Industry-first (09-17-2026)",
-     "file": "transcripts/ir/marvell_2026-09-17_microsoft-marvell-and-utimaco-to-deliver-industry-.txt"
+     "company": "AEM Holdings",
+     "label": "AEM Holdings press release: General Announcement: Allotment and Issuance of Shares (09-01-2026)",
+     "file": "transcripts/ir/aemholdings_2026-09-01_general-announcement-allotment-and-issuance-of-sha.txt"
     },
     {
-     "company": "Marvell",
-     "label": "Marvell press release: Marvell to Showcase End-to-End AI Data Center Connectivity (09-09-2026)",
-     "file": "transcripts/ir/marvell_2026-09-09_marvell-to-showcase-end-to-end-ai-data-center-conn.txt"
+     "company": "AGC",
+     "label": "AGC press release: AGC Glass Europe and Saint-Gobain Launch Large-Scale Hybrid (08-31-2026)",
+     "file": "transcripts/ir/agc_2026-08-31_agc-glass-europe-and-saint-gobain-launch-large-sca.txt"
     },
     {
-     "company": "Ciena",
-     "label": "Ciena press release: Ciena Announces Fiscal Year 2029 Financial Targets (09-16-2026)",
-     "file": "transcripts/ir/ciena_2026-09-16_ciena-announces-fiscal-year-2029-financial-targets.txt"
+     "company": "AIXTRON",
+     "label": "AIXTRON press release: Strong momentum in optoelectronics continues (07-30-2026)",
+     "file": "transcripts/ir/aixtron_2026-07-30_strong-momentum-in-optoelectronics-continues.txt"
+    },
+    {
+     "company": "ASM International",
+     "label": "ASM International press release: ASM announces completion of share buyback program (09-15-2026)",
+     "file": "transcripts/ir/asminternational_2026-09-15_asm-announces-completion-of-share-buyback-program.txt"
+    },
+    {
+     "company": "ASM International",
+     "label": "ASM International press release: ASM share buyback update September 7 - 11, 2026 (09-14-2026)",
+     "file": "transcripts/ir/asminternational_2026-09-14_asm-share-buyback-update-september-7-11-2026.txt"
+    },
+    {
+     "company": "ASM International",
+     "label": "ASM International press release: ASM share buyback update August 31 (09-07-2026)",
+     "file": "transcripts/ir/asminternational_2026-09-07_asm-share-buyback-update-august-31.txt"
+    },
+    {
+     "company": "ASM International",
+     "label": "ASM International press release: ASM to nominate Rutger Wijburg to the Supervisory Board (09-07-2026)",
+     "file": "transcripts/ir/asminternational_2026-09-07_asm-to-nominate-rutger-wijburg-to-the-supervisory-.txt"
+    },
+    {
+     "company": "ASM International",
+     "label": "ASM International press release: ASM share buyback update August 24 - 28, 2026 (08-31-2026)",
+     "file": "transcripts/ir/asminternational_2026-08-31_asm-share-buyback-update-august-24-28-2026.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: From AI Pilots to AI Factories: Building the Infrastructure (09-16-2026)",
+     "file": "transcripts/ir/asus_2026-09-16_from-ai-pilots-to-ai-factories-building-the-infras.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS at IFA 2026: Advancing AI-Powered Creativity with (09-15-2026)",
+     "file": "transcripts/ir/asus_2026-09-15_asus-at-ifa-2026-advancing-ai-powered-creativity-w.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Wins Bronze for Zenbook DUO, Plus Three Finalist Spots (09-14-2026)",
+     "file": "transcripts/ir/asus_2026-09-14_asus-wins-bronze-for-zenbook-duo-plus-three-finali.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Consumer Router Portfolio Secures Conditional FCC (09-14-2026)",
+     "file": "transcripts/ir/asus_2026-09-14_asus-consumer-router-portfolio-secures-conditional.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Recognized Among Newsweek's World's Most Trustworthy (09-11-2026)",
+     "file": "transcripts/ir/asus_2026-09-11_asus-recognized-among-newsweek-s-world-s-most-trus.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Showcases AI-Powered ProArt Creator Solutions at IBC (09-11-2026)",
+     "file": "transcripts/ir/asus_2026-09-11_asus-showcases-ai-powered-proart-creator-solutions.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Makes TIME's World's Best Companies List for the Third (09-10-2026)",
+     "file": "transcripts/ir/asus_2026-09-10_asus-makes-time-s-world-s-best-companies-list-for-.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Showcases Healthcare AI Solutions at Medical Fair Asia (09-08-2026)",
+     "file": "transcripts/ir/asus_2026-09-08_asus-showcases-healthcare-ai-solutions-at-medical-.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: The Next Era of Esports Performance (09-07-2026)",
+     "file": "transcripts/ir/asus_2026-09-07_the-next-era-of-esports-performance.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Announces WiFi 8 Router Availability in Canada Ahead (09-04-2026)",
+     "file": "transcripts/ir/asus_2026-09-04_asus-announces-wifi-8-router-availability-in-canad.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: 20 Years of ROG: Celebrating the Next Chapter at Gamescom (09-04-2026)",
+     "file": "transcripts/ir/asus_2026-09-04_20-years-of-rog-celebrating-the-next-chapter-at-ga.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Expands AI Infrastructure Ecosystem from Cloud to Edge (09-04-2026)",
+     "file": "transcripts/ir/asus_2026-09-04_asus-expands-ai-infrastructure-ecosystem-from-clou.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Advances AI Factories with Integrated Infrastructure (09-04-2026)",
+     "file": "transcripts/ir/asus_2026-09-04_asus-advances-ai-factories-with-integrated-infrast.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: ASUS Showcases ProArt PCs Powered by NVIDIA RTX Spark at (09-02-2026)",
+     "file": "transcripts/ir/asus_2026-09-02_asus-showcases-proart-pcs-powered-by-nvidia-rtx-sp.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: Qualcomm and ASUS announce collaboration through launch of (09-02-2026)",
+     "file": "transcripts/ir/asus_2026-09-02_qualcomm-and-asus-announce-collaboration-through-l.txt"
+    },
+    {
+     "company": "ASUS",
+     "label": "ASUS press release: Building ASUS for the Next Chapter of AI: Reflections from (08-31-2026)",
+     "file": "transcripts/ir/asus_2026-08-31_building-asus-for-the-next-chapter-of-ai-reflectio.txt"
+    },
+    {
+     "company": "AT&S",
+     "label": "AT&S press release: AT&S delivers a strong first quarter and reaffirms (08-04-2026)",
+     "file": "transcripts/ir/ats_2026-08-04_at-s-delivers-a-strong-first-quarter-and-reaffirms.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink press release: CIOE Opening Day Crowd Favorite: Accelink's 4 Live Demos (09-09-2026)",
+     "file": "transcripts/ir/accelink_2026-09-09_cioe-opening-day-crowd-favorite-accelink-s-4-live-.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink press release: CIOE 2026 | Accelink Hollow-Core Fiber OTDR Safeguards (09-07-2026)",
+     "file": "transcripts/ir/accelink_2026-09-07_cioe-2026-accelink-hollow-core-fiber-otdr-safeguar.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink press release: From 3.2T to 6.4T NPO: Accelink Redefines the \"Optical (09-04-2026)",
+     "file": "transcripts/ir/accelink_2026-09-04_from-3-2t-to-6-4t-npo-accelink-redefines-the-optic.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink press release: World's First Pluggable DAS Optical Module in CFP2 Package (09-03-2026)",
+     "file": "transcripts/ir/accelink_2026-09-03_world-s-first-pluggable-das-optical-module-in-cfp2.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink press release: Accelink's Domestic Debut at CIOE 2026: 800G L Band OSFP (09-02-2026)",
+     "file": "transcripts/ir/accelink_2026-09-02_accelink-s-domestic-debut-at-cioe-2026-800g-l-band.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink press release: 400G /lane Drives the 3.2T Era: Accelink Showcases Key Next (09-01-2026)",
+     "file": "transcripts/ir/accelink_2026-09-01_400g-lane-drives-the-3-2t-era-accelink-showcases-k.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: Accton Aug 2026 sales revenue report (09-07-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-09-07_accton-aug-2026-sales-revenue-report.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: People First: Accton's Caring Across Generations (08-27-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-08-27_people-first-accton-s-caring-across-generations.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: Accton Jul 2026 sales revenue report (08-06-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-08-06_accton-jul-2026-sales-revenue-report.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: From AI Awareness to Practical Application: Accton Drives (07-30-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-07-30_from-ai-awareness-to-practical-application-accton-.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: Accton Jun 2026 sales revenue report (07-06-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-07-06_accton-jun-2026-sales-revenue-report.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: Accton Academy of Sustainability Aligns Supply Chain as (06-26-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-06-26_accton-academy-of-sustainability-aligns-supply-cha.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: Rack Integration (06-20-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-06-20_rack-integration.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: Accton May 2026 sales revenue report (06-05-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-06-05_accton-may-2026-sales-revenue-report.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: Accton, Gallopwave, HYTech, and Synaptics Partner to Bring (06-03-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-06-03_accton-gallopwave-hytech-and-synaptics-partner-to-.txt"
+    },
+    {
+     "company": "Accton Technology",
+     "label": "Accton Technology press release: Accton Technology Honored with \"Bio-Power 3030 Biodiversity (05-29-2026)",
+     "file": "transcripts/ir/acctontechnology_2026-05-29_accton-technology-honored-with-bio-power-3030-biod.txt"
+    },
+    {
+     "company": "Advantest",
+     "label": "Advantest press release: Advantest Opens Chitose Office (09-14-2026)",
+     "file": "transcripts/ir/advantest_2026-09-14_advantest-opens-chitose-office.txt"
+    },
+    {
+     "company": "Advantest",
+     "label": "Advantest press release: Advantest Selected for the First Time as a Constituent of (08-28-2026)",
+     "file": "transcripts/ir/advantest_2026-08-28_advantest-selected-for-the-first-time-as-a-constit.txt"
+    },
+    {
+     "company": "Advantest",
+     "label": "Advantest press release: Advantest Issues Statement on the Impact of the Kumamoto (07-29-2026)",
+     "file": "transcripts/ir/advantest_2026-07-29_advantest-issues-statement-on-the-impact-of-the-ku.txt"
+    },
+    {
+     "company": "Air Liquide",
+     "label": "Air Liquide press release: Industry leaders scale full value chain for hydrogen (09-15-2026)",
+     "file": "transcripts/ir/airliquide_2026-09-15_industry-leaders-scale-full-value-chain-for-hydrog.txt"
+    },
+    {
+     "company": "Air Liquide",
+     "label": "Air Liquide press release: Air Liquide, the cole normale suprieure and its Foundation (09-14-2026)",
+     "file": "transcripts/ir/airliquide_2026-09-14_air-liquide-the-cole-normale-suprieure-and-its-fou.txt"
+    },
+    {
+     "company": "Air Products",
+     "label": "Air Products press release: Air Products Wins Long-Term Contract to Supply High-Purity (09-16-2026)",
+     "file": "transcripts/ir/airproducts_2026-09-16_air-products-wins-long-term-contract-to-supply-hig.txt"
+    },
+    {
+     "company": "Alchip",
+     "label": "Alchip press release: Alchip Technologies Showcases Advanced ASIC Design and (09-14-2026)",
+     "file": "transcripts/ir/alchip_2026-09-14_alchip-technologies-showcases-advanced-asic-design.txt"
+    },
+    {
+     "company": "Alchip",
+     "label": "Alchip press release: Alchip Technologies Reports 2026 Second Quarter Financial (08-26-2026)",
+     "file": "transcripts/ir/alchip_2026-08-26_alchip-technologies-reports-2026-second-quarter-fi.txt"
+    },
+    {
+     "company": "Andes Technology",
+     "label": "Andes Technology press release: ChipAgents Helps Andes Technology Dramatically Accelerate (09-02-2026)",
+     "file": "transcripts/ir/andestechnology_2026-09-02_chipagents-helps-andes-technology-dramatically-acc.txt"
+    },
+    {
+     "company": "BESI",
+     "label": "BESI press release: BE Semiconductor Industries N.V. Announces Q2-26 and H1-26 (07-23-2026)",
+     "file": "transcripts/ir/besi_2026-07-23_be-semiconductor-industries-n-v-announces-q2-26-an.txt"
+    },
+    {
+     "company": "Canon",
+     "label": "Canon press release: Canon's activities lead to the removal of certain toner (09-17-2026)",
+     "file": "transcripts/ir/canon_2026-09-17_canon-s-activities-lead-to-the-removal-of-certain-.txt"
+    },
+    {
+     "company": "Chicony Power",
+     "label": "Chicony Power press release: Chicony Power Reports August 2026 Consolidated Revenue (09-04-2026)",
+     "file": "transcripts/ir/chiconypower_2026-09-04_chicony-power-reports-august-2026-consolidated-rev.txt"
+    },
+    {
+     "company": "Dai Nippon Printing",
+     "label": "Dai Nippon Printing press release: DNP Launches DP-RX2 Photo Printer for Growing EventPhoto (09-16-2026)",
+     "file": "transcripts/ir/dainipponprinting_2026-09-16_dnp-launches-dp-rx2-photo-printer-for-growing-even.txt"
+    },
+    {
+     "company": "Delta Electronics",
+     "label": "Delta Electronics press release: Delta Electronics' Consolidated Sales Revenues for August (09-09-2026)",
+     "file": "transcripts/ir/deltaelectronics_2026-09-09_delta-electronics-consolidated-sales-revenues-for-.txt"
+    },
+    {
+     "company": "Delta Electronics",
+     "label": "Delta Electronics press release: Delta Showcases Embodied AI Dual-Arm Robot Platform and (08-19-2026)",
+     "file": "transcripts/ir/deltaelectronics_2026-08-19_delta-showcases-embodied-ai-dual-arm-robot-platfor.txt"
+    },
+    {
+     "company": "Delta Electronics",
+     "label": "Delta Electronics press release: Delta Electronics' Consolidated Sales Revenues for July (08-10-2026)",
+     "file": "transcripts/ir/deltaelectronics_2026-08-10_delta-electronics-consolidated-sales-revenues-for-.txt"
+    },
+    {
+     "company": "Ebara",
+     "label": "Ebara press release: Continued Selection in ESG Indices (08-28-2026)",
+     "file": "transcripts/ir/ebara_2026-08-28_continued-selection-in-esg-indices.txt"
+    },
+    {
+     "company": "FSP Technology",
+     "label": "FSP Technology press release: FSP Launches Next-Gen 3200W CRPS Power Solutions to Fully (08-31-2026)",
+     "file": "transcripts/ir/fsptechnology_2026-08-31_fsp-launches-next-gen-3200w-crps-power-solutions-t.txt"
+    },
+    {
+     "company": "Ferrotec",
+     "label": "Ferrotec press release: Notice of Additional Acquisition of Production Site in (08-27-2026)",
+     "file": "transcripts/ir/ferrotec_2026-08-27_notice-of-additional-acquisition-of-production-sit.txt"
+    },
+    {
+     "company": "Foxconn",
+     "label": "Foxconn press release: Hon Hai Precision Industry Co., Ltd. announced unaudited (09-05-2026)",
+     "file": "transcripts/ir/foxconn_2026-09-05_hon-hai-precision-industry-co-ltd-announced-unaudi.txt"
+    },
+    {
+     "company": "Foxconn",
+     "label": "Foxconn press release: Hon Hai Technology Group (Foxconn) Announces Second Quarter (08-12-2026)",
+     "file": "transcripts/ir/foxconn_2026-08-12_hon-hai-technology-group-foxconn-announces-second-.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: Fujifilm and Tata Electronics Announce Strategic (09-17-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-17_fujifilm-and-tata-electronics-announce-strategic-p.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: FUJIFILM Business Innovation Celebrates 39 Award-Winning (09-16-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-16_fujifilm-business-innovation-celebrates-39-award-w.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: FUJIFILM Business Innovation Recognizes 42 Global (09-16-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-16_fujifilm-business-innovation-recognizes-42-global-.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: Fujifilm Launches Palm-top Size Camera \"instax Pal 2\" (09-15-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-15_fujifilm-launches-palm-top-size-camera-instax-pal-.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: Fujifilm Launches Smartphone Printer \"instax Link WIDE 2  \" (09-15-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-15_fujifilm-launches-smartphone-printer-instax-link-w.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: FUJIFILM Business Innovation Announces Optimization of (09-09-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-09_fujifilm-business-innovation-announces-optimizatio.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: Fujifilm Launches \"ETERNA ProRemote\" (Fujifilm) (09-08-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-08_fujifilm-launches-eterna-proremote-fujifilm.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: Fujifilm Launches \"VF-GFXC2\" Electronic Viewfinder for the (09-08-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-08_fujifilm-launches-vf-gfxc2-electronic-viewfinder-f.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: FUJIFILM Launches Dynamic Surface Pressure Sensor System (09-07-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-07_fujifilm-launches-dynamic-surface-pressure-sensor-.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: Fujifilm Launches \"FUJINON Lens XF400mmF4.5 R LM OIS WR\" (09-04-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-04_fujifilm-launches-fujinon-lens-xf400mmf4-5-r-lm-oi.txt"
+    },
+    {
+     "company": "Fujifilm",
+     "label": "Fujifilm press release: Fujifilm Launches 4K Broadcast Zoom Lens \"FUJINON (09-01-2026)",
+     "file": "transcripts/ir/fujifilm_2026-09-01_fujifilm-launches-4k-broadcast-zoom-lens-fujinon-u.txt"
+    },
+    {
+     "company": "Fujikura",
+     "label": "Fujikura press release: Fujikura Selected for the First Time as a Constituent of (09-11-2026)",
+     "file": "transcripts/ir/fujikura_2026-09-11_fujikura-selected-for-the-first-time-as-a-constitu.txt"
+    },
+    {
+     "company": "Fujikura",
+     "label": "Fujikura press release: Fujikura News September issue (No. 513) has been published. (09-10-2026)",
+     "file": "transcripts/ir/fujikura_2026-09-10_fujikura-news-september-issue-no-513-has-been-publ.txt"
+    },
+    {
+     "company": "GUC (Global Unichip)",
+     "label": "GUC (Global Unichip) press release: GUC Monthly Sales Report in Aug 2026 (09-07-2026)",
+     "file": "transcripts/ir/gucglobalunichip_2026-09-07_guc-monthly-sales-report-in-aug-2026.txt"
+    },
+    {
+     "company": "GUC (Global Unichip)",
+     "label": "GUC (Global Unichip) press release: GUC Monthly Sales Report in July 2026 (08-05-2026)",
+     "file": "transcripts/ir/gucglobalunichip_2026-08-05_guc-monthly-sales-report-in-july-2026.txt"
+    },
+    {
+     "company": "GlobalWafers",
+     "label": "GlobalWafers press release: release gwc-news-20260914 (09-14-2026)",
+     "file": "transcripts/ir/globalwafers_2026-09-14_release-gwc-news-20260914.txt"
+    },
+    {
+     "company": "GlobalWafers",
+     "label": "GlobalWafers press release: release gwc-news-20260901 (09-01-2026)",
+     "file": "transcripts/ir/globalwafers_2026-09-01_release-gwc-news-20260901.txt"
+    },
+    {
+     "company": "GlobalWafers",
+     "label": "GlobalWafers press release: release gwc-news-20260821 (08-21-2026)",
+     "file": "transcripts/ir/globalwafers_2026-08-21_release-gwc-news-20260821.txt"
+    },
+    {
+     "company": "GlobalWafers",
+     "label": "GlobalWafers press release: release gwc-news-20260804 (08-04-2026)",
+     "file": "transcripts/ir/globalwafers_2026-08-04_release-gwc-news-20260804.txt"
+    },
+    {
+     "company": "GlobalWafers",
+     "label": "GlobalWafers press release: release gwc-news-20260723 (07-23-2026)",
+     "file": "transcripts/ir/globalwafers_2026-07-23_release-gwc-news-20260723.txt"
+    },
+    {
+     "company": "GlobalWafers",
+     "label": "GlobalWafers press release: release gwc-news-20260707 (07-07-2026)",
+     "file": "transcripts/ir/globalwafers_2026-07-07_release-gwc-news-20260707.txt"
+    },
+    {
+     "company": "Gudeng Precision",
+     "label": "Gudeng Precision press release: release MessageView (09-10-2026)",
+     "file": "transcripts/ir/gudengprecision_2026-09-10_release-messageview.txt"
+    },
+    {
+     "company": "HOYA",
+     "label": "HOYA press release: Issued HOYA Integrated Report 2026 (09-07-2026)",
+     "file": "transcripts/ir/hoya_2026-09-07_issued-hoya-integrated-report-2026.txt"
+    },
+    {
+     "company": "Horiba",
+     "label": "Horiba press release: HORIBA air quality monitor AP-380 series achieves key UK (09-15-2026)",
+     "file": "transcripts/ir/horiba_2026-09-15_horiba-air-quality-monitor-ap-380-series-achieves-.txt"
+    },
+    {
+     "company": "IQE",
+     "label": "IQE press release: 2026 Interim Results (09-07-2026)",
+     "file": "transcripts/ir/iqe_2026-09-07_2026-interim-results.txt"
+    },
+    {
+     "company": "ITEQ",
+     "label": "ITEQ press release: release e6-9c-ac-e5-85-ac-e5-8f-b8-e5-8f-97-e9-8 (09-14-2026)",
+     "file": "transcripts/ir/iteq_2026-09-14_release-e6-9c-ac-e5-85-ac-e5-8f-b8-e5-8f-97-e9-8.txt"
+    },
+    {
+     "company": "ITEQ",
+     "label": "ITEQ press release: release e6-9c-ac-e5-85-ac-e5-8f-b8-e5-b0-87-e6-9 (09-14-2026)",
+     "file": "transcripts/ir/iteq_2026-09-14_release-e6-9c-ac-e5-85-ac-e5-8f-b8-e5-b0-87-e6-9.txt"
+    },
+    {
+     "company": "ITEQ",
+     "label": "ITEQ press release: release e6-9c-ac-e5-85-ac-e5-8f-b8-e5-8f-97-e9-8 (09-03-2026)",
+     "file": "transcripts/ir/iteq_2026-09-03_release-e6-9c-ac-e5-85-ac-e5-8f-b8-e5-8f-97-e9-8.txt"
+    },
+    {
+     "company": "Infineon",
+     "label": "Infineon press release: Infineon enters into agreement to sell NOR Flash and F-RAM (09-16-2026)",
+     "file": "transcripts/ir/infineon_2026-09-16_infineon-enters-into-agreement-to-sell-nor-flash-a.txt"
+    },
+    {
+     "company": "Infineon",
+     "label": "Infineon press release: Infineon extends collaboration with SolarEdge to enable (09-09-2026)",
+     "file": "transcripts/ir/infineon_2026-09-09_infineon-extends-collaboration-with-solaredge-to-e.txt"
+    },
+    {
+     "company": "Infineon",
+     "label": "Infineon press release: Q3 FY 2026 concluded with record sales driven by strong (08-05-2026)",
+     "file": "transcripts/ir/infineon_2026-08-05_q3-fy-2026-concluded-with-record-sales-driven-by-s.txt"
+    },
+    {
+     "company": "Infineon",
+     "label": "Infineon press release: Infineon acquires C2i Semiconductors to expand its (08-24-2026)",
+     "file": "transcripts/ir/infineon_2026-08-24_infineon-acquires-c2i-semiconductors-to-expand-its.txt"
+    },
+    {
+     "company": "Infineon",
+     "label": "Infineon press release: Infineon to complete limited Share Buyback Program serving (08-21-2026)",
+     "file": "transcripts/ir/infineon_2026-08-21_infineon-to-complete-limited-share-buyback-program.txt"
+    },
+    {
+     "company": "Infineon",
+     "label": "Infineon press release: Infineon to start limited Share Buyback Program serving (08-10-2026)",
+     "file": "transcripts/ir/infineon_2026-08-10_infineon-to-start-limited-share-buyback-program-se.txt"
+    },
+    {
+     "company": "JCET",
+     "label": "JCET press release: JCET Hosts Global Supplier Day 2026 in Jiangyin (09-17-2026)",
+     "file": "transcripts/ir/jcet_2026-09-17_jcet-hosts-global-supplier-day-2026-in-jiangyin.txt"
+    },
+    {
+     "company": "JX Advanced Metals",
+     "label": "JX Advanced Metals press release: Toho Titanium to Expand Production Capacity for Ultra-Fine (09-10-2026)",
+     "file": "transcripts/ir/jxadvancedmetals_2026-09-10_toho-titanium-to-expand-production-capacity-for-ul.txt"
+    },
+    {
+     "company": "JX Advanced Metals",
+     "label": "JX Advanced Metals press release: Nikko Metals Taiwan Begins Procurement of Wind (09-08-2026)",
+     "file": "transcripts/ir/jxadvancedmetals_2026-09-08_nikko-metals-taiwan-begins-procurement-of-wind-pow.txt"
+    },
+    {
+     "company": "JX Advanced Metals",
+     "label": "JX Advanced Metals press release: Notice Regarding Inclusion in the Nikkei Stock Average (09-04-2026)",
+     "file": "transcripts/ir/jxadvancedmetals_2026-09-04_notice-regarding-inclusion-in-the-nikkei-stock-ave.txt"
+    },
+    {
+     "company": "JX Advanced Metals",
+     "label": "JX Advanced Metals press release: Participation in KDDI's Demonstration Project for the (09-03-2026)",
+     "file": "transcripts/ir/jxadvancedmetals_2026-09-03_participation-in-kddi-s-demonstration-project-for-.txt"
+    },
+    {
+     "company": "JX Advanced Metals",
+     "label": "JX Advanced Metals press release: JX Advanced Metals Selected as a Constituent of the MSCI (09-02-2026)",
+     "file": "transcripts/ir/jxadvancedmetals_2026-09-02_jx-advanced-metals-selected-as-a-constituent-of-th.txt"
+    },
+    {
+     "company": "Kaori Heat Treatment",
+     "label": "Kaori Heat Treatment press release: Super Computing 2026 (09-14-2026)",
+     "file": "transcripts/ir/kaoriheattreatment_2026-09-14_super-computing-2026.txt"
+    },
+    {
+     "company": "Kaori Heat Treatment",
+     "label": "Kaori Heat Treatment press release: KAORI Named to the \"2026 Top 100 Taiwan Companies Selected (09-03-2026)",
+     "file": "transcripts/ir/kaoriheattreatment_2026-09-03_kaori-named-to-the-2026-top-100-taiwan-companies-s.txt"
+    },
+    {
+     "company": "Kioxia",
+     "label": "Kioxia press release: Notice Regarding Certain Media Reports (09-15-2026)",
+     "file": "transcripts/ir/kioxia_2026-09-15_notice-regarding-certain-media-reports.txt"
+    },
+    {
+     "company": "Kioxia",
+     "label": "Kioxia press release: Notice Regarding Certain Media Reports (08-27-2026)",
+     "file": "transcripts/ir/kioxia_2026-08-27_notice-regarding-certain-media-reports.txt"
+    },
+    {
+     "company": "Kioxia",
+     "label": "Kioxia press release: Kioxia Selected for Inclusion in Three FTSE Russell ESG (07-31-2026)",
+     "file": "transcripts/ir/kioxia_2026-07-31_kioxia-selected-for-inclusion-in-three-ftse-russel.txt"
+    },
+    {
+     "company": "Kokusai Electric",
+     "label": "Kokusai Electric press release: At the 39th Computational Mechanics Conference (CMD2026) of (09-02-2026)",
+     "file": "transcripts/ir/kokusaielectric_2026-09-02_at-the-39th-computational-mechanics-conference-cmd.txt"
+    },
+    {
+     "company": "Kokusai Electric",
+     "label": "Kokusai Electric press release: Sponsorship for the 87th JSAP Autumn Meeting 2026 (09-01-2026)",
+     "file": "transcripts/ir/kokusaielectric_2026-09-01_sponsorship-for-the-87th-jsap-autumn-meeting-2026.txt"
+    },
+    {
+     "company": "Kyocera",
+     "label": "Kyocera press release: Notice Regarding the Status of Own Share Repurchase (09-04-2026)",
+     "file": "transcripts/ir/kyocera_2026-09-04_notice-regarding-the-status-of-own-share-repurchas.txt"
+    },
+    {
+     "company": "LPKF Laser & Electronics",
+     "label": "LPKF Laser & Electronics press release: Leading Asian advanced semiconductor packaging manufacturer (09-23-2026)",
+     "file": "transcripts/ir/lpkflaserelectronics_2026-09-23_leading-asian-advanced-semiconductor-packaging-man.txt"
+    },
+    {
+     "company": "Lasertec",
+     "label": "Lasertec press release: Lasertec Achieves Platinum Status in RBA VAP Audit (06-03-2026)",
+     "file": "transcripts/ir/lasertec_2026-06-03_lasertec-achieves-platinum-status-in-rba-vap-audit.txt"
+    },
+    {
+     "company": "Legrand",
+     "label": "Legrand press release: 31 aot 2026 nbre droits de vote (09-03-2026)",
+     "file": "transcripts/ir/legrand_2026-09-03_31-aot-2026-nbre-droits-de-vote.txt"
+    },
+    {
+     "company": "Legrand",
+     "label": "Legrand press release: Legrand de nouveau class parmi les entreprises les plus (09-02-2026)",
+     "file": "transcripts/ir/legrand_2026-09-02_legrand-de-nouveau-class-parmi-les-entreprises-les.txt"
+    },
+    {
+     "company": "Legrand",
+     "label": "Legrand press release: Publication du premier semestre 2026 (07-29-2026)",
+     "file": "transcripts/ir/legrand_2026-07-29_publication-du-premier-semestre-2026.txt"
+    },
+    {
+     "company": "Legrand",
+     "label": "Legrand press release: Rsultats du premier semestre 2026 (07-28-2026)",
+     "file": "transcripts/ir/legrand_2026-07-28_rsultats-du-premier-semestre-2026.txt"
+    },
+    {
+     "company": "Legrand",
+     "label": "Legrand press release: Rsultats du premier semestre, 29 juillet 2026 (07-28-2026)",
+     "file": "transcripts/ir/legrand_2026-07-28_rsultats-du-premier-semestre-29-juillet-2026.txt"
+    },
+    {
+     "company": "Legrand",
+     "label": "Legrand press release: Premier semestre (07-28-2026)",
+     "file": "transcripts/ir/legrand_2026-07-28_premier-semestre.txt"
+    },
+    {
+     "company": "Legrand",
+     "label": "Legrand press release: Bilan semestriel juin 2026 contrat de liquidit (07-22-2026)",
+     "file": "transcripts/ir/legrand_2026-07-22_bilan-semestriel-juin-2026-contrat-de-liquidit.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Modernizes Virtualization Infrastructure for an (09-16-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-16_lenovo-modernizes-virtualization-infrastructure-fo.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Receives Highest-Possible AAA Rating by Hang Seng (09-15-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-15_lenovo-receives-highest-possible-aaa-rating-by-han.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Recognized Among TIME's World's Best Companies 2026, (09-14-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-14_lenovo-recognized-among-time-s-world-s-best-compan.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo powers a first-of-its-kind data dashboard for (09-11-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-11_lenovo-powers-a-first-of-its-kind-data-dashboard-f.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo improves threat detection accuracy 20x with its own (09-11-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-11_lenovo-improves-threat-detection-accuracy-20x-with.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo hosts Nate McMillan Foundation Campers to explore (09-09-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-09_lenovo-hosts-nate-mcmillan-foundation-campers-to-e.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Makes Fast Company's Eighth Annual List of the Best (09-09-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-09_lenovo-makes-fast-company-s-eighth-annual-list-of-.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Preparing for MotoGP's 2027 regulations: Lenovo accelerates (09-09-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-09_preparing-for-motogp-s-2027-regulations-lenovo-acc.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo accelerates Ducati Corse's development of the new (09-09-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-09_lenovo-accelerates-ducati-corse-s-development-of-t.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Every Entrepreneur Needs Someone to Call: Lenovo and Eva (09-08-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-08_every-entrepreneur-needs-someone-to-call-lenovo-an.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Expands Personal AI with Colorful New IdeaPad Vibe (09-03-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-03_lenovo-expands-personal-ai-with-colorful-new-ideap.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Advances Hybrid AI Across New Personal and (09-03-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-03_lenovo-advances-hybrid-ai-across-new-personal-and-.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Expands the Yoga Portfolio with New AI PCs and (09-03-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-03_lenovo-expands-the-yoga-portfolio-with-new-ai-pcs-.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo & Motorola Qira Expands Its Reach Across Devices, (09-03-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-03_lenovo-motorola-qira-expands-its-reach-across-devi.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo and Workato Expand Qira Ecosystem with New Cross-App (09-03-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-03_lenovo-and-workato-expand-qira-ecosystem-with-new-.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Advances Hybrid AI for Business with New (09-03-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-03_lenovo-advances-hybrid-ai-for-business-with-new-th.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: What it really means to be EDUCAUSE \"Higher Ed Ready\" (09-03-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-03_what-it-really-means-to-be-educause-higher-ed-read.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Simpler IT, Faster Device Deployment: Eurofragance Supports (09-03-2026)",
+     "file": "transcripts/ir/lenovo_2026-09-03_simpler-it-faster-device-deployment-eurofragance-s.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Unveils First Laptop Manufactured in Saudi Arabia, (08-31-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-31_lenovo-unveils-first-laptop-manufactured-in-saudi-.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Showcases Up to 45% Cost Savings with VMware Cloud (08-31-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-31_lenovo-showcases-up-to-45-cost-savings-with-vmware.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Ten Years of Love On: A Decade of Showing Up (08-31-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-31_ten-years-of-love-on-a-decade-of-showing-up.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo, Becky G, and Treviso Football Club Unveil (08-28-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-28_lenovo-becky-g-and-treviso-football-club-unveil-li.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo cuts time spent searching for information by 30% (08-27-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-27_lenovo-cuts-time-spent-searching-for-information-b.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo resolves customer support issues 25% faster with (08-27-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-27_lenovo-resolves-customer-support-issues-25-faster-.txt"
+    },
+    {
+     "company": "Lite-On",
+     "label": "Lite-On press release: Active Noise Cancellation Beyond the Basics: How Hybrid ANC (09-10-2026)",
+     "file": "transcripts/ir/liteon_2026-09-10_active-noise-cancellation-beyond-the-basics-how-hy.txt"
+    },
+    {
+     "company": "Lite-On",
+     "label": "Lite-On press release: LITEON Technology Reports Consolidated August Sales of (09-09-2026)",
+     "file": "transcripts/ir/liteon_2026-09-09_liteon-technology-reports-consolidated-august-sale.txt"
+    },
+    {
+     "company": "Lite-On",
+     "label": "Lite-On press release: LITEON Announces Strategic Investment in Liquid Cooling (09-03-2026)",
+     "file": "transcripts/ir/liteon_2026-09-03_liteon-announces-strategic-investment-in-liquid-co.txt"
+    },
+    {
+     "company": "Lite-On",
+     "label": "Lite-On press release: Edge AI vs. Cloud AI: Why Edge Computing Is the Next (08-31-2026)",
+     "file": "transcripts/ir/liteon_2026-08-31_edge-ai-vs-cloud-ai-why-edge-computing-is-the-next.txt"
+    },
+    {
+     "company": "Lite-On",
+     "label": "Lite-On press release: AI-RAN: Powering the Evolution toward AI-Native Telecom and (08-31-2026)",
+     "file": "transcripts/ir/liteon_2026-08-31_ai-ran-powering-the-evolution-toward-ai-native-tel.txt"
+    },
+    {
+     "company": "Lite-On",
+     "label": "Lite-On press release: Rack-Level Power Delivery: From Power Shelf to Power Rack (08-14-2026)",
+     "file": "transcripts/ir/liteon_2026-08-14_rack-level-power-delivery-from-power-shelf-to-powe.txt"
+    },
+    {
+     "company": "Lite-On",
+     "label": "Lite-On press release: AI Power Architecture: The Evolution of Power (08-12-2026)",
+     "file": "transcripts/ir/liteon_2026-08-12_ai-power-architecture-the-evolution-of-power-infra.txt"
+    },
+    {
+     "company": "Lite-On",
+     "label": "Lite-On press release: LITEON Technology Reports Consolidated July Sales of NT$19 (08-10-2026)",
+     "file": "transcripts/ir/liteon_2026-08-10_liteon-technology-reports-consolidated-july-sales-.txt"
+    },
+    {
+     "company": "Lite-On",
+     "label": "Lite-On press release: Powering the Low Earth Orbit Revolution: Rugged Power (08-07-2026)",
+     "file": "transcripts/ir/liteon_2026-08-07_powering-the-low-earth-orbit-revolution-rugged-pow.txt"
+    },
+    {
+     "company": "M31 Technology",
+     "label": "M31 Technology press release: M31 Expands Rambus Collaboration, Strengthening Its (09-17-2026)",
+     "file": "transcripts/ir/m31technology_2026-09-17_m31-expands-rambus-collaboration-strengthening-its.txt"
+    },
+    {
+     "company": "MEC",
+     "label": "MEC press release: Notice on Issuance of a Sponsored Research Report (09-08-2026)",
+     "file": "transcripts/ir/mec_2026-09-08_notice-on-issuance-of-a-sponsored-research-report.txt"
+    },
+    {
+     "company": "Macronix",
+     "label": "Macronix press release: Macronix Announces Consolidated Net Sales of NT$8.145 (09-07-2026)",
+     "file": "transcripts/ir/macronix_2026-09-07_macronix-announces-consolidated-net-sales-of-nt-8-.txt"
+    },
+    {
+     "company": "MediaTek",
+     "label": "MediaTek press release: MediaTek Dimensity 9600 Pro Sets New Standard for Flagship (09-15-2026)",
+     "file": "transcripts/ir/mediatek_2026-09-15_mediatek-dimensity-9600-pro-sets-new-standard-for-.txt"
+    },
+    {
+     "company": "MediaTek",
+     "label": "MediaTek press release: NVIDIA and MediaTek Deepen Long-Standing Partnership to (08-30-2026)",
+     "file": "transcripts/ir/mediatek_2026-08-30_nvidia-and-mediatek-deepen-long-standing-partnersh.txt"
+    },
+    {
+     "company": "MiTAC Holdings",
+     "label": "MiTAC Holdings press release: MiTAC Holdings Announced August 2026 Unaudited Revenue (09-08-2026)",
+     "file": "transcripts/ir/mitacholdings_2026-09-08_mitac-holdings-announced-august-2026-unaudited-rev.txt"
+    },
+    {
+     "company": "Mitsubishi Electric",
+     "label": "Mitsubishi Electric press release: Mitsubishi Electric Launching R&D to Scale Up Quantum (09-17-2026)",
+     "file": "transcripts/ir/mitsubishielectric_2026-09-17_mitsubishi-electric-launching-r-d-to-scale-up-quan.txt"
+    },
+    {
+     "company": "Mitsubishi Electric",
+     "label": "Mitsubishi Electric press release: Mitsubishi Electric's MELSEC iQ-R Series Safety (09-17-2026)",
+     "file": "transcripts/ir/mitsubishielectric_2026-09-17_mitsubishi-electric-s-melsec-iq-r-series-safety-pr.txt"
+    },
+    {
+     "company": "Mitsubishi Electric",
+     "label": "Mitsubishi Electric press release: Mitsubishi Electric Invests in OptQC Startup Developing (09-15-2026)",
+     "file": "transcripts/ir/mitsubishielectric_2026-09-15_mitsubishi-electric-invests-in-optqc-startup-devel.txt"
+    },
+    {
+     "company": "Mitsubishi Electric",
+     "label": "Mitsubishi Electric press release: Mitsubishi Electric's New Plate Heat Exchanger Delivers 3x (09-14-2026)",
+     "file": "transcripts/ir/mitsubishielectric_2026-09-14_mitsubishi-electric-s-new-plate-heat-exchanger-del.txt"
+    },
+    {
+     "company": "Mitsubishi Electric",
+     "label": "Mitsubishi Electric press release: GCAP Electronics Evolution receives contract to deliver (09-10-2026)",
+     "file": "transcripts/ir/mitsubishielectric_2026-09-10_gcap-electronics-evolution-receives-contract-to-de.txt"
+    },
+    {
+     "company": "Mitsubishi Electric",
+     "label": "Mitsubishi Electric press release: Mitsubishi Electric to Aid Victims of Earthquake in (09-08-2026)",
+     "file": "transcripts/ir/mitsubishielectric_2026-09-08_mitsubishi-electric-to-aid-victims-of-earthquake-i.txt"
+    },
+    {
+     "company": "Mitsubishi Electric",
+     "label": "Mitsubishi Electric press release: Mitsubishi Electric Develops Task-Aware Unified Source (08-31-2026)",
+     "file": "transcripts/ir/mitsubishielectric_2026-08-31_mitsubishi-electric-develops-task-aware-unified-so.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260916 (09-16-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-09-16_release-260916.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260901 (09-01-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-09-01_release-260901.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260831 (08-31-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-31_release-260831.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260828 (08-28-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-28_release-260828.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260826 (08-26-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-26_release-260826.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 2608242 (08-24-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-24_release-2608242.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 2608241 (08-24-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-24_release-2608241.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260817 (08-17-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-17_release-260817.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 2608072 (08-07-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-07_release-2608072.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 2608074 (08-07-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-07_release-2608074.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 2608075 (08-07-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-07_release-2608075.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260806 (08-06-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-06_release-260806.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260803 (08-03-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-08-03_release-260803.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260729 (07-29-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-07-29_release-260729.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260703 (07-03-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-07-03_release-260703.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260630 (06-30-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-06-30_release-260630.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260629 (06-29-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-06-29_release-260629.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260624 (06-24-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-06-24_release-260624.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260622 (06-22-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-06-22_release-260622.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260611 (06-11-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-06-11_release-260611.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260610 (06-10-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-06-10_release-260610.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260605 (06-05-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-06-05_release-260605.txt"
+    },
+    {
+     "company": "Mitsubishi Gas Chemical",
+     "label": "Mitsubishi Gas Chemical press release: release 260603 (06-03-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-06-03_release-260603.txt"
+    },
+    {
+     "company": "Mitsubishi Heavy Industries",
+     "label": "Mitsubishi Heavy Industries press release: Mitsubishi Heavy Industries and Preferred Networks Form (09-16-2026)",
+     "file": "transcripts/ir/mitsubishiheavyindustries_2026-09-16_mitsubishi-heavy-industries-and-preferred-networks.txt"
+    },
+    {
+     "company": "Mitsubishi Heavy Industries",
+     "label": "Mitsubishi Heavy Industries press release: MHI Thermal Systems Completely Redesigns Centralized Remote (09-16-2026)",
+     "file": "transcripts/ir/mitsubishiheavyindustries_2026-09-16_mhi-thermal-systems-completely-redesigns-centraliz.txt"
+    },
+    {
+     "company": "Mitsubishi Heavy Industries",
+     "label": "Mitsubishi Heavy Industries press release: Approval in Principle (AiP) Acquired for Standard (09-15-2026)",
+     "file": "transcripts/ir/mitsubishiheavyindustries_2026-09-15_approval-in-principle-aip-acquired-for-standard-lo.txt"
+    },
+    {
+     "company": "Mitsubishi Heavy Industries",
+     "label": "Mitsubishi Heavy Industries press release: Mitsubishi Heavy Industries and NEC to Form Strategic (09-02-2026)",
+     "file": "transcripts/ir/mitsubishiheavyindustries_2026-09-02_mitsubishi-heavy-industries-and-nec-to-form-strate.txt"
+    },
+    {
+     "company": "Mitsubishi Heavy Industries",
+     "label": "Mitsubishi Heavy Industries press release: Mitsubishi Heavy Industries Initiates an Orderly Transition (09-02-2026)",
+     "file": "transcripts/ir/mitsubishiheavyindustries_2026-09-02_mitsubishi-heavy-industries-initiates-an-orderly-t.txt"
+    },
+    {
+     "company": "Mitsubishi Heavy Industries",
+     "label": "Mitsubishi Heavy Industries press release: MHIET Establishes Hydrogen Co-Firing Specifications for the (08-27-2026)",
+     "file": "transcripts/ir/mitsubishiheavyindustries_2026-08-27_mhiet-establishes-hydrogen-co-firing-specification.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: Mitsui Kinzoku Reaches Agreement with Wildfire Energy to (09-09-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-09-09_mitsui-kinzoku-reaches-agreement-with-wildfire-ene.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: Update on the Integration of Businesses for the Purchase of (08-06-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-08-06_update-on-the-integration-of-businesses-for-the-pu.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: Cuprima Copper Sinter Material Marks First Mass-Production (08-05-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-08-05_cuprima-copper-sinter-material-marks-first-mass-pr.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: Notice of Change Regarding Nakabohtec, An Equity Method (08-03-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-08-03_notice-of-change-regarding-nakabohtec-an-equity-me.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: Start of Supply of 100% Recycled Copper Cathodes Using the (06-18-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-06-18_start-of-supply-of-100-recycled-copper-cathodes-us.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: Regarding Certain Media Reports and Other Information (06-11-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-06-11_regarding-certain-media-reports-and-other-informat.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: Mitsui Kinzoku and Quemix Develop New Technology for (06-01-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-06-01_mitsui-kinzoku-and-quemix-develop-new-technology-f.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: New Copper Sinter Material Enables Large-Area bonding for (05-29-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-05-29_new-copper-sinter-material-enables-large-area-bond.txt"
+    },
+    {
+     "company": "Mitsui Mining & Smelting",
+     "label": "Mitsui Mining & Smelting press release: Selected for FY2026 Subsidy Program of Japan's Agency for (05-29-2026)",
+     "file": "transcripts/ir/mitsuiminingsmelting_2026-05-29_selected-for-fy2026-subsidy-program-of-japan-s-age.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Notice regarding Status of Acquisition of Treasury Shares (09-07-2026)",
+     "file": "transcripts/ir/murata_2026-09-07_notice-regarding-status-of-acquisition-of-treasury.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Murata to Invest Approximately 6.2 Billion Yen in the (09-01-2026)",
+     "file": "transcripts/ir/murata_2026-09-01_murata-to-invest-approximately-6-2-billion-yen-in-.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Powering AI at the Last Millimeter: Murata Heads to Hot (08-10-2026)",
+     "file": "transcripts/ir/murata_2026-08-10_powering-ai-at-the-last-millimeter-murata-heads-to.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Support for Those Affected by the 2026 Kumamoto Earthquake (08-07-2026)",
+     "file": "transcripts/ir/murata_2026-08-07_support-for-those-affected-by-the-2026-kumamoto-ea.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: [Earnings Release Conference] Presentation Material for (07-31-2026)",
+     "file": "transcripts/ir/murata_2026-07-31_earnings-release-conference-presentation-material-.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Murata Manufacturing Co., Ltd Announces Makes Adjustment to (07-31-2026)",
+     "file": "transcripts/ir/murata_2026-07-31_murata-manufacturing-co-ltd-announces-makes-adjust.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: [Financial Results] First Quarter of FY2026 (PDF: 241KB) (07-31-2026)",
+     "file": "transcripts/ir/murata_2026-07-31_financial-results-first-quarter-of-fy2026-pdf-241k.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Notice of Completion of Disposal of Treasury Shares as (07-28-2026)",
+     "file": "transcripts/ir/murata_2026-07-28_notice-of-completion-of-disposal-of-treasury-share.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Annual Securities Report 2025 (PDF: 4.76MB) (07-10-2026)",
+     "file": "transcripts/ir/murata_2026-07-10_annual-securities-report-2025-pdf-4-76mb.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Murata to Sponsor the NFC Photobook Project by Yuima (07-09-2026)",
+     "file": "transcripts/ir/murata_2026-07-09_murata-to-sponsor-the-nfc-photobook-project-by-yui.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Notice regarding Status of Acquisition of Treasury Shares (07-07-2026)",
+     "file": "transcripts/ir/murata_2026-07-07_notice-regarding-status-of-acquisition-of-treasury.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Update of Corporate Governance Report (Tokyo Stock (06-30-2026)",
+     "file": "transcripts/ir/murata_2026-06-30_update-of-corporate-governance-report-tokyo-stock-.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Notice regarding Disposal of Granting of Standard Share (06-29-2026)",
+     "file": "transcripts/ir/murata_2026-06-29_notice-regarding-disposal-of-granting-of-standard-.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Notice regarding Disposal of Treasury Shares as Restricted (06-29-2026)",
+     "file": "transcripts/ir/murata_2026-06-29_notice-regarding-disposal-of-treasury-shares-as-re.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: [Shareholder's Meeting]Notice of Resolution at the 90th (06-29-2026)",
+     "file": "transcripts/ir/murata_2026-06-29_shareholder-s-meeting-notice-of-resolution-at-the-.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: FACT BOOK(PDF: 731KB) (06-26-2026)",
+     "file": "transcripts/ir/murata_2026-06-26_fact-book-pdf-731kb.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Product Information Management API Service now covers all (06-25-2026)",
+     "file": "transcripts/ir/murata_2026-06-25_product-information-management-api-service-now-cov.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Murata Collaborates with Synopsys to Provide Simulation (06-16-2026)",
+     "file": "transcripts/ir/murata_2026-06-16_murata-collaborates-with-synopsys-to-provide-simul.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Murata Singapore Launch KUMIHIMO Tech Camp Singapore 2026, (06-16-2026)",
+     "file": "transcripts/ir/murata_2026-06-16_murata-singapore-launch-kumihimo-tech-camp-singapo.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Supplementary Information on Proposal No.3 for Approval at (06-11-2026)",
+     "file": "transcripts/ir/murata_2026-06-11_supplementary-information-on-proposal-no-3-for-app.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Notice regarding Status of purchase of the Company's own (06-05-2026)",
+     "file": "transcripts/ir/murata_2026-06-05_notice-regarding-status-of-purchase-of-the-company.txt"
+    },
+    {
+     "company": "Murata",
+     "label": "Murata press release: Murata Introduces World's First 2.2F/100Vdc (06-04-2026)",
+     "file": "transcripts/ir/murata_2026-06-04_murata-introduces-world-s-first-2-2f-100vdc-soft-t.txt"
+    },
+    {
+     "company": "Nanya Technology",
+     "label": "Nanya Technology press release: Nanya Technology August 2026 Revenue NT$ 44,690 Million (09-02-2026)",
+     "file": "transcripts/ir/nanyatechnology_2026-09-02_nanya-technology-august-2026-revenue-nt-44-690-mil.txt"
+    },
+    {
+     "company": "Nanya Technology",
+     "label": "Nanya Technology press release: Nanya Technology Statement (08-14-2026)",
+     "file": "transcripts/ir/nanyatechnology_2026-08-14_nanya-technology-statement.txt"
+    },
+    {
+     "company": "Nanya Technology",
+     "label": "Nanya Technology press release: Nanya Technology BoD Resolutions (08-05-2026)",
+     "file": "transcripts/ir/nanyatechnology_2026-08-05_nanya-technology-bod-resolutions.txt"
+    },
+    {
+     "company": "Nanya Technology",
+     "label": "Nanya Technology press release: Nanya Technology July 2026 Revenue NT$ 43,868 Million (08-04-2026)",
+     "file": "transcripts/ir/nanyatechnology_2026-08-04_nanya-technology-july-2026-revenue-nt-43-868-milli.txt"
+    },
+    {
+     "company": "Nanya Technology",
+     "label": "Nanya Technology press release: Nanya Technology Reports Results for the Second Quarter 2026 (07-10-2026)",
+     "file": "transcripts/ir/nanyatechnology_2026-07-10_nanya-technology-reports-results-for-the-second-qu.txt"
+    },
+    {
+     "company": "Nippon Steel",
+     "label": "Nippon Steel press release: Church Clad in Nippon Steel's Designing Metal \"TranTixxii\" (09-16-2026)",
+     "file": "transcripts/ir/nipponsteel_2026-09-16_church-clad-in-nippon-steel-s-designing-metal-tran.txt"
+    },
+    {
+     "company": "Nippon Steel",
+     "label": "Nippon Steel press release: Nippon Steel's Slovak Operating Base U. S. Steel Koice (09-16-2026)",
+     "file": "transcripts/ir/nipponsteel_2026-09-16_nippon-steel-s-slovak-operating-base-u-s-steel-koi.txt"
+    },
+    {
+     "company": "Nippon Steel",
+     "label": "Nippon Steel press release: Notice of Financing by Subordinated Loan (09-08-2026)",
+     "file": "transcripts/ir/nipponsteel_2026-09-08_notice-of-financing-by-subordinated-loan.txt"
+    },
+    {
+     "company": "Nippon Steel",
+     "label": "Nippon Steel press release: Execution of Contract for Sale of Former Setouchi Works (08-28-2026)",
+     "file": "transcripts/ir/nipponsteel_2026-08-28_execution-of-contract-for-sale-of-former-setouchi-.txt"
+    },
+    {
+     "company": "Nippon Steel",
+     "label": "Nippon Steel press release: NSPT Receives Platinum Award for First Time in Zero (06-30-2026)",
+     "file": "transcripts/ir/nipponsteel_2026-06-30_nspt-receives-platinum-award-for-first-time-in-zer.txt"
+    },
+    {
+     "company": "Nippon Steel",
+     "label": "Nippon Steel press release: Announcement Regarding Adjustment of Conversion Price for (06-23-2026)",
+     "file": "transcripts/ir/nipponsteel_2026-06-23_announcement-regarding-adjustment-of-conversion-pr.txt"
+    },
+    {
+     "company": "Nippon Steel",
+     "label": "Nippon Steel press release: Notice of Executive Management of Nippon Steel Corporation (06-23-2026)",
+     "file": "transcripts/ir/nipponsteel_2026-06-23_notice-of-executive-management-of-nippon-steel-cor.txt"
+    },
+    {
+     "company": "Nippon Steel",
+     "label": "Nippon Steel press release: Notice of Change in Special Advisor (06-22-2026)",
+     "file": "transcripts/ir/nipponsteel_2026-06-22_notice-of-change-in-special-advisor.txt"
+    },
+    {
+     "company": "Nippon Steel",
+     "label": "Nippon Steel press release: Nippon Steel Corporation Issues Unsecured Straight Bonds (06-10-2026)",
+     "file": "transcripts/ir/nipponsteel_2026-06-10_nippon-steel-corporation-issues-unsecured-straight.txt"
+    },
+    {
+     "company": "Nuvoton",
+     "label": "Nuvoton press release: Nuvoton Unveils NAU85L42YG - High Performance Quad ADC for (09-15-2026)",
+     "file": "transcripts/ir/nuvoton_2026-09-15_nuvoton-unveils-nau85l42yg-high-performance-quad-a.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Panasonic Energy Launches New Global Battery R&D Hub in (09-16-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-09-16_panasonic-energy-launches-new-global-battery-r-d-h.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Panasonic's New Color Adjustment Functions Enable Even (09-03-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-09-03_panasonic-s-new-color-adjustment-functions-enable-.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Panasonic Makes Color Matching Simpler and Smarter (09-02-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-09-02_panasonic-makes-color-matching-simpler-and-smarter.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Panasonic Develops World's First PTZ Cameras Featuring a (09-02-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-09-02_panasonic-develops-world-s-first-ptz-cameras-featu.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Completion of transfer of power tools business (09-01-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-09-01_completion-of-transfer-of-power-tools-business.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Panasonic Holdings Sets Terms and Conditions for its Hybrid (08-28-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-08-28_panasonic-holdings-sets-terms-and-conditions-for-i.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Launch of Outdoor CO2 Refrigerant Condensing Units in (08-27-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-08-27_launch-of-outdoor-co2-refrigerant-condensing-units.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Panasonic Industry Announces Share Transfer of its (08-18-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-08-18_panasonic-industry-announces-share-transfer-of-its.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Panasonic invests in CLAS, a provider of furniture and (08-06-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-08-06_panasonic-invests-in-clas-a-provider-of-furniture-.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Notice Regarding Early Redemption of 1st Hybrid Bonds (08-03-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-08-03_notice-regarding-early-redemption-of-1st-hybrid-bo.txt"
+    },
+    {
+     "company": "Panasonic Holdings",
+     "label": "Panasonic Holdings press release: Panasonic Holdings Reports Consolidated Financial Results (07-30-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-07-30_panasonic-holdings-reports-consolidated-financial-.txt"
+    },
+    {
+     "company": "Parade Technologies",
+     "label": "Parade Technologies press release: Parade Expands AI cable performance with series of FIT (09-08-2026)",
+     "file": "transcripts/ir/paradetechnologies_2026-09-08_parade-expands-ai-cable-performance-with-series-of.txt"
+    },
+    {
+     "company": "Parade Technologies",
+     "label": "Parade Technologies press release: Parade and Acer Deliver Advanced USB4 Connectivity in (09-02-2026)",
+     "file": "transcripts/ir/paradetechnologies_2026-09-02_parade-and-acer-deliver-advanced-usb4-connectivity.txt"
+    },
+    {
+     "company": "Phison",
+     "label": "Phison press release: Phison Expands European Operations with Regional Office and (09-01-2026)",
+     "file": "transcripts/ir/phison_2026-09-01_phison-expands-european-operations-with-regional-o.txt"
+    },
+    {
+     "company": "Realtek",
+     "label": "Realtek press release: Realtek Showcases Next-Generation AI Home Entertainment, (09-10-2026)",
+     "file": "transcripts/ir/realtek_2026-09-10_realtek-showcases-next-generation-ai-home-entertai.txt"
+    },
+    {
+     "company": "Renesas",
+     "label": "Renesas press release: Renesas Launches 64-bit RZ/G3L and RZ/G3SE MPUs for (09-10-2026)",
+     "file": "transcripts/ir/renesas_2026-09-10_renesas-launches-64-bit-rz-g3l-and-rz-g3se-mpus-fo.txt"
+    },
+    {
+     "company": "Renesas",
+     "label": "Renesas press release: Renesas Establishes Physical AI & Robotics Lab in Beijing (08-27-2026)",
+     "file": "transcripts/ir/renesas_2026-08-27_renesas-establishes-physical-ai-robotics-lab-in-be.txt"
+    },
+    {
+     "company": "Renesas",
+     "label": "Renesas press release: Renesas Announces Consolidated Forecasts (07-31-2026)",
+     "file": "transcripts/ir/renesas_2026-07-31_renesas-announces-consolidated-forecasts.txt"
+    },
+    {
+     "company": "Renesas",
+     "label": "Renesas press release: Notice Concerning the Recording of Finance Income (07-31-2026)",
+     "file": "transcripts/ir/renesas_2026-07-31_notice-concerning-the-recording-of-finance-income.txt"
+    },
+    {
+     "company": "Renesas",
+     "label": "Renesas press release: Renesas to Phase Out Production at Takasaki Factory; (07-31-2026)",
+     "file": "transcripts/ir/renesas_2026-07-31_renesas-to-phase-out-production-at-takasaki-factor.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac Demonstrates New Feature \"Matlantis Case Studio\" (09-16-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-09-16_resonac-demonstrates-new-feature-matlantis-case-st.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac Successfully Develops 300 mm SiC Single-Crystal (09-15-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-09-15_resonac-successfully-develops-300-mm-sic-single-cr.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac to Make Additional Investment of Approximately (07-28-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-07-28_resonac-to-make-additional-investment-of-approxima.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac Receives the \"Minister of the Environment Award\" at (06-26-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-06-26_resonac-receives-the-minister-of-the-environment-a.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac to Strengthen Production System for High-Purity (06-25-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-06-25_resonac-to-strengthen-production-system-for-high-p.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac's Patent on Liquid Encapsulant for AI Semiconductor (06-17-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-06-17_resonac-s-patent-on-liquid-encapsulant-for-ai-semi.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Price Adjustment of Chloroprene Rubber (06-15-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-06-15_price-adjustment-of-chloroprene-rubber.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac Validates Next-Generation Computional Chemistry (08-04-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-08-04_resonac-validates-next-generation-computional-chem.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac Signs MOU with BEAM TECHNOLOGIES, Japan LEO Shachu (06-25-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-06-25_resonac-signs-mou-with-beam-technologies-japan-leo.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac Group Releases Integrated Report \"RESONAC REPORT (09-14-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-09-14_resonac-group-releases-integrated-report-resonac-r.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac Holdings Selected as \"SX Brand\" for the Second (06-02-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-06-02_resonac-holdings-selected-as-sx-brand-for-the-seco.txt"
+    },
+    {
+     "company": "Resonac (Showa Denko)",
+     "label": "Resonac (Showa Denko) press release: Resonac Establishes Unique Model for Standardizing and (07-15-2026)",
+     "file": "transcripts/ir/resonacshowadenko_2026-07-15_resonac-establishes-unique-model-for-standardizing.txt"
+    },
+    {
+     "company": "Rigaku",
+     "label": "Rigaku press release: [Information]Work Experience Program at Yamanashi Factory (09-11-2026)",
+     "file": "transcripts/ir/rigaku_2026-09-11_information-work-experience-program-at-yamanashi-f.txt"
+    },
+    {
+     "company": "Rigaku",
+     "label": "Rigaku press release: [Information] Rigaku to Be Featured on TV Tokyo's \"The (09-06-2026)",
+     "file": "transcripts/ir/rigaku_2026-09-06_information-rigaku-to-be-featured-on-tv-tokyo-s-th.txt"
+    },
+    {
+     "company": "Rigaku",
+     "label": "Rigaku press release: [Press Release] Rigaku Launches CT Lab HR160 (09-01-2026)",
+     "file": "transcripts/ir/rigaku_2026-09-01_press-release-rigaku-launches-ct-lab-hr160-high-re.txt"
+    },
+    {
+     "company": "Rigaku",
+     "label": "Rigaku press release: [Press Release]Rigaku and Tohoku University Establish a New (08-28-2026)",
+     "file": "transcripts/ir/rigaku_2026-08-28_press-release-rigaku-and-tohoku-university-establi.txt"
+    },
+    {
+     "company": "Rohm",
+     "label": "Rohm press release: ROHM's Silicon Carbide contributes to the \"Neue Klasse\" (09-16-2026)",
+     "file": "transcripts/ir/rohm_2026-09-16_rohm-s-silicon-carbide-contributes-to-the-neue-kla.txt"
+    },
+    {
+     "company": "Rorze",
+     "label": "Rorze press release: Integrated Report 2026 (08-31-2026)",
+     "file": "transcripts/ir/rorze_2026-08-31_integrated-report-2026.txt"
+    },
+    {
+     "company": "SCREEN Holdings",
+     "label": "SCREEN Holdings press release: SCREEN to start development of optical modules for quantum (08-31-2026)",
+     "file": "transcripts/ir/screenholdings_2026-08-31_screen-to-start-development-of-optical-modules-for.txt"
+    },
+    {
+     "company": "SCREEN Holdings",
+     "label": "SCREEN Holdings press release: SCREEN to Support Relief Efforts for the 2026 Kumamoto (08-03-2026)",
+     "file": "transcripts/ir/screenholdings_2026-08-03_screen-to-support-relief-efforts-for-the-2026-kuma.txt"
+    },
+    {
+     "company": "SCREEN Holdings",
+     "label": "SCREEN Holdings press release: Impact of the 2026 Kumamoto Earthquake (Notice #3) (07-31-2026)",
+     "file": "transcripts/ir/screenholdings_2026-07-31_impact-of-the-2026-kumamoto-earthquake-notice-3.txt"
+    },
+    {
+     "company": "SCREEN Holdings",
+     "label": "SCREEN Holdings press release: Impact of the 2026 Kumamoto Earthquake (Notice #2) (07-29-2026)",
+     "file": "transcripts/ir/screenholdings_2026-07-29_impact-of-the-2026-kumamoto-earthquake-notice-2.txt"
+    },
+    {
+     "company": "SCREEN Holdings",
+     "label": "SCREEN Holdings press release: Notice related to the earthquake that hit the Kumamoto area (07-28-2026)",
+     "file": "transcripts/ir/screenholdings_2026-07-28_notice-related-to-the-earthquake-that-hit-the-kuma.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: FY2026 Interim Business Results (09-03-2026)",
+     "file": "transcripts/ir/sumco_2026-09-03_fy2026-interim-business-results.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: Semiannual Securities Report for FY2026 (08-28-2026)",
+     "file": "transcripts/ir/sumco_2026-08-28_semiannual-securities-report-for-fy2026.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: Notice Concerning Completion of Reclassification of a (08-27-2026)",
+     "file": "transcripts/ir/sumco_2026-08-27_notice-concerning-completion-of-reclassification-o.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: Other (08-27-2026)",
+     "file": "transcripts/ir/sumco_2026-08-27_other.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: FYM2026/12 Interim Yuho (08-07-2026)",
+     "file": "transcripts/ir/sumco_2026-08-07_fym2026-12-interim-yuho.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: Consolidated Financial Results for Q2 FY2026 (08-06-2026)",
+     "file": "transcripts/ir/sumco_2026-08-06_consolidated-financial-results-for-q2-fy2026.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: Results for the Second Quarter of FY2026 (08-06-2026)",
+     "file": "transcripts/ir/sumco_2026-08-06_results-for-the-second-quarter-of-fy2026.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: Presentation - Result for Q2 FY2026 (08-06-2026)",
+     "file": "transcripts/ir/sumco_2026-08-06_presentation-result-for-q2-fy2026.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: Consolidated Financial Results for the Six Months Ended (08-06-2026)",
+     "file": "transcripts/ir/sumco_2026-08-06_consolidated-financial-results-for-the-six-months-.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: Disclosure document additions, revisions (08-06-2026)",
+     "file": "transcripts/ir/sumco_2026-08-06_disclosure-document-additions-revisions.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: Interim consolidated earnings announcement document (08-06-2026)",
+     "file": "transcripts/ir/sumco_2026-08-06_interim-consolidated-earnings-announcement-documen.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: SUMCO is selected as a constituent of the FTSE4Good Index (07-29-2026)",
+     "file": "transcripts/ir/sumco_2026-07-29_sumco-is-selected-as-a-constituent-of-the-ftse4goo.txt"
+    },
+    {
+     "company": "SUMCO",
+     "label": "SUMCO press release: ANNUAL REPORT 2025 (Jan. 1, 2025 to (06-26-2026)",
+     "file": "transcripts/ir/sumco_2026-06-26_annual-report-2025-jan-1-2025-to.txt"
+    },
+    {
+     "company": "SUSS MicroTec",
+     "label": "SUSS MicroTec press release: SUSS and Manz Asia Announce Strategic Collaboration in (09-03-2026)",
+     "file": "transcripts/ir/sussmicrotec_2026-09-03_suss-and-manz-asia-announce-strategic-collaboratio.txt"
+    },
+    {
+     "company": "Sakai Chemical Industry",
+     "label": "Sakai Chemical Industry press release: release 3737 (09-10-2026)",
+     "file": "transcripts/ir/sakaichemicalindustry_2026-09-10_release-3737.txt"
+    },
+    {
+     "company": "Sakai Chemical Industry",
+     "label": "Sakai Chemical Industry press release: release 3721 (09-08-2026)",
+     "file": "transcripts/ir/sakaichemicalindustry_2026-09-08_release-3721.txt"
+    },
+    {
+     "company": "Sakai Chemical Industry",
+     "label": "Sakai Chemical Industry press release: release 3672 (08-07-2026)",
+     "file": "transcripts/ir/sakaichemicalindustry_2026-08-07_release-3672.txt"
+    },
+    {
+     "company": "Sakai Chemical Industry",
+     "label": "Sakai Chemical Industry press release: release 3662 (08-06-2026)",
+     "file": "transcripts/ir/sakaichemicalindustry_2026-08-06_release-3662.txt"
+    },
+    {
+     "company": "Sakai Chemical Industry",
+     "label": "Sakai Chemical Industry press release: release 3652 (08-03-2026)",
+     "file": "transcripts/ir/sakaichemicalindustry_2026-08-03_release-3652.txt"
+    },
+    {
+     "company": "Sakai Chemical Industry",
+     "label": "Sakai Chemical Industry press release: release 3648 (08-03-2026)",
+     "file": "transcripts/ir/sakaichemicalindustry_2026-08-03_release-3648.txt"
+    },
+    {
+     "company": "Sakai Chemical Industry",
+     "label": "Sakai Chemical Industry press release: release 3646 (08-03-2026)",
+     "file": "transcripts/ir/sakaichemicalindustry_2026-08-03_release-3646.txt"
+    },
+    {
+     "company": "Sakai Chemical Industry",
+     "label": "Sakai Chemical Industry press release: release 3555 (06-08-2026)",
+     "file": "transcripts/ir/sakaichemicalindustry_2026-06-08_release-3555.txt"
+    },
+    {
+     "company": "Schneider Electric",
+     "label": "Schneider Electric press release: Levi Strauss & Co. and Marks & Spencer launch the Fashion (09-17-2026)",
+     "file": "transcripts/ir/schneiderelectric_2026-09-17_levi-strauss-co-and-marks-spencer-launch-the-fashi.txt"
+    },
+    {
+     "company": "Schneider Electric",
+     "label": "Schneider Electric press release: Schneider Electric expands AI-ready infrastructure (09-10-2026)",
+     "file": "transcripts/ir/schneiderelectric_2026-09-10_schneider-electric-expands-ai-ready-infrastructure.txt"
+    },
+    {
+     "company": "Schneider Electric",
+     "label": "Schneider Electric press release: Schneider Electric releases pioneering study assessing arc (08-03-2026)",
+     "file": "transcripts/ir/schneiderelectric_2026-08-03_schneider-electric-releases-pioneering-study-asses.txt"
+    },
+    {
+     "company": "Schneider Electric",
+     "label": "Schneider Electric press release: Schneider Electric reports strong first half-year (07-29-2026)",
+     "file": "transcripts/ir/schneiderelectric_2026-07-29_schneider-electric-reports-strong-first-half-year-.txt"
+    },
+    {
+     "company": "Schneider Electric",
+     "label": "Schneider Electric press release: Schneider Electric and AMD release first Helios platform (07-22-2026)",
+     "file": "transcripts/ir/schneiderelectric_2026-07-22_schneider-electric-and-amd-release-first-helios-pl.txt"
+    },
+    {
+     "company": "Schneider Electric",
+     "label": "Schneider Electric press release: Schneider Electric recognized by the World Economic Forum (06-29-2026)",
+     "file": "transcripts/ir/schneiderelectric_2026-06-29_schneider-electric-recognized-by-the-world-economi.txt"
     }
    ],
    "no_data": [
     {
+     "label": "10x Genomics press release: 10x Genomics Wins Patent Infringement Verdict Against Parse (08-28-2026)",
+     "file": "transcripts/ir/10xgenomics_2026-08-28_10x-genomics-wins-patent-infringement-verdict-agai.txt",
+     "why": null
+    },
+    {
+     "label": "3M press release: 3M Announces Upcoming Investor Event (09-01-2026)",
+     "file": "transcripts/ir/3m_2026-09-01_3m-announces-upcoming-investor-event.txt",
+     "why": null
+    },
+    {
+     "label": "AAON press release: AAON Introduces The Aaon Group as Its New Enterprise (08-21-2026)",
+     "file": "transcripts/ir/aaon_2026-08-21_aaon-introduces-the-aaon-group-as-its-new-enterpri.txt",
+     "why": null
+    },
+    {
+     "label": "ACM Research press release: ACM Research Expands Ultra C Tahoe into a Wet Processing (08-07-2026)",
+     "file": "transcripts/ir/acmresearch_2026-08-07_acm-research-expands-ultra-c-tahoe-into-a-wet-proc.txt",
+     "why": null
+    },
+    {
+     "label": "ACM Research press release: ACM Research's Ultra ECP ap-p Horizontal Panel (08-07-2026)",
+     "file": "transcripts/ir/acmresearch_2026-08-07_acm-research-s-ultra-ecp-ap-p-horizontal-panel-ele.txt",
+     "why": null
+    },
+    {
      "label": "AGC press release: SEMICON West 2026 (09-18-2026)",
      "file": "transcripts/ir/agc_2026-09-18_semicon-west-2026.txt",
+     "why": null
+    },
+    {
+     "label": "AMD press release: AMD Acquires Taalas to Advance Compute Solutions for (08-06-2026)",
+     "file": "transcripts/ir/amd_2026-08-06_amd-acquires-taalas-to-advance-compute-solutions-f.txt",
      "why": null
     },
     {
@@ -517,6 +2049,36 @@
      "why": null
     },
     {
+     "label": "AXT press release: AXT, Inc. Announces Financial Conference Participation for (08-17-2026)",
+     "file": "transcripts/ir/axt_2026-08-17_axt-inc-announces-financial-conference-participati.txt",
+     "why": null
+    },
+    {
+     "label": "AbCellera press release: AbCellera Announces Positive Top-Line Phase 2 Clinical (08-10-2026)",
+     "file": "transcripts/ir/abcellera_2026-08-10_abcellera-announces-positive-top-line-phase-2-clin.txt",
+     "why": null
+    },
+    {
+     "label": "AbCellera press release: AbCellera Announces Presentation of Phase 2 Data for (09-16-2026)",
+     "file": "transcripts/ir/abcellera_2026-09-16_abcellera-announces-presentation-of-phase-2-data-f.txt",
+     "why": null
+    },
+    {
+     "label": "AbCellera press release: AbCellera Announces Pricing of Oversubscribed $200 Million (08-13-2026)",
+     "file": "transcripts/ir/abcellera_2026-08-13_abcellera-announces-pricing-of-oversubscribed-200-.txt",
+     "why": null
+    },
+    {
+     "label": "AbCellera press release: AbCellera Announces Proposed Public Offering of Common (08-11-2026)",
+     "file": "transcripts/ir/abcellera_2026-08-11_abcellera-announces-proposed-public-offering-of-co.txt",
+     "why": null
+    },
+    {
+     "label": "Adeia press release: Adeia Recognized with Two Asia Pacific Business Awards (09-16-2026)",
+     "file": "transcripts/ir/adeia_2026-09-16_adeia-recognized-with-two-asia-pacific-business-aw.txt",
+     "why": null
+    },
+    {
      "label": "Adobe press release: Adobe and Jet2 Partner to Deliver Agentic AI-Powered (09-22-2026)",
      "file": "transcripts/ir/adobe_2026-09-22_adobe-and-jet2-partner-to-deliver-agentic-ai-power.txt",
      "why": null
@@ -527,8 +2089,38 @@
      "why": null
     },
     {
+     "label": "Air Products press release: Air Products Wins Long-Term Contract to Supply High-Purity (09-26-2026)",
+     "file": "transcripts/ir/airproducts_2026-09-26_air-products-wins-long-term-contract-to-supply-hig.txt",
+     "why": null
+    },
+    {
+     "label": "American Electric Power press release: AEP Reports Second-Quarter 2026 Earnings, Raises Full-Year (07-30-2026)",
+     "file": "transcripts/ir/americanelectricpower_2026-07-30_aep-reports-second-quarter-2026-earnings-raises-fu.txt",
+     "why": null
+    },
+    {
+     "label": "American Electric Power press release: Hoosiers Expected To See Savings as I&M Advances One of the (08-26-2026)",
+     "file": "transcripts/ir/americanelectricpower_2026-08-26_hoosiers-expected-to-see-savings-as-i-m-advances-o.txt",
+     "why": null
+    },
+    {
      "label": "Andes Technology press release: S2C Named Andes Technology's 2026 Partner of the Year (09-18-2026)",
      "file": "transcripts/ir/andestechnology_2026-09-18_s2c-named-andes-technology-s-2026-partner-of-the-y.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Apple advances health and fitness capabilities using Apple (09-09-2026)",
+     "file": "transcripts/ir/apple_2026-09-09_apple-advances-health-and-fitness-capabilities-usi.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Apple introduces AirPods 5 with best-in-class open-ear (09-09-2026)",
+     "file": "transcripts/ir/apple_2026-09-09_apple-introduces-airpods-5-with-best-in-class-open.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Apple introduces new Mac Studio with M5 Max and M5 Ultra (08-25-2026)",
+     "file": "transcripts/ir/apple_2026-08-25_apple-introduces-new-mac-studio-with-m5-max-and-m5.txt",
      "why": null
     },
     {
@@ -537,8 +2129,58 @@
      "why": null
     },
     {
+     "label": "Apple press release: Apple unveils Apple Watch Ultra 4 (09-09-2026)",
+     "file": "transcripts/ir/apple_2026-09-09_apple-unveils-apple-watch-ultra-4.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Apple unveils a more powerful Mac mini featuring the (08-25-2026)",
+     "file": "transcripts/ir/apple_2026-08-25_apple-unveils-a-more-powerful-mac-mini-featuring-t.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Apple's new child safety features now available (09-14-2026)",
+     "file": "transcripts/ir/apple_2026-09-14_apple-s-new-child-safety-features-now-available.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Celebrating \"What Holds Us\" on iPhone 18 Pro (09-16-2026)",
+     "file": "transcripts/ir/apple_2026-09-16_celebrating-what-holds-us-on-iphone-18-pro.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Exciting updates for Sneaky Sasquatch come to Apple Arcade (08-27-2026)",
+     "file": "transcripts/ir/apple_2026-08-27_exciting-updates-for-sneaky-sasquatch-come-to-appl.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Get ready to experience iPhone 18 Pro, the new Apple Watch (09-11-2026)",
+     "file": "transcripts/ir/apple_2026-09-11_get-ready-to-experience-iphone-18-pro-the-new-appl.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Introducing Apple Watch Series 12, with the all-new Health (09-09-2026)",
+     "file": "transcripts/ir/apple_2026-09-09_introducing-apple-watch-series-12-with-the-all-new.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Major updates for Apple's software platforms are now (09-14-2026)",
+     "file": "transcripts/ir/apple_2026-09-14_major-updates-for-apple-s-software-platforms-are-n.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: The internet's favorite cat comes to Apple Arcade with (09-08-2026)",
+     "file": "transcripts/ir/apple_2026-09-08_the-internet-s-favorite-cat-comes-to-apple-arcade-.txt",
+     "why": null
+    },
+    {
      "label": "Apple press release: The latest iPhone, Apple Watch, and AirPods lineups arrive (09-18-2026)",
      "file": "transcripts/ir/apple_2026-09-18_the-latest-iphone-apple-watch-and-airpods-lineups-.txt",
+     "why": null
+    },
+    {
+     "label": "Apple press release: Widow's Bay triumphs as most decorated freshman comedy in (09-15-2026)",
+     "file": "transcripts/ir/apple_2026-09-15_widow-s-bay-triumphs-as-most-decorated-freshman-co.txt",
      "why": null
     },
     {
@@ -547,8 +2189,98 @@
      "why": null
     },
     {
+     "label": "AstraZeneca press release: Enhertu demonstrated a median progression-free survival of (09-14-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-09-14_enhertu-demonstrated-a-median-progression-free-sur.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Enhertu demonstrated statistically significant and (08-17-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-08-17_enhertu-demonstrated-statistically-significant-and.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Imfinzi plus Imdelltra demonstrated a statistically (09-08-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-09-08_imfinzi-plus-imdelltra-demonstrated-a-statisticall.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Sonesitatug vedotin demonstrated a statistically (07-27-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-07-27_sonesitatug-vedotin-demonstrated-a-statistically-s.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Tagrisso demonstrated unprecedented eight-year landmark (09-14-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-09-14_tagrisso-demonstrated-unprecedented-eight-year-lan.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Tagrisso plus Orpathys demonstrated statistically (08-17-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-08-17_tagrisso-plus-orpathys-demonstrated-statistically-.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Tagrisso plus Orpathys demonstrated statistically (09-01-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-09-01_tagrisso-plus-orpathys-demonstrated-statistically-.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Tezspire demonstrates positive Phase III results in (08-27-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-08-27_tezspire-demonstrates-positive-phase-iii-results-i.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Tozorakimab demonstrated statistically significant and (09-08-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-09-08_tozorakimab-demonstrated-statistically-significant.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Update on Phase III trial of Ultomiris in adults and (07-27-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-07-27_update-on-phase-iii-trial-of-ultomiris-in-adults-a.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Update on SERENA-4 Phase III trial of Etcamah in (09-11-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-09-11_update-on-serena-4-phase-iii-trial-of-etcamah-in-c.txt",
+     "why": null
+    },
+    {
+     "label": "AstraZeneca press release: Update on eVOLVE-Lung02 Phase III trial of volrustomig plus (08-17-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-08-17_update-on-evolve-lung02-phase-iii-trial-of-volrust.txt",
+     "why": null
+    },
+    {
+     "label": "Axcelis press release: Axcelis Announces Participation in Upcoming Investor (09-01-2026)",
+     "file": "transcripts/ir/axcelis_2026-09-01_axcelis-announces-participation-in-upcoming-invest.txt",
+     "why": null
+    },
+    {
      "label": "Axcelis press release: Axcelis Announces Sponsorship and Participation in the 23rd (09-21-2026)",
      "file": "transcripts/ir/axcelis_2026-09-21_axcelis-announces-sponsorship-and-participation-in.txt",
+     "why": null
+    },
+    {
+     "label": "Baker Hughes press release: Baker Hughes Awarded Multi-Year Contract by Kuwait Oil (08-11-2026)",
+     "file": "transcripts/ir/bakerhughes_2026-08-11_baker-hughes-awarded-multi-year-contract-by-kuwait.txt",
+     "why": null
+    },
+    {
+     "label": "Baker Hughes press release: Baker Hughes Awarded Offshore Production Enhancement and (09-04-2026)",
+     "file": "transcripts/ir/bakerhughes_2026-09-04_baker-hughes-awarded-offshore-production-enhanceme.txt",
+     "why": null
+    },
+    {
+     "label": "Baker Hughes press release: Baker Hughes to Supply Subsea Systems for Kutei Northern (08-10-2026)",
+     "file": "transcripts/ir/bakerhughes_2026-08-10_baker-hughes-to-supply-subsea-systems-for-kutei-no.txt",
+     "why": null
+    },
+    {
+     "label": "Bel Fuse press release: Bel Announces Richard E. Hamilton as Senior Vice President, (09-04-2026)",
+     "file": "transcripts/ir/belfuse_2026-09-04_bel-announces-richard-e-hamilton-as-senior-vice-pr.txt",
+     "why": null
+    },
+    {
+     "label": "Bloom Energy press release: Bloom Energy Hits the Road with ESPN College Football (09-11-2026)",
+     "file": "transcripts/ir/bloomenergy_2026-09-11_bloom-energy-hits-the-road-with-espn-college-footb.txt",
      "why": null
     },
     {
@@ -557,13 +2289,123 @@
      "why": null
     },
     {
+     "label": "Bloom Energy press release: Bloom Energy's 800V DC-Native Power Can Cut Billions from (09-16-2026)",
+     "file": "transcripts/ir/bloomenergy_2026-09-16_bloom-energy-s-800v-dc-native-power-can-cut-billio.txt",
+     "why": null
+    },
+    {
+     "label": "Bloom Energy press release: Newsweek Names Bloom Energy to World's Most Trustworthy (09-10-2026)",
+     "file": "transcripts/ir/bloomenergy_2026-09-10_newsweek-names-bloom-energy-to-world-s-most-trustw.txt",
+     "why": null
+    },
+    {
+     "label": "Bloom Energy press release: Powering Community Resilience, Bloom Energy Supports First (09-25-2026)",
+     "file": "transcripts/ir/bloomenergy_2026-09-25_powering-community-resilience-bloom-energy-support.txt",
+     "why": null
+    },
+    {
+     "label": "CEVA press release: Ceva Appoints Semiconductor Industry Veteran Ziv Hammer as (09-15-2026)",
+     "file": "transcripts/ir/ceva_2026-09-15_ceva-appoints-semiconductor-industry-veteran-ziv-h.txt",
+     "why": null
+    },
+    {
+     "label": "Camtek press release: CAMTEK ANNOUNCES RESULTS FOR THE SECOND QUARTER OF 2026 - (08-10-2026)",
+     "file": "transcripts/ir/camtek_2026-08-10_camtek-announces-results-for-the-second-quarter-of.txt",
+     "why": null
+    },
+    {
      "label": "Canon press release: Canon demonstrates real-time remote sports viewing through (09-25-2026)",
      "file": "transcripts/ir/canon_2026-09-25_canon-demonstrates-real-time-remote-sports-viewing.txt",
      "why": null
     },
     {
+     "label": "Carrier Global press release: Carrier Completes Sale of NORESCO to OPTERRA Energy Services (08-03-2026)",
+     "file": "transcripts/ir/carrierglobal_2026-08-03_carrier-completes-sale-of-noresco-to-opterra-energ.txt",
+     "why": null
+    },
+    {
+     "label": "Caterpillar press release: Caterpillar Expands Workforce Initiative to Arkansas to (08-17-2026)",
+     "file": "transcripts/ir/caterpillar_2026-08-17_caterpillar-expands-workforce-initiative-to-arkans.txt",
+     "why": null
+    },
+    {
+     "label": "Caterpillar press release: Caterpillar and FieldAI Advance AI-Powered Industrial (09-02-2026)",
+     "file": "transcripts/ir/caterpillar_2026-09-02_caterpillar-and-fieldai-advance-ai-powered-industr.txt",
+     "why": null
+    },
+    {
+     "label": "Caterpillar press release: Luck Stone Builds on Autonomous Hauling Success with (09-15-2026)",
+     "file": "transcripts/ir/caterpillar_2026-09-15_luck-stone-builds-on-autonomous-hauling-success-wi.txt",
+     "why": null
+    },
+    {
+     "label": "Celestica press release: Celestica Announces $3 Billion Equity Offering to (08-05-2026)",
+     "file": "transcripts/ir/celestica_2026-08-05_celestica-announces-3-billion-equity-offering-to-a.txt",
+     "why": null
+    },
+    {
+     "label": "Celestica press release: Celestica Announces New Leadership Structure to Support (09-11-2026)",
+     "file": "transcripts/ir/celestica_2026-09-11_celestica-announces-new-leadership-structure-to-su.txt",
+     "why": null
+    },
+    {
+     "label": "Celestica press release: Celestica Announces Pricing of Equity Offering (08-05-2026)",
+     "file": "transcripts/ir/celestica_2026-08-05_celestica-announces-pricing-of-equity-offering.txt",
+     "why": null
+    },
+    {
+     "label": "Celestica press release: Celestica Completes Equity Offering (08-07-2026)",
+     "file": "transcripts/ir/celestica_2026-08-07_celestica-completes-equity-offering.txt",
+     "why": null
+    },
+    {
+     "label": "Cerebras press release: Cerebras and Callosum Partner to Deliver Ultra-Low-Latency (08-20-2026)",
+     "file": "transcripts/ir/cerebras_2026-08-20_cerebras-and-callosum-partner-to-deliver-ultra-low.txt",
+     "why": null
+    },
+    {
+     "label": "Ciena press release: Ciena Launches Ciena Ventures to Expand Innovation Across (09-14-2026)",
+     "file": "transcripts/ir/ciena_2026-09-14_ciena-launches-ciena-ventures-to-expand-innovation.txt",
+     "why": null
+    },
+    {
+     "label": "Cipher Digital press release: Cipher Digital Provides Second Quarter 2026 Business Update (08-04-2026)",
+     "file": "transcripts/ir/cipherdigital_2026-08-04_cipher-digital-provides-second-quarter-2026-busine.txt",
+     "why": null
+    },
+    {
+     "label": "Cipher Digital press release: Cipher Digital Supports Governor Abbott's Push for (08-10-2026)",
+     "file": "transcripts/ir/cipherdigital_2026-08-10_cipher-digital-supports-governor-abbott-s-push-for.txt",
+     "why": null
+    },
+    {
+     "label": "Cipher Digital press release: Cipher Digital, Fluidstack, and Anthropic Commit $10 (09-14-2026)",
+     "file": "transcripts/ir/cipherdigital_2026-09-14_cipher-digital-fluidstack-and-anthropic-commit-10-.txt",
+     "why": null
+    },
+    {
+     "label": "Cisco press release: CISCO REPORTS FOURTH QUARTER AND FISCAL YEAR 2026 EARNINGS (08-12-2026)",
+     "file": "transcripts/ir/cisco_2026-08-12_cisco-reports-fourth-quarter-and-fiscal-year-2026-.txt",
+     "why": null
+    },
+    {
      "label": "Cisco press release: Cisco AI Research: AgenticOps Scaling Quickly in the (09-23-2026)",
      "file": "transcripts/ir/cisco_2026-09-23_cisco-ai-research-agenticops-scaling-quickly-in-th.txt",
+     "why": null
+    },
+    {
+     "label": "Cisco press release: Cisco Delivers Trusted AI at Scale Through New Splunk (09-15-2026)",
+     "file": "transcripts/ir/cisco_2026-09-15_cisco-delivers-trusted-ai-at-scale-through-new-spl.txt",
+     "why": null
+    },
+    {
+     "label": "Coherent press release: Coherent Brings AI Datacenter and Photonics Thought (09-08-2026)",
+     "file": "transcripts/ir/coherent_2026-09-08_coherent-brings-ai-datacenter-and-photonics-though.txt",
+     "why": null
+    },
+    {
+     "label": "Coherent press release: Coherent Corp. to Unveil PhotonLink Platform at ECOC on (08-25-2026)",
+     "file": "transcripts/ir/coherent_2026-08-25_coherent-corp-to-unveil-photonlink-platform-at-eco.txt",
      "why": null
     },
     {
@@ -582,6 +2424,41 @@
      "why": null
     },
     {
+     "label": "Core Scientific press release: Core Scientific Completes Acquisition of Polaris DS, (08-14-2026)",
+     "file": "transcripts/ir/corescientific_2026-08-14_core-scientific-completes-acquisition-of-polaris-d.txt",
+     "why": null
+    },
+    {
+     "label": "Core Scientific press release: Core Scientific Secures $600 Million of Senior Secured (08-27-2026)",
+     "file": "transcripts/ir/corescientific_2026-08-27_core-scientific-secures-600-million-of-senior-secu.txt",
+     "why": null
+    },
+    {
+     "label": "Core Scientific press release: Core Scientific Supports Governor Abbott's Focus on (08-10-2026)",
+     "file": "transcripts/ir/corescientific_2026-08-10_core-scientific-supports-governor-abbott-s-focus-o.txt",
+     "why": null
+    },
+    {
+     "label": "Core Scientific press release: Core Scientific and AMD Announce Infrastructure Partnership (07-28-2026)",
+     "file": "transcripts/ir/corescientific_2026-07-28_core-scientific-and-amd-announce-infrastructure-pa.txt",
+     "why": null
+    },
+    {
+     "label": "CoreWeave press release: CoreWeave Announces At-the-Market Offering Program (09-17-2026)",
+     "file": "transcripts/ir/coreweave_2026-09-17_coreweave-announces-at-the-market-offering-program.txt",
+     "why": null
+    },
+    {
+     "label": "CoreWeave press release: CoreWeave Announces Proposed $3.0 Billion Convertible (09-17-2026)",
+     "file": "transcripts/ir/coreweave_2026-09-17_coreweave-announces-proposed-3-0-billion-convertib.txt",
+     "why": null
+    },
+    {
+     "label": "CoreWeave press release: CoreWeave Launches Physical AI Field Engineering to Turn (09-10-2026)",
+     "file": "transcripts/ir/coreweave_2026-09-10_coreweave-launches-physical-ai-field-engineering-t.txt",
+     "why": null
+    },
+    {
      "label": "CoreWeave press release: CoreWeave Prices Upsized $3.7 Billion Convertible Senior (09-18-2026)",
      "file": "transcripts/ir/coreweave_2026-09-18_coreweave-prices-upsized-3-7-billion-convertible-s.txt",
      "why": null
@@ -597,8 +2474,23 @@
      "why": null
     },
     {
+     "label": "Dell press release: Meet the Dell 14S: An Affordable Laptop Built for Students, (09-02-2026)",
+     "file": "transcripts/ir/dell_2026-09-02_meet-the-dell-14s-an-affordable-laptop-built-for-s.txt",
+     "why": null
+    },
+    {
+     "label": "Digital Realty press release: Digital Realty Global Data Insights Survey Reveals (09-17-2026)",
+     "file": "transcripts/ir/digitalrealty_2026-09-17_digital-realty-global-data-insights-survey-reveals.txt",
+     "why": null
+    },
+    {
      "label": "Digital Realty press release: Digital Realty Survey Finds More Than Half of Asia Pacific (09-22-2026)",
      "file": "transcripts/ir/digitalrealty_2026-09-22_digital-realty-survey-finds-more-than-half-of-asia.txt",
+     "why": null
+    },
+    {
+     "label": "Digital Realty press release: Digital Realty Welcomes Governor Abbott's Initiative for (08-07-2026)",
+     "file": "transcripts/ir/digitalrealty_2026-08-07_digital-realty-welcomes-governor-abbott-s-initiati.txt",
      "why": null
     },
     {
@@ -607,13 +2499,103 @@
      "why": null
     },
     {
+     "label": "Dominion Energy press release: Dominion Energy Charitable Foundation Fall Grant Cycle Now (08-10-2026)",
+     "file": "transcripts/ir/dominionenergy_2026-08-10_dominion-energy-charitable-foundation-fall-grant-c.txt",
+     "why": null
+    },
+    {
+     "label": "Dominion Energy press release: NextEra Energy and Dominion Energy announce (09-14-2026)",
+     "file": "transcripts/ir/dominionenergy_2026-09-14_nextera-energy-and-dominion-energy-announce-transf.txt",
+     "why": null
+    },
+    {
+     "label": "Dycom press release: Dycom Announces Authorization of a New $150 Million Stock (08-26-2026)",
+     "file": "transcripts/ir/dycom_2026-08-26_dycom-announces-authorization-of-a-new-150-million.txt",
+     "why": null
+    },
+    {
+     "label": "EMCOR press release: EMCOR Group, Inc. Announces Participation In Upcoming (09-11-2026)",
+     "file": "transcripts/ir/emcor_2026-09-11_emcor-group-inc-announces-participation-in-upcomin.txt",
+     "why": null
+    },
+    {
+     "label": "Element Solutions press release: Element Solutions Announces Mutual Termination of Merger (08-27-2026)",
+     "file": "transcripts/ir/elementsolutions_2026-08-27_element-solutions-announces-mutual-termination-of-.txt",
+     "why": null
+    },
+    {
+     "label": "Eli Lilly press release: Lilly completes acquisition of AtaiBeckley to advance (09-11-2026)",
+     "file": "transcripts/ir/elililly_2026-09-11_lilly-completes-acquisition-of-ataibeckley-to-adva.txt",
+     "why": null
+    },
+    {
+     "label": "Eli Lilly press release: Lilly to acquire Merida Biosciences to advance treatments (08-31-2026)",
+     "file": "transcripts/ir/elililly_2026-08-31_lilly-to-acquire-merida-biosciences-to-advance-tre.txt",
+     "why": null
+    },
+    {
+     "label": "Eli Lilly press release: New Phase 3b data on Lilly's Taltz (ixekizumab) and (08-31-2026)",
+     "file": "transcripts/ir/elililly_2026-08-31_new-phase-3b-data-on-lilly-s-taltz-ixekizumab-and-.txt",
+     "why": null
+    },
+    {
+     "label": "Entegris press release: Entegris Achieves Further Success in Defending Its CMP (08-18-2026)",
+     "file": "transcripts/ir/entegris_2026-08-18_entegris-achieves-further-success-in-defending-its.txt",
+     "why": null
+    },
+    {
+     "label": "Entegris press release: Entegris Reports Results for Second Quarter of 2026 (08-04-2026)",
+     "file": "transcripts/ir/entegris_2026-08-04_entegris-reports-results-for-second-quarter-of-202.txt",
+     "why": null
+    },
+    {
+     "label": "Equinix press release: Equinix Commits Additional $50 Million to the Equinix (08-27-2026)",
+     "file": "transcripts/ir/equinix_2026-08-27_equinix-commits-additional-50-million-to-the-equin.txt",
+     "why": null
+    },
+    {
+     "label": "Evaxion Biotech press release: Evaxion applies its AI-Immunology platform in autoimmune (09-14-2026)",
+     "file": "transcripts/ir/evaxionbiotech_2026-09-14_evaxion-applies-its-ai-immunology-platform-in-auto.txt",
+     "why": null
+    },
+    {
      "label": "Everpure press release: Everpure Recognized as A Leader in the 2026 Gartner Magic (09-23-2026)",
      "file": "transcripts/ir/everpure_2026-09-23_everpure-recognized-as-a-leader-in-the-2026-gartne.txt",
      "why": null
     },
     {
+     "label": "Everpure press release: Everpure to Join the S&P 500 (09-08-2026)",
+     "file": "transcripts/ir/everpure_2026-09-08_everpure-to-join-the-s-p-500.txt",
+     "why": null
+    },
+    {
      "label": "FSP Technology press release: FSP Unveils the World's First 80 PLUS 230V Ruby-Certified (09-22-2026)",
      "file": "transcripts/ir/fsptechnology_2026-09-22_fsp-unveils-the-world-s-first-80-plus-230v-ruby-ce.txt",
+     "why": null
+    },
+    {
+     "label": "Flex press release: Flex Announces Expected Flex CFO and Board Composition for (09-15-2026)",
+     "file": "transcripts/ir/flex_2026-09-15_flex-announces-expected-flex-cfo-and-board-composi.txt",
+     "why": null
+    },
+    {
+     "label": "Flex press release: Flex Announces Leadership Teams for Flex and Planned Cloud (07-29-2026)",
+     "file": "transcripts/ir/flex_2026-07-29_flex-announces-leadership-teams-for-flex-and-plann.txt",
+     "why": null
+    },
+    {
+     "label": "Flex press release: Flex Announces New Company Name for the Planned Cloud and (09-15-2026)",
+     "file": "transcripts/ir/flex_2026-09-15_flex-announces-new-company-name-for-the-planned-cl.txt",
+     "why": null
+    },
+    {
+     "label": "Fluence Energy press release: Fluence Energy Announces Bernerd Da Santos as Chief (09-16-2026)",
+     "file": "transcripts/ir/fluenceenergy_2026-09-16_fluence-energy-announces-bernerd-da-santos-as-chie.txt",
+     "why": null
+    },
+    {
+     "label": "FormFactor press release: FormFactor Announces Participation at Upcoming Conferences (08-12-2026)",
+     "file": "transcripts/ir/formfactor_2026-08-12_formfactor-announces-participation-at-upcoming-con.txt",
      "why": null
     },
     {
@@ -627,8 +2609,73 @@
      "why": null
     },
     {
+     "label": "GE Vernova press release: Blue Energy moves Texas gas-plus-nuclear project into NRC (09-15-2026)",
+     "file": "transcripts/ir/gevernova_2026-09-15_blue-energy-moves-texas-gas-plus-nuclear-project-i.txt",
+     "why": null
+    },
+    {
+     "label": "GE Vernova press release: GE Vernova Announces Chief Financial Officer Transition (08-27-2026)",
+     "file": "transcripts/ir/gevernova_2026-08-27_ge-vernova-announces-chief-financial-officer-trans.txt",
+     "why": null
+    },
+    {
+     "label": "GE Vernova press release: GE Vernova brings integrated electrification solutions to (08-20-2026)",
+     "file": "transcripts/ir/gevernova_2026-08-20_ge-vernova-brings-integrated-electrification-solut.txt",
+     "why": null
+    },
+    {
+     "label": "GE Vernova press release: GE Vernova launches new SF-free circuit breaker for (08-26-2026)",
+     "file": "transcripts/ir/gevernova_2026-08-26_ge-vernova-launches-new-sf-free-circuit-breaker-fo.txt",
+     "why": null
+    },
+    {
+     "label": "GE Vernova press release: SPIC Brasil and GE Vernova accelerate the modernization of (09-14-2026)",
+     "file": "transcripts/ir/gevernova_2026-09-14_spic-brasil-and-ge-vernova-accelerate-the-moderniz.txt",
+     "why": null
+    },
+    {
+     "label": "GE Vernova press release: Vineyard Wind and GE Vernova Announce Resolution of (09-16-2026)",
+     "file": "transcripts/ir/gevernova_2026-09-16_vineyard-wind-and-ge-vernova-announce-resolution-o.txt",
+     "why": null
+    },
+    {
+     "label": "Galaxy Digital press release: Bank Leumi Partners with Galaxy to be the First Bank in (08-14-2026)",
+     "file": "transcripts/ir/galaxydigital_2026-08-14_bank-leumi-partners-with-galaxy-to-be-the-first-ba.txt",
+     "why": null
+    },
+    {
+     "label": "GlobalFoundries press release: GlobalFoundries and RAAAM Memory Technologies announce the (09-02-2026)",
+     "file": "transcripts/ir/globalfoundries_2026-09-02_globalfoundries-and-raaam-memory-technologies-anno.txt",
+     "why": null
+    },
+    {
+     "label": "GlobalFoundries press release: GlobalFoundries and U.S. Department of Commerce finalize (09-08-2026)",
+     "file": "transcripts/ir/globalfoundries_2026-09-08_globalfoundries-and-u-s-department-of-commerce-fin.txt",
+     "why": null
+    },
+    {
      "label": "HPE press release: Aethos London Shoreditch redefines luxury hospitality with (09-22-2026)",
      "file": "transcripts/ir/hpe_2026-09-22_aethos-london-shoreditch-redefines-luxury-hospital.txt",
+     "why": null
+    },
+    {
+     "label": "HPE press release: DNEG scales creative visual effects and animation workflows (09-08-2026)",
+     "file": "transcripts/ir/hpe_2026-09-08_dneg-scales-creative-visual-effects-and-animation-.txt",
+     "why": null
+    },
+    {
+     "label": "HPE press release: HPE and Oracle deepen networking collaboration to (09-02-2026)",
+     "file": "transcripts/ir/hpe_2026-09-02_hpe-and-oracle-deepen-networking-collaboration-to-.txt",
+     "why": null
+    },
+    {
+     "label": "HPE press release: Listening and acting to help our partners win with HPE (09-08-2026)",
+     "file": "transcripts/ir/hpe_2026-09-08_listening-and-acting-to-help-our-partners-win-with.txt",
+     "why": null
+    },
+    {
+     "label": "HPE press release: Tottenham Hotspur and HPE transform digital fan experience (09-02-2026)",
+     "file": "transcripts/ir/hpe_2026-09-02_tottenham-hotspur-and-hpe-transform-digital-fan-ex.txt",
      "why": null
     },
     {
@@ -637,13 +2684,78 @@
      "why": null
     },
     {
+     "label": "IREN press release: IREN Reports FY26 Results (08-27-2026)",
+     "file": "transcripts/ir/iren_2026-08-27_iren-reports-fy26-results.txt",
+     "why": null
+    },
+    {
      "label": "Infineon press release: Infineon Wins Integrated Communication Award 2026 for (09-23-2026)",
      "file": "transcripts/ir/infineon_2026-09-23_infineon-wins-integrated-communication-award-2026-.txt",
      "why": null
     },
     {
+     "label": "Intel press release: Intel Announces Leadership Appointment to Strengthen (08-07-2026)",
+     "file": "transcripts/ir/intel_2026-08-07_intel-announces-leadership-appointment-to-strength.txt",
+     "why": null
+    },
+    {
+     "label": "Intel press release: Intel Announces Proposed $15 Billion Common Stock Offering (08-10-2026)",
+     "file": "transcripts/ir/intel_2026-08-10_intel-announces-proposed-15-billion-common-stock-o.txt",
+     "why": null
+    },
+    {
+     "label": "Intel press release: Intel Announces Upsize and Pricing of $20 Billion Common (08-11-2026)",
+     "file": "transcripts/ir/intel_2026-08-11_intel-announces-upsize-and-pricing-of-20-billion-c.txt",
+     "why": null
+    },
+    {
+     "label": "Jabil press release: Jabil Announces $1.5 Billion Share Repurchase Authorization (07-15-2026)",
+     "file": "transcripts/ir/jabil_2026-07-15_jabil-announces-1-5-billion-share-repurchase-autho.txt",
+     "why": null
+    },
+    {
+     "label": "Jabil press release: Jabil Opens Next-Generation Intelligent Logistics Hub in (07-15-2026)",
+     "file": "transcripts/ir/jabil_2026-07-15_jabil-opens-next-generation-intelligent-logistics-.txt",
+     "why": null
+    },
+    {
      "label": "Japan Electronic Materials press release: release 260925-jinjiido-pdf (09-25-2026)",
      "file": "transcripts/ir/japanelectronicmaterials_2026-09-25_release-260925-jinjiido-pdf.txt",
+     "why": null
+    },
+    {
+     "label": "Jazz Pharmaceuticals press release: Jazz Pharmaceuticals Announces Pricing of Upsized Private (08-27-2026)",
+     "file": "transcripts/ir/jazzpharmaceuticals_2026-08-27_jazz-pharmaceuticals-announces-pricing-of-upsized-.txt",
+     "why": null
+    },
+    {
+     "label": "Jazz Pharmaceuticals press release: Jazz Pharmaceuticals Announces Private Offering of $1.0 (08-26-2026)",
+     "file": "transcripts/ir/jazzpharmaceuticals_2026-08-26_jazz-pharmaceuticals-announces-private-offering-of.txt",
+     "why": null
+    },
+    {
+     "label": "Jazz Pharmaceuticals press release: Jazz Pharmaceuticals Completes Acquisition of Actio (09-15-2026)",
+     "file": "transcripts/ir/jazzpharmaceuticals_2026-09-15_jazz-pharmaceuticals-completes-acquisition-of-acti.txt",
+     "why": null
+    },
+    {
+     "label": "Jazz Pharmaceuticals press release: Ziihera (zanidatamab-hrii) plus Chemotherapy Demonstrates (08-31-2026)",
+     "file": "transcripts/ir/jazzpharmaceuticals_2026-08-31_ziihera-zanidatamab-hrii-plus-chemotherapy-demonst.txt",
+     "why": null
+    },
+    {
+     "label": "KLA press release: KLA CORPORATION RECOMMENDS STOCKHOLDERS REJECT MINI-TENDER (08-05-2026)",
+     "file": "transcripts/ir/kla_2026-08-05_kla-corporation-recommends-stockholders-reject-min.txt",
+     "why": null
+    },
+    {
+     "label": "Keysight press release: Keysight Announces New Board Member (08-26-2026)",
+     "file": "transcripts/ir/keysight_2026-08-26_keysight-announces-new-board-member.txt",
+     "why": null
+    },
+    {
+     "label": "Keysight press release: Keysight Technologies Announces Participation in Upcoming (08-28-2026)",
+     "file": "transcripts/ir/keysight_2026-08-28_keysight-technologies-announces-participation-in-u.txt",
      "why": null
     },
     {
@@ -657,8 +2769,48 @@
      "why": null
     },
     {
+     "label": "Korea Zinc press release: release ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-2026 (09-15-2026)",
+     "file": "transcripts/ir/koreazinc_2026-09-15_release-ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-2026.txt",
+     "why": null
+    },
+    {
+     "label": "Korea Zinc press release: release ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ec-9 (08-27-2026)",
+     "file": "transcripts/ir/koreazinc_2026-08-27_release-ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ec-9.txt",
+     "why": null
+    },
+    {
+     "label": "Korea Zinc press release: release ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ec-9 (09-04-2026)",
+     "file": "transcripts/ir/koreazinc_2026-09-04_release-ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ec-9.txt",
+     "why": null
+    },
+    {
+     "label": "Korea Zinc press release: release ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ec-9 (09-08-2026)",
+     "file": "transcripts/ir/koreazinc_2026-09-08_release-ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ec-9.txt",
+     "why": null
+    },
+    {
+     "label": "Korea Zinc press release: release ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ec-9 (09-14-2026)",
+     "file": "transcripts/ir/koreazinc_2026-09-14_release-ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ec-9.txt",
+     "why": null
+    },
+    {
      "label": "Korea Zinc press release: release ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ed-9 (09-23-2026)",
      "file": "transcripts/ir/koreazinc_2026-09-23_release-ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ed-9.txt",
+     "why": null
+    },
+    {
+     "label": "Kulicke & Soffa press release: Kulicke & Soffa Advances AI Infrastructure Through (09-01-2026)",
+     "file": "transcripts/ir/kulickesoffa_2026-09-01_kulicke-soffa-advances-ai-infrastructure-through-c.txt",
+     "why": null
+    },
+    {
+     "label": "LG Innotek press release: release 1663 (08-25-2026)",
+     "file": "transcripts/ir/lginnotek_2026-08-25_release-1663.txt",
+     "why": null
+    },
+    {
+     "label": "LG Innotek press release: release 1664 (08-27-2026)",
+     "file": "transcripts/ir/lginnotek_2026-08-27_release-1664.txt",
      "why": null
     },
     {
@@ -669,6 +2821,11 @@
     {
      "label": "LG Innotek press release: release 1668 (09-21-2026)",
      "file": "transcripts/ir/lginnotek_2026-09-21_release-1668.txt",
+     "why": null
+    },
+    {
+     "label": "Lam Research press release: Lam Research Corporation Announces Participation at (08-26-2026)",
+     "file": "transcripts/ir/lamresearch_2026-08-26_lam-research-corporation-announces-participation-a.txt",
      "why": null
     },
     {
@@ -692,13 +2849,123 @@
      "why": null
     },
     {
+     "label": "Littelfuse press release: Littelfuse Announces Senior Leadership Transition (09-16-2026)",
+     "file": "transcripts/ir/littelfuse_2026-09-16_littelfuse-announces-senior-leadership-transition.txt",
+     "why": null
+    },
+    {
+     "label": "Lumen Technologies press release: Lumen Expands Cloud Networking Access to More Than 10 (08-26-2026)",
+     "file": "transcripts/ir/lumentechnologies_2026-08-26_lumen-expands-cloud-networking-access-to-more-than.txt",
+     "why": null
+    },
+    {
+     "label": "Lumen Technologies press release: Lumen Technologies Announces Intention to Transfer Stock (09-25-2026)",
+     "file": "transcripts/ir/lumentechnologies_2026-09-25_lumen-technologies-announces-intention-to-transfer.txt",
+     "why": null
+    },
+    {
+     "label": "Lumentum press release: Lumentum Announces Upcoming Investor Events (08-14-2026)",
+     "file": "transcripts/ir/lumentum_2026-08-14_lumentum-announces-upcoming-investor-events.txt",
+     "why": null
+    },
+    {
+     "label": "Lumentum press release: Lumentum Experts to Share Insights at ECOC 2026 (09-15-2026)",
+     "file": "transcripts/ir/lumentum_2026-09-15_lumentum-experts-to-share-insights-at-ecoc-2026.txt",
+     "why": null
+    },
+    {
+     "label": "MACOM press release: MACOM Demonstrates Technologies Enabling the Future of High (09-15-2026)",
+     "file": "transcripts/ir/macom_2026-09-15_macom-demonstrates-technologies-enabling-the-futur.txt",
+     "why": null
+    },
+    {
      "label": "MEC press release: Transfer of Operating Officers (09-25-2026)",
      "file": "transcripts/ir/mec_2026-09-25_transfer-of-operating-officers.txt",
      "why": null
     },
     {
+     "label": "MKS Instruments press release: MKS Inc. Earns 2026 Zhen Ding Technology Group (08-17-2026)",
+     "file": "transcripts/ir/mksinstruments_2026-08-17_mks-inc-earns-2026-zhen-ding-technology-group-dist.txt",
+     "why": null
+    },
+    {
+     "label": "MKS Instruments press release: MKS Inc. Releases 2026 Environmental, Social, Governance (09-14-2026)",
+     "file": "transcripts/ir/mksinstruments_2026-09-14_mks-inc-releases-2026-environmental-social-governa.txt",
+     "why": null
+    },
+    {
+     "label": "Marvell press release: Marvell to Showcase End-to-End AI Data Center Connectivity (09-09-2026)",
+     "file": "transcripts/ir/marvell_2026-09-09_marvell-to-showcase-end-to-end-ai-data-center-conn.txt",
+     "why": null
+    },
+    {
+     "label": "MaxLinear press release: MaxLinear Introduces RackCommander Control-Plane Portfolio (08-10-2026)",
+     "file": "transcripts/ir/maxlinear_2026-08-10_maxlinear-introduces-rackcommander-control-plane-p.txt",
+     "why": null
+    },
+    {
+     "label": "MaxLinear press release: MaxLinear Showcases Panther for AI Storage Efficiency and (07-29-2026)",
+     "file": "transcripts/ir/maxlinear_2026-07-29_maxlinear-showcases-panther-for-ai-storage-efficie.txt",
+     "why": null
+    },
+    {
+     "label": "MaxLinear press release: MaxLinear, Inc. Announces Upcoming Financial Conference (08-17-2026)",
+     "file": "transcripts/ir/maxlinear_2026-08-17_maxlinear-inc-announces-upcoming-financial-confere.txt",
+     "why": null
+    },
+    {
      "label": "Merck KGaA press release: Computational Chemistry and AI in Chemistry Conference at (09-21-2026)",
      "file": "transcripts/ir/merckkgaa_2026-09-21_computational-chemistry-and-ai-in-chemistry-confer.txt",
+     "why": null
+    },
+    {
+     "label": "Microchip Technology press release: Microchip Advances Edge AI Sensor Connectivity with Rev 2.0 (08-11-2026)",
+     "file": "transcripts/ir/microchiptechnology_2026-08-11_microchip-advances-edge-ai-sensor-connectivity-wit.txt",
+     "why": null
+    },
+    {
+     "label": "Microchip Technology press release: Microchip Advances Space-Grade Timing with Enhanced (08-13-2026)",
+     "file": "transcripts/ir/microchiptechnology_2026-08-13_microchip-advances-space-grade-timing-with-enhance.txt",
+     "why": null
+    },
+    {
+     "label": "Microchip Technology press release: Microchip and Marelli Pioneer Open-Standard Display (09-03-2026)",
+     "file": "transcripts/ir/microchiptechnology_2026-09-03_microchip-and-marelli-pioneer-open-standard-displa.txt",
+     "why": null
+    },
+    {
+     "label": "Micron press release: Micron Announces Leadership Appointments to Accelerate (08-26-2026)",
+     "file": "transcripts/ir/micron_2026-08-26_micron-announces-leadership-appointments-to-accele.txt",
+     "why": null
+    },
+    {
+     "label": "Micron press release: Micron Announces Participation in Investor Event (07-15-2026)",
+     "file": "transcripts/ir/micron_2026-07-15_micron-announces-participation-in-investor-event.txt",
+     "why": null
+    },
+    {
+     "label": "Micron press release: Micron Appoints Deirdre Hanford to Lead Micron Research Labs (09-15-2026)",
+     "file": "transcripts/ir/micron_2026-09-15_micron-appoints-deirdre-hanford-to-lead-micron-res.txt",
+     "why": null
+    },
+    {
+     "label": "Micron press release: Micron Opens State-of-the-Art Training Center in Boise to (08-24-2026)",
+     "file": "transcripts/ir/micron_2026-08-24_micron-opens-state-of-the-art-training-center-in-b.txt",
+     "why": null
+    },
+    {
+     "label": "Micron press release: Micron Ventures Launches $250 Million Fund to Invest in the (08-13-2026)",
+     "file": "transcripts/ir/micron_2026-08-13_micron-ventures-launches-250-million-fund-to-inves.txt",
+     "why": null
+    },
+    {
+     "label": "Microsoft press release: AFT, UFT and Microsoft announce 'National AI Safety & (09-09-2026)",
+     "file": "transcripts/ir/microsoft_2026-09-09_aft-uft-and-microsoft-announce-national-ai-safety-.txt",
+     "why": null
+    },
+    {
+     "label": "Microsoft press release: Microsoft earnings press release available on Investor (07-29-2026)",
+     "file": "transcripts/ir/microsoft_2026-07-29_microsoft-earnings-press-release-available-on-inve.txt",
      "why": null
     },
     {
@@ -727,8 +2994,63 @@
      "why": null
     },
     {
+     "label": "Modine press release: Gentherm and Modine Manufacturing Company Announce (09-17-2026)",
+     "file": "transcripts/ir/modine_2026-09-17_gentherm-and-modine-manufacturing-company-announce.txt",
+     "why": null
+    },
+    {
+     "label": "Modine press release: Modine to Become Modexus Solutions, Marking Next Chapter as (09-10-2026)",
+     "file": "transcripts/ir/modine_2026-09-10_modine-to-become-modexus-solutions-marking-next-ch.txt",
+     "why": null
+    },
+    {
      "label": "Murata press release: Murata to Showcase New Sensing Frontiers at CEATEC 2026 (09-25-2026)",
      "file": "transcripts/ir/murata_2026-09-25_murata-to-showcase-new-sensing-frontiers-at-ceatec.txt",
+     "why": null
+    },
+    {
+     "label": "NVIDIA press release: NVIDIA Announces Upcoming Event for Financial Community (08-27-2026)",
+     "file": "transcripts/ir/nvidia_2026-08-27_nvidia-announces-upcoming-event-for-financial-comm.txt",
+     "why": null
+    },
+    {
+     "label": "NVIDIA press release: NVIDIA Expands Open Source CUDA-Q Platform for (09-14-2026)",
+     "file": "transcripts/ir/nvidia_2026-09-14_nvidia-expands-open-source-cuda-q-platform-for-fau.txt",
+     "why": null
+    },
+    {
+     "label": "Naver press release: NAVER Cloud Accelerates Global Public Sector Expansion as (09-07-2026)",
+     "file": "transcripts/ir/naver_2026-09-07_naver-cloud-accelerates-global-public-sector-expan.txt",
+     "why": null
+    },
+    {
+     "label": "Naver press release: TEAM NAVER Broadens AI Cooperation with France, Proposes AI (09-09-2026)",
+     "file": "transcripts/ir/naver_2026-09-09_team-naver-broadens-ai-cooperation-with-france-pro.txt",
+     "why": null
+    },
+    {
+     "label": "Naver press release: TEAM NAVER Reaffirms Its Global Vision AI Capabilities with (08-28-2026)",
+     "file": "transcripts/ir/naver_2026-08-28_team-naver-reaffirms-its-global-vision-ai-capabili.txt",
+     "why": null
+    },
+    {
+     "label": "Nebius press release: Nebius Group announces closing of private offering of (08-24-2026)",
+     "file": "transcripts/ir/nebius_2026-08-24_nebius-group-announces-closing-of-private-offering.txt",
+     "why": null
+    },
+    {
+     "label": "Nebius press release: Nebius Group announces pricing of upsized private offering (08-19-2026)",
+     "file": "transcripts/ir/nebius_2026-08-19_nebius-group-announces-pricing-of-upsized-private-.txt",
+     "why": null
+    },
+    {
+     "label": "Nebius press release: Nebius Group announces proposed private offering of $4.50 (08-19-2026)",
+     "file": "transcripts/ir/nebius_2026-08-19_nebius-group-announces-proposed-private-offering-o.txt",
+     "why": null
+    },
+    {
+     "label": "NetApp press release: NetApp Helps Customers Accelerate Adoption of Latest VMware (09-02-2026)",
+     "file": "transcripts/ir/netapp_2026-09-02_netapp-helps-customers-accelerate-adoption-of-late.txt",
      "why": null
     },
     {
@@ -737,8 +3059,143 @@
      "why": null
     },
     {
+     "label": "NetApp press release: NetApp and AWS Accelerate Storage Migrations with AWS (09-03-2026)",
+     "file": "transcripts/ir/netapp_2026-09-03_netapp-and-aws-accelerate-storage-migrations-with-.txt",
+     "why": null
+    },
+    {
+     "label": "NetApp press release: NetApp and Tampa Bay Buccaneers Partner to Enable (09-16-2026)",
+     "file": "transcripts/ir/netapp_2026-09-16_netapp-and-tampa-bay-buccaneers-partner-to-enable-.txt",
+     "why": null
+    },
+    {
+     "label": "NextEra Energy press release: NextEra Energy and Dominion Energy announce (09-14-2026)",
+     "file": "transcripts/ir/nexteraenergy_2026-09-14_nextera-energy-and-dominion-energy-announce-transf.txt",
+     "why": null
+    },
+    {
+     "label": "NextEra Energy press release: NextEra Energy to meet with investors throughout September (09-08-2026)",
+     "file": "transcripts/ir/nexteraenergy_2026-09-08_nextera-energy-to-meet-with-investors-throughout-s.txt",
+     "why": null
+    },
+    {
+     "label": "NextEra Energy press release: NextEra Energy to meet with investors throughout September (09-14-2026)",
+     "file": "transcripts/ir/nexteraenergy_2026-09-14_nextera-energy-to-meet-with-investors-throughout-s.txt",
+     "why": null
+    },
+    {
+     "label": "NextEra Energy press release: U.S. Department of Energy Closes Up to $1.9 Billion Loan to (09-08-2026)",
+     "file": "transcripts/ir/nexteraenergy_2026-09-08_u-s-department-of-energy-closes-up-to-1-9-billion-.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Changes in Nokia Corporation's own shares (08-07-2026)",
+     "file": "transcripts/ir/nokia_2026-08-07_changes-in-nokia-corporation-s-own-shares.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Changes in Nokia Corporation's own shares (08-27-2026)",
+     "file": "transcripts/ir/nokia_2026-08-27_changes-in-nokia-corporation-s-own-shares.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Changes in Nokia Corporation's own shares (09-08-2026)",
+     "file": "transcripts/ir/nokia_2026-09-08_changes-in-nokia-corporation-s-own-shares.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: ESpanix deploys Nokia Deepfield Defender to protect Spain's (09-14-2026)",
+     "file": "transcripts/ir/nokia_2026-09-14_espanix-deploys-nokia-deepfield-defender-to-protec.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia Defense and C3IA partner to accelerate digital (09-16-2026)",
+     "file": "transcripts/ir/nokia_2026-09-16_nokia-defense-and-c3ia-partner-to-accelerate-digit.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia accelerates AI-RAN adoption as global operators (09-16-2026)",
+     "file": "transcripts/ir/nokia_2026-09-16_nokia-accelerates-ai-ran-adoption-as-global-operat.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia accelerates network automation through agentic, (09-17-2026)",
+     "file": "transcripts/ir/nokia_2026-09-17_nokia-accelerates-network-automation-through-agent.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia and BeeHealthy bring network-based verification to (09-03-2026)",
+     "file": "transcripts/ir/nokia_2026-09-03_nokia-and-beehealthy-bring-network-based-verificat.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia and Orange France complete first worldwide live (09-10-2026)",
+     "file": "transcripts/ir/nokia_2026-09-10_nokia-and-orange-france-complete-first-worldwide-l.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia launches AI and edge platform to help mining and (09-10-2026)",
+     "file": "transcripts/ir/nokia_2026-09-10_nokia-launches-ai-and-edge-platform-to-help-mining.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia launches industry-first initiative to help operators (09-08-2026)",
+     "file": "transcripts/ir/nokia_2026-09-08_nokia-launches-industry-first-initiative-to-help-o.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia opens new research and development center in Saudi (09-01-2026)",
+     "file": "transcripts/ir/nokia_2026-09-01_nokia-opens-new-research-and-development-center-in.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia ranked No. 1 for mobile core portfolio (08-18-2026)",
+     "file": "transcripts/ir/nokia_2026-08-18_nokia-ranked-no-1-for-mobile-core-portfolio-compet.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Nokia selected by Planters Broadband Cooperative to build (09-10-2026)",
+     "file": "transcripts/ir/nokia_2026-09-10_nokia-selected-by-planters-broadband-cooperative-t.txt",
+     "why": null
+    },
+    {
+     "label": "Nova press release: Nova Announces $200M Share Repurchase Program (09-02-2026)",
+     "file": "transcripts/ir/nova_2026-09-02_nova-announces-200m-share-repurchase-program.txt",
+     "why": null
+    },
+    {
+     "label": "Novo Nordisk press release: Novo Nordisk STEP Young phase 3 data: 40.4% of children (09-07-2026)",
+     "file": "transcripts/ir/novonordisk_2026-09-07_novo-nordisk-step-young-phase-3-data-40-4-of-child.txt",
+     "why": null
+    },
+    {
+     "label": "Novo Nordisk press release: Novo Nordisk enters next chapter to bring better health to (09-14-2026)",
+     "file": "transcripts/ir/novonordisk_2026-09-14_novo-nordisk-enters-next-chapter-to-bring-better-h.txt",
+     "why": null
+    },
+    {
+     "label": "Novo Nordisk press release: Novo Nordisk wins Dutch court injunction protecting (08-05-2026)",
+     "file": "transcripts/ir/novonordisk_2026-08-05_novo-nordisk-wins-dutch-court-injunction-protectin.txt",
+     "why": null
+    },
+    {
      "label": "Novo Nordisk press release: Novo and UNICEF expand partnership to support a healthier (09-22-2026)",
      "file": "transcripts/ir/novonordisk_2026-09-22_novo-and-unicef-expand-partnership-to-support-a-he.txt",
+     "why": null
+    },
+    {
+     "label": "Novo Nordisk press release: Novo to share real-world and clinical data including Wegovy (09-16-2026)",
+     "file": "transcripts/ir/novonordisk_2026-09-16_novo-to-share-real-world-and-clinical-data-includi.txt",
+     "why": null
+    },
+    {
+     "label": "Novo Nordisk press release: Novo's denecimig demonstrates tolerability after switch (09-17-2026)",
+     "file": "transcripts/ir/novonordisk_2026-09-17_novo-s-denecimig-demonstrates-tolerability-after-s.txt",
+     "why": null
+    },
+    {
+     "label": "NuScale Power press release: NuScale Power Deploys Nuclear-Specific AI from NPX and (08-25-2026)",
+     "file": "transcripts/ir/nuscalepower_2026-08-25_nuscale-power-deploys-nuclear-specific-ai-from-npx.txt",
      "why": null
     },
     {
@@ -752,13 +3209,93 @@
      "why": null
     },
     {
+     "label": "Oracle press release: Larry Ellison Cancels His Plan to Sell Oracle Stock (09-12-2026)",
+     "file": "transcripts/ir/oracle_2026-09-12_larry-ellison-cancels-his-plan-to-sell-oracle-stoc.txt",
+     "why": null
+    },
+    {
+     "label": "POSCO press release: CHANG In Hwa, CEO of POSCO HOLDINGS, Leads \"Private (09-04-2026)",
+     "file": "transcripts/ir/posco_2026-09-04_chang-in-hwa-ceo-of-posco-holdings-leads-private-r.txt",
+     "why": null
+    },
+    {
+     "label": "POSCO press release: POSCO Holdings Secures US$700 Million International (09-02-2026)",
+     "file": "transcripts/ir/posco_2026-09-02_posco-holdings-secures-us-700-million-internationa.txt",
+     "why": null
+    },
+    {
+     "label": "POSCO press release: POSCO group and CSIRO Hold Critical Minerals Forum to (08-27-2026)",
+     "file": "transcripts/ir/posco_2026-08-27_posco-group-and-csiro-hold-critical-minerals-forum.txt",
+     "why": null
+    },
+    {
+     "label": "Penguin Solutions press release: Cree LED and Nanolumens Enter Settlement and Limited (08-25-2026)",
+     "file": "transcripts/ir/penguinsolutions_2026-08-25_cree-led-and-nanolumens-enter-settlement-and-limit.txt",
+     "why": null
+    },
+    {
+     "label": "Penguin Solutions press release: CreeLED Inc. and Promier Products, Inc. (d/b/a LitezAll) (08-31-2026)",
+     "file": "transcripts/ir/penguinsolutions_2026-08-31_creeled-inc-and-promier-products-inc-d-b-a-litezal.txt",
+     "why": null
+    },
+    {
+     "label": "Penguin Solutions press release: Penguin Solutions Announces Closing of Oversubscribed (07-17-2026)",
+     "file": "transcripts/ir/penguinsolutions_2026-07-17_penguin-solutions-announces-closing-of-oversubscri.txt",
+     "why": null
+    },
+    {
+     "label": "Penguin Solutions press release: Penguin Solutions Announces Pricing of Private Offering of (07-14-2026)",
+     "file": "transcripts/ir/penguinsolutions_2026-07-14_penguin-solutions-announces-pricing-of-private-off.txt",
+     "why": null
+    },
+    {
+     "label": "Penguin Solutions press release: Penguin Solutions Announces Proposed Private Offering of (07-13-2026)",
+     "file": "transcripts/ir/penguinsolutions_2026-07-13_penguin-solutions-announces-proposed-private-offer.txt",
+     "why": null
+    },
+    {
+     "label": "Power Integrations press release: Power Integrations Demonstrates World's First 2200 V GaN (08-05-2026)",
+     "file": "transcripts/ir/powerintegrations_2026-08-05_power-integrations-demonstrates-world-s-first-2200.txt",
+     "why": null
+    },
+    {
      "label": "Power Integrations press release: Power Integrations Reports Inducement Grants under Nasdaq (09-18-2026)",
      "file": "transcripts/ir/powerintegrations_2026-09-18_power-integrations-reports-inducement-grants-under.txt",
      "why": null
     },
     {
+     "label": "Qnity Electronics press release: Qnity Accelerates Advanced Node Materials Innovation with (08-20-2026)",
+     "file": "transcripts/ir/qnityelectronics_2026-08-20_qnity-accelerates-advanced-node-materials-innovati.txt",
+     "why": null
+    },
+    {
      "label": "Qnity Electronics press release: Qnity Joins PHLX Semiconductor Sector Index (SOX) (09-21-2026)",
      "file": "transcripts/ir/qnityelectronics_2026-09-21_qnity-joins-phlx-semiconductor-sector-index-sox.txt",
+     "why": null
+    },
+    {
+     "label": "Qnity Electronics press release: Qnity Powers the Industry's Shift to Shrink and Stack at (08-19-2026)",
+     "file": "transcripts/ir/qnityelectronics_2026-08-19_qnity-powers-the-industry-s-shift-to-shrink-and-st.txt",
+     "why": null
+    },
+    {
+     "label": "Qualcomm press release: Qualcomm Announces Multi-Generational Product Collaboration (09-08-2026)",
+     "file": "transcripts/ir/qualcomm_2026-09-08_qualcomm-announces-multi-generational-product-coll.txt",
+     "why": null
+    },
+    {
+     "label": "Qualcomm press release: Qualcomm Earnings Release Available on Company's Investor (07-29-2026)",
+     "file": "transcripts/ir/qualcomm_2026-07-29_qualcomm-earnings-release-available-on-company-s-i.txt",
+     "why": null
+    },
+    {
+     "label": "Quanta Services press release: Quanta Services Announces Pricing of Senior Notes Offering (08-03-2026)",
+     "file": "transcripts/ir/quantaservices_2026-08-03_quanta-services-announces-pricing-of-senior-notes-.txt",
+     "why": null
+    },
+    {
+     "label": "Rambus press release: Rambus Initiates $100 Million Accelerated Share Repurchase (08-05-2026)",
+     "file": "transcripts/ir/rambus_2026-08-05_rambus-initiates-100-million-accelerated-share-rep.txt",
      "why": null
     },
     {
@@ -772,8 +3309,33 @@
      "why": null
     },
     {
+     "label": "Roche-Genentech press release: Roche's Lunsumio-based regimen significantly improves (09-17-2026)",
+     "file": "transcripts/ir/rochegenentech_2026-09-17_roche-s-lunsumio-based-regimen-significantly-impro.txt",
+     "why": null
+    },
+    {
+     "label": "Roche-Genentech press release: Roche's Vabysmo demonstrates sustained two-year results in (08-28-2026)",
+     "file": "transcripts/ir/rochegenentech_2026-08-28_roche-s-vabysmo-demonstrates-sustained-two-year-re.txt",
+     "why": null
+    },
+    {
+     "label": "Roche-Genentech press release: Roche's collaborator MediLink announces phase III data for (09-13-2026)",
+     "file": "transcripts/ir/rochegenentech_2026-09-13_roche-s-collaborator-medilink-announces-phase-iii-.txt",
+     "why": null
+    },
+    {
+     "label": "Roche-Genentech press release: U.S. FDA grants Priority Review for Roche's Enspryng for (09-10-2026)",
+     "file": "transcripts/ir/rochegenentech_2026-09-10_u-s-fda-grants-priority-review-for-roche-s-enspryn.txt",
+     "why": null
+    },
+    {
      "label": "SK Telecom press release: [Column] From \"People-to-People\" to \"People-to-AI\": Telecom (09-21-2026)",
      "file": "transcripts/ir/sktelecom_2026-09-21_column-from-people-to-people-to-people-to-ai-telec.txt",
+     "why": null
+    },
+    {
+     "label": "SOPHiA GENETICS press release: SOPHiA GENETICS Enters Collaboration to Develop Companion (08-04-2026)",
+     "file": "transcripts/ir/sophiagenetics_2026-08-04_sophia-genetics-enters-collaboration-to-develop-co.txt",
      "why": null
     },
     {
@@ -782,8 +3344,98 @@
      "why": null
     },
     {
+     "label": "Samsung press release: 'Warranty and care' Menu Simplifies Device Care for New (08-18-2026)",
+     "file": "transcripts/ir/samsung_2026-08-18_warranty-and-care-menu-simplifies-device-care-for-.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: An Easier Way To Switch to the New Galaxy Z Fold8 (08-25-2026)",
+     "file": "transcripts/ir/samsung_2026-08-25_an-easier-way-to-switch-to-the-new-galaxy-z-fold8.txt",
+     "why": null
+    },
+    {
      "label": "Samsung press release: Bringing Fantasy Characters to Life: Samsung Spatial (09-23-2026)",
      "file": "transcripts/ir/samsung_2026-09-23_bringing-fantasy-characters-to-life-samsung-spatia.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: From 253 Grams to 201 Grams: The Engineering Behind the (09-09-2026)",
+     "file": "transcripts/ir/samsung_2026-09-09_from-253-grams-to-201-grams-the-engineering-behind.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: From Biosignals to Health Insights: Samsung Research's Work (08-14-2026)",
+     "file": "transcripts/ir/samsung_2026-08-14_from-biosignals-to-health-insights-samsung-researc.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Gamescom 2026: Samsung Odyssey Breaks Boundaries - (09-04-2026)",
+     "file": "transcripts/ir/samsung_2026-09-04_gamescom-2026-samsung-odyssey-breaks-boundaries-su.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Immaculate Engineering Meets Artistic Imagination: (09-07-2026)",
+     "file": "transcripts/ir/samsung_2026-09-07_immaculate-engineering-meets-artistic-imagination-.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Meet the Generation17 Young Leaders: The Story of Soumya (09-04-2026)",
+     "file": "transcripts/ir/samsung_2026-09-04_meet-the-generation17-young-leaders-the-story-of-s.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Announces Partnership With Call of Duty: Modern (08-17-2026)",
+     "file": "transcripts/ir/samsung_2026-08-17_samsung-announces-partnership-with-call-of-duty-mo.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Begins Official Rollout of One UI 9, Bringing the (09-16-2026)",
+     "file": "transcripts/ir/samsung_2026-09-16_samsung-begins-official-rollout-of-one-ui-9-bringi.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Electronics To Implement Largest-Ever Shareholder (08-21-2026)",
+     "file": "transcripts/ir/samsung_2026-08-21_samsung-electronics-to-implement-largest-ever-shar.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Enhances Long-Term Value of Refrigerators and (09-07-2026)",
+     "file": "transcripts/ir/samsung_2026-09-07_samsung-enhances-long-term-value-of-refrigerators-.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Expands the Galaxy Book6 Lineup, Making Galaxy Book (09-01-2026)",
+     "file": "transcripts/ir/samsung_2026-09-01_samsung-expands-the-galaxy-book6-lineup-making-gal.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Galaxy Buds4 Pro Superior Hi-Fi Sound Recognized by (08-24-2026)",
+     "file": "transcripts/ir/samsung_2026-08-24_samsung-galaxy-buds4-pro-superior-hi-fi-sound-reco.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Galaxy S26 FE: Delivering the Latest Flagship (08-27-2026)",
+     "file": "transcripts/ir/samsung_2026-08-27_samsung-galaxy-s26-fe-delivering-the-latest-flagsh.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Hosts #PlayGalaxy Cup World Final at Gamescom 2026 (08-31-2026)",
+     "file": "transcripts/ir/samsung_2026-08-31_samsung-hosts-playgalaxy-cup-world-final-at-gamesc.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Introduces New Odyssey Lineup for Fast-Paced Gaming (08-27-2026)",
+     "file": "transcripts/ir/samsung_2026-08-27_samsung-introduces-new-odyssey-lineup-for-fast-pac.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Introduces New Over-the-Range Microwave With (08-20-2026)",
+     "file": "transcripts/ir/samsung_2026-08-20_samsung-introduces-new-over-the-range-microwave-wi.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Medison Expands Women's Health Diagnostic Portfolio (09-07-2026)",
+     "file": "transcripts/ir/samsung_2026-09-07_samsung-medison-expands-women-s-health-diagnostic-.txt",
      "why": null
     },
     {
@@ -792,13 +3444,118 @@
      "why": null
     },
     {
+     "label": "Samsung press release: Samsung Partners With Kunsthistorisches Museum in Vienna To (08-18-2026)",
+     "file": "transcripts/ir/samsung_2026-08-18_samsung-partners-with-kunsthistorisches-museum-in-.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Presents 'Design Is an Act of Love' at Design Miami (09-01-2026)",
+     "file": "transcripts/ir/samsung_2026-09-01_samsung-presents-design-is-an-act-of-love-at-desig.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Redefines Laundry With New A-70% and 13 Kg Bespoke (09-02-2026)",
+     "file": "transcripts/ir/samsung_2026-09-02_samsung-redefines-laundry-with-new-a-70-and-13-kg-.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Showcases New Washers With Flat Design at IFA 2026 (09-03-2026)",
+     "file": "transcripts/ir/samsung_2026-09-03_samsung-showcases-new-washers-with-flat-design-at-.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Showcases P9 and P7 SSDs Featuring USB4 at Gamescom (08-26-2026)",
+     "file": "transcripts/ir/samsung_2026-08-26_samsung-showcases-p9-and-p7-ssds-featuring-usb4-at.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung Wins Multiple Honors at IFA Innovation Awards 2026 (09-04-2026)",
+     "file": "transcripts/ir/samsung_2026-09-04_samsung-wins-multiple-honors-at-ifa-innovation-awa.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: Samsung and Verizon Complete Successful ISAC Trial Over (09-14-2026)",
+     "file": "transcripts/ir/samsung_2026-09-14_samsung-and-verizon-complete-successful-isac-trial.txt",
+     "why": null
+    },
+    {
      "label": "Samsung press release: Samsung at the Forefront of Korea's AI RAN Projects with KT (09-23-2026)",
      "file": "transcripts/ir/samsung_2026-09-23_samsung-at-the-forefront-of-korea-s-ai-ran-project.txt",
      "why": null
     },
     {
+     "label": "Samsung press release: The New Galaxy Z Series Earns Strong Early Reviews From (08-26-2026)",
+     "file": "transcripts/ir/samsung_2026-08-26_the-new-galaxy-z-series-earns-strong-early-reviews.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Infographic] Not All Ice Is Created Equal: Discover the (08-18-2026)",
+     "file": "transcripts/ir/samsung_2026-08-18_infographic-not-all-ice-is-created-equal-discover-.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Interview] The People Behind the Galaxy Z Series' Camera (09-01-2026)",
+     "file": "transcripts/ir/samsung_2026-09-01_interview-the-people-behind-the-galaxy-z-series-ca.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Interview] The People Behind the Galaxy Z Series' Camera (09-16-2026)",
+     "file": "transcripts/ir/samsung_2026-09-16_interview-the-people-behind-the-galaxy-z-series-ca.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Invitation] Design Miami Seoul 2026: Opening of Samsung's (08-25-2026)",
+     "file": "transcripts/ir/samsung_2026-08-25_invitation-design-miami-seoul-2026-opening-of-sams.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Invitation] Galaxy Event August 2026 (08-20-2026)",
+     "file": "transcripts/ir/samsung_2026-08-20_invitation-galaxy-event-august-2026.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Video] No Unfolding Needed: A Day With Galaxy Z Flip8's (08-27-2026)",
+     "file": "transcripts/ir/samsung_2026-08-27_video-no-unfolding-needed-a-day-with-galaxy-z-flip.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Video] Samsung AI Assistant Helps Teachers Create More (08-19-2026)",
+     "file": "transcripts/ir/samsung_2026-08-19_video-samsung-ai-assistant-helps-teachers-create-m.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Video] [Galaxy Unpacked July 2026] Samsung Health (08-20-2026)",
+     "file": "transcripts/ir/samsung_2026-08-20_video-galaxy-unpacked-july-2026-samsung-health-env.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Video] [Voices of Galaxy] Meet Lefa Makgato, Championing (09-02-2026)",
+     "file": "transcripts/ir/samsung_2026-09-02_video-voices-of-galaxy-meet-lefa-makgato-championi.txt",
+     "why": null
+    },
+    {
+     "label": "Sandisk press release: Sandisk Announces Participation in Investor Conferences (09-03-2026)",
+     "file": "transcripts/ir/sandisk_2026-09-03_sandisk-announces-participation-in-investor-confer.txt",
+     "why": null
+    },
+    {
      "label": "Sanofi press release: An Open Letter from the Chairs of AstraZeneca, Boehringer (09-22-2026)",
      "file": "transcripts/ir/sanofi_2026-09-22_an-open-letter-from-the-chairs-of-astrazeneca-boeh.txt",
+     "why": null
+    },
+    {
+     "label": "Sanofi press release: Press Release: Q2 2026: double-digit sales growth and (07-30-2026)",
+     "file": "transcripts/ir/sanofi_2026-07-30_press-release-q2-2026-double-digit-sales-growth-an.txt",
+     "why": null
+    },
+    {
+     "label": "Sanofi press release: Press Release: Sanofi and Cheplapharm to create new (09-14-2026)",
+     "file": "transcripts/ir/sanofi_2026-09-14_press-release-sanofi-and-cheplapharm-to-create-new.txt",
+     "why": null
+    },
+    {
+     "label": "Sanofi press release: Press Release: Sanofi's half-year financial report for 2026 (07-30-2026)",
+     "file": "transcripts/ir/sanofi_2026-07-30_press-release-sanofi-s-half-year-financial-report-.txt",
      "why": null
     },
     {
@@ -899,15 +3656,19 @@
    ],
    "skipped": 0,
    "source_range": [
-    "2026-09-08",
-    "2026-09-25"
+    "2026-05-29",
+    "2026-09-26"
    ],
-   "last_fetch": "2026-09-25",
-   "last_enriched": "2026-09-25",
+   "last_fetch": "2026-09-26",
+   "last_enriched": "2026-09-27",
    "enriched_days": [
     {
      "day": "2026-09-25",
      "labels": 60
+    },
+    {
+     "day": "2026-09-27",
+     "labels": 133
     }
    ],
    "last_sync": "2026-09-25",
@@ -969,254 +3730,74 @@
    "source": "KRX KIND IR library + large-cap IR sites (kind.py) — company IR presentations, not transcripts",
    "files": 47,
    "labels_on_disk": 47,
-   "in_graph": 0,
-   "entries": 0,
-   "pending": [
+   "in_graph": 37,
+   "entries": 96,
+   "pending": [],
+   "no_data": [
     {
-     "company": "Park Systems",
-     "label": "Park Systems IR presentation: KIND 18691 (05-29-2026)",
-     "file": "transcripts/kind/parksystems_2026-05-29_18691.txt"
-    },
-    {
-     "company": "Techwing",
-     "label": "Techwing IR presentation: KIND 18710 (06-04-2026)",
-     "file": "transcripts/kind/techwing_2026-06-04_18710.txt"
-    },
-    {
-     "company": "S&S Tech",
-     "label": "S&S Tech IR presentation: KIND 18720 (06-09-2026)",
-     "file": "transcripts/kind/sstech_2026-06-09_18720.txt"
-    },
-    {
-     "company": "ISC",
-     "label": "ISC IR presentation: KIND 18766 (06-10-2026)",
-     "file": "transcripts/kind/isc_2026-06-10_18766.txt"
-    },
-    {
-     "company": "FADU",
-     "label": "FADU IR presentation: KIND 18749 (06-15-2026)",
-     "file": "transcripts/kind/fadu_2026-06-15_18749.txt"
-    },
-    {
-     "company": "Techwing",
-     "label": "Techwing IR presentation: KIND 18865 (06-29-2026)",
-     "file": "transcripts/kind/techwing_2026-06-29_18865.txt"
-    },
-    {
-     "company": "MK Electron",
-     "label": "MK Electron IR presentation: KIND 18866 (06-30-2026)",
-     "file": "transcripts/kind/mkelectron_2026-06-30_18866.txt"
-    },
-    {
-     "company": "SemiFive",
-     "label": "SemiFive IR presentation: KIND 18885 (07-02-2026)",
-     "file": "transcripts/kind/semifive_2026-07-02_18885.txt"
-    },
-    {
-     "company": "TSE Co.",
-     "label": "TSE Co. IR presentation: KIND 18890 (07-06-2026)",
-     "file": "transcripts/kind/tseco_2026-07-06_18890.txt"
-    },
-    {
-     "company": "Nepes",
-     "label": "Nepes IR presentation: KIND 18909 (07-08-2026)",
-     "file": "transcripts/kind/nepes_2026-07-08_18909.txt"
-    },
-    {
-     "company": "TLB",
-     "label": "TLB IR presentation: KIND 18868 (07-20-2026)",
-     "file": "transcripts/kind/tlb_2026-07-20_18868.txt"
-    },
-    {
-     "company": "ISC",
-     "label": "ISC IR presentation: KIND 18945 (07-27-2026)",
-     "file": "transcripts/kind/isc_2026-07-27_18945.txt"
-    },
-    {
-     "company": "Koh Young Technology",
-     "label": "Koh Young Technology IR presentation: KIND 18959 (07-28-2026)",
-     "file": "transcripts/kind/kohyoungtechnology_2026-07-28_18959.txt"
-    },
-    {
-     "company": "Simmtech",
-     "label": "Simmtech IR presentation: KIND 18996 (08-06-2026)",
-     "file": "transcripts/kind/simmtech_2026-08-06_18996.txt"
-    },
-    {
-     "company": "Duksan Hi-Metal",
-     "label": "Duksan Hi-Metal IR presentation: KIND 19010 (08-07-2026)",
-     "file": "transcripts/kind/duksanhimetal_2026-08-07_19010.txt"
-    },
-    {
-     "company": "TLB",
-     "label": "TLB IR presentation: KIND 19039 (08-13-2026)",
-     "file": "transcripts/kind/tlb_2026-08-13_19039.txt"
-    },
-    {
-     "company": "ENF Technology",
-     "label": "ENF Technology IR presentation: KIND 19049 (08-18-2026)",
-     "file": "transcripts/kind/enftechnology_2026-08-18_19049.txt"
-    },
-    {
-     "company": "FADU",
-     "label": "FADU IR presentation: KIND 19064 (08-18-2026)",
-     "file": "transcripts/kind/fadu_2026-08-18_19064.txt"
-    },
-    {
-     "company": "TES",
-     "label": "TES IR presentation: KIND 19067 (08-18-2026)",
-     "file": "transcripts/kind/tes_2026-08-18_19067.txt"
-    },
-    {
-     "company": "Park Systems",
-     "label": "Park Systems IR presentation: KIND 19097 (08-19-2026)",
-     "file": "transcripts/kind/parksystems_2026-08-19_19097.txt"
-    },
-    {
-     "company": "PSK Holdings",
-     "label": "PSK Holdings IR presentation: KIND 19119 (08-24-2026)",
-     "file": "transcripts/kind/pskholdings_2026-08-24_19119.txt"
-    },
-    {
-     "company": "MK Electron",
-     "label": "MK Electron IR presentation: KIND 19095 (08-25-2026)",
-     "file": "transcripts/kind/mkelectron_2026-08-25_19095.txt"
-    },
-    {
-     "company": "S&S Tech",
-     "label": "S&S Tech IR presentation: KIND 19163 (08-26-2026)",
-     "file": "transcripts/kind/sstech_2026-08-26_19163.txt"
-    },
-    {
-     "company": "Koh Young Technology",
-     "label": "Koh Young Technology IR presentation: KIND 19168 (08-26-2026)",
-     "file": "transcripts/kind/kohyoungtechnology_2026-08-26_19168.txt"
-    },
-    {
-     "company": "Jusung Engineering",
-     "label": "Jusung Engineering IR presentation: KIND 19158 (08-27-2026)",
-     "file": "transcripts/kind/jusungengineering_2026-08-27_19158.txt"
-    },
-    {
-     "company": "Hana Micron",
-     "label": "Hana Micron IR presentation: KIND 19189 (08-27-2026)",
-     "file": "transcripts/kind/hanamicron_2026-08-27_19189.txt"
-    },
-    {
-     "company": "Park Systems",
-     "label": "Park Systems IR presentation: KIND 19225 (09-02-2026)",
-     "file": "transcripts/kind/parksystems_2026-09-02_19225.txt"
-    },
-    {
-     "company": "Hana Micron",
      "label": "Hana Micron IR presentation: KIND 19231 (09-03-2026)",
-     "file": "transcripts/kind/hanamicron_2026-09-03_19231.txt"
+     "file": "transcripts/kind/hanamicron_2026-09-03_19231.txt",
+     "why": null
     },
     {
-     "company": "Dongjin Semichem",
-     "label": "Dongjin Semichem IR presentation: KIND 19245 (09-07-2026)",
-     "file": "transcripts/kind/dongjinsemichem_2026-09-07_19245.txt"
+     "label": "Jusung Engineering IR presentation: KIND 19158 (08-27-2026)",
+     "file": "transcripts/kind/jusungengineering_2026-08-27_19158.txt",
+     "why": null
     },
     {
-     "company": "LS Marine Solution",
-     "label": "LS Marine Solution IR presentation: KIND 19281 (09-09-2026)",
-     "file": "transcripts/kind/lsmarinesolution_2026-09-09_19281.txt"
+     "label": "Koh Young Technology IR presentation: KIND 19168 (08-26-2026)",
+     "file": "transcripts/kind/kohyoungtechnology_2026-08-26_19168.txt",
+     "why": null
     },
     {
-     "company": "YC",
-     "label": "YC IR presentation: KIND 19285 (09-09-2026)",
-     "file": "transcripts/kind/yc_2026-09-09_19285.txt"
-    },
-    {
-     "company": "TSE Co.",
-     "label": "TSE Co. IR presentation: KIND 19291 (09-10-2026)",
-     "file": "transcripts/kind/tseco_2026-09-10_19291.txt"
-    },
-    {
-     "company": "MK Electron",
-     "label": "MK Electron IR presentation: KIND 19292 (09-10-2026)",
-     "file": "transcripts/kind/mkelectron_2026-09-10_19292.txt"
-    },
-    {
-     "company": "MK Electron",
-     "label": "MK Electron IR presentation: KIND 19344 (09-17-2026)",
-     "file": "transcripts/kind/mkelectron_2026-09-17_19344.txt"
-    },
-    {
-     "company": "Koh Young Technology",
      "label": "Koh Young Technology IR presentation: KIND 19345 (09-17-2026)",
-     "file": "transcripts/kind/kohyoungtechnology_2026-09-17_19345.txt"
+     "file": "transcripts/kind/kohyoungtechnology_2026-09-17_19345.txt",
+     "why": null
     },
     {
-     "company": "Nepes",
-     "label": "Nepes IR presentation: KIND 19356 (09-18-2026)",
-     "file": "transcripts/kind/nepes_2026-09-18_19356.txt"
+     "label": "MK Electron IR presentation: KIND 19095 (08-25-2026)",
+     "file": "transcripts/kind/mkelectron_2026-08-25_19095.txt",
+     "why": null
     },
     {
-     "company": "Samsung",
-     "label": "Samsung IR presentation: Q2 2026 results (07-30-2026)",
-     "file": "transcripts/kind/samsung_2026-07-30_q2_2026_site.txt"
+     "label": "MK Electron IR presentation: KIND 19292 (09-10-2026)",
+     "file": "transcripts/kind/mkelectron_2026-09-10_19292.txt",
+     "why": null
     },
     {
-     "company": "Samsung",
-     "label": "Samsung IR presentation: Q1 2026 results (04-30-2026)",
-     "file": "transcripts/kind/samsung_2026-04-30_q1_2026_site.txt"
+     "label": "MK Electron IR presentation: KIND 19344 (09-17-2026)",
+     "file": "transcripts/kind/mkelectron_2026-09-17_19344.txt",
+     "why": null
     },
     {
-     "company": "SK Hynix",
-     "label": "SK Hynix IR presentation: Q2 2026 results (07-29-2026)",
-     "file": "transcripts/kind/skhynix_2026-07-29_q2_2026_site.txt"
+     "label": "Park Systems IR presentation: KIND 19225 (09-02-2026)",
+     "file": "transcripts/kind/parksystems_2026-09-02_19225.txt",
+     "why": null
     },
     {
-     "company": "SK Hynix",
-     "label": "SK Hynix IR presentation: Q1 2026 results (04-23-2026)",
-     "file": "transcripts/kind/skhynix_2026-04-23_q1_2026_site.txt"
-    },
-    {
-     "company": "Samsung Electro-Mechanics",
-     "label": "Samsung Electro-Mechanics IR presentation: Q2 2026 results (07-30-2026)",
-     "file": "transcripts/kind/samsungelectromechanics_2026-07-30_q2_2026_site.txt"
-    },
-    {
-     "company": "Samsung Electro-Mechanics",
      "label": "Samsung Electro-Mechanics IR presentation: Q1 2026 results (04-30-2026)",
-     "file": "transcripts/kind/samsungelectromechanics_2026-04-30_q1_2026_site.txt"
+     "file": "transcripts/kind/samsungelectromechanics_2026-04-30_q1_2026_site.txt",
+     "why": null
     },
     {
-     "company": "LG Innotek",
-     "label": "LG Innotek IR presentation: Q2 2026 results (07-27-2026)",
-     "file": "transcripts/kind/lginnotek_2026-07-27_q2_2026_site.txt"
-    },
-    {
-     "company": "LG Innotek",
-     "label": "LG Innotek IR presentation: Q1 2026 results (04-27-2026)",
-     "file": "transcripts/kind/lginnotek_2026-04-27_q1_2026_site.txt"
-    },
-    {
-     "company": "Naver",
-     "label": "Naver IR presentation: Q2 2026 results (08-07-2026)",
-     "file": "transcripts/kind/naver_2026-08-07_q2_2026_site.txt"
-    },
-    {
-     "company": "SK Telecom",
-     "label": "SK Telecom IR presentation: Q2 2026 results (08-05-2026)",
-     "file": "transcripts/kind/sktelecom_2026-08-05_q2_2026_site.txt"
-    },
-    {
-     "company": "SK Telecom",
-     "label": "SK Telecom IR presentation: Q1 2026 results (05-07-2026)",
-     "file": "transcripts/kind/sktelecom_2026-05-07_q1_2026_site.txt"
+     "label": "TSE Co. IR presentation: KIND 19291 (09-10-2026)",
+     "file": "transcripts/kind/tseco_2026-09-10_19291.txt",
+     "why": null
     }
    ],
-   "no_data": [],
    "skipped": 0,
    "source_range": [
     "2026-04-23",
     "2026-09-18"
    ],
    "last_fetch": "2026-09-26",
-   "last_enriched": null,
-   "enriched_days": [],
+   "last_enriched": "2026-09-27",
+   "enriched_days": [
+    {
+     "day": "2026-09-27",
+     "labels": 37
+    }
+   ],
    "last_sync": "2026-09-26",
    "extra": {
     "runs": [
@@ -1240,15 +3821,9 @@
    "source": "Samsung's official earnings-call script (kind.py)",
    "files": 1,
    "labels_on_disk": 1,
-   "in_graph": 0,
-   "entries": 0,
-   "pending": [
-    {
-     "company": "Samsung",
-     "label": "Samsung Q2 FY2026 (07-30-2026)",
-     "file": "transcripts/kr_calls/samsung_q2_2026.txt"
-    }
-   ],
+   "in_graph": 1,
+   "entries": 10,
+   "pending": [],
    "no_data": [],
    "skipped": 0,
    "source_range": [
@@ -1256,8 +3831,13 @@
     "2026-07-30"
    ],
    "last_fetch": "2026-09-26",
-   "last_enriched": null,
-   "enriched_days": [],
+   "last_enriched": "2026-09-27",
+   "enriched_days": [
+    {
+     "day": "2026-09-27",
+     "labels": 1
+    }
+   ],
    "last_sync": "2026-09-26",
    "extra": {
     "runs": [
@@ -1622,18 +4202,94 @@
     "2026-07-30",
     "2026-07-30"
    ]
+  },
+  {
+   "day": "2026-09-27",
+   "pipeline": "conference",
+   "files": 105,
+   "in_graph": 105,
+   "pending": 0,
+   "last_sync": "2026-09-22",
+   "source_range": [
+    "2026-07-20",
+    "2026-09-22"
+   ]
+  },
+  {
+   "day": "2026-09-27",
+   "pipeline": "us",
+   "files": 306,
+   "in_graph": 306,
+   "pending": 0,
+   "last_sync": "2026-09-26",
+   "source_range": [
+    "2026-01-06",
+    "2026-09-10"
+   ]
+  },
+  {
+   "day": "2026-09-27",
+   "pipeline": "dart",
+   "files": 104,
+   "in_graph": 106,
+   "pending": 0,
+   "last_sync": "2026-09-27",
+   "source_range": [
+    "2026-08-04",
+    "2026-09-22"
+   ]
+  },
+  {
+   "day": "2026-09-27",
+   "pipeline": "kind",
+   "files": 47,
+   "in_graph": 37,
+   "pending": 0,
+   "last_sync": "2026-09-26",
+   "source_range": [
+    "2026-04-23",
+    "2026-09-18"
+   ]
+  },
+  {
+   "day": "2026-09-27",
+   "pipeline": "krcalls",
+   "files": 1,
+   "in_graph": 1,
+   "pending": 0,
+   "last_sync": "2026-09-26",
+   "source_range": [
+    "2026-07-30",
+    "2026-07-30"
+   ]
+  },
+  {
+   "day": "2026-09-27",
+   "pipeline": "ir",
+   "files": 843,
+   "in_graph": 196,
+   "pending": 315,
+   "last_sync": "2026-09-25",
+   "source_range": [
+    "2026-05-29",
+    "2026-09-26"
+   ]
   }
  ],
  "board": {
-  "today": "2026-09-26",
+  "today": "2026-09-27",
   "markets": [
    {
     "id": "US",
     "name": "United States",
     "command": "enrich us",
     "companies": 193,
-    "call_current": 171,
+    "call_current": 179,
     "overdue": [
+     {
+      "company": "Alpha and Omega Semiconductor",
+      "last_call": "2026-02-05"
+     },
      {
       "company": "Applied Digital",
       "last_call": "2026-04-09"
@@ -1652,16 +4308,7 @@
      }
     ],
     "never": [
-     "Adeia",
-     "Alpha and Omega Semiconductor",
-     "Arteris",
-     "Bel Fuse",
-     "CEVA",
      "ChipMOS",
-     "Diodes",
-     "Lattice Semiconductor",
-     "Lightwave Logic",
-     "Littelfuse",
      "MP Materials",
      "PDF Solutions",
      "POET Technologies",
@@ -1669,21 +4316,9 @@
      "UMC"
     ],
     "nothing": [
-     "Adeia",
-     "Alpha and Omega Semiconductor",
-     "Arteris",
      "Bayer",
-     "Bel Fuse",
-     "CEVA",
-     "ChipMOS",
-     "Diodes",
-     "Lattice Semiconductor",
-     "Lightwave Logic",
-     "Littelfuse",
      "MP Materials",
-     "PDF Solutions",
      "POET Technologies",
-     "Relay Therapeutics",
      "Shell",
      "UMC"
     ],
@@ -1710,11 +4345,10 @@
     ],
     "feeds": 183,
     "waiting": {
-     "conference": 11,
-     "ir": 7
+     "ir": 1
     },
     "collectors": {
-     "us": "2026-09-04"
+     "us": "2026-09-26"
     }
    },
    {
@@ -1722,15 +4356,11 @@
     "name": "Korea",
     "command": "enrich korea",
     "companies": 84,
-    "call_current": 0,
+    "call_current": 1,
     "overdue": [
      {
       "company": "SK Hynix",
       "last_call": "2026-04-23"
-     },
-     {
-      "company": "Samsung",
-      "last_call": "2026-04-30"
      },
      {
       "company": "Samsung Electro-Mechanics",
@@ -1820,118 +4450,13 @@
      "YC",
      "Zeus"
     ],
-    "nothing": [
-     "Auros Technology",
-     "Chemtronics",
-     "Cheryong Electric",
-     "DB HiTek",
-     "DI Corporation",
-     "Daewon Cable",
-     "Duksan Hi-Metal",
-     "ENF Technology",
-     "Eugene Technology",
-     "Exicon",
-     "FADU",
-     "FST",
-     "Foosung",
-     "Gaon Cable",
-     "GigaVis",
-     "Global Standard Technology",
-     "HPSP",
-     "HaeSung DS",
-     "Hana Materials",
-     "Hana Micron",
-     "Hansol Chemical",
-     "Iljin Electric",
-     "Intekplus",
-     "JNTC",
-     "KC Tech",
-     "Koh Young Technology",
-     "Komico",
-     "Korea Zinc",
-     "LS Eco Energy",
-     "LS Marine Solution",
-     "MK Electron",
-     "MiCo",
-     "Nepes",
-     "Nextin",
-     "Park Systems",
-     "Philoptics",
-     "Protec",
-     "S&S Tech",
-     "SK Telecom",
-     "SemiFive",
-     "Solus Advanced Materials",
-     "TES",
-     "TLB",
-     "TSE Co.",
-     "Tokai Carbon Korea",
-     "UniTest",
-     "Unisem Co.",
-     "Wonik Materials",
-     "YC",
-     "Zeus"
-    ],
-    "dart_never": [
-     "Auros Technology",
-     "Chemtronics",
-     "Cheryong Electric",
-     "DB HiTek",
-     "DI Corporation",
-     "Daewon Cable",
-     "Duksan Hi-Metal",
-     "ENF Technology",
-     "Eugene Technology",
-     "Exicon",
-     "FADU",
-     "FST",
-     "Foosung",
-     "Gaon Cable",
-     "GigaVis",
-     "Global Standard Technology",
-     "HPSP",
-     "HaeSung DS",
-     "Hana Materials",
-     "Hana Micron",
-     "Hansol Chemical",
-     "Iljin Electric",
-     "Intekplus",
-     "JNTC",
-     "KC Tech",
-     "Koh Young Technology",
-     "Komico",
-     "Korea Zinc",
-     "LS Eco Energy",
-     "LS Marine Solution",
-     "MK Electron",
-     "MiCo",
-     "Nepes",
-     "Nextin",
-     "Park Systems",
-     "Philoptics",
-     "Protec",
-     "S&S Tech",
-     "SK Telecom",
-     "SemiFive",
-     "Solus Advanced Materials",
-     "TES",
-     "TLB",
-     "TSE Co.",
-     "Tokai Carbon Korea",
-     "UniTest",
-     "Unisem Co.",
-     "Wonik Materials",
-     "YC",
-     "Zeus"
-    ],
+    "nothing": [],
+    "dart_never": [],
     "marked": [],
     "feeds": 20,
-    "waiting": {
-     "kind": 47,
-     "krcalls": 1
-    },
+    "waiting": {},
     "collectors": {
-     "dart": "2026-09-10",
+     "dart": "2026-09-27",
      "kind": "2026-09-26"
     }
    },
@@ -2070,7 +4595,9 @@
     "dart_never": [],
     "marked": [],
     "feeds": 46,
-    "waiting": {},
+    "waiting": {
+     "ir": 74
+    },
     "collectors": {
      "intl": "2026-09-18",
      "tw": "2026-09-07"
@@ -2080,7 +4607,7 @@
     "id": "JP",
     "name": "Japan",
     "command": "enrich japan",
-    "companies": 65,
+    "companies": 66,
     "call_current": 10,
     "overdue": [
      {
@@ -2138,6 +4665,7 @@
      "Taiyo Yuden",
      "Tekscend Photomask",
      "Toho Titanium",
+     "Tokai Carbon Co.",
      "Tokyo Ohka Kogyo",
      "Toppan",
      "Toray",
@@ -2180,6 +4708,7 @@
      "TOWA",
      "Taiyo Holdings",
      "Tekscend Photomask",
+     "Tokai Carbon Co.",
      "Toppan",
      "Toray",
      "Tri Chemical Laboratories",
@@ -2188,7 +4717,9 @@
     "dart_never": [],
     "marked": [],
     "feeds": 59,
-    "waiting": {},
+    "waiting": {
+     "ir": 172
+    },
     "collectors": {
      "intl": "2026-09-18"
     }
@@ -2244,7 +4775,9 @@
     "dart_never": [],
     "marked": [],
     "feeds": 21,
-    "waiting": {},
+    "waiting": {
+     "ir": 32
+    },
     "collectors": {
      "intl": "2026-09-18"
     }
@@ -2290,7 +4823,9 @@
     "dart_never": [],
     "marked": [],
     "feeds": 11,
-    "waiting": {},
+    "waiting": {
+     "ir": 31
+    },
     "collectors": {
      "intl": "2026-09-18"
     }
@@ -2318,7 +4853,9 @@
     "dart_never": [],
     "marked": [],
     "feeds": 2,
-    "waiting": {},
+    "waiting": {
+     "ir": 5
+    },
     "collectors": {
      "intl": "2026-09-18"
     }
@@ -2328,65 +4865,77 @@
    {
     "command": "enrich us",
     "reasons": [
-     "18 fetched file(s) waiting to be enriched (11 conference, 7 IR release)",
-     "US call sync (av.py) last ran 22 days ago (2026-09-04)",
-     "4 overdue for a call: Applied Digital (last 2026-04-09), Simulations Plus (last 2026-04-09), 3M (last 2026-04-21), Texas Instruments (last 2026-04-22)",
-     "15 never had a call enriched (fetch with defeatbeta, mark the ones with none): Adeia, Alpha and Omega Semiconductor, Arteris, Bel Fuse, CEVA, ChipMOS … +9 more"
-    ]
-   },
-   {
-    "command": "enrich korea",
-    "reasons": [
-     "48 fetched file(s) waiting to be enriched (47 IR deck, 1 call)",
-     "DART sync (dart.py) last ran 16 days ago (2026-09-10)",
-     "50 have no DART filing enriched (backfill with `dart.py fetch`): Auros Technology, Chemtronics, Cheryong Electric, DB HiTek, DI Corporation, Daewon Cable … +44 more"
+     "1 fetched file(s) waiting to be enriched (1 IR release)",
+     "5 overdue for a call: Alpha and Omega Semiconductor (last 2026-02-05), Applied Digital (last 2026-04-09), Simulations Plus (last 2026-04-09), 3M (last 2026-04-21), Texas Instruments (last 2026-04-22)",
+     "6 never had a call enriched (fetch with defeatbeta, mark the ones with none): ChipMOS, MP Materials, PDF Solutions, POET Technologies, Shell, UMC"
     ]
    },
    {
     "command": "enrich edgar",
     "reasons": [
-     "last pulled 16 days ago, 2026-09-10 (weekly)"
+     "last pulled 17 days ago, 2026-09-10 (weekly)"
     ]
    },
    {
     "command": "enrich taiwan",
     "reasons": [
-     "Investing.com call sync (investing.py) last ran 8 days ago (2026-09-18) — one sync serves Taiwan, Japan, Europe and China",
-     "Taiwan Chinese-call sync (tw.py) last ran 19 days ago (2026-09-07)",
+     "74 fetched file(s) waiting to be enriched (74 IR release)",
+     "Investing.com call sync (investing.py) last ran 9 days ago (2026-09-18) — one sync serves Taiwan, Japan, Europe and China",
+     "Taiwan Chinese-call sync (tw.py) last ran 20 days ago (2026-09-07)",
      "4 overdue for a call: Wiwynn (last 2026-02-26), Inventec (last 2026-05-12), Gigabyte (last 2026-05-15), VPEC (last 2026-05-27)"
     ]
    },
    {
     "command": "enrich japan",
     "reasons": [
+     "172 fetched file(s) waiting to be enriched (172 IR release)",
      "1 overdue for a call: Murata (last 2026-04-30)"
     ]
    },
    {
     "command": "enrich europe",
     "reasons": [
+     "32 fetched file(s) waiting to be enriched (32 IR release)",
      "3 overdue for a call: Schneider Electric (last 2026-04-30), Legrand (last 2026-05-12), AT&S (last 2026-05-21)"
+    ]
+   },
+   {
+    "command": "enrich china",
+    "reasons": [
+     "31 fetched file(s) waiting to be enriched (31 IR release)"
+    ]
+   },
+   {
+    "command": "enrich intl",
+    "reasons": [
+     "5 fetched file(s) waiting to be enriched (5 IR release)"
     ]
    }
   ],
   "setup": [
-   "Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are SK Hynix 2026-04-23, Samsung 2026-04-30, Samsung Electro-Mechanics 2026-04-30; 81 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual."
+   "Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are SK Hynix 2026-04-23, Samsung Electro-Mechanics 2026-04-30, Samsung 2026-07-30; 81 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual."
   ],
   "questions": [],
   "shared": {
    "ir": {
     "last_sync": "2026-09-25",
-    "days": 1,
+    "days": 2,
     "due": false,
     "feeds": 342
    },
    "conference": {
     "last_sync": "2026-09-22",
-    "days": 4,
+    "days": 5,
     "due": false
    }
   },
   "verify_pending": 0,
-  "notes": []
+  "notes": [
+   {
+    "at": "2026-09-27 00:27",
+    "market": "US",
+    "text": "09-27 enrich us: AV quota hit after 9 calls; defeatbeta still 404. Carry over: Dell, ChipMOS, Simulations Plus (AV waiting), Applied Digital, 3M, Texas Instruments (overdue), MP Materials, PDF Solutions, POET, Shell, UMC (never). Air Products 09-16 release left pending: page body is JS-rendered navigation only; paste the release text by hand. av.py sync assigns the wrong fiscal quarter to June-FY companies with no prior label (AOS) - check before trusting a first-call label. EMCOR 09-17 conference: CEO turns labelled Moderator by investing.py."
+   }
+  ]
  }
 }

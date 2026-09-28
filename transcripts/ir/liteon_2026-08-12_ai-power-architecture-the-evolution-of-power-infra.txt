@@ -1,0 +1,160 @@
+SOURCE: Lite-On official press release -- https://www.liteon.com/en/news/press-center/content/ai-data-center-power-architecture
+TITLE: AI Power Architecture: The Evolution of Power Infrastructure in the AI Era
+DATE: 08-12-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-09-26.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Lite-On press release: AI Power Architecture: The Evolution of Power (08-12-2026)
+
+---
+AI Power Architecture: The Evolution of Power Infrastructure in the AI Era
+
+Summary
+
+LITEON is not just optimizing individual power modules for AI data centers — it helps customers build a next-generation AI power architecture through 800 VDC power design, centralized Power Rack integration, BBU-based backup, full digital control, Power Smoothing, high-voltage safety protection, stable Hot Plug operation, cross-brand interoperability, and faster CSP customization to support safer, more efficient, and more resilient high-density GPU infrastructure.
+
+Author : Bob Weng｜LITEON Cloud Infrastructure Platform & Solution
+
+Written & Interviewed by : LITEON Editorial Team (Corporate Brand Value Development Center)
+
+Technical review : LITEON Center of Core Competence
+
+Ａ. Introduction: Power Bottlenecks in the AI Computing Race
+
+The rapid growth of AI computing is changing how data centers are designed, powered, and scaled. As AI servers integrate more GPUs and high-density accelerator modules, power consumption is rising from the server level to the rack level — and in some cases, toward hundreds of kilowatts per rack cluster. This shift is creating a new challenge for ai data center power architecture . Traditional power distribution models were not originally designed for extremely dense GPU systems that require massive power delivery, fast load response, and efficient transmission across increasingly complex rack environments.
+
+As single-rack or multi-rack AI systems move toward 100kW, 330kW, or even higher power levels , traditional IT Rack space becomes increasingly constrained. When power equipment remains inside the same rack as compute hardware, every additional power shelf, cable, connector, and cooling component competes with GPUs for physical space. At lower power levels, this design may still be manageable. However, as power demand continues to rise, the rack itself becomes a bottleneck.
+
+The power challenge in AI data centers is no longer only about improving the efficiency of individual components. It is about rethinking the entire ai data center power infrastructure from the system level. This is why the industry is moving from component-level optimization toward system-level optimization . Instead of only asking how to make each power supply more efficient, the new question is: how can power be generated, converted, transmitted, backed up, monitored, and protected as one integrated architecture? For next-generation AI infrastructure, the answer is increasingly clear: higher power requires higher voltage, and higher voltage requires a new level of power architecture design.
+
+B. A Paradigm Shift in Power Architecture: From 48V to 800 VDC
+
+Traditional data center power systems mainly use 48V or 50V power distribution architectures. These low-voltage systems have been widely used because they are relatively safe, mature, and compatible with existing server designs. However, as AI computing density rises, low-voltage transmission faces a fundamental limitation: current. For the same power level, lower voltage means higher transmission current. Higher transmission current leads to greater conduction loss, heavier cables, larger busbars, more heat generation, and more space pressure inside the rack. In high-density AI environments, these physical limitations become increasingly difficult to ignore.
+
+This is why ai data center power is gradually moving toward 800 VDC architecture . By increasing voltage and reducing transmission current, the system can lower current-related conduction loss and reduce cable burden. This creates a more suitable power path for high-power-density GPU computing environments. The shift is not only a voltage upgrade. It also changes the physical structure of the power system. At power levels below approximately 330kW, traditional IT Racks may still have enough space to accommodate power equipment. But when total system power moves toward the 660kW level, the IT Rack may no longer be able to house the necessary power shelves. At that point, the power supply architecture must evolve toward an independent and centralized Power Rack design.
+
+In this structure, the Power Shelf is separated from the IT Rack and placed inside a dedicated Power Rack. Power is then transmitted from the Power Rack to the IT Rack. To make this transmission efficient, the voltage must be increased significantly — from traditional 48V or 50V levels toward 800 VDC.
+
+This marks a major transformation in ai data center power architecture:
+
+From lower voltage to higher voltage
+
+From distributed power equipment inside IT Racks to centralized Power Rack design
+
+From component-level power supply planning to system-level power infrastructure design
+
+From traditional backup architecture to rack-level energy support closer to the load
+
+The industry is also moving toward a flatter Power-to-Chip architecture. In simple terms, power needs to travel through fewer intermediate stages before reaching GPUs and core computing units. Reducing unnecessary conversion stages can help improve efficiency, reduce energy loss, and simplify the power path for high-density AI workloads. This is also where backup power architecture begins to change. Unlike traditional AC environments that mainly rely on centralized UPS systems, 800 VDC architecture can be combined with rack-level BBU, or Battery Backup Unit , energy storage technology. Instead of providing backup only from a distant facility-level system, BBU can deliver immediate power compensation closer to the load side. For AI data centers, this matters because GPU workloads can create sudden and drastic power fluctuations. A rack-level BBU architecture can improve system resilience, reduce conversion loss, and provide faster support during abnormal power events.
+
+C. Safety Engineering in 800 VDC Environments: Isolation, Arc Protection, and Digital Safeguards
+
+As data center power architecture moves toward 800 VDC, safety engineering becomes a core design requirement. High-voltage DC systems can support more efficient power transmission, but they also introduce new challenges in isolation, arcing, Hot Plug operation, and real-time protection. In an 800 VDC high-voltage DC environment, isolation design is essential. Through transformers and isolation architecture, the high-voltage side can be separated from the low-voltage control side. This helps create a more reliable hardware protection foundation for GPUs, power modules, control circuits, and other critical computing components.
+
+However, isolation alone is not enough. DC systems create different safety challenges from AC systems. In AC power, current naturally crosses zero at regular intervals, which can help extinguish arcs more easily. DC power does not have the same natural zero-crossing behavior. As a result, high-voltage DC systems face more severe arcing risks, especially during Hot Plug operation or abnormal connection events. This is particularly important in AI data centers, where power modules may need to be serviced, replaced, or adjusted while maintaining system uptime. If the electrical and mechanical interface is not carefully designed, Hot Plug operation can create arcing, current spikes, contact stress, or brief discontinuity.
+
+LITEON addresses these challenges through system-level safety design. Its approach combines isolation transformer design, special circuit design, and fully digital control to support safer Hot Plug operation under zero-current or extremely low-current conditions. Fully digital control plays a critical role here. By monitoring current behavior, voltage conditions, and system status in real time, the power system can make more precise protection decisions. Instead of relying only on passive hardware protection, digital control allows the system to detect subtle current changes and respond quickly before a fault develops into a larger reliability issue. This enables 800 VDC architecture to support both high-efficiency operation and more refined power safety management. For high-density AI infrastructure, this combination of hardware isolation and digital safeguards is essential to making high-voltage DC power practical at scale.
+
+D. Fully Digital Control Capabilities: A Decade of Experience and System-Level Synchronization
+
+In AI data centers, power demand is not stable. During AI training and inference, GPUs can move rapidly between different load states. These sudden changes create dynamic power fluctuations that traditional power systems may struggle to handle efficiently. This is why fully digital control is becoming a critical capability in modern ai data center power infrastructure . LITEON has accumulated more than ten years of experience in fully digital power control technology. This gives the system greater flexibility to adjust power output, improve response behavior, and optimize efficiency performance based on different AI computing loads and system conditions.
+
+Compared with analog-only or less integrated control approaches, fully digital control allows the power system to become more adaptive. It can monitor operating conditions, interpret load behavior, and coordinate power delivery in real time. This is especially important when GPU workloads create sudden power demand changes that require immediate response.
+
+One of LITEON’s key strengths is Power Smoothing technology . Through direct communication with NVIDIA’s system side, LITEON can achieve software-hardware integrated Power Smoothing control. This means the power supply is not simply reacting after a power fluctuation occurs. Instead, it can coordinate with the system side and adjust power delivery according to the equipment’s operating status. For AI training and inference, this is highly valuable. Sudden GPU load changes can create sharp power transients. If these transients are not managed well, they may affect voltage stability, system efficiency, or workload continuity. Power Smoothing helps stabilize power delivery and reduce the impact of these rapid changes.
+
+This also reflects a broader shift in ai data center power architecture . Power infrastructure is no longer only about hardware capacity. It is increasingly about software-defined coordination between power modules, computing systems, energy backup, and real-time control logic. LITEON’s fully digital control experience enables this kind of system-level synchronization, helping AI infrastructure move toward safer, more stable, and more efficient power operation.
+
+E. The Value of a Professional Partner: Technical Integration for Forward-Looking Design
+
+As AI data centers evolve, power architecture can no longer be designed in isolation. The transition toward 800 VDC, Power Rack structures, digital control, and rack-level power coordination requires close collaboration among power suppliers, GPU ecosystem partners, CSPs, and data center operators. Beyond high-voltage power design itself, the next key challenge is rack-level power integration. In real AI data center deployments, multiple power modules must operate together reliably, support serviceability, and remain compatible across different customer architectures. The value of a power partner is therefore not only measured by conversion efficiency or output capacity, but also by how well its power modules behave inside the full rack environment.
+
+LITEON has the capability to co-develop forward-looking architectures with leading CSPs and ecosystem partners. Based on next-generation data center design requirements, LITEON can participate in OCP framework adjustments, technical validation, and high-voltage DC architecture development. This matters because AI infrastructure requirements are still evolving. Different CSPs may have different rack layouts, power budgets, redundancy strategies, validation rules, interoperability requirements, and deployment schedules. A one-size-fits-all power design is often not enough.
+
+Through early design-in and cross-domain collaboration, LITEON helps advanced customers translate innovative computing requirements into stable, deployable, and scalable power infrastructure. This includes not only power supply design, but also system architecture planning, firmware coordination, safety validation, high-voltage transmission design, and rack-level power integration.
+
+Stable Hot Plug Operation for Power Modules
+
+In rack-level AI power infrastructure, Hot Plug stability is a critical reliability requirement. Power modules may need to be inserted, removed, or serviced while the system continues operating, and even a brief power drop can affect high-value GPU workloads, AI servers, or full computing platforms. LITEON’s power modules are designed to support stable Hot Plug operation, helping reduce the risk of power discontinuity during service or maintenance events. Through electrical design, protection logic, firmware coordination, and validation experience, LITEON helps maintain stable rack-level operation when power modules are replaced or adjusted. This makes Hot Plug performance more than a maintenance feature. It becomes part of the reliability foundation for high-density AI data centers.
+
+Cross-Brand Interoperability for Real CSP Environments
+
+In real-world CSP deployments, rack-level power systems may need to operate with power supplies from different vendors or across different platform generations. This makes cross-brand interoperability an important factor in data center flexibility and long-term infrastructure planning. LITEON supports strong compatibility and stability when its power modules are used alongside power supplies from other brands.
+
+This capability helps customers reduce integration risk, simplify validation, and maintain greater flexibility when deploying or upgrading AI infrastructure. For CSPs, cross-brand interoperability is especially valuable because data center architecture is rarely static. As server platforms, rack standards, and power requirements continue to evolve, power modules must support practical mixed-use environments rather than only ideal single-vendor configurations.
+
+Customization Flexibility and Faster Development Speed
+
+AI infrastructure development cycles are accelerating, and CSP requirements are becoming more customized. Power suppliers must therefore respond quickly to changes in rack architecture, electrical specifications, firmware behavior, validation criteria, and deployment models. Compared with more rigid suppliers, LITEON’s advantage lies in greater customization flexibility and faster development speed. Based on OCP architecture and customer-specific requirements, LITEON can quickly adjust electrical design, mechanical configuration, firmware control, protection logic, and validation details.
+
+This flexibility allows LITEON to support different CSP deployment needs while maintaining reliability and long-term stability. For customers building next-generation AI data centers, this means power architecture can move more closely in sync with fast-changing GPU platforms and rack-level infrastructure requirements.
+
+Efficiency Improvement as the Core of Power Optimization
+
+Efficiency improvement remains a constant priority in power architecture. In AI data centers, every percentage point of conversion loss becomes heat, cooling load, power waste, and operating cost at scale. Through advanced topology design and system-level optimization, LITEON aims to improve conversion efficiency to 98%. In an 800 VDC high-voltage environment, this efficiency improvement is not only a component-level achievement.
+
+It also helps reduce overall energy loss, lower heat generation, and ease PUE pressure. At rack level, efficiency must be evaluated across the full power path, including power conversion, high-voltage transmission, module coordination, and system operation. LITEON’s rack-level integration approach helps customers optimize energy utilization across the infrastructure, rather than improving isolated module specifications only. LITEON’s advantage lies in its ability to combine multiple technical capabilities into one integrated solution:
+
+High-voltage DC power architecture for reducing transmission current and current-related conduction loss
+
+Power Rack design for overcoming IT Rack space limitations
+
+Stable power module Hot Plug operation for serviceability and continuity
+
+Cross-brand interoperability for multi-vendor CSP environments
+
+Fully digital control for real-time power response
+
+Power Smoothing for AI workload fluctuation management
+
+Isolation and arc protection design for safer 800 VDC operation
+
+Ecosystem collaboration for future-ready data center architecture
+
+Customization flexibility and faster development speed for CSP-specific deployment requirements
+
+Efficiency-oriented design aimed at reducing energy loss and supporting long-term power optimization
+
+This is why LITEON should not be viewed only as a power supply manufacturer. In the AI era, its role is shifting toward a rack-level power infrastructure partner that helps customers design for higher power, higher voltage, stable module operation, cross-platform compatibility, faster deployment, and more efficient data center operation.
+
+F. LITEON Reshapes Power Safety and Efficiency Standards in the AI Era Through Integrated Power, Software, and Control Capabilities
+
+AI data centers are entering a new stage of power architecture transformation. As GPU quantity increases and computing communication requirements rise, data center power demand is moving beyond the limits of traditional rack-level planning. The future of ai data center power architecture will be defined by two major directions: higher power and higher voltage .
+
+When power demand rises from 100kW to 330kW and potentially toward 660kW-class architectures, traditional IT Racks can no longer carry the full burden of power equipment. Power architecture must evolve toward centralized Power Rack design.At the same time, voltage must increase from traditional 48V or 50V power distribution architecture toward 800 VDC to reduce transmission current, lower current-related conduction loss, and support high-density GPU computing more effectively.However, 800 VDC is not just a voltage upgrade. It is a system-level redesign involving power delivery, digital control, safety protection, BBU-based energy backup, and ecosystem collaboration.
+
+LITEON’s integrated capabilities across power, software, control, and rack-level power integration allow it to help customers advance this transition. Through fully digital control, Power Smoothing, high-voltage isolation, arc protection, stable Hot Plug operation, cross-brand interoperability, Power Rack design, customization flexibility, faster development speed, and 98% efficiency-oriented development, LITEON helps AI data centers move toward safer, more efficient, and more resilient power infrastructure.
+
+As AI infrastructure continues to scale, the winners will not be defined only by computing performance. They will also be defined by whether their power architecture can deliver energy safely, efficiently, and intelligently at extreme density. LITEON’s role in this transformation is to help turn next-generation AI power requirements into practical, deployable, and future-ready infrastructure.
+
+FAQs
+
+What are LITEON’s core advantages in AI power architecture?
+
+LITEON’s core strength lies in its system-level integration capabilities, including 800 VDC high-voltage architecture, Power Rack design, fully digital control, Power Smoothing, BBU-based backup systems, and high-voltage safety protection.
+
+Through these integrated capabilities, LITEON supports stable operation under high power density and dynamic workloads. It also provides cross-brand interoperability and high customization flexibility to meet diverse CSP deployment requirements. As a result, LITEON is not only a power supply provider, but also a rack-level power infrastructure partner that enables customers to build highly efficient, reliable, and resilient AI data center systems.
+
+Why is Power Rack architecture necessary in AI power systems?
+
+When rack-level power demand increases to 330 kW or even 660 kW, traditional IT racks can no longer accommodate both compute hardware and power equipment simultaneously. If power modules remain within the same rack, they compete with GPUs for limited space, restricting system scalability. As a result, power architecture must transition to a centralized Power Rack design, where Power Shelves are decoupled from IT racks and consolidated into a dedicated power infrastructure layer. This approach enables high power-density deployment while improving power distribution efficiency and overall system feasibility.
+
+Why does AI data center power architecture need to transition from 48V to 800 VDC?
+
+As AI computing density increases, low-voltage systems must carry higher current for the same power level. This leads to higher transmission losses, larger and heavier cables and busbars, increased thermal load, and greater space pressure within the rack. In high-density environments, these constraints become a key bottleneck limiting system scalability. By transitioning to an 800 VDC architecture, current levels can be reduced, which lowers I²R conduction losses, decreases material requirements, and improves power transmission efficiency. This makes it more suitable for high power-density GPU infrastructure. However, 800 VDC is not merely a voltage upgrade—it represents a shift from component-level optimization to system-level power architecture integration.
+
+Authors
+
+Bob Weng
+
+LITEON Cloud Infrastructure Platform & Solution
+
+Back to list
+
+Welcome to LITE-ON Technology Corporation
+
+Active Noise Cancellation Beyond the Basics: How Hybrid ANC Is Shaping Intelligent Audio Systems
+
+LITEON Technology Reports Consolidated August Sales of NT$19.6 Billion, Up 3% M-o-M and 25% Y-o-Y
+
+LITEON Announces Strategic Investment in Liquid Cooling Technology Company DCX Advancing AI Infrastructure Value Chain Through Integrated Power Management and Cooling Technologies
