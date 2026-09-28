@@ -251,6 +251,10 @@ export default function Page() {
               Research the companies behind AI.
             </p>
             <span className="workspace-source">Transcript-grounded research</span>
+            {/* The Supply-chain Tower (/tower) is its own full-screen page, opened in a new window. */}
+            <a className="tower-link" href="/tower" target="_blank" rel="noopener noreferrer" title="Open the 3D Supply-chain Tower in a new window">
+              3D Tower ↗
+            </a>
           </div>
           <div className="tabs" role="tablist" aria-label="Research views" ref={tabsRef} onKeyDown={navigateTabs}>
             {TABS.map((t, index) => (
