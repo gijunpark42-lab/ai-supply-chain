@@ -784,3 +784,21 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   → translate `i18n/pending/chunks/*` with Sonnet agents per `i18n/BRIEF.md` (pooled ≤16, no sub-agents) →
   `i18n.py validate i18n/pending` → `i18n.py merge i18n/pending` → `i18n.py build` → commit. Cost note: ~250-400k
   tokens per 70k-char chunk (3 languages incl. self-validation), far above the first estimate.
+- **2026-09-28 (Claude) — Supply-chain Tower (`/tower`, a 3D page in its own window)** — User: a 3D interactive view
+  "for investing", built locally first, then "사이트에 넣어 따로 창으로".
+  - Where: a new page, web/src/app/tower. The header's "3D Tower ↗" link opens it in a new window; the existing tabs
+    are untouched.
+  - Scene: the 13 layers are stacked as floors (apps on top, minerals at the bottom), with a power / thermal /
+    edge-AI annex. There is one building per company per floor, shaped by industry
+    (web/src/components/towerBuildings.ts: glass towers, data halls, GPU packages, 4–12-high memory stacks, fabs,
+    factories, tanks, cooling towers …). Size = connections, color = country, beacons sit on the 8 hubs. Bloom,
+    a night sky and a pedestal; the city rises floor by floor on load.
+  - Modes:
+    - Chains: roles come from each chain's link direction (a walk from the anchors named in chains/index.json);
+      ⚠ = a supply floor with 1–2 suppliers.
+    - Generations: e.g. B200 → Rubin, marking new / gone / both.
+    - Signals: the lib/signals.ts badges.
+  - Interaction: zooming in shows logo badges; a click flies to a company or a floor; the panel has a search box.
+  - Code: the logic is pure, in web/src/lib/tower.ts; the drawing is in Tower3D.tsx.
+  - Checked: tsc and next build pass; browser at desktop and ~500 px, no console errors.
+  - Korean search in the tower waits for PR #3 (SearchBox `aliases`).

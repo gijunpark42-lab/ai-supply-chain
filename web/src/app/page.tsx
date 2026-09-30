@@ -290,6 +290,10 @@ function Workspace() {
               {t("Research the companies behind AI.")}
             </p>
             <span className="workspace-source">{t("Transcript-grounded research")}</span>
+            {/* The Supply-chain Tower (/tower) is its own full-screen page, opened in a new window. */}
+            <a className="tower-link" href="/tower" target="_blank" rel="noopener noreferrer" title={t("Open the 3D Supply-chain Tower in a new window")}>
+              {t("3D Tower")} ↗
+            </a>
             <LangSwitch />
           </div>
           <div className="tabs" role="tablist" aria-label={t("Research views")} ref={tabsRef} onKeyDown={navigateTabs}>

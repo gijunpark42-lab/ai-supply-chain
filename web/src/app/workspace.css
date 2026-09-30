@@ -27,6 +27,25 @@
   font-size: 0.66rem;
   letter-spacing: 0.02em;
 }
+/* "3D Tower ↗": opens the Supply-chain Tower page in a new window. Right after the source
+   badge; where the badge is hidden (narrow screens) it takes the badge's place at the right. */
+.tower-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid rgba(74, 169, 255, 0.45);
+  border-radius: 8px;
+  background: rgba(41, 151, 255, 0.12);
+  color: #cfe8ff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.tower-link:hover { background: rgba(41, 151, 255, 0.24); border-color: rgba(74, 169, 255, 0.8); }
+@media (max-width: 1180px) {
+  .tower-link { margin-left: auto; }
+}
 .app-header .tabs {
   display: flex;
   flex-wrap: nowrap;

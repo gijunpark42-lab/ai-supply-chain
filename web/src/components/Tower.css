@@ -1,0 +1,230 @@
+/* Tower.css — the Supply-chain Tower page (/tower). Dark, in the main site's colors. */
+
+.tw-page {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  background: var(--ap-bg);
+  color: var(--ap-text);
+  font-size: 13px;
+}
+
+/* ── Side panel ─────────────────────────────────────────────────────────── */
+.tw-panel {
+  flex: 0 0 340px;
+  width: 340px;
+  overflow-y: auto;
+  padding: 18px 18px 28px;
+  border-right: 1px solid var(--ap-border);
+  background: rgba(10, 12, 16, 0.97);
+}
+.tw-panel-head { display: flex; align-items: center; gap: 8px; }
+.tw-title { font-size: 1.15rem; font-weight: 700; margin: 0; }
+.tw-proto {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+.tw-fold { display: none; margin-left: auto; background: none; border: 0; color: var(--ap-blue-hi); font: inherit; cursor: pointer; }
+.tw-back { display: inline-block; margin: 6px 0 12px; color: var(--ap-blue-hi); text-decoration: none; font-size: 0.8rem; }
+.tw-help { color: var(--ap-muted); line-height: 1.55; margin: 0 0 12px; }
+.tw-muted { color: var(--ap-muted); }
+.tw-section-title {
+  margin: 16px 0 7px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ap-muted);
+}
+
+.tw-search { margin: 0 0 12px; }
+
+/* The three ways to read the tower */
+.tw-modes {
+  display: flex;
+  gap: 3px;
+  margin: 14px 0 2px;
+  padding: 3px;
+  border: 1px solid var(--ap-border);
+  border-radius: 10px;
+  background: var(--ap-surface);
+}
+.tw-modes button {
+  flex: 1;
+  padding: 6px 4px;
+  border: 0;
+  border-radius: 7px;
+  background: none;
+  color: var(--ap-muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tw-modes button.on { background: rgba(41, 151, 255, 0.18); color: var(--ap-text); }
+
+.tw-compare-pick { display: flex; align-items: center; gap: 6px; margin: 8px 0 10px; }
+.tw-compare-pick select {
+  flex: 1;
+  min-width: 0;
+  padding: 5px 6px;
+  border: 1px solid var(--ap-border);
+  border-radius: 8px;
+  background: var(--ap-surface);
+  color: var(--ap-text);
+  font: inherit;
+  font-size: 0.76rem;
+}
+.tw-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.tw-badges { margin: 6px 0 0; font-size: 0.78rem; color: #fde68a; }
+
+.tw-legend { display: flex; flex-wrap: wrap; gap: 5px 12px; font-size: 0.78rem; color: #cbd5e1; }
+.tw-legend span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.tw-legend i, .tw-chip-btn i, .tw-path-floor i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+.tw-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.tw-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border: 1px solid var(--ap-border);
+  border-radius: 999px;
+  background: var(--ap-surface);
+  color: var(--ap-text);
+  font: inherit;
+  font-size: 0.76rem;
+  cursor: pointer;
+}
+.tw-chip-btn:hover { background: var(--ap-surface2); }
+.tw-chip-btn.on { border-color: var(--ap-blue); background: rgba(41, 151, 255, 0.16); }
+.tw-chip-btn small { color: var(--ap-muted); }
+
+/* A chain, read floor by floor */
+.tw-path h3, .tw-card h3 { margin: 0; font-size: 1rem; }
+.tw-path > p { margin: 5px 0 10px; line-height: 1.5; }
+.tw-path ol { list-style: none; margin: 0; padding: 0; }
+.tw-path ol > li { padding: 8px 0; border-top: 1px solid var(--ap-border); }
+.tw-path ol > li.warn .tw-path-floor { color: #fbbf24; }
+.tw-path-floor { display: flex; align-items: center; gap: 7px; font-weight: 600; }
+.tw-role { margin-left: auto; font-size: 0.7rem; font-weight: 500; color: var(--ap-muted); white-space: nowrap; }
+.tw-role.anchor { color: #fde68a; }
+.tw-path ul { list-style: none; margin: 5px 0 0 16px; padding: 0; }
+.tw-path ul li { margin: 2px 0; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tw-member-role { font-size: 0.66rem; color: var(--ap-muted); }
+.tw-member-role.supplier { color: #86efac; }
+.tw-member-role.customer { color: #93c5fd; }
+.tw-member-role.anchor { color: #fde68a; }
+.tw-link-btn { background: none; border: 0; padding: 0; color: var(--ap-text); font: inherit; cursor: pointer; }
+.tw-link-btn:hover { color: var(--ap-blue-hi); text-decoration: underline; }
+.tw-note { font-size: 0.74rem; line-height: 1.5; margin-top: 10px; }
+
+/* A company */
+.tw-card-head { display: flex; align-items: center; gap: 8px; }
+.tw-card-head button { margin-left: auto; background: none; border: 0; color: var(--ap-muted); font-size: 1rem; cursor: pointer; }
+.tw-kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 10px 0 0; }
+.tw-kv dt { color: var(--ap-muted); }
+.tw-kv dd { margin: 0; }
+.tw-signals { list-style: none; margin: 0; padding: 0; }
+.tw-signals li { padding: 7px 0; border-top: 1px solid var(--ap-border); line-height: 1.45; }
+.tw-signals p { margin: 0; }
+/* Long signals stop after five lines — the source label under them stays visible. */
+.tw-signals p:first-child {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.tw-fig { color: #bfdbfe; }
+.tw-src { color: var(--ap-muted); font-size: 0.72rem; margin-top: 2px !important; }
+
+/* ── 3D stage ───────────────────────────────────────────────────────────── */
+.tw-stage { position: relative; flex: 1; min-width: 0; overflow: hidden; }
+.tw-stage canvas { display: block; touch-action: none; }
+.tw-labels { position: absolute; inset: 0; pointer-events: none; }
+.tw-state { position: absolute; inset: 0; display: grid; place-items: center; color: var(--ap-muted); }
+
+.tw-floor {
+  font-size: 11px;
+  white-space: nowrap;
+  color: #cbd5e1;
+  background: rgba(10, 12, 16, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 2px 7px;
+}
+.tw-floor { pointer-events: auto; cursor: pointer; } /* click a floor's name to fly to it */
+.tw-floor:hover { border-color: rgba(74, 169, 255, 0.6); }
+.tw-floor span { color: var(--ap-muted); }
+.tw-floor.warn { color: #fbbf24; border-color: rgba(245, 158, 11, 0.6); }
+.tw-floor.warn span { color: #fbbf24; }
+.tw-floor.dim { opacity: 0.3; }
+
+.tw-name {
+  font-size: 10.5px;
+  white-space: nowrap;
+  color: #f1f5f9;
+  background: rgba(10, 12, 16, 0.72);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.tw-tip {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  max-width: 260px;
+  padding: 8px 10px;
+  border: 1px solid var(--ap-border);
+  border-radius: 10px;
+  background: rgba(20, 23, 28, 0.96);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.tw-tip-name { font-weight: 700; }
+.tw-tip-sub { color: var(--ap-muted); }
+.tw-tip-floor { margin-top: 3px; color: #cbd5e1; }
+.tw-tip-product { color: #bfdbfe; }
+
+.tw-tools { position: absolute; top: 14px; right: 14px; z-index: 4; display: flex; gap: 6px; }
+.tw-tools button {
+  padding: 5px 11px;
+  border: 1px solid var(--ap-border);
+  border-radius: 8px;
+  background: rgba(20, 23, 28, 0.9);
+  color: var(--ap-text);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+/* ── Phones: the stage on top, the panel as a sheet underneath ─────────── */
+@media (max-width: 760px) {
+  .tw-page { flex-direction: column; }
+  .tw-stage { order: 1; }
+  .tw-panel {
+    order: 2;
+    flex: 0 0 auto;
+    width: auto;
+    max-height: 44vh;
+    padding: 12px 16px 20px;
+    border-right: 0;
+    border-top: 1px solid var(--ap-border);
+  }
+  .tw-panel.folded { max-height: 50px; overflow: hidden; }
+  .tw-fold { display: inline-block; }
+  .tw-floor, .tw-name { font-size: 9.5px; padding: 1px 5px; }
+}
