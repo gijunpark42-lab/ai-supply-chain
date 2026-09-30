@@ -35,7 +35,7 @@ Work part by part: read a part, write its ko, zh and ja files, then the next par
    already exists in out/<lang>/ and passes validation, skip it (you may be resuming someone else's work).
 
 ## Check before you finish
-From the repo root run `...python.exe -X utf8 i18n.py validate i18n\pending` and fix every reported problem (numbers/currency tokens
+From the repo root run `...python.exe -X utf8 i18n.py validate i18n\pending cNNN` (your chunk only) and fix every reported problem (numbers/currency tokens
 must survive exactly; ko must contain Hangul, zh/ja CJK; no Hangul in zh/ja; no kana in zh) until
 `RESULT: clean`.
 

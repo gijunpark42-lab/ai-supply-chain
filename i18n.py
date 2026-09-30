@@ -14,7 +14,7 @@ Commands
     python i18n.py pending [--size 60000] # write the untranslated strings as chunk files to i18n/pending/
     python i18n.py merge <dir>            # merge translated chunk outputs (<dir>/out/<lang>/*.json) into translations
     python i18n.py build                  # write the web overlay files (run by graph_build.py --sync)
-    python i18n.py validate <dir>         # check chunk outputs: ids, numbers, currencies, scripts
+    python i18n.py validate <dir> [cNNN]  # check chunk outputs: ids, numbers, currencies, scripts
 
 Translation itself is done by Claude agents (Sonnet or better) following i18n/BRIEF.md -- see the enrich skill,
 "translate" step. Nothing here calls an API.
@@ -235,7 +235,10 @@ def cmd_build(_):
             save_json(os.path.join(WEB_OUT, lang, b + ".json"), d)
     if os.path.exists(names_p):
         save_json(os.path.join(WEB_OUT, "company_names.json"), json.load(open(names_p, encoding="utf-8")))
-    missing = {lang: sum(1 for k in src if k not in load_trans(lang)) for lang in LANGS}
+    missing = {}
+    for lang in LANGS:
+        tr = load_trans(lang)                       # load each file ONCE (not once per string)
+        missing[lang] = sum(1 for k in src if k not in tr)
     print("i18n overlay built; untranslated displayed strings: "
           + ", ".join(f"{l} {n}" for l, n in missing.items())
           + ("" if not any(missing.values()) else "  (run `python i18n.py pending` and translate)"))
@@ -276,7 +279,8 @@ def check_one(en, tr, lang):
 def cmd_validate(a):
     base = a.dir
     probs = 0
-    for f in sorted(glob.glob(os.path.join(base, "chunks", "*.json"))):
+    pattern = (a.chunk + "_p*.json") if a.chunk else "*.json"     # one chunk (cNNN) or all of them
+    for f in sorted(glob.glob(os.path.join(base, "chunks", pattern))):
         part = os.path.basename(f)
         src = json.load(open(f, encoding="utf-8"))
         for lang in LANGS:
@@ -304,6 +308,7 @@ def main():
     sub.add_parser("build")
     p = sub.add_parser("validate")
     p.add_argument("dir")
+    p.add_argument("chunk", nargs="?", help="only this chunk, e.g. c007")
     a = ap.parse_args()
     {"status": cmd_status, "pending": cmd_pending, "merge": cmd_merge,
      "build": cmd_build, "validate": cmd_validate}[a.cmd](a)
