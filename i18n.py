@@ -84,10 +84,33 @@ REPORT_SKIP_KEYS = {"company", "ticker", "source", "sources", "url", "urls", "as
                     "generated_at", "model", "label", "labels", "exchange"}
 
 
+# Must match web/src/lib/signals.ts (DATE_RE and the split / length rules in buildTimeline()).
+TIMELINE_DATE_RE = re.compile(
+    r"\b(Q[1-4]\s*(?:FY\s*)?20\d\d|[12]H\s*20\d\d|H[12]\s*(?:FY\s*)?20\d\d|(?:early|mid|late|end of|exiting|through|by)"
+    r"\s*(?:calendar |CY|fiscal |FY)?\s*20\d\d|CY20\d\d|FY20\d\d|20\d\d)\b", re.I)
+
+
+def timeline_sentences(signal):
+    """The sentences buildTimeline() can show: split after '.' or ';', 25-240 chars, containing a date."""
+    out = []
+    for part in re.split(r"(?<=[.;])\s+", signal):
+        t = part.strip()
+        if 25 <= len(t) <= 240 and TIMELINE_DATE_RE.search(t):
+            out.append(t)
+    return out
+
+
 def extract():
     """Return {id: {"en", "bundles"}} for every displayed English string."""
     c = Collector()
-    c.walk(load("merged_graph.json"), GRAPH_KEYS, "graph", list_keys={"sectors"})
+    graph = load("merged_graph.json")
+    c.walk(graph, GRAPH_KEYS, "graph", list_keys={"sectors"})
+    # The company panel's "Product / Capacity Timeline" shows single SENTENCES cut out of signals
+    # (web/src/lib/signals.ts buildTimeline) -- each sentence is looked up on its own, so add them too.
+    for node in (graph or {}).get("nodes", []):
+        for q in node.get("quarterly_data") or []:
+            for sentence in timeline_sentences(q.get("signal") or ""):
+                c.add(sentence, "graph")
     idx = load("chains/index.json")
     if idx:
         c.walk(idx, {"chain_focus", "title"}, "graph")

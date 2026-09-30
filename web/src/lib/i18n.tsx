@@ -138,6 +138,51 @@ export function trJoined(s: string | null | undefined): string {
   return s ? s.split(" · ").map(tr).join(" · ") : "";
 }
 
+/** A timeline date label (lib/signals.ts DATE_RE match) in the current language:
+ *  "late 2026" → "2026년 말" / "2026年底" / "2026年末"; "by fiscal 2027" → "FY2027까지" …
+ *  Quarter / half forms (Q2 FY2026, 1H 2026, H2 2026) and bare years stay as written. */
+const WHEN_WORDS: Record<Exclude<Lang, "en">, Record<string, (y: string, fy: boolean) => string>> = {
+  ko: {
+    early: (y, fy) => `${y}${fy ? "" : "년"} 초`,
+    mid: (y, fy) => `${y}${fy ? "" : "년"} 중반`,
+    late: (y, fy) => `${y}${fy ? "" : "년"} 말`,
+    "end of": (y, fy) => `${y}${fy ? "" : "년"} 말`,
+    exiting: (y, fy) => `${y}${fy ? "" : "년"} 말`,
+    through: (y, fy) => `${y}${fy ? "" : "년"}까지`,
+    by: (y, fy) => `${y}${fy ? "" : "년"}까지`,
+  },
+  zh: {
+    early: (y, fy) => `${y}${fy ? "" : "年"}初`,
+    mid: (y, fy) => `${y}${fy ? "" : "年"}中`,
+    late: (y, fy) => `${y}${fy ? "" : "年"}底`,
+    "end of": (y, fy) => `${y}${fy ? "" : "年"}底`,
+    exiting: (y, fy) => `${y}${fy ? "" : "年"}底`,
+    through: (y, fy) => `至${y}${fy ? "" : "年"}`,
+    by: (y, fy) => `${y}${fy ? "" : "年"}前`,
+  },
+  ja: {
+    early: (y, fy) => `${y}${fy ? "" : "年"}初め`,
+    mid: (y, fy) => `${y}${fy ? "" : "年"}半ば`,
+    late: (y, fy) => `${y}${fy ? "" : "年"}後半`,
+    "end of": (y, fy) => `${y}${fy ? "" : "年"}末`,
+    exiting: (y, fy) => `${y}${fy ? "" : "年"}末`,
+    through: (y, fy) => `${y}${fy ? "" : "年"}まで`,
+    by: (y, fy) => `${y}${fy ? "" : "年"}までに`,
+  },
+};
+const WHEN_RE = /^(early|mid|late|end of|exiting|through|by)\s*(calendar |CY|fiscal |FY)?\s*(20\d\d)$/i;
+
+export function trWhen(when: string): string {
+  if (cur === "en" || !when) return when;
+  const m = WHEN_RE.exec(when.trim());
+  if (!m) return when; // Q2 2026, 1H 2026, FY2026, 2026 … are fine as written
+  const word = m[1].toLowerCase();
+  const fiscal = !!m[2] && /^(fiscal|FY)/i.test(m[2]);
+  const year = fiscal ? `FY${m[3]}` : m[3];
+  const fmt = WHEN_WORDS[cur][word];
+  return fmt ? fmt(year, fiscal) : when;
+}
+
 /** A company's display name: its local name for the current language, else the id. */
 export function name(id: string): string {
   if (cur === "en" || !id) return id;
