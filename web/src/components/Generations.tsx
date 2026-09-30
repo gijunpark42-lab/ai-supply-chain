@@ -8,7 +8,8 @@ import {
   type GenStatus,
   type TransitionRow,
 } from "@/lib/transitions";
-import { GROUP_COLORS, GROUP_NAMES, slugLabel } from "@/lib/taxonomy";
+import { GROUP_COLORS, groupName, slugLabel } from "@/lib/taxonomy";
+import { t, trJoined, name, useLang } from "@/lib/i18n";
 
 interface Props {
   nodes: VizNode[];
@@ -46,29 +47,29 @@ function RowLine({ r, byId, onSelect }: { r: TransitionRow; byId: Props["byId"];
         const n = byId.get(r.id);
         if (n) onSelect(n);
       }}
-      title={GROUP_NAMES[r.primary] || r.primary}
+      title={groupName(r.primary)}
     >
       <span className="dot" style={{ background: GROUP_COLORS[r.primary] || "#94a3b8" }} />
       <div>
-        <div className="gen-name">{r.id}</div>
+        <div className="gen-name">{name(r.id)}</div>
         <div className="gen-prod">
           {r.status === "retained" &&
             (changed ? (
               <>
-                {r.productFrom} <span className="gen-arrow">→</span> {r.productTo}
+                {trJoined(r.productFrom)} <span className="gen-arrow">→</span> {trJoined(r.productTo)}
               </>
             ) : (
-              r.productTo || r.productFrom
+              trJoined(r.productTo || r.productFrom)
             ))}
           {r.status === "gained" && (
             <>
-              {r.productTo}
+              {trJoined(r.productTo)}
               {r.toChains.length > 0 && (
                 <span className="gen-chains"> · {r.toChains.map(slugLabel).join(" · ")}</span>
               )}
             </>
           )}
-          {r.status === "lost" && r.productFrom}
+          {r.status === "lost" && trJoined(r.productFrom)}
         </div>
       </div>
     </div>
@@ -76,6 +77,7 @@ function RowLine({ r, byId, onSelect }: { r: TransitionRow; byId: Props["byId"];
 }
 
 export default function Generations({ nodes, byId, onSelect }: Props) {
+  useLang();
   const [sel, setSel] = useState(TRANSITIONS[0].key);
 
   const results = useMemo(
@@ -88,24 +90,22 @@ export default function Generations({ nodes, byId, onSelect }: Props) {
 
   return (
     <div>
-      <h3>🔀 Generation Transitions</h3>
+      <h3>🔀 {t("Generation Transitions")}</h3>
       <p className="caption">
-        Who keeps, gains, or loses a socket when an accelerator platform moves to its next
-        generation — and how the content changes (HBM3E → HBM4, copper → optical, …). Computed
-        from the curated chains; click a company for details.
+        {t("Who keeps, gains, or loses a socket when an accelerator platform moves to its next generation — and how the content changes (HBM3E → HBM4, copper → optical, …). Computed from the curated chains; click a company for details.")}
       </p>
 
       <div className="gen-picker">
-        {TRANSITIONS.map((t) => {
-          const r = results.get(t.key)!;
+        {TRANSITIONS.map((tn) => {
+          const r = results.get(tn.key)!;
           return (
             <button
-              key={t.key}
-              className={"gen-pick" + (sel === t.key ? " on" : "")}
-              onClick={() => setSel(t.key)}
+              key={tn.key}
+              className={"gen-pick" + (sel === tn.key ? " on" : "")}
+              onClick={() => setSel(tn.key)}
             >
-              <span className="gen-pick-vendor">{t.vendor}</span>
-              <span className="gen-pick-label">{t.short}</span>
+              <span className="gen-pick-vendor">{name(tn.vendor)}</span>
+              <span className="gen-pick-label">{tn.short}</span>
               <span className="gen-pick-counts">
                 <em className="g">📈{r.counts.gained}</em>
                 <em className="r">✅{r.counts.retained}</em>
@@ -117,8 +117,7 @@ export default function Generations({ nodes, byId, onSelect }: Props) {
       </div>
 
       <p className="caption" style={{ margin: "0.4rem 0 0.8rem" }}>
-        <b style={{ color: "var(--ap-text)" }}>{cur.t.label}</b> — {cur.rows.length} companies
-        across both generations.
+        <b style={{ color: "var(--ap-text)" }}>{t(cur.t.label)}</b> — {t("{n} companies across both generations.", { n: cur.rows.length })}
       </p>
 
       <div className="gen-grid">
@@ -128,13 +127,13 @@ export default function Generations({ nodes, byId, onSelect }: Props) {
           return (
             <div key={st} className={"gen-col " + meta.cls}>
               <div className="gen-col-head">
-                {meta.icon} {meta.title} ({rows.length})
+                {meta.icon} {t(meta.title)} ({rows.length})
               </div>
-              <div className="gen-col-note">{meta.note}</div>
+              <div className="gen-col-note">{t(meta.note)}</div>
               {rows.map((r) => (
                 <RowLine key={r.id} r={r} byId={byId} onSelect={onSelect} />
               ))}
-              {rows.length === 0 && <div className="gen-empty">none</div>}
+              {rows.length === 0 && <div className="gen-empty">{t("none")}</div>}
             </div>
           );
         })}

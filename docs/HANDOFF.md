@@ -765,6 +765,25 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   PSK Inc. facts carry the PSK Holdings group-deck label (KIND 19244 deduped as the same file). Transient
   Errno 22 / copyfile errors on graph/ + web sync — re-run fixed them. Uncommitted: yes.
 
+- **2026-09-27/28 (Claude) — web language modes EN / 한국어 / 中文 / 日本語 (branch `web-i18n`)** — User: add
+  ko / zh (Mandarin, Simplified) / ja buttons and translate EVERYTHING, Sonnet minimum, currencies as-is, company-name
+  policy up to Claude, up to 100 agents. Built on PR #3 (graph-search, merged in). Web: `web/src/lib/i18n.tsx`
+  (LangProvider, `t()` UI strings, `tr()` data overlay via sync SHA-1, `name()` local company names, header
+  buttons), `web/src/lib/ui-strings.ts` (~690 UI strings in 3 languages), all components wired; English stays the
+  logic key everywhere (ids, labels, evidence keys, Screener detail match, Timelines Date/Company/Source columns);
+  Ask answers in zh/ja added (local Ask server needs a restart). Data: `i18n.py` (status / pending / merge / build /
+  validate), master translations `i18n/translations/<lang>.json` = {sha1(text)[:12]: text}, overlays
+  `web/public/data/i18n/<lang>/<bundle>.json` rebuilt by `graph_build.py --sync`; `i18n/company_names.json`
+  (250: KR from DART corp_name, JP / CN-HK-TW (Simplified) by Opus + independent check; home-market names only).
+  Policy: numbers and money amounts verbatim ("KRW 58.8 billion" — no 억/亿 conversion), company / product names,
+  tickers and source labels stay English inside sentences; evidence excerpts and Status operator text stay English.
+  Translation run: 29,813 strings / 7.1M chars; Sonnet agents; server 429s above ~16-25 concurrent → pooled workflow
+  (16) with retries. STOPPED at the user's quota limit (5h 100%, 7d 95%): about 63%+ of strings per language merged
+  (only strings passing `i18n.py` checks); the rest shows English. Enrich skill §9 added (translate new strings at
+  the end of every enrich run). **Resume:** `python -X utf8 i18n.py status` → `python -X utf8 i18n.py pending`
+  → translate `i18n/pending/chunks/*` with Sonnet agents per `i18n/BRIEF.md` (pooled ≤16, no sub-agents) →
+  `i18n.py validate i18n/pending` → `i18n.py merge i18n/pending` → `i18n.py build` → commit. Cost note: ~250-400k
+  tokens per 70k-char chunk (3 languages incl. self-validation), far above the first estimate.
 - **2026-09-28 (Claude) — Supply-chain Tower (`/tower`, a 3D page in its own window)** — User: a 3D interactive view
   "for investing", built locally first, then "사이트에 넣어 따로 창으로".
   - Where: a new page, web/src/app/tower. The header's "3D Tower ↗" link opens it in a new window; the existing tabs

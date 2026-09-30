@@ -29,8 +29,10 @@ body {
   padding: 0;
   background: var(--ap-bg);
   color: var(--ap-text);
+  /* CJK fonts after the Latin ones: Latin text keeps SF / Helvetica, while
+     Korean / Chinese / Japanese glyphs fall through to a system CJK face. */
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+    "Helvetica Neue", Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1681,10 +1683,10 @@ table.data th.active .sort-arrow {
   padding: 2rem 3rem;
   max-width: 880px;
   margin: 0 auto;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", "Noto Serif KR", "Noto Serif SC", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "SimSun", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", serif;
 }
 .print-body {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", "Noto Serif KR", "Noto Serif SC", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "SimSun", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", serif;
 }
 .print-bar {
   margin-bottom: 1.4rem;
@@ -2369,4 +2371,91 @@ body.glass .cell-modal {
   content: " · ";
   color: var(--ap-muted);
   font-weight: 400;
+}
+
+/* ── Languages (lib/i18n.tsx) ─────────────────────────────────────────── */
+/* Put the right CJK face first for the page language, so shared Han characters
+   use Japanese glyphs in Japanese and Simplified Chinese glyphs in Chinese. */
+html:lang(ko) body {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html:lang(zh-Hans) body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans SC",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html:lang(ja) body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* Korean breaks between words, not inside them; a word that cannot fit (a long
+   product code in a narrow table cell) may still wrap anywhere instead of
+   overflowing. Chinese / Japanese wrap per character already. */
+html:lang(ko) body {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* EN | 한국어 | 中文 | 日本語 — compact segmented control in the header row. */
+.lang-switch {
+  display: inline-flex;
+  flex: 0 0 auto;
+  margin-left: auto;
+  border: 1px solid var(--ap-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.workspace-source + .lang-switch {
+  margin-left: 0;
+}
+.lang-btn {
+  background: transparent;
+  color: var(--ap-muted);
+  border: 0;
+  padding: 4px 9px;
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.lang-btn + .lang-btn {
+  border-left: 1px solid var(--ap-border);
+}
+.lang-btn:hover {
+  color: var(--ap-text);
+}
+.lang-btn.on {
+  background: rgba(120, 160, 255, 0.22);
+  color: var(--ap-text);
+  font-weight: 600;
+}
+@media (max-width: 860px) {
+  .lang-btn {
+    padding: 4px 6px;
+    font-size: 0.68rem;
+  }
+}
+@media (max-width: 380px) {
+  .lang-btn {
+    padding: 4px 4px;
+  }
+}
+/* The print page puts the switch next to its Print button (screen only: the
+   bar itself is hidden when printing). */
+@media screen {
+  .print-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+/* NodePanel title: the local company name, with the English id underneath. */
+.panel-title-en {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ap-muted);
 }

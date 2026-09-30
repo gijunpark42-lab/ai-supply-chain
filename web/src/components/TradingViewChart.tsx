@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLang, type Lang } from "@/lib/i18n";
+
+// The widget's own UI language for each site language.
+const TV_LOCALE: Record<Lang, string> = { en: "en", ko: "kr", zh: "zh_CN", ja: "ja" };
 
 // TradingView "Symbol Overview" widget for US-listed tickers (client-side, no
 // server fetch). Mirrors app.py mountTV: dark area chart, blue line, range tabs.
@@ -9,6 +13,7 @@ export default function TradingViewChart({
 }: {
   symbol: string; // e.g. "NASDAQ:NVDA"
 }) {
+  const { lang } = useLang();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +36,7 @@ export default function TradingViewChart({
       chartOnly: false,
       width: "100%",
       height: 300,
-      locale: "en",
+      locale: TV_LOCALE[lang],
       colorTheme: "dark",
       isTransparent: true,
       autosize: false,
@@ -48,7 +53,7 @@ export default function TradingViewChart({
     return () => {
       el.innerHTML = "";
     };
-  }, [symbol]);
+  }, [symbol, lang]);
 
   return <div ref={ref} style={{ height: 300 }} />;
 }

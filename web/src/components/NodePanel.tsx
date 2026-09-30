@@ -3,7 +3,8 @@
 import { memo, useEffect, useMemo, useRef, useState } from "react";
 import type { VizNode, Contract, QuarterlyData } from "@/lib/types";
 import { buildBadges, buildTimeline, sigDate, FLAG } from "@/lib/signals";
-import { GROUP_NAMES, GROUP_COLORS, slugLabel } from "@/lib/taxonomy";
+import { GROUP_COLORS, groupName, slugLabel } from "@/lib/taxonomy";
+import { t, tr, trJoined, name, useLang } from "@/lib/i18n";
 import { nodeExposure } from "@/lib/transitions";
 import { fetchJson } from "@/lib/data";
 import { yahooSymbol } from "@/lib/yahoo";
@@ -205,10 +206,11 @@ function SourceLabel({ label }: { label: string }) {
 function ContractLine({ c, company, target }: { c: Contract; company: string; target: string }) {
   const meta = [c.units, c.value, c.date_signed, c.type]
     .filter((x) => x && x !== "no specific figure" && x !== "not stated")
+    .map(tr)
     .join(" · ");
   return (
     <div className="deal-contract">
-      <div className="deal-sig">{c.signal}</div>
+      <div className="deal-sig">{tr(c.signal)}</div>
       {meta && <div className="deal-meta">{meta}</div>}
       {c.source && (
         <div className="deal-src np-sig-head">
@@ -235,6 +237,7 @@ const EdgeGroupCard = memo(function EdgeGroupCard({
   company: string; // edge source (for the evidence key)
   target: string; // edge target
 }) {
+  useLang(); // memo() rows still re-render on a language change
   const [all, setAll] = useState(false);
   const n = g.contracts.length;
   const shown = all ? g.contracts : g.contracts.slice(0, CONTRACTS_PREVIEW);
@@ -243,22 +246,22 @@ const EdgeGroupCard = memo(function EdgeGroupCard({
     <div className="deal-group">
       <div className="np-deal-head">
         <div className="deal-co" onClick={() => onNavigate(g.company)}>
-          {g.company}
+          {name(g.company)}
         </div>
         {n > 0 && (
           <span className="np-deal-meta">
-            {n} deal{n === 1 ? "" : "s"}
-            {latest ? ` · latest ${latest}` : ""}
+            {t(n === 1 ? "{n} deal" : "{n} deals", { n })}
+            {latest ? " · " + t("latest {date}", { date: latest }) : ""}
           </span>
         )}
       </div>
-      <div className="deal-rel">{g.relationship}</div>
+      <div className="deal-rel">{tr(g.relationship)}</div>
       {shown.map((c, i) => (
         <ContractLine c={c} key={i} company={company} target={target} />
       ))}
       {n > CONTRACTS_PREVIEW && (
         <button className="np-linkbtn" onClick={() => setAll((s) => !s)}>
-          {all ? "Show fewer" : `+${n - CONTRACTS_PREVIEW} more deal${n - CONTRACTS_PREVIEW === 1 ? "" : "s"}`}
+          {all ? t("Show fewer") : t(n - CONTRACTS_PREVIEW === 1 ? "+{n} more deal" : "+{n} more deals", { n: n - CONTRACTS_PREVIEW })}
         </button>
       )}
     </div>
@@ -267,23 +270,24 @@ const EdgeGroupCard = memo(function EdgeGroupCard({
 
 // One signal (quarterly_data entry).
 const SigRow = memo(function SigRow({ q, company }: { q: QuarterlyData; company: string }) {
+  useLang();
   const topics = q.topics || [];
   return (
     <div className="sig-item">
       <div className="np-sig-head">
         <SourceLabel label={q.quarter} />
         {q.chain && (
-          <span className="np-chain" title={`from chain: ${q.chain}`}>
+          <span className="np-chain" title={t("from chain: {chain}", { chain: slugLabel(q.chain) })}>
             {slugLabel(q.chain)}
           </span>
         )}
         <EvidenceButton kind="qd" company={company} label={q.quarter} signal={q.signal} />
       </div>
-      <div className="sig-s">{q.signal}</div>
-      {hasFigure(q.figure) && <div className="sig-f">{q.figure}</div>}
+      <div className="sig-s">{tr(q.signal)}</div>
+      {hasFigure(q.figure) && <div className="sig-f">{tr(q.figure)}</div>}
       {(q.slot || topics.length > 0) && (
         <div className="np-tags">
-          {q.slot && <span className="np-tag slot">{SLOT_LABEL[q.slot] || q.slot}</span>}
+          {q.slot && <span className="np-tag slot">{SLOT_LABEL[q.slot] ? t(SLOT_LABEL[q.slot]) : q.slot}</span>}
           {topics.map((t) => (
             <span className="np-tag" key={t}>
               {slugLabel(t)}
@@ -298,6 +302,7 @@ const SigRow = memo(function SigRow({ q, company }: { q: QuarterlyData; company:
 // One counterparty row in "Customers & suppliers on file": collapsed = name,
 // entry count, latest date, latest figure; expanded = every entry.
 const OnFileRow = memo(function OnFileRow({ g }: { g: OnFile }) {
+  useLang();
   const [open, setOpen] = useState(false);
   const n = g.entries.length;
   const top = g.entries[0];
@@ -305,19 +310,20 @@ const OnFileRow = memo(function OnFileRow({ g }: { g: OnFile }) {
   // The signal repeats the counterparty ("Customer X: …"); the row header already
   // says X, so drop that prefix when it matches exactly.
   const prefix = (g.role === "customer" ? "Customer " : "Supplier ") + g.name + ":";
-  const body = (s: string) => (s.startsWith(prefix) ? s.slice(prefix.length).trim() : s);
+  // A translated signal is shown whole (the prefix is inside the translation).
+  const body = (s: string) => (tr(s) !== s ? tr(s) : s.startsWith(prefix) ? s.slice(prefix.length).trim() : s);
   return (
     <div className="np-of-row">
       <button className="np-of-head" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
         <span className="np-of-caret">{open ? "▾" : "▸"}</span>
         <span className="np-of-name">{g.name}</span>
-        <span className="np-of-note">not a graph node</span>
+        <span className="np-of-note">{t("not a graph node")}</span>
         <span className="np-of-meta">
-          {n} entr{n === 1 ? "y" : "ies"}
-          {latest ? ` · latest ${latest}` : ""}
+          {t(n === 1 ? "{n} entry" : "{n} entries", { n })}
+          {latest ? " · " + t("latest {date}", { date: latest }) : ""}
         </span>
       </button>
-      {!open && top && hasFigure(top.figure) && <div className="np-of-fig">{top.figure}</div>}
+      {!open && top && hasFigure(top.figure) && <div className="np-of-fig">{tr(top.figure)}</div>}
       {open && (
         <div className="np-of-list">
           {g.entries.map((q, i) => (
@@ -326,7 +332,7 @@ const OnFileRow = memo(function OnFileRow({ g }: { g: OnFile }) {
                 <SourceLabel label={q.quarter} />
               </div>
               <div className="sig-s">{body(q.signal)}</div>
-              {hasFigure(q.figure) && <div className="sig-f">{q.figure}</div>}
+              {hasFigure(q.figure) && <div className="sig-f">{tr(q.figure)}</div>}
             </div>
           ))}
         </div>
@@ -350,6 +356,7 @@ export default function NodePanel({
   onClose: () => void;
   onNavigate: (id: string) => void;
 }) {
+  const { rev } = useLang();
   const [showReport, setShowReport] = useState(false);
   const [report, setReport] = useState<any>(null);
   const [topic, setTopic] = useState<string | null>(null); // active topic chip
@@ -407,12 +414,14 @@ export default function NodePanel({
   }, [ownSigs]);
   const filteredSigs = useMemo(() => {
     const f = filter.trim().toLowerCase();
+    // Search the English text and what is on screen (the translation).
     return ownSigs.filter(
       (q) =>
         (!topic || (q.topics || []).includes(topic)) &&
-        (!f || `${q.quarter} ${q.signal} ${q.figure}`.toLowerCase().includes(f))
+        (!f || `${q.quarter} ${q.signal} ${q.figure} ${tr(q.signal)} ${tr(q.figure)}`.toLowerCase().includes(f))
     );
-  }, [ownSigs, topic, filter]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ownSigs, topic, filter, rev]);
   // A new filter starts the list from the top again.
   useEffect(() => {
     setSigLimit(SIG_PAGE);
@@ -454,10 +463,10 @@ export default function NodePanel({
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
-        aria-label={node.id}
+        aria-label={name(node.id)}
       >
         {glass && <div className="pacc" style={{ background: accent }} />}
-        <button className="panel-close" onClick={onClose} aria-label="Close (Esc)" title="Close (Esc)">
+        <button className="panel-close" onClick={onClose} aria-label={t("Close (Esc)")} title={t("Close (Esc)")}>
           ✕
         </button>
 
@@ -467,7 +476,10 @@ export default function NodePanel({
               <img src={node.logo} alt="" />
             </span>
           )}
-          <h2 className="panel-title">{node.id}</h2>
+          <h2 className="panel-title">
+            {name(node.id)}
+            {name(node.id) !== node.id && <span className="panel-title-en">{node.id}</span>}
+          </h2>
         </div>
 
         <div className="panel-meta">
@@ -482,14 +494,14 @@ export default function NodePanel({
               {FLAG[node.country] ? `${FLAG[node.country]} ${node.country}` : node.country}
             </span>
           )}
-          {node.status && <span className={"np-status " + node.status}>{node.status}</span>}
+          {node.status && <span className={"np-status " + node.status}>{t(node.status)}</span>}
           {node.lastData ? (
             <span className="muted">
-              last data {node.lastData}
-              {node.stale ? " · stale" : ""}
+              {t("last data {date}", { date: node.lastData })}
+              {node.stale ? " · " + t("stale") : ""}
             </span>
           ) : (
-            <span className="muted">no signals yet</span>
+            <span className="muted">{t("no signals yet")}</span>
           )}
         </div>
 
@@ -497,10 +509,10 @@ export default function NodePanel({
           {node.ticker && (
             <button
               className="copy-btn"
-              title="Copy ticker"
+              title={t("Copy ticker")}
               onClick={() => copy("ticker", node.ticker as string)}
             >
-              {copied === "ticker" ? "✓ copied" : `📋 ${node.ticker}`}
+              {copied === "ticker" ? "✓ " + t("copied") : `📋 ${node.ticker}`}
             </button>
           )}
           {tvUrl && (
@@ -515,10 +527,10 @@ export default function NodePanel({
           )}
           <button
             className="copy-btn"
-            title={`Copy "Transcript:${node.id}" — the enrichment command for Claude Code`}
+            title={t("Copy \"Transcript:{id}\" — the enrichment command for Claude Code", { id: node.id })}
             onClick={() => copy("transcript", `Transcript:${node.id}`)}
           >
-            {copied === "transcript" ? "✓ copied" : "📋 Transcript"}
+            {copied === "transcript" ? "✓ " + t("copied") : "📋 " + t("Transcript")}
           </button>
         </div>
 
@@ -532,7 +544,7 @@ export default function NodePanel({
         <div className="panel-btns">
           {node.hasReport && (
             <button className="btn" onClick={() => setShowReport((s) => !s)}>
-              📊 {showReport ? "Hide" : "Stock"} Report
+              📊 {showReport ? t("Hide Report") : t("Stock Report")}
             </button>
           )}
           {node.hasReport && (
@@ -542,28 +554,28 @@ export default function NodePanel({
                 window.open(`/report/${encodeURIComponent(node.id)}`, "_blank", "noopener")
               }
             >
-              📄 Download PDF
+              📄 {t("Download PDF")}
             </button>
           )}
         </div>
 
         {showReport && (
           <div className="repbox">
-            {report ? <ReportView report={report} /> : <p className="muted">Loading report…</p>}
+            {report ? <ReportView report={report} /> : <p className="muted">{t("Loading report…")}</p>}
           </div>
         )}
 
         {slots.length > 0 && (
           <>
-            <div className="pcol-head">Latest by slot</div>
+            <div className="pcol-head">{t("Latest by slot")}</div>
             <div className="np-slots">
               {slots.map((s) => {
                 const lab = splitLabel(s.q.quarter);
                 const fig = hasFigure(s.q.figure);
                 return (
-                  <div className="np-slot" key={s.key} title={`${s.q.signal}\n\n${s.q.quarter}`}>
-                    <div className="np-slot-k">{s.label}</div>
-                    <div className={"np-slot-v" + (fig ? " fig" : "")}>{fig ? s.q.figure : s.q.signal}</div>
+                  <div className="np-slot" key={s.key} title={`${tr(s.q.signal)}\n\n${s.q.quarter}`}>
+                    <div className="np-slot-k">{t(s.label)}</div>
+                    <div className={"np-slot-v" + (fig ? " fig" : "")}>{fig ? tr(s.q.figure) : tr(s.q.signal)}</div>
                     <div className="np-slot-d">
                       {lab.date ? `${lab.date} · ` : ""}
                       {lab.text}
@@ -579,7 +591,7 @@ export default function NodePanel({
           <div className="badge-row">
             {badges.map((b) => (
               <span key={b.key} className="status-badge" style={{ borderColor: b.color, color: b.color }}>
-                {b.label}
+                {t(b.label)}
               </span>
             ))}
           </div>
@@ -588,12 +600,12 @@ export default function NodePanel({
         <div className="badge-row">
           {node.layers.map((l) => (
             <span key={l} className="pill filled" style={{ background: GROUP_COLORS[l] }}>
-              {GROUP_NAMES[l] || l}
+              {groupName(l)}
             </span>
           ))}
           {node.domains.map((d) => (
             <span key={d} className="pill filled" style={{ background: GROUP_COLORS[d] }}>
-              {GROUP_NAMES[d] || d}
+              {groupName(d)}
             </span>
           ))}
         </div>
@@ -610,7 +622,7 @@ export default function NodePanel({
             {node.products.map((p, i) => (
               <div className="prod-card" key={i}>
                 <div className="prod-chain">{slugLabel(p.chain)}</div>
-                <div className="prod-name">{p.product}</div>
+                <div className="prod-name">{tr(p.product)}</div>
               </div>
             ))}
           </div>
@@ -618,24 +630,24 @@ export default function NodePanel({
 
         {exposure.length > 0 && (
           <div className="gen-exposure">
-            <div className="pcol-head">Generation exposure</div>
+            <div className="pcol-head">{t("Generation exposure")}</div>
             {exposure.map((x) => (
               <div className="gen-exp-row" key={x.t.key}>
                 <span>
                   {x.status === "retained" ? "✅" : x.status === "gained" ? "📈" : "⚠️"}
                 </span>
-                <span className="gen-exp-label">{x.t.label}</span>
+                <span className="gen-exp-label">{t(x.t.label)}</span>
                 <span className="gen-exp-note">
                   {x.status === "retained" &&
                     (x.productFrom && x.productTo && x.productFrom !== x.productTo ? (
                       <>
-                        {x.productFrom} <span className="gen-arrow">→</span> {x.productTo}
+                        {trJoined(x.productFrom)} <span className="gen-arrow">→</span> {trJoined(x.productTo)}
                       </>
                     ) : (
-                      "retained"
+                      t("retained")
                     ))}
-                  {x.status === "gained" && <>new entrant — {x.productTo}</>}
-                  {x.status === "lost" && "not in next-gen chain (lost socket, or not yet added)"}
+                  {x.status === "gained" && <>{t("new entrant")} — {trJoined(x.productTo)}</>}
+                  {x.status === "lost" && t("not in next-gen chain (lost socket, or not yet added)")}
                 </span>
               </div>
             ))}
@@ -646,11 +658,11 @@ export default function NodePanel({
           <div className="pcol">
             {timeline.length > 0 && (
               <>
-                <div className="pcol-head">Product / Capacity Timeline</div>
-                {timeline.map((t, i) => (
+                <div className="pcol-head">{t("Product / Capacity Timeline")}</div>
+                {timeline.map((item, i) => (
                   <div className="tl-item" key={i}>
-                    <span className="tl-when">{t.when}</span>
-                    <span>{t.text}</span>
+                    <span className="tl-when">{item.when}</span>
+                    <span>{tr(item.text)}</span>
                   </div>
                 ))}
               </>
@@ -658,13 +670,13 @@ export default function NodePanel({
             {ownSigs.length > 0 && (
               <>
                 <div className="pcol-head" style={{ marginTop: timeline.length ? "1rem" : 0 }}>
-                  Signals
+                  {t("Signals")}
                 </div>
                 <div className="np-sigtools">
                   <input
                     type="search"
                     className="np-filter"
-                    placeholder={`Filter ${ownSigs.length} signals…`}
+                    placeholder={t("Filter {n} signals…", { n: ownSigs.length })}
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
                     onKeyDown={(e) => {
@@ -682,16 +694,16 @@ export default function NodePanel({
                         className={"np-chip" + (topic === null ? " on" : "")}
                         onClick={() => setTopic(null)}
                       >
-                        All<b>{ownSigs.length}</b>
+                        {t("All")}<b>{ownSigs.length}</b>
                       </button>
-                      {topicCounts.map(([t, n]) => (
+                      {topicCounts.map(([tp, n]) => (
                         <button
-                          key={t}
-                          className={"np-chip" + (topic === t ? " on" : "")}
-                          onClick={() => setTopic(topic === t ? null : t)}
-                          title={`timeline topic: ${t}`}
+                          key={tp}
+                          className={"np-chip" + (topic === tp ? " on" : "")}
+                          onClick={() => setTopic(topic === tp ? null : tp)}
+                          title={t("timeline topic: {topic}", { topic: slugLabel(tp) })}
                         >
-                          {slugLabel(t)}
+                          {slugLabel(tp)}
                           <b>{n}</b>
                         </button>
                       ))}
@@ -700,23 +712,23 @@ export default function NodePanel({
                 </div>
                 {(topic || filter) && (
                   <div className="np-count">
-                    {filteredSigs.length} of {ownSigs.length} signals match
+                    {t("{n} of {total} signals match", { n: filteredSigs.length, total: ownSigs.length })}
                   </div>
                 )}
                 {shownSigs.map((q, i) => (
                   <SigRow q={q} company={node.id} key={q.quarter + "|" + i} />
                 ))}
-                {filteredSigs.length === 0 && <div className="np-empty">No signals match this filter.</div>}
+                {filteredSigs.length === 0 && <div className="np-empty">{t("No signals match this filter.")}</div>}
                 {(hiddenSigs > 0 || sigLimit > SIG_PAGE) && (
                   <div className="np-more">
                     {hiddenSigs > 0 && (
                       <button className="btn np-btn-sm" onClick={() => setSigLimit((l) => l + SIG_STEP)}>
-                        Show {Math.min(hiddenSigs, SIG_STEP)} more ({hiddenSigs} hidden)
+                        {t("Show {n} more ({hidden} hidden)", { n: Math.min(hiddenSigs, SIG_STEP), hidden: hiddenSigs })}
                       </button>
                     )}
                     {sigLimit > SIG_PAGE && (
                       <button className="btn np-btn-sm" onClick={() => setSigLimit(SIG_PAGE)}>
-                        Show less
+                        {t("Show less")}
                       </button>
                     )}
                   </div>
@@ -728,7 +740,7 @@ export default function NodePanel({
           <div className="pcol">
             {customers.length > 0 && (
               <>
-                <div className="pcol-head">Customers →</div>
+                <div className="pcol-head">{t("Customers")} →</div>
                 {customers.map((g) => (
                   <EdgeGroupCard g={g} key={g.company} onNavigate={onNavigate} company={node.id} target={g.company} />
                 ))}
@@ -737,7 +749,7 @@ export default function NodePanel({
             {(dealSuppliers.length > 0 || plainAll.length > 0) && (
               <>
                 <div className="pcol-head" style={{ marginTop: customers.length ? "1rem" : 0 }}>
-                  ← Suppliers
+                  ← {t("Suppliers")}
                 </div>
                 {dealSuppliers.map((g) => (
                   <EdgeGroupCard g={g} key={g.company} onNavigate={onNavigate} company={g.company} target={node.id} />
@@ -747,7 +759,7 @@ export default function NodePanel({
                     {plainSuppliers.map((s, i) => (
                       <span key={s.company}>
                         <span className="deal-link" onClick={() => onNavigate(s.company)}>
-                          {s.company}
+                          {name(s.company)}
                         </span>
                         {i < plainSuppliers.length - 1 ? ", " : ""}
                       </span>
@@ -756,7 +768,7 @@ export default function NodePanel({
                       <>
                         {" "}
                         <button className="np-linkbtn" onClick={() => setAllPlain((s) => !s)}>
-                          {allPlain ? "show fewer" : `+${plainAll.length - PLAIN_SUPPLIERS} more`}
+                          {allPlain ? t("show fewer") : t("+{n} more", { n: plainAll.length - PLAIN_SUPPLIERS })}
                         </button>
                       </>
                     )}
@@ -770,22 +782,22 @@ export default function NodePanel({
         {onFileCount > 0 && (
           <div className="np-onfile">
             <div className="pcol-head">
-              Customers &amp; suppliers on file{" "}
+              {t("Customers & suppliers on file")}{" "}
               <span className="np-of-hint">
-                — named in this company&apos;s filings / calls, not graph nodes
+                — {t("named in this company's filings / calls, not graph nodes")}
               </span>
             </div>
             <div className="pgrid" style={{ marginTop: 0 }}>
               <div className="pcol">
-                <div className="np-of-sub">Customers ({onFile.customers.length})</div>
-                {onFile.customers.length === 0 && <div className="np-empty">none on file</div>}
+                <div className="np-of-sub">{t("Customers")} ({onFile.customers.length})</div>
+                {onFile.customers.length === 0 && <div className="np-empty">{t("none on file")}</div>}
                 {onFile.customers.map((g) => (
                   <OnFileRow g={g} key={g.name} />
                 ))}
               </div>
               <div className="pcol">
-                <div className="np-of-sub">Suppliers ({onFile.suppliers.length})</div>
-                {onFile.suppliers.length === 0 && <div className="np-empty">none on file</div>}
+                <div className="np-of-sub">{t("Suppliers")} ({onFile.suppliers.length})</div>
+                {onFile.suppliers.length === 0 && <div className="np-empty">{t("none on file")}</div>}
                 {onFile.suppliers.map((g) => (
                   <OnFileRow g={g} key={g.name} />
                 ))}

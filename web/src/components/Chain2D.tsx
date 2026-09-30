@@ -8,6 +8,7 @@ import {
   buildFromChain, buildFromMerged, renderChain2D,
   type C2DData, type C2DHandle,
 } from "@/lib/chain2d";
+import { useLang } from "@/lib/i18n";
 import "./Graph.css";
 
 interface ChainIndexEntry {
@@ -44,6 +45,8 @@ function storeChain(id: string): void {
 }
 
 export default function Chain2D({ glass }: { glass: boolean }) {
+  // The chain files carry the "graph" overlay's text (products, sectors, deals).
+  const { t, tr, name, rev } = useLang(["graph"]);
   const [index, setIndex] = useState<ChainIndexEntry[]>([]);
   const [sel, setSel] = useState<string>(readStoredChain);
   const [data, setData] = useState<C2DData | null>(null);
@@ -143,7 +146,8 @@ export default function Chain2D({ glass }: { glass: boolean }) {
         pinnedRef.current = k;
       },
     });
-  }, [data, width, collapsed, onToggleCollapse]);
+    // `rev`: redraw in the new language (the SVG text is written by the renderer).
+  }, [data, width, collapsed, onToggleCollapse, rev]);
 
   // Esc: close the edge panel first, then unpin.
   useEffect(() => {
@@ -173,9 +177,9 @@ export default function Chain2D({ glass }: { glass: boolean }) {
     <div className={"c2d" + (glass ? " glass" : "")}>
       <div className="row" style={{ marginBottom: "0.9rem" }}>
         <div className="grow" style={{ maxWidth: 460 }}>
-          <label className="field-label">Chain</label>
+          <label className="field-label">{t("Chain")}</label>
           <select value={sel} onChange={(e) => setSel(e.target.value)}>
-            <option value={ALL}>🌐 All value chains (everything)</option>
+            <option value={ALL}>🌐 {t("All value chains (everything)")}</option>
             {index.map((c) => (
               <option key={c.id} value={c.id}>
                 {slugLabel(c.id)}
@@ -186,50 +190,48 @@ export default function Chain2D({ glass }: { glass: boolean }) {
         <div className="caption">
           {sel === ALL ? (
             <>
-              <b style={{ color: "var(--ap-text)" }}>All value chains</b> — every company &amp;
-              edge, grouped by layer
+              <b style={{ color: "var(--ap-text)" }}>{t("All value chains")}</b> — {t("every company & edge, grouped by layer")}
             </>
           ) : cur ? (
             <>
-              <b style={{ color: "var(--ap-text)" }}>{cur.company}</b> — {cur.chain_focus}
+              <b style={{ color: "var(--ap-text)" }}>{name(cur.company)}</b> — {tr(cur.chain_focus)}
             </>
           ) : null}
         </div>
       </div>
 
       {/* Always-visible legend for the map's visual language + interactions. */}
-      <div className="c2d-legend" aria-label="Map legend">
+      <div className="c2d-legend" aria-label={t("Map legend")}>
         <span className="lg-item">
           <span className="lg-dot" />
-          earnings data
+          {t("earnings data")}
         </span>
         <span className="lg-item">
           <svg width="24" height="6" aria-hidden="true">
             <line x1="1" y1="3" x2="23" y2="3" stroke="#7dd3fc" strokeWidth="2" />
           </svg>
-          deal data
+          {t("deal data")}
         </span>
         <span className="lg-item">
           <svg width="24" height="6" aria-hidden="true">
             <line x1="1" y1="3" x2="23" y2="3" stroke="#64748b" strokeWidth="1.5" strokeDasharray="4 3" />
           </svg>
-          structure only
+          {t("structure only")}
         </span>
         <span className="lg-item">
-          <span className="lg-sw" style={{ background: "#fbbf24" }} />▼ downstream
+          <span className="lg-sw" style={{ background: "#fbbf24" }} />▼ {t("downstream")}
         </span>
         <span className="lg-item">
-          <span className="lg-sw" style={{ background: "#60a5fa" }} />▲ upstream
+          <span className="lg-sw" style={{ background: "#60a5fa" }} />▲ {t("upstream")}
         </span>
         {hasExternal && (
-          <span className="lg-item" title="Named as a supplier or customer here, but its own node lives in another chain">
+          <span className="lg-item" title={t("Named as a supplier or customer here, but its own node lives in another chain")}>
             <span className="gx-lg-ext" />
-            external = appears in another chain
+            {t("external = appears in another chain")}
           </span>
         )}
         <span className="lg-item lg-hint">
-          hover = full path · click = pin (click again / Esc = unpin) · click edge = contracts ·
-          layer label = collapse
+          {t("hover = full path · click = pin (click again / Esc = unpin) · click edge = contracts · layer label = collapse")}
         </span>
         <span className="gx-c2d-tools">
           <button
@@ -237,9 +239,9 @@ export default function Chain2D({ glass }: { glass: boolean }) {
             className="gx-mini"
             disabled={!data || nCollapsed === columnSlugs.length}
             onClick={() => setCollapsed(new Set(columnSlugs))}
-            title="Draw every layer as one bar — edges between layers stay visible"
+            title={t("Draw every layer as one bar — edges between layers stay visible")}
           >
-            Collapse all
+            {t("Collapse all")}
           </button>
           <button
             type="button"
@@ -247,15 +249,15 @@ export default function Chain2D({ glass }: { glass: boolean }) {
             disabled={nCollapsed === 0}
             onClick={() => setCollapsed(new Set())}
           >
-            Expand all
+            {t("Expand all")}
           </button>
         </span>
       </div>
 
       <div ref={wrapRef} className="c2d-wrap" style={{ background: bg }}>
-        {loading && <div className="graph-msg">Building the map…</div>}
+        {loading && <div className="graph-msg">{t("Building the map…")}</div>}
         {loadErr && !loading && (
-          <div className="graph-msg">Could not load this chain ({loadErr}). Pick another chain above.</div>
+          <div className="graph-msg">{t("Could not load this chain ({err}). Pick another chain above.", { err: loadErr })}</div>
         )}
         <svg ref={svgRef} />
       </div>
@@ -263,8 +265,8 @@ export default function Chain2D({ glass }: { glass: boolean }) {
       <div ref={epanelRef} className="c2d-epanel" />
 
       <p className="caption" style={{ marginTop: "0.6rem" }}>
-        {counts.c} companies · {counts.e} edges {sel === ALL ? "across all chains" : "in this chain"}
-        {nCollapsed > 0 && ` · ${nCollapsed} layer${nCollapsed === 1 ? "" : "s"} collapsed`}
+        {t(sel === ALL ? "{c} companies · {e} edges across all chains" : "{c} companies · {e} edges in this chain", { c: counts.c, e: counts.e })}
+        {nCollapsed > 0 && " · " + t(nCollapsed === 1 ? "{n} layer collapsed" : "{n} layers collapsed", { n: nCollapsed })}
       </p>
     </div>
   );

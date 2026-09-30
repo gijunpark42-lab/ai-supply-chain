@@ -16,6 +16,8 @@ import {
   LAYERS, DOMAINS, LAYER_ORDER, LAYER_NAMES, LAYER_COLORS, DOMAIN_NAMES, DOMAIN_COLORS,
 } from "./taxonomy";
 import { sigDate } from "./signals";
+// Aliased: this file uses `t`, `name` as local variable names.
+import { t as T, tr as TR, name as NM } from "./i18n";
 
 export interface C2DPlayer {
   c: string; p: string; qd: number; ext: number; row: number; sec: string; sub: string;
@@ -218,8 +220,11 @@ export function buildFromMerged(graph: MergedGraph): C2DData {
 // ── Imperative SVG renderer (ported from CHAIN2D_TEMPLATE JS) ────────────────
 const NS = "http://www.w3.org/2000/svg";
 const esc = (s: string) => (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
-const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
-const companies = (n: number) => `${n} ${n === 1 ? "company" : "companies"}`;
+// Counted nouns in the current language ("3 contracts" / "계약 3건").
+const plural = (n: number, word: string) => T(n === 1 ? `{n} ${word}` : `{n} ${word}s`, { n });
+const companies = (n: number) => T(n === 1 ? "{n} company" : "{n} companies", { n });
+// Column title: the English layer/domain name is the i18n key.
+const colName = (col: any) => T(col.name || col.slug);
 // Milliseconds the mouse must rest on a pill before its full path lights up.
 // Without this, sweeping the mouse across the map flashes a new path every pixel.
 const HOVER_DELAY = 70;
@@ -437,10 +442,10 @@ export function renderChain2D(
     hit.addEventListener("mousemove", (ev) => {
       const latest = latestLabel(e.cn);
       tip(ev,
-        `<b>${esc(a.c)} → ${esc(b.c)}</b><br>${esc(e.rel) || "supply relationship"}<br>` +
+        `<b>${esc(NM(a.c))} → ${esc(NM(b.c))}</b><br>${esc(TR(e.rel)) || esc(T("supply relationship"))}<br>` +
         `<span style="color:#7dd3fc">${plural(e.nc, "contract")}</span>` +
-        (latest ? ` · latest: <span style="color:#fbbf24">${esc(latest)}</span>` : "") +
-        `<br><span style="color:#64748b">click = detail</span>`);
+        (latest ? ` · ${esc(T("latest:"))} <span style="color:#fbbf24">${esc(latest)}</span>` : "") +
+        `<br><span style="color:#64748b">${esc(T("click = detail"))}</span>`);
     });
     hit.addEventListener("mouseleave", () => {
       hideTip();
@@ -457,7 +462,7 @@ export function renderChain2D(
     g.setAttribute("role", "button");
     g.setAttribute("tabindex", "-1");
     const title = document.createElementNS(NS, "title");
-    title.textContent = (col._collapsed ? "Expand " : "Collapse ") + (col.name || col.slug);
+    title.textContent = T(col._collapsed ? "Expand {name}" : "Collapse {name}", { name: colName(col) });
     g.appendChild(title);
     g.addEventListener("click", (ev) => {
       ev.stopPropagation();
@@ -482,7 +487,7 @@ export function renderChain2D(
       g.appendChild(hit);
       const t = text(col._x0, col._top + 13, "c2hdr");
       t.setAttribute("fill", col.color || "#94a3b8");
-      t.textContent = chev + " " + (col.name || col.slug).toUpperCase() + "  ·  " + cnt;
+      t.textContent = chev + " " + colName(col).toUpperCase() + "  ·  " + cnt;
       g.appendChild(t);
       svg.appendChild(g);
       fitText(t, RW - 2 * padX);
@@ -502,11 +507,11 @@ export function renderChain2D(
       tx.setAttribute("font-size", "10.5px");
       tx.setAttribute("letter-spacing", ".2px");
       tx.setAttribute("fill", col.color || "#94a3b8");
-      tx.textContent = (col.name || col.slug).toUpperCase();
+      tx.textContent = colName(col).toUpperCase();
       g.appendChild(tx);
       const c = text(14, ty + 11, "c2cnt");
       c.setAttribute("fill", col.color || "#64748b");
-      c.textContent = cnt + (col._collapsed ? " · collapsed" : "");
+      c.textContent = cnt + (col._collapsed ? " · " + T("collapsed") : "");
       g.appendChild(c);
       svg.appendChild(g);
       fitText(tx, GUT - 20);
@@ -515,7 +520,7 @@ export function renderChain2D(
       // the reader's eye lands.
       if (col.kind === "external") {
         const note = text(14, ty + 23, "gx-extnote");
-        note.textContent = "appears in another chain";
+        note.textContent = T("appears in another chain");
         svg.appendChild(note);
         fitText(note, GUT - 20);
       }
@@ -542,7 +547,7 @@ export function renderChain2D(
         const t = text(n.x, n.y - 4);
         t.setAttribute("fill", "#9aa6b2");
         t.setAttribute("font-size", "10px");
-        t.textContent = p.sec;
+        t.textContent = TR(p.sec);
         svg.appendChild(t);
         fitText(t, pillW);
       }
@@ -640,22 +645,22 @@ export function renderChain2D(
   }
   function renderPanel(i: number) {
     const e = edges[i], a = idx[e.s], b = idx[e.t];
-    let h = `<div class="ep-h"><span><b>${esc(a.c)}</b> &rarr; <b>${esc(b.c)}</b></span>`
+    let h = `<div class="ep-h"><span><b>${esc(NM(a.c))}</b> &rarr; <b>${esc(NM(b.c))}</b></span>`
       + `<span class="ep-x" id="ep-x">&times;</span></div>`
-      + `<div class="ep-rel">${esc(e.rel) || "supply relationship"}</div>`;
+      + `<div class="ep-rel">${esc(TR(e.rel)) || esc(T("supply relationship"))}</div>`;
     if (e.cn && e.cn.length) {
-      h += `<div class="ep-n">${plural(e.cn.length, "contract")} on this link</div>`;
+      h += `<div class="ep-n">${esc(T(e.cn.length === 1 ? "{n} contract on this link" : "{n} contracts on this link", { n: e.cn.length }))}</div>`;
       e.cn.forEach((c: any) => {
         const meta = [c.units, c.value, c.date_signed, c.type]
-          .filter((x) => x && x !== "no specific figure" && x !== "not stated").join("  ·  ");
+          .filter((x) => x && x !== "no specific figure" && x !== "not stated").map(TR).join("  ·  ");
         h += `<div class="ep-c">`
           + (c.source ? `<div class="ep-src">${esc(c.source)}</div>` : "")
-          + (c.signal ? `<div class="ep-sig">${esc(c.signal)}</div>` : "")
+          + (c.signal ? `<div class="ep-sig">${esc(TR(c.signal))}</div>` : "")
           + (meta ? `<div class="ep-meta">${esc(meta)}</div>` : "")
           + `</div>`;
       });
     } else {
-      h += `<div class="ep-empty">Structure only — no deal/contract data on this link yet.</div>`;
+      h += `<div class="ep-empty">${esc(T("Structure only — no deal/contract data on this link yet."))}</div>`;
     }
     epanelEl.innerHTML = h;
     epanelEl.style.display = "block";
@@ -709,16 +714,16 @@ export function renderChain2D(
     r.setAttribute("stroke-dasharray", "6 4");
     g.appendChild(r);
     const label = text(col._x0 + 12, col._pillTop + pillH / 2 + 4);
-    label.textContent = `${companies(col.players.length)} collapsed — click to expand`;
+    label.textContent = T("{companies} collapsed — click to expand", { companies: companies(col.players.length) });
     g.appendChild(label);
     const title = document.createElementNS(NS, "title");
-    title.textContent = "Expand " + (col.name || col.slug);
+    title.textContent = T("Expand {name}", { name: colName(col) });
     g.appendChild(title);
     g.addEventListener("mousemove", (ev) =>
       tip(ev,
-        `<b>${esc((col.name || col.slug).toUpperCase())}</b><br>` +
-        `${companies(col.players.length)} collapsed` +
-        `<br><span style="color:#64748b">click = expand</span>`));
+        `<b>${esc(colName(col).toUpperCase())}</b><br>` +
+        esc(T("{companies} collapsed", { companies: companies(col.players.length) })) +
+        `<br><span style="color:#64748b">${esc(T("click = expand"))}</span>`));
     g.addEventListener("mouseleave", hideTip);
     g.addEventListener("click", (ev) => {
       ev.stopPropagation();
@@ -754,7 +759,7 @@ export function renderChain2D(
       g.appendChild(dot);
     }
     const tx = text(n.x + (n.qd > 0 ? 20 : 10), n.y + pillH / 2 + 4);
-    tx.textContent = n.c;
+    tx.textContent = NM(n.c);
     g.appendChild(tx);
     g.addEventListener("mouseenter", () => {
       if (pinned) return;
@@ -764,14 +769,14 @@ export function renderChain2D(
     g.addEventListener("mousemove", (ev) => {
       const nd = downOf(n.k).size, nu = upOf(n.k).size;
       tip(ev,
-        `<b>${esc(n.c)}</b>` +
+        `<b>${esc(NM(n.c))}</b>` +
         (n.ext
-          ? `<br><span style="color:#94a3b8">External — appears in another chain, not part of this chain's structure</span>`
-          : `<br>${esc(n.p)}`) +
-        `<br><span style="color:#34d399">${plural(n.qd, "signal")}</span> · ` +
-        `<span style="color:#fbbf24">▼ downstream ${nd}</span> · ` +
-        `<span style="color:#60a5fa">▲ upstream ${nu}</span>` +
-        `<br><span style="color:#64748b">${pinned === n.k ? "click = unpin" : "click = pin path"} · Esc = unpin</span>`);
+          ? `<br><span style="color:#94a3b8">${esc(T("External — appears in another chain, not part of this chain's structure"))}</span>`
+          : `<br>${esc(TR(n.p))}`) +
+        `<br><span style="color:#34d399">${esc(plural(n.qd, "signal"))}</span> · ` +
+        `<span style="color:#fbbf24">▼ ${esc(T("downstream"))} ${nd}</span> · ` +
+        `<span style="color:#60a5fa">▲ ${esc(T("upstream"))} ${nu}</span>` +
+        `<br><span style="color:#64748b">${esc(T(pinned === n.k ? "click = unpin" : "click = pin path"))} · ${esc(T("Esc = unpin"))}</span>`);
     });
     g.addEventListener("mouseleave", () => {
       cancelHover();

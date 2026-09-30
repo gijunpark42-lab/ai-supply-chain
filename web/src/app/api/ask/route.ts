@@ -128,7 +128,7 @@ interface AskBody {
   question: string;
   snippets: InSnippet[];
   intent: string;
-  lang: string; // "en" | "ko"
+  lang: string; // "en" | "ko" | "zh" | "ja"
   history: { question: string; answer: string }[]; // earlier turns of the thread, oldest first
 }
 

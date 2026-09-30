@@ -23,6 +23,7 @@ import {
   LAYER_ORDER,
   DOMAIN_ORDER,
   chainColor,
+  groupName,
   slugLabel,
 } from "@/lib/taxonomy";
 import {
@@ -46,6 +47,7 @@ import {
   type ConcentrationFact,
 } from "@/lib/exposure";
 import CellText from "./CellText";
+import { t, tr, trJoined, name, useLang } from "@/lib/i18n";
 import "./Exposure.css";
 
 interface Props {
@@ -267,6 +269,9 @@ const COLS: Col[] = [
 
 // ── Component ─────────────────────────────────────────────────────────────
 export default function Exposure({ nodes, byId, onOpen }: Props) {
+  // exposure.json text (roles, formula, concentration facts) + the screener-slot
+  // text shown as "Latest signal" (it lives in the metrics / graph overlays).
+  const { rev } = useLang(["exposure", "metrics"]);
   // undefined = still loading, null = missing (404) or unreadable.
   const [data, setData] = useState<ExposureData | null | undefined>(undefined);
   const [selValue, setSelValue] = useState<string>(`t:${TRANSITIONS[0].key}`);
@@ -348,12 +353,14 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
     const rows = allRows.filter((r) => {
       if (groups.size && !groups.has(r.group)) return false;
       if (!needle) return true;
-      const hay = `${r.id} ${r.ticker ?? ""} ${r.product} ${r.sector} ${GROUP_NAMES[r.group] ?? r.group}`.toLowerCase();
+      // English text plus what is on screen (local names / translations).
+      const hay = `${r.id} ${r.ticker ?? ""} ${r.product} ${r.sector} ${GROUP_NAMES[r.group] ?? r.group} ${name(r.id)} ${trJoined(r.product)} ${trJoined(r.sector)} ${groupName(r.group)}`.toLowerCase();
       return hay.includes(needle);
     });
     rows.sort((a, b) => sortDir * compareRows(a, b, sortKey) || a.rank - b.rank);
     return rows;
-  }, [allRows, q, groups, sortKey, sortDir]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allRows, q, groups, sortKey, sortDir, rev]);
 
   // Concentration facts for every company in the selection, largest share first.
   const facts = useMemo(() => {
@@ -424,10 +431,10 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
     try {
       await navigator.clipboard.writeText(text);
       setFallbackText(null);
-      setToast(`Copied ${what}`);
+      setToast(t("Copied {what}", { what }));
     } catch {
       setFallbackText(text);
-      setToast("Clipboard blocked — copy from the box below");
+      setToast(t("Clipboard blocked — copy from the box below"));
     }
   };
   const basketCompanies = () =>
@@ -438,13 +445,13 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
     const picked = basketCompanies();
     const tickers = picked.map((c) => c.ticker).filter((t): t is string => !!t);
     const skipped = picked.length - tickers.length;
-    copyText(tickers.join(", "), `${tickers.length} tickers${skipped ? ` (${skipped} without a ticker skipped)` : ""}`);
+    copyText(tickers.join(", "), t("{n} tickers", { n: tickers.length }) + (skipped ? " " + t("({n} without a ticker skipped)", { n: skipped }) : ""));
   };
   const copyTradingView = () => {
     const picked = basketCompanies();
     const syms = picked.map((c) => tradingViewSymbol(c.ticker, c.exchange)).filter((s): s is string => !!s);
     const skipped = picked.length - syms.length;
-    copyText(syms.join("\n"), `${syms.length} TradingView symbols${skipped ? ` (${skipped} unmapped skipped)` : ""}`);
+    copyText(syms.join("\n"), t("{n} TradingView symbols", { n: syms.length }) + (skipped ? " " + t("({n} unmapped skipped)", { n: skipped }) : ""));
   };
 
   // CSV = the visible rows, narrowed to the basket when it holds any of them.
@@ -482,19 +489,16 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
 
   return (
     <div className="xp">
-      <h3>🎯 Exposure — who benefits</h3>
+      <h3>🎯 {t("Exposure — who benefits")}</h3>
       <p className="caption">
-        Pick a chain or a generation transition: its members ranked by how exposed they are —
-        what they make in that chain, how many deals and edges tie them in, and how fresh the
-        evidence is. Click a company for its panel; tick rows to build a basket you can copy
-        into a watchlist.
+        {t("Pick a chain or a generation transition: its members ranked by how exposed they are — what they make in that chain, how many deals and edges tie them in, and how fresh the evidence is. Click a company for its panel; tick rows to build a basket you can copy into a watchlist.")}
       </p>
 
       {/* ── selector + text filter ── */}
       <div className="xp-toolbar">
         <div className="xp-field">
           <label className="field-label" htmlFor="xp-sel">
-            Chain / transition
+            {t("Chain / transition")}
           </label>
           <select
             id="xp-sel"
@@ -504,19 +508,19 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
               setGroups(new Set()); // layer chips differ per chain
             }}
           >
-            <optgroup label="Generation transitions">
-              {TRANSITIONS.map((t) => (
-                <option key={t.key} value={`t:${t.key}`}>
-                  {t.vendor}: {t.label}
+            <optgroup label={t("Generation transitions")}>
+              {TRANSITIONS.map((tn) => (
+                <option key={tn.key} value={`t:${tn.key}`}>
+                  {name(tn.vendor)}: {t(tn.label)}
                 </option>
               ))}
             </optgroup>
             {chainGroups.map(([g, slugs]) => (
-              <optgroup key={g} label={CHAIN_GROUP_LABEL[g] ?? "Chains"}>
+              <optgroup key={g} label={t(CHAIN_GROUP_LABEL[g] ?? "Chains")}>
                 {slugs.map((s) => (
                   <option key={s} value={`c:${s}`}>
                     {slugLabel(s)}
-                    {data?.chains[s]?.anchor ? ` — ${data.chains[s].anchor}` : ""}
+                    {data?.chains[s]?.anchor ? ` — ${name(data.chains[s].anchor!)}` : ""}
                   </option>
                 ))}
               </optgroup>
@@ -525,12 +529,12 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
         </div>
         <div className="xp-field">
           <label className="field-label" htmlFor="xp-q">
-            Filter
+            {t("Filter")}
           </label>
           <input
             id="xp-q"
             type="search"
-            placeholder="Company, ticker, product, sector…"
+            placeholder={t("Company, ticker, product, sector…")}
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
@@ -545,14 +549,14 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
             <b>{slugLabel(sel.chain)}</b>
             {chainBlock && (
               <>
-                <span>{chainBlock.members.length} companies</span>
-                <span>{chainBlock.edges} edges</span>
-                <span>{chainBlock.contracts} contracts</span>
+                <span>{t("{n} companies", { n: chainBlock.members.length })}</span>
+                <span>{t("{n} edges", { n: chainBlock.edges })}</span>
+                <span>{t("{n} contracts", { n: chainBlock.contracts })}</span>
                 {chainBlock.anchor && (
                   <span>
-                    about{" "}
+                    {t("about")}{" "}
                     <button type="button" className="co-link" onClick={() => onOpen(chainBlock.anchor!)}>
-                      {chainBlock.anchor}
+                      {name(chainBlock.anchor)}
                     </button>
                   </span>
                 )}
@@ -561,12 +565,12 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
           </>
         ) : (
           <>
-            <b>{sel.t.label}</b>
+            <b>{t(sel.t.label)}</b>
             {delta && (
               <span className="xp-gen-counts">
-                <em style={{ color: "#4aa9ff" }}>📈 {delta.counts.gained} new</em>
-                <em style={{ color: "#3fb950" }}>✅ {delta.counts.retained} retained</em>
-                <em style={{ color: "#d29922" }}>⚠️ {delta.counts.lost} not in next gen</em>
+                <em style={{ color: "#4aa9ff" }}>📈 {t("{n} new", { n: delta.counts.gained })}</em>
+                <em style={{ color: "#3fb950" }}>✅ {t("{n} retained", { n: delta.counts.retained })}</em>
+                <em style={{ color: "#d29922" }}>⚠️ {t("{n} not in next gen", { n: delta.counts.lost })}</em>
               </span>
             )}
             <span>
@@ -574,36 +578,33 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
             </span>
           </>
         )}
-        {data && <span>data {data.generated}</span>}
+        {data && <span>{t("data {date}", { date: data.generated })}</span>}
         {data && (
           <details className="xp-formula">
-            <summary>How is the score computed?</summary>
-            <p>{data.formula}</p>
+            <summary>{t("How is the score computed?")}</summary>
+            <p>{tr(data.formula)}</p>
           </details>
         )}
       </div>
 
       {/* ── missing / loading ── */}
-      {data === undefined && <div className="spinner">Loading exposure…</div>}
+      {data === undefined && <div className="spinner">{t("Loading exposure…")}</div>}
       {data === null && (
         <div className="xp-notice">
-          Exposure data has not been generated yet (<code>/data/exposure.json</code> is missing).
-          Run <code>python graph_build.py --sync</code> in the repo root — <code>derive.py</code>{" "}
-          writes <code>graph/exposure.json</code> and the sync copies it here. The generation delta
-          below still works because it is computed from the graph itself.
+          {t("Exposure data has not been generated yet (/data/exposure.json is missing). Run python graph_build.py --sync in the repo root — derive.py writes graph/exposure.json and the sync copies it here. The generation delta below still works because it is computed from the graph itself.")}
         </div>
       )}
 
       {/* ── layer chips + basket bar + ranked table ── */}
       {data && (
         <>
-          <div className="xp-chips" role="group" aria-label="Filter by layer">
+          <div className="xp-chips" role="group" aria-label={t("Filter by layer")}>
             <button
               type="button"
               className={"xp-chip" + (groups.size === 0 ? " on" : "")}
               onClick={() => setGroups(new Set())}
             >
-              All <span className="xp-n">{allRows.length}</span>
+              {t("All")} <span className="xp-n">{allRows.length}</span>
             </button>
             {chipGroups.map(([g, n]) => (
               <button
@@ -615,33 +616,33 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
                 aria-pressed={groups.has(g)}
               >
                 <span className="xp-dot" style={{ background: GROUP_COLORS[g] || "#94a3b8" }} />
-                {GROUP_NAMES[g] || g} <span className="xp-n">{n}</span>
+                {groupName(g)} <span className="xp-n">{n}</span>
               </button>
             ))}
           </div>
 
           <div className="xp-basket">
             <span>
-              <span className="xp-count">{basket.size}</span> in basket
+              <span className="xp-count">{basket.size}</span> {t("in basket")}
             </span>
             <button type="button" className="btn xp-btn" disabled={!basket.size} onClick={copyTickers}>
-              Copy tickers
+              {t("Copy tickers")}
             </button>
             <button type="button" className="btn xp-btn" disabled={!basket.size} onClick={copyTradingView}>
-              Copy TradingView list
+              {t("Copy TradingView list")}
             </button>
             <button
               type="button"
               className="btn xp-btn"
               disabled={!exportRows.length}
               onClick={downloadCsv}
-              title="Visible rows — only the ticked ones when the basket holds any of them"
+              title={t("Visible rows — only the ticked ones when the basket holds any of them")}
             >
-              Download CSV ({exportRows.length} {basket.size ? "selected" : "visible"})
+              {t(basket.size ? "Download CSV ({n} selected)" : "Download CSV ({n} visible)", { n: exportRows.length })}
             </button>
             {basket.size > 0 && (
               <button type="button" className="xp-link-btn" onClick={() => setBasket(new Set())}>
-                Clear basket
+                {t("Clear basket")}
               </button>
             )}
             {toast && <span className="xp-toast">{toast}</span>}
@@ -651,7 +652,7 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
               className="xp-fallback"
               readOnly
               value={fallbackText}
-              aria-label="Text to copy"
+              aria-label={t("Text to copy")}
               onFocus={(e) => e.currentTarget.select()}
             />
           )}
@@ -670,7 +671,7 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
                       <th key={c.key} className="xp-pick xp-static">
                         <input
                           type="checkbox"
-                          aria-label="Select all visible rows"
+                          aria-label={t("Select all visible rows")}
                           checked={allVisiblePicked}
                           onChange={toggleAllVisible}
                         />
@@ -682,12 +683,12 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
                         aria-sort={sortKey === c.key ? (sortDir === 1 ? "ascending" : "descending") : "none"}
                         onClick={() => onSort(c.key as SortKey)}
                       >
-                        <span className="th-label">{c.label}</span>
+                        <span className="th-label">{t(c.label)}</span>
                         <span className="sort-arrow">{sortKey === c.key ? (sortDir === 1 ? "▲" : "▼") : "↕"}</span>
                       </th>
                     ) : (
                       <th key={c.key} className="xp-static">
-                        <span className="th-label">{c.label}</span>
+                        <span className="th-label">{t(c.label)}</span>
                       </th>
                     )
                   )}
@@ -707,10 +708,10 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
                       key={r.id}
                       className={(r.status === "lost" ? "xp-lost " : "") + (picked ? "xp-picked" : "")}
                     >
-                      <td data-label="Basket" className="xp-pick">
+                      <td data-label={t("Basket")} className="xp-pick">
                         <input
                           type="checkbox"
-                          aria-label={`Add ${r.id} to basket`}
+                          aria-label={t("Add {name} to basket", { name: name(r.id) })}
                           checked={picked}
                           onChange={() => togglePick(r.id)}
                         />
@@ -718,40 +719,40 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
                       <td data-label="#" className="xp-num">
                         {r.rank}
                       </td>
-                      <td data-label="Company" className="xp-co">
-                        <div className="cell" title={`Open ${r.id}`}>
+                      <td data-label={t("Company")} className="xp-co">
+                        <div className="cell" title={t("Open {name}", { name: name(r.id) })}>
                           <button type="button" className="co-link" onClick={() => onOpen(r.id)}>
-                            {r.id}
+                            {name(r.id)}
                           </button>
-                          {r.sector && <span className="xp-sub">{r.sector}</span>}
+                          {r.sector && <span className="xp-sub">{trJoined(r.sector)}</span>}
                         </div>
                       </td>
                       {showGen && (
-                        <td data-label="Gen">
+                        <td data-label={t("Gen")}>
                           {gen ? (
                             <span
                               className={"xp-gen " + gen.status}
-                              title={`${gen.label}: ${STATUS_META[gen.status].word}`}
+                              title={`${t(gen.label)}: ${t(STATUS_META[gen.status].word)}`}
                             >
-                              {STATUS_META[gen.status].icon} {gen.status}
+                              {STATUS_META[gen.status].icon} {t(gen.status)}
                             </span>
                           ) : (
                             <span className="muted">—</span>
                           )}
                         </td>
                       )}
-                      <td data-label="Role in chain">
-                        <CellText text={r.product || "—"} label="Role in chain" subject={r.id} />
+                      <td data-label={t("Role in chain")}>
+                        <CellText text={trJoined(r.product) || "—"} label={t("Role in chain")} subject={name(r.id)} />
                       </td>
-                      <td data-label="Layer">
-                        <span className="xp-layer" title={GROUP_NAMES[r.group] || r.group}>
+                      <td data-label={t("Layer")}>
+                        <span className="xp-layer" title={groupName(r.group)}>
                           <span className="xp-dot" style={{ background: GROUP_COLORS[r.group] || "#94a3b8" }} />
-                          <span>{GROUP_NAMES[r.group] || r.group}</span>
+                          <span>{groupName(r.group)}</span>
                         </span>
                       </td>
-                      <td data-label="Score" className="xp-num">
+                      <td data-label={t("Score")} className="xp-num">
                         {r.score === null ? (
-                          <span className="muted" title="Not in the next-generation chain">
+                          <span className="muted" title={t("Not in the next-generation chain")}>
                             —
                           </span>
                         ) : (
@@ -763,36 +764,36 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
                           </span>
                         )}
                       </td>
-                      <td data-label="Contracts" className="xp-num" title={`${r.edges} edges in ${slugLabel(r.chain)}`}>
+                      <td data-label={t("Contracts")} className="xp-num" title={t("{n} edges in {chain}", { n: r.edges, chain: slugLabel(r.chain) })}>
                         {r.contracts}
                       </td>
-                      <td data-label="Partners" className="xp-num" title="Distinct counterparties in this chain">
+                      <td data-label={t("Partners")} className="xp-num" title={t("Distinct counterparties in this chain")}>
                         {r.counterparties}
                       </td>
-                      <td data-label="Latest" title={r.days === null ? "No dated source yet" : `${r.days} days ago`}>
+                      <td data-label={t("Latest")} title={r.days === null ? t("No dated source yet") : t("{n} days ago", { n: r.days })}>
                         <span className={"xp-fresh " + freshnessOf(r.days, data.weights)} />
                         {r.latest ?? "—"}
                       </td>
-                      <td data-label="Ticker">
+                      <td data-label={t("Ticker")}>
                         {r.ticker ? (
                           <>
-                            <span className="xp-ticker" title={r.tv ?? "No TradingView mapping for this exchange"}>
+                            <span className="xp-ticker" title={r.tv ?? t("No TradingView mapping for this exchange")}>
                               {r.ticker}
                             </span>
                             <span className="xp-exch">{r.exchange}</span>
                           </>
                         ) : (
-                          <span className="muted" title={r.c.status ?? undefined}>
-                            {r.c.status === "public" ? "—" : r.c.status ?? "—"}
+                          <span className="muted" title={r.c.status ? t(r.c.status) : undefined}>
+                            {r.c.status === "public" ? "—" : r.c.status ? t(r.c.status) : "—"}
                           </span>
                         )}
                       </td>
-                      <td data-label="Latest signal">
+                      <td data-label={t("Latest signal")}>
                         <CellText
-                          text={r.signal || "—"}
-                          label="Latest signal"
-                          subject={r.id}
-                          detail={r.signal ? { source: r.signalLabel, signal: r.signal } : undefined}
+                          text={tr(r.signal) || "—"}
+                          label={t("Latest signal")}
+                          subject={name(r.id)}
+                          detail={r.signal ? { source: r.signalLabel, signal: tr(r.signal) } : undefined}
                         />
                       </td>
                     </tr>
@@ -801,7 +802,7 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
                 {visible.length === 0 && (
                   <tr>
                     <td colSpan={cols.length} className="xp-empty">
-                      No companies match.
+                      {t("No companies match.")}
                     </td>
                   </tr>
                 )}
@@ -810,15 +811,14 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
           </div>
           <div className="xp-legend">
             <span>
-              {visible.length} of {allRows.length} companies · score max {maxScore.toFixed(0)} — hover a score
-              for its breakdown
+              {t("{n} of {total} companies · score max {max} — hover a score for its breakdown", { n: visible.length, total: allRows.length, max: maxScore.toFixed(0) })}
             </span>
             <span>
-              <span className="xp-fresh fresh" /> ≤ {data.weights.fresh_days}d
-              <span className="xp-fresh aging" style={{ marginLeft: 10 }} /> ≤ {data.weights.aging_days}d
-              <span className="xp-fresh stale" style={{ marginLeft: 10 }} /> older
+              <span className="xp-fresh fresh" /> ≤ {t("{n}d", { n: data.weights.fresh_days })}
+              <span className="xp-fresh aging" style={{ marginLeft: 10 }} /> ≤ {t("{n}d", { n: data.weights.aging_days })}
+              <span className="xp-fresh stale" style={{ marginLeft: 10 }} /> {t("older")}
             </span>
-            {showGen && <span>Gen = status in {genLabel}</span>}
+            {showGen && <span>{t("Gen = status in {label}", { label: t(genLabel) })}</span>}
           </div>
         </>
       )}
@@ -826,16 +826,15 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
       {/* ── generation delta (transition mode) ── */}
       {delta && (
         <div className="xp-section">
-          <h4>🔀 Generation delta — {delta.t.label}</h4>
+          <h4>🔀 {t("Generation delta")} — {t(delta.t.label)}</h4>
           <p className="caption">
-            Who wins a socket, who is not in the next-gen chain, and whose content changes. Computed
-            from the curated chains; click a company for details.
+            {t("Who wins a socket, who is not in the next-gen chain, and whose content changes. Computed from the curated chains; click a company for details.")}
           </p>
           <div className="xp-delta">
             <DeltaColumn
               cls="gained"
-              title={`📈 New in next gen (${delta.counts.gained})`}
-              note="won a socket it did not have in the current generation"
+              title={`📈 ${t("New in next gen")} (${delta.counts.gained})`}
+              note={t("won a socket it did not have in the current generation")}
               rows={delta.rows
                 .filter((r) => r.status === "gained")
                 .map((r) => ({ id: r.id, primary: r.primary, text: r.productTo ?? "" }))}
@@ -843,8 +842,8 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
             />
             <DeltaColumn
               cls="lost"
-              title={`⚠️ Not in next gen (${delta.counts.lost})`}
-              note="lost the socket — or not yet added to the new chain"
+              title={`⚠️ ${t("Not in next gen")} (${delta.counts.lost})`}
+              note={t("lost the socket — or not yet added to the new chain")}
               rows={delta.rows
                 .filter((r) => r.status === "lost")
                 .map((r) => ({ id: r.id, primary: r.primary, text: r.productFrom ?? "" }))}
@@ -852,10 +851,10 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
             />
             <DeltaColumn
               cls="changed"
-              title={`🔁 Retained, content changed (${
+              title={`🔁 ${t("Retained, content changed")} (${
                 delta.rows.filter((r) => r.status === "retained" && r.productFrom !== r.productTo).length
               })`}
-              note={`retained in both generations with a different product — the content delta (${delta.counts.retained} retained in total)`}
+              note={t("retained in both generations with a different product — the content delta ({n} retained in total)", { n: delta.counts.retained })}
               rows={delta.rows
                 .filter((r) => r.status === "retained" && r.productFrom !== r.productTo)
                 .map((r) => ({ id: r.id, primary: r.primary, from: r.productFrom ?? "", text: r.productTo ?? "" }))}
@@ -868,14 +867,12 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
       {/* ── concentration ── */}
       {data && (
         <div className="xp-section">
-          <h4>🧭 Customer / supplier concentration</h4>
+          <h4>🧭 {t("Customer / supplier concentration")}</h4>
           <p className="caption">
-            Facts the companies filed themselves (major-customer tables, raw-material suppliers,
-            supply contracts as a share of revenue) for the members of this selection. The share is
-            the first percentage in the text — it can be an aggregate, so read the detail.
+            {t("Facts the companies filed themselves (major-customer tables, raw-material suppliers, supply contracts as a share of revenue) for the members of this selection. The share is the first percentage in the text — it can be an aggregate, so read the detail.")}
           </p>
           {facts.length === 0 ? (
-            <div className="xp-empty">No concentration facts filed for these companies yet.</div>
+            <div className="xp-empty">{t("No concentration facts filed for these companies yet.")}</div>
           ) : (
             <div className="tbl-wrap">
               <table className="data xp-table">
@@ -889,45 +886,45 @@ export default function Exposure({ nodes, byId, onOpen }: Props) {
                 </colgroup>
                 <thead>
                   <tr>
-                    <th className="xp-static">Company</th>
-                    <th className="xp-static">Counterparty</th>
-                    <th className="xp-static">Role</th>
-                    <th className="xp-static xp-num">Share</th>
-                    <th className="xp-static">Detail</th>
-                    <th className="xp-static">Source</th>
+                    <th className="xp-static">{t("Company")}</th>
+                    <th className="xp-static">{t("Counterparty")}</th>
+                    <th className="xp-static">{t("Role")}</th>
+                    <th className="xp-static xp-num">{t("Share")}</th>
+                    <th className="xp-static">{t("Detail")}</th>
+                    <th className="xp-static">{t("Source")}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {facts.map(({ id, f }, i) => (
                     <tr key={`${id}|${f.counterparty}|${f.label}|${i}`}>
-                      <td data-label="Company" className="xp-co">
+                      <td data-label={t("Company")} className="xp-co">
                         <div className="cell">
                           <button type="button" className="co-link" onClick={() => onOpen(id)}>
-                            {id}
+                            {name(id)}
                           </button>
                         </div>
                       </td>
-                      <td data-label="Counterparty">
+                      <td data-label={t("Counterparty")}>
                         <div className="cell">
                           {byId.has(f.counterparty) ? (
                             <button type="button" className="co-link" onClick={() => onOpen(f.counterparty)}>
-                              {f.counterparty}
+                              {name(f.counterparty)}
                             </button>
                           ) : (
                             f.counterparty
                           )}
                         </div>
                       </td>
-                      <td data-label="Role">
-                        <span className={"xp-role " + f.role}>{f.role}</span>
+                      <td data-label={t("Role")}>
+                        <span className={"xp-role " + f.role}>{t(f.role)}</span>
                       </td>
-                      <td data-label="Share" className="xp-num">
+                      <td data-label={t("Share")} className="xp-num">
                         {f.pct === null ? <span className="muted">—</span> : <span className="xp-pct">{f.pct}%</span>}
                       </td>
-                      <td data-label="Detail">
-                        <CellText text={f.text} label="Detail" subject={id} detail={{ source: f.label }} />
+                      <td data-label={t("Detail")}>
+                        <CellText text={tr(f.text)} label={t("Detail")} subject={name(id)} detail={{ source: f.label }} />
                       </td>
-                      <td data-label="Source">
+                      <td data-label={t("Source")}>
                         <span className="xp-src">{f.label}</span>
                       </td>
                     </tr>
@@ -964,20 +961,20 @@ function DeltaColumn({
         <button key={r.id} type="button" className="xp-delta-row" onClick={() => onOpen(r.id)}>
           <span className="xp-dot" style={{ background: GROUP_COLORS[r.primary] || "#94a3b8" }} />
           <span>
-            <div className="xp-delta-name">{r.id}</div>
+            <div className="xp-delta-name">{name(r.id)}</div>
             <div className="xp-delta-prod">
               {r.from !== undefined ? (
                 <>
-                  {r.from} <span className="xp-arrow">→</span> {r.text}
+                  {trJoined(r.from)} <span className="xp-arrow">→</span> {trJoined(r.text)}
                 </>
               ) : (
-                r.text
+                trJoined(r.text)
               )}
             </div>
           </span>
         </button>
       ))}
-      {rows.length === 0 && <div className="xp-empty">none</div>}
+      {rows.length === 0 && <div className="xp-empty">{t("none")}</div>}
     </div>
   );
 }

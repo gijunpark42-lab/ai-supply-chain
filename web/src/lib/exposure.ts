@@ -8,6 +8,7 @@
 
 import { fetchJson } from "./data";
 import type { GenStatus } from "./transitions";
+import { t } from "./i18n";
 
 export type ExposureSlot =
   | "revenue_growth"
@@ -184,9 +185,9 @@ export function scoreBreakdown(c: ExposureCompany, chain: string, w: ExposureWei
   const edges = w.edge_step * Math.min(s.edges, w.edge_cap);
   const total = c.score_by_chain[chain];
   return (
-    `role ${s.role_weight} + contracts ${contracts.toFixed(1)} (${s.contracts}` +
-    `${s.contracts > w.contract_cap ? ", capped" : ""}) + edges ${edges.toFixed(1)} (${s.edges}` +
-    `${s.edges > w.edge_cap ? ", capped" : ""}) + fresh ${c.freshness_bonus} = ${total.toFixed(1)}`
+    `${t("role")} ${s.role_weight} + ${t("contracts")} ${contracts.toFixed(1)} (${s.contracts}` +
+    `${s.contracts > w.contract_cap ? ", " + t("capped") : ""}) + ${t("edges")} ${edges.toFixed(1)} (${s.edges}` +
+    `${s.edges > w.edge_cap ? ", " + t("capped") : ""}) + ${t("fresh")} ${c.freshness_bonus} = ${total.toFixed(1)}`
   );
 }
 

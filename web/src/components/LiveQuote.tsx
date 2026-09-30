@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { LiveQuote as LQ } from "@/lib/types";
+import { useLang } from "@/lib/i18n";
 
 const RANGES = ["1D", "1W", "1M", "YTD", "1Y", "5Y", "All"];
 const REFRESH_MS = 30_000; // auto-refresh interval while the panel is open
@@ -28,6 +29,7 @@ export default function LiveQuote({
   ticker: string;
   exchange: string | null;
 }) {
+  const { t } = useLang();
   const [data, setData] = useState<LQ | null>(null);
   const [state, setState] = useState<"loading" | "ok" | "err">("loading");
   const [range, setRange] = useState("1Y");
@@ -100,8 +102,8 @@ export default function LiveQuote({
 
   return (
     <div className="lq">
-      {state === "loading" && <div className="lq-msg">Loading live quote…</div>}
-      {state === "err" && <div className="lq-msg">Live quote unavailable.</div>}
+      {state === "loading" && <div className="lq-msg">{t("Loading live quote…")}</div>}
+      {state === "err" && <div className="lq-msg">{t("Live quote unavailable.")}</div>}
       {state === "ok" && data && (
         <>
           <div className="lq-card">
@@ -116,10 +118,10 @@ export default function LiveQuote({
             )}
             <div className="lq-live">● LIVE · {data.as_of}</div>
             <div className="lq-stats">
-              <span>Mkt cap {fmtCap(data.market_cap, sym)}</span>
+              <span>{t("Mkt cap")} {fmtCap(data.market_cap, sym)}</span>
               {data.year_low != null && data.year_high != null && (
                 <span>
-                  52-wk {sym}{data.year_low} – {sym}{data.year_high}
+                  {t("52-wk")} {sym}{data.year_low} – {sym}{data.year_high}
                 </span>
               )}
             </div>
@@ -133,7 +135,7 @@ export default function LiveQuote({
                 disabled={!rangeAvail(r)}
                 onClick={() => { setRange(r); setHover(null); }}
               >
-                {r}
+                {t(r)}
               </button>
             ))}
           </div>

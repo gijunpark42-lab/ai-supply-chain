@@ -7,6 +7,7 @@
 //   reports/*.json  -> public/data/reports.bundle.json  ({ node_name: report })
 //   timelines/*.json-> public/data/timelines.bundle.json ([ {id, ...timeline} ])
 //   chains/**/*.json-> public/data/chains/<stem>.json + chains/index.json (fetched on demand)
+//   i18n/web/**     -> public/data/i18n/** (translation overlays for the language switch)
 // Single files (merged_graph, company_metrics, ...) are copied as-is.
 
 import { promises as fs } from "node:fs";
@@ -159,6 +160,22 @@ async function main() {
       n++;
     }
     console.log(`  ✓ logos/ (${n} files)`);
+  }
+
+  // 7) i18n/web/** -> public/data/i18n/** (optional). The translation pipeline writes
+  //    the overlays there: <lang>/<bundle>.json = { sha1(text)[0:12]: translated text }
+  //    and company_names.json. Without it the site simply shows English everywhere.
+  const i18nDir = path.join(ROOT, "i18n", "web");
+  if (await exists(i18nDir)) {
+    const out = path.join(OUT_DATA, "i18n");
+    let n = 0;
+    for (const f of await walk(i18nDir)) {
+      const rel = path.relative(i18nDir, f);
+      await ensureDir(path.dirname(path.join(out, rel)));
+      await fs.copyFile(f, path.join(out, rel));
+      n++;
+    }
+    console.log(`  ✓ i18n/ (${n} files)`);
   }
 
   console.log("Data sync complete.");

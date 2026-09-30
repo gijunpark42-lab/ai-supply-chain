@@ -8,6 +8,7 @@
 // a component along, and each function can be reasoned about on its own.
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { t } from "./i18n";
 
 // ── Dates ──────────────────────────────────────────────────────────────
 // The data carries dates in two spellings:
@@ -62,13 +63,16 @@ export type Freshness = "fresh" | "aging" | "stale" | "unknown";
 export const FRESH_DAYS = 45;
 export const AGING_DAYS = 120;
 
-/** Human labels for the legend / tooltips. */
+/** Human labels for the legend / tooltips (English; the keys of freshnessLabel()). */
 export const FRESHNESS_LABEL: Record<Freshness, string> = {
   fresh: `Fresh (≤${FRESH_DAYS}d)`,
   aging: `Aging (${FRESH_DAYS + 1}–${AGING_DAYS}d)`,
   stale: `Stale (>${AGING_DAYS}d)`,
   unknown: "No date",
 };
+
+/** FRESHNESS_LABEL in the current language. */
+export const freshnessLabel = (f: Freshness): string => t(FRESHNESS_LABEL[f]);
 
 /**
  * Bucket a date string ("2026-08-14" or a "(08-14-2026)" label) by its age.
@@ -88,8 +92,8 @@ export function freshnessBucket(
 /** "today" / "1d ago" / "22d ago" — the small age hint next to a date. */
 export function formatAge(days: number | null): string {
   if (days === null) return "";
-  if (days <= 0) return "today";
-  return `${days}d ago`;
+  if (days <= 0) return t("today");
+  return t("{n}d ago", { n: days });
 }
 
 // ── Sorting ────────────────────────────────────────────────────────────
