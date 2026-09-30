@@ -4,7 +4,7 @@ import { memo, useEffect, useMemo, useRef, useState } from "react";
 import type { VizNode, Contract, QuarterlyData } from "@/lib/types";
 import { buildBadges, buildTimeline, sigDate, FLAG } from "@/lib/signals";
 import { GROUP_COLORS, groupName, slugLabel } from "@/lib/taxonomy";
-import { t, tr, trJoined, name, useLang } from "@/lib/i18n";
+import { t, tr, trJoined, trWhen, name, useLang } from "@/lib/i18n";
 import { nodeExposure } from "@/lib/transitions";
 import { fetchJson } from "@/lib/data";
 import { yahooSymbol } from "@/lib/yahoo";
@@ -661,7 +661,7 @@ export default function NodePanel({
                 <div className="pcol-head">{t("Product / Capacity Timeline")}</div>
                 {timeline.map((item, i) => (
                   <div className="tl-item" key={i}>
-                    <span className="tl-when">{item.when}</span>
+                    <span className="tl-when">{trWhen(item.when)}</span>
                     <span>{tr(item.text)}</span>
                   </div>
                 ))}
