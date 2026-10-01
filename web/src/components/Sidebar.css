@@ -173,7 +173,7 @@ body.glass .srch-list {
 }
 .srch-name {
   font-weight: 600;
-  flex: 0 1 auto;
+  flex: 0 0 auto; /* never shrinks (even a sub-pixel shrink shows "…"); capped by max-width */
   min-width: 9ch; /* the company name is what the user is looking for — never squeeze it to one letter */
   max-width: 52%;
   white-space: nowrap;
@@ -191,6 +191,25 @@ body.glass .srch-list {
   padding: 0 6px;
   line-height: 1.6;
 }
+/* The company's product, between name and ticker. It is the first thing to give way
+   when the row runs out of room (huge shrink weight vs. the hint's 1), ending in "…";
+   the name and the ticker never shrink. The length cap sits on
+   the inner span: a max-width on the flex item itself would freeze it at that width
+   and make the NAME shrink instead. */
+.srch-prod {
+  flex: 0 1000 auto;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.7rem;
+  color: var(--ap-blue-hi);
+}
+.srch-prod > span {
+  display: block;
+  max-width: 18em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .srch-why {
   flex: 1 1 0; /* the matched product text gives way before the name does */
   min-width: 0;
@@ -203,10 +222,13 @@ body.glass .srch-list {
 }
 .srch-hint {
   margin-left: auto;
-  flex: 0 0 auto;
+  flex: 0 1 auto; /* gives way after the product text, before the name */
+  min-width: 0;
   font-size: 0.68rem;
   color: var(--ap-muted);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /* The "show on graph" row of a component search ("hbm" → every HBM maker): first in
    the list, set apart from the company rows under it. */

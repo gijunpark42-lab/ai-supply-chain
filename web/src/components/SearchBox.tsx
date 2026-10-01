@@ -4,7 +4,14 @@ import { memo, useEffect, useId, useMemo, useRef, useState } from "react";
 import type { VizNode } from "@/lib/types";
 import { groupName } from "@/lib/taxonomy";
 import { useLang } from "@/lib/i18n";
-import { buildSearchIndex, searchNodes, loadRecent, pushRecent, type SearchHit } from "@/lib/search";
+import {
+  buildSearchIndex,
+  searchNodes,
+  loadRecent,
+  pushRecent,
+  representativeProduct,
+  type SearchHit,
+} from "@/lib/search";
 // The `.srch-*` styles live in Sidebar.css (this agent's shared stylesheet).
 // Next's app router lets any client component import a global CSS file; the
 // bundler includes it once no matter how many components import it.
@@ -282,6 +289,10 @@ const ResultRow = memo(function ResultRow({
   const { t, tr, name } = useLang();
   const n = hit.node;
   const chains = n.chains.length;
+  // The blue product label between name and ticker: the product text that matched the
+  // query when it was a product search, else the company's representative product.
+  const product = hit.kind === "product" && hit.why ? hit.why : representativeProduct(n);
+  const productText = product ? tr(product) : "";
   return (
     <button
       type="button"
@@ -296,10 +307,15 @@ const ResultRow = memo(function ResultRow({
     >
       <span className="srch-dot" style={{ background: n.color }} />
       <span className="srch-name">{name(n.id)}</span>
+      {productText && (
+        <span className="srch-prod" title={productText}>
+          <span>{productText}</span>
+        </span>
+      )}
       {n.ticker && <span className="srch-tick">{n.ticker}</span>}
-      {(hit.kind === "product" || hit.kind === "ko") && hit.why && (
-        <span className="srch-why" title={hit.kind === "product" ? tr(hit.why) : hit.why}>
-          {hit.kind === "product" ? tr(hit.why) : hit.why}
+      {hit.kind === "ko" && hit.why && (
+        <span className="srch-why" title={hit.why}>
+          {hit.why}
         </span>
       )}
       <span className="srch-hint">
