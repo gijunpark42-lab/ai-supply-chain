@@ -1,0 +1,45 @@
+{
+  "reviewer": "verify-us-0930-f",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Eversource",
+      "target": null,
+      "label": "Eversource Wolfe Research utilities conference 2026 (09-30-2026)",
+      "signal_prefix": "CEO on the FERC transmission ROE: the new rate is 'going to be a lot better than 9.57%'",
+      "action": "set",
+      "set": {
+        "signal": "CEO on the FERC transmission ROE: the new rate is 'going to be a lot better than 9.57%'; Eversource took FERC's formula, applied it and 'came out with this rate of 11.37%' (as spoken in the talk; the Q1 FY2026 call entry gives a slightly different Section 205 filing figure). He calls the FERC order 'significantly flawed' because the 2014 order underlying the first part of the test was vacated; Eversource agrees to a 15-month refund but disputes any longer retroactive refund. The court told FERC to certify the record within 30 days, and he thinks a final court decision could come 'as soon as August' ('August the 27th'). Eversource is 'ready to sit down at any time' to work it through.",
+        "figure": "ROE 11.37% as spoken (FERC's formula applied by Eversource); new rate expected 'a lot better than 9.57%'; 15-month refund accepted; court decision possibly as soon as August"
+      },
+      "reason": "Figure called 11.37% the 'filed ROE' and 9.57% 'current'; the talk says neither (it says 'we came out with this rate of 11.37%' and 'a lot better than 9.57%'), and the node's Q1 call entry gives the Section 205 filing as 11.39%, so the spoken 11.37% must not read as the filed number.",
+      "evidence": "We took their formula, we applied it, and then we came out with this rate of 11.37%."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Eversource",
+      "target": null,
+      "label": "Eversource Wolfe Research utilities conference 2026 (09-30-2026)",
+      "signal_prefix": "CEO on data centers and regional supply: 'I am anti-data centers.",
+      "action": "set",
+      "set": {
+        "signal": "CEO on data centers and regional supply: he restated the anti-data-center stance already on the node from the Q1 FY2026 call ('I am anti-data centers. I don't like data centers... We're not interested in a data center.'), adding his reasons: 'We have a finite amount of generation in the region', electrification gives enough growth without the volatility, and he prefers employers of '2, 3, 400 people'. He contrasts ISO New England's lack of volatility with PJM, says offshore wind 'at a 50% availability factor is a game changer for us' in winter months, and expects the Enbridge gas line to let the region get off LNG. The Millstone contract is up in 2029, and he expects the Connecticut rate decision before any Millstone decision."
+      },
+      "reason": "Depth rule: the stance itself restates the Q1 FY2026 call entry ('we are resisting data centers'); the entry is kept for the new reasons and regional-supply facts, with the restated part marked as a reiteration.",
+      "evidence": "I am anti-data centers. I don't like data centers. ... We have a finite amount of generation in the region."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "10x Genomics",
+      "target": null,
+      "label": "10x Genomics press release: 10x Genomics Announces Sentira, a New Computational (09-29-2026)",
+      "signal_prefix": "10x Genomics is collaborating with NVIDIA: NVIDIA accelerated computing runs the spatial workflow",
+      "action": "set",
+      "set": {
+        "signal": "10x Genomics is collaborating with NVIDIA: the company says NVIDIA accelerated computing 'unlocks the spatial workflow, from real-time data processing on the Atera instrument to downstream analysis in Sentira Spatial', and rapids-singlecell, co-developed by scverse and NVIDIA, is integrated directly into Sentira Spatial."
+      },
+      "reason": "Release says NVIDIA computing 'unlocks' the workflow, not that it 'runs' it; wording brought back to the source.",
+      "evidence": "NVIDIA accelerated computing unlocks the spatial workflow, from real-time data processing on the Atera instrument to downstream analysis in Sentira Spatial."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "reviewer": "verify-1001-v23",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "SoftBank",
+      "target": null,
+      "label": "SoftBank press release: Issuance of Foreign Currency-Denominated Senior Notes (09-24-2026)",
+      "signal_prefix": "SoftBank Group priced USD- and EUR-denominated Senior Notes ",
+      "action": "delete",
+      "set": {},
+      "why": "Pure financing release: the entry is all deal terms (principal, coupons, ratings, use of proceeds, bridge facility cancellation), which skill section 2 excludes; the release states no operating facts",
+      "reason": "Pure financing release: the entry is all deal terms (principal, coupons, ratings, use of proceeds, bridge facility cancellation), which skill section 2 excludes; the release states no operating facts"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Sumitomo Metal Mining",
+      "target": null,
+      "label": "Sumitomo Metal Mining press release: GRANOPT to Triple Faraday Rotator Production Capacity by (06-22-2026)",
+      "signal_prefix": "Sumitomo Metal Mining and Mitsubishi Gas Chemical announce t",
+      "action": "delete",
+      "set": {},
+      "why": "Out-of-chain segment: Faraday rotators (JV GRANOPT, optical isolator parts) have nothing to do with the node's MLCC nickel powder / paste role in mlcc.json, and the supply_status slot would show rotator capacity on the MLCC screener; SMM has no optical-chain node",
+      "reason": "Out-of-chain segment: Faraday rotators (JV GRANOPT, optical isolator parts) have nothing to do with the node's MLCC nickel powder / paste role in mlcc.json, and the supply_status slot would show rotator capacity on the MLCC screener; SMM has no optical-chain node"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Telecom",
+      "target": null,
+      "label": "SK Telecom press release: Building an 'Asia AI Infrastructure Hub': Interview with (08-13-2026)",
+      "signal_prefix": "SK Hyper, SKT's new company dedicated to AI data center busi",
+      "action": "set",
+      "set": {
+        "signal": "SK Hyper, SKT's new company dedicated to AI data center business development, is committed to investing KRW 750 billion through 2030. Its CEO Chung Suk-geun (also Head of SKT's AI CIC): building a 1 GW-scale AI data center requires an investment of potentially tens of trillions of Korean won; \"We are already in discussions with global big tech companies on a range of AI data center opportunities\"; with data centers becoming increasingly difficult to build and memory for the servers increasingly difficult to secure, the next two to three years will be a critical window, and SK Group's offer to big tech is reliable power, SK hynix memory access combined with SKT's infrastructure operations, and trust."
+      },
+      "why": "Source says data centers are increasingly difficult to BUILD and server memory difficult to SECURE; the entry merged both as 'difficult to secure'",
+      "reason": "Source says data centers are increasingly difficult to BUILD and server memory difficult to SECURE; the entry merged both as 'difficult to secure'"
+    }
+  ]
+}

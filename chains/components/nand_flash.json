@@ -608,6 +608,14 @@
                   "signal": "Everpure outlined four strategic growth vectors: Core and Core AI (FlashBlade, Flash Array and Evergreen//One subscriptions, both CPU- and GPU-attached); Modern Data Software (Everpure Data Intelligence, Data Stream, Portworx, Resilience, Everpure Cloud); Scale AI (FlashBlade//EXA solutions tailored for neoclouds and AI-native providers); and Hyperscale Solutions (DirectFlash technology designed specifically for hyperscalers). Core and Core AI is projected to continue gaining market share, and the three new vectors (Modern Data Software, Scale AI, Hyperscale Solutions) are expected to represent approximately 20% of total revenue by fiscal year 2030. Over the past five years Everpure has dedicated on average 19% of annual revenue to R&D (non-GAAP). Capital framework: fund organic investment, strengthen the balance sheet, pursue strategic M&A, buy back shares to offset stock-based-compensation dilution, plus additional select buybacks to return excess capital.",
                   "figure": "New growth vectors ~20% of total revenue by fiscal year 2030; R&D averaged 19% of annual revenue over five years (non-GAAP)",
                   "topics": []
+                },
+                {
+                  "quarter": "Everpure press release: Everpure Announces New Data Management Capabilities for (09-30-2026)",
+                  "signal": "Product launch: Everpure announced new platform capabilities that it says will be available this October. PureKVA (Key-Value Accelerator): Everpure FlashBlade now pre-stages context directly into GPU memory to deliver up to 20x faster Time to First Token (TTFT) for LLM inference, supporting enterprise multi-tenancy with zero dataset relocation. Also announced: Always-On DeepReduce data compression that continuously scans storage blocks across FlashBlade systems for sub-block similarities so usable capacity expands without impacting write performance; native Model Context Protocol (MCP) integration so AI agents and security tools can query Everpure Data Intelligence's live data catalogs; and an Intelligent Token Optimization reference architecture using open weight models to cut API token usage from external providers.",
+                  "figure": "PureKVA up to 20x faster Time to First Token; available this October",
+                  "topics": [
+                    "product_launches"
+                  ]
                 }
               ]
             },
@@ -1130,6 +1138,65 @@
                   "topics": [],
                   "counterparty": "PEAK:AIO",
                   "counterparty_role": "acquisition target"
+                },
+                {
+                  "quarter": "NetApp INSIGHT 2026 (09-29-2026)",
+                  "signal": "CEO George Kurian announced NetApp Novus, which he called 'the most important announcement we have made in a long time': a new disaggregated storage architecture 'architected for the performance needs of the 100,000-plus GPU clusters'. Claims (company's own): a single file system delivering '100 terabytes per second of performance', ten times the 10 terabytes per second top result on the IO 500 benchmark, and 'The first zettabyte scale file system on the planet' (a single namespace sized against the 2,000 exabytes of data center capacity shipped last year). It uses standard pNFS / FlexFiles on the stock Linux kernel with no proprietary client, federates many storage clusters into one namespace, splits the metadata service into independently scalable protocol, state and catalog planes, and its data servers run ONTAP; the AFF A90s are being extended into the architecture. Chief Platform and Technology Officer Arindam Banerjee said 'At 50,000 to 100,000 GPUs, no single storage cluster can feed the fleet', that lab modeling showed linear scaling, and that NetApp is 'landing it as a product very soon', with timelines and ecosystem partnerships to be given at the next day's keynote. Announced, not shipping.",
+                  "figure": "Novus: 100 terabytes per second claimed; zettabyte-scale single namespace; designed for 100,000-plus GPU clusters; no ship date given ('very soon')",
+                  "topics": [
+                    "product_launches"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "NetApp INSIGHT 2026 (09-29-2026)",
+                  "signal": "NetApp announced a partnership with Oracle to offer a NetApp storage service on Oracle Cloud Infrastructure (ONTAP on OCI). Chief Product Officer Syam Nair, opening his keynote (the transcript labels this paragraph CEO George Kurian, but it follows the moderator's 'Please welcome Syam Nair' and opens 'Thank you, George, and thank you, Mahesh'): 'We are thrilled to partner with you and the Oracle team to build the next generation of storage, NetApp storage service on Oracle Cloud Infrastructure.' VP of Technical Marketing Jeff Baxter said the Oracle Cloud Infrastructure NetApp Storage Service 'puts us now in all four of the world’s largest public clouds', after Azure (2017), AWS and Google Cloud. No availability date was stated by NetApp management.",
+                  "figure": "no specific figure",
+                  "counterparty": "Oracle",
+                  "counterparty_role": "partner (first-party cloud storage service)",
+                  "topics": []
+                },
+                {
+                  "quarter": "NetApp INSIGHT 2026 (09-29-2026)",
+                  "signal": "Platform software announcements (Chief Product Officer Syam Nair and other NetApp speakers; Nair said everything announced is 'either generally available this morning or in preview'): the metadata capability of the NetApp AI Data Engine (AIDE) now supports data from heterogeneous, non-NetApp sources and AIDE is 'now fully software-defined', offered 'free for the first 6 months'; NetApp Console Local (on-premises and air-gapped deployment, available now) with AI that works with the customer's own LLM and published MCP servers; NetApp Keystone Sovereign for European Economic Area customers, 'available early November for France and Germany, with general availability for everyone else later on'; NetApp ransomware detection integrated into the Commvault recovery workflow; the Nutanix integration announced earlier in the year, which VP of Technical Marketing Jeff Baxter said 'is now at general availability as of today'; and an expanded strategic partnership with SAP.",
+                  "figure": "AIDE free for the first 6 months; Keystone Sovereign early November for France and Germany",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "NetApp INSIGHT 2026 (09-29-2026)",
+                  "signal": "NetApp Keystone (storage-as-a-service) announcements, presented by Dale Degen, Director of Product Marketing for NetApp Keystone: a new performance service level called Standard Hybrid, based on FAS ('a mixture of flash and hard drives'), aimed at customers asking whether they pay for performance they do not need because many as-a-service offerings in the market are all flash and 'with the economics of everything, that is getting quite pricey'; capacity add hold pricing that keeps a customer's starting price if it runs at 80% consumption or higher for 90 days; and contractual guarantees including a six nines service level agreement with credit back, a storage efficiency SLA and a multi-protocol SLA.",
+                  "figure": "Keystone Standard Hybrid (flash plus hard drives) launched; price hold at 80% consumption or higher for 90 days; six nines SLA",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "NetApp press release: NetApp Removes Storage Bottleneck for AI Factories (09-29-2026)",
+                  "signal": "NetApp announced NetApp Novus, which it calls 'the fastest storage on the planet' (company claim), designed for AI infrastructure providers operating large GPU environments (neoclouds and GPU-as-a-Service providers). The initial Novus release combines NetApp Novus Data Director, the metadata software, running on qualified Supermicro infrastructure with NetApp ONTAP data services delivered through AFF A90 systems; the disaggregated architecture separates metadata from the data path under a single namespace using industry-standard NFS, is 'built to exceed throughput of 100TB per second and support high utilization of hundreds of thousands of GPUs', 'is orderable today', and provides a path to software-defined deployments over time. Chief Product Officer Syam Nair: 'Novus delivers 100 TB/s of unlimited scale-out performance' and 'We’ve just delivered the fastest storage on the planet'.",
+                  "figure": "architected for up to 100 TB per second aggregate throughput; hundreds of thousands of GPUs; orderable today",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "NetApp press release: NetApp and Supermicro Collaborate to Power AI at Any Scale (09-29-2026)",
+                  "signal": "NetApp announced a strategic collaboration with Supermicro to deliver jointly validated AI infrastructure solutions spanning large-scale AI factories, enterprise deployments, neoclouds, and sovereign AI initiatives, combining Supermicro's AI-optimized compute and rack-scale systems with the NetApp Platform. As the initial implementation, NetApp and Supermicro will deliver NetApp Novus Data Director software running on qualified Supermicro servers with NetApp AFF A90 systems as the high-performance ONTAP data layer, which NetApp calls 'the first step in a broader collaboration to co-engineer integrated infrastructure solutions'. The companies are also collaborating on NetApp AIPod with Supermicro, a NetApp-validated converged infrastructure architecture based on the NVIDIA Reference Architecture guidance, delivered through NetApp's channel partners, for AI training, inference, and agentic workloads 'from dozens to hundreds of GPUs'.",
+                  "figure": "AIPod with Supermicro: from dozens to hundreds of GPUs",
+                  "counterparty": "Supermicro",
+                  "counterparty_role": "partner (jointly validated AI infrastructure; qualified servers for Novus Data Director)",
+                  "topics": []
+                },
+                {
+                  "quarter": "NetApp press release: NetApp and Oracle to Launch Fully Managed Cloud Storage (09-29-2026)",
+                  "signal": "NetApp and Oracle announced Oracle Cloud Infrastructure NetApp Storage Service, a fully managed OCI-native storage service bringing NetApp ONTAP data management capabilities to OCI, managed through the OCI Console and SDKs, ONTAP APIs and familiar operational workflows, for databases, enterprise applications, virtualized environments, EDA/HPC, regulated applications, and AI data pipelines. Release: 'OCI NetApp Storage Service is planned for general availability within the next 12 months.' Planned, not yet available.",
+                  "figure": "general availability planned within the next 12 months",
+                  "counterparty": "Oracle",
+                  "counterparty_role": "partner (first-party cloud storage service on OCI)",
+                  "topics": [
+                    "product_launches"
+                  ]
                 }
               ]
             }
@@ -1898,6 +1965,14 @@
                   "quarter": "SK Hynix Q1 FY2026 (04-23-2026)",
                   "signal": "Operating profit reached 37.6 trillion won, operating margin 72%; EBITDA 41.3 trillion won, EBITDA margin 79%.",
                   "figure": "Operating profit 37.6 trillion won; OPM 72%; EBITDA 41.3 trillion won; EBITDA margin 79%"
+                },
+                {
+                  "quarter": "SK Hynix press release: \"Behind AI's Rapid Growth Lies Memory\" - SK hynix Shares (09-28-2026)",
+                  "signal": "SK hynix (Daesik Park, distinguished engineer in PCIe Design, presenting with Cadence): \"As AI infrastructure expands, the PCIe-based eSSD market is expected to grow roughly 3.8 times, from 509EB in 2026 to 1,933EB in 2030\", with demand for E1.S and E3 form factors also rising rapidly. SK hynix has developed SSD controllers on TSMC processes since PCIe Gen3 and, for PCIe Gen6 and Gen7, is preparing chiplet-based SSD solutions that split the controller into chiplets connected via UCIe. The PS1101 E3.S shown is SK hynix's first QLC-based eSSD; the PEB210 E1.S supports direct liquid cooling.",
+                  "figure": "PCIe eSSD market 509EB (2026) to 1,933EB (2030), roughly 3.8 times",
+                  "topics": [
+                    "nand_storage"
+                  ]
                 }
               ]
             },
@@ -2530,7 +2605,14 @@
               "company": "Macronix",
               "product": "NOR flash (server BIOS / boot) and SLC NAND",
               "connects_to": [],
-              "quarterly_data": []
+              "quarterly_data": [
+                {
+                  "quarter": "Macronix press release: Macronix Announces Consolidated Net Sales of NT$8.145 (09-07-2026)",
+                  "signal": "Macronix August 2026 unaudited consolidated net sales were NT$8.145 billion, up 5.4% from July (NT$7.725 billion) and up 218.5% from August 2025 (NT$2.557 billion). January-August 2026 cumulative net sales were NT$45.463 billion, up 149.1% from NT$18.248 billion a year earlier.",
+                  "figure": "NT$8.145 billion (+5.4% MoM, +218.5% YoY); Jan-Aug NT$45.463 billion (+149.1% YoY)",
+                  "topics": []
+                }
+              ]
             }
           ]
         },
@@ -3009,7 +3091,17 @@
                 {
                   "company": "Kioxia",
                   "relationship": "deposition/etch tools for BiCS NAND fabs",
-                  "contracts": []
+                  "contracts": [
+                    {
+                      "source": "Applied Materials press release: Applied Materials and KIOXIA Partner at the EPIC Center to (09-29-2026)",
+                      "signal": "KIOXIA will join Applied's EPIC Center in Silicon Valley as an innovation partner; the companies will collaborate on R&D in advanced memory cell and structure creation for higher-density memory architectures, multi-chip stacking for next-generation memory, advanced packaging for stacked memory, and materials engineering that supports manufacturability at scale, to increase memory density and performance for AI. KIOXIA's Minori Kajimoto: the companies aim to accelerate the commercialization of breakthroughs in memory and packaging technologies.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "announced Sept. 29, 2026",
+                      "type": "EPIC co-innovation partnership (next-generation memory R&D)",
+                      "topics": []
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -3326,6 +3418,14 @@
                   "quarter": "SUMCO Q1 FY2026 (05-12-2026)",
                   "signal": "SUMCO projects an uptick in NAND wafer demand ahead as part of robust overall 300mm demand driven by AI data centers (Q1 2026 view).",
                   "figure": "NAND wafer demand uptick projected"
+                },
+                {
+                  "quarter": "SUMCO press release: Consolidated Financial Results for Q2 FY2026 (08-06-2026)",
+                  "signal": "Q3 2026 outlook (earnings release): demand for 300mm wafers for NAND use is projected to grow in line with the expansion of server SSDs, alongside strong demand for leading-edge logic and DRAM for AI applications.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "nand_storage"
+                  ]
                 }
               ]
             }

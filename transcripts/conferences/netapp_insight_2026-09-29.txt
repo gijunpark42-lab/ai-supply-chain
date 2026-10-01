@@ -1,0 +1,1314 @@
+SOURCE: Investing.com conference transcript -- https://www.investing.com/news/transcripts/netapp-at-insight-2026-bets-on-aiera-data-infrastructure-93CH-4923688
+TITLE: NetApp at INSIGHT 2026: bets on ai-era data infrastructure
+EVENT: INSIGHT 2026
+DATE: 09-29-2026  (article publish date = event day)
+# source label: NetApp INSIGHT 2026 (09-29-2026)
+# speakers: George Kurian, CEO, NetApp; Syam Nair, Chief Product Officer, NetApp; Thomas Kurian, Executive Vice President, Google Cloud; Scott Guthrie, Executive Vice President of Cloud and AI Group, Microsoft; Arindam Banerjee, Chief Platform and Technology Officer, NetApp; Jeff Baxter, VP of Technical Marketing, NetApp; Of course, set your alarm clock 9; Jennifer Prenner, SVP of Product Marketing, NetApp
+# paragraphs: 653   characters: 184,402
+
+---
+George Kurian, CEO, NetApp: Welcome to INSIGHT 2026. Thank you to our sponsors, our partners, and so many who have worked so hard to make this a fantastic event. Thank you for traveling and taking the time to be with us here today. We are so excited about what we will cover over the next 2 days. Between our keynotes, our featured and breakout sessions, you leave having a deep understanding of our perspective on the evolution of the data center, data infrastructure, and the data stack over the next few years, the massive AI opportunity, and the specific challenges facing organizations who want to capture it, and what we are doing at NetApp to solve those challenges and to help you meet this moment.
+
+While much of the AI conversation has evolved, shifting focus from discussions around models to GPUs and AI factories to inference performance and token economics, what has not changed is the critical importance of your data and your data infrastructure in driving success for your AI strategy. Many organizations are still struggling to scale AI from pilot to production. When we sit down and problem solve with you, it always comes down to 2 fundamental challenges. Challenges with your infrastructure and challenges with harnessing your data. Everything we will discuss today is tied to addressing those 2 problems. Let me begin with infrastructure. With the advent of accelerated computing and AI applications, data center infrastructure is being transformed, the old design patterns being swept aside, making way for new paradigms.
+
+To reduce the time it takes to train and fine-tune your models, you need to pool enormously large GPU clusters together. Typically, the larger the cluster, the faster you can train the model. GPU compute is unforgiving. With high concurrency and parallelism, bulk data reads to load, bulk data writes to checkpoint, interleaved metadata and data operations. You are measured unforgivingly on time to first token and cost per token. It is extremely expensive to have any of it sit idle. You also need to organize very large exabyte scale or even zettabyte scale data sets with different data types that span your hybrid cloud under one namespace. Simply put, larger, higher quality data sets generally improve AI inference quality by giving models more diverse examples to recognize patterns accurately for inference.
+
+The scale of both the compute clusters and data sets is accelerating at an extraordinary pace. As an example, large language model scale has grown 5,000-fold in 4 years. This can be particularly frustrating if you are a model builder or trying to fine-tune models, if you are operating AI hyperscale clouds, GPU clouds, or sovereign AI factories. Also, if you are an end user of these factories or building your own AI platform. The second challenge is your data. Data is becoming the constraint to productively scale AI. You know at NetApp, we know a few things about data. For over 30 years, data infrastructure has always been and remains our focus, and we have been building and innovating solutions with industry leaders like AWS to help businesses take advantage of their data. Now it matters more than ever.
+
+You see, 93% of organizations report that at least one form of data challenge is blocking their AI ambitions, and the high-performing ones are already running into this. The challenge becomes even more critical as you scale AI into more business-impacting opportunities, which carry more risk, because AI retrieves, recombines, and generates data faster than traditional governance models can keep up. To compare against these needs, let’s look at your data estate today. You see, before an AI system can generate a single useful token, it must discover, access, and understand the correct information required to answer the question it is being asked. In a modern enterprise, that information rarely lives in one place. A small part of it, less than 15%, typically, resides in structured business systems such as your ERP system, your CRM system. But these provide just a clinical view of your business.
+
+Much of the context, the meaning, the sentiment, the texture of your organization that makes AI valuable, about 85% of it, is somewhere else entirely. Engineering documentation, research data, operational files, media assets, simulation output, scientific data sets, and decades of institutional knowledge placed in content repositories, email systems, Slack channels, and Zoom calls. All of it distributed as unstructured data across siloed storage and application environments, cloud environments, remote offices, and different data sovereignty jurisdiction. So what’s the cost of all that fragmentation? First, foregone opportunity. Petabytes of your unstructured data are dark, with hidden knowledge ignored because it sits in isolated, undiscovered silos. Second, operational complexity and fragile business continuity. Different customers, workloads, and data sets have genuinely different protection requirements. However, having customized, tailor-made infrastructure silos requires separate maintenance schemes, massive operational complexity, and never-ending technical debt. I’m sure you recognize this challenge.
+
+Third, ransomware and cybersecurity attacks are on the rise, and agentic AI-enabled ransomware attacks are already enabling bad actors to attack vulnerabilities faster than ever before. Finally, sovereignty restrictions are beginning to be a struggle to implement consistently across your data estate. To summarize: fragmented data, dark data, uneven protection, facing rising attacks, and hardening sovereignty rules. This is the state of most customers’ data estates. No wonder it’s hard to use AI with your data and data infrastructure in this state. Let’s talk about the business impact of doing so. Businesses today are more global in scope than ever before. Customers, suppliers, and employees can be spread across the world, and they work closely together to share information, learn from each other’s experience, and act on the organization’s behalf.
+
+With the advancement of AI, leaders across every industry now envision the agentic enterprise, where agents extend their employees’ capabilities. These agents are autonomous software programs that use AI to perceive their environment, make decisions, and take multi-step actions to achieve a goal. To make them work for you, they need two capabilities that let humans and organizations operate effectively in the first place: memory and context. Let’s start with memory. As humans, our memories shape who we are. They make up our internal biographies. They tell us what we’ve done with our lives, who we are connected to, and inform what we should do next. Now, on to context. Context is the background of an event, a statement, or a piece of data. It is what gives facts a clear meaning. Without context, a single word, number, or action can mean many different things.
+
+Context helps memory recover the right experience to make the right decision, and it updates that memory with recent experience. For example, you might have a memory of yourself as a child on a boat with your parents. Without context, that’s all it is. But with context, you’ll remember that it was a special occasion because your dad took off work that day to be with you. Your mother packed your favorite lunch, and you were wearing a brand-new shirt that day that you felt great in and that you might still have hanging in your closet today. Together, memory and context create feeling, impact, and when combined with actions that provide for continuous learning, memory and context are what create knowledge. For your enterprise to be truly AI-enabled, it needs context and memory for your agents.
+
+To give them that, you need a data platform that not only can store and protect your data, but can also unlock the insights that are embedded but hidden in your data. One that has been trusted to store your organization’s data, your digital memory, for decades, and that can now organize it and build in context right where the data is created and where it exists to transform your data into knowledge. That’s the NetApp platform, an intelligent governed infrastructure that provides zero copy access to all your data for any data and any workload, anywhere you operate. The NetApp platform is already part of your enterprise. You’ve trusted us with your data, your organization’s memory, for more than three decades, and you can continue to trust us that we will provide you with the tools to turn your data into knowledge.
+
+Today, we will share two major advancements to address those challenges that I spoke about earlier, infrastructure and data, so that you can lead in the AI era, scale AI across your organization, and take advantage of all the investments you’ve already made with the NetApp platform. The first extends the value of the trusted NetApp platform to meet and exceed the infrastructure demands of the largest computing infrastructure, the biggest frontier models, AI factories, and hyperscalers. This allows you to solve the infrastructure challenge we spoke of and use the world’s most advanced capabilities to process your data, your memories. The second, to build context. We are going to provide you with the capabilities to exploit the value of all of your NetApp data, where it is created and where it resides by organizing it, providing context, coherence, and the data foundation you need for your agentic enterprise.
+
+The NetApp platform lets your organization do four things. One, make your data AI ready so that you can move quickly from idea to impact. Two, unify your storage, confidently handling the most demanding workloads wherever they live. Three, proactively protect your data with unquestionably the most secure storage on the planet, period. Four, give you complete control over your entire data estate and data infrastructure. No silos, total visibility. The NetApp platform helps you turn your data into knowledge. To provide you with a deeper understanding of the NetApp platform and some of the new innovations, I want to introduce our Chief Product Officer, Syam Nair, who will be on the stage shortly.
+
+But before we bring up Shyam, it is always worth remembering that the secret to the NetApp platform is not only the awesome innovations that we built, but because we have as our strategy and our tradition the idea that when we innovate together, we innovate best. We have done so with a broad ecosystem of technology leaders across the industry. I am excited to announce the newly expanded partnership with a leader in cloud AI, leading soon to an awesome new product announcement. Let us hear directly from them, virtually welcoming Mahesh Thiagarajan, Executive Vice President of Oracle Cloud Infrastructure at Oracle.
+
+Mahesh Thiagarajan, Executive Vice President of Oracle Cloud Infrastructure, Oracle: George, thank you for the opportunity to join you and the NetApp community at INSIGHT. Getting real value from AI depends on making enterprise data accessible, manageable, and ready to use. NetApp has earned customers’ trust over the years by delivering powerful and consistent data management across on-premises and cloud environments. For NetApp customers, moving critical applications and data to the cloud should not mean retraining teams, redesigning workflows, or starting a data protection strategy from scratch. This is why Oracle is very excited to partner with NetApp to bring ONTAP on OCI. Very soon, OCI File Storage and NetApp ONTAP will enable customers to run business-critical file storage workloads in OCI using the same set of ONTAP tools, API, and automation.
+
+Together, OCI and NetApp will help customers extend applications and their data to the cloud with greater operational consistency, separating and supporting large data sets, enterprise applications, development environments, and a very resilient hybrid cloud strategy. We are very excited about what our teams can help our customers achieve together. Super excited about the partnership.
+
+Moderator: Please welcome Syam Nair.
+
+George Kurian, CEO, NetApp: Good morning, everyone. Good morning. Thank you, George, and thank you, Mahesh. We are thrilled to partner with you and the Oracle team to build the next generation of storage, NetApp storage service on Oracle Cloud Infrastructure. We will talk more about this throughout the breakout sessions. Please visit the expo floor. There will be featured sessions where we will talk about this new offering. Now, for 30 plus years, our industry answered one question: Where do I put my data? The answer was a scalable, durable storage layer. Store it safely, store it securely.
+
+Syam Nair, Chief Product Officer, NetApp: We became the most trusted place to hold your intellectual property, your most precious asset, data. Everybody talks about it, the real fuel of the enterprise. With your trust and our continued innovation, we are still very good at it. A few months ago, I sat down with the CIO of a large European financial institution. He said something that stayed with me since. "Everyone sells me their new features, performance, durability, maybe a new AI operating system. But what’s actually on my mind is driving value from the investments that I’ve already made. I need a partner who helps me get more from the data that we already have." He said he felt for the first time, someone really answered that call. NetApp’s mission is to supercharge what you all have already invested in. What the CIO was asking: What does my data know?
+
+What can it do for him? He is focused on the agentic enterprise, where agents take on complex actions on your behalf, whether it’s moving money or making trades. George talked about the importance of memory, context, and knowledge, what agents need to deliver business outcomes and to be trusted. Let me show you where that memory and context live and how you can enable it on the infrastructure that you already have. Look, we need to solve for the infrastructure needs and the data needs together, not in silos. That’s the need for the agentic enterprise. Today, we will talk about the only platform built to do exactly that, make your entire data infrastructure ready for the agentic enterprise. One thing before we go further. Remember the CIO conversation?
+
+The CIO wanted more value from his infrastructure, and I’m holding myself to the bar right now with all of you. Everything today, literally everything is either generally available this morning or in preview, and you can sign up in the expo hall this afternoon. All of you, get to supercharge your investments right away. That’s the promise from NetApp. The NetApp platform has four capabilities: AI-ready data, proactive protection, unified storage, and complete control. But every one of them is anchored on the same thing, your data, where it already is, made usable without any migration. That’s the promise of true zero copy activation with always-on protection. With the NetApp platform, it’s trusted, intelligent data infrastructure for the agentic enterprise you all deserve. Let’s start with AI-ready data. Agents that act on your behalf are only as good as the data they can reach, trust, and act on safely.
+
+Data fragmentation is a reality across on-premises, cloud, and the edge. When this happens, it’s natural to have increased operational complexity and inconsistent governance. The first thing that must be true is your data. It must be ready. That means an agent can find it, understand it, trust it, and act on it right where the data lives, without added complexity and no runaway cost. Now here’s the part that changes everything. You all already own this data. You have this infrastructure. It’s your intellectual property. Every copy somebody is asking you to make is a governance problem. Every move is an operational cost. What do we do at NetApp? We help you activate your data right where it already sits on the infrastructure you already trust. We are igniting what you already own everywhere where your data is.
+
+When I met with the head of a research computing company, they have decades of trial data, lab results, research notes, sitting across systems going back years, some of it older than the researchers now trying to use it. This is digitized memory and context hidden in there for them. To unlock it, 6-plus months of data engineering before a single model sees a single file. They need the data they already own to speak to the AI they are trying to use. This is not very different from the CIO conversation, just a different application of the same ask. What does my data know? Activate the data in place safely and securely. We can do this today. Today, we can activate with context exactly where decades of trust already put the data. Let me show you how it fits together.
+
+The foundation of it is about discovering and understanding what you have, what data is there without moving it. Then comes insights. Surface what’s actually in that data, the patterns, the context that was sitting there unused. Built-in intelligence, governing, securing all of the data automatically with the same policies protecting your data today. Finally, context. Now your agents have something to reason over, built entirely from data that never ever left your infrastructure. We bring it to life using the NetApp platform. How? By tracking your data and metadata without constant discovery, without scanning your file systems again and again, with no migration. George mentioned this. Let’s go back to the need for memory and context, combine that to create knowledge. We talked about how your data is everywhere, but what has been missing is the layer that knows what is in the data.
+
+Where does the data live? What does it mean? The layer that turns a data estate into the memory and context, and the layer is right there. Lives on the same trusted, unified storage you already use. You already use this for your most critical data and your business critical applications. The most secure storage on the planet. Sorry, the only trusted data infrastructure you will ever need, and that is from NetApp. Look, this is not about just activating data. You have invested in the infrastructure. We need to activate it with efficiency, with accelerated computing and GPU acceleration, better economics on the infrastructure you already trust. That’s the outcome you need from an intelligent data infrastructure. Last year, we introduced a NetApp AI Data Engine, and as customers used it, we learned what the biggest job really was.
+
+Safely activate data without copying it, without losing the governance. This AI data engine is part of the platform. Purpose-built to turn all of your dark data into trusted, governed context. Your data made AI ready right there. While it is activating it is also standing guard over it. I will come back to this, exactly what this means in a little bit. For now, just remember this, readiness and protection are not two separate things. They have to happen together. Now that the part I am most excited about. We talked about the researcher. Their problem was cost and complexity. Six-plus months of engineering. Their CIO told me that not all of the data was on the same storage platform, so they had to discover, ETL, harmonize, model, and make them available to the researchers. We have a solution for that.
+
+Everything I just showed you up until today worked on NetApp data. I am excited to announce that the metadata capability of the NetApp AI Data Engine supports data from anywhere. Heterogeneous data sources, all of it. It is not a new system you need to buy. It is the fastest way to find out what is actually in the data you already own. The AI Data Engine is now fully software-defined, discovers, understands, and activates data we have never touched. Point it to your entire data estate, every system you have inherited along the way, and start building context across data without moving them into another system. This is the magic. I have a call to action. Thank you. I have a call to action about the metadata engine. Everyone, every enterprise in this room should be running it. Not eventually, not on a roadmap.
+
+As soon as you are all back in your offices. To help you all do that, I am happy to announce we are making NetApp AIDE, the AI Data Engine, and this new metadata capability I talked about available to all of you here today and every other enterprise out there, free for the first 6 months. Take out your phones, scan the QR code, and they will be available on The Garage if you do not get a chance. Look, our promise is very simple. Your data activated wherever it already lives, and we mean that literally. The data is ready, but every training run, every large query still ties up computer resources. Everyone you talk to these days talks about accelerated computing. Let us talk about the researchers. They do not want a new tool. They live in Spark. They live in Trino. They get, what?
+
+Decades of Python libraries that they trust. These are engineers. They were talking about true accelerated computing that they need, that we need to build into the data infrastructure with no tool change, no code change. That is exactly why we acquired the company DataPelago. DataPelago accelerates the tools the researchers already use, Spark, Trino, Python libraries, built over years, right in the data infrastructure. We talked about zero copy activation. This is zero code change acceleration. In the agentic era, readiness and protection are in two separate conversations. If your data is not protected, your data is never ready. An attack is not a matter of if, it is a matter of when. That was already true. Now your agents are acting on your data autonomously, making decisions, moving money, triggering transaction, all at machine speed.
+
+If that data is compromised and nobody catches it in time, the agent doesn’t slow down to ask if it should trust it. It just acts. Your data infrastructure is no longer the last line of defense. It’s the thing your agent’s judgment depends on each and every time they act. A colleague of mine, a cybersecurity leader, would often say, "If you’re reachable, you’re breachable." I think the same is true for every piece of data now, maybe a little bit more urgently. If it’s valuable, it’s a target, and if it’s a target, it needs to protect itself. Here’s why I believe this even more strongly. Very recently, some of the best AI models in the world couldn’t pass a hard security test. You probably heard about it.
+
+They were working in a sandbox, but they cheated and finally broke into a production infrastructure at a real company. These agents were not malicious, but their actions were risky. The guardrails, yes, they had them, but you cannot hand an agent a policy and expect it to just care. I’m talking about the most secure agents operating on your data and where we need a new meaning of zero trust, which is not a network posture, it’s not an identity check at the door. It is protection built into the data itself, every single piece of it. NetApp is on a path as part of a platform to define and deliver zero trust data security built into the platform. We will work with our partners, the best cybersecurity systems, as well as other providers, and make sure that there is ability for every piece of data to protect itself.
+
+Real AI readiness and always-on data security were never two separate guarantees. Data that is unprotected was never actually AI ready. They have to be part of the same platform promise, and we will deliver that with NetApp platform. Detection without recovery, it’s just an expensive alarm. It tells you something went wrong. It doesn’t help you get back to work. Zero trust means every access point gets verified before it happens. But verification doesn’t help if someone still gets through. Your recovery point has to be immutable. Nobody can alter it or delete it, even with the right credentials. And it has to stay safe even if your network is a thing that got hit, because it has to run air gapped, cut off from whatever failed.
+
+It’s not about detecting ransomware, it’s about closing the loop when something goes wrong and getting you back in business, the real recovery, protecting your business always. And it has to run itself and be part of the platform DNA. With the NetApp platform, it catches problems before they spread and fixes them automatically so that no one is waiting on an approval at 2:00 A.M. Our value is now going to be built deeper into the Commvault product so your team knows from the console that they already use. With this new integration, potential ransomware attacks light up within your Commvault interface, and you can see all the threats collected together. We have now also integrated the complete curated clean recovery in with Commvault, so you can leverage tools like SnapRestore and recover as easily as you want.
+
+No new tool, and fewer tools also mean fewer doors for the attacker to find. The real cost of a breach is never just downtime. It is the time lost getting back to business. It is time lost rebuilding trust with regulators and customers who are certainly asking us a lot of questions. The real value here is the day something goes wrong, you can depend on the platform for business continuity, and you are already planned for that and accounted for. I want to thank the Commvault team for the partnership, and we are not stopping here. We continue to enable our partners to always leverage the best of the NetApp platform. As another example, let us hear from Thomas Kurian of Google Cloud, one of our longtime partners, discussing how they are leveraging our latest innovations.
+
+Thomas Kurian, Executive Vice President, Google Cloud: Thank you, and hello, everyone. It is great to be back at NetApp INSIGHT with you. Google Cloud and NetApp are continuing their long partnership to help customers solve critical data challenges in this AI era. With Google Cloud NetApp Volumes, we power the largest data center exits across all enterprise workloads, and we are doing that without compromising on performance, scale, or security. By leveraging ONTAP’s latest innovation alongside Google Cloud’s Compute and Hyperdisk, we deliver massive scale performance with up to 200 gigabytes per second of throughput to support demanding EDA workloads. All of this is backed by best-in-class security, including NetApp ransomware resilience. NetApp Volumes is also enabling customers to deploy advanced agentic workloads and RAG inferencing. By bringing unstructured data into Google Cloud, customers can now transform their data from on-premise systems and GCNV into a hybrid grounding knowledge base.
+
+By combining Gemini Enterprise with NetApp Volumes, we deliver trusted AI intelligence without any infrastructure friction. Customers including PayPal, Marvell, and HCL Technologies are already leveraging Google Cloud NetApp Volumes to power their enterprise workloads. Additionally, NetApp storage solutions are now embedded natively into Google Distributed Cloud. This is empowering regulated sectors to run our AI model, Gemini and Gemini Enterprise, in air-gapped sovereign environments. Alongside NetApp, we enable you to unlock your data’s potential and to drive faster AI innovation. Thank you for your continued partnership.
+
+Syam Nair, Chief Product Officer, NetApp: Thank you again, Thomas and the Google team, for the partnership. Now, a different focus area for us. If you are running a hybrid estate, and almost all of you are, all of us are, this one is for us. Let me tell you about the manageability challenge that I often hear about. The problem is often simpler, but somehow harder. Infrastructure in four different places, four different teams, four different consoles. Admins cannot tell the confidence with whether the same policy is enforced everywhere all at once. We need to allow to manage it any way you want it, anywhere, and that is what complete control means. One place to see, manage, and govern everything, on-premises, every cloud, everywhere in between, as one data estate. Our answer to that is the NetApp Console. On-premises, Keystone, all major public clouds, all on one canvas.
+
+AI-assisted autonomous operations, so that there’s one control plane for the entire platform. Predicting issues, resolving incidents faster, optimizing capacity and cost, with human oversight always in the loop. For the most sensitive environments, the ones that can’t depend on a network connection to stay secure, or where regulatory or enterprise policy needs it to be local and air-gapped, the NetApp Console runs within your environment, completely air-gapped, with the same visibility, same control, completely isolated when isolation is the requirement. With this, four consoles and several other tools all now become one. Built for every environment, every policy, one place, and built into the same platform you trust your mission-critical businesses with. I talked about this local air-gap control. Let me show you exactly what that looks in practice. This is fleet management capability of the NetApp Console local.
+
+It goes beyond what any other tool ever tried to do, organizing and operating an entire data estate as one from inside your data center. Intelligent fleet visibility built in, health monitoring, predictive insight, again, all running on your local infrastructure. For existing Active IQ Unified Manager customers, this isn’t a rip and replace. It’s an upgrade path. The same investment now delivering complete unified control. No more manual operations stitched together across tools. One control plane doing what it used to take with five. Let’s take it a step further. What if you want your entire environment built out as a service, but you need the same service provided in a sovereign manner? George Kurian talked about this. The sovereignty needs, DORA, data residency, a growing list of regional requirements. Today, we are unveiling NetApp Keystone Sovereign.
+
+This is NetApp Keystone subscriptions with data sovereignty controls to meet the strict regional compliance and data residency requirements of European Economic Area countries. This is a sovereign-focused NetApp Keystone offering, an add-on entitlement that enables EEA customers to purchase NetApp Keystone with additional regional operational support and data-handling controls specific to EEA. For customers, it ensures data as well as support remain within the same specific geographic boundaries and meet the regulatory requirements. This is available early November for France and Germany, with general availability for everyone else later on. In both these previous demos, I showed us leveraging the NetApp Console as we always traditionally have. George Kurian also told you that enterprise leaders everywhere are envisioning an agentic enterprise, where agents extend what people can do. That’s just not true for your business applications, it’s true for your infrastructure, too. Now, the NetApp Console isn’t something to look at anymore.
+
+It’s something you talk to. The NetApp Console now understands intent, not just commands. Ask it to provision a volume, set up a replication, investigate why a workload slowed down in plain language, and it acts inside the guardrails you have already defined across ONTAP, StorageGRID, and ECS. Because it works with the LLM you already run, your own governance travels with it. The same agents helping your businesses move faster now help your infrastructure move just as fast. Again, one team, human and agents working together, running the whole estate. Every day, we are working with the largest industry movers to help our customers more simply manage their entire hybrid multi-cloud environment. To learn more, let’s hear from Scott Guthrie, Executive Vice President of Microsoft Cloud.
+
+Scott Guthrie, Executive Vice President of Cloud and AI Group, Microsoft: Hi, I’m Scott Guthrie, Executive Vice President of the Cloud and AI Group at Microsoft. It’s great to be with you today. NetApp INSIGHT brings together the people helping organizations navigate some of the biggest technology shifts we’re seeing today. When you look at cloud, AI, cybersecurity, and digital transformation, so much of it comes back to one thing, which is data. Customers across every industry are looking to move faster with cloud and AI, while continuing to leverage the applications, infrastructure, and data that already run their businesses. They don’t want to start over. They want to build on what they have while taking advantage of what’s possible with new technology. That’s where strong partnerships become especially important. Together, Microsoft and NetApp are helping customers bring ONTAP workloads to Azure and simplify hybrid environments. That gives customers greater flexibility as they evolve their IT strategies.
+
+We’re also continuing to innovate through Azure NetApp Files, helping customers run some of their most demanding workloads in Azure, including semiconductor design, chip verification, and large-scale engineering simulations where performance and reliability matters. As organizations scale AI, the ability to access the right data across environments becomes increasingly important. By combining NetApp’s intelligent data infrastructure with Microsoft’s cloud and AI platforms, we’re helping customers put their data to work in new ways while maintaining the governance and control they require. That’s what makes this partnership so valuable. Customers can move forward with confidence, knowing they can build on the foundation that they have today while creating a stronger one for what’s next. I’m excited about what we’re continuing to build together and the opportunities ahead for our shared customers.
+
+Syam Nair, Chief Product Officer, NetApp: Thank you, Scott. We are excited to continue our partnership with Microsoft, and all of these partnerships tell us that NetApp platform doesn’t have borders. It works on every hyperscaler, on your premises, as well as on the neo clouds. We have talked about how we protect your data, how we make your data AI ready, and how we help you manage all of that. Now let’s talk about where all that data is stored. Let’s talk about the story of a global retailer. Every November, the traffic multiplies overnight. For years, that meant scrambling to provision extra capacity, then tearing it back down, helping two environments stay in sync the whole time. A big challenge. They did not need a big data center.
+
+They needed one platform that had the elasticity to stretch before November to meet the scale needs, and that’s the true meaning of a unified storage and a unified platform. One platform, one global namespace across every environment your data lives in on-premises, every major hyperscaler, or anywhere in between. It expands when you need it, contracts when you don’t, without you managing three different infrastructures to make that happen. Underneath that, it’s ONTAP. ONTAP does all the work. The same foundation that’s run your most demanding workloads for three decades, and the reason we call this unified in the first place. AFF is our flagship for on-premises performance, and because it’s built on the same foundation, not just for high-performance files or high-performance object, it’s truly high-performance NFS, SAN, and S3, all natively, all at once.
+
+And that means unified one system speaking every protocol, every application that you have, it speaks to it. AFX extends the same foundation where you need the scale, performance, and capacity separately at massive scale for files and objects. Then the cloud. This is where this really opens up. The same unified storage ships first party natively inside every major hyperscaler. This is not a virtual appliance bolted on. It is an integrated service powered by the same foundation, which means you get the same AI readiness, the same protection we just talked about wherever it is running. Same platform, same data services, wherever you need it. For workloads that need something even more specialized, the platform brings that, too. StorageGRID gives you best-in-class object storage at massive scale, powering enterprise data lakes.
+
+And where a workload genuinely needs Lustre, that extreme purpose-built for HPC environment, that is in the platform, too. You are not going to find another vendor for that. It is already there in the platform. Today, AFF and AFX are running enterprise high-performance workloads and powering the AI and enterprise agentic transformation. They are extending the infrastructure customers like you already trust instead of replacing it. These are the leading systems for larger enterprises pursuing agentic AI today. Remember the retailer? They wanted infrastructure that could keep up with extreme scale when needed. That is the answer. The same platform you already trust, fast enough to keep up with whatever you are asking of it. Think about everyone I talked to you about today. CIO who got the best out of everything they already invested in. Researcher who finally got the data working for them.
+
+Retailer whose infrastructure now stretches with them instead of against them. Teams who finally have one console, one view, instead of four. That is the platform. That is what you can turn on this week. As workloads move from enterprise scale to hyperscale into AI factories, neo clouds pushing GPU demand further than anything we have ever built for before, this same unified layer must further go. We have got such a big announcement to make here. I think there is only one person who can do it justice. So let me welcome back George Kurian. Let us do this, George.
+
+George Kurian, CEO, NetApp: Thank you, Shyam. Today, we want to share with you the most important announcement we have made in a long time. Certainly the most important announcement of INSIGHT 2026. The most important announcement since we announced Data Fabric in 2013, and our first hyperscaler native storage service in 2017. Like Shyam mentioned, unlike others who ask you to rip apart your prior investments each time the world changes, NetApp extends the NetApp platform and its technology capabilities to meet the moment. Today, we are in the accelerated computing era, and as we discussed earlier, this era brings new demands and new opportunities for infrastructure and system design and new technologies that are available today. So we are introducing a new architecture, one that is disaggregated intelligently so that every single element can be optimized for performance and scaled independently.
+
+One that is architected for the performance needs of the 100,000-plus GPU clusters, the unpredictable performance and concurrency requirements of the most demanding agentic workloads, which can assimilate data across tens of thousands of systems into a single namespace to help you turn all of that data into knowledge. The possibilities that that would create are endless. Scientific research could accelerate as researchers run complex simulations and models in real time. Biologists could harness tens of thousands of computers to watch every protein molecule in a cell. You could have breakthroughs that are not possible today in climate science, in genomics, in healthcare, and astrophysics. Now I ask you to imagine what could be the possibilities for your organization.
+
+If you could have a single file system that doesn’t just match the highest performance numbers on the IO 500, the benchmark for super computing performance in the world, which is 10 terabytes per second, but one that is 10 times larger. One that is able to deliver the first file system in the planet to be able to deliver 100 terabytes per second of performance. That’s right. 100 terabytes per second of performance, the fastest storage on the planet, period. In addition to performance, if we could unify all of the world’s data, not just a few exabytes or a few tens of exabytes that some other architectures might be able to deliver. Imagine if you could unify all of the world’s data center capacity that shipped last year, 2,000 exabytes of data into a single namespace, the first of its kind. That’s right.
+
+The first zettabyte scale file system on the planet. Let that sink in. If all of this could be accomplished with no custom clients or hacked kernel loadable modules, but rather uses industry-standard Linux so that you can rapidly adopt the latest CUDA libraries, radically simplify your operations, and stay current with the latest security updates. Imagine if we told you that all of your existing NetApp investments, the reliability, the trust, the security, and protection of data ONTAP, are being extended into this architecture, and so is the AFF A90s. Today, you no longer have to imagine. Welcome to NetApp Novus.
+
+Just like the Data Fabric extended the value of the NetApp platform and its technological capabilities from the enterprise data center to the world’s biggest public clouds, Novus is designed to provide the architecture for the accelerated computing and AI era to help humans transform data into knowledge. You’ll hear about NetApp Novus in depth through this conference and back on this stage tomorrow during the innovation keynote. To give you a sneak peek, please welcome one of the key architects of Novus and our NetApp’s Chief Platform and Technology Officer, Arindam Banerjee. Arindam.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Thank you, George. Every shift in compute rewrites storage, NetApp has led every turn. With NFS, we disaggregated storage from the server. Virtualization disaggregated data services from the protocol. 18 months ago, we disaggregated performance from capacity. Now, as compute makes its biggest shift ever, it is time storage makes a decisive leap from a CPU-led gigabyte per second architecture to a GPU-led terabyte per second architecture. This shift is permanent, carrying with it every property that made persistence worth having in the first place. Data integrity, resilience, security. We do not get to trade those away for speed. A data outage could stall your most expensive asset. The most powerful GPU infrastructure on traditional storage is as useful as your favorite sports car on a dirt road. This is not a cycle you can wait out. AI is not a workload.
+
+AI will become a property of every workload. Training, inference, and agents do not run in isolation. They run side by side on the same infrastructure simultaneously. What we are seeing is a structural change in how the world procures, deploys, and fuels compute. GPU first, gigawatt scale AI factories with agents driving concurrency to a level this industry has never had to serve. Massive scale, extreme performance, relentless concurrency. That’s Novus for you. Why do we need this shift now? Let me talk about some of the operational challenges at this scale. What breaks first? When you put a thousand of GPUs and agents against a single namespace, the first thing that breaks is not throughput. It is when you combine millions of metadata operations on a namespace holding trillions of files along with throughput. It’s metadata. Here is the part that costs you money.
+
+Your data operations get queued behind the metadata operations. The pipe is not full. Your GPUs are still idle. Two architectures served us very well up till now. Traditional NAS scales the enterprise. It gives us shared access, data services, protection, and governance. It was designed for human operations-based concurrency and continues to serve that well. Parallel file systems scaled HPC environments. They give us bandwidth for very large sequential jobs, but require the operator to tune the layout and accept a proprietary client on every node. An AI factory is both of these workloads at the same time, plus agents, neither architecture was designed for this combination. Billions of tiny random reads for data loading while terabyte scale checkpoint writes land across the whole infrastructure all at once. This is bimodal I/O on the same namespace at the very same second.
+
+This is not something traditional disaggregated architectures can solve. This requires a new architecture. To talk about new architectures, let me call up on stage someone who knows a thing or two about parallel file systems and what it takes to operate at this scale. He has spent much of his career helping define how those systems work. HPCwire named him a legend and a godfather of parallel file systems. He has helped shape technologies such as PLFS, the Burst Buffer, Lustre, and pNFS. He’s been a trusted advisor to our R&D team, reviewing everything from napkin sketches to architecture papers. It’s an honor and a privilege for me to welcome on stage Gary Grider.
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: Oh.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Gary, thank you for speaking to us today.
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: Thank you.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: It’s an honor and a privilege having you here. HPCwire named you a 2025 legend and a godfather of parallel file systems. PLFS, the Burst Buffer, Los Alamos National Laboratory fingerprints on both Lustre and pNFS, and now Goofy. You run an environment that has roughly 6 million cores and a trillion files.
+
+When you operate at this scale, what breaks first?
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: Well, imagine a workload like you have been talking about, a million cores all opening a single file at the same time, or all trying to create a file into the same directory at the same time, those difficult things like that. Imagine 100,000 cores trying to walk your file system to find something all at the same time, and worse yet, imagine all of that all at the same time. Very concurrent workloads. What breaks first? Probably metadata. You can probably scale the data pretty well, but the metadata is very difficult to scale. What would happen? Well, the metadata server would get behind, everything would start timing out, and the file system would fall over, which happens. It is pretty much a metadata problem to scale like that.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Well said, Gary. For 30 years, we have been designing file systems for the media use case, and we always bought hardware for the peak. Now, for AI factory scale and workloads, every job could be a peak.
+
+All of those peaks could come at the same time. When we started Novus, our design principle was not how fast can it go, but how can it handle all these jobs arriving at the same time and overlapping with each other? Gary, as we gear for AI factory scale, where exactly do current architectures hit the wall?
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: Well, that mix of workloads that we just talked about requires you to think about parallelism along a lot of different dimensions to handle the concurrency of it. Scale-out NAS, it gave us parallel data. Parallel file systems gave us parallel data, but they also started scaling metadata. The problem is they did not scale it enough. We need to take the next step in that scaling activity. Basically, it becomes a challenge as the compute clusters increase the parallelism and the concurrency, the multiple problems at the same time. To scale metadata commensurate with the services of scaling data, you need to do new things. The new thing that we did was we started a project called Lattice, pNFS Lattice, and it was the world’s first open source parallel file system metadata server for pNFS.
+
+The different thing about it is it’s not just a scaled-out metadata service. We broke the service up into parts so that each part could scale separately to address these concurrent needs of a lot of bandwidth happening at the same time, a lot of inserts are happening at the same time, a lot of queries are happening. You need to be able to scale the pieces independently, and that’s what Lattice does.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Okay. So one structural idea, Gary, that keeps reoccurring across your career, as you have designed state-of-the-art systems for performance, scale, and concurrency, is disaggregation of metadata and data. In modern HPC and AI workload scale, how critical is that separation?
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: Well, very critical. You basically have to start there. I think the problem is most architects think that if you separate data and metadata, you’re done, and all your scalability problems are over, and it turns out that’s really not true. It has to do with the simultaneous stressful workloads. Splitting up the metadata and the data works great as long as your workloads are pretty homogeneous. But the minute that you have this concurrence, there’s problems. Basically, in HPC, we don’t really have that much concurrence. We run very large jobs. They compute for a long time, and then they dump everything at all at the same time. It’s a very homogeneous workload. Yes, it’s very bursty, but it’s not a lot of different workloads all at the same time. AI data centers, as you said, are quite different.
+
+They have different workloads that are doing I/O all the time, and it’s all pretty much stressful. This means that latencies can happen for some I/O operations, and inference just makes this worse because inference has to please people, and people have no time. They don’t like to wait. Just like I said, that Lattice separates data and metadata and also breaks it up into different parts, this is a really important feature of it, and that is that you need to be able to scale those different parts dynamically. So you can’t just scale them out and leave them scaled out all the time because that’s a waste. What you want to do is build these pieces of the metadata service and have them scale dynamically as the workloads need it. That’s a big, important feature of the Lattice project.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Where do you think architects consistently underestimate as they build out such environments?
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: I would argue that the biggest thing that people underestimate is quality of service. I think quality of service at massive scale in an environment where something is failing all the time is a really hard thing to do.
+
+It has really never been done completely well, ever. So I would say that that is the thing that gets overlooked because it is just really hard.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Okay. At this level of scale, failure is not an event. It can be an everyday condition, right?
+
+That is why the data servers in Novus run ONTAP so that we can carry forward our decades of work on resilience. Gary, you helped steer Los Alamos National Labs’ contributions to Lustre.
+
+Lustre’s answer to metadata scale was DNE, that it shard the namespace across many metadata servers. What did we learn about the limits of that approach?
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: Well, we certainly learned that there are limits. There are workloads that Lustre DNE one, two, and two and a half or three work pretty well for, and there are some that they don’t work very well for. It wouldn’t work very well concurrently.
+
+We’ve definitely learned a lot about what not to do, and we’ve learned some things to do. The Lattice project, essentially, it’s trying to do this dynamic, multi-dimensional scaling all at the same time, and that’s something we didn’t try in Lustre. We should have, but we made the mistake of the metadata server being monolithic. Breaking it up gives us this ability to scale each thing independently and dynamically. Something that’s less obvious in breaking up the metadata server is that if you break it up, you can break up into pieces and leverage different intellectual communities.
+
+If, for example, scalable protocols, that we have been doing scalable protocols for years, MPI and SHMEM and scale-out networks, NVLink and the like. Scalable catalog services, where does the metadata go? The distributed key-value store community has done a lot of that kind of work, so we can rely on their expertise and scalable state. There is state, you cannot insert the same files more than once, so you need state to be managed, that is kind of a shared memory thing, a distributed shared memory thing. There is SHMEM and NVSHMEM and scale-out networks for that.
+
+The whole point here was to break it up, scale independently, fail over, and dynamically scale. Also to leverage different intellectual communities. That is what was totally different from what we did with Lustre. Then if you add to that the fact that this is all in a pNFS ecosystem.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yeah.
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: Basically what we are trying to do is coalesce all of these things and their constituent intellectual contributors into one solution set, a technology that people can use. Basically handle all the workloads that we can imagine into the future because it is just dynamically growable in so many dimensions.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Actually, very well said, Gary. You are very right. That is one of the unique advantages of building around standard protocols and open source. You get the community intellect to come together. Last question for you, Gary. Today, if you were told to design the storage systems that would power the next decade of AI factories, what would it look like?
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: Well, in the 26 years I have been trying to get pNFS adopted, and looks like that is happening as we speak, we have done a lot right. We took our time, and we did it right. I think leveraging global visibility, single namespaces, dynamic massively scaling dynamics, and nonstop, it has to be very reliable and have quality of service and all that kind of stuff. I do not really think that way. I think, A, we have got this base that the world is about to adopt. How do we leverage that? How do we go to the next step? What do you add to that to make the thing have more value? For us, that becomes the big question. Given pNFS FlexFiles and local I/O and all the fancy features that are in NFS and pNFS today, there is a lot you can do.
+
+With the metadata broken out separately, you can do things like predicate pushdown in analytics. Basically, this could replace Apache Hadoop hook, line, and sinker, and it would be so much better and so much easier for everybody. Virtualized formats, if you have separated all this stuff, you do not have to present the data like the user wrote it. You can present the data like the user wants to see it, which is really different, right? There is no reason you cannot do stuff like that. Then virtual data lakehouses. What is a lakehouse? It is a catalog full of stuff with formats. We have a catalog. We can integrate all that, and it would make everybody’s life way easier and way better. I think that is the way we have to think about it is, let us get this pNFS thing out there.
+
+Let us get it to scale to crazy widths, and then let us leverage the hell out of it with these ideas. I think the other thing that this does is it mates very well with global indexing, having an index, being able to find everything. Earlier was mentioned your AI product, which is really cool. We need that to scale to trillions of files. We need that to scale and not give away security and not give away all that stuff you said. I think we are within reach of doing that now. I could not have said that a year ago, I do not think. Anyway, I think we are on the right path to make this all happen.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: If I could summarize this, Gary, we have not only disaggregated metadata from data, we have actually opened several new frontiers. Metadata enables deep indexing, and deep indexing powers contextual search and pattern recognition. By disaggregating the metadata services from the catalog, we also enable virtual data formats that you just said, virtual lakehouses that you just mentioned. In short, we have elevated metadata to knowledge. Gary, thank you. It has been an education for me, and I am sure for our audience as well. Thank you so much for being with us.
+
+Gary Grider, HPC Expert and Parallel File Systems Authority, Los Alamos National Laboratory: Thank you. Thanks, everyone.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Let me explain how we design all of this into Novus. Let us start with the physics. At 50,000 to 100,000 GPUs, no single storage cluster can feed the fleet, not ours, not anyone else’s. Every cluster has a ceiling set by its hardware and by its interconnect, and that ceiling sits far below what AI factories demand. We stop trying to build a bigger cluster. Our answer is federation. Many clusters, one namespace, and the throughput of the namespace is the summation of every cluster behind it. Add a storage cluster, add its throughput transparently. To your applications, it is still one file system tree, one mount, one namespace. Federation demands control and orchestration. Something has to own the namespace across all of the clusters. Get that wrong, and the namespace comes to a standstill, and the utilization of every GPU comes to a crawl.
+
+Not with NetApp Novus. Novus federates with linear scaling, and that federation is ours to manage, not something that you need to think about. That is our disaggregated metadata layer. It assimilates the metadata from every cluster and orchestrates the whole. It is the metadata client or your metadata server that your clients connect to. It ensures that every node you add can truly contribute its full throughput to the entire pool. Because it sits on its own tier, data and metadata scale on different axes. Neither one waits for the other, and you would never have to buy one to get the other. This is how we will drive maximum GPU utilization and handle maximum concurrency. We designed all of this on standard protocols, pNFS, FlexFiles. pNFS is an IETF standard, one that NetApp helped drive into existence.
+
+FlexFiles is what stitches a single namespace across many thousands of servers spread across all these clusters. Here is the part that I want every operator in this room to hear. pNFS ships with the stock Linux kernel. There is no proprietary client. There is no kernel module of ours on a single one of your GPU nodes. Nobody else even attempting to come to this scale can say that, which means you set your own server upgrade cycle, your own driver matrix, your own qualification window. Your storage vendor does not get a vote when to patch your fleet. Gary made a point a moment ago that I want to come back to because that is the one architects consistently underestimate. Disaggregating metadata from data is not enough. Parallel file systems did that 20 years ago.
+
+The hard problem is scaling the metadata operations themselves under bimodal I/O at full concurrency with everything happening all at once. In Novus, we went one level deeper. We disaggregated the metadata service itself into independently scalable subsystems, a protocol plane, a state plane, and a catalog plane. Each one scales on its own axis. Each one grows exactly where the pressure is, and that is what gives you linear scaling of metadata operations. Underneath all of this, metadata is held in a distributed key-value store that flattens your file system hierarchy, and your file system lookups become lightning fast. There are no hot spots here because we never left a single place for the heat to arrive. At AI factory scale, resilience stops being a feature. It becomes structural. In a synchronized training job, every GPU is waiting for the slowest one.
+
+One stall read, one checkpoint that did not commit, and you have not slowed a job down. You have idled an entire cluster. We did not trade away persistence to buy speed. The Novus data servers will run ONTAP, which means the foundation that you have depended on for 30 years will hold good even at 100 terabytes a second. End-to-end data integrity, resilience, security, multi-tenant isolation, and quality of service. Scale without persistence is a proof of concept. Persistence without scale is irrelevant. Novus is the first architecture that refuses to choose. One last thing, because it is where Gary and I ended, and because it is the part that will matter five years from now. Once metadata is its own tier, independently scaled, on its own plane, with its own catalog, it stops becoming bookkeeping. It becomes something you can query, your agents can query.
+
+Designed for provenance, lineage, meaning across a trillion files. We are not getting metadata out of the way. We are elevating metadata. We have designed this for planet scale. Let me finish where George started. 100 terabytes per second. One namespace at zettabyte scale, the first of its kind. We believe it’s an order of magnitude beyond anything anyone else has put out in the field. We have just designed the fastest storage on the planet for you. With that, let me call upon someone who knows a thing or two about Novus architecture. Let’s bring George back out here.
+
+George Kurian, CEO, NetApp: Thank you, Arindam, for all the hard work and to all of the teams that have been involved in building Novus. Man, it’s been fun, the most fun I’ve had in a long time. Gary, I want to thank you for the wisdom, the generosity, and for being the inspiration behind Novus. I’m grateful to all our partners who have co-innovated with us. I want to share one more with you, SAP, with whom we are expanding our strategic partnership. This is a deepening of a long-standing relationship, one built on years of joint work supporting the world’s most mission-critical enterprise environments. You’ll hear more about this partnership tomorrow. We are so excited about the work that we’ve done with all of you. At the dawn of each era NetApp has built the architectures and platforms that enabled organizations and mankind to do what was not possible before.
+
+Decades ago, with network file storage, we enabled teams of engineers to share large data sets to design the semiconductors that power the AI era today. Today, as those chips and AI models have become enormously powerful, we are privileged with Novus and the NetApp platform to deliver the capabilities so that we can play our part in helping humanity and all of you solve problems that were not possible before today. We are so excited about what we discussed today. I want to end where I began, with memory and context. In the agentic AI era, agents will work alongside your employees to make decisions, take actions, and drive real results for your business. To do so successfully, agents need to have knowledge enabled by memory, namely your data and context, the metadata and knowledge graph that go with it.
+
+Today, the NetApp platform is uniquely designed to address and solve your data challenges for the AI era by delivering AI-ready data, unified storage, proactive protection, and complete intelligent control. With the NetApp platform, you have everything you need to build an intelligent data infrastructure to transform your data into knowledge. As you leave here, I have an ask of all of us. Let us be builders together of a better future, not just disruptors. Let us take responsibility for and act with agency to make the products and services that we create safe for those who trust us and use them. Let us use the enormous power and potential of these technologies to bring opportunity for everyone.
+
+As dad to two young adults, let us replace the fear that our industry has instilled in the next generation for their future with hope, as our parents did so generously for us. Thank you all for being here. Enjoy INSIGHT. We got an awesome conference.
+
+Moderator: Thank you for attending today’s program. For the audience here in Las Vegas, enjoy the workshops. For our online audience, stay right here for the NetApp ONAIR Snapshot, which is coming up next.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Welcome to NetApp ONAIR Snapshot, coming to you live here from INSIGHT. I would like to welcome all of our audience viewing online. My name is Jeff Baxter, VP of Technical Marketing at NetApp, and I will be your host for the next, let us say, hour and a half or so to interview many of the architects behind the announcements that you heard today. We are behind the scenes right now in The Garage, our version of the expo hall, and you are actually getting an early access, say, a sneak peek into it. The doors do not open out there until about noon Pacific. So you will see us putting our last finishing touches on many of the exhibitions, visiting with many of the sponsors here in the expo, and being able to get hands-on with the technologies you just heard about from George, Syam, Arindam, and more.
+
+Right behind me, actually, is an amazing activation where people will be able to get hands-on with the new enhancements to the NetApp AI Data Engine. I would like to invite all of you, if you want to continue to engage with us, to join us on the NetApp Discord server available at netappdiscord.com. You can come join the conversation with us live right now, or please join us at any point in the future for a vibrant community, from people at NetApp, people in our partner community, customers, and more engaging and learning together. Now, we are very much live right now. So we will be bringing guests in and out over the course of the next hour and a half. Excuse any chaos as we do so.
+
+This is a live production, and we want to get a lot of the people who you may have heard from on stage, some of the people behind the stage up here to double-click into these technologies so that you can learn more about them. We will take a little break around noon Pacific here, for those of you on the West Coast to grab lunch, those of you on the East Coast and Europe to perhaps grab dinner or a late snack. But be sure to tune back in at about 2:00 P.M. Pacific for the first of our featured sessions. We will have featured sessions at 2:00 P.M. and 4:00 P.M. today, and tomorrow at 11:00 A.M. and 3:00 P.M.
+
+Of course, set your alarm clock 9:00 A.M. tomorrow morning for our day two keynote, where you will hear even more about a lot of the major announcements with a special double-click into NetApp Novus that you just heard announced. For anyone who joined our keynote a little bit late today, that is fine. Replays will be available on netapp.com, YouTube, and LinkedIn a little bit later on today. But I will go ahead and give you a recap of the major announcements that were just made, all of the news that just broke. We heard from NetApp CEO George Kurian, who reminded us that data is becoming the constraint to productively scale AI. We made three major categories of announcements around hybrid multi-cloud, the agentic enterprise, and a major announcement for AI factories. With the hybrid multi-cloud, there were a number of different announcements.
+
+Perhaps the most notable was around our integration directly into the public cloud. NetApp was the first to have a first-party native service available, starting with Azure back in 2017, adding AWS a few years later, then adding Google to Google Cloud NetApp Volumes. That gave us a presence as the only provider to be natively available on the world’s three largest public clouds. This morning, we were happy to announce our partnership with Oracle to produce the Oracle Cloud Infrastructure NetApp Storage Service, which puts us now in all four of the world’s largest public clouds.
+
+We announced integrations for the NetApp Console to provide local deployment capabilities, to provide the ability for people to deploy the NetApp Console and access the NetApp platform, either through the cloud-based service that exists today at console.netapp.com, or through the Console local deployment that they could install on their own data center, even in dark sites. We also announced the integration of AI directly into the console so people can bring their own large language model directly into the NetApp Console so they can use it, their own trusted AI model, to manage their whole NetApp hybrid multi-cloud environment.
+
+We announced the introduction of Keystone Sovereign. We will have some guests on here later today to talk about Keystone Sovereign and provide you additional details on how that will let you deploy an as-a-service version of the NetApp platform without having to go outside your sovereign’s particular boundaries. When it comes to the agentic enterprise, we announced the major integrations I talked about with the NetApp AI Data Engine. In particular, we announced the ability to extend that to heterogeneous data, to expand it to a customer’s entire data state so they can understand, gain that memory and context that George just spoke about, and bring it to the entire data state. Finally, of course, one of the major announcements, NetApp Novus, extending the scale of the NetApp platform out to the AI factory.
+
+Just a little bit later here, you will have a chance. We will be sitting down with Arindam Banerjee, who you heard from on stage, as well as additional members of the Novus team to dig a little bit more into that and to get you a sneak peek into the day two keynote, where they will be taking the stage to tell us even more details about it. I want to go ahead and turn to our first guest. We have our first guest here to join us. Thank you. I would like to go ahead and introduce Jennifer Prenner, SVP of Product Marketing at NetApp. Thanks for coming.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Hi. Yeah, thanks for coming. You look very good in this new role.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I appreciate it. Can you tell my boss that?
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: I will.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: I will think about it.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay. Thank you. I know there were quite the set of announcements that were made today.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: That was just an amazing keynote. I know we only have a few minutes together, but what really excited you coming out of those keynotes?
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: God. Man, if you paid attention to that keynote, it was hard not to be excited about the whole thing, to be honest. But I think Novus is game changing. It is world changing. And George’s closing remark about utilizing these announcements to create hope for the world and hope for the next generation on what AI has the possibility and capability to do was just, it hit me here. And with what we’ve accomplished, we’ve gone from always being a credible, amazing storage partner to being a full-scale data infrastructure partner. And this announcement with Novus leapfrogs our competition. And I can’t wait to get out there and talk to customers and have it deployed and see what that’s going to be like.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, I know. I’ll admit it. I saw some of the slides ahead of time, but even when you see up on the screen 100 terabytes a second and multi-zettabyte-
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Yeah
+
+Jeff Baxter, VP of Technical Marketing, NetApp: and everything, it’s an order of magnitude.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Fastest storage on the planet. As a marketer, being able to say something like "fastest storage on the planet" is like, it’s a marketer’s-
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Love it.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: dream come true.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Love it. Absolutely.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: George and Shyam both talked a lot about the NetApp platform, and there’s obviously been an evolution over the last few years. Tell us how the NetApp platform has sort of evolved, and it seemed to become so central in today’s keynote.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Yeah, I think we’ve talked about the NetApp platform in a few different ways, specifically about a few products here and there over time. What the NetApp platform is, it’s an intelligent, governed system that allows you to create intelligent data infrastructure in ways where you don’t have to have a bunch of disparate products or disparate vendors or disparate systems. You can use your one trusted partner, NetApp, who we’ve been your trusted partner for 30 years. As you saw from George and Shyam and Arindam today, when you think about what our platform is, unified storage, that is unified across protocols, unified across locations, unified across workloads.
+
+We are allowing you to run your data and your workloads wherever you need to, in the cloud, on the edge, on-prem, and we will unify it for you so that you can have one way to manage it, one way to think about it, one way to govern it. That is huge. That’s the foundation of the platform. Then you think about AI-ready data or AI-ready data services. Shyam talked a lot about one of the biggest announcements of the conference, I think, which is the ability to take AIDE, not only all of the evolution that we’ve talked about, but on heterogeneous data. So we are now saying, if you have data on something that’s not NetApp, that’s great. We still are going to help you turn that into data that works for your AI projects. Huge announcement. Then the other two, complete control.
+
+One autonomous control plane. That is amazing. You do not have to have separate teams running separate systems. That is extra money. That is extra cost. Then finally, proactive protection. Both Shyam and George talked about agents are doing things that maybe we did not always expect. Having proactive protection at every layer so that your data is governed, it is connected, it is protected, and that you do not lose that anywhere in the system is so important in the agentic enterprise. With our platform it now helps you do all of that as one, and you do not have to pick and choose. We are also not trying to be a walled garden, so we have partners who we have built in. We have our own things, and what will continue to be developed for the platform will be even more amazing.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thanks, Jen. I know you have a bunch of other commitments, so I will do one final question for you.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Sure.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: As you think about what is ahead for NetApp, what really excites you most?
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Oh, that is a great question. Wow, I think there is so much. NetApp Novus, obviously.
+
+We talked a lot about neo clouds today, but NetApp Novus can be extended to any large-scale AI need that customers have. Like I mentioned, it’s leapfrogging the competition. That, to me, I just want to go talk to customers right now. I want to see what our competitors are saying already. AIDE, but this is just the beginning.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: If I’m honest, we are at day one of what AI can be, what we can do with our customers for AI. I think for me, probably what I’m most excited about is just the possibilities.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: The possibilities are endless with NetApp as your partner. I don’t know. I’m so excited that it’s hard to say only one thing.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: That’s awesome. Well, you said you can’t wait to go talk to customers. I know you have to go talk to customers now, right?
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: I do. I have a number of them coming up.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I will let you go, and thank you for joining us here.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Appreciate it.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Thanks for doing this.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Of course.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Look forward to seeing what folks think.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, absolutely.
+
+Jennifer Prenner, SVP of Product Marketing, NetApp: Okay. Thanks.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you, Jen. For everyone, we will keep moving along. Next, we are going to keep diving in deep. We are going to talk about AI and how we get knowledge from AI. We heard a lot from George about memory and context providing knowledge and how we extract that knowledge from data. Our major NetApp AI Data Engine announcement was the ability to provide access to heterogeneous data storage. That could be any sort of open standards-based storage out there, be able to go out, see it, attach context, attach governance to it, and get additional detail. We will be joined in just a few minutes by two guests here to talk about the NetApp AI Data Engine.
+
+With the NetApp AI Data Engine, the other major thing is to be able to provide access to it to any of you out there who want to try it. One of the major things in the keynote that was announced was the ability to get a free six-month trial of the NetApp AI Data Engine so you can map out your data. You can check out for details about that at netapp.com. There was a QR code a little bit earlier during the keynote that you can go back and find, or it will be available on netapp.com for you to get access to that technology. We are pivoting here, and I think we will go ahead briefly here. We are just getting our guests settled here at the last moment. I want to go ahead and welcome Asad Khan, our Senior Vice President and GM for AI.
+
+Asad, thanks for joining us.
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Thank you for having me here.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Appreciate it. Darnell Fatigati, our Principal Product Marketing Manager for AI at NetApp. Thank you for being here.
+
+Darnell Fatigati, Principal Product Marketing Manager for AI, NetApp: Hey, Jeff. Thanks for having me.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Hey, Darnell. Good to see you. I will start off, and really for either of you, but Asad, obviously big announcements this morning. What excited you most about the AIDE announcement?
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: I think the biggest excitement for me is how NetApp is able to map all of customers’ environment, even if their data is in NetApp storage or it is not.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Because from the customer point of view, it is very important for them to have a full view of their data state. I think that is a great path for the AIDE to take.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, I know when I was talking to customers over the last year about the NetApp AI Data Engine, even the most fervent NetApp customers, maybe they have 80% or 90% of their data on NetApp, but there’s always those AWS S3 buckets.
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: There’s always that legacy storage sitting in the corner, and I don’t think we’re arrogant enough to think that every customer in the world is going to be 100% NetApp. I was super excited about the development work that your team has been doing.
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Yep, absolutely.
+
+Darnell Fatigati, Principal Product Marketing Manager for AI, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I’d say, what sort of unique differentiators do you think the NetApp AI Data Engine brings to the mix there? If you’re using the NetApp AI Data Engine on your heterogeneous storage or on your NetApp storage, I guess the question would be why? What value does it bring in particular?
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Yeah. I think the biggest one is security and how we deal with the data and all the ACLs and all the security settings that you have. We never make a copy and put it out.
+
+We bring actually the AI models and the intelligence to where the data is sitting. That is very important because today, if you think about it, when you think from the agent’s perspective, they are really good at scaling the problem. You give them the problem statement, they will figure out a way to get around it. In that environment, the security becomes paramount. The two things we do really well is that understand your unstructured data better than anyone else, and the second thing is how we handle the data by making sure the data is not copied and the security settings stay intact.
+
+Darnell Fatigati, Principal Product Marketing Manager for AI, NetApp: Yeah. Just to add to that, yeah, security is paramount, but no copying, no data movement. It’s also about keeping data recent. You don’t want to have stale data. You don’t want your agents working off of old data, even duplicate data. So yeah, I think that that’s something definitely that’s a big differentiator for us. Just the fact that we’re covering the entire data estate, regardless of if it’s ONTAP, if it’s StorageGRID, NFS, if it’s S3, non-NetApp. Yeah, really key.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Darnell, I know, correct me if I’m wrong, but I think you’ll be on a featured session doing some of the demos a little bit later today, starting at 4:00, right? Your featured session, 4:00 Pacific for all of you watching. It’ll be available on the live stream.
+
+Darnell Fatigati, Principal Product Marketing Manager for AI, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I’ll put you on the spot. Do you want to give me a little sneak peek? You don’t have to tell me the details, but what sort of stuff will you be demoing during that?
+
+Darnell Fatigati, Principal Product Marketing Manager for AI, NetApp: Yeah, well, you’ll see how easy it is to just connect any of your data sources and then filter it for what you’re looking for. You could literally create data sets that say, "I want to remove anything that’s unsafe for AI or irrelevant for AI," create a nice curated data set, and then make that available to your agents through MCP or through the GUI. Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Saad, I know, I think it’s month 4 for you at NetApp, something like that, right?
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I’ll ask you just what made you want to join up. Obviously, you came on board to run our AI initiatives, you knew NetApp AI Data Engine. So what interested you around NetApp? What made you want to join up?
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Two things. One is that the opportunity in general, and if you look at in the storage layer and in the unstructured environment, is amazing.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: It has never been there before. For a long time, the companies have only been dealing with the structured data and the semi-structured. Now with AI, this whole new space is opening up. The second part is that the approach NetApp is taking, which is the whole platform play, not specific to storage or not specific. When I looked at it, and we were working very closely with NetApp, even in my prior job, I loved in terms of the platform approach and then how they are going up the stack and solving the complete scenario for the customer rather than just giving a piecemeal that this is where you store the data, and then you have to go to other vendors to figure out how you complete your story. I think that was very powerful for me.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Great, and thank you for doing so. We appreciate having you on board. It’s been amazing what you helped develop. I guess I’ll kind of do a final question here. One thing I think that’s been emphasized with the NetApp platform is sort of the extensibility, and we talked a little bit that with the NetApp AI Data Engine. How do we work with partners, both those that are here in our expo and others? How do we work with partners with the NetApp AI Data Engine to tie all that together?
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Yeah, I think that is very important that we do not create a walled garden where we give you the full solution but then this is the only thing you can go and get. AI is a space where it will always be shared and customers will have their own opinions all the way, whether they are using a specific model or an environment. It is important for us that we are super differentiated in our stack. We depend on open APIs and we enable the integration with the partners. You will see some of that even in the, as you mentioned, the 4:00 P.M. Pacific. Some of the partners we will bring on the stage and they will talk about how we are going about it.
+
+Darnell Fatigati, Principal Product Marketing Manager for AI, NetApp: For our customers’ perspective, we are not asking you to even replace the tools that you are already using. You have that flexibility to leverage your tool of choice and you can integrate with us and have it seamlessly integrated.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I love that. That is one thing that drew me to NetApp in the beginning and has kept me here, right? We are not trying to monopolize everything, right?
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: We recognize it is an ecosystem. We connect into all of that so.
+
+Darnell Fatigati, Principal Product Marketing Manager for AI, NetApp: Yep, open ecosystem.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Absolutely.
+
+Darnell Fatigati, Principal Product Marketing Manager for AI, NetApp: Yep.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Well, thank you for spending the time with us. I know you’ve got customer meetings and many other things to get to. I will plug again your featured session at 4:00 P.M. Pacific on the live stream, and obviously you will be able to catch replays later for anyone there who wants to do it, and really looking forward to it.
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Thank you very much.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thanks for taking the time. I appreciate it.
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: No, thank you for having us.
+
+Darnell Fatigati, Principal Product Marketing Manager for AI, NetApp: Thanks, yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you.
+
+Asad Khan, Senior Vice President and GM for AI, NetApp: Thanks.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you, guys. We’re moving right along here on NetApp ONAIR Snapshot. We’re going to start to double click down into our next topic. If you were watching the keynote, you may have seen a major announcement just happen, NetApp Novus. George actually talked about it being the biggest announcement in over a decade, going back to when we first introduced Data Fabric back in 2013, 2014 and first extended to the hybrid multicloud. This is almost taking that Data Fabric to the final frontier, taking it out to these AI factories, these neo clouds, and getting to this AI factory scale of, I can’t believe I’m saying this, but multi-zettabyte, 100 terabytes per second. Just amazing things that the team has been able to do and we’re going to hear directly in a moment from some of the key architects behind NetApp Novus.
+
+With NetApp Novus, and just to recap that announcement in case you are coming in a little bit late to the keynote, NetApp Novus is our new offering for AI factories. It provides the ability to separate and independently scale metadata from data, allowing the achievement of this massive sort of throughput, resiliency, and overall performance, and the ability to scale metadata separately from data to achieve these tremendous results while still on the back end for those data storage servers leveraging NetApp ONTAP and the 30 plus years of rich history, innovation, and production resilience available from ONTAP. We are going to be joined here. We are just making our final touches to get our guests up here. We are going to be joined by Arindam Banerjee, Chief Platform and Technology Officer.
+
+If you were watching the keynote, he may look very familiar to the guy you just saw about 15 minutes ago. And joined by Guna Meripudi, our VP of Product Management for Novus, two of the driving forces behind Novus. Gentlemen, thanks for joining this morning. I appreciate it.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Thank you, Jeff.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you, Jeff. Thanks for having here and thanks for running over from the keynote stage. You did great. Very nice. I love the demos. Those were good. Thank you. I do not think you were put on the spot, but how does it feel having the CEO say you are in charge of the biggest announcement that we made in about a decade? What makes this such a huge announcement for George, for you, everything like that?
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: The CEO announcing that is a responsibility, and you need to enjoy that responsibility. Pressure doesn’t come to everybody.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: It only comes to a select few. Take that pressure, but where we are excited is about what we are doing. As we just heard, this is an order of magnitude better than what anybody else has put out in the field.
+
+Now we are ready to take on the largest giga factories or AI factories, sovereign clouds at scale. Nobody will have a scale that comes even near to us. Nobody will have performance that comes near to us. Nobody can do this on standard protocols like we do, and nobody can have all their data integrity and security managed by 30 years of ONTAP that we can do. Why shouldn’t we be excited?
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Just a small thing.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yes.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I mean, like amazing innovations.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yes.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Guna, any thoughts on that in terms of like, I know Arindam said so much there, but anything that adds on to you?
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: No, the most important thing Arindam keeps telling us, like Shyam was actually telling earlier today, like AI is a horizontal.
+
+We’re actually preparing the future where AI is going to hit everybody. And these innovations are not just for the giga factories or like when you really need thousands of GPUs.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: We’re going to serve every use case.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah. Yeah, AI is moving beyond just being a workload, right? I mean,
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Exactly
+
+Jeff Baxter, VP of Technical Marketing, NetApp: It’s intrinsic into the entire infrastructure.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Exactly, yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Arindam, you were joined by Gary Grider this morning, and I wish I could get a cool title like this, the Godfather of HPC.
+
+I do not know who gives those out, but I have got to be a godfather of something at some point.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: I may.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Godfather of PowerPoint? I do not know if that is a thing. And obviously behind Lustre, and now basically in a lot of ways endorsing this approach. That must have been a very cool moment. You have been working with Gary for a while on this.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yes. George and I met Gary in Santa Fe
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: in June. We actually flew down there to talk to him.
+
+When we started talking about Novus, he absolutely resonated. When I asked him, "Gary, if this is something you would like to build?" He says, "Yes, this is what I would like to build, given the scale and the enormity of the workloads that we are seeing.
+
+Those 3 hours with Gary was like soaking in a ton of information, but also realizing that where the world is moving, that this person has really seen it all over the last 26 years, as you said. The amount of wisdom he shared did enable us to make some of the very smart design choices for Novus.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: That’s awesome. Guna, let me ask, NetApp, some of the people we’re looking at, NetApp has this fairly full portfolio now using ONTAP, right? With AFF, AFX, Novus, what kind of differentiates them? How should our audience sort of think about these offerings when it comes to AI?
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Oh, absolutely. With the AFF today, that’s our mainstream portfolio product. All the enterprise workloads we deliver, like what Arindam talking about, data management, resiliency, all the critical capabilities that run your operations day in, day out. AFX actually gives that very nice combination of capacity, performance, disaggregation. So it meets certain use cases. Novus, like you know, as we talked about earlier, it is going to give us that unbridled scale that we never imagined. In fact, now imagine no more. We’re actually here today.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Not only in the context of AI giga factories, like the next generation EDA workloads. Anywhere scale is paramount, performance, ONTAP is your friend across all these three platforms.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I don’t want to spoil anything, but I’ve gotten to play with Novus a little bit.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Only a little bit.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Only a little bit.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: The interface itself, it is so obvious how provider centric and tenant centric is built into that. Can you talk a little bit about that ethos and the design?
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Yeah, thank you. One of the things that we talk a lot about ONTAP, right? Maybe we are the only storage company that works with all the hyperscalers, now including the fourth hyperscaler that got announced today.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Which you had a little bit to do with as well.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: A little bit, yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Little bit.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Little bit.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: The good thing is we learned a lot. Arindam talked about talking to Gary, gives a different perspective of the scale we need to think about. When you work with these large hyperscalers, operations do matter. Operational complexity does matter when they work at like, we talk, not revealing too much tomorrow, we will talk about how to handle failures, right? This is like, it is not an exception. So the ethos basically is to reduce the operational toil as much as possible.
+
+In the current day and world, everything is going to be agentic apps.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: We are going to leapfrog, not just like providing UIR dashboards.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: In general, holistic view of simplifying their apps.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, I think the sense of scale, getting your mind around it, right? If you are used to running a few racks of storage like I did 20 years ago, and you walk into some of the largest enterprise data centers, and they go on, then you think about what these gigawatt scale AI factories really look like, and the operations just have to be totally different at that scale. I will do kind of a final question, and I will do two parts to it. First of all, if there is anything else you want to add, please feel free. Second of all, you are both on tomorrow morning at 9:00 A.M. Pacific. This is a programming note, 9:00 A.M. Pacific, day two keynote. Tune in. You are both on there to help double-click into Novus. Any more sort of hints or sneak peeks of what you will tell us without spoiling it?
+
+We do not want to get certain people mad at us, but any sort of
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yeah
+
+Jeff Baxter, VP of Technical Marketing, NetApp: sneak peek about what you will be doing there?
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: We would like everybody to attend our
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yes
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: 9:00 A.M. keynote tomorrow, where we talk about the Novus architecture.
+
+You will know why we chose this path and why certain architectures that the world sees today will not work at this scale. It’s very important for people to tune in and understand why we chose this path.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah. You know, I’ve had the opportunity to kind of watch and work with you guys on it, and it’s just what you’ve put together for the hour plus tomorrow, it’s kind of a master class in designing a data infrastructure for AI factories. I think I stole your line. Sorry about that.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: That’s all right. I think we’re also going to announce some partnerships with ecosystem partners who are coming along with us to the party.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: some core innovations the timelines, you know.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: It’s not just architecture, we’re also going to deliver very soon.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah. That’s one of the cool things to me, is a lot of this is, most of it’s working. It’s not-
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: It is
+
+Jeff Baxter, VP of Technical Marketing, NetApp: vaporware.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: It’s there today. You’ll be talking more about the timelines tomorrow with it. I love what you said. It’s not a closed ecosystem, right?
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: No
+
+Jeff Baxter, VP of Technical Marketing, NetApp: No one of these AI factories is going to be closed off. I mean, for one thing, we are, I don’t want to say just, but we’re providing this amazing data layer for the AI data factory, but there’s everything above it.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yes
+
+Jeff Baxter, VP of Technical Marketing, NetApp: From NVIDIA to all of the different people that are involved in the AI ecosystem, it’s obvious the thought that’s gone in to making sure that this truly does play well with others.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yes.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Absolutely. We do that. We work with the community.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: We have a lot of modeling that we have done in our labs at scale, and we have seen linear scale every time we added building blocks to this. That gives me a lot of confidence, and the fact that we are landing it as a product very soon.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: We will talk about that. I am not going to steal Guna’s thunder for tomorrow. Tune in to our keynote tomorrow.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Welcome on board.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Absolutely. Well, thank you. I mean, it is amazing work that you have done and all of your teams by the way. I know you have-
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yeah. Guna’s team
+
+Jeff Baxter, VP of Technical Marketing, NetApp: amazing engineering teams behind you.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you for everything you’ve done. I mean, we’ve all been here a fair amount of time. I’ve been here 18 years. You guys have been a fair stretch. This is, I second George, this is one of the most exciting announcements that I’ve seen at NetApp.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Yes.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Congratulations and thanks for your leadership on that.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Welcome.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Thank you. Appreciate it.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Thanks for your help.
+
+Guna Meripudi, VP of Product Management for Novus, NetApp: Thank you, Jeff Baxter.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you. Appreciate it.
+
+Arindam Banerjee, Chief Platform and Technology Officer, NetApp: Pleasure talking to you.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay. We’re going to keep rolling ahead. Again, remember, if you want to hear more, even if you don’t want to hear more from Arindam Banerjee and Gunna Marripudi, you got to tune in tomorrow at 9:00 A.M. Pacific for the day two keynote to hear more about this amazing innovation in AI factories. Let’s change tacks a little bit and talk about how you can best consume or take advantage of the NetApp platform. Obviously, we talked about the ability to have the NetApp platform available in now the world’s four largest public clouds. For 30 years plus, we’ve brought elements of the NetApp platform into customers’ data centers, including now today, the announcements around NetApp Keystone Local and making it possible to run more of the platform within dark sites or within sovereign environments.
+
+A lot of customers, an increasing number of customers every day and every month are adopting the NetApp platform as a service, and they’re choosing to do that through NetApp Keystone. NetApp Keystone is the complete as-a-service way to consume the NetApp platform, and we made some exciting announcements this morning, including the ability to take NetApp Keystone and have sovereign instantiations of it so that in various countries and regions, customers can choose to have NetApp Keystone deployed, have it available, and all of their data, telemetry, support, everything they need for that done within that region or geography. That’s an exciting announcement for NetApp Keystone. I’m joined by two guests here to tell us even more about that announcement and even more with NetApp Keystone. I want to introduce Shumaila Sarwar, the Director of NetApp Keystone, and Dale Degen, Director of Product Marketing for NetApp Keystone.
+
+Thank you both for joining.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Hi, Jeff Baxter. Thank you for having us.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Appreciate it. Thank you so much. I will start. Shumaila Sarwar, what are you hearing from customers right now? What is sort of driving this interest in as-a-service in general?
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Yeah. I am going to start with a statement I think a lot of people who are listening will resonate with, that we are seeing that a lot of data demands are changing day by day. People are buying storage, and now the time is that they want to replace it, refresh it, and the costs are up.
+
+That was not planned or forecasted. Now by the time they plan, we do not know where it is going to be in the next couple of years either.
+
+We see this as a challenge where customers are trying to take not a bigger bet than how much data they should buy upfront.
+
+We see that there’s a sentiment in customer that they want to buy something that is more for now, and then they keep growing from there. Additionally, AI is landing on everyone’s roadmap now.
+
+A lot of customers who are investing in the AI infrastructure, right? There’s a data demand, and no one is able to 100% predict where they’re going to be in the next 5 years, right? That has shuffled a lot of roadmaps. A lot of money that was going into infrastructure has now been shifted towards the AI projects.
+
+Storage as a Service starts becoming more viable for those things where there is not a lot of predictability.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Where we know there are unseen situations. I think STaaS would be one of the area that is more popular when you don’t know what you’re betting on.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: I would put it in a very simple statement. You’re basically betting on your forecast.
+
+If you want to bet, it means that you are maybe growing up or buying low. It means if you guess low, then you might be buying again in 2 years.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: If you guess high, then there’s a lot of cash that you invest in the capacity that is not being used, which could have been shifted towards your other initiatives.
+
+It is all about what bet you make, and storage as a service reduces that risk because you do not have to bet on that.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Excellently said. It is really about sort of shared risk, right?
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: You are sharing the risk with your provider, in this case, NetApp, and the program we offer that is NetApp Keystone. I think a lot of people watching would be familiar with it, and I kind of explained it a little bit while you were getting up here, but you are obviously the owner. You are the leader on it.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Tell us, for anyone who does not know, what is NetApp Keystone?
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: NetApp Keystone is exactly solving the issue that we were trying to address, that it is storage as a service.
+
+You do not have to buy upfront. You exactly need to buy what you need right now.
+
+You do not have to forecast for 5 years, and then you can just grow from there.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Right.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: It gives you that comfort, and there is a predictability just for the near future. You do not have to plan for the next 5 years, so that gives you the comfort to start from there. Dale will share more insights later on about how we are continuously enhancing the storage as a service. I think that is a great case for the current AI situation we have.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Keystone obviously isn’t the only as a service offering.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: No.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: The whole industry seems to be moving that way. What makes Keystone specifically different?
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: I am going to use two words for that. One is flexibility,
+
+and the second is the choice.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: There are a lot of storage services around. There is one way to buy it, and then you are going to hold onto it. How Keystone differentiates is that you buy what you need, you have a committed capacity, you can decide how much capacity you require, or you can decide you are paying for the storage after the efficiency. You have a standard decided per tape rate that you are holding onto, and you can also get the headroom of 20%, 40%, or 60% on top. That exactly on the same rate that you have offered before.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: That is the flexibility you have. Additionally, going forward, if you are longer term committed to Keystone, you might want to size down because you are seeing a low demand into certain workloads. You can size down as well.
+
+Keystone is providing you that flexibility that you can size up when you need, and you can size down when required. You can add more capacity as you require. I think that is the biggest differentiator for Keystone over others.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Awesome. I do hear, and you kind of teased this before, I hear more is coming from Keystone, even more than we heard about this morning. You want to give us kind of a sneak peek or an update on what is coming out?
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Yeah. I think this is one of the things we are most excited about. We heard our customers. We meet them day to day. We learn what are the things that are working for them, the things that are not working for them, and have redesigned, and it is a continuous evolving process for Keystone to improve. Dale is going to share the announcements that we have for INSIGHT.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Sure.
+
+Dale Degen, Director of Product Marketing for NetApp Keystone, NetApp: Thank you. As we were discussing, we are listening to our customers, and they have different concerns on there. One of them we hear consistently is, "Am I paying for performance that is not needed on here?" The background on that is many of the offerings in the market are based on all flash. As you know, with the economics of everything, that is getting quite pricey. We are actually launching a new performance service level called Standard Hybrid. It is based on our FAS. It is a mixture of flash and hard drives on here, and it is a perfect balance of performance and cost on here. It is a great fit for all your classic virtualization, the backup and recovery, different types of file shares on here. We find that it is a really compelling offering that can give you the price and performance fix that you are looking for.
+
+The second issue a lot of our customers are asking about on this is, what will the growth cost me? It is interesting in this consumption model on here. Imagine a situation where you have a tebibyte at $10, just making these numbers up for the story on here. After a while, you actually grow beyond what you purchased, and you need to buy it. But now the market price is at $15 on here, and that overall balances out and increases your overall dollar per tebibyte quite a bit. We are introducing the capacity add hold pricing on here. Effectively, if you are using at 80% consumption or higher, which is great because that means you are perfectly optimizing your investments with Keystone on here. If you are able to do that for 90 days, that guarantees that you will still get the same price you started with on here.
+
+I think that is a real compelling differentiator on here, and it is a real value add that our customers are looking for. Thirdly, the last thing a lot of our customers are looking for is just more guarantees and things they can trust in on here. We are turning a lot of our promises into contractual guarantees. We have got a six nines service level agreement on here where if for any reason that is violated, we will credit back the customer on here. In a similar sense, we have got the storage efficiency SLA on here. If we do not hit the storage efficiency levels that we promise on here, same thing. We are monitoring it. We are proactively going to bill that back and make sure the customer is right. There is a multi-protocol SLA, which I think is great.
+
+It allows you to manage and bill and all your block, file, and object all on one system on here. I think that really simplifies the story for the customer. Then if you were watching this morning, we announced Keystone Sovereign on here. This is specific for all the customers that are looking for those sovereign capabilities on here, where we enable them to not only specifically define where their data is, but also where the telemetry is, where the support is, where the management of this is. So we enable our customers to define their sovereign critiques as they need on here, and we give them all the bells and whistles to make that happen. Again, I think it’s all about that flexibility and listening to our customers.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, I love that we’ve started to move into and over the last year done more and more with Sovereign Cloud and some of the major hyperscalers, and now we’re matching that so people can do a similar sort of thing as a service in their on-prem data centers to complete the sort of hybrid multi-cloud.
+
+Dale Degen, Director of Product Marketing for NetApp Keystone, NetApp: Yeah, actually, I want to give a shout-out tomorrow in the feature session on the NetApp platform. We’re going to go a little bit deeper on both of those topics. We’re going to have customers that are doing it. We’re going to talk about how our Keystone offering provides it. It’s really an important topic on top of mind, not only for European countries, but also regulated industries like financial institutions and healthcare and things like that, and people are looking for answers on this.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Does that remind me, is that the 11:00 A.M. or the 3:00 P.M. featured session?
+
+Dale Degen, Director of Product Marketing for NetApp Keystone, NetApp: That is the 11:00 A.M.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: 11:00 A.M.
+
+Dale Degen, Director of Product Marketing for NetApp Keystone, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: You heard it here again. 11:00 A.M. tomorrow Pacific Time. The featured session, as Dale mentioned, we will hear more about Keystone and hear from some customers there. I think we will go with kind of a final question. First of all, anything else you want to add, but then, what is the one thing you want people to take away about Keystone and all the exciting announcements we are making?
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: I love what Dale was talking about, all the things. It just shows how we are evolving and becoming more flexible so that we can support our customers’ different use cases as AI is emerging. We are all learning every day. It is less financial burden. You are not forecasting for the next 5 years. You are just betting on what you need now.
+
+You grow with time. We are learning different use cases for customer. We keep evolving. Keystone is not like once we made, it is done. We are continuously evolving, understanding from our customers.
+
+I would encourage people who are here at INSIGHT or please reach out to us who are listening, learn more about Keystone. We want to know your use cases and help how we can make this service more efficient and more productive and flexible for you all.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Perfect. Well, thanks so much for joining.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Thank you.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thanks for everything you and your team, both of your teams have done around Keystone. It is obviously a huge success story for NetApp and I think more importantly for our customers.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Absolutely.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: All right. It has been great. It has been wonderful to see it grow over the years.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Thank you so much.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thanks for doing that. Thank you.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Thank you.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you. Appreciate it. Bye-bye.
+
+Shumaila Sarwar, Director of NetApp Keystone, NetApp: Bye.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay. Our show here at NetApp ONAIR Snapshot, coming to you live from NetApp INSIGHT in The Garage, where last minute touches are being put on to open the doors up for customers coming in here at noon Pacific. We are continuing to go one-on-one with some of the innovators and architects behind some of the biggest announcements that you heard this morning. We are going to turn our attention to the NetApp platform, and specifically how people are able to automate, orchestrate, and manage the NetApp platform. For the last several years, the front door to the NetApp platform has been the NetApp Console. You can go right now to console.netapp.com and access it if you are a NetApp customer and start to take advantage of your entire data estate.
+
+It is far more than just a single pane of glass as some of the announcements that were made today, being able to build in automation, being able to use your choice of AI, and being able to deploy Console locally in your own data center or even in a dark site. We are going to hear more about that from our next guest coming up who is a leader and architect of the NetApp Console and our overall manageability strategy in general. I am going to go ahead and welcome Naveen Chand, VP of Product Management at NetApp for our Console and really our overall manageability portfolio and strategy, right?
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Absolutely. Thanks so much.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you for having us. Several big announcements, I’ll just go into it. Why make a local deployment of Console? What led us to make that decision?
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Well, Jeff, we saw that a lot of customers really loved Console.
+
+There was challenges trying to go through the adoption cycle. There was security issues they would have. They would have concerns about being able to go and run it in environments where they had to go and have a SaaS based control plane that had access. While many customers, this actually works for them, there was a segment of the population that it just didn’t actually work. So everything from regulated industries to specific customers that ran in a different geography, for example. For those customers, we built NetApp Console Local. It runs in their data center, in a colo, inside a sovereign cloud, even inside a SaaS based deployment of their own, within their own VPC, so they can retain end-to-end control.
+
+It’s really about affording customers choice, the choice to go deploy as they choose in a way that works for them with the security properties that work for them as well.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: That’s awesome. You also have the locally deployed version of the NetApp Console T-shirt I see as well, right?
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: I have NetApp Console T-shirt and NetApp Console Local is
+
+Jeff Baxter, VP of Technical Marketing, NetApp: There you go.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: the big announcement that we have here.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: NetApp Console everywhere, right?
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: That is right.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: You can wear it now.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Absolutely.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: So I know for a lot of our customers, especially large enterprise customers, they may have Active IQ Unified Manager. What is ahead for them? What benefits are they going to get as we look forward towards NetApp Console Local?
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Absolutely. Active IQ is heavily adopted by many of our customers, and they have loved it for many, many years. The reality is it was a good product for its time.
+
+They need something new. That is where we took NetApp Console Local, and we took a lot of the benefits that they have, so things like remediations are built in, but we extended it. We brought in AI to be able to go and allow them to connect to an LLM of their choice because, again, we talked about security being one of those foundational principles. Customers, a lot of times, have LLM systems that they have run inside their environment. They have already got it in their improved boundaries.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Some of the big changes that we brought in into NetApp Console Local include things like robust observability that has been built in based on Harvest, taking a lot of the great work that the team has done around scalability and performance from that, bringing it right into NetApp Console Local, enabling customers to go see observability across their entire data estate. We brought in fleet management that enables them to go and define policies that go run across the entire estate, grouping resources, defining storage classes to go and understand what sort of security properties you need to have, what policies you apply to storage. Then, of course, layering in AI underneath it, so that way you not only can go and look at beautiful UI, but you can actually interact with it, natural language, type in something, go and see what is happening across your estate.
+
+Not only just observability, it actually extends also to provisioning operations, so you can actually take actions against your estate using that same natural language interface.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay. With Console AI, first of all, I think it was kind of a brilliant choice allowing people to bring their own choice of LLMs in, right? I think as someone who’s brought in my own tools into NetApp, if they’ve got their own embedded AI, you go through all sorts of is it secure, is it everything like that. NetApp obviously, without going into details, has our own validated enterprise AI, so it just makes it so easy for any of our customers to plug that in. I thought that was brilliant. How do you envision NetApp admins today, let’s say storage teams or whatever, using the AI features built into NetApp Console? How will that change their day-to-day life?
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: A lot of different ways. Anytime they’re trying to do planning activities, anytime they’re trying to go respond or understand what’s happening across their estate, anytime that they want to go even do a simple task as provisioning or changing a setting, by using the natural language interface, it makes it much easier to not only have a one-time view into what’s actually happening, but be able to ask multiple questions, be able to iterate on the data, really understand what’s taking place, and drive to that insight in a much more rapid way. In fact, we all use AI, but then sometimes there’s these challenges, right?
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Dashboards are nice because they’re predictive. AI solutions, just given the very nature, sometimes come up with different responses that can get generated. Not only do we build AI into the platform, but we also made a very, very quick and easy and robust mechanism for customers to be able to go define custom dashboards.
+
+They can quickly go and assemble those as well, get those robust answers kind of going, use AI to be able to go and generate the next level of insights, and then kind of codify what they are seeing. That end to end really introduces that full life cycle journey
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: from issues take place, I can go diagnose what is happening across the estate. I can go and codify a way for me to be able to go look at these things in the future as well.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Very cool. There is obviously the chat interface. There is being able to create custom dashboards. You can interact with it a number of different ways. I know we have an MCP server out, so it ties into not just the human interfacing, but starts to get into agent to agent, sort of autonomous agentic frameworks as well.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: That is 100% right. Our goal is really to meet customers where they are. We took NetApp Console SaaS, we extended it, we brought it to NetApp Console Local. But again, the agenda capabilities we built into the product are extremely powerful, and I would think one thing I want to highlight on them is they are all built with enterprise-grade controls.
+
+They run with the RBAC that a customer has, the individual who is performing the operation, all the AI capabilities are built around that.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yep.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Many customers also are building their own agents, as we know. Exposing these capabilities through MCPs that are published now and available for you to go and use today include things from Harvest. You can get a full observability set of everything that is happening inside your estate. You can start using the ONTAP MCP as well to go do provisioning. We have multiple MCPs that have been provisioned and created across the entire estate to give you the end-to-end capabilities to really use it as you want.
+
+Customers can create their own agents, interact, diagnose issues that are taking place, and really drive a lot of value. We really want to meet customers where they are, and that is the difference.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, I love that from just the small shops that may want to use a chat interface, do a few things. We all know once you have done things more than once, you want to automate it. If you are doing things hundreds or thousands, so the MCP server and the agentic things we have there. You mentioned guardrails around all of it. If I am a NetApp admin, I can give a little more leeway to actions that can be reversed and still keep human in the loop for sort of destructive operations.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: That’s right. All of the agenda capabilities that we have, customers control how they get performed.
+
+You can have choices like, "I want these things to be performed fully autonomously." Other ones that we think are risky,
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: we automatically have a human in the loop to be required to go and approve it before it actually takes place.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Nice.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Things that are reversible, things that have a small blast radius, those are things that admins can make the choice to allow the automation to automatically go through.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: There’s levels of autonomous that we’re going to walk the journey with customers in a safe and compliant manner across their entire estate to make sure that their critical infrastructure continues to run.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, I love that. It’s not a one size fits all. You might be fine with the agentic AI creating 1,000 volumes, but you’re almost certainly not okay with it deleting 1,000 volumes.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: 100%.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I like the way we’ve thought about that and built that, and I agree with you. I think customers are going to have just different plateaus they’ll reach and different rate at which they’ll reach there in terms of their adoption of agentic AI, and I like the way that we’ve done it, is not trying to stay away from it or force it down anyone’s throat. It’s like how you want to consume it. I think that’s very cool. I think we’re coming up on near the end of our time here. Anything else around NetApp Console Local, NetApp Console AR, anything else you’re doing on manageability that you wanted to share with the audience? Anything we didn’t sort of cover today?
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: I think the big thing is NetApp Console Local is a big shift for us.
+
+We’ve really brought a lot of the capabilities, not just from Active IQ, but really looking at that next-generation journey of how customers are going to evolve managing their estate.
+
+It’s going to start with getting that 360 view of 100% of their estate, being able to go and understand what’s taking place, but then being able to go and interact with it through these seamless interaction models, then turning to an autonomous world. We’ve started that journey. We’ve made a lot of progress in that, and there’s a lot more yet to come.
+
+I’m excited for you guys to all go take it, try it, run it. It’s out there now.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: There’s another release coming out shortly as well that’s going to enhance the capabilities even further, and we’re going to continue down this path. But excited for the journey and looking forward to getting feedback from everybody as we see their customers actually deploying this.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Awesome.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: We have a bunch running on it today.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, on Console Local?
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: On Console Local.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: That is awesome. Yeah. Like Syam Nair said when he came on stage, he was not announcing vaporware today. Everything he was announcing was either here today, like Console Local, or very shortly. That is very cool.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: One thing we are also extending to is also bringing in StorageGRID, E-Series, all these capabilities under one platform.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: The canvas extends across the entire estate.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah. I assume the vast majority of you who are NetApp customers have already done so, but if you haven’t, go to console.netapp.com right now and get started. Take a look. Start to adopt those sort of capabilities. If NetApp Console Local is more your speed, as Naveen Chand said, it’s available now, and you can take advantage of it. Naveen, I want to thank you. Thank you for joining us. Thank you for all the work you and your team are doing on NetApp Console. It’s very cool innovation, meeting customers where they are and helping them manage their infrastructure, so perfect.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Thank you so much for having me.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you. Appreciate it.
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Cheers.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay, moving along. We are switching topics up to one that is top of mind for so much of our community around virtualization. We have announced as part of our announcements today that we are extending our virtualization family. You will see announcements that have come out in some of our press releases and blogs that the integration with Nutanix that we announced earlier in the year is now at general availability as of today. That will allow our joint customers with Nutanix to take advantage of all the NetApp capabilities within NetApp. And obviously, we work with customers to help support any of their virtualization options across the VMware suite, across Microsoft’s Hyper-V, across any of the KVM variations with Red Hat, Proxmox, and more, and now Nutanix. And that is just the tip of the iceberg.
+
+In a moment, we will be joined by two of our experts around virtualization to help go into more detail around what we are doing to help customers with their virtualization. Obviously, there is a whole bunch of change that has been happening over the last several years, customers embracing more flexibility and choice within virtualization. And so we will dive into that just a little bit with the experts that are joining us here on stage. I want to encourage everyone, as always, to continue to deep dive into netapp.com. You can learn about everything we have announced through the blogs that are now available and now live there. There is additional details. Stay tuned with us for roughly the next hour or so. We will be finishing up here and then featured sessions later on today starting at 2:00 P.M. Pacific.
+
+Okay, I think we are all set here, so I am going to go ahead and introduce our next set of guests. Sean Dao, Senior Product Marketing Manager for the overall NetApp platform and virtualization, as well as Chance Bingen, our Principal TME for virtualization.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Hey, Jeff. Great to be here.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Great. Thanks for being here.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I appreciate it. Nutanix is here. It is real. What are you guys hearing from customers about that and making it generally available?
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Yeah, I mean, there is tremendous interest in it. The number of customers that we have talked to over the last few months, years even, really, interested in this solution is just unbelievable.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Great.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: It is a great time to be in the virtualization space right now with all the disruption going on in the marketplace. It is really exciting talking to customers every day, really, and helping them on their virtualization journey.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Awesome. I know we have been working now with Nutanix for a while. Can you talk about how does that integration work? Is that something that is just available from the two companies when you install at work? So there are plugins. How does that particularly work?
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Yeah, essentially, the way the Nutanix solution is going to work is all the orchestration is going to be driven through the BlueXP interface. So Nutanix customers that are used to managing everything through BlueXP, they will continue to manage everything the same way they do today. It is more or less going to be a seamless transition from the traditional HCI deployment model with AHV into the external storage model using essentially NFS data stores.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Let me broaden the aperture a little bit. I mentioned a few of them, but I do not think I will do this as a pop quiz, but what are the major virtualization providers we do support today?
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Across the board, obviously, adding Nutanix as well, VMware, Red Hat OpenShift. For both of those, we support all their on-premise options and across the cloud as well. We have the first-party storage options for both of those options in AWS, Google, and Azure. Support both of those from a disaster recovery backup perspective and through NetApp Console as well and Trident for Red Hat OpenShift. On top of that, we have got integrations and storage for Proxmox, Hyper-V, Azure Local.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Absolutely
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Cloud Virtualization, so anyone wanting to run.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I should have marked the checklist and see which.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah
+
+Jeff Baxter, VP of Technical Marketing, NetApp: score you get, right?
+
+Chance Bingen, Principal TME for Virtualization, NetApp: The better question is which one wouldn’t we support, and it would be nothing.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Which one do we not support? No, I’m just kidding.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I’ll do that one to you.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: That’s the one we don’t talk about.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: That’s the one we don’t talk. Okay. Yeah, that’s fair. You touched on it, but I love that you just crossed on-prem and cloud boundaries there
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Correct
+
+Jeff Baxter, VP of Technical Marketing, NetApp: pretty seamlessly, right?
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Correct.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I think is a huge advantage where all three of these major clouds that we’ve historically participated in now, we’ll see what happens with Oracle, but we’ve supported the virtualization environments on all of those as well.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Correct. Yep.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yep.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yep.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay. So how do we help NetApp customers with flexibility? I will state this. You can tell me if you agree or disagree.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: One of the things I love is that we do not seem to push customers towards one virtualization
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah
+
+Jeff Baxter, VP of Technical Marketing, NetApp: option or another, right? We are very open in that way. When customers do work with us, when they do make that decision, either with us or without us independently for a variety of reasons, how do we help them be flexible? How do we help them adopt these new sort of technologies if they are moving from one to the other? What sort of ways can we help them?
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah, I can jump in here first, and then Chance can add on top of that. I think one of them is just using the same storage infrastructure foundation regardless of the hypervisor you are going to be using. You do not need to be swapping out storage, swapping out tools, swapping out skill sets. You can support all these hypervisors or cloud options with the same operating model no matter what strategy you choose. Another way that we can really help customers is with the Shift toolkit. I do not know if you want to jump further into that, but it is
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Yeah
+
+Chance Bingen, Principal TME for Virtualization, NetApp: a super cool free tool for anyone with an ONTAP license for them to migrate and convert VMs, and they can go bidirectionally between hypervisors. It is a zero data copy conversion tool, so it is incredibly fast. It does not matter how large of a VM you are talking about. It is going to make those conversions in minutes. So really what that ultimately does is just drastically cut down business disruption or downtime caused during these large migrations. It is a really, really cool tool to really speed up those processes.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Yeah, absolutely. Shift is a fantastic capability. As Sean said, it is included with your ONTAP One license, so there is no additional money layout. It helps you de-risk your migrations, making sure you are going to hit your targets, making sure everything moves over properly. Something that is really important these days with a lot of IT budgets remaining flat, staffing flat to down in most businesses, the fact that you do not have to buy any extra swing gear. You do not have to buy any extra storage or any extra capability. The reality is, most virtualization vendors that we partner with will let you reuse your existing servers. You do not have to go wait 6 months, 8 months, 12 months, whatever the current backlog is for compute platforms with memory and everything being constrained. With Shift being an in-place, zero-copy migration, it does not require anything extra.
+
+That is just a tremendous benefit to customers.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: who are using NetApp for their virtualization infrastructure.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: I could add one more point on that as well. On top of being able to use just the Shift way, we have done some work to build it into the Red Hat Migration Toolkit. Customers that are comfortable with that workflow and those tools can actually leverage Red Hat MTA while Shift does all the work in the background to make that process a little easier for them.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I pulled up a browser right here and searched NetApp Shift, and it went right to probably your blog. One of your blogs.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Additional details around how people can deploy it. Just to re-emphasize that, it is a free toolkit that is available to customers. You can go look for NetApp Shift and download it and leverage it and utilize it, and that is very cool. Actually, if I recall, there is a demo of NetApp Shift coming up in one of the featured sessions today. I think it is the 2:00 P.M. featured session.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yep, that is correct.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I am not sure if I am getting paid for plugging the 2:00 P.M. featured session, but I think that is the fourth or fifth plug I have made for it.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Anyone who misses that, they can come over by the booth and talk with Chance and I or Suresh, and we have got those demos ready for them as well.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: How about the people on the live stream, though? That is a little harder for them to come by the booth.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: That is true. Sorry, crowd.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: That is a little more difficult. You know.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: I will say, if you cannot get by the hands-on labs here, there is a Lab on Demand.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Oh
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: For Shift. If you are remote, you cannot make it to the conference, you can still have that experience using Lab on Demand or Test Drive. I forget
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: what the other name of it is.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, netapp.com/demos, and you can go into Test Drive if you are not a NetApp customer, or Lab on Demand if you are a NetApp customer, and play around with a lot of our virtualization solutions and NetApp Shift.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yep.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Absolutely.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Very cool. We have talked a lot about leveraging NetApp with all of these different virtualization solutions, how you move between them and everything like that, but I think if I take a step back to a more fundamentals question, why should people use the NetApp platform for virtualization? What do you think differentiates us in that space?
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah, I can jump in. I guess, kind of three different foundational pillars that differentiate us there. First, we have already briefly touched on, but really the operational flexibility, freedom of choice, whether it is the hypervisors migrating to the cloud virtualization, file block object. We really let our customers make decisions based on their business strategy, and they do not want their storage to hold them back from making those choices. Two would be, I guess, better economics, and there is a few different ways we can do that. We already touched on the leveraging storage platforms for mixed environments, Data Infrastructure Insights to help right-sizing of environments, looking at those VM CPU usage and really making that a lot more affordable and economical. Last would just be security. Obviously, NetApp platform foundation of our company is security.
+
+Whether it is agentless, NetApp ONTAP Autonomous Ransomware Protection with Artificial Intelligence, backup recovery, we really help those customers make those decisions and not really forcing a trade-off between flexibility and resilience.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Yeah, absolutely. I think one of the key things is ONTAP has always been about allowing you to use your data however you want, wherever you want.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: in any format you want, any protocol you want. It is your data, you should be the one deciding how you derive value from that. That is absolutely true of virtualization as well, whether we are talking about virtualization in the cloud or on-prem, and giving you that freedom of choice in terms of format as well with something like Shift allowing you to choose what virtualization vendor you are going to use for consuming that data and moving your business forward.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Excellent. So, talked a lot about virtualization. Containerization, is that still a thing? I am kidding. A lot of the technologies we talked about with virtualization also apply to containers and everything as well, right?
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Yeah, absolutely. That is one of the strategies that we talk to customers about, is not just do you decide, do I keep my current virtualization vendor, or do I move to another one? Do I modernize? Do I take those applications out of the virtual machines, containerize them, rearchitect them into a modern cloud native design based on the fundamental principles of cloud native computing? Then as you are doing that, then do you look at maybe a next generation virtualization platform as well and run containers and VMs side by side on a common platform using something like the KubeVirt project.
+
+Integrating that with Shift, Trident Protect.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Trident Protect, yep.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Trident, NetApp Console.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yep.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: I’d say a lot of that would go with workload placement and looking at all those individual workloads and making a decision based on the workload and the application needs, whether you want to stay on virtualization or you’re going to be moving to containers.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I know we mentioned you’ve got to take a short hop right over to that booth.
+
+I’ll be talking to customers here when we let them beat the doors down in about a half an hour.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Yeah. Mm-hmm.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Anything else you want to add? Anything I didn’t ask or anything like that? The answer can be no, by the way, if there’s anything you want to add.
+
+Chance Bingen, Principal TME for Virtualization, NetApp: Nothing from me. Chance?
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Yeah, actually, I’d say one thing I would mention is earlier I said this is such a great time to be in the virtualization space. One of the neat things is that we’ve seen a lot of virtualization vendors join the NetApp TAP program, the Technology Alliance Partner program. Companies that we’ve known about, we’ve kind of worked with, they’ve used our stuff, are now actively partnering with us to build solutions and help customers solve their virtualization challenges. That’s one of the things that’s been exciting for me is to be able to work with a lot of these other technologies that I haven’t really had the opportunity to work with before. I’m just enjoying the ride, man.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Absolutely. Well, Chance, Sean, thanks for joining us on On-Air Snapshot. I really appreciate it. Look forward to it. Have fun talking with the customers over there.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Absolutely.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Have a great rest of the conference.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Absolutely.
+
+David Langley, Senior Director of Sales Engineering, Commvault: Thanks, Jeff. Appreciate it.
+
+Sean Dao, Senior Product Marketing Manager for NetApp Platform and Virtualization, NetApp: Thanks, Jeff.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thanks so much. Thank you. We’ll keep rolling on here with NetApp ONAIR Snapshot, and we’ll be turning our attention next to cyber resilience and that proactive protection we heard all about in the keynote in helping leverage the most secure storage on the planet, and expand it to be the most secure data infrastructure spanning hybrid multicloud. There will be a whole 3:00 P.M. tomorrow Pacific featured session. So that’s tomorrow at 3:00 P.M. Pacific time. There’ll be a live stream featured session. If you’re watching this on replay, it’ll be available right next to this video most likely, where you’ll be able to hear in detail about so many of these cyber announcements. But we’re going to go ahead and bring up on stage here very shortly, one of our leading spokespeople on cyber resilience for NetApp, as well as hear directly from a partner.
+
+You heard this morning about an amazing integration that we’ve unveiled with Commvault, so we’ll be joined by a gentleman from Commvault who will give us a little bit more about what we’re doing there together. Specifically, the Commvault announcement we announced this morning was integrating a lot of the basic NetApp capabilities of the NetApp platform and making them available directly within the Commvault interface so that all of our joint customers leveraging Commvault can take advantage of some of these built-in NetApp capabilities, SnapRestore, SnapMirror, SnapLock, and so much more. We’re going to double-click into all of that with our next upcoming guest. That joins the overall cyber resilience portfolio.
+
+We’ve talked a lot over the last several years, ever since we introduced NetApp Autonomous Ransomware Protection, providing industry-tested and validated 99% ability to detect ransomware attacks when it hits your NetApp data, and the ability to alert on that and then take action on it. Another big part of the Commvault integration is the ability to see those threats and be able to react to them a lot more quickly. I’m pleased to be joined by our two guests. First, David Langley, Senior Director of Sales Engineering at Commvault. David, thanks for joining us.
+
+David Langley, Senior Director of Sales Engineering, Commvault: Thanks for having me.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Appreciate it. Sandra Dunbar, Principal Solutions Marketing Manager at NetApp for our cyber portfolio.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Yes.
+
+I guess that’s-
+
+Naveen Chand, VP of Product Management for Console and Manageability, NetApp: Thanks, Jeff.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you. Big Commvault announcement this morning, but obviously, we’ve been working together for a long time. I’ve been at NetApp for 18 years. I can’t remember when it started. It’s been going for so long. Tell me a little bit about the NetApp and Commvault partnership and how we work with joint customers there.
+
+David Langley, Senior Director of Sales Engineering, Commvault: It’s a great question. It’s been 20 years, so you almost made it.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: It’s been 20. I almost-
+
+David Langley, Senior Director of Sales Engineering, Commvault: It’s been 20 years. You’re so close.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Well, I was a NetApp customer for five years before that.
+
+David Langley, Senior Director of Sales Engineering, Commvault: Oh, okay, yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I think I used Commvault in there, too. Hazy memory, but maybe I made the full 20 years.
+
+David Langley, Senior Director of Sales Engineering, Commvault: All good. Yeah. No, we have been working together for a very long time.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+David Langley, Senior Director of Sales Engineering, Commvault: I think the announcement today was especially important to help our customers know that they can expect more from their vendors who are serving them. It is not just about the technology or any specific feature, but the fact that we are coming together to solve problems for them because they have got their hands full already. The announcement specifically around shortening the recovery time and points for that existential threat that all businesses have via ransomware or even non-malicious agents, is really important. I am glad that it made the keynote because I think customers, again, can come and expect more from all of us.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah. We have Sandra, I think, for making the keynote, by the way, for some of the brief view into it. I think there will be a lot more about it tomorrow in the 3:00 P.M. featured session. What kind of surprised me a little bit when I was double-clicking into Commvault a month or so ago as we were looking at this is, I think a lot of people think of Commvault as a backup and recovery company, right? Like, hey, they do backups, they do everything like that. Commvault seems like it has become a lot more. Identity resilience, threat detection, like you mentioned. How do you describe Commvault to customers today if they are coming by and they are evaluating different options for that?
+
+David Langley, Senior Director of Sales Engineering, Commvault: Yeah, no, I really just talk about the outcome, right?
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah. Okay.
+
+David Langley, Senior Director of Sales Engineering, Commvault: We’re here to make your business more resilient, and that’s a bigger problem than just backup and recovery.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Okay.
+
+David Langley, Senior Director of Sales Engineering, Commvault: Because now what’s taking the business down isn’t necessarily the data’s not available or that it changed, but how that change was made and the fact that this is cybercrime, right? We talk about it as being cyber. Well, there’s a person element to this, too. So having to clean the data, but also having an awareness of where those clean restore points are and talk about the forensics process
+
+that’s now involved because it can’t just be, oh, I figured out when I need to restore to, and I just restore. We have to make sure the data’s clean. Before we promote it up, we have to use technology to make those determinations. It’s not just about backup and recovery. It’s about eliminating the threat, detecting it early, and then which of course, the new announcement’s very pertinent to, but also helping customers do the testing that unfortunately is no longer vogue. We remember the days when we did DR testing and
+
+Jeff Baxter, VP of Technical Marketing, NetApp: You crash it.
+
+David Langley, Senior Director of Sales Engineering, Commvault: You hang out, you ate donuts and Hot Pockets and a lot of Mountain Dew.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, exactly.
+
+David Langley, Senior Director of Sales Engineering, Commvault: We moved away from that, and that’s a mistake.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Sorry about the 2 hours of outage, everyone. It will be fine.
+
+David Langley, Senior Director of Sales Engineering, Commvault: You will be fine.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, it will be fine. Yeah, exactly. Order pizza.
+
+David Langley, Senior Director of Sales Engineering, Commvault: We got to bring that back, right?
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, exactly.
+
+David Langley, Senior Director of Sales Engineering, Commvault: Because cybercrime isn’t something you figure out in the heat of the moment. Bringing that back and with the help of NetApp and doing clean rooms on premise as well as in the cloud
+
+is a great step forward, and that’s something we do together as well. Commvault’s really evolved into making other businesses more resilient to their mission.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Sandra, I know I touched on it, but for the viewers, talk a little bit about this integration we announced today. What does it let a NetApp customer who is also a Commvault customer do now? Or maybe I should say vice versa.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Yeah. So what we are doing is we are adding in our ransomware detection into the Commvault recovery workflow.
+
+What that means is we can detect signals earlier on production,
+
+on primary storage, and that is going to flow into the existing Commvault recovery workflow.
+
+Now, the key here, and what we are talking about at this INSIGHT, is integrating with our Snapshot technology and SnapMirror and SnapRestore, and these are all technologies that is going to help accelerate that recovery process. What we are hearing more and more, and what Commvault is hearing more and more from these joint customers, is they are focused on a trusted recovery. So before, it was around backup and selling more backup, and we were around selling more primary storage, and now the conversations have really elevated to, "How can I recover with trusted data?
+
+Jeff Baxter, VP of Technical Marketing, NetApp: So it seems like it would be especially useful to me if I were in that data team or storage team or backup team, to not only be able to see the threat as it emerges, but to have it identify what data it is affecting and have that stage for cleaner recovery, right?
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Exactly
+
+Jeff Baxter, VP of Technical Marketing, NetApp: It cuts a link out of the chain, right? Having to say, "Oh, geez, what got affected? Let me record it from the NetApp system, then let me go find the backups on the Commvault side and everything." That is all done for you.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Exactly, and with ARP, you get that instant snapshot as well.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Oh, yeah.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: We have actually had customers who have recovered from those snapshots, that point in time data rollback that we have. That is an additional layer
+
+that we are putting into this recovery workflow, is the automatic snapshot that happens just as soon as ARP detects ransomware. Or it could be AI agents that go rogue, and they start encrypting data.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: We have got two things we are looking at, and we will be talking about that in the feature session tomorrow.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah, one thing that, when I am talking to customers about it is always interesting because you have to start with the admission that some of the data is going to get encrypted, right? Because obviously there is defense in depth and everything in the perimeter. We are not going to stop people’s IO and inspect every packet as it is coming in. There is going to be that tip of the iceberg that gets affected, but that is what I love about ARP, is it gets it at that tip of the iceberg, takes that snapshot, and then what Commvault has to do is just focus on this targeted segment and leverage all those Snap technologies to get people up and running in minutes or hours.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: That’s right. That’s the early signals.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: We’re sending Commvault something they haven’t had before. It’s that early signal from primary storage.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah. It’s a lot better than getting the, "Oh, all of our databases are down" call when 100% of your data has been encrypted, right?
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Exactly.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Which never happens to anyone in this industry. Yeah. David, how can people learn more about this Commvault integration? Or anything more you want to share with our audience here as we start to wrap up our segment?
+
+David Langley, Senior Director of Sales Engineering, Commvault: Certainly if you are here at INSIGHT, join us at our booth.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+David Langley, Senior Director of Sales Engineering, Commvault: A lot more, there are demos available so you can see this in action. Of course, the website, you can download a free trial of Commvault right off our website if you would like to.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Great
+
+David Langley, Senior Director of Sales Engineering, Commvault: Enjoy us in the cloud before you install it on-prem. A closing comment, right? Huge thanks to NetApp for putting on these conferences. We are in the middle of a crisis, right? A criminal crisis.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+David Langley, Senior Director of Sales Engineering, Commvault: Getting people together to talk about where they struggle and have open conversations about where the gaps are absolutely critical, not just to that particular business, but to IT as a community. Giving folks a chance to get away from the day job, all the distractions, and really have a meaningful conversation about, are we ready, and what does the journey need to look like for us to be more ready than we are today? It is so critical for all boats to rise, thanks to organizations like NetApp.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Well, thank you. Thank you for the partnership. Sandra, you made the point, I think everyone still has this view of the single hacker working in his basement, with the black. Yes, they exist, but state-sponsored was huge. Corporate espionage, now, as you mentioned, it may not even be a human at the other side of the keyboard.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Right.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: It may not even be an AI agent under the direction of a human. So you’ve got agentic AI directed by humans to accelerate attacks and find new zero-days, then you’ve got misaligned AIs who are just really wanting to answer that quiz question correctly and are going to go to any lengths to get 100% on the test. It’s kind of like me in math class. Sandra, anything you want to add in this session?
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Yeah. We want to wrap this into a zero trust conversation as well.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Sure.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Zero trust is about hardening your storage and controlling the access. Who has access, especially when you’re talking about AI agents. Then also in the Commvault recovery workflow, there’s a way to isolate the data, that’s something we’re integrating with, too. So once we isolate that data, that falls within the zero trust, that that data is immutable and indelible and no one can change it. An agent can’t change it, not even us.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: So, that’s something to walk away with, that you have trusted data, you have snapshots. That’s one way to look at it. You have isolated data. You have the backup. So we’re giving the customers many ways to recover a trusted copy of their data, which accelerates back to business.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Absolutely. So it’s a great partnership, right? The most secure storage on the planet, which you and I get the pleasure of talking about all the time, combined with an industry leader in overall data resilience, on-prem, in the cloud, everything that Commvault is meant to do. And thank you again for the partnership, and thank you, Sandra, for joining. I appreciate it.
+
+David Langley, Senior Director of Sales Engineering, Commvault: Yeah, thanks for having us.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Yeah. Thanks, John.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Have a great rest of the conference.
+
+David Langley, Senior Director of Sales Engineering, Commvault: Appreciate it.
+
+Sandra Dunbar, Principal Solutions Marketing Manager for Cyber Portfolio, NetApp: Yes.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you. All right. Running right along here, and we are moving towards our denouement, to use probably a word that I looked up in the thesaurus the other day. We are moving rapidly towards the conclusion of our live segment. Again, remind you, we will have a few hour break. We will throw open these doors, and people newly enlightened by the keynotes and breakouts will ravenously come in to consume both lunch and additional information from all of the activations booths and sponsor booths out there. But we want to sort of close out our NetApp ONAIR Snapshot. We have talked about so much new technology today in our keynotes and both here on the NetApp ONAIR Snapshot. We want to talk a little bit about how all of you can get hands-on with it. NetApp INSIGHT, I am biased, it is one of my favorite conferences of the year.
+
+It is my 18th or 20th NetApp INSIGHT, I think we were talking about it the other day. But we know that not all of you can make it here, and we want to make sure that everyone who is watching this live stream or watching this as a recording has the chance to get hands-on with as much of the technology as possible. And so we have those experiences here. We have a huge hands-on lab here at NetApp INSIGHT. We have certifications, everything like that. But we have the ability for people to access a lot of that remotely from the comfort of your home or the comfort of your office to learn more about the NetApp technology. And so to talk a little bit more with that, I am joined by my guest, Toby Creek, a Senior Director of Field Technology at NetApp. Hey, Toby. Good to see you.
+
+Toby Creek, Senior Director of Field Technology, NetApp: Hey, Jeff. Thanks. Thanks for the invite.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Of course. Thank you for being here. Tell me a little bit about what you and your team run for NetApp.
+
+Toby Creek, Senior Director of Field Technology, NetApp: It is really kind of based on a lot of my experience as an end user, when I was buying the products and not part of the company trying to sell them.
+
+Doing an evaluation sometimes, trying to understand a product is a bit like going and buying something from the store that is in one of those blister packs. It is like the frustration is all in the packaging, not in the actual product itself.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: I look at the installation process that way. When we think about how we do evaluations of technology, the install part and the surmounting the learning curve isn’t the value of the product. That’s what you have to overcome to get to the value of the product. What we’ve really focused on is let’s get right to the meat of the story.
+
+NetApp has a lot of transformational products and solutions that can change how companies operate. What we want to do is make those accessible and easy to consume for those who are interested in them. Because the install is not what’s cool about it’s something else in there. With that, we started the hands-on labs and brought that concept to INSIGHT, and that’s been, believe it or not, 15 years
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Wow
+
+Toby Creek, Senior Director of Field Technology, NetApp: that we’ve been doing this now.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: We bring those labs to INSIGHT. We build an experience where the guide really documents what it is that is neat or interesting or transformational about the solution. It’s not generic product documentation, so it’s really fit for the environment. The environment is ready-built, paired with it, all tested.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yep
+
+Toby Creek, Senior Director of Field Technology, NetApp: so that you see the value, what is actually different and interesting about it, as opposed to focusing on the deployment aspect of it.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah. This is all available for people on the live stream. They can just go to netapp.com/demos and get access to all of that. One of the things that I am happy about is in my day job, our teams have worked together, right? My team will do very light touch sort of like for people who are just learning about NetApp, kind of the guided walkthroughs, and then your team really lets people get their hands on it, right? Lets them actually work with the technology through the Test Drive or the hands-on labs or Lab on Demand, I guess.
+
+Toby Creek, Senior Director of Field Technology, NetApp: Yes
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Lab on Demand, sorry. Lots of ways of saying labs. Test Drive or Lab on Demand, what is the difference between those two?
+
+Toby Creek, Senior Director of Field Technology, NetApp: Test Drive is for those who are not yet NetApp customers. They do not have a support site account or a common way to authenticate them easily. In exchange for your contact information and a follow-up, you can check out a lab for up to 4 hours.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: The labs really are, they’re fully functional environments.
+
+Yes, it’s all software defined, but the ONTAP in there is actually ONTAP code.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yep
+
+Toby Creek, Senior Director of Field Technology, NetApp: The products that run in there are actually NetApp products.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yep.
+
+Toby Creek, Senior Director of Field Technology, NetApp: You can go off script. You can experiment. You can really dig into the guts of the solution and say, "What is it that might be appealing to me or transformational to my operation?
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: Those are great. For Lab on Demand, that is where if you have a NetApp support site account, or, for employees and partners as well, that is NetApp SSO, our common authentication framework, all of those individuals can use labondemand.netapp.com, and that gets you access to the customer catalog. All of the labs that we bring here, to the hands-on labs, will be available there, in addition to even more.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah. It is really cool to me that you make available, like you said, for 4 hours, just anyone can come in and check out the NetApp technology. I know-
+
+Toby Creek, Senior Director of Field Technology, NetApp: Absolutely
+
+Jeff Baxter, VP of Technical Marketing, NetApp: When I started here as an SC 18 years ago, I would have to carry a FAS 270 around in my trunk, right? Because that was the way you got customers or prospects to be able to get access to technology. Now, just from any desk, they can go in, they can log in, they can register. I know, when you register, you very quickly get your access code back to be able to use it. I get an email back going, "You are a NetApp employee. Stop trying to use this." "Go use Lab on Demand." But everyone else will get the invite to be able to use the Test Drive, and I think that is really cool that we let our technology speak for itself. We let people go off the rails. I always joke, like the guided demos my team does, it is all It is not real, right?
+
+It captures the real interfaces, but it is point and click, and if you want to go off the rails, you cannot. It will not work. Yours is a real environment, right? It is like you said, it is virtualized or simulated, but it is a real environment. Not just our technology, but a lot of our ecosystem partners have technology in there as well.
+
+Toby Creek, Senior Director of Field Technology, NetApp: Certainly, and it’s a continuum.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: The demonstrations, it’s not a one-size-fits-all.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: Sometimes maybe you want to do a 5-minute walk through and say, "Hey, is this really what I’m after? Or is this not quite the mark, and what I’m interested in is actually a different solution-
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah
+
+Toby Creek, Senior Director of Field Technology, NetApp: from NetApp?
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: That helps you, without having to invest a half hour or an hour because that’s the time that we really target for a customer experience in one of our labs. Of course, you can spend more time. We don’t necessarily want you to have to.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: We can get to the point much more quickly.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: A lot less time than doing a proof of concept in your own data center, right? Where it could take hours. What I love, NetApp has this whole continuum from 5 minutes to get a surface glimpse into it, to the couple hours to really dive into it, to using our customer proof of concept labs, which I know is that in your org or a sister org to you?
+
+Toby Creek, Senior Director of Field Technology, NetApp: It is in my organization.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Oh, it is in your org too.
+
+Toby Creek, Senior Director of Field Technology, NetApp: So yeah, it is that continuum. If you like what you see in Lab on Demand and you say, "Okay, I think this might be for me, but I want to see it at scale.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: Or, "I want to see it with a performance aspect
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah
+
+Toby Creek, Senior Director of Field Technology, NetApp: which about 80% of our engagements are, then the proof of concept center is there for you, and it comes with expert people.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: So, those can understand your business challenge, build an environment that is representative of what you are going to deploy.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Yeah.
+
+Toby Creek, Senior Director of Field Technology, NetApp: Then you have confidence when you leave that engagement that you are going to have a successful business outcome.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: I am required to say this, CPOC, I love this company. So there. Those who know, you know. So I am required to say that. CPOC is, I would not say it is a hidden gem because I know most all of NetApp knows about it, and a lot of our customers know about it, but it is an amazing resource. Then obviously, if you want to actually install it and do it, that is great, because I love what you said, we want people to make sure that it is a solution that actually solves their problems. If not, is there another NetApp solution that does? If none of ours do, then that is fine, right?
+
+Toby Creek, Senior Director of Field Technology, NetApp: Yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: We work with an ecosystem of partners. We will help you find something else. The last thing we want is to have someone buy something and install it on their data center and then find out it is not really solving the problem they wanted. Hopefully, we do not have that issue, but you and your team are a huge part of making sure that happens, so I appreciate it. I know we are starting to I can see the hubbub starting out there. I will ask, anything more that you want to say about what your team is doing? Anything I did not ask about before we wrap up here?
+
+Toby Creek, Senior Director of Field Technology, NetApp: I think you covered it. But the other thing is for customers in the audience who might be listening to us right now, the customer catalog is maybe 3 dozen labs, I think, at this point. There are over 100 in Lab on Demand proper.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Oh, okay.
+
+Toby Creek, Senior Director of Field Technology, NetApp: Some of those include much more complicated evaluation setups than what we would expose to maybe an entry-level customer or somebody who just is new to the NetApp ecosystem. It can be overwhelming. Ask your account team, talk to your NetApp contacts and your partners, and ask about what else might be in the catalog for them. Our partners are really good about the consultative part of understanding customers’ business challenges. There is a lot more solutions that sort of sit behind the curtain of Lab on Demand for employees and partners that we can expose to them through, for example, our boot camp service.
+
+If you want to do a half-day lunch and learn or something like that where you focus on NetApp solutions and how we tackle the data management challenges, that is something that you can do with our boot camp service, and it does not require any special setup or anything like that. It is just an ask to the partner or the employee to say, "Hey, I want to do this, and the theme is," what have you. It is cloud, it is on-prem, it is hybrid. It does not matter. We have got something for everybody.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: So what I am hearing is you have exposed your version of the In-N-Out secret menu now to the whole world, right? You have your own secret menu
+
+Toby Creek, Senior Director of Field Technology, NetApp: That is correct, yeah.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: of hundreds of sessions back there for people to check out. Well, Toby, thank you for spending the time with me today, and appreciate it, and appreciate everything your team does. Again, check out the NetApp website, netapp.com/demos, and that will lead you towards Test Drive and Lab on Demand and CPOC and everything else your team does. So thank you very much. Appreciate it.
+
+Toby Creek, Senior Director of Field Technology, NetApp: Awesome. Thanks for the partnership, Jeff.
+
+Jeff Baxter, VP of Technical Marketing, NetApp: Thank you, Toby. Appreciate it. Well, okay, we are down to the wire here on soon opening up The Garage here to, I am sure, what is a vast swarm of people outside waiting to check out all the latest technology. The doors will be opening, for those of you watching live here, in just a matter of minutes. I want to say thank you to all of our viewers that have stayed with us the last few hours. Thank you to all of my many guests that have joined. This is really just the start of a new run for NetApp ONAIR. Stay tuned to our socials, YouTube, LinkedIn, and more to watch for new episodes coming soon and coming on a regular basis.
+
+Please stay tuned into netapp.com today and tomorrow to learn more about all the announcements and to take advantage of the live streams that will be coming the remainder of today and tomorrow. Again, featured sessions available at 2:00 P.M. Pacific and 4:00 P.M. Pacific today, tomorrow at 11:00 A.M. Pacific and 3:00 P.M. Pacific. Of course, we want you to watch all of them, but if you watch one more thing, the day 2 keynote, huge double-click into everything we are doing around AI with a special focus on NetApp Novus. It will be must-see TV starting at 9:00 A.M. Pacific, also available on netapp.com or your favorite social channels. I want to thank all of you. I want to thank the crew that has been behind the camera, Drew Claybrook, Scott Gentry, so many other people who have made this happen. I hope you all have a great break.
+
+We will see you back here in a few hours for the featured session. This is NetApp ONAIR Snapshot going off air. Have a great day.

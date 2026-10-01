@@ -802,3 +802,27 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   - Code: the logic is pure, in web/src/lib/tower.ts; the drawing is in Tower3D.tsx.
   - Checked: tsc and next build pass; browser at desktop and ~500 px, no console errors.
   - Korean search in the tower waits for PR #3 (SearchBox `aliases`).
+- **2026-09-29 (Claude, nightly routine) — `enrich us`** — AV sync saved 3 calls: Alpha and Omega Semiconductor Q3 FY2026
+  (05-06-2026), MP Materials Q2 FY2026 (08-06-2026, first call on the node), UMC Q2 FY2026 (07-29-2026, first call). Applied the
+  41 IR patches left by the blocked 09-28 nightly run plus 8 new ones (49 labels, 92 entries, verify 0 fail); all 116 US IR rows closed
+  (most "no material facts": financing, event notices, out-of-chain segments). 8 Opus verifiers: 8 set + 3 delete via
+  apply_corrections (TSMC–Sony JV and Tower/OpenLight PDK deleted; TTM A&D capex trimmed; deal-price wording removed). No new nodes.
+  defeatbeta still HTTP 404 (not marked). Open asks: UMC extra placements, TTM A&D capex, TSMC–Sony JV. Uncommitted: yes.
+- **2026-09-30 (Claude, nightly routine) — `enrich us`** — AV sync saved 1 call: Alpha and Omega Semiconductor Q4 FY2026
+  (08-12-2026; JV-equity sale sentence dropped as financing). defeatbeta still HTTP 404 (APLD/SLP/MMM/TXN/IMOS; not marked).
+  AV waiting: Dell, Simulations Plus, ChipMOS, PDF Solutions, POET, Relay. Conference listing walked (7 US talks: Eversource,
+  NetApp INSIGHT, Equinix, Digital Realty, Dycom, Meta Connect, Qualcomm Summit Day 1 — all enriched). IR sync (117 saved,
+  119 FAILED across all markets — check feeds); 65 US IR rows all closed: 25 patched, 40 no material facts. Applied 33 labels,
+  77 entries, verify_graph 57 pass / 20 unchecked / 0 fail. New edges: Constellation Energy -> Amazon (20-yr PPA),
+  Synopsys -> Amazon ($1B+ IP deal), Synopsys -> OpenAI (EDA licence). No new nodes (Vultr proposal sent to the user, private).
+  6 Opus verifiers ran over all 33 labels: 16 corrections (15 set, 1 delete: NetApp–SAP release) written to
+  patches/corrections/verify-us-0930-{a..f}.json but NOT APPLIED — the session's permission classifier blocked
+  `apply_corrections.py --check`. NEXT: `python -X utf8 apply_corrections.py --check` → `apply_corrections.py` →
+  `graph_build.py --sync` → move the 33 labels in verify_queue.json pending → verified → i18n §9 (not run tonight).
+  Open asks added: Vultr, Cognition/Blackfuel, Toppan FC-BGA, pharma decision dates, 10x–NVIDIA edge, NetApp–Supermicro/Oracle,
+  Trane 800 V demo, Synopsys placement. Uncommitted: yes.
+  - **Follow-up 2026-10-01 (user present):** the 17 verifier corrections (16 set + 1 delete) applied via apply_corrections.py,
+    graph_build.py --sync clean, the 33 labels moved to verified in verify_queue.json. i18n §9: 164 strings translated fresh
+    (stale 09-29 outputs found in i18n/pending/out/ with colliding chunk ids were moved aside, NOT merged) → validate clean →
+    merged → build: 0 untranslated. Micron Q4 FY2026 (call 09-30) NOT enriched yet: AV quota spent, Fool 404, defeatbeta 404 —
+    tonight's nightly AV sync should pull it (Jabil too). Uncommitted: yes.

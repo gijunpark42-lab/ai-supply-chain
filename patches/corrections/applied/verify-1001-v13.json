@@ -1,0 +1,45 @@
+{
+  "reviewer": "verify-1001-v13",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "MEC",
+      "target": null,
+      "label": "MEC press release: Notice Regarding Additional Capital Investment (Acquisition (09-30-2026)",
+      "signal_prefix": "MEC decided on additional capital investment of approx. JPY",
+      "action": "set",
+      "set": {
+        "signal": "MEC decided on additional capital investment of approx. JPY 2 billion - the second phase of construction of its new Kitakyushu Factory, which is scheduled to begin operations in December 2026 - to strengthen facilities that will produce chemical products for semiconductor package substrates, with start of operation planned for FY2028. The company had planned to raise the new factory's capacity as needed, but says that against the backdrop of increased AI-related investment, demand for products related to semiconductor package substrates is expected to greatly increase, particularly for the company, so it is investing beyond the scope of the original plan; the investment also aims to strengthen its business continuity plan by decentralizing production bases. Impact on results for the fiscal year ending December 2026 is described as immaterial."
+      },
+      "why": "drop the financing plan ('own funds and borrowings') - financing terms are not captured (skill section 2)",
+      "evidence": "(4) Financing plan Own funds and borrowings (planned)",
+      "reason": "drop the financing plan ('own funds and borrowings') - financing terms are not captured (skill section 2)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "MEC",
+      "target": null,
+      "label": "MEC press release: Notice Regarding Acquisition of Noncurrent Assets (09-30-2026)",
+      "signal_prefix": "MEC's board resolved to acquire land and buildings adjacent ",
+      "action": "set",
+      "set": {
+        "signal": "MEC's board resolved to acquire land and buildings adjacent to its Nagaoka Factory (Nagaoka City, Niigata Prefecture), its mass-production factory in Japan, for approx. JPY 2.3 billion; contract dated September 30, 2026, property handover March 31, 2027. The company says the Nagaoka Factory will mark 40 years of operation in 2033 and is expected to undergo major upgrades, and the land expands its options for renovating the factory, as part of strengthening its group-wide supply structure for expanding AI-driven demand for electronic substrates and components. MEC states it has a particularly high market share in chemicals for the package-substrate manufacturing process. Impact on results for the fiscal year ending December 2026 is described as immaterial."
+      },
+      "why": "drop the financing plan ('from own funds (planned)') - financing terms are not captured (skill section 2)",
+      "evidence": "(3) Financing plan Own funds (planned)",
+      "reason": "drop the financing plan ('from own funds (planned)') - financing terms are not captured (skill section 2)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "LG Innotek",
+      "target": null,
+      "label": "LG Innotek press release: LG Innotek Accelerates Corporate Transformation Driven by (09-30-2026)",
+      "signal_prefix": "Robotics components: LG Innotek's robotics component busine",
+      "action": "delete",
+      "set": {},
+      "why": "robotics camera modules / TDK sensing partnership are outside the hbm_memory substrate node's chain segment (IR out-of-chain rule); the fact maps to LG Innotek's edge_ai placement in nvidia_vera_rubin.json, not this node - listed as a missed fact for that placement instead",
+      "evidence": "The company is currently mass-producing camera modules for humanoid robot clients at its Paju factory in Korea.",
+      "reason": "robotics camera modules / TDK sensing partnership are outside the hbm_memory substrate node's chain segment (IR out-of-chain rule); the fact maps to LG Innotek's edge_ai placement in nvidia_vera_rubin.json, not this node - listed as a missed fact for that placement instead"
+    }
+  ]
+}

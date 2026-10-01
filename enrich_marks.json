@@ -31,9 +31,122 @@
    "at": "2026-09-27 00:27",
    "market": "US",
    "text": "09-27 enrich us: AV quota hit after 9 calls; defeatbeta still 404. Carry over: Dell, ChipMOS, Simulations Plus (AV waiting), Applied Digital, 3M, Texas Instruments (overdue), MP Materials, PDF Solutions, POET, Shell, UMC (never). Air Products 09-16 release left pending: page body is JS-rendered navigation only; paste the release text by hand. av.py sync assigns the wrong fiscal quarter to June-FY companies with no prior label (AOS) - check before trusting a first-call label. EMCOR 09-17 conference: CEO turns labelled Moderator by investing.py."
+  },
+  {
+   "at": "2026-09-29 23:22",
+   "market": "US",
+   "text": "09-29 nightly enrich us: AV saved AOS Q3 FY2026, MP Materials Q2, UMC Q2 (enriched). defeatbeta still HTTP 404 (HF parquet gone) for APLD/SLP/MMM/TXN/IMOS/PDFS/POET/SHEL/DELL - source outage, not marked. AV waiting: Dell, Simulations Plus, ChipMOS, PDF Solutions, POET, Relay. AOS Q4 FY2026 (Aug) call not yet on AV. All 116 US IR rows closed (41 patches from the blocked 09-28 run applied + 8 new). Skyworks IR files 07-28/09-01/09-11/09-25 saved nav-only (body check passed them) - ir_pull prose_ok gap. US results releases (Vertiv/Vicor/Xcel Q2) slipped past the results-headline skip."
+  },
+  {
+   "at": "2026-10-01 00:10",
+   "market": "US",
+   "text": "09-30 nightly enrich us: 33 labels applied (AOS Q4 call, 7 conferences, 25 IR releases; 40 IR rows no material facts). Opus verifiers DONE over all 33 - 16 corrections in patches/corrections/verify-us-0930-a..f.json NOT APPLIED (permission classifier blocked apply_corrections.py in the unattended session). Next: apply_corrections.py --check -> apply_corrections.py -> graph_build.py --sync -> move the 33 verify_queue labels to verified -> i18n step. defeatbeta still 404; AV waiting Dell/SLP/IMOS/PDFS/POET/RLAY. IR sync: 119 feed failures (all markets)."
   }
  ],
- "questions": [],
+ "questions": [
+  {
+   "subject": "UMC",
+   "question": "UMC's Q2 FY2026 call reports its own silicon photonics (12-inch photonics IC in mass production, TFLN modulators, CPO parts) and advanced packaging (interposers, hybrid bonding, DTC; 10+ customers). UMC sits only in foundry.json. Add placements in optical_networking.json (interconnect/Components, like GlobalFoundries) and packaging_substrate.json? All facts are on the foundry node meanwhile.",
+   "label": "UMC Q2 FY2026 (07-29-2026)",
+   "at": "2026-09-29"
+  },
+  {
+   "subject": "TSMC",
+   "question": "TSMC-Sony Kumamoto JV release (08-11-2026, smartphone image-sensor fab, volume production 2029): the Opus verifier DELETED the entry under the out-of-chain-segment rule (2026-09-27). Keep it deleted, or should a TSMC fab/capex commitment count even when the product is outside the AI chain?",
+   "label": "TSMC press release: Sony Semiconductor Solutions and TSMC Agreed to Establish (08-11-2026)",
+   "at": "2026-09-29"
+  },
+  {
+   "subject": "TTM Technologies",
+   "question": "TTM Epiq release (08-17-2026): the Opus verifier REMOVED the A&D capex (>$130M Syracuse, >$400M US plants through 2029) under the out-of-chain rule and kept only the $50M Eau Claire center (serves commercial + defense). Should out-of-chain-segment capex be dropped like orders, and does Eau Claire count?",
+   "label": "TTM Technologies press release: TTM Technologies, Inc. Continues Global Growth Strategy (08-17-2026)",
+   "at": "2026-09-29"
+  },
+  {
+   "subject": "Vultr",
+   "question": "HPE's 09-30 release names Vultr (private, 'largest privately-held cloud infrastructure company') as buyer of HPE's first AMD Helios order ($1.2B, US data centers). Add Vultr as a neocloud node (neocloud.json, cloud_infra / Neocloud (GPU-specialized)) like the private Fluidstack / Lambda nodes, plus an HPE -> Vultr edge? Meanwhile the order sits on HPE's Helios node with counterparty Vultr.",
+   "label": "HPE press release: HPE secures its first AMD Helios order in $1.2 billion deal (09-30-2026)",
+   "at": "2026-09-30"
+  },
+  {
+   "subject": "Cognition",
+   "question": "CoreWeave's 09-30 release names Cognition (private, maker of Devin) as the first production customer of CoreWeave's Vera Rubin NVL72; it already appears as a customer in earlier entries. Add as a node (ai_models), or keep as counterparty only? Same question for Blackfuel (private inference platform, Digital Realty BCN1, 09-30 release).",
+   "label": "CoreWeave press release: CoreWeave Delivers NVIDIA Vera Rubin NVL72 Performance at (09-30-2026)",
+   "at": "2026-09-30"
+  },
+  {
+   "subject": "Toppan",
+   "question": "Broadcom's 09-29 release (AST JV, Singapore FC-BGA substrate plant) says Broadcom is TOPPAN Holdings' largest FC-BGA substrate customer. Toppan sits only in foundry.json (materials / Photomask), and its product text describes the photomask business now spun out as Tekscend. Add a Toppan placement in packaging_substrate.json (advanced_packaging / FC-BGA Substrate) with a Toppan -> Broadcom edge? And should the photomask node be renamed/split to Tekscend? Meanwhile the fact is on Broadcom's node with counterparty TOPPAN Holdings.",
+   "label": "Broadcom press release: AST Completes Singapore's First High-End FC-BGA Substrate (09-29-2026)",
+   "at": "2026-09-30"
+  },
+  {
+   "subject": "Pharma decision dates",
+   "question": "ai_bio pharma rule captures only FDA/EC approvals and CHMP positive opinions. Should a stated FDA decision date (PDUFA, e.g. Roche giredestrant 30 Nov / 18 Dec 2026; Novo CagriSema decision expected Q4 2026) or a commercial launch (Novo Wegovy pill launched in US/UAE/UK/Germany) count as next_catalyst on pharma nodes? Tonight they yielded nothing.",
+   "label": "Roche-Genentech press release: Roche's giredestrant combination significantly improved (10-01-2026)",
+   "at": "2026-09-30"
+  },
+  {
+   "subject": "10x Genomics",
+   "question": "10x Genomics' Sentira release (09-29) says it is 'collaborating with NVIDIA': NVIDIA accelerated computing runs Atera on-instrument processing and Sentira analysis, rapids-singlecell integrated. Make it an NVIDIA -> 10x Genomics edge in ai_bio (like NVIDIA -> Simulations Plus), or keep it as a counterparty entry on 10x (current)?",
+   "label": "10x Genomics press release: 10x Genomics Announces Sentira, a New Computational (09-29-2026)",
+   "at": "2026-09-30"
+  },
+  {
+   "subject": "NetApp",
+   "question": "NetApp INSIGHT releases (09-29): (1) Novus' first, orderable release runs on 'qualified Supermicro servers' — collaboration wording, both are players in nand_flash.json: add a Supermicro -> NetApp edge? (2) Oracle OCI NetApp Storage Service — Oracle is not a player in nand_flash.json, so no NetApp -> Oracle edge (NetApp has edges to Amazon/Microsoft/Google for the same service type). Add Oracle there? Both facts are on NetApp's node with counterparty keys meanwhile.",
+   "label": "NetApp press release: NetApp and Supermicro Collaborate to Power AI at Any Scale (09-29-2026)",
+   "at": "2026-10-01"
+  },
+  {
+   "subject": "Trane Technologies",
+   "question": "Trane's 09-30 release: lab proof-of-concept of an 800-volt DC chiller with Eaton and Danfoss — skipped under 'demos never count'. It is a direct 800 V DC data-center transition signal. Record such power/thermal proof-of-concepts as attributed 'demonstration' entries with no slot, or keep excluding them?",
+   "label": "Trane Technologies press release: Trane Technologies Demonstrates Industry-First 800-Volt (09-30-2026)",
+   "at": "2026-10-01"
+  },
+  {
+   "subject": "Synopsys",
+   "question": "Synopsys investor day (09-30): new Synopsys -> Amazon ($1B+ multi-year IP deal, Amazon = lead application-optimized IP customer) and Synopsys -> OpenAI (EDA licence) edges were placed in nvidia_vera_rubin.json, Synopsys' company-wide placement. Should Synopsys get a placement in aws_trainium3 / cpu_datacenter so the Amazon custom-silicon IP edge sits nearer Trainium/Graviton?",
+   "label": "Synopsys press release: Synopsys and Amazon Announce Strategic, Multi-year IP (09-30-2026)",
+   "at": "2026-10-01"
+  },
+  {
+   "subject": "Private customers as nodes (2026-10-01 run)",
+   "question": "Several releases name private/unlisted companies in a stated supply or customer role; all are kept as counterparty keys on the filer's node for now. Add any as nodes? Mobilint and HyperAccel (Korean AI chip startups, SemiFive design customers), UTAC (private OSAT, Hanmi equipment buyer), FPT Corp (HOSE: FPT, AI factory on ASUS servers - listed), Shinwa Controls (Wiwynn liquid-cooling partner), SolarEdge (NASDAQ, Infineon SiC SSCB/SST collaboration - listed).",
+   "label": null,
+   "at": "2026-10-01"
+  },
+  {
+   "subject": "HDD media placement",
+   "question": "Resonac (hard-disk media capacity in Singapore 160M -> 230M disks/yr from 2029) and JX Advanced Metals (HDD magnetic sputtering targets 1.5x by mid-2029) only have foundry/packaging nodes, so both HDD releases yielded nothing. Give them a materials placement under nand_flash.json 'Nearline HDD'?",
+   "label": null,
+   "at": "2026-10-01"
+  },
+  {
+   "subject": "Granopt Faraday rotators",
+   "question": "Granopt (Sumitomo Metal Mining 51% / Mitsubishi Gas Chemical 49%) triples Faraday-rotator capacity for optical communications by FY2027. The Opus verifier deleted it from SMM's mlcc node as out of segment, so it is now not in the graph. Give SMM (or Granopt) an optical_networking placement so it can be recorded?",
+   "label": null,
+   "at": "2026-10-01"
+  },
+  {
+   "subject": "Wiwynn -> Amazon edge",
+   "question": "Wiwynn 09-10 release: it manufactures and integrates server systems and racks for Amazon (Annapurna custom hardware). New edge placed in nvda_b200.json where Amazon is a player. Keep there, or add Wiwynn to an aws_trainium chain and move it?",
+   "label": null,
+   "at": "2026-10-01"
+  },
+  {
+   "subject": "Operating facts inside award releases",
+   "question": "Award releases sometimes restate operating facts: Schneider WEF Lighthouse (El Paso on-time delivery 61% -> 97%, USD 43M backorders cleared amid data-center demand); Lenovo TIME/Fast Company (AI revenue 33-35% of group). Rule says awards yield nothing. Keep operating facts from award releases the way they are kept from financing releases?",
+   "label": null,
+   "at": "2026-10-01"
+  },
+  {
+   "subject": "SUMCO - Formosa Sumco deconsolidation",
+   "question": "SUMCO cut FST voting rights 43.2% -> 38.0% (08-20); FST becomes an equity-method affiliate from 09-30-2026 and leaves SUMCO consolidated sales from Q4 2026. Recorded nothing (ownership notice). Record it on the SUMCO node or the SUMCO-FST edge?",
+   "label": null,
+   "at": "2026-10-01"
+  }
+ ],
  "answered": [
   {
    "subject": "Alpha and Omega Semiconductor",
@@ -122,6 +235,22 @@
    "at": "2026-09-27",
    "answer": "User 2026-09-27: add both. Samyoung Pure Chemicals (private) with edge Hansol Chemical -> Samyoung; Tokai Carbon Co. (TSE 5301) with edge Tokai Carbon Co. -> Tokai Carbon Korea.",
    "answered": "2026-09-27"
+  },
+  {
+   "subject": "TSMC",
+   "question": "TSMC-Sony Kumamoto JV release (08-11-2026): smartphone image-sensor fab, TSMC cash ~JPY 282B, volume production 2029. Kept on TSMC's foundry node as a capex/facility fact. Does the out-of-chain-segment rule (image sensors are outside the AI chain) drop it?",
+   "label": "TSMC press release: Sony Semiconductor Solutions and TSMC Agreed to Establish (08-11-2026)",
+   "at": "2026-09-29",
+   "answer": "question reworded by the same run (entry since deleted by the verifier) - see the new TSMC question",
+   "answered": "2026-09-29"
+  },
+  {
+   "subject": "TTM Technologies",
+   "question": "TTM's Epiq release (08-17-2026) gives company-wide capex that is mostly aerospace & defense (>$130M Syracuse Ultra-HDI for A&D, >$400M US plants through 2029, $50M Eau Claire center). Kept on TTM's AI PCB/substrate node as a capex fact. Should A&D-segment capex count, or does the out-of-chain-segment rule (made for orders) also drop capex?",
+   "label": "TTM Technologies press release: TTM Technologies, Inc. Continues Global Growth Strategy (08-17-2026)",
+   "at": "2026-09-29",
+   "answer": "question reworded by the same run (entries since trimmed by the verifier) - see the new TTM question",
+   "answered": "2026-09-29"
   }
  ]
 }

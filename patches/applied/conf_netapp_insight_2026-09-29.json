@@ -1,0 +1,45 @@
+{
+  "source": "NetApp INSIGHT 2026 (09-29-2026)",
+  "chains": {
+    "components/nand_flash.json": {
+      "players": [
+        {
+          "company": "NetApp",
+          "layer": "system_integration",
+          "sector": "Storage Systems",
+          "product": "AI data-infrastructure storage (AFF all-flash, ONTAP)",
+          "quarterly_data": [
+            {
+              "quarter": "NetApp INSIGHT 2026 (09-29-2026)",
+              "signal": "CEO George Kurian announced NetApp Novus, which he called 'the most important announcement we have made in a long time': a new disaggregated storage architecture 'architected for the performance needs of the 100,000-plus GPU clusters'. Claims (company's own): a single file system delivering '100 terabytes per second of performance', ten times the 10 terabytes per second top result on the IO 500 benchmark, and 'The first zettabyte scale file system on the planet' (a single namespace sized against the 2,000 exabytes of data center capacity shipped last year). It uses standard pNFS / FlexFiles on the stock Linux kernel with no proprietary client, federates many storage clusters into one namespace, splits the metadata service into independently scalable protocol, state and catalog planes, and its data servers run ONTAP; the AFF A90s are being extended into the architecture. Chief Platform and Technology Officer Arindam Banerjee said 'At 50,000 to 100,000 GPUs, no single storage cluster can feed the fleet', that lab modeling showed linear scaling, and that NetApp is 'landing it as a product very soon', with timelines and ecosystem partnerships to be given at the next day's keynote. Announced, not shipping.",
+              "figure": "Novus: 100 terabytes per second claimed; zettabyte-scale single namespace; designed for 100,000-plus GPU clusters; no ship date given ('very soon')",
+              "topics": ["product_launches"],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "NetApp INSIGHT 2026 (09-29-2026)",
+              "signal": "NetApp announced a partnership with Oracle to offer a NetApp storage service on Oracle Cloud Infrastructure (ONTAP on OCI). Keynote (paragraph labelled CEO George Kurian in the transcript): 'We are thrilled to partner with you and the Oracle team to build the next generation of storage, NetApp storage service on Oracle Cloud Infrastructure.' VP of Technical Marketing Jeff Baxter said the Oracle Cloud Infrastructure NetApp Storage Service 'puts us now in all four of the world’s largest public clouds', after Azure (2017), AWS and Google Cloud. No availability date was stated by NetApp management.",
+              "figure": "no specific figure",
+              "counterparty": "Oracle",
+              "counterparty_role": "partner (first-party cloud storage service)",
+              "topics": []
+            },
+            {
+              "quarter": "NetApp INSIGHT 2026 (09-29-2026)",
+              "signal": "Platform software announcements (Chief Product Officer Syam Nair and other NetApp speakers; Nair said everything announced is 'either generally available this morning or in preview'): the metadata capability of the NetApp AI Data Engine (AIDE) now supports data from heterogeneous, non-NetApp sources and AIDE is 'now fully software-defined', offered 'free for the first 6 months'; NetApp Console Local (on-premises and air-gapped deployment, available now) with AI that works with the customer's own LLM and published MCP servers; NetApp Keystone Sovereign for European Economic Area customers, 'available early November for France and Germany, with general availability for everyone else later on'; NetApp ransomware detection integrated into the Commvault recovery workflow; the Nutanix integration generally available as of the event; and an expanded strategic partnership with SAP.",
+              "figure": "AIDE free for the first 6 months; Keystone Sovereign early November for France and Germany",
+              "topics": ["product_launches"]
+            },
+            {
+              "quarter": "NetApp INSIGHT 2026 (09-29-2026)",
+              "signal": "NetApp staff tied new Keystone offerings to component cost and supply: Dale Degen, Director of Product Marketing for NetApp Keystone, said many as-a-service offerings in the market are all flash and 'with the economics of everything, that is getting quite pricey', so NetApp is launching a Keystone performance tier called Standard Hybrid based on FAS ('a mixture of flash and hard drives'), plus capacity add hold pricing that keeps a customer's starting price if it runs at 80% consumption or higher for 90 days. Director of NetApp Keystone Shumaila Sarwar said customers face storage refresh costs that are up and were not planned, with infrastructure money shifted toward AI projects. Senior Product Marketing Manager Sean Dao said customers migrating hypervisors can reuse existing servers instead of waiting '6 months, 8 months, 12 months, whatever the current backlog is for compute platforms with memory and everything being constrained'.",
+              "figure": "Keystone Standard Hybrid (flash plus hard drives) launched; price hold at 80% consumption or higher for 90 days; compute platform backlog cited as 6 months, 8 months, 12 months",
+              "topics": ["supply_tightness"]
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

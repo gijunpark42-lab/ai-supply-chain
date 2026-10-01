@@ -1,0 +1,49 @@
+{
+  "reviewer": "nightly-verifier-2026-09-29-v3",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "TSMC",
+      "target": null,
+      "label": "TSMC press release: TSMC Reports Second Quarter EPS of NT$27.25 (07-16-2026)",
+      "signal_prefix": "Q2 2026 (quarter ended June 30, 2026) results release",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 (quarter ended June 30, 2026) results release, items the same-day call entry does not state: consolidated revenue NT$1,270.38 billion (+36.0% year-over-year, +12.0% versus Q1 2026); in US dollars revenue +33.7% year-over-year. Net income NT$706.56 billion and diluted EPS NT$27.25 (US$4.31 per ADR unit), both +77.4% year-over-year; net income +23.4% versus Q1 2026. Operating margin 60.3%, net profit margin 55.6%.",
+        "figure": "Q2 2026 revenue NT$1,270.38 billion (+36.0% YoY); net income NT$706.56 billion; diluted EPS NT$27.25 (+77.4% YoY); operating margin 60.3%; net profit margin 55.6%"
+      },
+      "reason": "Depth rule (SKILL §6): revenue US$40.20B, gross margin 67.7%, node mix 3/30/33/11 and 77% advanced already on the node under 'TSMC Q2 FY2026 (07-16-2026)' (same-day call); keep only the release's new numbers.",
+      "evidence": "consolidated revenue of NT$1,270.38 billion, net income of NT$706.56 billion, and diluted earnings per share of NT$27.25 (US$4.31 per ADR unit) ... operating margin was 60.3%, and net profit margin was 55.6%."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "TSMC",
+      "target": null,
+      "label": "TSMC press release: TSMC Reports Second Quarter EPS of NT$27.25 (07-16-2026)",
+      "signal_prefix": "Q3 2026 guidance (management, based on the current business outlook)",
+      "action": "delete",
+      "reason": "Restates the same-day call (SKILL §6): Q3 revenue $44.6-45.8B, gross margin 65-67%, operating margin 56-58% are already on the TSMC foundry node under 'TSMC Q2 FY2026 (07-16-2026)'.",
+      "evidence": "Revenue is expected to be between US$44.6 billion and US$45.8 billion; ... Gross profit margin is expected to be between 65% and 67%; Operating profit margin is expected to be between 56% and 58%."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "TSMC",
+      "target": null,
+      "label": "TSMC press release: Sony Semiconductor Solutions and TSMC Agreed to Establish (08-11-2026)",
+      "signal_prefix": "Sony Semiconductor Solutions and TSMC executed a legally binding",
+      "action": "delete",
+      "reason": "Out-of-chain segment (user 2026-09-27): a smartphone image-sensor JV is outside the AI-chip foundry chain; the yen amounts are JV capital-contribution (deal) terms, which §2 excludes.",
+      "evidence": "volume production of image sensors for smartphones utilizing advanced manufacturing process technology ... TSMC plans to make cash contributions of approximately 282 billion yen."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Tower Semiconductor",
+      "target": null,
+      "label": "Tower Semiconductor press release: OpenLight and Tower Semiconductor Expand PH18DA Photonics (08-11-2026)",
+      "signal_prefix": "OpenLight's photonic Process Design Kit (PDK) for Tower's PH18DA",
+      "action": "delete",
+      "reason": "Not an important release (§2.3): a third-party PDK becoming available in EDA tools; no customer, order, capacity, guidance, or product shipment/availability date for Tower.",
+      "evidence": "today announced the availability of OpenLight's photonic Process Design Kit (PDK) for Tower Semiconductor's PH18DA ... in Cadence's electronic design automation (EDA) tools."
+    }
+  ]
+}

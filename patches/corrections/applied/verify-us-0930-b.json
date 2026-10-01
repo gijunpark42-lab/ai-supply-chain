@@ -1,0 +1,47 @@
+{
+  "reviewer": "verify-us-0930-b",
+  "items": [
+    {
+      "kind": "contract",
+      "company": "Applied Materials",
+      "target": "Kioxia",
+      "label": "Applied Materials press release: Applied Materials and KIOXIA Partner at the EPIC Center to (09-29-2026)",
+      "signal_prefix": "KIOXIA will join Applied's EPIC Center in Silicon Valley as an innovation partner",
+      "action": "set",
+      "set": {
+        "signal": "KIOXIA will join Applied's EPIC Center in Silicon Valley as an innovation partner; the companies will collaborate on R&D in advanced memory cell and structure creation for higher-density memory architectures, multi-chip stacking for next-generation memory, advanced packaging for stacked memory, and materials engineering that supports manufacturability at scale, to increase memory density and performance for AI. KIOXIA's Minori Kajimoto: the companies aim to accelerate the commercialization of breakthroughs in memory and packaging technologies."
+      },
+      "chains": ["components/nand_flash.json"],
+      "reason": "Dropped the EPIC Center capex sentence: a company-wide Applied fact, not the Kioxia relationship (edge meaning, skill 6), and a restatement - Applied's foundry.json node already carries the $5 billion EPIC investment (Six Five Summit 2026) and the fall-2026 opening (depth rule).",
+      "evidence": "*Capital spending is expected to scale over time to approximately $5 billion as customer projects commence."
+    },
+    {
+      "kind": "contract",
+      "company": "Synopsys",
+      "target": "Amazon",
+      "label": "Synopsys press release: Synopsys and Amazon Announce Strategic, Multi-year IP (09-30-2026)",
+      "signal_prefix": "Strategic, multi-year IP agreement for Amazon custom silicon: building on more than 15 years",
+      "action": "set",
+      "set": {
+        "signal": "Strategic, multi-year IP agreement for Amazon custom silicon: building on more than 15 years of collaboration, it expands Amazon's use of Synopsys IP to application-optimized silicon IP (Amazon is the lead customer) under a license-plus-royalty model, and expands Amazon's use of Synopsys EDA, S&A and agentic AI technologies; the companies will work to accelerate multiphysics solutions on Trainium and Graviton and plan to develop custom agentic AI capabilities for Amazon's engineering teams. Amazon's Peter DeSantis: Synopsys 'helps us move faster across the design cycle'."
+      },
+      "chains": ["accelerators/nvidia_vera_rubin.json"],
+      "reason": "Removed the reverse-direction fact (Synopsys adopting Amazon EC2, cloud storage and Bedrock = Amazon supplying Synopsys) from the Synopsys -> Amazon edge (edge meaning must match direction, skill 6); it moves to Synopsys' own quarterly_data entry for this release (next item).",
+      "evidence": "To accelerate its own IP and EDA tools development, Synopsys is adopting Amazon EC2 and cloud storage services, as well as Amazon Bedrock to build and deploy AI applications and agents"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Synopsys",
+      "target": null,
+      "label": "Synopsys press release: Synopsys and Amazon Announce Strategic, Multi-year IP (09-30-2026)",
+      "signal_prefix": "Synopsys announced a strategic, multi-year, $1B+ agreement with Amazon",
+      "action": "set",
+      "set": {
+        "signal": "Synopsys announced a strategic, multi-year, $1B+ agreement with Amazon that expands Amazon's use of Synopsys IP to include application-optimized silicon IP, with Amazon as the lead customer of this expansion of Synopsys' silicon IP business; the agreement evolves to a license-plus-royalty business model that aims to deliver value to both companies as production volumes grow. It also expands Amazon's use of Synopsys EDA, simulation and analysis (S&A) and agentic AI technologies for Amazon's custom chips (Nitro, Graviton, Trainium) and AWS infrastructure. In the other direction, Synopsys is adopting Amazon EC2, cloud storage services and Amazon Bedrock for its own IP and EDA tools development."
+      },
+      "chains": ["accelerators/nvidia_vera_rubin.json"],
+      "reason": "Receives the reverse-direction fact moved off the Synopsys -> Amazon edge (filer's node, counterparty Amazon already named); no new fact - the sentence was already in the graph under this label.",
+      "evidence": "To accelerate its own IP and EDA tools development, Synopsys is adopting Amazon EC2 and cloud storage services, as well as Amazon Bedrock"
+    }
+  ]
+}
