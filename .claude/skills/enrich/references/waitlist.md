@@ -50,6 +50,9 @@ one market. A row's market is its `market` field (`taxonomy.market_of(exchange)`
    `product` — not litmus.
 6. `utils/check_patch.py` every patch → `python graph_build.py --sync` once → fix until 0 fail. Close the
    pipeline queues as the market command does; append labels to `verify_queue.json`.
-7. Update `enrich_waitlist.json`: `status: "added"` + `label`, or `dropped` + `why`. Report every added node by
+7. **Logo** for every added node (user, 2026-10-01; SKILL.md JOB 3 step 5): parallel agents by market per
+   `docs/memory/logo_fetching.md` (ticker + name identity proof, SVG preferred, contact-sheet check) write only
+   `static/logos/<node>.<ext>`; the coordinator alone appends `static/logos/manifest.json`, then `npm run sync`.
+8. Update `enrich_waitlist.json`: `status: "added"` + `label`, or `dropped` + `why`. Report every added node by
    name (JOB 3.4) and the waitlist count left per market; `enrich_status.py note <market>` if the run stopped
    partway (big markets — TW 39, KR 39, CN 30 — may take more than one run; newest-evidence `clear` rows first).
