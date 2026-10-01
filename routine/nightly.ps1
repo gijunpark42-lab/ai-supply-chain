@@ -61,7 +61,7 @@ else { $command = "enrich us" }
 if ($Test) {
     $prompt = 'Routine plumbing test started by routine/nightly.ps1. Use the Write tool to create .claude/nightly_test.txt containing the word OK (this checks that the routine can write in place), then reply with one line: OK plus the first item of the Run next list in ENRICH_STATUS.md. Touch nothing else and run nothing else.'
 } else {
-    $prompt = 'Nightly routine started by routine/nightly.ps1 while nobody is watching. Run `' + $command + '` exactly as the enrich skill says: status board first and last, parallel enricher agents, check_patch, graph_build.py --sync, verification. Unattended rules: never stop to wait for an answer - record a judgment the rules do not settle with enrich_status.py ask and carry on; do not commit, push or merge (the user reviews in the morning); leave alone any uncommitted edits you did not make. End with a short report in Korean: what was enriched, new companies, open questions, and the board Run next block.'
+    $prompt = 'Nightly routine started by routine/nightly.ps1 while nobody is watching. Run `' + $command + '` exactly as the enrich skill says: status board first and last, parallel enricher agents, check_patch, graph_build.py --sync, verification. Unattended rules: never stop to wait for an answer - record a judgment the rules do not settle with enrich_status.py ask and carry on; do not commit, push or merge (the user reviews in the morning); leave alone any uncommitted edits you did not make. Run Python scripts by the literal path, e.g. `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 apply_corrections.py --check` - never through a shell variable such as P=...; $P, because the permission allow rules match the literal command. End with a short report in Korean: what was enriched, new companies, open questions, and the board Run next block. Its last line is `result:` plus a one-line summary - board questions are not a reason to wait. Write `needs input:` instead only when a step could not run (permission denied, usage limit, a source down that the rules cannot work around), naming the step.'
 }
 
 # 3. Start the background session. `claude --bg` prints the session id and returns at once.
@@ -85,4 +85,10 @@ do {
 } while ($job -and $job.state -eq "working" -and (Get-Date) -lt $deadline)
 
 if ($job) { $state = $job.state } else { $state = "finished (no longer listed)" }
+# The job's own one-line detail says why it stopped (finished, or the step that is blocked).
+$stateFile = Join-Path $env:USERPROFILE ".claude\jobs\$id\state.json"
+if (Test-Path $stateFile) {
+    $detail = (Get-Content $stateFile -Raw -Encoding UTF8 | ConvertFrom-Json).detail
+    if ($detail) { $state = "{0} - {1}" -f $state, $detail }
+}
 Write-Log ("{0} stopped working: {1}" -f $id, $state)
