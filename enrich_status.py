@@ -87,6 +87,9 @@ PIPELINES = [
     {"id": "cninfo",     "name": "China IR records + investor Q&A", "command": "enrich china",
      "dirs": ["transcripts/cninfo"],             "state": "cninfo/sync_state.json",   "pending": "cninfo/pending.json",
      "source": "cninfo 投资者关系活动记录表 + SZSE 互动易 / SSE e互动 answers (cninfo.py) — management Q&A, not calls"},
+    {"id": "tdnet",      "name": "Japan TDnet disclosures",    "command": "enrich japan",
+     "dirs": ["transcripts/tdnet"],              "state": "tdnet/sync_state.json",    "pending": "tdnet/pending.json",
+     "source": "TSE TDnet timely disclosures (tdnet.py) — results, forecasts, capex, plans, deals; company filings, not transcripts"},
     {"id": "manual",     "name": "Pasted transcripts",         "command": "Transcript:<company>",
      "dirs": [],                                 "state": None,                       "pending": None,
      "source": "URL / pasted text enriched directly in Claude Code"},
@@ -178,17 +181,19 @@ MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan"
                   "EU": "enrich europe", "CN": "enrich china", "other": "enrich intl"}
 # The collectors that fetch each market's calls / filings. IR feeds and the conference listing
 # serve every market at once, so they are reported once ("shared collectors"), not per market.
-MARKET_COLLECTORS = {"US": ["us"], "KR": ["dart", "kind"], "TW": ["intl", "tw"], "JP": ["intl"],
+MARKET_COLLECTORS = {"US": ["us"], "KR": ["dart", "kind"], "TW": ["intl", "tw"], "JP": ["intl", "tdnet"],
                      "EU": ["intl"], "CN": ["intl", "cninfo"], "other": ["intl"]}
 SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7, "kind": 3,
+              "tdnet": 3,   # TDnet keeps only 31 days
               "cninfo": 7}   # days (SSE e互动 shows only about one month, so never let it slip past ~3 weeks)
 COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", "kind": "KIND IR deck sync (kind.py)",
+                   "tdnet": "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days)",
                    "cninfo": "China IR record / Q&A sync (cninfo.py)",
                    "intl": "Investing.com call sync (investing.py)", "tw": "Taiwan Chinese-call sync (tw.py)",
                    "edgar": "EDGAR pull (edgar_pull.py)", "ir": "IR feed sync (ir_pull.py)",
                    "conference": "conference listing (investing.py conferences)"}
 WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing", "kind": "IR deck", "krcalls": "call",
-                 "cninfo": "IR record / investor Q&A",
+                 "tdnet": "TDnet filing", "cninfo": "IR record / investor Q&A",
                  "conference": "conference", "ir": "IR release"}
 LIST_MAX = 12        # names printed per list on ENRICH_STATUS.md (the JSON keeps every name)
 
@@ -263,7 +268,7 @@ def own_sources(graph, label_pipeline, label_file):
                 kind = "call"
                 calls.add(day)
             else:
-                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "cninfo") else "other"
+                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "tdnet", "cninfo") else "other"
             latest[kind] = max(latest.get(kind, ""), day)
         out[company] = {"calls": sorted(calls), "latest": latest}
     return out
@@ -359,6 +364,8 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
         if key in ("US", "KR", "CN") or m["call_current"] or m["overdue"]:
             for pid in MARKET_COLLECTORS[key]:
                 days, day = age(pid)
+                if pid == "tdnet":
+                    continue                     # checked below for every Japan board: TDnet forgets after 31 days
                 if pid == "intl" and (intl_said or not (m["call_current"] or m["overdue"])):
                     continue                     # China's own collector (cninfo) counts; Investing.com as before
                 if days is None or days > SYNC_EVERY[pid]:
@@ -366,6 +373,11 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
                         COLLECTOR_NAMES[pid], "%d days ago (%s)" % (days, day) if day else "never",
                         " — one sync serves Taiwan, Japan, Europe and China" if pid == "intl" else ""))
                     intl_said = intl_said or pid == "intl"
+        if "tdnet" in MARKET_COLLECTORS[key]:
+            days, day = age("tdnet")
+            if days is None or days > SYNC_EVERY["tdnet"]:
+                reasons.append("%s last ran %s" % (COLLECTOR_NAMES["tdnet"],
+                                                   "%d days ago (%s)" % (days, day) if day else "never"))
         if m["overdue"] and key != "KR":        # Korea has no call pipeline yet — see the setup list
             reasons.append("%d overdue for a call: %s" % (len(m["overdue"]), short_list(
                 ["%s (last %s)" % (r["company"], r["last_call"]) for r in m["overdue"]], 6)))
@@ -587,7 +599,7 @@ def build_enrich_status(graph=None):
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)
-        elif pid in ("kind", "krcalls", "cninfo"):
+        elif pid in ("kind", "krcalls", "tdnet", "cninfo"):
             row["last_sync"] = state.get("last_sync")
             row["extra"]["runs"] = state.get("runs", [])[-5:]
         elif pid == "ir":

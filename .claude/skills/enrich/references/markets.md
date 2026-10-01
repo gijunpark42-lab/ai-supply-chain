@@ -73,14 +73,20 @@ what the call did not say — and rebuilds the graph and the board once. A compa
 ## `enrich japan` / `enrich europe` / `enrich china`
 1. Calls: `python investing.py sync` → `python investing.py pending --kind transcript --market JP|EU|CN`
    (references/intl.md). Calls held only in Japanese / Chinese are not on Investing.com: mark them once checked.
+1b. Japan only — TDnet timely disclosures: `python tdnet.py sync` (every 3 days at most: TDnet keeps only 31 days
+   online) → `python tdnet.py pending` → enrich every row (references/tdnet.md: results / 決算短信, forecast revisions,
+   capex and plant notices, results decks, mid-term plans, agreements, M&A operating facts; English version when TSE
+   lists one; entries in English) — after the calls, so a 決算短信 adds only what the call did not say.
 1b. China only — management Q&A of the A-share names (SZSE / SSE): `python cninfo.py sync` → `python cninfo.py pending`
    → enrich every row (references/cninfo.md): IR activity records (投资者关系活动记录表, `record` rows) and the company's
    answers on SZSE 互动易 / SSE e互动 (`qa` rows), both treated like a conference talk (answers = the company,
    questions = context only), entries in English → `python cninfo.py done --label "<label>"` each. Run the sync at
    least weekly: SSE e互动 shows only about one month. Hong Kong-only names (ASMPT, Lenovo, Innoscience) are out of its scope.
 2. Conference talks (`--kind conference --market …`), IR releases (`ir_pull.py pending --market …`; non-English
-   headlines → `release <id>` labels; entries in English).
+   headlines → `release <id>` labels; entries in English). A Japanese IR release that restates a TDnet filing
+   already enriched yields nothing (`restates <label>`).
 3. `python graph_build.py --sync`, then `python investing.py done --kind transcript --market …`,
+   `python tdnet.py done --label …` per handled filing (Japan),
    `python investing.py done --kind conference --market …`, `ir_pull.py done --label …` per handled release
    (China: plus `cninfo.py done --label …` per handled record / Q&A file).
 
