@@ -80,6 +80,9 @@ PIPELINES = [
      "dirs": ["transcripts/kind"],               "state": "kind/sync_state.json",     "pending": "kind/pending.json",
      "pending_kind": "deck",
      "source": "KRX KIND IR library + large-cap IR sites (kind.py) — company IR presentations, not transcripts"},
+    {"id": "utility",    "name": "US utility regulatory filings", "command": "enrich us",
+     "dirs": ["transcripts/utility_filings"],    "state": "utility_filings/sync_state.json", "pending": "utility_filings/pending.json",
+     "source": "Utilities' own IRPs / large-load reports and tariffs (utility_filings.py) — company filings, not transcripts"},
     {"id": "krcalls",    "name": "Korea earnings-call scripts", "command": "enrich korea",
      "dirs": ["transcripts/kr_calls"],           "state": "kind/sync_state.json",     "pending": "kind/pending.json",
      "pending_kind": "call",
@@ -181,19 +184,22 @@ MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan"
                   "EU": "enrich europe", "CN": "enrich china", "other": "enrich intl"}
 # The collectors that fetch each market's calls / filings. IR feeds and the conference listing
 # serve every market at once, so they are reported once ("shared collectors"), not per market.
-MARKET_COLLECTORS = {"US": ["us"], "KR": ["dart", "kind"], "TW": ["intl", "tw"], "JP": ["intl", "tdnet"],
+MARKET_COLLECTORS = {"US": ["us", "utility"], "KR": ["dart", "kind"], "TW": ["intl", "tw"], "JP": ["intl", "tdnet"],
                      "EU": ["intl"], "CN": ["intl", "cninfo"], "other": ["intl"]}
 SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7, "kind": 3,
               "tdnet": 3,   # TDnet keeps only 31 days
-              "cninfo": 7}   # days (SSE e互动 shows only about one month, so never let it slip past ~3 weeks)
+              "cninfo": 7,  # days (SSE e互动 shows only about one month, so never let it slip past ~3 weeks)
+              "utility": 30}   # days (utility_filings.py: monthly — IRPs and large-load reports change slowly)
 COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", "kind": "KIND IR deck sync (kind.py)",
                    "tdnet": "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days)",
                    "cninfo": "China IR record / Q&A sync (cninfo.py)",
+                   "utility": "utility regulatory-filing sync (utility_filings.py, monthly)",
                    "intl": "Investing.com call sync (investing.py)", "tw": "Taiwan Chinese-call sync (tw.py)",
                    "edgar": "EDGAR pull (edgar_pull.py)", "ir": "IR feed sync (ir_pull.py)",
                    "conference": "conference listing (investing.py conferences)"}
 WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing", "kind": "IR deck", "krcalls": "call",
                  "tdnet": "TDnet filing", "cninfo": "IR record / investor Q&A",
+                 "utility": "utility filing",
                  "conference": "conference", "ir": "IR release"}
 LIST_MAX = 12        # names printed per list on ENRICH_STATUS.md (the JSON keeps every name)
 
@@ -268,7 +274,7 @@ def own_sources(graph, label_pipeline, label_file):
                 kind = "call"
                 calls.add(day)
             else:
-                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "tdnet", "cninfo") else "other"
+                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "tdnet", "cninfo", "utility") else "other"
             latest[kind] = max(latest.get(kind, ""), day)
         out[company] = {"calls": sorted(calls), "latest": latest}
     return out
@@ -530,6 +536,8 @@ def build_enrich_status(graph=None):
             pending_rows = [r for r in pending_rows if r.get("kind") == p["pending_kind"]]
         pending = [{"company": r.get("company"), "label": r.get("label"), "file": r.get("file")} for r in pending_rows]
         pending_files = {r.get("file", "").replace("\\", "/") for r in pending_rows}
+        # utility_filings.py queues the `_load` extract; the full text beside it carries the same label
+        pending_labels = {r.get("label") for r in pending_rows}
 
         # Saved, not queued, but no data landed under its label — worth a look (a call that
         # was read and yielded nothing, or a label spelled differently in the patch).
@@ -543,7 +551,7 @@ def build_enrich_status(graph=None):
         no_data, seen_labels = [], set()
         for d in docs:
             path = d.path.replace("\\", "/")
-            if path in pending_files or not d.labels or d.labels[0] in seen_labels:
+            if path in pending_files or not d.labels or d.labels[0] in seen_labels or d.labels[0] in pending_labels:
                 continue
             if not any(lab in labels for lab in d.labels):
                 why = edgar_why.get(path, "")
@@ -599,7 +607,7 @@ def build_enrich_status(graph=None):
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)
-        elif pid in ("kind", "krcalls", "tdnet", "cninfo"):
+        elif pid in ("kind", "krcalls", "tdnet", "cninfo", "utility"):
             row["last_sync"] = state.get("last_sync")
             row["extra"]["runs"] = state.get("runs", [])[-5:]
         elif pid == "ir":

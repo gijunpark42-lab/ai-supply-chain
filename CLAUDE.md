@@ -284,6 +284,9 @@ earnings-ai/
 ├── tdnet.py                  # Japanese timely disclosures from TSE TDnet (決算短信, forecast revisions, capex, plans, deals, M&A;
 │                             #   English version preferred; TDnet keeps only 31 days) → transcripts/tdnet/*.txt (`enrich tdnet`, part of `enrich japan`)
 ├── tdnet/sync_state.json     # tdnet.py: last sync, runs (skip reasons), every doc id seen with its status; tdnet/pending.json = filings not yet enriched
+├── utility_filings.py        # US utilities' OWN regulatory filings on data-center load (IRPs, large-load reports, data-center tariffs) →
+│                             #   transcripts/utility_filings/*.txt (full) + *_load.txt (extract the enricher reads); monthly step of `enrich us`
+├── utility_filings/sources.json # curated company → official pages / Georgia PSC dockets / documents (sync_state.json + pending.json GENERATED)
 ├── ir/feeds.json             # company → IR source: RSS, HTML list page (kind page) or JSON endpoint (kind json); ir/sync_state.json + ir/pending.json GENERATED
 ├── verify_queue.json         # labels applied but not yet through the Opus verifier; auto-verify at 5+ (enrich skill rule 7)
 ├── investing/pending.json    # GENERATED — files saved by sync/conferences, not yet enriched (`enrich intl` rows = transcript, `enrich conference` rows = conference)

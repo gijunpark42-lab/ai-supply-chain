@@ -32,7 +32,7 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 | The user says | What runs |
 |---|---|
 | `enrich` | The board's **Run next** list, top to bottom (refresh the board first). |
-| `enrich us` | Every US gap except SEC filings — calls (+ defeatbeta fallback), overdue / never-enriched companies, conference talks, IR releases. Meant to run daily. |
+| `enrich us` | Every US gap except SEC filings — calls (+ defeatbeta fallback), overdue / never-enriched companies, conference talks, IR releases; monthly also the utilities' own regulatory filings (`utility_filings.py`). Meant to run daily. |
 | `enrich korea` | DART filings (+ backfill of Korean companies with no filing enriched), IR presentations and Samsung's official call script (`kind.py`: KRX KIND library + six large-cap IR sites), conference talks, IR releases. |
 | `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | That market's calls (Investing.com; Taiwan Chinese-language calls via tw.py), conference talks, IR releases; China also the A-share IR activity records and investor Q&A answers (`cninfo.py`); Japan also its TDnet timely disclosures (`tdnet.py`: results, forecast revisions, capex, plans, agreements, M&A). |
 | `enrich edgar` | SEC 8-K / 10-K / 10-Q (weekly; not part of `enrich us`). |
@@ -200,6 +200,7 @@ which slot:
 | 10-K / 10-Q | none |
 | Company IR presentation (deck; `kind.py`) | same as a company IR press release (row below); never `revenue_growth` — DART holds the quarter's numbers |
 | Japan TDnet filing (`tdnet.py`) | same as a company IR press release (row below), never `revenue_growth`; a results-meeting Q&A record (`_qa` file) = the call / conference row |
+| Utility regulatory filing (IRP, large-load report or tariff; `utility_filings.py`) | same as a company IR press release (the row below): the company's load / capacity plan → `guidance`, contracted large load → `backlog_or_b2b`; never `revenue_growth` |
 | Company IR press release | `guidance` (company guidance / targets), `next_catalyst` (a new product launch, availability, production or shipment start with a date), `backlog_or_b2b` (a named order, contract or design win), `supply_status` (capacity, utilisation, sold-out) — only what the release itself states; never `revenue_growth`; a demo never fills a slot |
 
 Never give a company a second entry with the same slot and the same date (the screener cannot choose), and leave
@@ -220,6 +221,7 @@ the key out when an entry fills no slot (never `"slot": null`). `utils/check_pat
 | China A-share IR activity record (`cninfo.py`) | `[Company] IR activity record: [record no., else the date] (MM-DD-YYYY)`, dated the disclosure day | `Innolight IR activity record: 2026-008 (08-23-2026)` |
 | China A-share investor Q&A answers (`cninfo.py`, one file per company per answer day) | `[Company] investor Q&A: [SZSE Interactive Easy \| SSE e-Interactive] (MM-DD-YYYY)` | `Eoptolink investor Q&A: SZSE Interactive Easy (09-23-2026)` |
 | Japan TDnet timely disclosure (`tdnet.py`) | `[Company] TDnet: [short English title, ≤ 60 chars] (MM-DD-YYYY)` for an English version; `[Company] TDnet: release <doc id> (MM-DD-YYYY)` for a Japanese-only filing; dated the disclosure day | `Taiyo Yuden TDnet: Conclusion of a Memorandum of Understanding Regarding (09-29-2026)` |
+| US utility regulatory filing (`utility_filings.py`) | `[Company] regulatory filing: [document short title] (MM-DD-YYYY)`, dated the filing; [Company] = the graph node (the parent of the filing subsidiary) | `Southern Company regulatory filing: Georgia Power Large Load Economic Development Report Q2 2026 (08-17-2026)` |
 | Other company document (deck, investor-day material) | `[Company] [document type]: [title] (MM-DD-YYYY)` | — |
 | Third-party note | legacy only — no new ones (articles are pointers, §2) | `Goldman Sachs optical note (04-17-2026)` |
 
@@ -319,6 +321,7 @@ These build ON TOP of everything above. When a command fires, read its reference
 | `enrich conference` | Every listed name (US too) — investor-conference fireside chats via Investing.com (`investing.py conferences`); depth rule, multi-agent + verification loop, memory update | `references/conferences.md` |
 | `enrich ir` | Company-issued IR press releases via each company's own feed (`ir_pull.py`); important releases only, facts only | `references/ir.md` |
 | `enrich china` (step 1b) | China A-share names — IR activity records (投资者关系活动记录表) from cninfo / SSE e互动 and the company's answers on SZSE 互动易 / SSE e互动 (`cninfo.py`); management Q&A, answers only | `references/cninfo.md` |
+| `enrich us` (monthly step) | US utilities' own IRPs, large-load reports and data-center tariffs (`utility_filings.py`; full text + `_load` extract) | `references/utility_filings.md` |
 
 `enrich ir <Company>` runs only that company's feed (`ir_pull.py sync --company "<Company>"`).
 Pasted text or a URL from the user overrides the pipelines — enrich that source directly under this file's rules.

@@ -97,6 +97,8 @@ def source_kind(label, doc_path):
         return "IR presentation"
     if " TDnet: " in label:                          # Japan TDnet filing (tdnet.py); a results-meeting Q&A
         return "call / conference / periodic report" if doc_path and doc_path.endswith("_qa.txt") else "TDnet filing"
+    if " regulatory filing: " in label:
+        return "regulatory filing"
     if doc_path and "_prelim_" in doc_path:
         return "DART preliminary results"
     return "call / conference / periodic report"
@@ -111,6 +113,7 @@ ALLOWED_SLOTS = {
     "press release": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},
     "IR presentation": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},   # a company deck (kind.py)
     "TDnet filing": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},      # same as a deck / IR release
+    "regulatory filing": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},  # a utility IRP / load report (utility_filings.py)
     "DART preliminary results": {"revenue_growth"},
     "call / conference / periodic report": SLOTS,
 }
