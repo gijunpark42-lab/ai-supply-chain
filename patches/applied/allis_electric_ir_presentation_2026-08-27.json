@@ -1,0 +1,76 @@
+{
+ "source": "Allis Electric IR presentation: Company Overview and Operating Performance (08-27-2026)",
+ "new_nodes": {
+  "Allis Electric": {
+   "ticker": "1514.TW",
+   "exchange": "TWSE",
+   "country": "TW",
+   "why": "Taiwanese switchgear / transformer maker; its August 2026 investor deck reports about NT$1.5 billion of AI / IDC server-room power-equipment orders this year and lists Amazon among its customer references",
+   "evidence": "Allis Electric IR presentation: Company Overview and Operating Performance (08-27-2026): 'AI / IDC server room power equipment (low and high-voltage distribution panels, molded-type/non-crystalline transformers) ... we have received orders of about NT$1.5 billion from telecommunications companies and major electronics manufacturers.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group unnamed_tenant)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Allis Electric",
+     "domain": "power",
+     "sector": "Grid",
+     "product": "Switchgear (high/low-voltage distribution panels, GIS) and molded / amorphous transformers for AI / IDC server rooms, substations and semiconductor fabs",
+     "quarterly_data": [
+      {
+       "quarter": "Allis Electric IR presentation: Company Overview and Operating Performance (08-27-2026)",
+       "signal": "AI / IDC server room power equipment (low and high-voltage distribution panels, molded-type / non-crystalline transformers) has contributed approximately TWD 500 to 600 million in annual revenue; 'Starting this year, with the significant growth in domestic and international demand for AI and IDC data centers, we have received orders of about NT$1.5 billion from telecommunications companies and major electronics manufacturers.' Company: driven by AI and big-data demand, the business 'is expected to experience explosive growth.'",
+       "figure": "AI / IDC orders about NT$1.5 billion; annual revenue approximately TWD 500 to 600 million",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Allis Electric IR presentation: Company Overview and Operating Performance (08-27-2026)",
+       "signal": "H1 2026 consolidated revenue NT$5,345,683 thousand, up 16.38% YoY from NT$4,593,338 thousand; net income NT$452,697 thousand, up 27.29%; gross margin 19.28% (H1 2025: 18.47%), improved by product mix as transformers rose to 18.64% of revenue from 12.29% while engineering projects fell to 20.16% from 24.53%. H1 2026 revenue mix: switchgear 14.90%, transformer 18.64%, T&D apparatus 10.18%, power quality / power communication 27.88%, electrical engineering 20.16%, other 8.24%. 2025 revenue NT$10,570,657 thousand.",
+       "figure": "H1 2026 revenue NT$5,345,683 thousand (+16.38%); net income +27.29%; gross margin 19.28%",
+       "topics": []
+      },
+      {
+       "quarter": "Allis Electric IR presentation: Company Overview and Operating Performance (08-27-2026)",
+       "signal": "Company: it has supplied GIS and transformers for several IDC substations of Chunghwa Telecom; for AI data centers, 'in the foreseeable future, the supply and transmission of electrical energy will require more GIS and transformers in substations', bringing 'another wave of business opportunities to the heavy electrical industry.' As a key supplier of distribution panels and transformers to semiconductor plants, its exports rose significantly as major semiconductor companies expanded in the USA, Singapore, Japan and Germany.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ],
+       "counterparty": "Chunghwa Telecom",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "Allis Electric IR presentation: Company Overview and Operating Performance (08-27-2026)",
+       "signal": "Grid resilience: secured the Zhuwei STATCOM turnkey substation project worth 2 billion (200 MVA), with an additional 6 substations (200-300 MVA) and total market demand estimated at TWD 15 to 16 billion; Allis and its affiliates secure gas-insulated substation orders worth TWD 1 to 1.5 billion annually; after completion of the new second transformer plant it estimates annual orders of approximately TWD 1 to 1.5 billion for improved and kiosk-type transformers; distribution-automation products have generated TWD 1 billion of orders.",
+       "figure": "STATCOM project 2 billion (200 MVA); GIS orders TWD 1 to 1.5 billion annually; new transformer plant TWD 1 to 1.5 billion annual orders estimated",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Amazon",
+       "relationship": "switchgear / transformer customer (Allis customer reference)",
+       "contracts": [
+        {
+         "source": "Allis Electric IR presentation: Company Overview and Operating Performance (08-27-2026)",
+         "signal": "Allis Electric's investor deck lists Amazon among its customer references (High Technology Industry & Heavy industry), alongside TSMC, UMC, Micron, Macronix and KYEC; no project, value or date stated.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer reference",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

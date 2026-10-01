@@ -1,0 +1,77 @@
+{
+ "source": "MARA Holdings Q2 FY2026 (08-06-2026)",
+ "new_nodes": {
+  "MARA Holdings": {
+   "ticker": "MARA",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "why": "Is developing AI / HPC data-center campuses on its powered land (Hannibal, Matagorda County TX; portfolio expected ~4.8 GW) for lease to hyperscalers, AI-native cloud providers and silicon vendors with Starwood, and runs Exaion, a European sovereign private-cloud / AI infrastructure provider; AI compute demand monetizes its power portfolio.",
+   "evidence": "MARA Holdings Q2 FY2026 call (08-06-2026), CEO Fred Thiel: 'Our goal is a diversified customer base across hyperscalers, AI-native cloud providers, silicon vendors, and enterprises ... Working alongside Starwood, we are progressing lease discussions across multiple sites, and we remain confident in our ability to sign at least two leases before year-end.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group unnamed_tenant)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "MARA Holdings",
+     "layer": "cloud_infra",
+     "sector": "Datacenter Colocation",
+     "product": "AI / HPC data-center campuses on owned powered land (Hannibal campus with pending Long Ridge, Matagorda County TX; developed with Starwood) plus Exaion sovereign private cloud for AI inference in Europe",
+     "quarterly_data": [
+      {
+       "quarter": "MARA Holdings Q2 FY2026 (08-06-2026)",
+       "signal": "CFO: revenues for the second quarter of 2026 were $174.9 million versus $238.5 million a year earlier, as a 28% decrease in Bitcoin's average price offset higher production. MARA mined 2,422 Bitcoin; energized hashrate was 70.3 exahash per second (up 22% year-over-year); net loss was $611.3 million, mostly unrealized digital-asset fair value; adjusted EBITDA was -$360.9 million. Cash and equivalents were $421.3 million; 35,577 Bitcoin held.",
+       "figure": "Revenue $174.9M (vs $238.5M); 70.3 EH/s; net loss $611.3M",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "MARA Holdings Q2 FY2026 (08-06-2026)",
+       "signal": "CEO: working alongside Starwood, MARA is progressing lease discussions across multiple sites and remains confident in its ability to sign at least two leases before year-end, targeting hyperscalers, AI-native cloud providers, silicon vendors and enterprises. Starwood adds engineering, procurement, construction and development capabilities backed by more than 7 GW of delivered infrastructure; demand from tenants has been greater than initially expected.",
+       "figure": "At least two leases targeted before year-end 2026",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "guidance",
+       "counterparty": "Starwood",
+       "counterparty_role": "development partner"
+      },
+      {
+       "quarter": "MARA Holdings Q2 FY2026 (08-06-2026)",
+       "signal": "After quarter end MARA acquired rights to 1,200 acres in Matagorda County, Texas with potential for approximately 2 GW of capacity subject to ERCOT and interconnection approval; with pending transactions the power portfolio is expected to reach approximately 4.8 GW. The pending Long Ridge acquisition (FERC approval expected soon) adds land adjacent to the Hannibal campus and is expected to contribute approximately $144 million in annualized EBITDA with roughly 70% of output under long-term contracts. CEO: lease talks at Hannibal are moving with a prospective tenant, held only by closing.",
+       "figure": "Matagorda ~2 GW potential; portfolio ~4.8 GW; Long Ridge ~$144M annualized EBITDA",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "MARA Holdings Q2 FY2026 (08-06-2026)",
+       "signal": "CEO: Exaion provides European-jurisdiction private cloud for sovereign AI infrastructure; it operates critical infrastructure supporting EDF's nuclear reactor operations and was selected for the EU-backed EON consortium targeting approximately 3 GW of AI-ready data center capacity. Exaion's revenues this year will be in the low eight digits, most likely, growing as it diversifies beyond EDF; management sees open-weight models gaining share of compute as Exaion's forte.",
+       "figure": "Exaion revenue low eight digits in 2026; EON consortium ~3 GW",
+       "topics": [],
+       "counterparty": "EDF",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "MARA Holdings Q2 FY2026 (08-06-2026)",
+       "signal": "CFO: MARA's most significant third-party hosting arrangements expire beginning in the third quarter of 2027, all concluding by the first quarter of 2028; Matagorda capacity is expected to replace hosted mining and power can be monetized with mining while AI facilities are built. Daily cost per petahash per day improved 4% to $27.7; cost per kilowatt-hour was $0.04 at own sites.",
+       "figure": "Hosting exits Q3 2027-Q1 2028; $27.7 per PH/day cost",
+       "topics": []
+      },
+      {
+       "quarter": "MARA Holdings Q2 FY2026 (08-06-2026)",
+       "signal": "CEO: power is becoming the central infrastructure challenge of the AI era; the market lacks enough energized, permitted capacity on a timeline customers can use, increasing the value of already-energized infrastructure. MARA can deploy mining quickly on a newly energized site and transition it to AI or HPC when customer demand is ready; Vertebra AI (power management, with TAE Power Solutions battery technology) can serve as a load bank for data center startup.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness",
+        "power_cooling"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

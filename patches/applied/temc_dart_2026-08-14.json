@@ -1,0 +1,64 @@
+{
+ "source": "TEMC Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "TEMC": {
+   "ticker": "425040",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Korean specialty-gas maker that extracts and purifies the rare gases memory fabs consume - 6N neon excimer-laser gas for lithography, krypton / xenon for etch and implant - plus B2H6, CO, D2 and precursors; an SK Hynix supplier since 2016, so its gas volumes track DRAM / HBM wafer output",
+   "evidence": "TEMC Q2 FY2026 (08-14-2026): 'registered as an official supplier of SK Hynix in February 2016 ... selected by SK Hynix as a technology-innovation company in 2018, building a technology-cooperation and customer relationship'",
+   "approved": "user pre-approved 2026-10-01 for group scan_2026_10_01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "TEMC",
+     "layer": "materials",
+     "sector": "Specialty / Process Gases",
+     "product": "semiconductor rare and specialty gases: 6N neon excimer-laser gas for lithography, 5N5 krypton and xenon for etch / implant, B2H6, CO, COS, D2, C4F6, CHF3, C4F8, and (via subsidiary TEMC CNS) precursors HCDS, TiCl4, BDEAS and Si2H6",
+     "quarterly_data": [
+      {
+       "quarter": "TEMC Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 (DART half-year report, consolidated): revenue KRW 135,975,626,765 against KRW 139,358,699,664 in H1 2025; operating profit KRW 6,000,470,212 against KRW 13,644,947,779; net profit KRW 7,394,335,060. Q2 alone revenue KRW 86,461,337,823 (Q2 2025: KRW 76,331,747,358) with operating profit KRW 5,858,763,867 (KRW 6,898,539,786). By segment: semiconductor specialty gases KRW 77,639,778,781 (57.1% of revenue) with segment profit KRW 9,449,169,720; semiconductor equipment (chemical / slurry / gas supply systems, test handlers) KRW 57,328,335,165 (42.2%) with a segment loss of KRW 3,389,137,350; secondary-battery equipment KRW 1,007,512,819. Parent-only H1 revenue KRW 53,784,568,469 with operating profit KRW 9,852,186,887.",
+       "figure": "H1 rev KRW 135,975,626,765 (vs KRW 139,358,699,664); H1 OP KRW 6,000,470,212 (vs KRW 13,644,947,779); Q2 rev KRW 86,461,337,823 (vs KRW 76,331,747,358); specialty gases 57.1% of revenue",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "TEMC Q2 FY2026 (08-14-2026)",
+       "signal": "Gas capacity and inputs (parent-only): for Ne (excimer) and three other items, H1 2026 capacity 31,793 BT, output 21,080 BT, utilisation 66.3% (FY2025: 60.4%; FY2024: 61.8%). Raw-material purchases were KRW 33,191M in H1, of which KRW 28,533M imported. Construction in progress stood at KRW 47,746,777,348 at the end of June. Supply is mostly under regular orders, with supply contracts signed for a quarter or longer (within one year).",
+       "figure": "utilisation 66.3% (FY2025 60.4%); capacity 31,793 BT, output 21,080 BT; raw materials KRW 33,191M, of which imported KRW 28,533M",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "TEMC Q2 FY2026 (08-14-2026)",
+       "signal": "Customer concentration (DART half-year report): customer A took KRW 84,743,511,638, 62.3% of consolidated H1 2026 revenue (H1 2025: 71.0%), customer C 10.1% and customer B 4.4%; on a parent-only basis customer A bought KRW 38,934M in H1 (FY2025: KRW 75,264M). The customers are not named in the filing.",
+       "figure": "largest customer 62.3% of H1 revenue (H1 2025 71.0%); parent-only customer A KRW 38,934M",
+       "topics": []
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "SK Hynix",
+       "relationship": "rare / specialty process gases supplied to SK Hynix fabs (registered supplier since 2016)",
+       "contracts": [
+        {
+         "source": "TEMC Q2 FY2026 (08-14-2026)",
+         "signal": "The half-year report states that TEMC registered as an official supplier of SK Hynix in February 2016, one year after its founding, and was selected by SK Hynix as a technology-innovation company in 2018 (first-tier supplier), building both a technology-cooperation and a customer relationship.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "February 2016 (supplier registration)",
+         "type": "supply relationship",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

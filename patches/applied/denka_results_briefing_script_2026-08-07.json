@@ -1,0 +1,57 @@
+{
+ "source": "Denka results briefing script: Q1 Financial Results Briefing for the Fiscal Year Ending March 2027 (08-07-2026)",
+ "new_nodes": {
+  "Denka": {
+   "ticker": "4061.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Makes silicon nitride (Si3N4) ceramic substrates used in power modules; its Electronics & Innovative Products segment also sells AI-related CCL materials, so power-module and AI hardware build-outs drive its volumes.",
+   "evidence": "Denka Q1 FY2026 briefing script (08-07-2026), CFO Hayashida: 'sales volumes for spherical alumina, acetylene black, silicon nitride, and ceramic substrates flat YoY. Pricing increases for ceramic substrates proceeded as planned, resulting in a YoY increase.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group low_ai_share)"
+  }
+ },
+ "chains": {
+  "components/power_semiconductor.json": {
+   "players": [
+    {
+     "company": "Denka",
+     "layer": "materials",
+     "sector": "Compound Substrates",
+     "product": "Silicon nitride (Si3N4) ceramic substrates for power modules",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Denka results briefing script: Q1 Financial Results Briefing for the Fiscal Year Ending March 2027 (08-07-2026)",
+       "signal": "Q1 FY2026 (year ending March 2027): revenue JPY97 billion, operating income JPY11 billion, ordinary income JPY9.5 billion, net income JPY2.8 billion. CFO: operating income rose significantly on growing demand in AI-related sectors and for power infrastructure, the DPE suspension (+JPY3 billion) and inventory-related effects (+JPY6 billion, described as temporary).",
+       "figure": "Revenue JPY97 billion; operating income JPY11 billion (+JPY8.7 billion YoY)",
+       "topics": []
+      },
+      {
+       "quarter": "Denka results briefing script: Q1 Financial Results Briefing for the Fiscal Year Ending March 2027 (08-07-2026)",
+       "signal": "CFO on Electronics & Innovative Products: with xEV demand sluggish in Europe and North America, sales volumes for spherical alumina, acetylene black, silicon nitride and ceramic substrates were flat YoY; pricing increases for ceramic substrates proceeded as planned, resulting in a YoY increase. Demand kept expanding for spherical fused silica (resin substrates, optical ferrules) and spherical alumina (thermal conductive molding compound); acetylene black sales for data center and ESS grew rapidly.",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Denka results briefing script: Q1 Financial Results Briefing for the Fiscal Year Ending March 2027 (08-07-2026)",
+       "signal": "CFO on AI materials: Denka sells SNECTON (soft resin) and spherical silica (filler) for low-loss rigid CCLs used in AI / high-speed communications. The dedicated plant for soft-type SNECTON was completed in May; samples have shipped from the new plant and customer certification is proceeding smoothly; establishing the latest grade as the de facto standard for M9-equivalent CCL is progressing and evaluation of the next-generation M10-equivalent CCL is favorable. SNECTON AI-related sales are expected to take off in earnest from H2; for hard-type SNECTON the company is in the final stages of considering further facility expansion.",
+       "figure": "no specific figure",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Denka results briefing script: Q1 Financial Results Briefing for the Fiscal Year Ending March 2027 (08-07-2026)",
+       "signal": "H1 FY2026 forecast revised upward; Electronics & Innovative Products H1 forecast raised by JPY2 billion to JPY6 billion as AI demand exceeds initial projections, and the segment is expected to beat its full-year plan. The company-wide full-year forecast is not revised now (Middle East / raw-material uncertainty) and will be revisited at Q2 results. FY2026 investment projected at JPY47 billion.",
+       "figure": "E&IP H1 forecast JPY6 billion (+JPY2 billion); FY2026 investment JPY47 billion",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "source": "EnerSys Q1 FY2027 (08-13-2026)",
+ "new_nodes": {
+  "EnerSys": {
+   "ticker": "ENS",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Supplies DataSafe TPPL lead batteries and the new DataSafe Noir lithium battery systems for data-center UPS backup; data center orders up over 80% year over year, so AI data-center build-outs drive its Network & Infrastructure Solutions revenue.",
+   "evidence": "CEO Shawn O'Connell: \"In data centers, we continue to enjoy solid growth, with Q1 top line expanding in the low teens year-over-year ... We progressed the commercialization of our DataSafe Noir lithium offering\"; \"We also received very strong data center orders in the quarter, up over 80% versus prior year\" (EnerSys Q1 FY2027 call, 08-13-2026)",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "EnerSys",
+     "domain": "power",
+     "sector": "Datacenter Power",
+     "product": "DataSafe TPPL (thin plate pure lead) UPS batteries and DataSafe Noir lithium battery systems for data centers, with installation and service",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "EnerSys Q1 FY2027 (08-13-2026)",
+       "signal": "CFO Andi Funk: Q1 FY2027 net sales were $936 million, up 5% from prior year (3% price mix, 1% volumes, 1% FX); gross margin 33.5%, up 510 basis points, including $31 million of one-time IEEPA tariff refunds. Network & Infrastructure Solutions revenue rose 9% to $428 million on strong volume growth, with adjusted operating margin of 10.5% driven by power electronics, robust data center demand and services; Industrial Mobility Solutions revenue fell 3% to $407 million; Precision Power Solutions revenue rose 24% to $101 million on aerospace and defense strength (counter-drone and missile defense batteries).",
+       "figure": "net sales $936 million (+5%); NIS $428 million (+9%); IMS $407 million (-3%); PPS $101 million (+24%); gross margin 33.5%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "EnerSys Q1 FY2027 (08-13-2026)",
+       "signal": "CEO Shawn O'Connell: data center top line grew in the low teens year over year in Q1, in line with the expectation of high single-digit to low teens growth for fiscal 2027; data center orders were up over 80% versus prior year, with deliveries extending into the future. CFO: many of these orders extend out 12-36 months, and the company still expects lead-acid data center revenue to grow in the high single to low teens. Company-wide Q1 orders were up 7% with book-to-bill of 1.06x; backlog was relatively flat versus prior year and up 2% sequentially.",
+       "figure": "data center orders up over 80% YoY; orders +7%; book-to-bill 1.06x; backlog up 2% sequentially",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "EnerSys Q1 FY2027 (08-13-2026)",
+       "signal": "DataSafe Noir lithium data-center battery (officially launched in June): CEO says the first 100 systems are on the water and UL certification and validations are on track; CFO says about 100 orders are in place with the company's (third-party) supplier and over 500 units are in active quotation, with revenue not expected until fiscal 2028. CEO: the system does in two cabinets what a competitor's lithium battery does in five, and margins are expected in line with TPPL and higher than lead.",
+       "figure": "first 100 systems on the water; about 100 orders with supplier; over 500 units in active quotation; two cabinets vs competitor's five",
+       "topics": [
+        "power_cooling",
+        "product_launches"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "EnerSys Q1 FY2027 (08-13-2026)",
+       "signal": "Guidance: for Q2 FY2027 the company expects net sales of $955 million-$995 million and adjusted diluted EPS of $3.15-$3.25, including $42 million-$47 million of 45X benefits (excluding 45X, $1.95-$2.05); expectation of $70 million of capex for fiscal 2027 unchanged. CFO expects stronger year-on-year revenue growth in the second half, with new product introductions contributing mostly from fiscal 2028.",
+       "figure": "Q2 FY2027 net sales $955 million-$995 million; adjusted EPS $3.15-$3.25; FY2027 capex $70 million",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "EnerSys Q1 FY2027 (08-13-2026)",
+       "signal": "CEO on 800 V data-center architectures: 800 V does not change much for EnerSys and may let it sell more cells in centralized systems; the company has historically not played in rack-level BBU (battery backup unit) packs, but sees a potential future BBU opportunity once its planned Greenville, South Carolina plant makes its own cells, and sees data centers as a big off-take opportunity for Greenville downstream.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "EnerSys Q1 FY2027 (08-13-2026)",
+       "signal": "Planned defense-focused lithium cell plant in Greenville, South Carolina: initial annual production capacity of approximately 1 GWh; the revised DOE grant provides approximately $150 million towards an estimated $650 million cost, with EnerSys net investment of approximately $500 million from operating cash flow; construction planned to begin in the first half of fiscal 2028, with full production approximately three years after construction begins.",
+       "figure": "approximately 1 GWh initial capacity; estimated $650 million cost; DOE grant approximately $150 million",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

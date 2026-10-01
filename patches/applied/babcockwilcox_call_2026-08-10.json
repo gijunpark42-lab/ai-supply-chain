@@ -1,0 +1,105 @@
+{
+ "source": "Babcock & Wilcox Q2 FY2026 (08-10-2026)",
+ "new_nodes": {
+  "Babcock & Wilcox": {
+   "ticker": "BW",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "builds boiler + steam-turbine power plants for AI data centers (Base Electron project in North Dakota; 4-6 GW of new data-center power opportunities) - bookings and backlog surged on data-center power demand",
+   "evidence": "Babcock & Wilcox Q2 FY2026 (08-10-2026), CEO Kenny Young: our initial data center project with Base Electron is progressing ahead of expectations and on budget; manufacturing of the boilers, steam turbines and other long lead time components continues; B&W secured manufacturing reservation rights for an additional one gigawatt of steam turbines from Siemens Energy",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Babcock & Wilcox",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "boiler + steam-turbine power plants (coal / natural gas, enhanced combined cycle) for AI data-center campuses (Base Electron project, North Dakota)",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Babcock & Wilcox Q2 FY2026 (08-10-2026)",
+       "signal": "Q2 2026 (CFO Cameron Frymyer): consolidated revenue $319.7 million, a 130% increase over Q2 2025; net income $14.3 million; adjusted EBITDA $21.8 million, up $7.9 million. First-half 2026 revenue $534.1 million versus $287.5 million, driven by large project volume including $131.7 million from Base Electron and the growing need for fossil-fuel electricity driven by AI, data centers and expanding economies.",
+       "figure": "revenue $319.7 million (+130% Y/Y); adjusted EBITDA $21.8 million; H1 Base Electron revenue $131.7 million",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Babcock & Wilcox Q2 FY2026 (08-10-2026)",
+       "signal": "CEO Kenny Young raised the full-year 2026 adjusted EBITDA target range 'from $80 million to $105 million' (as stated on the call), citing strong first-half results and visibility into continued strong demand in the second half.",
+       "figure": "2026 adjusted EBITDA target $80 million to $105 million",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Babcock & Wilcox Q2 FY2026 (08-10-2026)",
+       "signal": "Pipeline, bookings and backlog (CEO): total pipeline now over $14 billion, including 4-6 gigawatts of power generation opportunities added from hyperscalers, developers and utility customers; first-half 2026 bookings $2.7 billion, up more than 1,058% versus first-half 2025; backlog $2.6 billion at Q2 2026, up 533% year-over-year, fueled by core business growth and the Base Electron project in North Dakota.",
+       "figure": "pipeline >$14 billion (4-6 GW); H1 bookings $2.7 billion (+1,058%); backlog $2.6 billion (+533%)",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Babcock & Wilcox Q2 FY2026 (08-10-2026)",
+       "signal": "Base Electron data-center power project (CEO): progressing ahead of expectations and on budget; manufacturing of boilers, steam turbines and other long-lead components continues; Base Electron has submitted its conditional use permit application, with most on-site construction (civil and mechanical) planned to start in the first part of 2027 and turbine and boiler components delivered after construction begins. B&W is in active discussions with multiple AI data center customers using coal and natural gas and expects a second data center project to move to full notice to proceed this year.",
+       "figure": "on-site construction from early 2027; second data-center project full notice to proceed expected in 2026",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "next_catalyst",
+       "counterparty": "Base Electron",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "Babcock & Wilcox Q2 FY2026 (08-10-2026)",
+       "signal": "CEO on labor: availability of highly skilled labor, especially in the U.S., is in short supply; it hurt efficiencies and raised direct costs on a specific construction project in Q2. B&W is working with unions on incentives, rehires and delayed retirements and does not expect labor shortages to be persistent, as its construction focus has shifted toward variable price projects.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Babcock & Wilcox Q2 FY2026 (08-10-2026)",
+       "signal": "Technology and other projects (CEO): the BrightLoop commercial-scale demonstration at Massillon, Ohio is to begin site construction this fall, with the fuel reactor and hydrogen reactor initial phase operational by the latter part of 2027; B&W is working on the FEED study for the TerraSpark coal project and is in discussions on other coal-related projects for grid-connected or direct-connect data-center power. CEO: 'We don't see an end to the power generation demands coming from AI and data centers.'",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      }
+     ]
+    },
+    {
+     "company": "Siemens Energy",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "gas turbines & grid technology for data-center power",
+     "connects_to": [
+      {
+       "company": "Babcock & Wilcox",
+       "relationship": "steam turbines for B&W boiler + steam-turbine data-center power plants",
+       "contracts": [
+        {
+         "source": "Babcock & Wilcox Q2 FY2026 (08-10-2026)",
+         "signal": "B&W CEO Kenny Young: in anticipation of its next data center project, B&W secured the manufacturing reservation rights for an additional one gigawatt of steam turbines from Siemens Energy - a total of 20 50-megawatt steam turbines, with the first generator sets delivered within 12-14 months and further deliveries on a regular basis. The 50-megawatt boilers and steam turbines run in an enhanced combined cycle configuration that initially provides one gigawatt and can double to two gigawatts when combustion turbines are added later. CEO: B&W has a very close relationship with Siemens on supply chain and payment terms.",
+         "units": "20 x 50-megawatt steam turbines (one gigawatt)",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "manufacturing reservation (steam turbines)",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      }
+     ],
+     "quarterly_data": []
+    }
+   ]
+  }
+ }
+}

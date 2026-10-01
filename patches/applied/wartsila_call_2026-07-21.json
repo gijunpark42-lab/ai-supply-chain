@@ -1,0 +1,80 @@
+{
+ "source": "Wärtsilä Q2 FY2026 (07-21-2026)",
+ "new_nodes": {
+  "Wärtsilä": {
+   "ticker": "WRT1V",
+   "exchange": "OMX Helsinki",
+   "country": "FI",
+   "why": "supplies reciprocating gas-engine power plants for off-grid / on-site power at AI data centers; data-center orders drove its record Energy order intake",
+   "evidence": "Wärtsilä Q2 FY2026 call (07-21-2026): CEO - Q2 orders for a 790-megawatt off-grid power plant with 42 Wärtsilä 50SG engines for a new data center in Texas and a 412-megawatt engine power plant for a major hyperscale data center project in Ohio and Texas",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Wärtsilä",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "gas-engine power plants (Wärtsilä 50SG / 34SG reciprocating engines) for off-grid, on-site AI data-center power and grid balancing",
+     "quarterly_data": [
+      {
+       "quarter": "Wärtsilä Q2 FY2026 (07-21-2026)",
+       "signal": "Q2 2026: all-time-high order intake of EUR 2.8 billion, +33% (organic +43%); equipment order intake +61% (organic +74%); net sales stable at EUR 1.6 billion, organic +5%; comparable operating result EUR 280 million, +7%, 14% of net sales; operating result EUR 209 million, +14%; cash flow EUR 497 million (Q1: EUR 7 million). CFO: 12-month rolling operating result at 14% of net sales, which is the financial target.",
+       "figure": "order intake EUR 2.8 billion (+33%); net sales EUR 1.6 billion (organic +5%); comparable operating result EUR 280 million (+7%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Wärtsilä Q2 FY2026 (07-21-2026)",
+       "signal": "Order book: all-time high of close to EUR 9 billion (+13%). Energy order intake an all-time high close to EUR 1.7 billion (+82%), Marine EUR 1.2 billion (+12%). Since the start of 2025 the Energy order book has more than doubled while the gross margin of the Energy equipment order book improved by more than 500 basis points (new build only; CEO: driven by price realization, efficiency and execution, not the shift from EPC); CFO: it will take time to reach EBIT, 2028 and beyond.",
+       "figure": "order book close to EUR 9 billion (+13%); Energy order intake close to EUR 1.7 billion (+82%)",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Wärtsilä Q2 FY2026 (07-21-2026)",
+       "signal": "Data-center orders booked in Q2 2026 (CEO): an off-grid energy power solution for a new data center facility in Texas - a 790-megawatt power plant with 42 Wärtsilä 50SG engines running on natural gas; and a 412-megawatt engine power plant supporting a major new hyperscale data center project in Ohio and Texas, the first introduction of the 34SG engines. CEO: the trend of bigger power plants, well above the 20-500 MW sweet spot, continues.",
+       "figure": "790-megawatt (42 x 50SG engines); 412-megawatt (34SG engines)",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Wärtsilä Q2 FY2026 (07-21-2026)",
+       "signal": "Capacity (CEO): 2028 is in general sold out; orders now being negotiated are for 2029 and some of the new capacity has already been sold, with bookings in 2029 and 2030. In Q2 Wärtsilä announced an additional EUR 90 million investment to expand production capacity by 30% in Vaasa, following an earlier 35% expansion; by the first quarter of 2029 operational capacity will be 2.2 times 2025 levels. CFO: factory capacity utilization is still at about maximum - 'we are producing all we can'.",
+       "figure": "EUR 90 million; capacity +30%; 2.2 times 2025 capacity by 2029",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Wärtsilä Q2 FY2026 (07-21-2026)",
+       "signal": "Outlook: for both Marine and Energy the demand environment over the next 12 months is expected to be similar to the comparison period (forward 12 months versus past 12 months, aggregated), which management calls a very solid demand situation. The 50/50 energy storage joint venture with RCT Solutions (expected to close in Q3) is expected to have a EUR 40 million-EUR 50 million negative impact on 2026 operating results.",
+       "figure": "JV impact EUR 40 million-EUR 50 million negative in 2026",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Wärtsilä Q2 FY2026 (07-21-2026)",
+       "signal": "CEO on data centers: the speed of the build-out is creating unprecedented demand for off-grid data centers where reliable on-site power is essential, with a very dynamic pipeline; in the U.S. customers are so focused on lead time that any technology sells, and for many U.S. customers engines are still new, but repeat customers are coming back. Market share cannot be quantified because of secrecy (some releases may not name the customer); supply is currently a bit less than demand. CFO: the AI pipeline is very strong though volatile, and balancing power is also gaining traction.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Wärtsilä Q2 FY2026 (07-21-2026)",
+       "signal": "CEO: it is a very hot market with good price realization opportunities in all segments and geographies, and pricing potential beyond what was achieved in the last year. The service order backlog is up 18% and service margins developed favorably; the combined Marine and Energy service order book rose 11% to an all-time high of EUR 2.6 billion. From a data-center order it takes about two years to operation and roughly another two until significant service business, so new data-center projects add significant life-cycle service from 2030.",
+       "figure": "service order book EUR 2.6 billion (+11%)",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

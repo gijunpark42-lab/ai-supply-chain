@@ -1,0 +1,81 @@
+{
+ "source": "Dover Q2 FY2026 (07-23-2026)",
+ "new_nodes": {
+  "Dover": {
+   "ticker": "DOV",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "SWEP brazed-plate heat exchangers go into CDUs and chillers for data-center liquid cooling, and its connectors serve liquid-cooled racks; AI data-center cooling demand drives record heat-exchanger sales and a capacity doubling",
+   "evidence": "Dover Q2 FY2026 (07-23-2026): CEO - 'Through SWEP, we participate across multiple parts of the liquid cooling ecosystem, supplying brazed plate heat exchangers in both coolant distribution unit and chiller OEMs'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Dover",
+     "domain": "thermal",
+     "sector": "Heat Exchanger / CDU",
+     "product": "SWEP brazed-plate heat exchangers for coolant distribution unit and chiller OEMs, plus liquid-cooling connectors and OPW couplers / cryogenic cooling infrastructure for data centers",
+     "quarterly_data": [
+      {
+       "quarter": "Dover Q2 FY2026 (07-23-2026)",
+       "signal": "Revenue grew 7%, or 5% organically, with all five segments growing organically; adjusted EBITDA margin expanded 80 basis points to 25.9%; adjusted EPS $2.74, up 12% (CEO).",
+       "figure": "revenue +7%; organic +5%; adjusted EPS $2.74",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Dover Q2 FY2026 (07-23-2026)",
+       "signal": "CEO: heat exchangers delivered their best quarter ever, with particularly strong demand tied to liquid cooling for data centers; Dover is actively working to double capacity for these products over the next 12 months, coming on sequentially over 2H 2026 into 2027; Q2 growth would have been higher with that capacity. In heat exchangers customers are trying to secure supply, a reflection of demand outstripping supply capacity in the market; customers continued placing brazed plate heat exchanger orders further into the future.",
+       "figure": "double capacity over 12 months",
+       "topics": [
+        "power_cooling",
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Dover Q2 FY2026 (07-23-2026)",
+       "signal": "CEO: the shift to liquid cooling directly benefits Dover's connector and heat exchanger businesses; through SWEP it supplies brazed plate heat exchangers to both coolant distribution unit and chiller OEMs; OPW supplies couplers, adapters, cryogenic cooling infrastructure and fiberglass trench systems increasingly specified for data center applications by hyperscalers; demand tied to data center infrastructure remains exceptional, with customers securing capacity well ahead of need. CEO: 'we're not a data center play'.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Dover Q2 FY2026 (07-23-2026)",
+       "signal": "CEO: heat exchanger margins are now expanding because revenue is accelerating in excess of the capital being deployed, after two and a half years of adding capacity ahead of demand; SWEP is Dover's most automated business, so the ramp carries less risk than refrigeration.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Dover Q2 FY2026 (07-23-2026)",
+       "signal": "Orders increased 16% year-over-year with book-to-bill at 1.06; trailing 12-month bookings up 15% with book-to-bill well above one across all five segments (CEO).",
+       "figure": "orders +16%; book-to-bill 1.06",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Dover Q2 FY2026 (07-23-2026)",
+       "signal": "Dover raised its full-year organic growth and adjusted EPS guidance and is committed to double-digit adjusted EPS growth; CFO: full-year CapEx estimate remains $190 million-$210 million and free cash flow guidance 14%-16% of revenue.",
+       "figure": "CapEx $190 million-$210 million; FCF 14%-16% of revenue",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Dover Q2 FY2026 (07-23-2026)",
+       "signal": "CEO: secular growth markets (aerospace and defense, steam and gas turbine components and power generation, single-use biopharma, CO2 refrigeration, data center liquid cooling) are approximately 25% of 2026 revenue, up from 20%; turbine and compressor OEM lead times now extend for years; space revenue expected at $50 million this year; a refrigeration facility consolidation shortfall cost about a point to a point and a half of organic growth in the quarter.",
+       "figure": "approximately 25% of revenue; $50 million space revenue",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

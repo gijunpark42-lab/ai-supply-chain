@@ -1,0 +1,42 @@
+{
+ "source": "Tripod Technology AGM handbook: 2025 Business Report (05-29-2026)",
+ "new_nodes": {
+  "Tripod Technology": {
+   "ticker": "3044",
+   "exchange": "TWSE",
+   "country": "TW",
+   "why": "PCB maker whose application lines include servers / workstations and memory modules, so server build-outs drive its PCB volume.",
+   "evidence": "Tripod Technology product page: Products by application (10-01-2026): product applications listed as memory modules (a PCB carrying memory ICs, installed in PCs, workstations and servers), servers / workstations, TFT-LCD, hard disks, automotive electronics, notebooks and mobile phones.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group weak_evidence)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "Tripod Technology",
+     "layer": "advanced_packaging",
+     "sector": "FC-BGA Substrate",
+     "product": "printed circuit boards (PCBs) for servers / workstations and memory modules",
+     "quarterly_data": [
+      {
+       "quarter": "Tripod Technology AGM handbook: 2025 Business Report (05-29-2026)",
+       "signal": "2025 Business Report: consolidated operating revenue NT$73,399,297 thousand, +11.54% (2024: NT$65,803,607 thousand); operating profit NT$18,992,489 thousand (+24.24%); profit after tax NT$10,224,624 thousand (+21.97%); EPS NT$19.45 (2024: NT$15.95). 2025 PCB sales volume was 69,770 thousand square feet from plants at Pingzhen (Taoyuan), Wuxi (Jiangsu), Xiantao (Hubei) and Bienhoa (Vietnam).",
+       "figure": "2025 revenue NT$73,399,297 thousand (+11.54%); EPS NT$19.45; 69,770 thousand sq ft shipped",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Tripod Technology AGM handbook: 2025 Business Report (05-29-2026)",
+       "signal": "2026 plan: with the capacity of existing production locations, the expected sales capacity target for 2026 is 76,000 thousand square feet of PCB; management says it will carefully plot capacity expansion, evaluate new production locations to diversify the supply chain, and be strict in evaluating capital expenditure plans.",
+       "figure": "2026 sales capacity target 76,000 thousand sq ft",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

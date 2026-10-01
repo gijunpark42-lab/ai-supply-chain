@@ -1,0 +1,42 @@
+{
+ "source": "Hygon Information Technology investor Q&A: SSE e-Interactive (09-29-2026)",
+ "new_nodes": {
+  "Hygon Information Technology": {
+   "ticker": "688041.SS",
+   "exchange": "SSE",
+   "country": "CN",
+   "why": "China's x86-compatible server CPU designer: sells Hygon 7000 / 5000 series CPUs and DCU accelerators to major domestic server makers for servers and data centers, so AI and data-center CPU demand drives its revenue",
+   "evidence": "Hygon Information Technology 2026 Half-Year Report (08-14-2026): main business is 'high-end processors used in servers, workstations and other computing and storage devices'; main customers are 'a few major domestic server makers'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "Hygon Information Technology",
+     "layer": "compute_hardware",
+     "sector": "Server CPU",
+     "product": "x86-compatible server CPUs (Hygon 7000 / 5000 / 3000 series) and DCU GPGPU accelerators (8000 series) for servers and data centers",
+     "quarterly_data": [
+      {
+       "quarter": "Hygon Information Technology investor Q&A: SSE e-Interactive (09-29-2026)",
+       "signal": "The company said on SSE e-Interactive: its CPUs and DCUs keep expanding into lower-tier government and enterprise IT-upgrade scenarios, market penetration is rising steadily and order visibility keeps improving as industry projects advance; it maintains its gross margin through technology iteration, scale delivery and its Guanghe ecosystem.",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Hygon Information Technology investor Q&A: SSE e-Interactive (09-29-2026)",
+       "signal": "The company said on SSE e-Interactive: receivables growth matches business expansion; on inventory, based on market demand and on-hand and forecast orders it set a stocking plan under a 'capacity planning, semi-finished goods stocking' strategy to meet demand and win more market share.",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "supply_status"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

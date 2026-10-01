@@ -1,0 +1,74 @@
+{
+ "source": "AMEC half-year report: 2026 Half-Year Report (08-20-2026)",
+ "new_nodes": {
+  "AMEC": {
+   "ticker": "688012.SS",
+   "exchange": "SSE",
+   "country": "CN",
+   "why": "Chinese etch / deposition tool maker: its plasma etch tools run in volume production of 128-layer-and-above 3D NAND and its tungsten deposition tools serve 3D memory word lines, so NAND capex drives its orders",
+   "evidence": "AMEC 2026 Half-Year Report (08-20-2026): 'In 3D NAND manufacturing, the company's plasma etch tools are used in volume production of 128 layers and above'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/nand_flash.json": {
+   "players": [
+    {
+     "company": "AMEC",
+     "layer": "equipment",
+     "sector": "Deposition & Etch",
+     "product": "plasma etch tools for 3D NAND and advanced logic (CCP incl. 60:1 ultra-high-aspect-ratio dielectric etch; cryogenic high-aspect-ratio ICP etch) plus tungsten CVD / ALD deposition for 3D NAND word lines",
+     "quarterly_data": [
+      {
+       "quarter": "AMEC half-year report: 2026 Half-Year Report (08-20-2026)",
+       "signal": "H1 2026 revenue about RMB 6.691 billion, up about 34.89% YoY; net profit attributable to shareholders RMB 2.825 billion (+300.22%), lifted by fair-value and investment gains on equity investments including the sale of part of its Piotech shares; net profit excluding non-recurring items RMB 1.123 billion (+108.36%).",
+       "figure": "revenue RMB 6.691 billion (+34.89% YoY); net profit RMB 2.825 billion (+300.22%); recurring net profit RMB 1.123 billion (+108.36%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "AMEC half-year report: 2026 Half-Year Report (08-20-2026)",
+       "signal": "Company: new shipments of its high-end tools for critical etch steps in advanced logic and memory rose significantly; mid-end critical etch for advanced logic and ultra-high-aspect-ratio etch for advanced memory are in large-scale volume production. Its single-station dielectric etch for critical steps kept growing fast, its 60:1 ultra-high-aspect-ratio dielectric etch tool has become standard equipment in China, and a next-generation ultra-high-aspect-ratio dielectric etch tool is about to enter the market. Its 12-inch high-end etch tools run in an internationally known customer's most advanced lines for several critical steps of 3 nm and below devices.",
+       "figure": "60:1 aspect-ratio dielectric etch",
+       "topics": [
+        "nand_storage"
+       ]
+      },
+      {
+       "quarter": "AMEC half-year report: 2026 Half-Year Report (08-20-2026)",
+       "signal": "3D NAND: AMEC plasma etch tools are used in volume production of 128-layer-and-above 3D NAND, and it is developing extremely-high-aspect-ratio etch for memory customers. New PrimoXD-RIE for ultra-high-aspect-ratio etch (new chamber for highly corrosive gases and ultra-low-temperature etch, much less fluorocarbon gas): the Alpha tool completed lab marathon testing and the Beta tool is in smooth customer verification. Its cryogenic high-aspect-ratio ICP etch tool PrimoNanova LUX-Cryo is in stable volume production on a customer's next-generation product line.",
+       "figure": "128 layers and above",
+       "topics": [
+        "nand_storage"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "AMEC half-year report: 2026 Half-Year Report (08-20-2026)",
+       "signal": "Its ICP etch tools (Primo Twin-Star, Primo Nanova, Primo Menova) are in volume production on more than 50 customers' lines across logic, DRAM, 3D NAND, power and MEMS. Its CVD tungsten, high-aspect-ratio tungsten and ALD tungsten tools cover all tungsten applications in memory, passed key memory customers' on-site verification including 3D memory word-line applications, and won repeat volume orders.",
+       "figure": "more than 50 ICP etch customers",
+       "topics": [
+        "nand_storage"
+       ]
+      },
+      {
+       "quarter": "AMEC half-year report: 2026 Half-Year Report (08-20-2026)",
+       "signal": "R&D investment RMB 2.041 billion in H1 2026 (+36.86%), 30.51% of revenue. Company: its 50-plus products cover over 30% of front-end IC equipment; over the next five years it aims, through in-house development and M&A, to cover more than 60% of the high-end IC equipment market and more than 70% of the advanced packaging equipment market.",
+       "figure": "R&D RMB 2.041 billion (30.51% of revenue); target 60%+ of high-end IC equipment and 70%+ of advanced packaging equipment market coverage within five years",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "AMEC half-year report: 2026 Half-Year Report (08-20-2026)",
+       "signal": "Capacity: the Lingang phase 2 production and R&D base is planned to start construction in H2 2026; the Guangzhou South China headquarters R&D and production base phase 1 topped out in July 2026 with production planned for 2027; the Chengdu R&D and production base phase 1 topped out in August 2026 and is expected to start production in 2027.",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "supply_status"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

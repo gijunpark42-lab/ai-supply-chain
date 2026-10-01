@@ -1,0 +1,57 @@
+{
+ "source": "Fositek AGM handbook: 2025 Business Report (05-26-2026)",
+ "new_nodes": {
+  "Fositek": {
+   "ticker": "6805",
+   "exchange": "TWSE",
+   "country": "TW",
+   "why": "Supplies liquid-cooling UQDs / cold plates and high-load slide rails into the GB200/GB300 rack supply chain; AI-server components are one of its two growth engines.",
+   "evidence": "Fositek AGM handbook: 2025 Business Report (05-26-2026): 'Fositek has passed water cooling supply certification and entered the GB200/GB300 supply chain ... this vertically integrated \"Cold Plate + UQD\" solution has successfully entered the supply chains of the four major North American CSPs.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group affiliate)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Fositek",
+     "domain": "thermal",
+     "sector": "Direct-to-Chip Liquid",
+     "product": "liquid-cooling Universal Quick Disconnects (UQD) and cold plates, plus high-load server slide rails, for GB200/GB300 AI server racks",
+     "quarterly_data": [
+      {
+       "quarter": "Fositek AGM handbook: 2025 Business Report (05-26-2026)",
+       "signal": "2025 Business Report: consolidated net operating revenue for 2025 was approximately NT$12.41 billion, up 51.6% from NT$8.18 billion in 2024, mainly driven by mass production and shipment of foldable phone hinges, server product components and laptop hinges; operating revenue NT$12,413,930 thousand, gross profit NT$3,270,371 thousand, net profit after tax NT$2,125,300 thousand (2024: NT$1,227,364 thousand), basic EPS NT$31.00 (2024: NT$17.90). Management: record highs in revenue and profit in 2025.",
+       "figure": "2025 revenue ~NT$12.41 billion (+51.6%); net profit NT$2,125,300 thousand; EPS NT$31.00",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Fositek AGM handbook: 2025 Business Report (05-26-2026)",
+       "signal": "Management (2025 Business Report): Fositek has passed water cooling supply certification and entered the GB200/GB300 supply chain; beyond components it provides complete cold-plate solutions, and its vertically integrated 'Cold Plate + UQD' solution has entered the supply chains of the four major North American CSPs (not named). Management describes the Universal Quick Disconnect (UQD) as one of the most technically demanding liquid-cooling components (leakage rate as low as one drop per ten thousand).",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Fositek AGM handbook: 2025 Business Report (05-26-2026)",
+       "signal": "Management: as AI server rack weight rises sharply, Fositek uses its self-developed slide-rail roll-forming process to make high-load RVL slide rails with patent-avoidance designs, 'gradually capturing market share in the high-end segment'; its 'Slide Rail + Water Cooling Connector' integrated module strategy simplifies customer procurement. Strategy: interface with top global CSPs, increase the direct supply ratio and enhance the profitability of server mechanical components.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "Fositek AGM handbook: 2025 Business Report (05-26-2026)",
+       "signal": "Outlook (2025 Business Report): management describes a 'Dual-Engine' growth model - a rising share of AI server-related revenue plus the foldable-phone replacement wave it expects from Apple's expected entry into the foldable phone market; for 2026 the company will continue developing strategic customers and gave no public financial forecast.",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

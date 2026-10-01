@@ -1,0 +1,68 @@
+{
+ "source": "Three-Circle half-year report: 2026 Half-Year Report (08-28-2026)",
+ "new_nodes": {
+  "Three-Circle": {
+   "ticker": "300408.SZ",
+   "exchange": "SZSE",
+   "country": "CN",
+   "why": "Makes ceramic ferrules and sleeves for optical connectors and devices (sales up on data-center construction) and MLCCs (volume, revenue and prices recovering)",
+   "evidence": "2026 half-year report (08-28-2026): as global data-center construction accelerates and optical-device demand rises, sales of ferrules, sleeves and related optical-communication products grew; MLCC sales volume and revenue grew substantially",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group low_ai_share)"
+  }
+ },
+ "chains": {
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "Three-Circle",
+     "layer": "interconnect",
+     "sector": "Components",
+     "product": "ceramic ferrules and sleeves for optical connectors and devices",
+     "quarterly_data": [
+      {
+       "quarter": "Three-Circle half-year report: 2026 Half-Year Report (08-28-2026)",
+       "signal": "H1 2026 revenue RMB 6,423.33 million, up 54.82% YoY; operating profit RMB 2,226.77 million, up 56.05%; net profit attributable to shareholders RMB 1,932.12 million, up 56.18%. Electronic and communication components and materials revenue RMB 6,080.74 million at a 44.23% gross margin (up 2.52 points). The company attributes growth to rising customer recognition of its MLCCs and demand growth in optical communications and other industries.",
+       "figure": "Revenue RMB 6,423.33 million (+54.82%); net profit RMB 1,932.12 million (+56.18%); gross margin 44.23%",
+       "topics": []
+      },
+      {
+       "quarter": "Three-Circle half-year report: 2026 Half-Year Report (08-28-2026)",
+       "signal": "Optical: as global data-center construction accelerates and optical-device demand keeps rising, sales of the company's ferrules, sleeves and related optical-communication products grew year on year in H1 2026.",
+       "figure": "no specific figure",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/mlcc.json": {
+   "players": [
+    {
+     "company": "Three-Circle",
+     "domain": "power",
+     "sector": "Power Semiconductors",
+     "product": "multilayer ceramic capacitors (MLCCs), including high-capacity series",
+     "quarterly_data": [
+      {
+       "quarter": "Three-Circle half-year report: 2026 Half-Year Report (08-28-2026)",
+       "signal": "MLCC: benefiting from rising customer recognition and the industry upturn, prices of some MLCC specifications recovered to their original reasonable level, and MLCC sales volume and revenue grew substantially year on year in H1 2026.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ]
+      },
+      {
+       "quarter": "Three-Circle half-year report: 2026 Half-Year Report (08-28-2026)",
+       "signal": "Capacity: the ready-for-use date of the high-capacity MLCC expansion project was postponed from May 10, 2025 to May 31, 2027 to adapt to the external environment.",
+       "figure": "Ready date May 31, 2027",
+       "topics": [],
+       "slot": "supply_status"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

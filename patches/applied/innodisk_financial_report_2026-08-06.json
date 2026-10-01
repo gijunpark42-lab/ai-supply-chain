@@ -1,0 +1,41 @@
+{
+ "source": "Innodisk financial report: Q2 2026 Consolidated Financial Statements (08-06-2026)",
+ "new_nodes": {
+  "Innodisk": {
+   "ticker": "5289.TWO",
+   "exchange": "TPEx",
+   "country": "TW",
+   "why": "Designs and manufactures flash storage (PCIe Gen5 data-center SSDs on 218-layer 3D NAND, boot drives) and DDR5 / CXL memory modules for AI servers, CSPs and edge AI; NAND / DRAM demand and pricing drive its revenue (Q2 2026 revenue up 641.1% YoY).",
+   "evidence": "Innodisk IR presentation: Corporate Investor Conference (08-27-2026): 'DATACENTER SSD | BOOT DRIVE ... DATACENTER SSD | STORAGE DRIVE ... PCIe Gen5, 5TS4-P Series: E1.S and U.2 ... EDSFF (E3.S, E3.L and E1.S) ... PCIe Gen5 & 218-layer 3D NAND Flash'; 'Central Cloud: Data Center SSD, CXL Memory Module / CXL AIC / DDR5 MRDIMM'.",
+   "approved": "user pre-approved 2026-10-01 for group scan_2026_10_01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/nand_flash.json": {
+   "players": [
+    {
+     "company": "Innodisk",
+     "layer": "memory",
+     "sector": "NAND Flash",
+     "product": "Industrial and data-center flash storage (PCIe Gen5 SSDs in E1.S, U.2 and EDSFF E3.S/E3.L on 218-layer 3D NAND; boot drives; M.2 embedded SSDs) plus DDR5 RDIMM/MRDIMM and CXL memory modules",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Innodisk financial report: Q2 2026 Consolidated Financial Statements (08-06-2026)",
+       "signal": "Q2 2026 operating revenue NT$22,443,411 thousand versus NT$3,028,429 thousand in Q2 2025; six months NT$35,626,019 thousand versus NT$5,647,171 thousand, all from industrial storage devices and memory modules (the group's single segment: R&D, manufacturing and sales of industrial memory storage devices). Q2 2026 gross profit NT$14,589,612 thousand (65% of revenue) versus NT$785,089 thousand (26%); operating profit NT$13,145,720 thousand; net income NT$10,405,863 thousand.",
+       "figure": "Q2 2026 revenue NT$22,443,411 thousand (Q2 2025: NT$3,028,429 thousand); gross margin 65%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Innodisk financial report: Q2 2026 Consolidated Financial Statements (08-06-2026)",
+       "signal": "Q2 2026 revenue by region: Asia NT$8,643,542 thousand, Taiwan NT$6,094,437 thousand, Americas NT$4,541,378 thousand, Europe NT$2,907,737 thousand. Contract liabilities from product sales contracts rose to NT$236,748 thousand at June 30, 2026 from NT$42,267 thousand at December 31, 2025.",
+       "figure": "contract liabilities NT$236,748 thousand",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

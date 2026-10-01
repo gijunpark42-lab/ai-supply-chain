@@ -1,0 +1,65 @@
+{
+ "source": "Anritsu results presentation: Financial Results for the 1st quarter FY2026 (07-30-2026)",
+ "new_nodes": {
+  "Anritsu": {
+   "ticker": "6754.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Its Test & Measurement business sells evaluation and manufacturing-test instruments to optical transceiver makers (BERTWave MP2110A for 400GE/800GE/1.6TE modules, optical spectrum analyzer for CPO laser evaluation); AI data-center demand in the optical transceiver market drove T&M revenue +34% in Q1 FY2026.",
+   "evidence": "Anritsu Q1 FY2026 results presentation (07-30-2026): 'In the T&M business, data center-related demand, such as in the optical transceiver market, remained strong due to the spread of AI'; Q&A: 'We have received orders for both 800GE and 1.6TE related products.'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "Anritsu",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "Optical transceiver test instruments: BERTWave MP2110A (400GE/800GE/1.6TE module manufacturing test), MP1900A Signal Quality Analyzer, MS9740B optical spectrum analyzer for CPO/LD evaluation",
+     "quarterly_data": [
+      {
+       "quarter": "Anritsu results presentation: Financial Results for the 1st quarter FY2026 (07-30-2026)",
+       "signal": "Q1 FY2026 (April-June 2026): orders 49.1 billion yen (+95% YoY), revenue 32.6 billion yen (+38%), operating profit 4.3 billion yen (+219%; 13.1% margin). T&M revenue 19.4 billion yen (+34%) and operating profit 3.2 billion yen (16.3% margin) as data center-related demand, such as in the optical transceiver market, remained strong due to the spread of AI and customer investment deferred by US tariff policies recovered; Network Infrastructure was 50% of T&M Q1 revenue",
+       "figure": "Q1 revenue 32.6 billion yen; T&M revenue 19.4 billion yen (+34%)",
+       "topics": []
+      },
+      {
+       "quarter": "Anritsu results presentation: Financial Results for the 1st quarter FY2026 (07-30-2026)",
+       "signal": "T&M orders in Q1 FY2026 increased 142% YoY to 33.6 billion yen; group order backlog 60.4 billion yen (+69% YoY), of which T&M 42.3 billion yen (+114% YoY)",
+       "figure": "T&M orders 33.6 billion yen; T&M backlog 42.3 billion yen",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Anritsu results presentation: Financial Results for the 1st quarter FY2026 (07-30-2026)",
+       "signal": "FY2026 full-year forecast unchanged from April 27, 2026: revenue 140.0 billion yen (+19%), operating profit 20.0 billion yen (+35%), profit 15.0 billion yen; T&M revenue 85.0 billion yen (+24%) and operating profit 16.5 billion yen (+53%); assumes the Middle East situation will not materially affect business from the third quarter onwards",
+       "figure": "FY2026 revenue forecast 140.0 billion yen; operating profit 20.0 billion yen",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Anritsu results presentation: Financial Results for the 1st quarter FY2026 (07-30-2026)",
+       "signal": "Company view: in data centers for generative AI the upgrade to 800GE networks is gaining full steam and optical transceiver manufacturers are ramping up production of 800GE optical transceivers; development of 1.6TE optical transceivers is progressing with efforts begun with a view to mass production, and preparations have begun for 3.2T optical transceiver development; network equipment makers are accelerating PCIe Gen7 development. Its roadmap shows 1.6TE mass production, CPO mass production and 3.2TE development ahead",
+       "figure": "no specific figure",
+       "topics": [
+        "optical_speed"
+       ]
+      },
+      {
+       "quarter": "Anritsu results presentation: Financial Results for the 1st quarter FY2026 (07-30-2026)",
+       "signal": "AI-enabled next-generation VNA (Tensor Vector Network Analyzer), introduced at IMS2026 in June 2026, is scheduled for release in October 2026; supports 54 GHz to 220 GHz (up to 1.1 THz with third-party waveguide solutions), targeting aerospace and national security, high-frequency semiconductor devices and research institutes",
+       "figure": "54 GHz to 220 GHz",
+       "topics": [
+        "product_launches"
+       ],
+       "slot": "next_catalyst"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

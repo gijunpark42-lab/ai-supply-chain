@@ -1,0 +1,133 @@
+{
+ "source": "Winpac Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "Winpac": {
+   "ticker": "097800",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "An outsourced memory back-end house: it packages (81.6% of H1 2026 sales) and tests (18.1%) DRAM, NAND and MCP products for chipmakers, so memory output that is outsourced to OSATs drives its utilisation and revenue.",
+   "evidence": "Winpac Q2 FY2026 (08-14-2026) half-year report: its main business is outsourced semiconductor back-end work covering both packaging (PKG) and test (probe test and final test), with 100% of revenue (KRW 52,370M) in DRAM, NAND Flash, MCP and similar products; receivables arising from Samsung Electronics are pledged under a trust agreement.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group kr_early)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Winpac",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "product": "outsourced memory back-end: DRAM / LPDDR5X / NAND multi-chip packaging (FBGA, MCP, eMCP, UFS) plus wafer probe test and final test",
+     "quarterly_data": [
+      {
+       "quarter": "Winpac Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report: Q2 2026 revenue KRW 30,184,870 thousand (Q2 2025: KRW 18,295,749 thousand) with operating profit KRW 794,949,161 (Q2 2025: operating loss KRW 3,561,251,744); H1 2026 revenue KRW 52,369,768 thousand (H1 2025: KRW 32,932,587 thousand), operating loss KRW 1,260,497,048 (H1 2025: loss KRW 8,339,752,196) and net loss KRW 2,145,407,454. The report flags a material going-concern uncertainty: accumulated deficit KRW 95,076M and current liabilities exceeding current assets by KRW 32,787M, with survival depending on better operating cash flow and further funding",
+       "figure": "Q2 2026 revenue KRW 30,184,870 thousand; Q2 operating profit KRW 794,949,161; H1 operating loss KRW 1,260,497,048",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Winpac Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 revenue mix: packaging KRW 42,743M (81.6%), test services (probe test and final test) KRW 9,457M (18.1%), merchandise KRW 169M; exports KRW 37,141M versus domestic KRW 15,229M (packaging exports KRW 34,918M). Average packaging price KRW 432 per unit ($0.29), up from KRW 394 ($0.27) in FY2025 and KRW 347 ($0.24) in FY2024. All revenue is semiconductor (DRAM, NAND Flash, MCP)",
+       "figure": "packaging KRW 42,743M (81.6%); test KRW 9,457M (18.1%); packaging ASP KRW 432",
+       "topics": []
+      },
+      {
+       "quarter": "Winpac Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 utilisation: packaging capacity 144,837 thousand units, output 99,406 thousand, utilisation 68.33% (FY2025: 39.6%; FY2024: 30.4%); test capacity 243,231 thousand units, output 74,527 thousand, utilisation 31.93% (FY2025: 24.1%; FY2024: 14.5%). No orders are taken in advance; customers send three-month input forecasts monthly. H1 PP&E additions KRW 4,707M (construction in progress KRW 4,483M)",
+       "figure": "packaging utilisation 68.33%; test utilisation 31.93%",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Winpac Q2 FY2026 (08-14-2026)",
+       "signal": "Customers above 10% of revenue (not named in the note): Company A KRW 17,968,760 thousand (34.31%), Company C KRW 9,439,311 thousand (18.02%), Company B KRW 7,822,470 thousand (14.94%) and Company D KRW 5,237,299 thousand (10.00%) in H1 2026. Sales to parent ABOV Semiconductor were KRW 3,085,573 thousand (H1 2025: KRW 2,962,713 thousand). The report notes trade receivables arising from Samsung Electronics (and from ABOV Semiconductor) are placed in a money-claim trust with Hana Bank as loan collateral",
+       "figure": "Company A 34.31%; Company C 18.02%; Company B 14.94%; Company D 10.00%",
+       "counterparty": "ABOV Semiconductor",
+       "counterparty_role": "customer",
+       "topics": []
+      },
+      {
+       "quarter": "Winpac Q2 FY2026 (08-14-2026)",
+       "signal": "Raw materials: H1 2026 purchases KRW 28,565M, led by substrates KRW 17,466M and gold wire KRW 5,630M; average gold-wire cost KRW 305,667.29 per kft versus KRW 210,639.52 in FY2025. The report names substrate suppliers Simmtech, Daeduck Electronics and HaeSung DS (domestic) and Grea Tech (China) and Leading Technology (Taiwan); gold wire from MK Electron and Heesung Metal; EMC from Samsung SDI and KCC",
+       "figure": "raw-material purchases KRW 28,565M; substrates KRW 17,466M",
+       "counterparty": "Simmtech",
+       "counterparty_role": "supplier",
+       "topics": []
+      },
+      {
+       "quarter": "Winpac Q2 FY2026 (08-14-2026)",
+       "signal": "R&D (KRW 227M, 0.4% of revenue) completed packages including 8.2x12.4 245B SDP / DDP / QDP packages with Samsung D1b 16Gb LPDDR5X chips (37um pad, 45um pitch, its narrowest set-up), Micron 16Gb LPDDR5X DDP / QDP / HDP / ODP packages, a Micron 12Gb LPDDR5X DDP package, a 12.4x14mm FCBGA 496B package with 722 bumps at 130um pitch, an on-device AI SoC + SPI NAND F153 package, and a DDR5 flip-chip package with Cu pillar bumps; the company says it is expanding from memory into system semiconductors and new customers",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "next_catalyst"
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Samsung",
+       "relationship": "outsourced memory packaging and test",
+       "contracts": [
+        {
+         "source": "Winpac Q2 FY2026 (08-14-2026)",
+         "signal": "The half-year report states that Winpac placed its trade receivables and other money claims arising from Samsung Electronics into a money-claim trust with Hana Bank and borrowed against them (operating-loan facility KRW 12,345,747 thousand, KRW 11,345,747 thousand drawn), showing Samsung Electronics as a revenue customer; its R&D list also includes packages built on Samsung D1b 16Gb LPDDR5X and Samsung V-NAND dies",
+         "units": "memory packaging / test services",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer relationship",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "MK Electron",
+     "layer": "materials",
+     "sector": "Solder & Bonding Materials",
+     "product": "gold bonding wire and solder balls",
+     "connects_to": [
+      {
+       "company": "Winpac",
+       "relationship": "gold bonding wire for memory packaging",
+       "contracts": [
+        {
+         "source": "Winpac Q2 FY2026 (08-14-2026)",
+         "signal": "Winpac's half-year report names MK Electron (with Heesung Metal) as its domestic gold-wire supplier for packaging; Winpac bought KRW 5,630M of gold wire in H1 2026",
+         "units": "gold wire for packaging",
+         "value": "KRW 5,630M (H1 2026 gold-wire purchases, all suppliers)",
+         "date_signed": "not stated",
+         "type": "supply agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "Advantest",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "memory testers for HBM/DRAM (T58xx class)",
+     "connects_to": [
+      {
+       "company": "Winpac",
+       "relationship": "memory test equipment",
+       "contracts": [
+        {
+         "source": "Winpac Q2 FY2026 (08-14-2026)",
+         "signal": "Winpac's board resolution of 2026-06-08 approved arrangements for a KRW 3 billion loan to purchase Advantest T5503 HS test equipment",
+         "units": "Advantest T5503 HS test equipment",
+         "value": "no specific figure",
+         "date_signed": "2026-06-08 (board resolution)",
+         "type": "purchase",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

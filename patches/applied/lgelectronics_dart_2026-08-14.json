@@ -1,0 +1,59 @@
+{
+ "source": "LG Electronics Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "LG Electronics": {
+   "ticker": "066570.KS",
+   "exchange": "KOSPI",
+   "country": "KR",
+   "why": "its Eco Solution (ES) division sells chillers and CDUs for AI data centers; it won more than KRW 600 billion of AI data-center cooling projects in H1 2026 and its CDUs are qualified by NVIDIA",
+   "evidence": "In AI data centers the company builds on high-efficiency chillers and CDUs, targeting hyperscalers and colocation operators in North America; in H1 2026 it won projects worth more than KRW 600 billion now in production, and some CDU models obtained component quality certification from global big-tech companies including NVIDIA (LG Electronics half-year report, DART 08-14-2026)",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "LG Electronics",
+     "domain": "thermal",
+     "sector": "Heat Exchanger / CDU",
+     "product": "AI data-center cooling: high-efficiency chillers and liquid-cooling coolant distribution units (CDUs, 600kW / 1MW / 2.6MW; 2.6MW model NVIDIA DSX Ready), CRAHs",
+     "quarterly_data": [
+      {
+       "quarter": "LG Electronics Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 half-year report (DART, filed 08-14-2026, consolidated): H1 revenue KRW 47,553,695M and operating profit KRW 3,252,805M (H1 2025: revenue KRW 434,750 hundred million, operating profit KRW 18,985 hundred million); Q2 alone revenue KRW 23,826,468M and operating profit KRW 1,579,082M; H1 net profit KRW 1,786,410M. Segments (KRW 100 million, H1): Home Appliance Solution revenue 140,188 / OP 12,556; Media Entertainment Solution 102,840 / 5,912; Vehicle Solution 60,903 / 4,028; Eco Solution (air conditioning, HVAC, AI data-center cooling) 55,484 / 4,843 (H1 2025: 56,986 / 6,572); LG Innotek 110,621 / 5,411. Eco Solution Q2 revenue KRW 2,726,101M.",
+       "figure": "H1 revenue KRW 47,553,695M, H1 OP KRW 3,252,805M; Q2 revenue KRW 23,826,468M, Q2 OP KRW 1,579,082M; ES H1 revenue 55,484 / OP 4,843 (KRW 100 million)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "LG Electronics Q2 FY2026 (08-14-2026)",
+       "signal": "AI data-center cooling (the company's own description in the report): in AI data centers, where AI server proliferation raises heat and efficiency requirements, the Eco Solution division builds on high-efficiency chillers plus coolant distribution units (CDUs) and other air- and liquid-cooling components, with North America -- where AI infrastructure investment is most active -- as its core strategic market, widening contact with hyperscalers, colocation operators and key channel partners. As a result it won projects worth more than KRW 600 billion in H1 2026, now in production, and some CDU models, the core part of its liquid-cooling solution, obtained component quality certification from global big-tech companies including NVIDIA. It is also widening its customer base in Asia and plans to expand domestic and overseas production capacity to meet rising orders.",
+       "figure": "AI data-center cooling projects won in H1 2026: more than KRW 600 billion",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "LG Electronics Q2 FY2026 (08-14-2026)",
+       "signal": "Capacity and supply, H1 2026: air-conditioner capacity 6,698 thousand units (Korea, India, China, Thailand) against production of 7,324, utilisation 109.4%. The company operates a chiller / ESS site in Pyeongtaek. H1 investment in the ES division KRW 569 hundred million (new models, productivity) out of a group total of KRW 15,109 hundred million. ES raw materials include steel KRW 406 hundred million (7.6%, POSCO and others) and resin KRW 761 hundred million (14.2%, LG Chem and others). Air-conditioner average selling prices fell 8.9% in H1 2026 versus 2025.",
+       "figure": "Air-conditioner utilisation 109.4% (7,324 vs 6,698 capacity); ES H1 investment KRW 569 hundred million",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "LG Electronics Q2 FY2026 (08-14-2026)",
+       "signal": "Customers and context: main customers are Best Buy, Home Depot and Lowe's; the top 10 customers took 31.4% of H1 2026 consolidated revenue. The report says commercial air-conditioning demand is rising for the high-performance cooling that data centers, semiconductor and battery plants need, that data centers are expected to show mid- to long-term growth centred on high-performance cooling equipment, and that industrial HVAC such as data-center cooling is relatively insensitive to the business cycle. In 2026 the company signed an MOU to supply a total HVAC solution (chillers, CRAHs, CDUs) to a planned 20MW AI data center in Wanju, North Jeolla, and earlier (2025) MOUs with Flex on modular data-center cooling and with SK Enmove and GRC on immersion cooling.",
+       "figure": "Top 10 customers 31.4% of revenue",
+       "topics": [
+        "power_cooling"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

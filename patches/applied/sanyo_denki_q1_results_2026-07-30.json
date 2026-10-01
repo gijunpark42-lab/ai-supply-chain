@@ -1,0 +1,50 @@
+{
+ "source": "Sanyo Denki earnings release: FY2027 1st Quarter Consolidated Financial and Operating Results (07-30-2026)",
+ "new_nodes": {
+  "Sanyo Denki": {
+   "ticker": "6516.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "makes San Ace cooling fans for GPU servers and pumps for data-center liquid cooling; San Ace demand for generative-AI-related equipment drives its fan segment",
+   "evidence": "Sanyo Denki Q1 FY2027 results: 'Regarding San Ace products of San Ace Company, demand for generative AI-related equipment and network equipment was robust.'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Sanyo Denki",
+     "domain": "thermal",
+     "sector": "Air Cooling",
+     "product": "San Ace high-static-pressure cooling fans for GPU servers and San Ace Pump for data-center liquid cooling",
+     "quarterly_data": [
+      {
+       "quarter": "Sanyo Denki earnings release: FY2027 1st Quarter Consolidated Financial and Operating Results (07-30-2026)",
+       "signal": "Q1 FY2027 (April-June 2026): revenue ¥32,237 million (+33.5%), operating profit ¥4,209 million (+138.1%), profit attributable to owners of parent ¥2,994 million (+184.6%); orders received ¥40,399 million (+56.7%), order backlog ¥53,031 million (+41.4%). The company cites robust demand in factory automation (ICT equipment, robots, semiconductor manufacturing equipment) and the generative AI-related market.",
+       "figure": "revenue ¥32,237 million (+33.5%); orders ¥40,399 million (+56.7%); backlog ¥53,031 million (+41.4%)",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Sanyo Denki earnings release: FY2027 1st Quarter Consolidated Financial and Operating Results (07-30-2026)",
+       "signal": "San Ace Company (cooling fans): demand for generative AI-related equipment and network equipment was robust; segment revenue ¥11,638 million (+19.6%), segment profit ¥2,741 million (+76.9%), orders ¥15,056 million (+68.7%), order backlog ¥16,983 million (+44.3%). Electronics Company: demand for SANUPS products was strong for servers for data centers and broadcasting; segment revenue ¥6,318 million (+43.0%).",
+       "figure": "San Ace revenue ¥11,638 million (+19.6%); San Ace orders ¥15,056 million (+68.7%)",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Sanyo Denki earnings release: FY2027 1st Quarter Consolidated Financial and Operating Results (07-30-2026)",
+       "signal": "FY2027 (year ending March 2027) forecast unchanged from April 27, 2026: revenue ¥128,850 million (+20.0%), operating profit ¥16,290 million (+49.6%), profit attributable to owners of parent ¥12,000 million (+38.6%).",
+       "figure": "FY2027 revenue forecast ¥128,850 million (+20.0%); operating profit ¥16,290 million",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

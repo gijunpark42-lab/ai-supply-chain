@@ -1,0 +1,53 @@
+{
+ "source": "Shenling Environmental Systems IR activity record: SL20260907 (09-07-2026)",
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Shenling Environmental Systems",
+     "domain": "thermal",
+     "sector": "Air Cooling",
+     "product": "Data-center precision air conditioning, cooling sources and liquid-cooling systems for AI compute data centers (domestic and overseas)",
+     "quarterly_data": [
+      {
+       "quarter": "Shenling Environmental Systems IR activity record: SL20260907 (09-07-2026)",
+       "signal": "Management (IR record, H1 2026 results call): H1 revenue was RMB 1.756 billion, up 4.39%, and net profit attributable was RMB 54.05 million, down 64.07%.",
+       "figure": "H1 revenue RMB 175,596.10 ten-thousand (+4.39%); net profit attributable RMB 5404.54 ten-thousand (-64.07%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Shenling Environmental Systems IR activity record: SL20260907 (09-07-2026)",
+       "signal": "Management (IR record) confirmed that H1 2026 new orders in the data-service business rose about 1.3 times year over year, including about RMB 1.8 billion of new effective liquid-cooling orders — orders with a definite delivery requirement, both with prepayment and from some large customers that pay after receipt. Goods shipped but not yet accepted rose about RMB 800 million from the start of the year, mainly in the data-compute service business; management expects a considerable part to be accepted and recognized as revenue within the year.",
+       "figure": "data-service new orders up about 1.3 times; liquid-cooling new effective orders about RMB 18 hundred million; goods shipped up about RMB 8 hundred million",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Shenling Environmental Systems IR activity record: SL20260907 (09-07-2026)",
+       "signal": "Management (IR record): liquid-cooling demand is driven mainly by shipments of high-density AI chips; liquid cooling has gradually become the standard configuration for high-power compute servers and its penetration will keep rising. Compute build-out demand is strong and the supply chain is fairly tight, so the company agrees future capacity plans with domestic and overseas customers as needed. Overseas projects take longer to recognize revenue than domestic ones because of shipping, site construction and acceptance; customers want faster infrastructure delivery.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling",
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "new_nodes": {
+  "Shenling Environmental Systems": {
+   "ticker": "301018.SZ",
+   "exchange": "SZSE",
+   "country": "CN",
+   "why": "Supplies data-center precision air conditioning and liquid-cooling systems; H1 2026 liquid-cooling new orders of about RMB 1.8 billion are driven by AI chip shipments, with domestic and overseas customers.",
+   "evidence": "Shenling Environmental Systems IR activity record: SL20260907 (09-07-2026): liquid-cooling new effective orders of about RMB 1.8 billion in H1 2026; liquid cooling has become standard for high-power compute servers.",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ }
+}

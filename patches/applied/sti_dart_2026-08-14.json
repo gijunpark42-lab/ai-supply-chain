@@ -1,0 +1,130 @@
+{
+ "source": "STI Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "STI": {
+   "ticker": "039440",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Supplies central chemical supply systems (CCSS, 85.6% of H1 2026 sales) and wet/reflow process equipment to memory fabs; Samsung Electronics (45%) and SK Hynix (31%) are its main customers, so DRAM/HBM fab build-outs drive its orders.",
+   "evidence": "STI half-year report (filed 08-14-2026): major customers Samsung Electronics 45% and SK Hynix 31% of sales; supply contracts with SK Hynix (KRW 39,439,000 thousand, KRW 20,788,000 thousand, KRW 52,986,000 thousand) and Samsung Electronics (KRW 39,469,680,000).",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "STI",
+     "layer": "equipment",
+     "sector": "Sub-fab Equipment (Scrubbers / Chillers)",
+     "product": "Central chemical supply systems (CCSS) for fab front-end processes; fluxless lead-free vacuum reflow for flip-chip bumping",
+     "quarterly_data": [
+      {
+       "quarter": "STI Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report: H1 2026 consolidated revenue KRW 146,300,096,503 (H1 2025: KRW 171,268,511,769) and operating profit KRW 3,260,723,611 (H1 2025: KRW 10,625,267,572); the company says operating profit fell about 69% and net income rose about 72%; Q2 2026 revenue KRW 72,460,474,672 (Q2 2025: KRW 87,194,838,726) and Q2 operating profit KRW 2,896,079,741 (Q2 2025: KRW 5,384,766,891); H1 net income KRW 9,435,860,717 (H1 2025: KRW 5,497,283,853). By product: C.C.S.S. KRW 125,289,144 thousand (85.6%), Wet System KRW 9,912,323 thousand (6.8%)",
+       "figure": "H1 2026 revenue KRW 146,300,096,503; operating profit KRW 3,260,723,611",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "STI Q2 FY2026 (08-14-2026)",
+       "signal": "Products: C.C.S.S. (central chemical supply systems that deliver chemicals to semiconductor and display front-end tools) make up about 80-90% of sales; the company estimates its CCSS market share at 40% (Hanyang ENG 40%). It localized a fluxless lead-free vacuum reflow system for flip-chip bump formation, a market it says a US company monopolizes, and has won customers in China and Korea; FC-BGA substrate wet-process developers are on order and in production",
+       "figure": "CCSS market share 40% (company estimate)",
+       "topics": []
+      },
+      {
+       "quarter": "STI Q2 FY2026 (08-14-2026)",
+       "signal": "Other customers and contracts: EXYTE 5% and STECO 2% of consolidated H1 2026 sales; a supply contract with Nova Tech Semiconductor (NTS, China) for power-semiconductor manufacturing equipment (KRW 97,838,398,692, 2025-12-05 to 2027-09-04) is in progress",
+       "figure": "NTS contract KRW 97,838,398,692",
+       "topics": [],
+       "counterparty": "EXYTE, STECO, Nova Tech Semiconductor",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "STI Q2 FY2026 (08-14-2026)",
+       "signal": "Order backlog KRW 214,349,892 thousand at June 30, 2026 (cumulative orders KRW 868,159,874 thousand, delivered KRW 653,809,982 thousand); contract assets KRW 98,540,763,767 vs KRW 82,934,619,415 at end-2025",
+       "figure": "order backlog KRW 214,349,892 thousand",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "STI Q2 FY2026 (08-14-2026)",
+       "signal": "Capacity: average utilization 46.73% in H1 2026 (494 of 1,056 available hours) at Anseong/Yongin; H1 production capacity C.C.S.S. KRW 237,600,000 thousand and Wet System KRW 25,000,000 thousand; H1 production C.C.S.S. KRW 113,404,708 thousand and Wet System KRW 9,317,331 thousand",
+       "figure": "utilization 46.73%",
+       "topics": [],
+       "slot": "supply_status"
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Samsung",
+       "relationship": "Central chemical supply systems and wet process equipment",
+       "contracts": [
+        {
+         "source": "STI Q2 FY2026 (08-14-2026)",
+         "signal": "Samsung Electronics was 45% of STI's consolidated H1 2026 sales; revenue from Samsung Electronics KRW 65,438,969 thousand (H1 2025: KRW 80,648,518 thousand); percentage-of-completion contracts with Samsung Electronics total KRW 321,403,792 thousand with KRW 38,865,310 thousand remaining",
+         "units": "45% of H1 2026 consolidated sales",
+         "value": "KRW 65,438,969 thousand",
+         "date_signed": "not stated",
+         "type": "customer share",
+         "topics": []
+        },
+        {
+         "source": "STI Q2 FY2026 (08-14-2026)",
+         "signal": "Single sales/supply contract with Samsung Electronics for semiconductor manufacturing equipment (disclosed 2026-04-13), term 2026-04-10 to 2026-11-30; in progress",
+         "units": "semiconductor manufacturing equipment",
+         "value": "KRW 39,469,680,000",
+         "date_signed": "2026-04-10",
+         "type": "supply agreement",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "SK Hynix",
+       "relationship": "Central chemical supply systems and process equipment",
+       "contracts": [
+        {
+         "source": "STI Q2 FY2026 (08-14-2026)",
+         "signal": "SK Hynix was 31% of STI's consolidated H1 2026 sales; revenue from SK Hynix KRW 44,670,568 thousand (H1 2025: KRW 44,186,179 thousand); percentage-of-completion contracts with SK Hynix total KRW 211,609,406 thousand with KRW 29,165,339 thousand remaining",
+         "units": "31% of H1 2026 consolidated sales",
+         "value": "KRW 44,670,568 thousand",
+         "date_signed": "not stated",
+         "type": "customer share",
+         "topics": []
+        },
+        {
+         "source": "STI Q2 FY2026 (08-14-2026)",
+         "signal": "Industrial manufacturing equipment contract with SK Hynix dated 2025-03-31, completion 2026-05-30; KRW 37,021,389 thousand delivered, backlog KRW 2,417,611 thousand",
+         "units": "industrial manufacturing equipment",
+         "value": "KRW 39,439,000 thousand",
+         "date_signed": "2025-03-31",
+         "type": "supply agreement",
+         "topics": []
+        },
+        {
+         "source": "STI Q2 FY2026 (08-14-2026)",
+         "signal": "Industrial manufacturing equipment contract with SK Hynix dated 2025-04-07, completion 2026-03-31; KRW 20,060,420 thousand delivered, backlog KRW 727,580 thousand",
+         "units": "industrial manufacturing equipment",
+         "value": "KRW 20,788,000 thousand",
+         "date_signed": "2025-04-07",
+         "type": "supply agreement",
+         "topics": []
+        },
+        {
+         "source": "STI Q2 FY2026 (08-14-2026)",
+         "signal": "Industrial manufacturing equipment contract with SK Hynix dated 2025-09-15, completion 2027-04-30; KRW 33,826,262 thousand delivered, backlog KRW 19,159,738 thousand",
+         "units": "industrial manufacturing equipment",
+         "value": "KRW 52,986,000 thousand",
+         "date_signed": "2025-09-15",
+         "type": "supply agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

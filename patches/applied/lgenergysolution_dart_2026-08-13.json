@@ -1,0 +1,57 @@
+{
+ "source": "LG Energy Solution Q2 FY2026 (08-13-2026)",
+ "new_nodes": {
+  "LG Energy Solution": {
+   "ticker": "373220.KS",
+   "exchange": "KOSPI",
+   "country": "KR",
+   "why": "battery maker whose ESS business supplies LFP battery energy storage to data centers; it expects ESS demand from big tech and AI companies' power needs, and its BESS is qualified as NVIDIA DSX Ready for AI factories",
+   "evidence": "The ESS market is expected to grow steadily on the spread of renewables and the power demand of big tech and AI companies; the company has entered ESS system integration, building large ESS sites itself (LG Energy Solution half-year report, DART 08-13-2026)",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "LG Energy Solution",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "LFP battery energy storage systems (BESS) for AI data centers -- 2.5 MW / 5.1 MWh AC battery blocks (NVIDIA DSX Ready BESS), ESS cells and system integration",
+     "quarterly_data": [
+      {
+       "quarter": "LG Energy Solution Q2 FY2026 (08-13-2026)",
+       "signal": "H1 2026 half-year report (DART, filed 08-13-2026, consolidated): H1 revenue and other income KRW 14,115,216M with an operating loss of KRW 94,453M (FY2025: revenue KRW 25,318,570M, operating profit KRW 1,346,120M); Q2 alone revenue KRW 7,560,249M and operating profit KRW 113,302M; H1 net loss KRW 1,272,678M. Exports KRW 4,807,543M and domestic (in-country) sales KRW 9,307,673M. EV battery global market share 8.6% in January-June 2026 (SNE Research; 2025: 9.2%).",
+       "figure": "H1 revenue KRW 14,115,216M, H1 OP KRW -94,453M; Q2 revenue KRW 7,560,249M, Q2 OP KRW 113,302M",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "LG Energy Solution Q2 FY2026 (08-13-2026)",
+       "signal": "Capacity and investment, H1 2026: production capacity (value basis) KRW 27,954,044M against output of KRW 14,759,735M, average utilisation 52.8% (FY2025: 47.6%; FY2024: 57.8%) across Ochang, Nanjing, Michigan, Wroclaw and other plants. The company spent a total of KRW 2.7 trillion in 2026 on new and expanded capacity and quality investment (KRW 26,890 hundred million for buildings and equipment in H1). Raw-material purchases (cathode, anode, separator etc.) were KRW 6,816,087M, from LG Chem, POSCO Future M, Nichia and others.",
+       "figure": "Utilisation 52.8%; capex KRW 2.7 trillion; raw materials KRW 6,816,087M",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "LG Energy Solution Q2 FY2026 (08-13-2026)",
+       "signal": "ESS and data-center demand (the company's view in the report): the ESS market is expected to grow steadily on the spread of renewables and the power demand of big tech and AI companies; ESS batteries with improved safety and performance are targeted mainly at overseas markets, and the company has entered ESS system integration -- building large ESS facilities itself and providing SI -- to widen its position in the global ESS market. It also plans BaaS, EaaS and battery recycle / reuse businesses.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "LG Energy Solution Q2 FY2026 (08-13-2026)",
+       "signal": "Customers and contracts: main customers are automotive and ESS customers, with the top five taking about 56% of revenue. Disclosed supply contracts in progress include an LFP battery supply contract worth USD 4,309 million with an undisclosed counterparty (08-01-2027 to 07-31-2030; disclosed 07-30-2025), an ESS battery supply contract with Hanwha Q CELLS USA Corp. (05-16-2024 to 10-01-2026; 99% supplied cumulatively), EV battery supply contracts with Mercedes-Benz AG and affiliates (one of USD 1,400 million, 03-01-2028 to 06-30-2035), Ford Motor Company (10-01-2026 to 12-31-2030), Renault, Isuzu Motors and O&J Automotive Netherlands. Customer advances and amounts are mostly withheld until contract end for business confidentiality.",
+       "figure": "Top five customers about 56%; LFP contract USD 4,309 million; Mercedes-Benz contract USD 1,400 million",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

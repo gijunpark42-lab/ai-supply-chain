@@ -1,0 +1,102 @@
+{
+ "source": "E2E Networks Q1 FY2027 (07-22-2026)",
+ "new_nodes": {
+  "E2E Networks": {
+   "ticker": "E2E.NS",
+   "exchange": "NSE",
+   "country": "IN",
+   "why": "Indian GPU neocloud / sovereign AI cloud (TIR platform) running about 5,100 GPUs including 1,024 NVIDIA Blackwell B200; GPU capacity additions drive its revenue.",
+   "evidence": "E2E Networks Q1 FY2027 call (07-22-2026), MD Tarun Dua: '1,024 Blackwell that we received during last few months went online, and they were put on revenue'; CFO Nitin Jain: 'nearly 5,100 is the current capacity, which is live on our platform today ... does not include another 1,024 B200 we are expecting soon.'",
+   "approved": "user pre-approved 2026-10-01 for group scan_2026_10_01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "E2E Networks",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "Sovereign AI GPU cloud (TIR AI/ML platform) on NVIDIA H100, H200 and B200 GPUs for model training, fine-tuning and inference",
+     "quarterly_data": [
+      {
+       "quarter": "E2E Networks Q1 FY2027 (07-22-2026)",
+       "signal": "CFO Nitin Jain: Q1 FY2027 revenue was INR1,568 million, up 334% year-on-year and 64% quarter-on-quarter; EBITDA INR1,179 million with margin expanding to 75.2% (up 1,450 basis points vs Q4); profit before tax INR586 million vs INR86 million in Q4; PAT INR439 million. Performance was driven by operating leverage and the B200 cluster going live.",
+       "figure": "Revenue INR1,568 million (+334% YoY, +64% QoQ); EBITDA margin 75.2%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "E2E Networks Q1 FY2027 (07-22-2026)",
+       "signal": "MD Tarun Dua: the 1,024 Blackwell GPUs received during the last few months went online and were put on revenue in the quarter, with utilization of capacity 'quite maximal'. CFO: nearly 5,100 GPUs are live on the platform today, not including another 1,024 B200 expected soon. MD: growth came from both utilization and capacity additions, with only a very moderate pricing impact.",
+       "figure": "1,024 Blackwell GPUs live; ~5,100 GPUs live; another 1,024 B200 expected",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "E2E Networks Q1 FY2027 (07-22-2026)",
+       "signal": "MD: the next lot of B200 is expected in the next couple of months; E2E also plans to build more Blackwell capacity, including non-flagship Blackwell, and to expand into Vera Rubin, and will announce GPU counts when available; capacity expansion will be 'aggressive as well as judicious'. Funding for GPUs already announced is fully arranged.",
+       "figure": "no specific figure",
+       "topics": [
+        "transitions"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "E2E Networks Q1 FY2027 (07-22-2026)",
+       "signal": "MD: E2E increased prices of both GPUs and CPUs, partly because input costs rose: memory cost increases have hit CPU hardware prices by a much larger percentage than GPU hardware. Customers wanting to hold current prices were offered 1-2 year contracts with advances, which many chose; customers increasingly want longer-term contracts of 1, 2 to 3 years. Major growth is expected from capacity additions rather than the price hike.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ]
+      },
+      {
+       "quarter": "E2E Networks Q1 FY2027 (07-22-2026)",
+       "signal": "MD: margins reflect increased utilization, a very robust demand scenario and operating leverage, and he believes performance is quite sustainable over the medium term and potentially the long term; E2E does not provide MRR guidance. Revenue composition in the previous quarter: India AI mission about 20-21%, international closer to 37%, rest domestic.",
+       "figure": "India AI about 20%, 21%; international closer to 37%",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "E2E Networks Q1 FY2027 (07-22-2026)",
+       "signal": "MD: major volumes continue to be training, but customers increasingly run inference on the same clusters at night, and agentic workloads run on the same infrastructure; E2E assumes at least a 6-year life cycle for all GPU generations (H100, H200, B200 and newer B300 / Vera Rubin), monetizing GPUs over 5 to 6 years without expecting active price compression from newer generations.",
+       "figure": "6-year GPU life cycle",
+       "topics": []
+      },
+      {
+       "quarter": "E2E Networks Q1 FY2027 (07-22-2026)",
+       "signal": "MD: E2E has worked on GPUs with NVIDIA since 2019 and incorporates NVIDIA's best practices and open-source software into its platform, while remaining vendor-neutral and open to integrating other accelerated computing platforms. L&T is an arm's-length partner: E2E buys L&T data center capacity, L&T uses E2E's cloud infrastructure, and they jointly go to customers; E2E may offtake future L&T compute capacity. SovCloud is an infrastructure subsidiary focused on build-out; a Delaware entity serves international markets.",
+       "figure": "no specific figure",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "product": "GB200 / GB300 / Vera Rubin GPU systems",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "E2E Networks",
+       "relationship": "GPU supply (H100 / H200 / B200 Blackwell) for E2E Networks' GPU cloud",
+       "contracts": [
+        {
+         "source": "E2E Networks Q1 FY2027 (07-22-2026)",
+         "signal": "E2E MD Tarun Dua: E2E has worked on GPUs with NVIDIA since 2019; the 1,024 Blackwell GPUs received during the last few months went online and were put on revenue in Q1 FY2027. CFO: another 1,024 B200 are expected soon; MD: plans to expand capacity into Vera Rubin.",
+         "units": "1,024 Blackwell GPUs live; another 1,024 B200 expected",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "deployment",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "source": "TOTO results presentation: First Quarter Results for Fiscal Year Ending March 2027 (07-31-2026)",
+ "new_nodes": {
+  "TOTO": {
+   "ticker": "5332.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Its New Business Domains (Advanced Ceramics Business) make electrostatic chucks and AD components for semiconductor etching equipment; sales rise with AI-related demand, etch-tool deliveries and the chamber install base, and the segment is a large share of TOTO's operating profit.",
+   "evidence": "TOTO Q1 results presentation (07-31-2026): Advanced Ceramics core products are high-grade ceramic components for semiconductor manufacturing equipment (electrostatic chucks, AD components); 'Sales increased due to robust AI-related demand and improved productivity.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group low_ai_share)"
+  }
+ },
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "TOTO",
+     "layer": "materials",
+     "sector": "Components & Parts Suppliers",
+     "product": "Electrostatic chucks and AD (aerosol deposition) ceramic chamber components for semiconductor etching equipment",
+     "quarterly_data": [
+      {
+       "quarter": "TOTO results presentation: First Quarter Results for Fiscal Year Ending March 2027 (07-31-2026)",
+       "signal": "New Business Domains (Advanced Ceramics Business) Q1 (April to June 2026): net sales 16.0 billion yen (106%) and operating profit 6.5 billion yen (+0.6 billion yen). Despite shipment timing shifts due to supply chain impacts, sales and profits increased due to foreign exchange effects; 1Q fell short of the plan, but the company says the impact is temporary and expects to make up the shortfall in 2Q.",
+       "figure": "Net sales 16.0 billion yen (106%); operating profit 6.5 billion yen (+0.6 billion yen)",
+       "topics": []
+      },
+      {
+       "quarter": "TOTO results presentation: First Quarter Results for Fiscal Year Ending March 2027 (07-31-2026)",
+       "signal": "Electrostatic chuck sales increased due to robust AI-related demand and improved productivity. TOTO: advanced semiconductor market conditions remain favorable, supported by growing demand for data centers; rapid demand growth has caused delays in equipment deliveries and component supplies throughout the supply chain, which also affects TOTO, with deliveries shifting to 2Q and beyond.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "TOTO results presentation: First Quarter Results for Fiscal Year Ending March 2027 (07-31-2026)",
+       "signal": "Advanced Ceramics growth investment of approx. 30 billion yen, with further large-scale production capacity expansion planned; a new R&D building at the Chigasaki Plant to strengthen R&D for electrostatic chucks and AD components (expanded prototype lines, next-generation products) is scheduled to begin construction in December 2026 and be completed in April 2028.",
+       "figure": "Approx. 30 billion yen growth investment; R&D building construction December 2026 to April 2028",
+       "topics": []
+      },
+      {
+       "quarter": "TOTO results presentation: First Quarter Results for Fiscal Year Ending March 2027 (07-31-2026)",
+       "signal": "Product role: electrostatic chucks hold wafers inside semiconductor manufacturing equipment and are used in ultra-low-temperature etching processes in equipment for manufacturing NAND flash memory; AD components (ceramic films formed by TOTO's aerosol deposition method) are used as ceiling materials inside equipment in etching processes for logic semiconductors. Performance drivers named: new-generation products, deliveries for newly installed equipment and expansion of the chamber install base, and replacement demand from higher utilization at device makers. The business maintained an operating margin of 30% even in FY2023, when sales fell sharply during a demand adjustment phase.",
+       "figure": "30% operating margin in FY2023",
+       "topics": []
+      },
+      {
+       "quarter": "TOTO results presentation: First Quarter Results for Fiscal Year Ending March 2027 (07-31-2026)",
+       "signal": "FY2026 company plan unchanged from April 30: net sales 785.0 and operating profit 60.0 (Y billion; operating margin 7.6%). TOTO: the Advanced Ceramics Business is affected by semiconductor supply chain disruptions, but these are temporary impacts and full-year results are expected to meet the initial plan.",
+       "figure": "FY2026 plan: net sales 785.0 Y billion; operating profit 60.0 Y billion",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

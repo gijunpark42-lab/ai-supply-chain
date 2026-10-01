@@ -1,0 +1,48 @@
+{
+ "source": "Hirano Tecseed results briefing material: Consolidated Financial Results FY2025 (05-12-2026)",
+ "new_nodes": {
+  "Hirano Tecseed": {
+   "ticker": "6245.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "coating-machine maker whose Industrial Machinery segment sells film making systems for electronic-material applications such as MLCC; MLCC capacity build-out lifts its orders",
+   "evidence": "Hirano Tecseed FY2025 results briefing (05-12-2026), Industrial Machinery segment: 'Some investment appetite, mainly in film making systems for electronic materials applications such as MLCC and polyimide films.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group weak_evidence)"
+  }
+ },
+ "chains": {
+  "components/mlcc.json": {
+   "players": [
+    {
+     "company": "Hirano Tecseed",
+     "layer": "equipment",
+     "sector": "MLCC / Passives Equipment",
+     "product": "roll-to-roll coating machines and film making systems for electronic and ceramic materials, incl. MLCC applications",
+     "quarterly_data": [
+      {
+       "quarter": "Hirano Tecseed results briefing material: Consolidated Financial Results FY2025 (05-12-2026)",
+       "signal": "FY2025 (year ended March 2026): net sales ¥32,285mn (-33.2%), operating income ¥1,599mn (-4.9%), orders ¥23,605 million (-28.7%). Order volume for EV-related machinery fell sharply, and customers' revision of capex plans cancelled multiple projects totaling ¥7,229 million.",
+       "figure": "net sales ¥32,285mn (-33.2%); orders ¥23,605 million (-28.7%); cancellations ¥7,229 million",
+       "topics": []
+      },
+      {
+       "quarter": "Hirano Tecseed results briefing material: Consolidated Financial Results FY2025 (05-12-2026)",
+       "signal": "Industrial Machinery segment: some investment appetite, mainly in film making systems for electronic materials applications such as MLCC and polyimide films; the company captured orders for large machinery for polyimide film applications and film making systems for ceramic materials, and sales included MLCC applications in 2Q. Segment orders ¥9,196 million (+79.4%), net sales ¥5,478 million (+17.9%), operating income ¥962 million. Procurement issues for materials are emerging owing to a shortage of some petroleum-derived products.",
+       "figure": "Industrial Machinery orders ¥9,196 million (+79.4%); net sales ¥5,478 million (+17.9%)",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Hirano Tecseed results briefing material: Consolidated Financial Results FY2025 (05-12-2026)",
+       "signal": "FY2026 forecast: net sales ¥25,000mn (-22.6%), operating income ¥1,500mn (-6.2%), net income ¥1,100mn; the company is lowering sales targets to reflect changed external conditions, especially in the North American market, and plans to raise the sales weighting of the Industrial Machinery segment while exploring non-automotive demand such as stationary storage batteries.",
+       "figure": "FY2026 net sales forecast ¥25,000mn (-22.6%); operating income ¥1,500mn",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

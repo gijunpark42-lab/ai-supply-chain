@@ -1,0 +1,79 @@
+{
+ "source": "Riot Platforms Q2 FY2026 (08-10-2026)",
+ "new_nodes": {
+  "Riot Platforms": {
+   "ticker": "RIOT",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "why": "converts its >2 GW of Texas utility power into leased AI data-center capacity - AMD (50 MW at Rockdale, options up to 150 MW more) and a frontier AI lab (191 MW, ~$9.1 billion over 20 years)",
+   "evidence": "Riot Platforms Q2 FY2026 (08-10-2026), CEO Jason Les: Following our first data center lease with AMD ... AMD's contracted capacity now stands at 50 MW of critical IT capacity at our Rockdale site; executed a data center lease with one of the world's leading frontier AI labs for 191 MW of critical IT capacity",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Riot Platforms",
+     "layer": "cloud_infra",
+     "sector": "Datacenter Colocation",
+     "product": "AI data-center leasing at Rockdale and Corsicana, Texas (Tier III build-to-suit on in-place utility power; AMD 50 MW, frontier AI lab 191 MW)",
+     "connects_to": [
+      {
+       "company": "AMD",
+       "relationship": "AI data-center capacity lease at Rockdale, Texas",
+       "contracts": [
+        {
+         "source": "Riot Platforms Q2 FY2026 (08-10-2026)",
+         "signal": "CEO Jason Les: Riot commissioned and delivered the final phase of the first 25 MW of capacity to AMD in May, on time and on budget, with AMD operating on the site since January; after AMD exercised its expansion option in April its contracted capacity is 50 MW of critical IT capacity at Rockdale, with the second 25 MW under construction - initial 10 MW expected in November and the remaining 15 MW in May 2027. AMD retains expansion options for up to an additional 150 MW (a further 50 MW to reach 100 MW, then a 100 MW option only after fully leasing the first 100 MW). The AMD lease contributes approximately $63.6 million in average annual revenue and $51 million in average annual NOI on 50 MW, with total capex of $170.2 million. CEO: AMD says it is using its Rockdale 'Mega Lab' to test and commission its Helios rack AI platform.",
+         "units": "50 MW contracted; options for up to an additional 150 MW",
+         "value": "~$63.6 million average annual revenue",
+         "date_signed": "January 2026 (25 MW); expansion exercised April 2026",
+         "type": "data-center capacity lease",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      }
+     ],
+     "quarterly_data": [
+      {
+       "quarter": "Riot Platforms Q2 FY2026 (08-10-2026)",
+       "signal": "Q2 2026 (CFO Jason Chung): total revenue $174 million, up 14% year-over-year on growth in the data center and engineering segments; GAAP net loss $237 million. Data center segment revenue $23.2 million, including $4.9 million of operating lease revenue (up over 400% from $900,000 in Q1) at an 84% operating lease gross margin, with 25 MW of critical IT capacity online. Bitcoin mining revenue $113.7 million; 1,587 Bitcoin produced; deployed hash rate 44.4 EH/s. Engineering (ESS Metron, E4A) revenue $37.3 million versus $10.6 million a year ago, gross margin over 27%, backlog $177.1 million of which the data center sector is approximately 90%.",
+       "figure": "revenue $174 million (+14% Y/Y); data center segment $23.2 million; operating lease gross margin 84%; engineering backlog $177.1 million",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Riot Platforms Q2 FY2026 (08-10-2026)",
+       "signal": "Frontier AI lab lease at Rockdale (CEO Jason Les): executed after quarter end directly with one of the world's leading frontier AI labs (not named) for 191 MW of critical IT capacity in a custom-built Tier III data center; 20-year term expected to generate approximately $9.1 billion in total contract revenue (approximately $16.1 billion with two five-year extensions) and an estimated $7.3 billion-$8.2 billion of NOI at an 80%-90% NOI margin; illustrative capex $11 million-$12 million per IT megawatt ($2.1 billion-$2.3 billion). Phase 1 of 96 MW with rent commencing December 2027, full deployment June 2028; Yates Construction is general contractor. Together with AMD, Riot has approximately $9.8 billion of contracted data center revenue on 241 MW.",
+       "figure": "191 MW; ~$9.1 billion over 20 years (~$16.1 billion with extensions); 96 MW December 2027, full June 2028; ~$9.8 billion contracted in total",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Riot Platforms Q2 FY2026 (08-10-2026)",
+       "signal": "Power and pipeline (CEO): Corsicana's 1 GW of fully approved utility power on Riot-owned land (potential 756 MW of critical IT capacity) is under a non-binding letter of intent with a single tenant for the entire site, in advanced commercial and design discussions - a full-site lease would mean in excess of $1 billion in annual rent at full deployment; Riot has approximately 1 GW of capacity contracted or in advanced discussions, over 2 GW of utility power, and 700 MW at Rockdale. Rockdale and Corsicana are not subject to the ERCOT batch process because their power is under existing interconnection agreements; transformers for the new Rockdale building are already secured.",
+       "figure": "Corsicana 1 GW (756 MW critical IT) under LOI; ~1 GW contracted or in advanced discussions; >2 GW utility power",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Riot Platforms Q2 FY2026 (08-10-2026)",
+       "signal": "Vertical integration (CFO / CEO): ESS Metron manufactures low and medium voltage switchgear and power distribution units, among the most severely constrained long-lead components in the data center supply chain; a 25% increase in manufacturing capacity came online in 2026 and capacity is held back for Riot's own data center growth. ESS Metron and E4A are integrated into the delivery plans for both AMD and the frontier AI lab build-out.",
+       "figure": "25% manufacturing capacity increase",
+       "topics": [
+        "supply_tightness"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

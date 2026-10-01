@@ -1,0 +1,66 @@
+{
+ "source": "Yamaha Motor business briefing: SEMI Business Briefing Session (09-10-2026)",
+ "new_nodes": {
+  "Yamaha Motor": {
+   "ticker": "7272.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Its subsidiary Yamaha Robotics (formerly Shinkawa, integrated with Apic Yamada and PFA) sells flip-chip / TCB bonders and advanced molding systems for HBM and advanced packaging; the SEMI business targets over 50 billion yen revenue by 2027 on AI and HBM demand.",
+   "evidence": "Yamaha Motor SEMI Business Briefing Session (09-10-2026): 'Client evaluations are progressing for high-precision models designed for next-generation HBM'; flip-chip bonders and molding systems 'Enabling higher HBM stacking'.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group low_ai_share)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Yamaha Motor",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "SHINKAWA-series flip-chip / TCB bonders and APIC YAMADA advanced molding systems for HBM stacking and advanced packaging (Yamaha Robotics)",
+     "quarterly_data": [
+      {
+       "quarter": "Yamaha Motor business briefing: SEMI Business Briefing Session (09-10-2026)",
+       "signal": "Yamaha Robotics (renamed from Shinkawa Ltd. on July 1, 2019; renamed Yamaha Robotics Co., Ltd. on July 1, 2025 after a four-company integration combining Shinkawa, Apic Yamada and PFA) is the core company of Yamaha Motor's SEMI (semiconductor back-end equipment) business, with approximately 1,400 employees. Medium-term plan target: over 50 billion yen SEMI revenue by 2027 and more than 100 billion yen in the long term (earn in core mainstream areas, grow via AI / HBM / advanced packaging, create new areas such as silicon photonics).",
+       "figure": "Over 50 billion yen SEMI revenue by 2027; more than 100 billion yen long term",
+       "topics": [
+        "hbm"
+       ],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Yamaha Motor business briefing: SEMI Business Briefing Session (09-10-2026)",
+       "signal": "President Ryosuke Nakamura (Yamaha Robotics): client evaluations are progressing for high-precision flip-chip bonder models designed for next-generation HBM, and models supporting panel-level packaging have been introduced; the flip-chip bonders and molding systems are presented as enabling higher HBM stacking, greater precision, higher throughput and improved yield. In advanced molding the company has begun receiving orders for models supporting next-generation panel-level packaging, and client evaluations of its new Zero-CCM mold technology are progressing.",
+       "figure": "no specific figure",
+       "topics": [
+        "hbm",
+        "packaging_substrate"
+       ]
+      },
+      {
+       "quarter": "Yamaha Motor business briefing: SEMI Business Briefing Session (09-10-2026)",
+       "signal": "Management: by fiscal 2025, growth areas such as advanced semiconductors became the main driver of the SEMI business, after early investments in flip-chip bonders and advanced molding systems; the Robotics business posted 107.4 billion yen revenue in fiscal 2025 and a double-digit operating profit margin is in view for the full-year forecast. Nakamura: driven by generative AI, the semiconductor back-end market has entered a phase of medium- to long-term growth, with growing demand from generative AI, HBM and optical transceiver markets; management views this as a long-term structural shift, not a temporary cyclical trend.",
+       "figure": "Robotics revenue 107.4 billion yen (fiscal 2025)",
+       "topics": []
+      },
+      {
+       "quarter": "Yamaha Motor business briefing: SEMI Business Briefing Session (09-10-2026)",
+       "signal": "Core-area platforms launched last year, the UTC-RZ1 high-speed wire bonder and the MS-R Series multi-process molding system, have begun making full-scale contributions to revenue, with growing demand for several products for AI data centers and optical transceivers. The profitability plan includes expanding production capacity at the Nagano plant and increasing utilization at the Thailand facility.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "Yamaha Motor business briefing: SEMI Business Briefing Session (09-10-2026)",
+       "signal": "New area: Yamaha Robotics is developing high-speed active alignment solutions for silicon photonics optical connections (transceiver / LPO 200 Gbps to 1.6 Tbps, NPO 800 Gbps to 3.2 Tbps, CPO 6.4 Tbps or more), aiming to take projects from research purposes through to mass production.",
+       "figure": "no specific figure",
+       "topics": [
+        "silicon_photonics"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

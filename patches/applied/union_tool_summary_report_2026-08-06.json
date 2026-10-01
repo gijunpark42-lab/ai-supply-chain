@@ -1,0 +1,50 @@
+{
+ "source": "Union Tool summary report: Consolidated Financial Results for the First Half of FY2026 (08-06-2026)",
+ "new_nodes": {
+  "Union Tool": {
+   "ticker": "6278.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "PCB drill maker whose ULF-coated drills are used to drill package substrates; demand for package substrates for data center servers drives its sales, so its stock benefits from AI package-substrate build-out",
+   "evidence": "Union Tool H1 FY2026 summary report: 'demand for package substrates for data center servers and high-layer-count PCBs continued to grow above the previous year's level, mainly in China and Taiwan'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group weak_evidence)"
+  }
+ },
+ "chains": {
+  "manufacturing/packaging_substrate.json": {
+   "players": [
+    {
+     "company": "Union Tool",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "PCB drills, incl. ULF-coated drills used to drill semiconductor package substrates, and long-flute drills",
+     "quarterly_data": [
+      {
+       "quarter": "Union Tool summary report: Consolidated Financial Results for the First Half of FY2026 (08-06-2026)",
+       "signal": "H1 FY2026 (January-June 2026): net sales ¥27,055 million (+48.3% YoY), operating profit ¥7,595 million (+81.4%), ordinary profit ¥8,034 million (+109.4%), profit attributable to owners of parent ¥5,962 million (+108.7%); both net sales and operating profit reached record highs for a first half. The company cites higher sales of high-quality products plus lower production costs from expanded capacity and higher utilization rates.",
+       "figure": "net sales ¥27,055 million (+48.3%); operating profit ¥7,595 million (+81.4%)",
+       "topics": []
+      },
+      {
+       "quarter": "Union Tool summary report: Consolidated Financial Results for the First Half of FY2026 (08-06-2026)",
+       "signal": "Company: demand for data centers, particularly AI servers, increased significantly, driven by hyperscalers' expanded AI infrastructure investment. In Asia excluding Japan, demand for package substrates for data center servers and high-layer-count PCBs continued to grow, mainly in China and Taiwan; Asia net sales ¥17,626 million (+63.2%), operating profit ¥3,048 million (+131.5%). In Japan, to meet generative-AI-related demand, the company expanded production capacity by launching a satellite plant and reviewing factory layouts; Japan net sales ¥17,287 million (+41.5%), operating profit ¥4,477 million (+101.1%).",
+       "figure": "Asia ex-Japan net sales ¥17,626 million (+63.2%); Japan net sales ¥17,287 million (+41.5%)",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Union Tool summary report: Consolidated Financial Results for the First Half of FY2026 (08-06-2026)",
+       "signal": "Revised FY2026 (year ending December 31, 2026) forecast: net sales ¥56,100 million (+39.7%), operating profit ¥16,800 million (+92.5%), ordinary profit ¥17,400 million (+113.9%), profit attributable to owners of parent ¥12,300 million (+101.2%); revised from the forecast announced May 13, 2026 on recent performance trends.",
+       "figure": "FY2026 net sales forecast ¥56,100 million (+39.7%); operating profit ¥16,800 million (+92.5%)",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

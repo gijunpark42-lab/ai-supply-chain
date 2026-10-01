@@ -1,0 +1,64 @@
+{
+ "source": "GDS Holdings Q2 FY2026 (08-13-2026)",
+ "new_nodes": {
+  "GDS Holdings": {
+   "ticker": "GDS",
+   "exchange": "NASDAQ",
+   "country": "CN",
+   "why": "Leading Chinese hyperscale data center developer/operator; AI-driven demand from China's three largest hyperscale customers and emerging AI leaders drove record bookings (470 MW in H1 2026) under binding take-or-pay contracts.",
+   "evidence": "GDS Holdings Q2 FY2026 (08-13-2026), CEO William Huang: 'AI is transforming our business... In the second quarter, we achieved 260 MW of new bookings, bringing our total for the first half of 2026 to a record 470 MW... We won significant new business from each of the three largest hyperscale customers.'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "GDS Holdings",
+     "layer": "cloud_infra",
+     "sector": "Datacenter Colocation",
+     "product": "Hyperscale data centers in China leased under binding take-or-pay commitments to China's largest hyperscalers and emerging AI companies (established tier-1 markets plus new campuses in Ulanqab and Horinger, Inner Mongolia, Shaoguan, Guangdong, and Zhongwei, Ningxia)",
+     "quarterly_data": [
+      {
+       "quarter": "GDS Holdings Q2 FY2026 (08-13-2026)",
+       "signal": "Pro forma adjusted EBITDA (excluding Q1 2026 one-time items and monetized assets) increased by 12.7% in the first half of 2026; net move-in of 145 MW in H1 2026.",
+       "figure": "H1 pro forma adj EBITDA +12.7%; 145 MW net move-in",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "GDS Holdings Q2 FY2026 (08-13-2026)",
+       "signal": "Raised full-year 2026 sales (bookings) target to 1 GW (from 500 MW last quarter) and revised up full-year revenue and adjusted EBITDA guidance; implied pro forma adjusted EBITDA growth of 6.5% at the midpoint. Capex paid guidance raised from RMB 9 billion to RMB 10 billion, mostly in the second half. Move-in forecast of another 90 MW in H2 for 235 MW in 2026; 2027 move-in forecast to more than double 2026, heavily weighted to H2 2027, with another step-up in 2028. CFO expects 'a significant acceleration of EBITDA growth' and that in 2028 GDS will be 'a pretty high-growth company'.",
+       "figure": "2026 bookings target 1 GW; capex RMB 10 billion; 235 MW move-in in 2026",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "GDS Holdings Q2 FY2026 (08-13-2026)",
+       "signal": "Record bookings: 260 MW of new bookings in Q2, 470 MW in H1 2026, all under binding take-or-pay commitments with delivery up to four quarters after booking and a ramp-up usually another four quarters. H1 wins included significant new business from each of the three largest hyperscale customers and first relationships with emerging AI leaders (inference workloads); around half of H1 bookings came from established markets, the rest from new markets (Ulanqab, Horinger, Shaoguan). Backlog rose from 450 MW at the start of the year to 757 MW at mid-year (booked-not-billed adjusted EBITDA around RMB 1.6 billion at about RMB 2.2 million per MW) and is expected to exceed 1 GW by year-end.",
+       "figure": "260 MW Q2 bookings; 470 MW H1; backlog 757 MW",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "GDS Holdings Q2 FY2026 (08-13-2026)",
+       "signal": "Capacity: total binding commitments of over 2 GW at mid-year plus 600 MW of reservations secured this year (customers reserve deployable capacity at the same site; CEO says reservations have been exercised on a 100% basis over the last 12-18 months); over 1 GW of new reservations expected by year-end. Around 3 GW of developable capacity not yet committed or reserved, mostly in new markets. Unit capex for new capacity averages around RMB 20 million per MW. CEO: power quota is controlled by central and provincial governments and the government is 'quite selective', giving market leaders more allocation.",
+       "figure": "over 2 GW committed; 600 MW reservations; ~3 GW developable",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "GDS Holdings Q2 FY2026 (08-13-2026)",
+       "signal": "CEO on demand drivers: China's tech giants and emerging AI leaders adopting advanced agentic models have driven 'a structural upgrade in the demand for computing power'; domestic GPU supply 'is catching up' after lagging in recent quarters, and a large share of new orders is CPU-driven traditional cloud. Move-in mix is roughly 50/50 GPU versus CPU, with GPU possibly a little higher next year. CFO: MSR in Q4 2026 forecast down 3% versus Q4 2025 from location mix and legacy contract repricing, with tier-1 and new-market pricing described as stable.",
+       "figure": "~50/50 GPU/CPU move-in mix; MSR -3%",
+       "topics": [
+        "supply_tightness"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

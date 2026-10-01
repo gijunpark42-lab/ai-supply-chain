@@ -1,0 +1,65 @@
+{
+ "source": "ShunSin Technology annual financial report: 2025 consolidated financial statements (03-11-2026)",
+ "new_nodes": {
+  "ShunSin Technology": {
+   "ticker": "6451.TW",
+   "exchange": "TWSE",
+   "country": "TW",
+   "why": "Foxconn-group (59.52%-held) assembly and test company whose subsidiaries in Zhongshan and Vietnam manufacture high-speed optical fiber transceiver modules; 2025 revenue rose to NT$7,531,930 thousand from NT$5,188,000 thousand.",
+   "evidence": "ShunSin 2025 consolidated financial statements (03-11-2026): subsidiaries ShunYun Zhongshan, ShunYun Hanoi and ShunYun Bac Giang are listed as high-speed optical fiber transceiver module manufacturers; sales to the ultimate controlling party Hon Hai were NT$386,372 thousand.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group affiliate)"
+  }
+ },
+ "chains": {
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "ShunSin Technology",
+     "layer": "interconnect",
+     "sector": "Components",
+     "product": "High-speed optical transceiver module manufacturing (Zhongshan, Hanoi and Bac Giang plants) plus IC / module assembly and test",
+     "connects_to": [
+      {
+       "company": "Foxconn",
+       "relationship": "Related-party product sales to parent group Hon Hai (Foxconn holds 59.52% of ShunSin)",
+       "contracts": [
+        {
+         "source": "ShunSin Technology annual financial report: 2025 consolidated financial statements (03-11-2026)",
+         "signal": "Related-party sales: sales to the ultimate controlling party Hon Hai Precision Industry were NT$386,372 thousand in 2025 versus NT$17,519 thousand in 2024, on price terms not significantly different from other customers; Foxconn (Far East) Limited, the parent, holds 59.52% of ShunSin's outstanding shares.",
+         "units": "no specific figure",
+         "value": "NT$386,372 thousand (2025)",
+         "date_signed": "2025",
+         "type": "related-party sales",
+         "topics": []
+        }
+       ]
+      }
+     ],
+     "quarterly_data": [
+      {
+       "quarter": "ShunSin Technology annual financial report: 2025 consolidated financial statements (03-11-2026)",
+       "signal": "2025 audited consolidated operating revenue was NT$7,531,930 thousand versus NT$5,188,000 thousand in 2024; gross profit NT$1,218,376 thousand (16% of revenue) versus NT$683,598 thousand (13%).",
+       "figure": "2025 revenue NT$7,531,930 thousand (2024: NT$5,188,000 thousand); gross margin 16% (2024: 13%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "ShunSin Technology annual financial report: 2025 consolidated financial statements (03-11-2026)",
+       "signal": "The group's main business is assembly, testing and sale of integrated-circuit products (one reportable segment). Subsidiaries ShunYun Zhongshan (78.05% held), ShunYun Technology (Ha Noi, Vietnam) and ShunYun Technology (Bac Giang, Vietnam) manufacture high-speed optical fiber transceiver modules, and ShunYun Cayman sells them.",
+       "figure": "ShunYun Zhongshan 78.05% held; Hanoi and Bac Giang plants 100% held",
+       "topics": [
+        "optical_speed"
+       ]
+      },
+      {
+       "quarter": "ShunSin Technology annual financial report: 2025 consolidated financial statements (03-11-2026)",
+       "signal": "Customers above 10% of revenue (names not disclosed): Customer A NT$3,622,665 thousand in 2025 (2024: NT$2,131,512 thousand), Customer B NT$832,885 thousand (NT$246,745 thousand), Customer C NT$459,363 thousand (NT$615,566 thousand). 2025 revenue by customer location: United States NT$3,834,737 thousand, China NT$1,685,805 thousand, Singapore NT$949,453 thousand, Taiwan NT$619,773 thousand.",
+       "figure": "Customer A NT$3,622,665 thousand; Customer B NT$832,885 thousand; Customer C NT$459,363 thousand (2025)",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

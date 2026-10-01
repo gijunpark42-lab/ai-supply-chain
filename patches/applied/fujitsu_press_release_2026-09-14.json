@@ -1,0 +1,46 @@
+{
+ "source": "Fujitsu press release: Fujitsu launches next-generation CPU FUJITSU-MONAKA (09-14-2026)",
+ "new_nodes": {
+  "Fujitsu": {
+   "ticker": "6702.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "designs and sells the FUJITSU-MONAKA server CPU (standalone to cloud / data center operators and server vendors from November 2026) and MONAKA servers for AI inference",
+   "evidence": "Fujitsu press release 09-14-2026: 'Fujitsu Limited today announced that it will begin global sales of its next-generation CPU, FUJITSU-MONAKA ... starting November 2026. This will include sales of the processor as a standalone product to cloud and data center operators and server vendors.'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "Fujitsu",
+     "layer": "compute_hardware",
+     "sector": "Server CPU",
+     "product": "FUJITSU-MONAKA datacenter CPU (2nm core / 5nm cache-I/O, 3D-stacked), sold standalone and in Fujitsu MONAKA Server",
+     "quarterly_data": [
+      {
+       "quarter": "Fujitsu press release: Fujitsu launches next-generation CPU FUJITSU-MONAKA (09-14-2026)",
+       "signal": "Fujitsu will begin global sales of its next-generation CPU FUJITSU-MONAKA starting November 2026, including sales of the processor as a standalone product to cloud and data center operators and server vendors. The made-in-Japan Fujitsu MONAKA Server (2U with two CPUs, 1U with one or two CPUs) will be sold from November 2026 to data center operators, enterprises, academic / HPC and defense customers in Japan and Europe; servers are manufactured at Fujitsu's Kasashima Plant.",
+       "figure": "global CPU sales from November 2026",
+       "topics": [
+        "cpu",
+        "product_launches"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Fujitsu press release: Fujitsu launches next-generation CPU FUJITSU-MONAKA (09-14-2026)",
+       "signal": "FUJITSU-MONAKA uses a 3D-stacked architecture with a 2nm process for the cores and a 5nm process for the cache and I/O sections, a maximum operating frequency of 3.8GHz and memory transfer speed of 8800MT/s, hardware acceleration for matrix operations, SVE2 vector operations and confidential computing. Fujitsu claims twice the AI inference throughput of other CPUs, halving the servers and power needed for equivalent loads; the 1U server runs air-cooled up to 40 degrees Celsius ambient or water-cooled up to 45 degrees Celsius and, per Fujitsu, cuts server cooling power by up to 80%.",
+       "figure": "2nm / 5nm; 3.8GHz; 8800MT/s; claimed 2x AI inference throughput",
+       "topics": [
+        "cpu"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

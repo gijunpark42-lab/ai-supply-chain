@@ -1,0 +1,58 @@
+{
+ "source": "Ushio results presentation: Financial Results for the First Three Months of FY2026 (08-04-2026)",
+ "new_nodes": {
+  "Ushio": {
+   "ticker": "6925.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Sells lithography equipment for advanced packaging and package substrates (UX-5 steppers, direct imaging lithography, DLT maskless systems); AI-server substrate and advanced-packaging demand drives its orders.",
+   "evidence": "Ushio 3M FY2026 results presentation (08-04-2026): 'In PCB substrates, demand for thick and heavy substrate applications centered on AI servers is increasing'; 'Adoption progressing at major substrate manufacturers'.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group low_ai_share)"
+  }
+ },
+ "chains": {
+  "manufacturing/packaging_substrate.json": {
+   "players": [
+    {
+     "company": "Ushio",
+     "layer": "equipment",
+     "sector": "Lithography",
+     "product": "Lithography equipment for advanced packaging and package substrates: UX-5 steppers, direct imaging (DI) lithography equipment and DLT maskless lithography systems",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Ushio results presentation: Financial Results for the First Three Months of FY2026 (08-04-2026)",
+       "signal": "3M FY2026 (April-June 2026): net sales JPY 48.9 billion (+27.7%), operating profit JPY 4.9 billion (+410.5%), above the internal plan. Industrial Processes sales 20.5 billion yen (+29.9%); lithography equipment sales 3.6 vs 3.8 (-5.3%) as stepper sales declined on the timing of customer acceptance; increased demand for lithography equipment led to a reversal of valuation losses (+JPY 1.0 billion).",
+       "figure": "Net sales JPY 48.9 billion (+27.7%); lithography equipment sales JPY 3.6 billion (-5.3%)",
+       "topics": []
+      },
+      {
+       "quarter": "Ushio results presentation: Financial Results for the First Three Months of FY2026 (08-04-2026)",
+       "signal": "Lithography equipment for advanced packaging: UX-5 stepper orders and inquiries are increasing, reflecting a focus on mass-production stability, supporting sales expansion from the next fiscal year; adoption is progressing at major substrate manufacturers. DLT systems: informal approval of adoption for mass-production use obtained from some customers (new), with increased earnings contribution expected from FY2027 and full-scale mass-production adoption from FY2028 onward. DI lithography: demand for thick and heavy PCB substrates centered on AI servers is increasing, and demand for high-density package substrates is rising with optical modules.",
+       "figure": "no specific figure",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Ushio results presentation: Financial Results for the First Three Months of FY2026 (08-04-2026)",
+       "signal": "Ushio's DLT system (with Applied Materials) is a maskless digital-micromirror lithography tool for advanced substrates: resolution 1μm to 5μm, overlay ±0.35μm, maximum substrate size 510mm×515mm.",
+       "figure": "Resolution 1μm to 5μm; overlay ±0.35μm; max substrate 510mm×515mm",
+       "topics": [
+        "packaging_substrate"
+       ]
+      },
+      {
+       "quarter": "Ushio results presentation: Financial Results for the First Three Months of FY2026 (08-04-2026)",
+       "signal": "FY2026 (year to March 2027) forecast unchanged: net sales JPY 210.0 billion (+17.2%), operating profit JPY 14.0 billion; Industrial Processes sales 92.5 billion yen. Lithography equipment sales are expected to grow in the second half (H2 weighted); the company says forecasts are under review for uncertainties such as material costs and geopolitical risks.",
+       "figure": "Net sales JPY 210.0 billion; operating profit JPY 14.0 billion",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

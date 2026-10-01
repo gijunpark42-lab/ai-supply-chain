@@ -1,0 +1,69 @@
+{
+ "source": "Solaris Energy Infrastructure Q2 FY2026 (08-06-2026)",
+ "new_nodes": {
+  "Solaris Energy Infrastructure": {
+   "ticker": "SEI",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "supplies behind-the-meter natural-gas turbine power (plus balance of plant and batteries) to data centers under long-term contracts with three investment-grade technology companies (~2.3 GW under long-term contract)",
+   "evidence": "Solaris Energy Infrastructure Q2 FY2026 (08-06-2026), Chairman/Co-CEO Bill Zartler: we continue to provide dedicated power at scale to two data centers ... resulted in the execution of long-term contracts with three leading investment-grade technology companies",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Solaris Energy Infrastructure",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "behind-the-meter natural-gas turbine power generation with balance of plant, batteries and O&M for data centers (Power Solutions)",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Solaris Energy Infrastructure Q2 FY2026 (08-06-2026)",
+       "signal": "Q2 2026 (CFO Steve Tompsett): revenue approximately $219 million, up 12% sequentially; adjusted EBITDA approximately $108 million, up 30% sequentially; net income $25 million. Power Solutions averaged approximately 950 MW of capacity earning revenue (up 4% from approximately 910 MW in Q1); segment revenue approximately $158 million, up 23%, segment adjusted EBITDA approximately $96 million, up 34%, driven primarily by ancillary service revenue. Logistics revenue $61 million, down 10%.",
+       "figure": "revenue ~$219 million (+12% Q/Q); adjusted EBITDA ~$108 million (+30%); ~950 MW earning revenue",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Solaris Energy Infrastructure Q2 FY2026 (08-06-2026)",
+       "signal": "Guidance (CFO): Q3 2026 adjusted EBITDA guidance raised to $90 million-$105 million, reflecting the GESA acquisition; initial Q4 2026 adjusted EBITDA guidance $100 million-$120 million, reflecting the energization ramp at the Stateline joint venture and the first location for its third hyperscaler customer; guidance excludes potential additional ancillary services.",
+       "figure": "Q3 adjusted EBITDA $90 million-$105 million; Q4 $100 million-$120 million",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Solaris Energy Infrastructure Q2 FY2026 (08-06-2026)",
+       "signal": "Data-center contracts (Co-CEO Amanda Brock): long-term contracts with three investment-grade technology companies, two executed in the last six months. In July an existing power capacity agreement was converted into a capacity and operating agreement adding balance of plant, batteries and full O&M for a turnkey 660 MW power plant, with the term extended to up to 18 years (10-year base plus eight-year option); civil construction began in July, more than 70% of the equipment is already available, and revenue starts in January 2027. The April contract with the third investment-grade technology customer was expanded from 640 MW of generation to include balance of plant, energy storage and natural-gas procurement on a cost-plus basis; its first deployment is under construction with energization expected next month. An energy customer told its grid interconnect is seven to eight years away raised capacity from 60 MW to approximately 80 MW and extended the term from four to six years. Bill Zartler: about 2.3 GW is under long-term contract.",
+       "figure": "660 MW turnkey plant (up to 18 years, revenue from January 2027); 640 MW contract expanded; ~2.3 GW under long-term contract",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Solaris Energy Infrastructure Q2 FY2026 (08-06-2026)",
+       "signal": "Capacity and demand: approximately 800 MW of open capacity with nearer-term delivery timelines plus line of sight to more via OEM channels and the secondary market (Amanda Brock); active negotiations for multiple gigawatts of additional demand with multiple hyperscalers and AI compute companies (Bill Zartler). Bill Zartler: demand for islanded behind-the-meter power remains exceptionally strong, driven by grid interconnection delays, speed to compute and regulatory focus on consumer prices, and there is more demand for compute than there is compute and power; the logistics business is effectively sold out of its top-fill equipment.",
+       "figure": "~800 MW open capacity; multiple GW in negotiation",
+       "topics": [
+        "power_cooling",
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Solaris Energy Infrastructure Q2 FY2026 (08-06-2026)",
+       "signal": "Acquisitions and investments (President Kyle Ramachandran / Bill Zartler): acquired Global Energy Services Alliance (GESA, formed from Baseload Power and Pro-Per Energy Services) in early July, adding installation, commissioning, O&M, repair and refurbishment across aero-derivative, heavy-duty industrial, hydroelectric and steam turbines and bringing Solaris to over 600 people installing, commissioning, operating and maintaining power infrastructure; earlier added an SCR manufacturer investment and Solaris Power Distribution Services. Equity investment in SMR developer Deployable Energy, which has achieved criticality under a Department of Energy program. Bill Zartler on turbine wear at data centers: all its turbines are in great shape; pairing turbines with a buffer such as a battery or fuel cell manages the load dynamics.",
+       "figure": "over 600 people after GESA",
+       "topics": [
+        "power_cooling"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

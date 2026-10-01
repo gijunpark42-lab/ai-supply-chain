@@ -1,0 +1,86 @@
+{
+ "source": "Neosem Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "Neosem": {
+   "ticker": "253590",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "makes SSD testers (PCIe Gen5 / Gen6 enterprise SSD), CXL memory testers and memory burn-in testers (MBT, CLT, BX incl. HBM burn-in) sold to global memory makers; 96.18% of revenue is tester products",
+   "evidence": "DART half-year report 08-14-2026: the company's back-end test equipment business covers SSD testers for consumer to data-center enterprise SSDs (PCIe Gen5 and Gen6), CXL memory testers and MBT burn-in testers for DRAM and NAND; the BX burn-in tester can burn-in test HBM",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/nand_flash.json": {
+   "players": [
+    {
+     "company": "Neosem",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "SSD testers for enterprise / data-center SSDs (CPU-based PCIe Gen5 and Gen6 NVMe, SAS, SATA) and SSD automation test systems",
+     "quarterly_data": [
+      {
+       "quarter": "Neosem Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 half-year report (DART, filed 08-14-2026, consolidated): H1 revenue KRW 50,516,983,054 vs KRW 31,201,745,031 in H1 2025; H1 operating profit KRW 12,015,306,259 vs KRW 2,018,118,714. Q2 alone: revenue KRW 36,000,174,211 (Q2 2025: KRW 16,326,681,894), operating profit KRW 11,417,108,684 (Q2 2025: KRW 494,518,119). Product revenue: SSD testers KRW 27,328M, burn-in testers KRW 21,261M; exports KRW 46,028M of KRW 50,517M total. By customer headquarters: US KRW 44,624,662 thousand, Korea KRW 4,721,263 thousand, Taiwan KRW 847,397 thousand, Thailand KRW 323,661 thousand.",
+       "figure": "H1 revenue KRW 50,516,983,054 (H1 2025 KRW 31,201,745,031); H1 OP KRW 12,015,306,259 (H1 2025 KRW 2,018,118,714); Q2 revenue KRW 36,000,174,211, Q2 OP KRW 11,417,108,684",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Neosem Q2 FY2026 (08-14-2026)",
+       "signal": "Order backlog (disclosed orders still open): six orders for semiconductor test equipment placed 2026-02-10 to 2026-05-27 worth USD 28,463 thousand, of which USD 2,203 thousand delivered and USD 26,260 thousand outstanding (largest USD 7,653 thousand ordered 2026-05-27, due 2026-10-31), plus a CLT interface board order of KRW 6,899M (2026-05-28, due 2026-09-30). A further single sales / supply contract of KRW 8,600M was disclosed on 2026-07-08 (equipment in production). The company notes undisclosed orders below 5% of prior-year revenue are excluded, and that delays in parts supply may delay part of the 2026-02-10 order.",
+       "figure": "Disclosed backlog USD 26,260 thousand + KRW 6,899M; new contract KRW 8,600M (2026-07-08)",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Neosem Q2 FY2026 (08-14-2026)",
+       "signal": "Capacity: annual capacity of 288 SSD testers and 20 burn-in testers; H1 2026 production was 45 SSD testers and 20 burn-in testers (FY2025: 86 and 10). Inventories rose to KRW 21,569,784,829 from KRW 7,777,800,100 at the start of the year (work in process KRW 12,861,205 thousand before allowance). To expand capacity and add a dedicated automation-equipment line, the company bought land in July 2025 for a new plant in Pyeongtaek (construction in progress KRW 7,989,833 thousand); design is under way, a builder is to be chosen in H2 and completion is targeted within 2027.",
+       "figure": "Capacity 288 SSD testers + 20 burn-in testers; H1 output 45 + 20; new plant targeted 2027",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Neosem Q2 FY2026 (08-14-2026)",
+       "signal": "SSD tester generations and outlook: the company began volume supply of CPU-based Gen4 SSD testers in 2019, developed what it calls the world's first CPU-based Gen5 SSD tester in 2021 and commercialised what it calls the world's first Gen6 SSD tester in 2025. Gen5 SSD testers provide stable revenue as the Gen5 market expands, and Gen6 SSD testers are being supplied to major customers as Gen6 SSDs enter production. After Advantest exited the SSD tester and burn-in tester business, replacement and new demand is shifting to new suppliers; the company says it holds a leading position in Gen5 SSD test while Gen6 competition is intensifying. Management expects demand for related test equipment to grow with full Gen6 SSD adoption and AI data-center high-capacity storage demand, and expects stable mid-to-long-term growth.",
+       "figure": "no specific figure",
+       "topics": [
+        "nand_storage",
+        "transitions"
+       ],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Neosem Q2 FY2026 (08-14-2026)",
+       "signal": "Customer concentration: two unnamed customers each above 10% of revenue -- major customer 1 KRW 28,624,406 thousand of H1 2026 revenue (H1 2025: KRW 1,956,016 thousand) and major customer 2 KRW 14,957,205 thousand (H1 2025: KRW 19,668,487 thousand). The US subsidiary serves global chipmakers headquartered in North America whose production bases are in Taiwan and elsewhere in Asia; the company says its broad customer base of global memory makers lowers its dependence on any single customer.",
+       "figure": "Major customer 1 KRW 28,624,406 thousand; major customer 2 KRW 14,957,205 thousand",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Neosem",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "memory burn-in testers (MBT, CLT, BX burn-in tester capable of HBM burn-in) and CXL memory testers (CXL 1.1 / 2.0 / 3.1)",
+     "quarterly_data": [
+      {
+       "quarter": "Neosem Q2 FY2026 (08-14-2026)",
+       "signal": "Memory burn-in and CXL testers: burn-in tester revenue was KRW 21,261M in H1 2026 (exports KRW 18,546M, domestic KRW 2,715M) vs KRW 12,761M for all of FY2025. The MBT tests DRAM and NAND under high-temperature, high-load conditions; the CLT combines burn-in and low-frequency test in one tool and supply to major customers is expanding, focused on DDR5; the BX burn-in tester can burn-in test HBM and other high-performance memory. In CXL memory the company commercialised what it calls the world's first CXL 1.1 memory tester in 2023, supplied CXL 2.0 test equipment in 2024 and developed a CXL 3.1 memory tester that has won orders and revenue, with supply to global customers expanding. 2026 R&D includes AI-accelerator test equipment and automation testers for SSD, server DIMM and SOCAMM2 modules; H1 R&D spend KRW 4,042M (8.00% of revenue).",
+       "figure": "Burn-in tester revenue KRW 21,261M (H1 2026) vs KRW 12,761M (FY2025); H1 R&D KRW 4,042M",
+       "topics": [
+        "product_launches"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "source": "Dexerials results briefing transcript: Q1 FY2026 Financial Results Briefing (08-05-2026)",
+ "new_nodes": {
+  "Dexerials": {
+   "ticker": "4980.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Makes InP high-speed response photodiodes (100G and 200G per lane) and monitor photodiodes sold to a major optical transceiver manufacturer for data centers; photonics sales and the new Tome plant ramp grow with AI optical-transceiver demand.",
+   "evidence": "Dexerials Q1 FY2026 results briefing (08-05-2026): 'In optical semiconductors, sales of highspeed response photodiodes to a major optical transceiver manufacturer expanded'; Tome began 100-Gbps-per-lane production in April, 200-Gbps-per-lane mass production scheduled for H2.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group low_ai_share)"
+  }
+ },
+ "chains": {
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "Dexerials",
+     "layer": "interconnect",
+     "sector": "Components",
+     "product": "InP high-speed response photodiodes (100G and 200G per lane) and monitor photodiodes for optical transceivers",
+     "quarterly_data": [
+      {
+       "quarter": "Dexerials results briefing transcript: Q1 FY2026 Financial Results Briefing (08-05-2026)",
+       "signal": "Q1 FY2026: net sales JPY27.1 billion and business profit JPY8.2 billion, up from the same period last year (excluding foreign exchange, revenue and profit declined); progress is exceeding initial expectations, and the FY2026 forecast is unchanged at net sales JPY123 billion and business profit JPY40 billion.",
+       "figure": "Q1 net sales JPY27.1 billion; business profit JPY8.2 billion; FY2026 forecast net sales JPY123 billion, business profit JPY40 billion",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Dexerials results briefing transcript: Q1 FY2026 Financial Results Briefing (08-05-2026)",
+       "signal": "Optical semiconductors: sales of high-speed response photodiodes to a major optical transceiver manufacturer expanded; photonics sales rose on high-speed response photodiodes for data centers and monitor photodiodes for telecommunications equipment, while fixed costs rose with growth investments. Washimori (PR & IR): the company is focusing on its core (main) customer while working to expand its customer base. Mayumi (Corporate Strategy): photonics investments are expected to start contributing in H2 of the fiscal year.",
+       "figure": "no specific figure",
+       "topics": [],
+       "counterparty": "a major optical transceiver manufacturer (unnamed)",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "Dexerials results briefing transcript: Q1 FY2026 Financial Results Briefing (08-05-2026)",
+       "signal": "Tome (Miyagi) photodiode plant: production of the 100-Gbps-per-lane product began in April and shipments have started; mass production of the next-generation 200-Gbps-per-lane product is scheduled to begin in H2 of the fiscal year; Mayumi said the yield rate has remained higher than at Eniwa, Hokkaido.",
+       "figure": "100 Gbps per lane from April; 200 Gbps per lane mass production in H2",
+       "topics": [
+        "optical_speed"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Dexerials results briefing transcript: Q1 FY2026 Financial Results Briefing (08-05-2026)",
+       "signal": "Mayumi: production issues at some indium phosphide substrate suppliers have led to a temporary supply shortage, which the company expects to catch up with in its annual plan, while moving to a multi-source approach. Washimori: the tight substrate procurement may become more pronounced in Q2, a temporary impact on the 100 Gbps per lane product.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Dexerials results briefing transcript: Q1 FY2026 Financial Results Briefing (08-05-2026)",
+       "signal": "Kamata (Corporate Strategy): CPO network switches are quite likely to become a reality in 2027; long-distance scale-across applications should gain traction over about the next two years (around 2028), with 400 Gbps per lane / 3.2 Tbps transceivers on a similar timeline; preliminary estimates suggest demand around 2028 could be tens of times greater than current projections. Near term, silicon photonics will take off with silicon germanium first, and heterogeneous integration of indium phosphide could emerge within the next three years. Washimori: optical semiconductors are on track to meet the profitability target by 2028.",
+       "figure": "no specific figure",
+       "topics": [
+        "cpo",
+        "silicon_photonics"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}
