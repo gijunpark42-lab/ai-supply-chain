@@ -68,7 +68,7 @@ if os.path.exists(_fold_log):
         DO_NOT_ADD |= {line.split("\t")[3] for line in f if line.count("\t") >= 4}
 # Folded away on 2026-09-05 but explicitly re-approved as nodes by the user on 2026-10-01 (enrich waitlist run:
 # "아니야 걍 추가해" — add them anyway).
-DO_NOT_ADD -= {"Samsung SDI", "LG Energy Solution", "Lotte Energy Materials", "AES"}  # AES: overrides the earlier enrich-edgar ruling
+DO_NOT_ADD -= {"Samsung SDI", "LG Energy Solution", "Lotte Energy Materials"}  # AES stays out: added 10-01, removed by the user the same day (going private)
 DO_NOT_ADD_SQUASHED = {squash(n): n for n in DO_NOT_ADD}
 
 problems = 0
