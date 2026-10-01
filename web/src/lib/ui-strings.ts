@@ -550,6 +550,7 @@ export const UI: Record<string, Row> = {
   "conference": ["컨퍼런스", "会议", "カンファレンス"],
   "IR release": ["IR 보도자료", "IR 新闻稿", "IR リリース"],
   "IR deck": ["IR 자료", "IR 演示材料", "IR 資料"],
+  "TDnet filing": ["TDnet 공시", "TDnet 公告", "TDnet 開示"],
   "Run next": ["다음 실행", "下一步运行", "次に実行"],
   "Nothing is due. Every market is current and no queue holds work.": ["처리할 항목이 없습니다. 모든 시장이 최신 상태이며 대기열도 비어 있습니다.", "没有待办事项。所有市场均为最新，队列中没有任务。", "対応が必要なものはありません。すべての市場が最新で、キューも空です。"],
   "Copy \"{cmd}\"": ["\"{cmd}\" 복사", "复制 \"{cmd}\"", "\"{cmd}\" をコピー"],

@@ -281,6 +281,9 @@ earnings-ai/
 ├── cninfo.py                 # China A-shares (SZSE/SSE): IR activity records (投资者关系活动记录表, cninfo + SSE e互动) and the company's
 │                             #   answers on SZSE 互动易 / SSE e互动 → transcripts/cninfo/*.txt (management Q&A; part of `enrich china`)
 ├── cninfo/sync_state.json    # cninfo.py: per-company last sync, every item id handled (saved / skip:<why>), filter rules; cninfo/pending.json = queue
+├── tdnet.py                  # Japanese timely disclosures from TSE TDnet (決算短信, forecast revisions, capex, plans, deals, M&A;
+│                             #   English version preferred; TDnet keeps only 31 days) → transcripts/tdnet/*.txt (`enrich tdnet`, part of `enrich japan`)
+├── tdnet/sync_state.json     # tdnet.py: last sync, runs (skip reasons), every doc id seen with its status; tdnet/pending.json = filings not yet enriched
 ├── ir/feeds.json             # company → IR source: RSS, HTML list page (kind page) or JSON endpoint (kind json); ir/sync_state.json + ir/pending.json GENERATED
 ├── verify_queue.json         # labels applied but not yet through the Opus verifier; auto-verify at 5+ (enrich skill rule 7)
 ├── investing/pending.json    # GENERATED — files saved by sync/conferences, not yet enriched (`enrich intl` rows = transcript, `enrich conference` rows = conference)
@@ -376,6 +379,7 @@ and follow it — do not improvise the procedure from this table.**
 | `enrich us` / `enrich korea` / `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | `enrich` → `references/markets.md` | One home market, every source that serves it, in order (calls → filings → conferences → IR releases); `enrich us` is daily and excludes SEC filings (`enrich edgar`, weekly). |
 | `enrich dart` | `enrich` → `references/dart.md` | Workflow 2b — Korean names via DART (정기보고서 / 잠정실적 / 공급계약), English-only rule, read-every-line rule. |
 | `enrich kind` | `enrich` → `references/kind.md` | Korean IR presentations (decks) from the KRX KIND IR library via `kind.py sync → pending → done`; company documents, English entries, never `revenue_growth`. Also a step of `enrich korea`. |
+| `enrich tdnet` | `enrich` → `references/tdnet.md` | Japanese timely disclosures from TSE TDnet via `tdnet.py sync → pending → done` (results, forecast revisions, capex, plans, agreements, M&A; English version preferred; 31-day window); company documents, English entries, never `revenue_growth`. Also a step of `enrich japan`. |
 | `enrich us calls` | `enrich` → `references/us.md` | Workflow 2c — US calls only via Alpha Vantage (`av.py sync → pending → done`), defeatbeta fallback. |
 | `enrich intl` | `enrich` → `references/intl.md` | Workflow 2d — Taiwan/Japan/Europe/HK/China via Investing.com (`investing.py`). |
 | `enrich tw` | `enrich` → `references/tw.md` | Workflow 2e — Taiwan Chinese-language 法說會 via video + whisper (`tw.py`). |
