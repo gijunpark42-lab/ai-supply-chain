@@ -84,6 +84,9 @@ PIPELINES = [
      "dirs": ["transcripts/kr_calls"],           "state": "kind/sync_state.json",     "pending": "kind/pending.json",
      "pending_kind": "call",
      "source": "Samsung's official earnings-call script (kind.py)"},
+    {"id": "cninfo",     "name": "China IR records + investor Q&A", "command": "enrich china",
+     "dirs": ["transcripts/cninfo"],             "state": "cninfo/sync_state.json",   "pending": "cninfo/pending.json",
+     "source": "cninfo 投资者关系活动记录表 + SZSE 互动易 / SSE e互动 answers (cninfo.py) — management Q&A, not calls"},
     {"id": "manual",     "name": "Pasted transcripts",         "command": "Transcript:<company>",
      "dirs": [],                                 "state": None,                       "pending": None,
      "source": "URL / pasted text enriched directly in Claude Code"},
@@ -176,13 +179,16 @@ MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan"
 # The collectors that fetch each market's calls / filings. IR feeds and the conference listing
 # serve every market at once, so they are reported once ("shared collectors"), not per market.
 MARKET_COLLECTORS = {"US": ["us"], "KR": ["dart", "kind"], "TW": ["intl", "tw"], "JP": ["intl"],
-                     "EU": ["intl"], "CN": ["intl"], "other": ["intl"]}
-SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7, "kind": 3}   # days
+                     "EU": ["intl"], "CN": ["intl", "cninfo"], "other": ["intl"]}
+SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7, "kind": 3,
+              "cninfo": 7}   # days (SSE e互动 shows only about one month, so never let it slip past ~3 weeks)
 COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", "kind": "KIND IR deck sync (kind.py)",
+                   "cninfo": "China IR record / Q&A sync (cninfo.py)",
                    "intl": "Investing.com call sync (investing.py)", "tw": "Taiwan Chinese-call sync (tw.py)",
                    "edgar": "EDGAR pull (edgar_pull.py)", "ir": "IR feed sync (ir_pull.py)",
                    "conference": "conference listing (investing.py conferences)"}
 WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing", "kind": "IR deck", "krcalls": "call",
+                 "cninfo": "IR record / investor Q&A",
                  "conference": "conference", "ir": "IR release"}
 LIST_MAX = 12        # names printed per list on ENRICH_STATUS.md (the JSON keeps every name)
 
@@ -257,7 +263,7 @@ def own_sources(graph, label_pipeline, label_file):
                 kind = "call"
                 calls.add(day)
             else:
-                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind") else "other"
+                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "cninfo") else "other"
             latest[kind] = max(latest.get(kind, ""), day)
         out[company] = {"calls": sorted(calls), "latest": latest}
     return out
@@ -350,11 +356,11 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
         # A stale collector is a reason only where it can find something: US and Korea have their own
         # collectors (daily/every other day); the shared Investing.com sync counts for a market only when
         # that market already has calls in the graph (otherwise it is its first-time setup, not routine).
-        if key in ("US", "KR") or m["call_current"] or m["overdue"]:
+        if key in ("US", "KR", "CN") or m["call_current"] or m["overdue"]:
             for pid in MARKET_COLLECTORS[key]:
                 days, day = age(pid)
-                if pid == "intl" and intl_said:
-                    continue
+                if pid == "intl" and (intl_said or not (m["call_current"] or m["overdue"])):
+                    continue                     # China's own collector (cninfo) counts; Investing.com as before
                 if days is None or days > SYNC_EVERY[pid]:
                     reasons.append("%s last ran %s%s" % (
                         COLLECTOR_NAMES[pid], "%d days ago (%s)" % (days, day) if day else "never",
@@ -581,7 +587,7 @@ def build_enrich_status(graph=None):
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)
-        elif pid in ("kind", "krcalls"):
+        elif pid in ("kind", "krcalls", "cninfo"):
             row["last_sync"] = state.get("last_sync")
             row["extra"]["runs"] = state.get("runs", [])[-5:]
         elif pid == "ir":

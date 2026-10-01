@@ -34,7 +34,7 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 | `enrich` | The board's **Run next** list, top to bottom (refresh the board first). |
 | `enrich us` | Every US gap except SEC filings — calls (+ defeatbeta fallback), overdue / never-enriched companies, conference talks, IR releases. Meant to run daily. |
 | `enrich korea` | DART filings (+ backfill of Korean companies with no filing enriched), IR presentations and Samsung's official call script (`kind.py`: KRX KIND library + six large-cap IR sites), conference talks, IR releases. |
-| `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | That market's calls (Investing.com; Taiwan Chinese-language calls via tw.py), conference talks, IR releases. |
+| `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | That market's calls (Investing.com; Taiwan Chinese-language calls via tw.py), conference talks, IR releases; China also the A-share IR activity records and investor Q&A answers (`cninfo.py`). |
 | `enrich edgar` | SEC 8-K / 10-K / 10-Q (weekly; not part of `enrich us`). |
 | `enrich us calls` · `enrich dart` · `enrich kind` · `enrich intl` · `enrich tw` · `enrich conference` · `enrich ir` | One source, across every market it covers (reference table below). |
 | a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py`; others: the market's source) and state the call date before enriching. |
@@ -193,7 +193,7 @@ which slot:
 
 | Source | Slots |
 |---|---|
-| Earnings call, investor-conference talk (management speaking), DART periodic report | any — the ONE best entry per slot |
+| Earnings call, investor-conference talk (management speaking), DART periodic report, China IR activity record / investor Q&A (`cninfo.py`, management Q&A) | any — the ONE best entry per slot |
 | DART preliminary results (잠정실적) | `revenue_growth` only (the later periodic report supersedes it) |
 | DART supply contract with an undisclosed customer | `backlog_or_b2b` only |
 | 8-K | any, but only when newer than every same-slot entry of the company; otherwise none |
@@ -216,6 +216,8 @@ the key out when an entry fills no slot (never `"slot": null`). `utils/check_pat
 | Company IR press release (saved by `ir_pull.py` or by hand) | `[Company] press release: [headline, ≤ 60 chars] (MM-DD-YYYY)`; a non-English headline becomes `release <id from the URL>` | `Supermicro press release: Supermicro Now Shipping NVIDIA Vera Rubin NVL72 Racks (09-23-2026)` |
 | Korean IR presentation from KRX KIND (`kind.py`) | `[Company] IR presentation: KIND <irSeq> (MM-DD-YYYY)`, dated the IR event | `Nepes IR presentation: KIND 19356 (09-18-2026)` |
 | Korean large-cap results deck from its own IR site (`kind.py`) | `[Company] IR presentation: Q[N] [YYYY] results (MM-DD-YYYY)`, dated the DART earnings day | `SK Hynix IR presentation: Q2 2026 results (07-29-2026)` |
+| China A-share IR activity record (`cninfo.py`) | `[Company] IR activity record: [record no., else the date] (MM-DD-YYYY)`, dated the disclosure day | `Innolight IR activity record: 2026-008 (08-23-2026)` |
+| China A-share investor Q&A answers (`cninfo.py`, one file per company per answer day) | `[Company] investor Q&A: [SZSE Interactive Easy \| SSE e-Interactive] (MM-DD-YYYY)` | `Eoptolink investor Q&A: SZSE Interactive Easy (09-23-2026)` |
 | Other company document (deck, investor-day material) | `[Company] [document type]: [title] (MM-DD-YYYY)` | — |
 | Third-party note | legacy only — no new ones (articles are pointers, §2) | `Goldman Sachs optical note (04-17-2026)` |
 
@@ -313,6 +315,7 @@ These build ON TOP of everything above. When a command fires, read its reference
 | `enrich edgar` | US-listed names — SEC 8-Ks (every exhibit whole) + 10-K / 10-Q customer, supplier, backlog paragraphs + XBRL (`edgar_pull.py`); completeness contract: read once, never reopen | `references/edgar.md` |
 | `enrich conference` | Every listed name (US too) — investor-conference fireside chats via Investing.com (`investing.py conferences`); depth rule, multi-agent + verification loop, memory update | `references/conferences.md` |
 | `enrich ir` | Company-issued IR press releases via each company's own feed (`ir_pull.py`); important releases only, facts only | `references/ir.md` |
+| `enrich china` (step 1b) | China A-share names — IR activity records (投资者关系活动记录表) from cninfo / SSE e互动 and the company's answers on SZSE 互动易 / SSE e互动 (`cninfo.py`); management Q&A, answers only | `references/cninfo.md` |
 
 `enrich ir <Company>` runs only that company's feed (`ir_pull.py sync --company "<Company>"`).
 Pasted text or a URL from the user overrides the pipelines — enrich that source directly under this file's rules.
