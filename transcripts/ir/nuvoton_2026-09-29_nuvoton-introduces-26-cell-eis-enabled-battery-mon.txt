@@ -1,0 +1,228 @@
+SOURCE: Nuvoton official press release -- https://www.nuvoton.com/news/news/all/TSNuvotonNews-000632/
+TITLE: Nuvoton introduces 26-Cell EIS-Enabled Battery Monitoring IC Samples
+DATE: 09-29-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-09-29.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Nuvoton press release: Nuvoton introduces 26-Cell EIS-Enabled Battery Monitoring (09-29-2026)
+
+---
+Nuvoton introduces 26-Cell EIS-Enabled Battery Monitoring IC Samples - News - Nuvoton
+
+-->
+
+--->
+
+-->
+
+-->
+
+{{langMap[menu1.item.id]}}
+
+{{langMap[menu1.item.id]}}
+
+AI Discovery
+
+IoT Security Technology
+
+Member Centre
+
+Language：
+
+English
+
+繁中
+
+简中
+
+日本語
+
+한국어
+
+Deutsch
+
+Tiếng Việt (Dịch tự động)
+
+All site
+
+Recently searched
+
+✕
+
+✕
+
+✕
+
+✕
+
+✕
+
+Popular：
+
+MA35D1
+
+M463
+
+M467
+
+M0A23
+
+M254/256/258
+
+M2354
+
+NUC980
+
+IoT
+
+HMI
+
+Online Selection Guide
+
+Home >
+
+News >
+
+News >
+
+All
+
+Enter the Email address you like to share
+
+Email
+
+Name
+
+Validate Code
+
+Submit
+
+Cancel
+
+News
+
+All
+
+Business
+
+ESG
+
+Finance
+
+Product and Technology
+
+Events
+
+All
+
+Investor
+
+Recruitment
+
+TradeShow
+
+Seminar
+
+Training Courses
+
+Nuvoton introduces 26-Cell EIS-Enabled Battery Monitoring IC Samples
+
+Contributing to Safer Batteries in Automotive and Energy Storage Systems
+
+Nuvoton introduces 26-Cell EIS-Enabled Battery Monitoring IC Samples
+
+Nuvoton Technology (hereinafter referred to as the “Company”) will begin providing samples of the KA85010UA, a 26-cell battery monitoring IC equipped with EIS functionality, in January 2027.
+
+Our proprietary inductor method reduces the PCB temperature rise during EIS measurements by approximately 93% compared with conventional methods, enabling battery degradation diagnosis, lifetime prediction, and early detection of signs of cell abnormalities. We also support integration into applications by providing EIS analysis algorithms.
+
+Achievements:
+
+1. EIS is integrated into the BM-IC, enabling quantification of internal battery conditions
+
+Enables degradation diagnosis, lifetime prediction, and early detection of signs of cell abnormalities, contributing to improved safety in vehicles and energy storage systems
+
+2. Proprietary inductor method enables low-power-consumption impedance measurement
+
+Reduces PCB temperature rise during measurement by approximately 93% compared with conventional methods, facilitating implementation of EIS functionality in automotive and energy storage systems
+
+3. Provides EIS analysis algorithms and end-to-end support, from setting up the EIS measurement environment to product implementation
+
+Shortens the development cycle by supporting rapid implementation of EIS-based battery diagnostics
+
+For more product details, please see here:
+
+https://nuvoton.co.jp/semi-spt/apl/rd/?id=1100-0439
+
+As vehicle electrification and the adoption of energy storage systems (ESS) continue to expand, batteries have become essential components supporting modern infrastructure, making battery safety more important than ever. In particular, as battery systems increase in capacity and output, there is growing demand for technologies that detect early signs of internal cell short circuits, abnormal heating, and other issues to prevent serious failures and accidents.
+
+Conventional battery systems estimate battery condition by measuring voltage, current, and temperature, but it is difficult to directly capture changes occurring inside the battery. EIS measurements, by contrast, can quantitatively capture changes in internal battery conditions as impedance characteristics and are therefore expected to be used for estimating state of health (SOH) and internal temperature, as well as for early detection of signs of cell abnormalities. Until now, however, EIS assessments have mainly been conducted in laboratory environments using dedicated measurement equipment. Implementing EIS in applications has presented various challenges, including managing heat and noise, controlling measurement timing according to operating conditions, and developing EIS analysis algorithms for the acquired data.
+
+To address these challenges, the Company has developed the KA85010UA, a Gen 6 battery monitoring IC equipped with EIS functionality. The inductor method suppresses heat generation and enables EIS measurements across a wide range of operating states, including operation, charging, and rest. In addition, by providing EIS analysis algorithms that leverage expertise gained through joint verification with automakers and research institutions, we help customers accelerate the realization of battery diagnostic solutions.
+
+Features of New Product:
+
+1. EIS is integrated into the BM-IC, enabling quantification of internal battery conditions
+
+Enables degradation diagnosis, lifetime prediction, and early detection of signs of cell abnormalities, contributing to improved safety in vehicles and energy storage systems
+
+In addition to battery monitoring functions, this product integrates EIS-based impedance measurement into a single chip. EIS is a technique that superimposes an AC current on a battery and calculates impedance from the resulting voltage and current responses. This makes it possible to perform EIS measurements within the system, without the dedicated measurement equipment previously required, enabling continuous monitoring and diagnosis of internal battery conditions (*1).
+
+The impedance characteristics obtained through EIS contain different information about the battery interior depending on the frequency range. The high-frequency range reveals changes in terminals, wiring, and electrolyte; the mid-frequency range reveals changes in the negative electrode; and the low-frequency range reveals changes in the positive electrode and internal reactions (Figure 1). By quantitatively assessing internal battery conditions that are difficult to determine from conventional voltage, current, and temperature measurements alone, EIS can estimate SOH and internal temperature, predict battery lifetime, and provide early detection of signs of cell abnormalities, contributing to improved battery safety in vehicles and energy storage systems.
+
+Figure 1. Internal Battery Conditions Identified by EIS
+
+*1: Under specific evaluation conditions established by the Company, we compared EIS measurements obtained with this product against measurements from dedicated EIS equipment and 1 kHz AC internal-resistance measurements specified in IEC 62620, and quantitatively confirmed a high level of agreement. The verification results have been published in an IEEE paper as the outcome of joint research with the AIST Group. https://doi.org/10.1109/TIM.2026.3661703
+
+2. Proprietary inductor method enables low-power-consumption impedance measurement
+
+Reduces PCB temperature rise during EIS measurements by approximately 93% compared with conventional methods, facilitating implementation of EIS functionality in automotive and energy storage systems
+
+EIS measurements require a circuit that applies an AC current to the battery. With conventional resistor methods, several amperes of current flow through a resistor, causing much of the energy to be dissipated as heat. As a result, excessive heat generation and increased power consumption have been key challenges.
+
+This product uses the Company’s proprietary inductor method instead of the conventional resistor method. Two switches (FETs) control the current direction, and energy stored in a coil (inductor) is circulated as AC current to generate the measurement current, significantly reducing energy loss. In the Company’s evaluation, it was confirmed that both power loss and PCB temperature rise could be reduced by approximately 93% compared with the conventional resistor method (Figures 2 and 3).
+
+These low-power and low-heat characteristics facilitate implementation of EIS functionality in automotive batteries and energy storage systems. They also enable stable acquisition of EIS measurement data across a wide range of operating states, including operation, charging, and rest, contributing to advanced battery condition monitoring and diagnostics.
+
+[Comparison conditions] Total voltage: 72 V; superimposed current: 1.5 A
+
+Figure 2. Power Loss Reduction Effect of the Inductor Method
+
+[Comparison conditions] Pack voltage: 60 V; superimposed current: 0.7 A
+
+Figure 3. Temperature Reduction Effect of the Inductor Method
+
+3. Provides EIS analysis algorithms and end-to-end support, from setting up the EIS measurement environment to product implementation
+
+Shortens the development cycle by supporting rapid implementation of battery diagnostic solutions
+
+Battery diagnostics using EIS require more than simply acquiring impedance data. To make use of the data, analysis techniques are needed to estimate SOH and internal temperature and to detect cell abnormalities. Commercial implementation also requires an environment for accurate impedance measurements, EIS analysis algorithms tailored to the battery type and application, and software for system implementation.
+
+Drawing on EIS data-analysis expertise gained through verification with automakers and research institutions, the Company provides end-to-end support, from setting up the EIS measurement environment and acquiring and organizing battery data to implementing estimation and abnormality-detection functions and integrating them into applications (*2, *3, *4) (Figure 4).
+
+This support allows even customers who are just beginning to use EIS functionality to build battery diagnostic systems more easily, start up their systems sooner, and shorten development cycles.
+
+Figure 4. Battery Diagnostic Solution Development Flow and Support
+
+*2: Challenges and Results of Verifying High-Speed Grading (Degradation Diagnosis) Technology Using the AC Method
+
+AC_Method_summary_2022.pdf
+
+*3: 2024 Report on Joint Research Results with AIST Concerning Battery Diagnostic Technology
+
+Report on Joint Research with AIST Concerning Battery Diagnostic Technology | Press Release |
+
+*4: 2025 Announcement of Results from Joint Research with AIST on Battery Internal Temperature Estimation Technology
+
+Announcement of Results from Joint Research with AIST on Battery Internal Temperature Estimation Technology | Press Release |
+
+Applications:
+
+Automotive (EVs), large-scale energy storage systems (ESS), reused-battery diagnostic systems, etc.
+
+Product name :
+
+EIS-equipped Gen 6 battery monitoring IC “KA85010UA”
+
+Specifications :
+
+Sample Availability: January 2027

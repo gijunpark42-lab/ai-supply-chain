@@ -1,0 +1,55 @@
+{
+  "reviewer": "verify-us-0930-c (opus verifier 2026-09-30)",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "NetApp",
+      "target": null,
+      "label": "NetApp INSIGHT 2026 (09-29-2026)",
+      "signal_prefix": "NetApp announced a partnership with Oracle to offer a NetApp storage service",
+      "action": "set",
+      "set": {
+        "signal": "NetApp announced a partnership with Oracle to offer a NetApp storage service on Oracle Cloud Infrastructure (ONTAP on OCI). Chief Product Officer Syam Nair, opening his keynote (the transcript labels this paragraph CEO George Kurian, but it follows the moderator's 'Please welcome Syam Nair' and opens 'Thank you, George, and thank you, Mahesh'): 'We are thrilled to partner with you and the Oracle team to build the next generation of storage, NetApp storage service on Oracle Cloud Infrastructure.' VP of Technical Marketing Jeff Baxter said the Oracle Cloud Infrastructure NetApp Storage Service 'puts us now in all four of the world’s largest public clouds', after Azure (2017), AWS and Google Cloud. No availability date was stated by NetApp management."
+      },
+      "reason": "Misattribution: the paragraph is labelled George Kurian in the transcript but is Syam Nair speaking (moderator just said 'Please welcome Syam Nair'; the speaker thanks George). Attribute to Nair.",
+      "evidence": "Moderator: Please welcome Syam Nair. George Kurian, CEO, NetApp: Good morning, everyone. Good morning. Thank you, George, and thank you, Mahesh. We are thrilled to partner with you and the Oracle team"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NetApp",
+      "target": null,
+      "label": "NetApp INSIGHT 2026 (09-29-2026)",
+      "signal_prefix": "Platform software announcements (Chief Product Officer Syam Nair",
+      "action": "set",
+      "set": {
+        "signal": "Platform software announcements (Chief Product Officer Syam Nair and other NetApp speakers; Nair said everything announced is 'either generally available this morning or in preview'): the metadata capability of the NetApp AI Data Engine (AIDE) now supports data from heterogeneous, non-NetApp sources and AIDE is 'now fully software-defined', offered 'free for the first 6 months'; NetApp Console Local (on-premises and air-gapped deployment, available now) with AI that works with the customer's own LLM and published MCP servers; NetApp Keystone Sovereign for European Economic Area customers, 'available early November for France and Germany, with general availability for everyone else later on'; NetApp ransomware detection integrated into the Commvault recovery workflow; the Nutanix integration announced earlier in the year, which VP of Technical Marketing Jeff Baxter said 'is now at general availability as of today'; and an expanded strategic partnership with SAP."
+      },
+      "reason": "The GA-as-of-today claim on Nutanix was stated as fact; in the transcript it is only the host Jeff Baxter's remark (and NetApp's same-day release says 'scheduled to be generally available this fall'). Attribute it to Baxter instead of stating it as fact.",
+      "evidence": "the integration with Nutanix that we announced earlier in the year is now at general availability as of today"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NetApp",
+      "target": null,
+      "label": "NetApp INSIGHT 2026 (09-29-2026)",
+      "signal_prefix": "NetApp staff tied new Keystone offerings to component cost",
+      "action": "set",
+      "set": {
+        "signal": "NetApp Keystone (storage-as-a-service) announcements, presented by Dale Degen, Director of Product Marketing for NetApp Keystone: a new performance service level called Standard Hybrid, based on FAS ('a mixture of flash and hard drives'), aimed at customers asking whether they pay for performance they do not need because many as-a-service offerings in the market are all flash and 'with the economics of everything, that is getting quite pricey'; capacity add hold pricing that keeps a customer's starting price if it runs at 80% consumption or higher for 90 days; and contractual guarantees including a six nines service level agreement with credit back, a storage efficiency SLA and a multi-protocol SLA.",
+        "figure": "Keystone Standard Hybrid (flash plus hard drives) launched; price hold at 80% consumption or higher for 90 days; six nines SLA"
+      },
+      "reason": "Keep the company's product announcements (Standard Hybrid, add-hold pricing, SLAs). Drop market-colour remarks by non-executive staff that are not management views: Shumaila Sarwar's customer-cost comments, and the '6 months, 8 months, 12 months, whatever the current backlog is' aside (labelled Sean Dao, but the speaker says 'As Sean said', so it is likely Chance Bingen, a Principal TME). That aside is not a company supply figure.",
+      "evidence": "We are actually launching a new performance service level called Standard Hybrid. It is based on our FAS. ... We have got a six nines service level agreement on here"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NetApp",
+      "target": null,
+      "label": "NetApp press release: NetApp to Expand Partnership with SAP to Support SAP Cloud (09-29-2026)",
+      "signal_prefix": "NetApp announced its intent to expand its long-standing partnership with SAP",
+      "action": "delete",
+      "reason": "This is not an important release (skill section 2.3). It states only an intent to explore integration, joint go-to-market and an object-storage evaluation. There is no agreement, order, design win, date or figure, and NetApp says these statements are not a commitment. The role 'customer' is also not stated. The expanded SAP partnership is already noted on the INSIGHT 2026 entry.",
+      "evidence": "today announced its intent to expand its long-standing partnership with SAP, with plans to explore deeper cloud-native integration"
+    }
+  ]
+}
