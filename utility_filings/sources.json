@@ -1,0 +1,63 @@
+{
+ "_how_to_add": [
+  "Key = the canonical node name in company_metadata.json (a US company). Value = {checked, note, sources: [...]}.",
+  "Only documents the UTILITY itself filed or posted: its own website, or a state commission docket filtered to the utility as filer.",
+  "Never intervenor testimony, commission-staff data requests, commission orders, or articles.",
+  "Source kinds:",
+  "  page   {kind, url, entity?, link_re?, keep_re?, skip_re?: [..]} - a page on the utility's own site that links the PDFs.",
+  "         Every link matching link_re (default: '.pdf') or whose text says '(PDF)' is a candidate; its link text is the title.",
+  "  ga_psc {kind, docket, filer, entity?} - a Georgia PSC FACTS docket (psc.ga.gov/search/facts-docket/?docketId=N);",
+  "         only documents whose filer is exactly `filer` (as the docket page shows it) are candidates.",
+  "  doc    {kind, url, title, date (YYYY-MM-DD, the filing date), entity?, listed_at?} - one document, taken once whatever its date.",
+  "Titles are filtered by utility_filings.py NOISE (skipped) and KEEP (must match); keep_re replaces KEEP, skip_re adds skips.",
+  "`entity` = the operating subsidiary that filed (Georgia Power, FPL ...); it starts the label's short title.",
+  "Check a new source with: python -X utf8 utility_filings.py sync --company \"<Company>\" (then `status --company`) and read the skip reasons.",
+  "Another state's docket system needs its own list function in utility_filings.py (see list_ga_psc); a docket site behind a bot",
+  "challenge or a login (Ohio PUCO DIS, checked 2026-10-01) cannot be used - take the utility's own copy of the document instead.",
+  "Xcel Energy (checked 2026-10-01): its resource-plan pages now link Salesforce content-delivery pages (xcelnew.my.salesforce.com/sfc/p/...)",
+  "that only render through JavaScript - no direct PDF, so Xcel is not seeded; its Minnesota / Colorado dockets need their own list functions."
+ ],
+ "Dominion Energy": {
+  "checked": "2026-10-01",
+  "note": "Dominion's IRP page links the Virginia IRP (2024) and its annual update (filed with the Virginia SCC, Case PUR-2025-00184, 10-15-2025) plus the South Carolina IRP. Data-center load is the core of the Virginia plan.",
+  "sources": [
+   {"kind": "page", "url": "https://www.dominionenergy.com/about/our-company/irp"},
+   {"kind": "doc", "url": "https://cdn-dominionenergy-prd-001.azureedge.net/-/media/content/about/our-company/irp/pdfs/2025-integrated-resource-plan-update.pdf",
+    "title": "Dominion Energy Virginia 2025 Integrated Resource Plan Update", "date": "2025-10-15",
+    "listed_at": "https://www.dominionenergy.com/about/our-company/irp"}
+  ]
+ },
+ "Southern Company": {
+  "checked": "2026-10-01",
+  "note": "Georgia Power files a quarterly Large Load Economic Development Report (contracted / pipeline large load, mostly data centers) in Georgia PSC docket 55378, and its 2025 IRP plus the DCO-1 / LCOR-1 data-center tariffs in docket 56002. The IRP page holds the one-page summary.",
+  "sources": [
+   {"kind": "ga_psc", "docket": 55378, "filer": "Georgia Power Company", "entity": "Georgia Power"},
+   {"kind": "ga_psc", "docket": 56002, "filer": "Georgia Power Company", "entity": "Georgia Power"},
+   {"kind": "page", "url": "https://www.georgiapower.com/about/company/filings/irp.html", "entity": "Georgia Power"}
+  ]
+ },
+ "American Electric Power": {
+  "checked": "2026-10-01",
+  "note": "Indiana Michigan Power's IRP page (2024 Indiana IRP filed with the IURC 03-28-2025; I&M's data-center load in Fort Wayne / New Carlisle). AEP Ohio's data-center tariff case (PUCO 24-0508-EL-ATA) sits behind a bot challenge and is not read.",
+  "sources": [
+   {"kind": "page", "url": "https://www.indianamichiganpower.com/community/improving-our-community/projects/irp", "entity": "Indiana Michigan Power"}
+  ]
+ },
+ "Entergy": {
+  "checked": "2026-10-01",
+  "note": "Entergy Louisiana's 2027 IRP cycle page (data assumptions incl. the load forecast) and its regulatory page (generation and transmission applications, e.g. the power stations for large industrial / data-center load).",
+  "sources": [
+   {"kind": "page", "url": "https://www.entergylouisiana.com/irp/2027-irp", "entity": "Entergy Louisiana"},
+   {"kind": "page", "url": "https://www.entergylouisiana.com/about/regulatory", "entity": "Entergy Louisiana"}
+  ]
+ },
+ "NextEra Energy": {
+  "checked": "2026-10-01",
+  "note": "FPL's 2026-2035 Ten Year Power Plant Site Plan (filed with the Florida PSC 04-01-2026, Docket 20260000-OT; large-load customers under LLCS-1 / LLCS-2), posted on NextEra's IR site. 1,070 pages / 44 MB.",
+  "sources": [
+   {"kind": "doc", "url": "https://www.investor.nexteraenergy.com/~/media/Files/N/NEE-IR/FPL%202026-2035%20TYSP.pdf",
+    "title": "FPL 2026-2035 Ten Year Power Plant Site Plan", "date": "2026-04-01", "entity": "FPL",
+    "listed_at": "https://www.investor.nexteraenergy.com/"}
+  ]
+ }
+}

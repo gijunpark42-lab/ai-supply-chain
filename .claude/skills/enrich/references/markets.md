@@ -37,8 +37,13 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    → mark it (`--why "not on Alpha Vantage or defeatbeta (checked <date>)"`).
 3. Conference talks: `python investing.py pending --kind conference --market US` → references/conferences.md.
 4. IR releases: `python ir_pull.py pending --market US` → references/ir.md (important releases only).
+4b. Utility regulatory filings — MONTHLY, only when the board lists "utility regulatory-filing sync" as due or
+   rows are waiting: `python utility_filings.py sync` → `python utility_filings.py pending` → enrich each `_load`
+   file (references/utility_filings.md: IRPs, large-load reports and data-center tariffs the utilities filed
+   themselves; Dominion, Southern / Georgia Power, AEP / I&M, Entergy Louisiana, NextEra / FPL).
 5. `python graph_build.py --sync`, then `python av.py done`, `python investing.py done --kind conference --market US`,
-   and `python ir_pull.py done --label "<label>"` for every handled release (with `--why` when it gave nothing).
+   `python ir_pull.py done --label "<label>"` for every handled release (with `--why` when it gave nothing), and
+   `python utility_filings.py done --label "<label>"` for every handled filing.
 
 ## `enrich korea`
 1. DART: `python dart.py sync` → `python dart.py pending` → enrich every file (references/dart.md: read every line,
