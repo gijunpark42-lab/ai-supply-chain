@@ -117,7 +117,7 @@ ALLOWED_SLOTS = {
     "TDnet filing": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},      # same as a deck / IR release
     "regulatory filing": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},  # a utility IRP / load report (utility_filings.py)
     "DART preliminary results": {"revenue_growth"},
-    "monthly revenue": {"revenue_growth"},           # Taiwan monthly revenue report (mops.py)
+    "monthly revenue": set(),                        # Taiwan monthly revenue (mops.py): no slot, like the IR-release monthly entries (user, 2026-10-01)
     "call / conference / periodic report": SLOTS,
 }
 

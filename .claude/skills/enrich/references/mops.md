@@ -60,7 +60,8 @@ no filing time for monthly revenue: its label is dated the day `sync` first saw 
      is the company's own statement — attribute it.
    - Slots (`utils/check_patch.py` enforces them): `deck` and `material` = the "Company IR presentation / press
      release" row (`guidance`, `next_catalyst`, `backlog_or_b2b`, `supply_status` — never `revenue_growth`);
-     `revenue` = `revenue_growth` only (like DART preliminary results; the call supersedes it).
+     `revenue` fills NO slot — enrich it as a plain entry, as the IR-release monthly revenue entries already are
+     (user, 2026-10-01).
 4. `python -X utf8 utils/check_patch.py <patches>` until clean → one `python graph_build.py --sync` (coordinator).
 5. `python -X utf8 mops.py done --label "<label>"` per handled row (`--why "no material facts"` when it gave nothing);
    `status [--company …]` shows saved / enriched / pending per company and the skip counts.

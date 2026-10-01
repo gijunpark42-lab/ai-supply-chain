@@ -198,7 +198,7 @@ which slot:
 | DART supply contract with an undisclosed customer | `backlog_or_b2b` only |
 | 8-K | any, but only when newer than every same-slot entry of the company; otherwise none |
 | 10-K / 10-Q | none |
-| Taiwan MOPS monthly revenue (`mops.py`) | `revenue_growth` only (the call supersedes it) |
+| Taiwan MOPS monthly revenue (`mops.py`) | none — enriched without a slot, like the IR-release monthly revenue entries (user, 2026-10-01) |
 | Company IR presentation (deck; `kind.py`, `mops.py`) or Taiwan MOPS material information (`mops.py`) | same as a company IR press release (row below); never `revenue_growth` — DART holds the quarter's numbers |
 | Japan TDnet filing (`tdnet.py`) | same as a company IR press release (row below), never `revenue_growth`; a results-meeting Q&A record (`_qa` file) = the call / conference row |
 | Utility regulatory filing (IRP, large-load report or tariff; `utility_filings.py`) | same as a company IR press release (the row below): the company's load / capacity plan → `guidance`, contracted large load → `backlog_or_b2b`; never `revenue_growth` |
