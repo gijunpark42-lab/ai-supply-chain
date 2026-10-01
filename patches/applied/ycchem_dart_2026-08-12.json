@@ -1,0 +1,66 @@
+{
+ "source": "YC Chem Q2 FY2026 (08-12-2026)",
+ "new_nodes": {
+  "YC Chem": {
+   "ticker": "112290",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Supplies chipmakers with photoresists (i-Line, KrF, TSV thick PR for HBM), spin-on-carbon hardmask, EUV/ArF rinse solutions, wet chemicals and CMP slurry; semiconductor materials are 96.6% of revenue, so wafer and HBM output drives its sales.",
+   "evidence": "YC Chem Q2 FY2026 (08-12-2026) half-year report, II. Business: semiconductor electronic materials KRW 51,296M (96.6% of H1 revenue); localised TSV photoresist for HBM supplied to domestic chipmakers.",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "YC Chem",
+     "layer": "materials",
+     "sector": "Photoresist",
+     "product": "i-Line / KrF / TSV thick photoresists, spin-on-carbon hardmask, EUV/ArF rinse solutions, developers, etchants and CMP slurry",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "YC Chem Q2 FY2026 (08-12-2026)",
+       "signal": "Half-year report: H1 2026 revenue KRW 53,093,783,777 (H1 2025: KRW 37,864,112,362) and operating profit KRW 3,717,382,135 (H1 2025: operating loss KRW 2,357,975,123); Q2 2026 revenue KRW 27,064,804,069 (Q2 2025: KRW 18,926,991,368) and Q2 operating profit KRW 2,120,718,392 (Q2 2025: loss KRW 1,074,881,793). Semiconductor electronic materials KRW 51,296M (96.6% of revenue): photo materials KRW 27,432M, wet chemicals KRW 15,039M, PR rinse KRW 4,276M, other electronic materials KRW 4,549M; direct exports KRW 10,072M ($6,788 thousand)",
+       "figure": "H1 2026 revenue KRW 53,093,783,777; operating profit KRW 3,717,382,135",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "YC Chem Q2 FY2026 (08-12-2026)",
+       "signal": "Customers above 10% of revenue (not named): Customer A KRW 31,869,799,792 (60.0% of H1 2026 revenue; H1 2025: 49.8%) and Customer B KRW 15,952,377,298 (30.0%; H1 2025: 35.2%). H1 revenue by region: Korea KRW 43,021,811,609, China KRW 7,680,769,144, US KRW 1,886,016,318, other KRW 505,186,706",
+       "figure": "Customer A 60.0%, Customer B 30.0% of revenue",
+       "counterparty": "undisclosed Customers A and B",
+       "counterparty_role": "customer",
+       "topics": []
+      },
+      {
+       "quarter": "YC Chem Q2 FY2026 (08-12-2026)",
+       "signal": "In line with growth of the high-bandwidth memory (HBM) market, the company has localised TSV photoresist and is supplying it to domestic semiconductor companies",
+       "figure": "no specific figure",
+       "topics": [
+        "hbm"
+       ]
+      },
+      {
+       "quarter": "YC Chem Q2 FY2026 (08-12-2026)",
+       "signal": "The company has completed development of a special polymer glass-coating agent for glass semiconductor substrates and a photoresist for the copper-plating process; it expects glass substrates to make packages thinner and improve chip performance",
+       "figure": "no specific figure",
+       "topics": [
+        "packaging_substrate"
+       ]
+      },
+      {
+       "quarter": "YC Chem Q2 FY2026 (08-12-2026)",
+       "signal": "H1 2026 utilisation by product group: photo materials 67.1%, wet chemical 80.7%, PR rinse 47.4%, other 58.8%; the company keeps spare capacity for customers' mass-production qualification of new products. Products are delivered on order, so there is no order backlog",
+       "figure": "utilisation 67.1% photo materials, 80.7% wet chemical",
+       "topics": [],
+       "slot": "supply_status"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,68 @@
+{
+ "source": "Sakura Internet quarterly financial report: Summary of Financial Results for the First Quarter Ended June 30, 2026 (07-28-2026)",
+ "new_nodes": {
+  "Sakura Internet": {
+   "ticker": "3778.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Japanese GPU cloud provider whose GPU infrastructure services (NVIDIA H100/H200/B200, Rubin ordered) are its fastest-growing business; it rents AI compute capacity.",
+   "evidence": "Sakura Internet Q1 results (07-28-2026): GPU infrastructure services net sales 4,718,088 thousand yen (up 245.9%) on high utilization of NVIDIA H200/B200 GPUs added in the previous fiscal year and existing H100 GPUs.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Sakura Internet",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "Japanese GPU cloud (GPU infrastructure services on NVIDIA H100/H200/B200, HGX Rubin NVL8 ordered) and SAKURA Cloud, a Government Cloud provider",
+     "quarterly_data": [
+      {
+       "quarter": "Sakura Internet quarterly financial report: Summary of Financial Results for the First Quarter Ended June 30, 2026 (07-28-2026)",
+       "signal": "Q1 FY ending March 2027 (April-June 2026): net sales 11,134,597 thousand yen (up 48.6% YoY), a record for a first quarter, driven by GPU infrastructure services on high utilization of NVIDIA H200/B200 GPUs added in the previous fiscal year and existing H100 GPUs; operating profit 1,230,678 thousand yen versus an operating loss of 457,171 thousand yen a year earlier",
+       "figure": "net sales 11,134,597 thousand yen (+48.6%); operating profit 1,230,678 thousand yen",
+       "topics": []
+      },
+      {
+       "quarter": "Sakura Internet quarterly financial report: Summary of Financial Results for the First Quarter Ended June 30, 2026 (07-28-2026)",
+       "signal": "GPU infrastructure services net sales 4,718,088 thousand yen (up 245.9%); cloud services 3,975,030 thousand yen (up 7.5%) on growth of SAKURA Cloud; physical base services 708,578 thousand yen (down 11.7%). Total assets rose to 87,546,127 thousand yen on infrastructure enhancements at the Ishikari Data Center; the company cites its official selection for the Government Cloud and the expansion of Generative AI services in winning customers",
+       "figure": "GPU infrastructure services 4,718,088 thousand yen (+245.9%)",
+       "topics": []
+      },
+      {
+       "quarter": "Sakura Internet quarterly financial report: Summary of Financial Results for the First Quarter Ended June 30, 2026 (07-28-2026)",
+       "signal": "Forecast raised as Q1 exceeded initial expectations: six months ending September 30, 2026 net sales 22,500 million yen (up 43.9%), operating profit 2,200 million yen; full year ending March 31, 2027 net sales 45,500 million yen (up 28.9%), operating profit 2,500 million yen",
+       "figure": "FY net sales 45,500 million yen; operating profit 2,500 million yen",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ]
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "connects_to": [
+      {
+       "company": "Sakura Internet",
+       "relationship": "GPU supply (H100, H200, B200; HGX Rubin NVL8 ordered) for Sakura Internet's GPU infrastructure services",
+       "contracts": [
+        {
+         "source": "Sakura Internet quarterly financial report: Summary of Financial Results for the First Quarter Ended June 30, 2026 (07-28-2026)",
+         "signal": "Sakura Internet's GPU infrastructure services run on NVIDIA H200/B200 GPUs added through additional investment in the previous fiscal year and existing H100 GPUs, both at high utilization",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "deployment",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

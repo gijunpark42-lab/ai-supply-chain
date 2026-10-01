@@ -1,0 +1,69 @@
+{
+ "source": "Belimo Q2 FY2026 (07-20-2026)",
+ "new_nodes": {
+  "Belimo": {
+   "ticker": "BEAN.SW",
+   "exchange": "SIX",
+   "country": "CH",
+   "why": "Supplies control valves (Energy Valve), actuators and sensors for data-center liquid-cooling loops; data centers were about 23%-24% of H1 2026 sales and over half of its absolute growth, mostly liquid cooling via the control-valve line.",
+   "evidence": "Belimo Q2 FY2026 (07-20-2026), CFO: 'Most of the data center growth is attributed to liquid cooling and is therefore recognized on the control valve business line.'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Belimo",
+     "domain": "thermal",
+     "sector": "Heat Exchanger / CDU",
+     "product": "control valves (incl. stainless steel Energy Valve), actuators and sensors for data-center liquid-cooling loops",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Belimo Q2 FY2026 (07-20-2026)",
+       "signal": "H1 2026 results: sales CHF 676 million, up 29.6% in local currency (volume and mix 22.3%, pricing 7.3%) and 20.5% in Swiss francs after a 9.2% FX headwind; EBIT up 19% to CHF 153 million, a 22.5% margin; net income up 23% to CHF 125 million. Americas CHF 341 million (+35% local currency), EMEA CHF 240 million (+14%), Asia-Pacific +58% in local currency. Control valves (58% of sales) +48% in local currency, damper actuators +8%, sensors and meters close to +40%. Return on capital employed 41%, equity ratio 61%.",
+       "figure": "H1 sales CHF 676 million (+29.6% local currency); EBIT CHF 153 million (22.5%); net income CHF 125 million",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Belimo Q2 FY2026 (07-20-2026)",
+       "signal": "Data centers accounted for a bit more than half of absolute sales growth in H1 2026 and about 23%-24% of group sales, up from 18% in H2 2025; most of the data-center growth comes from liquid cooling and is booked in the control-valve line, with the Energy Valve as flagship. Data centers were more than half of Americas growth; the US data-center share is in the range of 30%, and Asia-Pacific grew on OEMs building data-center equipment for export. CFO: data-center share of sales is expected to keep rising.",
+       "figure": "data centers ~23%-24% of H1 sales (18% in H2 2025)",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Belimo Q2 FY2026 (07-20-2026)",
+       "signal": "CFO: liquid cooling is becoming the standard - most US data-center sales are now liquid-cooled, Asia-Pacific has more air cooling and EMEA the least liquid; hyperscalers drive the high-end builds while some co-locators are moving into liquid cooling (sometimes rear-door rather than direct-to-chip). Belimo has ample capacity; the limit is project deployment - order entry is rising across the industry but deployment lags because of execution speed and available power, with no stocking. The market remains roughly CHF 40 million-CHF 60 million per gigawatt; value per rack rises with heat density. Belimo is the technology leader with first-mover advantages; competitors are entering as second sources, and management expects current stainless steel technology to remain the winning technology versus emerging polymer valves.",
+       "figure": "CHF 40 million-CHF 60 million per gigawatt",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Belimo Q2 FY2026 (07-20-2026)",
+       "signal": "Belimo's first data-center-only product, a fully stainless steel Energy Valve for liquid cooling developed with hyperscalers and the data-center industry, is being introduced in the second half of 2026; CFO: it is a higher-end, mix-accretive product. A US data-center experience center is opening.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling",
+        "product_launches"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Belimo Q2 FY2026 (07-20-2026)",
+       "signal": "Outlook: quantitative full-year revenue guidance withdrawn because of uncertainty over the pace of data-center deployment, to return when visibility improves; continued very strong demand and growth expected in H2, at a lower relative rate than H1 due to base effects and a smaller pricing contribution; H2 EBIT margin expected above 20%. Capex in H2 expected similar to H1, with similar elevated levels in 2027 and 2028 for capacity expansion in Hinwil and the US.",
+       "figure": "H2 EBIT margin above 20%",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

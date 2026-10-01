@@ -1,0 +1,73 @@
+{
+ "source": "Micro2Nano Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "Micro2Nano": {
+   "ticker": "424980",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "makes MEMS probe cards for memory wafer test (mainly SK Hynix NAND) and has been qualified by a major customer for HBM EDS probe cards; probe cards are 95.68% of revenue",
+   "evidence": "DART half-year report 08-14-2026: 'the company obtained qualification from a major global customer for probe cards used in the HBM EDS (Electrical Die Sorting) process'; main customers are SK Hynix, MINGZHEN MEMs Tech and Daeyang Electric",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Micro2Nano",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "MEMS probe cards for NAND and DRAM wafer test, incl. HBM EDS probe cards (qualified by a major customer); HBM4 high-current probe card in development",
+     "quarterly_data": [
+      {
+       "quarter": "Micro2Nano Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 half-year report (DART, filed 08-14-2026, separate statements): H1 revenue KRW 19,824,974,340 vs KRW 10,822,071,750 in H1 2025; H1 operating profit KRW 1,907,828,233 vs an operating loss of KRW 594,026,260. Q2 alone: revenue KRW 11,178,622,900 (Q2 2025: KRW 5,350,807,000), operating profit KRW 1,132,613,113 (Q2 2025: loss of KRW 1,136,010,376). H1 revenue mix: NAND probe cards 93.40%, DRAM probe cards 2.28%, foundry (microneedles, pressure sensors, V-grooves) 4.31%; probe cards KRW 18,968,074 thousand (95.68%). Exports KRW 5,398,140 thousand, domestic KRW 14,426,834 thousand.",
+       "figure": "H1 revenue KRW 19,824,974,340 (H1 2025 KRW 10,822,071,750); H1 OP KRW 1,907,828,233 (H1 2025 loss KRW 594,026,260); Q2 revenue KRW 11,178,622,900, Q2 OP KRW 1,132,613,113; NAND probe cards 93.40%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Micro2Nano Q2 FY2026 (08-14-2026)",
+       "signal": "Capacity and utilisation, H1 2026: probe-card capacity of 325 units (based on bonding-equipment output at an average 35,000 pins per card) against production of 236, a utilisation of 72.62% (FY2025: 34.91%; FY2024: 43.63%); 29 cards in ending inventory. H1 property, plant and equipment additions were KRW 1,787,696 thousand; construction in progress stood at KRW 1,332,791 thousand. Inventories rose to KRW 9,616,829,093 from KRW 8,048,190,555 at the start of the year.",
+       "figure": "Utilisation 72.62% (236 of 325 probe cards); FY2025 34.91%; PP&E additions KRW 1,787,696 thousand",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Micro2Nano Q2 FY2026 (08-14-2026)",
+       "signal": "HBM: the company obtained qualification from a major global customer for probe cards used in the HBM EDS (Electrical Die Sorting) process, which it says secures the competitiveness it needs for the HBM and AI-chip test market. The DRAM EDS probe-card market is currently led by one or two overseas firms (FormFactor and MEK, the Korean subsidiary of Micronics Japan); the company expects gradual penetration. R&D plan: a high-current probe card for HBM4, a high-speed probe card for LPDDR6, DRAM EDS probe-card approval and roll-out, and SSD-controller test probe cards; a government project on an ultra-low-Ron PMIC for HBM MEMS probe cards runs 2026-06-01 to 2027-05-31 (KRW 800,000 thousand grant). H1 R&D spend KRW 3,245,978 thousand (14.81% of revenue).",
+       "figure": "HBM EDS probe card qualified; H1 R&D KRW 3,245,978 thousand (14.81% of revenue)",
+       "topics": [
+        "hbm"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Micro2Nano Q2 FY2026 (08-14-2026)",
+       "signal": "Customers: main customers in 2026 are SK Hynix, MINGZHEN MEMs Tech and Daeyang Electric; the top three account for about 97.36% of revenue. Customer A accounted for KRW 13,550,564 thousand of H1 2026 revenue (H1 2025: KRW 7,989,312 thousand), customer B KRW 5,155,761 thousand and customer C KRW 594,520 thousand. MINGZHEN MEMs Tech (Ningbo), a 16.28%-owned associate, is the company's sales agent for probe cards across China; H1 sales to it were KRW 5,155,760 thousand (H1 2025: KRW 1,437,565 thousand). The company says Samsung Electronics and SK Hynix are both encouraging domestic probe-card suppliers to expand for supply security, and that domestic makers hold 100% of the NAND probe-card market while overseas firms hold most of the DRAM market.",
+       "figure": "Top 3 customers ~97.36% of revenue; customer A KRW 13,550,564 thousand; MINGZHEN sales KRW 5,155,760 thousand",
+       "topics": []
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "SK Hynix",
+       "relationship": "MEMS probe card supply for SK Hynix NAND / DRAM wafer test",
+       "contracts": [
+        {
+         "source": "Micro2Nano Q2 FY2026 (08-14-2026)",
+         "signal": "SK Hynix is Micro2Nano's main customer under a master materials trading agreement for probe cards and related products signed 2009-03-01 (renews automatically each year). SK Hynix requests the probe cards it needs each quarter 2-3 months ahead and selects suppliers; average lead time is about 6 weeks. SK Hynix NAND probe cards are supplied by three firms (Micro2Nano, TSE and AMST), with shares set each quarter by SK Hynix's monthly quality scoring, and the company says it holds a high share.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "2009-03-01",
+         "type": "supply agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

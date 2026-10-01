@@ -1,0 +1,77 @@
+{
+ "source": "Lake Materials Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "Lake Materials": {
+   "ticker": "281740",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "makes ALD / CVD deposition precursors for memory chips (Zr / Hf high-k capacitor precursors, TEOS and DPT Si precursors) sold to major Korean chipmakers and to Taiwan and China; semiconductor materials are 75.06% of revenue",
+   "evidence": "DART half-year report 08-14-2026: semiconductor materials are ALD / CVD deposition precursors used for high-k films and diffusion barriers (H1 2026 revenue KRW 52,834M, 75.06%); the company registered as a supplier with major Korean chipmakers and is expanding to Taiwan and China",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Lake Materials",
+     "layer": "materials",
+     "sector": "Process Chemicals & Slurries",
+     "product": "ALD / CVD precursors: Zr / Hf high-k capacitor precursors (TDMAH, TDMAZ, CpHf, ZAC), DPT Si precursors (BTBAS, DIPAS, BDEAS), TiCl4 and TMA",
+     "quarterly_data": [
+      {
+       "quarter": "Lake Materials Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 half-year report (DART, filed 08-14-2026, consolidated): H1 revenue KRW 70,386,404,385 vs KRW 63,226,468,853 in H1 2025; H1 operating profit KRW 10,328,063,973 vs KRW 7,107,013,962. Q2 alone: revenue KRW 37,205,660,672 (Q2 2025: KRW 31,244,737,888), operating profit KRW 6,079,887,511 (Q2 2025: KRW 4,344,284,611). H1 revenue mix: semiconductor materials KRW 52,834M (75.06%; FY2025 68.75%), solar materials KRW 6,838M (9.72%), LED materials KRW 5,803M (8.25%), petrochemical catalysts KRW 4,688M (6.66%). Semiconductor materials: exports KRW 25,975M, domestic KRW 26,859M. Revenue by region (thousand KRW): Korea 51,973,365, China 5,376,128, Taiwan 4,240,525, other 8,796,386.",
+       "figure": "H1 revenue KRW 70,386,404,385 (H1 2025 KRW 63,226,468,853); H1 OP KRW 10,328,063,973 (H1 2025 KRW 7,107,013,962); Q2 OP KRW 6,079,887,511; semiconductor materials 75.06%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Lake Materials Q2 FY2026 (08-14-2026)",
+       "signal": "Capacity and output, H1 2026: semiconductor materials capacity 631,453 kg with production of 571,656 kg (FY2025: 1,234,106 kg capacity, 993,246 kg produced); solar materials 288,922 kg capacity, 98,932 kg produced. H1 property, plant and equipment additions KRW 12,103,559 thousand; construction in progress KRW 5,202,249 thousand at the half-year end. A land purchase for a new site (KRW 19,479,300 thousand, 2023-04 to 2026-03) is complete, and the new facility investment disclosure for the Sejong Venture Valley site was amended on 2026-03-31 for higher construction costs.",
+       "figure": "Semiconductor materials output 571,656 kg of 631,453 kg capacity (H1 2026); PP&E additions KRW 12,103,559 thousand",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Lake Materials Q2 FY2026 (08-14-2026)",
+       "signal": "Customers: the semiconductor materials business began by supplying TMA to Korean chipmakers; the company registered as a supplier with major Korean semiconductor companies and is expanding into Taiwan and China. Customer A accounted for KRW 32,277,650 thousand of H1 2026 revenue (H1 2025: KRW 24,170,066 thousand), customer B KRW 9,757,393 thousand (KRW 8,960,986 thousand) and customer C KRW 3,989,977 thousand (KRW 8,070,118 thousand). The filing names no customer. Domestic competitors listed by the company include UP Chemical, DNF, Soulbrain, Hansol Chemical and SK Chemical; foreign ones include Air Products, Linde, Air Liquide, Adeka, BASF and Entegris.",
+       "figure": "Customer A KRW 32,277,650 thousand of KRW 70,386,404 thousand H1 revenue",
+       "topics": []
+      },
+      {
+       "quarter": "Lake Materials Q2 FY2026 (08-14-2026)",
+       "signal": "Products and R&D: the company holds mass-production technology for DPT Si precursors (BTBAS, DIPAS, BDEAS) and supplies Zr / Hf-based high-k capacitor precursors; it expects high-k precursor demand to grow as devices advance and volumes rise, and DPT precursor demand to grow as double / multi-patterning continues. Development projects include a high-purity Mo precursor to replace WF6 in 3D NAND metal lines (2024-01 to 2025-12), fluorine-free W precursors for 3D NAND word lines, an inorganic dry-photoresist precursor for EUV (2023-07 to 2027-07) and HfCl4 / TaCl5 / WCl6 solid precursors. H1 R&D spend KRW 1,967,067 thousand (2.76% of revenue). Subsidiary Lake Technology has finished expanding capacity for solid-state-battery electrolyte raw materials and is sampling to customers.",
+       "figure": "H1 R&D KRW 1,967,067 thousand (2.76% of revenue)",
+       "topics": [
+        "transitions"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/nand_flash.json": {
+   "players": [
+    {
+     "company": "Lake Materials",
+     "layer": "materials",
+     "sector": "Specialty / Process Gases",
+     "product": "TEOS and Si / Al / W / Mo CVD-ALD precursors for 3D NAND",
+     "quarterly_data": [
+      {
+       "quarter": "Lake Materials Q2 FY2026 (08-14-2026)",
+       "signal": "3D NAND view (half-year report): the company says TEOS precursor volumes have risen sharply as NAND flash moved to 3D and layer counts keep increasing, so TEOS supply should keep growing; CVD / ALD precursors are its focus area, and as 3D NAND stacks more layers the added deposition steps should sharply expand material consumption, with Samsung Electronics and SK Hynix rapidly raising output using 3D NAND and DPT / QPT.",
+       "figure": "no specific figure",
+       "topics": [
+        "nand_storage"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

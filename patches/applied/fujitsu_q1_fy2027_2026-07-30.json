@@ -1,0 +1,65 @@
+{
+ "source": "Fujitsu Q1 FY2027 (07-30-2026)",
+ "new_nodes": {
+  "Fujitsu": {
+   "ticker": "6702.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "designs and sells the FUJITSU-MONAKA server CPU (standalone to cloud / data center operators and server vendors from November 2026) and MONAKA servers for AI inference",
+   "evidence": "Fujitsu press release 09-14-2026: global sales of FUJITSU-MONAKA as a standalone CPU to cloud and data center operators and server vendors from November 2026",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "Fujitsu",
+     "layer": "compute_hardware",
+     "sector": "Server CPU",
+     "product": "FUJITSU-MONAKA datacenter CPU (2nm core / 5nm cache-I/O, 3D-stacked), sold standalone and in Fujitsu MONAKA Server",
+     "quarterly_data": [
+      {
+       "quarter": "Fujitsu Q1 FY2027 (07-30-2026)",
+       "signal": "CFO: Q1 FY2026 (April-June 2026) revenue JPY 779.3 billion, up 3.9% year-on-year; adjusted operating profit JPY 54.9 billion, up JPY 19.7 billion (+56%), adjusted operating margin 7.0%. Service Solutions revenue JPY 548.9 billion (+6.7%), adjusted operating profit JPY 62.8 billion (+31%), margin 11.4%. Net profit fell on the absence of the approximately JPY 140 billion gain from the sale of Shinko Electric shares a year earlier.",
+       "figure": "revenue JPY 779.3 billion (+3.9%); adjusted operating profit JPY 54.9 billion (+56%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Fujitsu Q1 FY2027 (07-30-2026)",
+       "signal": "CFO: Uvance orders JPY 193.3 billion (+51%) and revenue JPY 192.2 billion (+31%), raising Uvance to 35% of Service Solutions revenue (from 29%); the annual Uvance plan is JPY 840 billion (+18%) and management expects a further step-up beyond this level. Modernization revenue JPY 94.9 billion (+29%), FY2026 target JPY 470 billion (+20%). Total Q1 orders in Japan rose 10% year-on-year, with orders for AI projects and Sovereign Cloud increasing and a large-scale defense deal won.",
+       "figure": "Uvance orders JPY 193.3 billion (+51%); Japan orders +10%",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Fujitsu Q1 FY2027 (07-30-2026)",
+       "signal": "CFO: Hardware Solutions revenue JPY 211.2 billion (+4.5%) with an adjusted operating loss of JPY 3.7 billion, a deterioration of JPY 5 billion, partly from a delay in passing the cost increase of memory chips and other components on to customers. Fujitsu has changed contracts to pass component price increases on promptly for new orders and expects the negative impact to be minimal from the second quarter onwards.",
+       "figure": "Hardware Solutions revenue JPY 211.2 billion (+4.5%); adjusted operating loss JPY 3.7 billion",
+       "topics": [
+        "supply_tightness"
+       ]
+      },
+      {
+       "quarter": "Fujitsu Q1 FY2027 (07-30-2026)",
+       "signal": "CFO: development of Physical AI, next generation CPUs and quantum computers is progressing according to plan.",
+       "figure": "no specific figure",
+       "topics": [
+        "cpu"
+       ]
+      },
+      {
+       "quarter": "Fujitsu Q1 FY2027 (07-30-2026)",
+       "signal": "CFO: FY2026 forecast unchanged - revenue JPY 3,510 billion, adjusted operating profit JPY 425 billion (+JPY 34.4 billion), adjusted net profit JPY 320 billion; Fujitsu aims for another fiscal year of record-high profits.",
+       "figure": "FY2026 revenue JPY 3,510 billion; adjusted operating profit JPY 425 billion",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

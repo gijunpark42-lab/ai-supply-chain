@@ -1,0 +1,105 @@
+{
+ "source": "BHI Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "BHI": {
+   "ticker": "083650",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Designs and builds heat-recovery steam generators (HRSGs) for gas combined-cycle plants (65.4% of H1 2026 revenue) and supplies gas-turbine OEMs Doosan Enerbility and Mitsubishi Heavy Industries; new gas combined-cycle capacity for rising power demand drives its orders.",
+   "evidence": "BHI Q2 FY2026 (08-14-2026) half-year report: HRSG revenue KRW 377,362M (65.4%); order backlog KRW 2,456,886M; percentage-of-completion contract table lists HRSG contracts with Doosan Enerbility and MHI (2025-10-10, KRW 267,458,789,938).",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group kr_early)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "BHI",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "heat-recovery steam generators (HRSGs) for gas combined-cycle plants, plus utility boilers and balance-of-plant equipment",
+     "connects_to": [
+      {
+       "company": "Doosan Enerbility",
+       "relationship": "HRSG and boiler supply for Doosan Enerbility power-plant projects",
+       "contracts": [
+        {
+         "source": "BHI Q2 FY2026 (08-14-2026)",
+         "signal": "BHI's percentage-of-completion contract table lists contracts with Doosan Enerbility as the ordering party: HRSG signed 2023-03-27 (KRW 44,922,754,500, 96.7% complete), boiler signed 2024-04-02 (KRW 41,367,147,500, 91.2%), HRSG signed 2024-11-12 (KRW 125,415,176,107, 92.5%), HRSG signed 2025-08-11 (KRW 47,610,000,000, 19.6%) and HRSG signed 2025-10-31 (KRW 73,537,819,103, 37.6%, due 2026-11-20)",
+         "units": "five contracts (four HRSG, one boiler)",
+         "value": "KRW 125,415,176,107 largest (HRSG, 2024-11-12); KRW 73,537,819,103 (HRSG, 2025-10-31)",
+         "date_signed": "2023-03-27 to 2025-10-31",
+         "type": "supply agreement",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      },
+      {
+       "company": "Mitsubishi Heavy Industries",
+       "relationship": "HRSG supply for an MHI combined-cycle project",
+       "contracts": [
+        {
+         "source": "BHI Q2 FY2026 (08-14-2026)",
+         "signal": "HRSG contract with MHI signed 2025-10-10, due 2031-05-01, KRW 267,458,789,938, 0.9% complete at June 30, 2026",
+         "units": "HRSG; delivery term to 2031-05-01",
+         "value": "KRW 267,458,789,938",
+         "date_signed": "2025-10-10",
+         "type": "supply agreement",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      }
+     ],
+     "quarterly_data": [
+      {
+       "quarter": "BHI Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report: H1 2026 revenue KRW 577,066,229,772 (H1 2025: KRW 304,573,841,433) and operating profit KRW 80,807,667,784 (H1 2025: KRW 32,832,792,893); Q2 2026 revenue KRW 296,273,189,758 (Q2 2025: KRW 169,299,323,933) and Q2 operating profit KRW 45,483,095,564 (Q2 2025: KRW 20,389,794,178). H1 revenue by product: HRSG KRW 377,362M (65.4%), boilers KRW 124,742M (21.6%), balance of plant KRW 27,076M (4.7%), other KRW 47,886M (8.3%); exports KRW 435,110M (75.4%), domestic KRW 141,956M (24.6%)",
+       "figure": "H1 2026 revenue KRW 577,066,229,772; operating profit KRW 80,807,667,784; HRSG 65.4%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "BHI Q2 FY2026 (08-14-2026)",
+       "signal": "Order backlog KRW 2,456,886M at June 30, 2026 across 69 projects (total orders KRW 3,812,597M, delivered KRW 1,355,711M): domestic KRW 757,718M, overseas KRW 1,699,168M; the figures include MOUs and LOIs. Largest open contracts include an HRSG for Formosa Heavy Industries (KRW 533,884,517,218, signed 2023-03-16, due 2028-09-30, 35.7% complete), Toshiba - TPSC balance of plant (KRW 292,485,913,679, 2024-07-31) and HRSGs (KRW 128,729,799,561, 2024-05-24; KRW 185,576,396,619, signed 2026-05-29, due 2033-05-31), Korea District Heating Corp Suwon HRSG (KRW 180,993,996,000), Elsewedy Electric PSP HRSG (KRW 168,582,589,405), Harbin Electric International BOP and HRSGs (KRW 146,367,609,310 and KRW 142,408,913,236; another HRSG KRW 56,996,425,115 signed 2026-01-16), Samsung C&T HRSG (KRW 147,803,158,202), Korea South-East Power boiler (KRW 136,900,000,000), Fuji Electric Systems HRSG (KRW 67,470,368,503) and CHEC-HEI-THCC HRSG (KRW 57,000,613,900, signed 2026-04-28)",
+       "figure": "order backlog KRW 2,456,886M (incl. MOU/LOI)",
+       "counterparty": "Formosa Heavy Industries, Toshiba - TPSC, Korea District Heating Corp, Elsewedy Electric PSP, Harbin Electric International, Samsung C&T, Korea South-East Power, Fuji Electric Systems, CHEC-HEI-THCC",
+       "counterparty_role": "customer",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "BHI Q2 FY2026 (08-14-2026)",
+       "signal": "Customers above 10% of revenue (not named): seven customers A-G together KRW 455,342,230 thousand in H1 2026 (H1 2025: KRW 211,399,978 thousand); the largest, Customer A, KRW 104,886,622 thousand. Earlier completed HRSG contracts in the table include Siemens (KRW 45,169,417,218, signed 2021-02-10) and the MC-HDEC-CC1 Consortium (KRW 54,085,466,513)",
+       "figure": "Customer A KRW 104,886,622 thousand; customers A-G KRW 455,342,230 thousand",
+       "counterparty": "undisclosed Customers A-G; Siemens; MC-HDEC-CC1 Consortium",
+       "counterparty_role": "customer",
+       "topics": []
+      },
+      {
+       "quarter": "BHI Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 materials and outsourcing purchases KRW 403,276M: outsourced fabrication and installation KRW 315,441M (78.2%, main vendor Yantai Hyundai Heavy Industries), tube KRW 39,205M (9.7%, SeAH Steel), pipe KRW 17,196M (4.3%, Yangzhou Chengde Steel Pipe), plate KRW 11,747M (2.9%, POSCO), forgings KRW 2,974M (0.8%, Bokyung Metal). Overseas alloy tube price rose to $3.8/kg from $3.0 and stainless tube to $12.3 from $8.5; the company cites higher chromium and nickel prices",
+       "figure": "purchases KRW 403,276M; outsourcing KRW 315,441M (78.2%)",
+       "counterparty": "Yantai Hyundai Heavy Industries, SeAH Steel, Yangzhou Chengde Steel Pipe, POSCO, Bokyung Metal",
+       "counterparty_role": "supplier",
+       "topics": []
+      },
+      {
+       "quarter": "BHI Q2 FY2026 (08-14-2026)",
+       "signal": "Boiler and HRSG design capability comes from technology licences with Amec Foster Wheeler, Sumitomo SHI FW and Siemens (5-20 year terms) and acquired PC-boiler (2017) and HRSG (2020) source technology. R&D in progress includes an ultra-supercritical HRSG for standard gas combined-cycle plants (2021.06-2027.05) and optimal HRSG design for hydrogen co-fired combined-cycle plants (2024.10-2026.09). Management expects HRSG competition to ease somewhat as some companies restructure, and expects power-equipment orders to increase as electricity demand grows",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

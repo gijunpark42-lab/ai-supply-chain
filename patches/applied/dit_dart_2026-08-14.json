@@ -1,0 +1,114 @@
+{
+ "source": "DIT Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "DIT": {
+   "ticker": "110990",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Supplies laser annealing systems for DRAM/NAND wafers and AOI wafer inspection, sold mostly to SK Hynix under disclosed equipment contracts; DRAM/HBM capacity spending at SK Hynix drives its revenue (customer A 83.96% of sales).",
+   "evidence": "DIT half-year report (filed 08-14-2026): five single sales/supply contracts with SK Hynix for semiconductor manufacturing equipment (KRW 15,390M to KRW 31,740M); laser annealing systems for DRAM/NAND supplied as mass-production tools.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group affiliate)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "DIT",
+     "layer": "equipment",
+     "sector": "Deposition & Etch",
+     "product": "Laser annealing systems for DRAM/NAND wafers and AOI wafer inspection",
+     "quarterly_data": [
+      {
+       "quarter": "DIT Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report: H1 2026 consolidated revenue KRW 90,060,435,821 (H1 2025: KRW 50,716,836,678) and operating profit KRW 30,535,506,216 (H1 2025: KRW 13,772,473,712); Q2 2026 revenue KRW 41,600,866,275 (Q2 2025: KRW 29,072,553,774) and Q2 operating profit KRW 14,097,114,502 (Q2 2025: KRW 8,496,096,764); H1 net income KRW 28,404,400,756 (H1 2025: KRW 14,608,050,388). Equipment sales KRW 81,966M (91.01%), services KRW 5,215M (5.79%)",
+       "figure": "H1 2026 revenue KRW 90,060,435,821; operating profit KRW 30,535,506,216",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "DIT Q2 FY2026 (08-14-2026)",
+       "signal": "Products: laser annealing systems that raise DRAM/NAND wafer yield (void removal in high-selectivity contacts/trenches, contact silicidation anneal, VNAND dopant activation and Si recrystallization), delivered to customers as mass-production tools (first supplied July 2023); SiC power-semiconductor laser annealing for ohmic contacts (supplied from April 2024); AOI inspection of DRAM/NAND wafer surfaces (cracks, chipping, particles) with deep-learning defect classification. Registered as an SK Hynix tier-1 supplier in December 2018 and named an SK Hynix Best Partner in November 2024. H1 2026 R&D KRW 9,970M (11.07% of revenue)",
+       "figure": "R&D KRW 9,970M (11.07% of revenue)",
+       "topics": []
+      },
+      {
+       "quarter": "DIT Q2 FY2026 (08-14-2026)",
+       "signal": "Customer concentration (names withheld as trade secrets): customer A 83.96% and B 10.22% of standalone H1 2026 sales; consolidated, customer A KRW 75,617,121 thousand (0.84 of revenue; H1 2025: KRW 31,580,122 thousand, 0.62) and customer B KRW 9,205,074 thousand (0.10)",
+       "figure": "customer A 83.96% of H1 2026 sales",
+       "topics": [],
+       "counterparty": "undisclosed Customers A and B",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "DIT Q2 FY2026 (08-14-2026)",
+       "signal": "Order backlog KRW 67,651M at June 30, 2026 for AOI and laser solutions (orders KRW 157,711M, delivered KRW 90,060M), with delivery in 2026-2027; transaction price allocated to remaining performance obligations KRW 64,914,427 thousand; contract liabilities KRW 7,159,160,757 vs KRW 2,299,073,224 at end-2025",
+       "figure": "order backlog KRW 67,651M",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "DIT Q2 FY2026 (08-14-2026)",
+       "signal": "Legal: the Daejeon District Prosecutors' Office indicted the company and employees on June 20, 2025 for alleged violations of the Industrial Technology Protection Act; EO Technics claims damages for trade-secret infringement and obtained provisional attachments of the company's movable assets and real estate in August 2025, and the company deposited KRW 8,000,000 thousand to lift the movable-asset attachment; no provision recognized",
+       "figure": "KRW 8,000,000 thousand deposited",
+       "topics": []
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "SK Hynix",
+       "relationship": "Semiconductor manufacturing equipment (laser annealing / inspection)",
+       "contracts": [
+        {
+         "source": "DIT Q2 FY2026 (08-14-2026)",
+         "signal": "Single sales/supply contract with SK Hynix for semiconductor manufacturing equipment (disclosed 2025-03-14, amended 2025-06-16 and 2025-08-13), term 2025-03-13 to 2025-09-26; fully supplied, payment 90% on delivery and 10% after inspection",
+         "units": "semiconductor manufacturing equipment",
+         "value": "KRW 15,390 million",
+         "date_signed": "2025-03-13",
+         "type": "supply agreement",
+         "topics": []
+        },
+        {
+         "source": "DIT Q2 FY2026 (08-14-2026)",
+         "signal": "Single sales/supply contract with SK Hynix for semiconductor manufacturing equipment (disclosed 2025-12-04), term 2025-12-04 to 2026-03-18; KRW 20,188 million supplied in H1 2026",
+         "units": "semiconductor manufacturing equipment",
+         "value": "KRW 21,160 million",
+         "date_signed": "2025-12-04",
+         "type": "supply agreement",
+         "topics": []
+        },
+        {
+         "source": "DIT Q2 FY2026 (08-14-2026)",
+         "signal": "Single sales/supply contract with SK Hynix for semiconductor manufacturing equipment (disclosed 2026-01-02), term 2025-12-31 to 2026-04-11; KRW 20,118 million supplied in H1 2026",
+         "units": "semiconductor manufacturing equipment",
+         "value": "KRW 21,160 million",
+         "date_signed": "2025-12-31",
+         "type": "supply agreement",
+         "topics": []
+        },
+        {
+         "source": "DIT Q2 FY2026 (08-14-2026)",
+         "signal": "Single sales/supply contract with SK Hynix for semiconductor manufacturing equipment (disclosed 2026-01-26), term 2026-01-26 to 2026-07-25; KRW 30,288 million supplied in H1 2026",
+         "units": "semiconductor manufacturing equipment",
+         "value": "KRW 31,740 million",
+         "date_signed": "2026-01-26",
+         "type": "supply agreement",
+         "topics": []
+        },
+        {
+         "source": "DIT Q2 FY2026 (08-14-2026)",
+         "signal": "Single sales/supply contract with SK Hynix for semiconductor manufacturing equipment (disclosed 2026-03-16), term 2026-03-16 to 2026-10-07; equipment to be delivered sequentially from July 2026",
+         "units": "semiconductor manufacturing equipment",
+         "value": "KRW 15,870 million",
+         "date_signed": "2026-03-16",
+         "type": "supply agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

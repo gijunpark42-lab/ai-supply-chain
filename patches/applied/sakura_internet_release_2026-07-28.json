@@ -1,0 +1,56 @@
+{
+ "source": "Sakura Internet press release: Investment in Infrastructure for Generative AI Services (07-28-2026)",
+ "new_nodes": {
+  "Sakura Internet": {
+   "ticker": "3778.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Japanese GPU cloud provider whose GPU infrastructure services (NVIDIA H100/H200/B200, Rubin ordered) are its fastest-growing business; it rents AI compute capacity.",
+   "evidence": "Sakura Internet Q1 results (07-28-2026): GPU infrastructure services net sales 4,718,088 thousand yen (up 245.9%) on high utilization of NVIDIA H200/B200 GPUs added in the previous fiscal year and existing H100 GPUs.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Sakura Internet",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "Japanese GPU cloud (GPU infrastructure services on NVIDIA H100/H200/B200, HGX Rubin NVL8 ordered) and SAKURA Cloud, a Government Cloud provider",
+     "quarterly_data": [
+      {
+       "quarter": "Sakura Internet press release: Investment in Infrastructure for Generative AI Services (07-28-2026)",
+       "signal": "Board resolved on July 28, 2026 to invest 26 billion yen in GPU servers, network and storage equipment for Generative AI services: server rack systems incorporating NVIDIA HGX Rubin NVL8 GPUs, citing strong demand from corporate customers, research institutions and public sector organizations; scheduled delivery January 2027, service start to be determined",
+       "figure": "26 billion yen; delivery January 2027",
+       "topics": [],
+       "slot": "next_catalyst"
+      }
+     ]
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "connects_to": [
+      {
+       "company": "Sakura Internet",
+       "relationship": "GPU supply (H100, H200, B200; HGX Rubin NVL8 ordered) for Sakura Internet's GPU infrastructure services",
+       "contracts": [
+        {
+         "source": "Sakura Internet press release: Investment in Infrastructure for Generative AI Services (07-28-2026)",
+         "signal": "Sakura Internet resolved to invest in server rack systems and related equipment incorporating NVIDIA HGX Rubin NVL8 GPUs (GPU servers, network and storage equipment), acquired from a sales company; scheduled delivery January 2027",
+         "units": "no specific figure",
+         "value": "26 billion yen",
+         "date_signed": "2026-07-28",
+         "type": "purchase",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

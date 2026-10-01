@@ -1,0 +1,52 @@
+{
+ "source": "Hanwha Vision Q2 FY2026 (08-13-2026)",
+ "new_nodes": {
+  "Hanwha Vision": {
+   "ticker": "489790.KS",
+   "exchange": "KOSPI",
+   "country": "KR",
+   "why": "listed parent (100%) of Hanwha Semitech, whose semiconductor-equipment business makes TC bonders and hybrid bonders for advanced packaging plus flip-chip / die bonders and deposition tools; the listed stock carries Semitech's equipment sales to memory makers such as SK Hynix",
+   "evidence": "Hanwha Semitech (100% subsidiary) supplies semiconductor equipment -- back-end advanced-packaging TC bonders and hybrid bonders, flip-chip bonders, and front-end PECVD / ALD deposition equipment -- and has pledged its land and buildings to SK Hynix as collateral for a delivery-contract performance guarantee (Hanwha Vision half-year report, DART 08-13-2026)",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group affiliate)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Hanwha Vision",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "listed parent of Hanwha Semitech: TC bonders and hybrid bonders for advanced packaging, flip-chip / die bonders and PECVD / ALD deposition equipment (plus video-surveillance cameras)",
+     "quarterly_data": [
+      {
+       "quarter": "Hanwha Vision Q2 FY2026 (08-13-2026)",
+       "signal": "H1 2026 half-year report (DART, filed 08-13-2026, consolidated): H1 revenue KRW 983,666,731,780 and operating profit KRW 87,671,584,013; Q2 alone revenue KRW 542,288,924,730 and operating profit KRW 65,578,457,512; H1 net profit KRW 61,246,901,858. Segments (KRW M, H1, before consolidation adjustments): Security revenue 1,283,806 with operating profit 66,536; Industrial Equipment (Hanwha Semitech) revenue 246,336 with operating profit 2,508 (FY2025: revenue 491,811, operating loss 20,929). Product sales: surveillance cameras KRW 566,720M (57.61%), SMT chip mounters etc. KRW 158,792M (16.14%), semiconductor equipment (flip-chip bonders, die bonders etc.) KRW 42,090M (4.28%), machine tools KRW 29,889M (3.04%).",
+       "figure": "H1 revenue KRW 983,666,731,780, H1 OP KRW 87,671,584,013; Q2 revenue KRW 542,288,924,730, Q2 OP KRW 65,578,457,512; semiconductor equipment sales KRW 42,090M",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Hanwha Vision Q2 FY2026 (08-13-2026)",
+       "signal": "Semiconductor equipment (subsidiary Hanwha Semitech): the business comprises back-end advanced-packaging equipment -- TC bonders and hybrid bonders -- plus flip-chip bonders for general semiconductor manufacturing, and front-end PECVD and ALD deposition equipment (deposition business acquired 01-01-2024); building on volume-production experience with flip-chip bonders it is expanding in collaboration with major semiconductor makers. Main customers are global IDMs and OSATs; the company expects semiconductor equipment demand to keep growing at a high rate as AI drives demand for high-performance chips. H1 2026 semiconductor-equipment sales were KRW 42,090M, almost all domestic (KRW 41,629M; FY2025 total KRW 110,286M). Hanwha Semitech's land and buildings are pledged to SK Hynix as collateral for a delivery-contract performance guarantee (KRW 100,000,000 thousand). In H1 2026 Hanwha Vision took part in a Hanwha Semitech rights offering to expand its semiconductor equipment business. Hanwha Semitech is suing Hanmi Semiconductor (first instance pending, claim KRW 1,200,000,000) alleging its TC bonders infringe three Hanwha Semitech patents.",
+       "figure": "Semiconductor equipment sales KRW 42,090M (domestic KRW 41,629M); SK Hynix collateral KRW 100,000,000 thousand",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "counterparty": "SK Hynix",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "Hanwha Vision Q2 FY2026 (08-13-2026)",
+       "signal": "Capacity and inputs, H1 2026 (value basis): Industrial Equipment (Changwon, Zhangjiagang) capacity KRW 312,105M, output KRW 196,766M, utilisation 63.04% (FY2025: 64.60%); Security (Bac Ninh, Vietnam) utilisation 94.92%. Semiconductor-equipment raw materials (control boards, linear scales etc.) KRW 56,544M, from Ames Industry, Heidenhain and others. Chip-mounter average prices: high-speed KRW 270M per unit (2025: KRW 250M), mid-speed KRW 180M (KRW 120M); overseas chip-mounter share 13.96% (PROTEC MDC data). No facility investment is in progress or planned. H1 R&D expense KRW 139,290,999 thousand (14% of revenue).",
+       "figure": "Industrial Equipment utilisation 63.04%; semiconductor-equipment inputs KRW 56,544M; R&D KRW 139,290,999 thousand",
+       "topics": [],
+       "slot": "supply_status"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

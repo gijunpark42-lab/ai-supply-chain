@@ -1,0 +1,63 @@
+{
+ "source": "Biwin Storage Technology IR activity record: 2026-09-09 (09-09-2026)",
+ "new_nodes": {
+  "Biwin Storage Technology": {
+   "ticker": "688525.SS",
+   "exchange": "SSE",
+   "country": "CN",
+   "why": "Sells enterprise SSDs and server memory modules (PCIe / SATA SSD, RDIMM, CXL DRAM) for data centers and AI infrastructure built on NAND/DRAM wafers it buys under LTAs, with in-house packaging; its stock benefits directly from NAND storage demand.",
+   "evidence": "Biwin Storage Technology IR activity record (09-09-2026): PC and enterprise storage revenue RMB 29.47 hundred million in H1 2026; LTAs with memory wafer makers totalling US$33.608 hundred million.",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/nand_flash.json": {
+   "players": [
+    {
+     "company": "Biwin Storage Technology",
+     "layer": "memory",
+     "sector": "NAND Flash",
+     "product": "Enterprise PCIe and SATA SSDs, RDIMM and CXL DRAM modules for servers, with in-house memory packaging and test (Huizhou) and wafer-level advanced packaging (Dongguan)",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Biwin Storage Technology IR activity record: 2026-09-09 (09-09-2026)",
+       "signal": "Management (IR record): H1 2026 revenue RMB 155.75 hundred million, up 298.10% YoY; net profit attributable RMB 71.66 hundred million. By line: smart mobile and AI edge storage RMB 62.44 hundred million, PC and enterprise storage RMB 29.47 hundred million, smart automotive and other RMB 62.33 hundred million.",
+       "figure": "revenue RMB 155.75 hundred million (+298.10%); net profit RMB 71.66 hundred million; PC & enterprise storage RMB 29.47 hundred million",
+       "topics": [
+        "nand_storage"
+       ],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Biwin Storage Technology IR activity record: 2026-09-09 (09-09-2026)",
+       "signal": "Management (IR record): inventory reached RMB 181.68 hundred million at H1 2026, up 130.89% from end-2025, from strategic stocking; the company keeps signing LTAs with major memory wafer makers to lock wafer capacity and disclosed two long-term raw-material purchase agreements with memory makers in March and June 2026 with cumulative committed purchases of US$33.608 hundred million, locking core material supply for the next two years. Management: this round of memory price rises is driven by the AI compute demand boom.",
+       "figure": "inventory RMB 181.68 hundred million (+130.89%); LTAs US$33.608 hundred million",
+       "topics": [
+        "nand_storage"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Biwin Storage Technology IR activity record: 2026-09-09 (09-09-2026)",
+       "signal": "Management (IR record): two production bases - Tailai Technology in Huizhou (memory and SiP packaging and test, 16/32-die stacking, 30-40 micron ultra-thin die, mainly serving the parent with some capacity for strategic customers) and the Dongguan wafer-level advanced packaging base (Guangdong Xincheng Hanqi) covering 2.5D, RDL, Fan-in and Fan-out.",
+       "figure": "16/32-die stacking",
+       "topics": [
+        "packaging_substrate"
+       ]
+      },
+      {
+       "quarter": "Biwin Storage Technology IR activity record: 2026-09-09 (09-09-2026)",
+       "signal": "Management (IR record): the Dongguan wafer-level packaging project plans 5,000 wafers/month by end-2026 and 10,000 wafers/month by end-2027 and, if customer adoption goes smoothly, should contribute revenue from end-2026. Products: FOMS-R ultra-thin LPDDR has received customer demand forecasts; CMC compute-in-memory chiplet product integrates 10 chiplets with process samples done; OEC co-packaged optics - co-developing 6.4T NPO optical-engine packaging with a customer, R&D expected complete in Q4 2026.",
+       "figure": "5,000 wafers/month end-2026; 10,000 wafers/month end-2027",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "slot": "next_catalyst"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

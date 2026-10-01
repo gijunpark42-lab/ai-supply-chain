@@ -1,0 +1,71 @@
+{
+ "source": "Nordson Q3 FY2026 (08-20-2026)",
+ "new_nodes": {
+  "Nordson": {
+   "ticker": "NDSN",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "why": "Its Advanced Technology Solutions segment sells dispensing and X-ray / optical inspection systems used in semiconductor packaging; AI-driven packaging demand lifted ATS sales 28% to a record",
+   "evidence": "Nordson Q3 FY2026 (08-20-2026): CEO - X-ray and optical inspection 'technologies are critical in ensuring semiconductor packaging'; ATS growth 'reflecting the continued strength in semiconductor'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "manufacturing/packaging_substrate.json": {
+   "players": [
+    {
+     "company": "Nordson",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "Precision fluid dispensing systems (underfill / encapsulant) and X-ray / optical test and inspection systems for semiconductor packaging (Advanced Technology Solutions)",
+     "quarterly_data": [
+      {
+       "quarter": "Nordson Q3 FY2026 (08-20-2026)",
+       "signal": "Record Q3 sales of $818 million, up 10% from $742 million, with 12% organic growth; EBITDA a record $262 million (32% of sales); adjusted EPS a record $3.25, up 19% (CEO / CFO).",
+       "figure": "sales $818 million, +10%; organic +12%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Nordson Q3 FY2026 (08-20-2026)",
+       "signal": "Advanced Technology Solutions sales were an all-time record $220 million, up 28% (31% organically), with growth in both electronics dispense and Test & Inspection reflecting continued strength in semiconductor and electronics demand; EBITDA a record $66 million (30% of sales), up 58% (CFO). CEO: a good inflection point for the X-ray and optical businesses, technologies critical in ensuring semiconductor packaging.",
+       "figure": "ATS sales $220 million, +28%; EBITDA $66 million",
+       "topics": [
+        "packaging_substrate"
+       ]
+      },
+      {
+       "quarter": "Nordson Q3 FY2026 (08-20-2026)",
+       "signal": "CEO: backlog up 35% year-over-year entering Q4, with particular strength in Advanced Technology Solutions and Medical and Fluid Solutions; CFO: the backlog generally turns over in about six months, orders are being taken into 2027, and there is no elongation in lead times.",
+       "figure": "backlog +35% YoY",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Nordson Q3 FY2026 (08-20-2026)",
+       "signal": "Full-year FY2026 guidance raised: sales of $3 billion and $35 million to $3 billion and $75 million, adjusted EPS $11.80-$12 per diluted share; CFO: ATS and Medical and Fluid Solutions order momentum drove the raise.",
+       "figure": "sales $3 billion and $35 million to $3 billion and $75 million; EPS $11.80-$12",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Nordson Q3 FY2026 (08-20-2026)",
+       "signal": "CEO: ATS is at the peak of the cycle with legs; next year it expects to build off this all-time peak at a rate more in line with its longer-term mid-single digit number, with demand looking strong into 2027; a significant portion of current demand is in Asia, and North American chip manufacturing infrastructure investment has not yet shown up in Nordson orders.",
+       "figure": "no specific figure",
+       "topics": [
+        "packaging_substrate"
+       ]
+      },
+      {
+       "quarter": "Nordson Q3 FY2026 (08-20-2026)",
+       "signal": "Medical and Fluid Solutions sales were a record $231 million (+5%, about 11% organic), helped by EFD electronics demand; Industrial Precision Solutions sales $367 million (+5%); free cash flow $237 million (CFO).",
+       "figure": "$231 million; $367 million",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

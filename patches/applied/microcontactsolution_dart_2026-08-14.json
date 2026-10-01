@@ -1,0 +1,111 @@
+{
+ "source": "Micro Contact Solution Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "Micro Contact Solution": {
+   "ticker": "098120",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Its semiconductor segment (burn-in, module and test sockets, 65.5% of H1 2026 sales from sockets) supplies the consumable sockets used to burn-in and test memory chips for Samsung Electronics and SK Hynix; socket demand moves with memory production volumes, so DRAM / HBM-era memory output drives its sales.",
+   "evidence": "Micro Contact Solution Q2 FY2026 (08-14-2026) half-year report: its IC sockets are consumables whose demand follows semiconductor production, and it mainly trades with Samsung Electronics, Hynix, other chipmakers worldwide and related equipment makers; burn-in sockets test single memory chips under harsh temperature conditions.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group kr_early)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Micro Contact Solution",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "memory burn-in sockets, module sockets and SSD test interfaces for DRAM / NAND test (plus rubber test sockets via subsidiary MSL)",
+     "quarterly_data": [
+      {
+       "quarter": "Micro Contact Solution Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report (consolidated): Q2 2026 revenue KRW 41,896,605 thousand (Q2 2025: KRW 22,367,139 thousand) and operating profit KRW 13,904,493,272 (Q2 2025: KRW 3,692,919,283); H1 2026 revenue KRW 69,469,477 thousand (H1 2025: KRW 47,687,047 thousand), operating profit KRW 19,285,621,876 (H1 2025: KRW 8,675,711,602) and net income KRW 16,915,841,345. FY2025 revenue was KRW 100,314,290 thousand",
+       "figure": "Q2 2026 revenue KRW 41,896,605 thousand; Q2 operating profit KRW 13,904,493,272; H1 revenue KRW 69,469,477 thousand",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Micro Contact Solution Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 segments: Semicon (IC / burn-in / module sockets) revenue KRW 55,147,107 thousand with operating profit KRW 19,892,177 thousand (H1 2025: KRW 35,543,171 thousand and KRW 9,330,674 thousand); Appliance (thermal protectors, magnetic contactors, contact assemblies) revenue KRW 14,322,370 thousand with an operating loss of KRW 606,555 thousand. By product: burn-in / module / SSD sockets KRW 45,502M (65.5%), subsidiary MSL rubber sockets KRW 7,220M (10.4%, of which exports KRW 6,801M), appliance products KRW 13,601M (19.5%). Exports KRW 24,244,018 thousand (H1 2025: KRW 10,460,034 thousand). Average price of main products up about 1.53% versus the prior year",
+       "figure": "Semicon segment revenue KRW 55,147,107 thousand; operating profit KRW 19,892,177 thousand",
+       "topics": []
+      },
+      {
+       "quarter": "Micro Contact Solution Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 burn-in socket capacity 5,172 thousand units, production 5,021 thousand, utilisation 97% (FY2025: 74%; FY2024: 48%); parts-process utilisation injection molding 73.3% and press 61.1%. Inventory rose to KRW 17,887,091,598 from KRW 11,036,557,020 at end-2025; unexecuted commitments for property, plant and equipment KRW 1,400,970 thousand. Sockets are ordered on very short lead times (2-3 days to about 2-3 weeks), so no order backlog is reported",
+       "figure": "burn-in socket utilisation 97% (5,021 of 5,172 thousand units)",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Micro Contact Solution Q2 FY2026 (08-14-2026)",
+       "signal": "Customer concentration (customers not named): Customer A KRW 9,642,170 thousand (13.88% of revenue, Appliance segment) and Customer B KRW 7,263,595 thousand (10.46%, Semicon segment) in H1 2026, versus 27.29% and 17.13% in H1 2025. Burn-in sockets reach chipmakers soldered onto test boards via board makers; module sockets go via test-equipment makers. The Appliance segment has expanded with LS Electric since 2023 (magnetic contactors to LS Electric and its first-tier suppliers; thermal protectors mainly via LG Electronics' first-tier suppliers)",
+       "figure": "Customer A 13.88%; Customer B 10.46%",
+       "counterparty": "LS Electric",
+       "counterparty_role": "customer",
+       "topics": []
+      },
+      {
+       "quarter": "Micro Contact Solution Q2 FY2026 (08-14-2026)",
+       "signal": "R&D: H1 2026 R&D spending KRW 3,198M (4.60% of revenue); a government-funded next-generation semiconductor test burn-in socket project (KRW 1,600,000 thousand grant, from October 2024). 2026 development projects listed in the report include an EDSFF Gen6 test connector for KIOXIA, 0.29p 663FBGA and 0.65P 334FBGA sockets for SK hynix, 0.80x0.65P 200FBGA and 0.35p 201FBGA sockets and an ATE socket contact for Samsung; 2025 projects included advance development of a 0.23p 2406FBGA socket for SK hynix and an LPCAMM2 socket for SK Hynix",
+       "figure": "R&D KRW 3,198M (4.60% of revenue)",
+       "counterparty": "Kioxia",
+       "counterparty_role": "customer",
+       "topics": [],
+       "slot": "next_catalyst"
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Samsung",
+       "relationship": "memory burn-in / test sockets",
+       "contracts": [
+        {
+         "source": "Micro Contact Solution Q2 FY2026 (08-14-2026)",
+         "signal": "The half-year report says its IC sockets, a consumable whose demand follows chip production, are mainly sold to Samsung Electronics, Hynix and other chipmakers worldwide and related equipment makers; 2026 development projects for Samsung include 0.80x0.65P 200FBGA and 0.35p 201FBGA sockets and an ATE socket contact, after 2025 burn-in socket projects such as 0.35p 1295FBGA BI and 0.63p 308FBGA BI sockets",
+         "units": "burn-in / LGA / test sockets",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer relationship",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "SK Hynix",
+       "relationship": "memory burn-in / test sockets",
+       "contracts": [
+        {
+         "source": "Micro Contact Solution Q2 FY2026 (08-14-2026)",
+         "signal": "The half-year report says its IC sockets are mainly sold to Samsung Electronics, Hynix and other chipmakers worldwide and related equipment makers; 2026 development projects for SK hynix include 0.29p 663FBGA PCR and 0.65P 334FBGA sockets, after 2025 projects including an LPCAMM2 PCR manual socket, 0.30p 352FBGA PCR (DRAM) sockets and advance development of a 0.23p 2406FBGA PCR socket",
+         "units": "burn-in / PCR / LGA sockets",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer relationship",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "Micron",
+       "relationship": "memory burn-in sockets",
+       "contracts": [
+        {
+         "source": "Micro Contact Solution Q2 FY2026 (08-14-2026)",
+         "signal": "The report's R&D results list a 2025 project to develop a 0.6x0.5p 245FBGA burn-in socket for Micron, described as a new product developed to customer needs to increase sales",
+         "units": "0.6x0.5p 245FBGA burn-in socket",
+         "value": "no specific figure",
+         "date_signed": "2025",
+         "type": "product development for customer",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

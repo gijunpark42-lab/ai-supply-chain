@@ -1,0 +1,130 @@
+{
+ "source": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+ "new_nodes": {
+  "HIVE Digital Technologies": {
+   "ticker": "HIVE",
+   "exchange": "NASDAQ",
+   "country": "CA",
+   "why": "Its BUZZ HPC unit is a GPU cloud (neocloud) renting NVIDIA GB200 / GB300 / B200 / Hopper clusters on multi-year contracts (Cohere through the Bell AI Fabric partnership; a new five-year GB300 contract) and is converting owned sites to HPC colocation; GPU cloud demand drives its fastest-growing revenue line.",
+   "evidence": "HIVE Digital Technologies Q1 FY2027 call (08-17-2026), CEO Aydin Kilic: 'we are at $180 million of contracted revenue because we just announced a new five-year deal ... 2,088 GB300s are going to go to the Bell Merritt facility ... Lenovo is our partner for the OEM on these GPUs' and 'we have seen, for example, Cohere come in as a client and tenant through that partnership'.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "HIVE Digital Technologies",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "BUZZ HPC GPU cloud (NVIDIA GB200 / GB300 / B200 / H200 clusters in Bell AI Fabric data centers in Canada) plus HPC colocation conversions of owned sites (Boden Sweden, Toronto gigafactory)",
+     "quarterly_data": [
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CFO: HIVE generated $79.1 million of revenue in fiscal Q1 2027, compared with $45.6 million a year earlier (growth of approximately 73%) and $71.8 million in the fourth quarter (approximately 10%). Bitcoin mining generated $72.1 million; the HPC and AI business contributed approximately $7 million (CEO: GPU cloud revenue $7.1 million, about 10% of total).",
+       "figure": "Revenue $79.1M (~73% YoY, ~10% QoQ); HPC/AI ~$7M (~10%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CFO: gross operating margin was $24.2 million (31% of revenue) versus $15.8 million (35%) a year earlier; adjusted EBITDA was $13.4 million versus negative $9 million in Q4. GAAP net loss was $142.9 million, including an $84.7 million non-cash provision for the Swedish VAT dispute (which management is appealing and does not plan to pay) and $53.7 million of depreciation. Cash was $208 million at June 30.",
+       "figure": "Gross operating margin $24.2M (31%); adjusted EBITDA $13.4M; net loss $142.9M",
+       "topics": []
+      },
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CEO: new five-year GPU cloud contract with an investment-grade global technology giant: 2,088 GB300s go to the Bell Merritt facility (closed loop liquid cooled), delivered in Q4, $360 million total contract value, $70 million ARR, with a 10% deposit of about $35 million. Lenovo is the OEM partner; cluster capex is about $185 million, funded with a down payment from the June convertible notes and GPU vendor financing; EBITDA expected in the 75%-80% range. This brings HIVE to $180 million of combined active and contracted revenue and $600 million of GPU cloud TCV signed this year.",
+       "figure": "2,088 GB300s; $360M TCV, $70M ARR; $180M contracted ARR; ~$185M cluster capex",
+       "topics": [],
+       "slot": "backlog_or_b2b",
+       "capex": {
+        "field": "backlog",
+        "busd": 0.6,
+        "display": "$600M",
+        "metric": "GPU cloud TCV signed in 2026"
+       }
+      },
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CEO: Cohere came in as a client and tenant through the Bell Canada AI Fabric partnership: a three-year, $225 million TCV GB200 cluster at the Bell Merritt facility, deployed in Q4. HIVE co-locates as a tenant in the Bell AI Fabric data centers in Merritt, B.C. and Winnipeg at a colo rate below market, and BUZZ HPC is Bell's exclusive partner for its enterprise customers seeking sovereign AI compute.",
+       "figure": "Cohere three-year GB200 contract, $225M TCV",
+       "topics": [],
+       "counterparty": "Cohere",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CEO: approximately 5,500 GPUs are online today doing $35 million ARR (about $97,000 daily HPC revenue), up from about $5 million a quarter in the prior four quarters after a B200 cluster went online in Bell Canada's Winnipeg facility in May; with the two large clusters coming online in Q4, 9,800 GPUs are contracted or active. The fleet includes 844 H200s and H100s and about 4,200 legacy A Series cards renting at $0.40 a GPU hour.",
+       "figure": "~5,500 GPUs online, $35M ARR; 9,800 GPUs contracted or active",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CEO: still targeting $200 million ARR for the GPU cloud business by year-end (Q4), e.g. another 500 GB300s in Quebec adding 20 million ARR; target of 10,500 GPUs through the Bell AI Fabric partnership and existing Quebec and Sweden sites. Two-year vision: $500 million of HPC colo revenue from 325 MW of critical IT load plus $200 million GPU cloud, $700 million ARR in total; demand would take GPU cloud well past $200 million.",
+       "figure": "$200M GPU cloud ARR target by Q4 2026; $700M ARR two-year vision",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CEO: LOI for an HPC colo lease at the Boden, Sweden site with an investment-grade Swedish telco offtaker: 32 MW of utility load / 25 MW of IT load, $45 million ARR at about $150 a kilowatt a month; definitive agreement hoped before the end of September. Conversion capex is $200 million. With it, contracted HPC revenue would reach $225 million ARR.",
+       "figure": "Boden 25 MW IT, $45M ARR; definitive agreement targeted by end of September 2026",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CEO: global power footprint 860 megawatts (440 megawatts active, 420 MW pipeline). The Greater Toronto AI gigafactory (three phases of 80 MW of critical IT load) is expected to be energized end of 2027 with compute live in early 2028. At Iguazu, Paraguay, two 80 MVA transformers were installed for 100 MW of IT load, with the substation expected to be energized towards the end of this calendar year. Owned sites offer a runway for over 120,000 GPUs.",
+       "figure": "860 MW footprint; GTA gigafactory energized end of 2027; Iguazu 100 MW IT",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CEO on demand and pricing: the first B200 cluster in Winnipeg (504 GPUs, two-year contract) rented above a large B200 deployment priced at $2.20 an hour 6-9 months earlier, showing increasing demand; for another 2,000-GPU cluster numerous parties would rent on a three-year or longer contract, in some cases at dollar per GPU prices even higher than before. Frontier labs want the latest NVIDIA hardware while inference users are happy with Hopper-era and prior generations.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ]
+      },
+      {
+       "quarter": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+       "signal": "CEO: Bitcoin mining has 24 exahash operational (25.3 installed), about $750,000 a day of revenue ($275 million ARR); Paraguay runs about 19.5 exahash of new-generation gear below 15 J/TH. With the Q4 GPU clusters live, HPC would be about 40% of global revenue versus 10% this quarter; 100% of growth is in HPC and AI.",
+       "figure": "24 EH/s operational; HPC ~40% of revenue after Q4 clusters (10% now)",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "Lenovo",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "AI servers and racks (ThinkSystem) for neocloud GPU clusters",
+     "connects_to": [
+      {
+       "company": "HIVE Digital Technologies",
+       "relationship": "OEM partner supplying the NVIDIA GB300 GPU cluster for HIVE's BUZZ HPC cloud",
+       "contracts": [
+        {
+         "source": "HIVE Digital Technologies Q1 FY2027 (08-17-2026)",
+         "signal": "HIVE CEO: the new five-year contract deploys 2,088 GB300s at the Bell Merritt facility, delivered in Q4; 'Lenovo is our partner for the OEM on these GPUs.' The GPUs were funded with proceeds from the June convertible notes as down payment plus vendor financing.",
+         "units": "2,088 GB300 GPUs",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "OEM server supply",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

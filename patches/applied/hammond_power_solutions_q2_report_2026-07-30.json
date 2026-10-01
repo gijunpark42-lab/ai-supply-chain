@@ -1,0 +1,72 @@
+{
+ "source": "Hammond Power Solutions quarterly report: 2026 Q2 Report (07-30-2026)",
+ "new_nodes": {
+  "Hammond Power Solutions": {
+   "ticker": "HPS-A.TO",
+   "exchange": "TSX",
+   "country": "CA",
+   "why": "dry-type transformer and power-quality maker whose U.S. sales jumped on data-centre shipments; backlog nearly doubled year-on-year on large data-centre project orders",
+   "evidence": "Hammond Power Solutions 2026 Q2 Report (07-30-2026), MD&A: backlog increased by 96.9% as compared to Quarter 2, 2025, primarily due to large project orders driven by data centre activity",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group unnamed_tenant)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Hammond Power Solutions",
+     "domain": "power",
+     "sector": "Grid",
+     "product": "Dry-type distribution and custom power transformers and power quality products for data centres and industrial electrification (custom units built in Mexico), plus AC/DC UPS and power conversion systems via AEG Power Solutions",
+     "quarterly_data": [
+      {
+       "quarter": "Hammond Power Solutions quarterly report: 2026 Q2 Report (07-30-2026)",
+       "signal": "Q2 2026 (amounts in Canadian dollars): CEO Adrian Thomas - record sales of $324.8 million, up 44.7% from Q2 2025, with gross margin up to 31.5% (30.7% a year ago, 30.1% in Q1 2026); U.S. & Mexico sales rose 73.0%, driven by increases in data centre shipments and improving price realization, while Canada fell 23.7%. Adjusted EBITDA rose 59.4%. H1 2026 sales reached $589.6 million, up 38.5%. Custom products rose to just under 70% of product sales.",
+       "figure": "sales $324.8 million (+44.7%); U.S. & Mexico +73.0%; gross margin 31.5%; adjusted EBITDA +59.4%; H1 sales $589.6 million (+38.5%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Hammond Power Solutions quarterly report: 2026 Q2 Report (07-30-2026)",
+       "signal": "Backlog (MD&A): Q2 2026 backlog increased 96.9% versus Q2 2025, primarily due to large project orders driven by data centre activity; it decreased 6.9% from Q1 2026 and 3.1% from Q4 2025 as shipments exceeded new bookings. In Q4 2025 the company received several large data centre orders, mostly scheduled to ship in 2026 and primarily using its newly established Mexico capacity for custom power products. Weighted average backlog tenor is approximately three quarters.",
+       "figure": "backlog +96.9% YoY; -6.9% QoQ",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Hammond Power Solutions quarterly report: 2026 Q2 Report (07-30-2026)",
+       "signal": "Capacity (MD&A / CEO): expanded manufacturing capacity enabled higher shipment volumes, shorter lead times and faster conversion of backlog; HPS is also expanding capacity at other facilities through additional equipment and production optimization. HPS has invested and committed approximately $90,000 thousand on capital expansion projects over 2023 through 2026, including $20,000 thousand announced in August 2024 to build capacity for custom power transformers in Mexico.",
+       "figure": "capital expansion ~$90,000 thousand (2023-2026)",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Hammond Power Solutions quarterly report: 2026 Q2 Report (07-30-2026)",
+       "signal": "Outlook (CEO): demand across key North American markets remains strong, particularly in data centres, industrial electrification and power reliability applications; backlog remains high and supported by robust quotation activity, providing continued visibility through the balance of 2026. HPS enters H2 with greater manufacturing capacity and a broader portfolio; priorities are execution and integrating AEG.",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Hammond Power Solutions quarterly report: 2026 Q2 Report (07-30-2026)",
+       "signal": "AEG Power Solutions acquisition completed on June 29, 2026 (operating facts): AEG designs and manufactures AC and DC uninterruptible power supply systems, battery chargers, rectifiers and power conversion products for industrial, infrastructure, transportation, energy and other critical applications. CEO: it expands HPS beyond transformers into power quality and power conversion solutions.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "Hammond Power Solutions quarterly report: 2026 Q2 Report (07-30-2026)",
+       "signal": "Inputs and pricing (MD&A): key inputs include electrical steel, copper and aluminum; copper and aluminum prices increased and affect transformer coil costs, while HPS is heavily reliant on foreign-sourced grain-oriented electrical steel (GOES), produced in relatively few mills. The annual price increase in Q1 2026 offset tariffs and cost increases and drove the gross margin improvement.",
+       "figure": "no specific figure",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

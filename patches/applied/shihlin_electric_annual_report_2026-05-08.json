@@ -1,0 +1,80 @@
+{
+ "source": "Shihlin Electric annual report: 2025 Annual Report (05-08-2026)",
+ "new_nodes": {
+  "Shihlin Electric": {
+   "ticker": "1503.TW",
+   "exchange": "TWSE",
+   "country": "TW",
+   "why": "Taiwanese heavy-electrical maker (transformers, GIS, switchgear); its 2025 annual report says data-center expansion by international technology giants and US AI / data-center investment drive strong transformer order momentum",
+   "evidence": "Shihlin Electric annual report: 2025 Annual Report (05-08-2026): 'Our operations benefit from the global energy transition, grid upgrade trends, and data center expansion plans, making transmission and distribution transformers a key resource and driving strong order momentum.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group unnamed_tenant)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Shihlin Electric",
+     "domain": "power",
+     "sector": "Grid",
+     "product": "Power and distribution transformers (oil-immersed, amorphous, molded; up to 345 kV), gas-insulated switchgear (GIS), switchboards, high-voltage switches and circuit breakers",
+     "quarterly_data": [
+      {
+       "quarter": "Shihlin Electric annual report: 2025 Annual Report (05-08-2026)",
+       "signal": "2025 consolidated revenue NT$37.178 billion (+6.01%) and consolidated pre-tax profit NT$4.27 billion (+6.67%); gross profit NT$7,768 million (2024: NT$6,813 million), profit after tax NT$3,378 million, EPS NT$6.27 (2024: NT$5.81). Operating profit NT$4,299,186 thousand (+28.1%), mainly due to increased sales of heavy electrical products and a favorable scale and structure.",
+       "figure": "revenue NT$37.178 billion (+6.01%); pre-tax profit NT$4.27 billion (+6.67%); operating profit +28.1%; EPS NT$6.27",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Shihlin Electric annual report: 2025 Annual Report (05-08-2026)",
+       "signal": "2025 product mix: Electricity Distribution Products 72.19% of revenue, Automobile Components 14.64%, Automation Equipment and Components 10.43%, Others 2.74%. Heavy electric products include power and distribution transformers, reactors, switchboards, capacitors, gas-insulated switchgear (GIS), bus bars, high-voltage switches and surge arresters; the company cites its 345 kV, 1260 MVA nuclear-grade transformer as the nation's largest-capacity power system equipment.",
+       "figure": "Electricity Distribution Products 72.19% of 2025 revenue",
+       "topics": []
+      },
+      {
+       "quarter": "Shihlin Electric annual report: 2025 Annual Report (05-08-2026)",
+       "signal": "Company: 'Our operations benefit from the global energy transition, grid upgrade trends, and data center expansion plans, making transmission and distribution transformers a key resource and driving strong order momentum.' Export orders from North America, Japan and Southeast Asia grew significantly; demand in the US market 'is expected to continue its rapid growth over the next 5 to 10 years, driven by US tech giants' investments in AI training and data center planning.' Orders from the North American market now account for 15% to 20% of heavy electrical product revenue, and over the next 3 to 5 years 'orders will grow significantly.'",
+       "figure": "North American orders 15% to 20% of heavy electrical product revenue",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Shihlin Electric annual report: 2025 Annual Report (05-08-2026)",
+       "signal": "2026 expected sales volume: Electric Distribution Products 11.97 million sets (2025 actual 11.40 million), total 31.18 million sets (2025: 29.69 million). Company: AI-driven power demand in the United States and overseas investment by domestic enterprises favor exports of power distribution products to the U.S.; Taipower's grid resilience program and rail / infrastructure projects support the domestic outlook. Long-term plan: expand overseas revenue by growing 10% per year.",
+       "figure": "2026 Electric Distribution Products 11.97 million sets (2025: 11.40 million); overseas revenue +10% per year target",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Shihlin Electric annual report: 2025 Annual Report (05-08-2026)",
+       "signal": "Capital expenditure plan: procurement of equipment for developing new types of transformers, total NT$3,688,341 thousand to be completed Dec. 2028 (2025 NT$681,000 thousand; 2026 NT$983,517 thousand; 2027 NT$850,000 thousand); in 2026 this equipment is expected to add 4,909 units of production and NT$582,738 thousand of sales revenue.",
+       "figure": "new-transformer equipment NT$3,688,341 thousand through 2028; 2026 NT$983,517 thousand",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Shihlin Electric annual report: 2025 Annual Report (05-08-2026)",
+       "signal": "Customer concentration: Taiwan Power Company accounted for NT$4,144,222 thousand, 13.0% of 2025 net sales, and NT$1,123,904 thousand, 11.5% of net sales in Q1 2026.",
+       "figure": "Taiwan Power Company 13.0% of 2025 net sales; 11.5% in Q1 2026",
+       "topics": [],
+       "counterparty": "Taiwan Power Company",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "Shihlin Electric annual report: 2025 Annual Report (05-08-2026)",
+       "signal": "New heavy electrical products developed January-April 2026 include a wind power generation transformer (230 kV, 325 MVA), a 69 kV, 5 MVA large-capacity transformer for green energy, Siemens 24 kV loop switchgear (RMU), transformer health-prediction products and solid-state transformer (SST) development; 2025 contract wins include the Taiwan Taoyuan International Airport Third Runway Aviation Ground Lighting (AGL) turnkey project.",
+       "figure": "wind power transformer 230 kV, 325 MVA",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

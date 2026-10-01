@@ -1,0 +1,42 @@
+{
+ "source": "Hirano Tecseed earnings release: Consolidated Financial Results for the First Quarter Ended June 30, 2026 (08-07-2026)",
+ "new_nodes": {
+  "Hirano Tecseed": {
+   "ticker": "6245.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "coating-machine maker whose Industrial Machinery segment sells film making systems for electronic-material applications such as MLCC; MLCC capacity build-out lifts its orders",
+   "evidence": "Hirano Tecseed FY2025 results briefing (05-12-2026): film making systems for electronic materials applications such as MLCC; 'Contribution to sales from production of industrial materials and MLCC applications in 2Q.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group weak_evidence)"
+  }
+ },
+ "chains": {
+  "components/mlcc.json": {
+   "players": [
+    {
+     "company": "Hirano Tecseed",
+     "layer": "equipment",
+     "sector": "MLCC / Passives Equipment",
+     "product": "roll-to-roll coating machines and film making systems for electronic and ceramic materials, incl. MLCC applications",
+     "quarterly_data": [
+      {
+       "quarter": "Hirano Tecseed earnings release: Consolidated Financial Results for the First Quarter Ended June 30, 2026 (08-07-2026)",
+       "signal": "Q1 FY2026 (April-June 2026): net sales 6,083 million yen (-43.3%), operating income 147 million yen (-82.0%), net income attributable to owners of parent 163 million yen (-74.5%). Forecast unchanged: first half net sales 13,000 million yen, full year 25,000 million yen.",
+       "figure": "Q1 net sales 6,083 million yen (-43.3%); full-year forecast 25,000 million yen unchanged",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Hirano Tecseed earnings release: Consolidated Financial Results for the First Quarter Ended June 30, 2026 (08-07-2026)",
+       "signal": "Q1 FY2026 orders received: Industrial machinery 5,602,726 thousand yen (+1,710.1%), backlog 14,721,885 thousand yen (+43.6% from fiscal year-end); Coating and laminating machinery orders 1,013,300 thousand yen (-63.2%), backlog 17,247,146 thousand yen (-17.5%); total orders 7,105,514 thousand yen (+112.5%), total backlog 32,672,272 thousand yen (+3.2%).",
+       "figure": "Industrial machinery orders 5,602,726 thousand yen (+1,710.1%); total backlog 32,672,272 thousand yen",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "source": "Fuji Electric results presentation: Consolidated Financial Results for 1Q FY2026 (07-30-2026)",
+ "new_nodes": {
+  "Fuji Electric": {
+   "ticker": "6504.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Supplies substation equipment, switchboards and UPS for data centers and semiconductor factories, and makes power semiconductors; data center build-outs drive its power supply and facility systems orders.",
+   "evidence": "Fuji Electric 1Q FY2026 results presentation (07-30-2026): strong orders in the power supply and facility systems business on higher demand for domestic and overseas data center-related and overseas semiconductor factories.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Fuji Electric",
+     "domain": "power",
+     "sector": "Datacenter Power",
+     "product": "Power supply and facility systems for data centers and semiconductor factories: substation equipment (switchboards, molded transformers) and UPS",
+     "quarterly_data": [
+      {
+       "quarter": "Fuji Electric results presentation: Consolidated Financial Results for 1Q FY2026 (07-30-2026)",
+       "signal": "1Q FY2026 (April-June 2026): net sales 273.3 billion yen (up 25.3 billion yen, +10% YoY) and operating profit 25.0 billion yen (up 6.9 billion yen, +38%), driven by the Energy and Industry segments",
+       "figure": "net sales 273.3 billion yen; operating profit 25.0 billion yen",
+       "topics": []
+      },
+      {
+       "quarter": "Fuji Electric results presentation: Consolidated Financial Results for 1Q FY2026 (07-30-2026)",
+       "signal": "1Q orders 427.4 billion yen (up 91.1 billion yen YoY), with Energy orders up 90.1 billion yen; strong orders continued in the power supply and facility systems business on higher demand for domestic and overseas data center-related and overseas semiconductor factories",
+       "figure": "orders 427.4 billion yen (+91.1 billion yen)",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Fuji Electric results presentation: Consolidated Financial Results for 1Q FY2026 (07-30-2026)",
+       "signal": "Energy segment 1Q net sales 82.5 billion yen (74.2 a year earlier), operating profit 12.1 billion yen (14.7% margin). Energy Management net sales +12% on storage battery system orders and large-scale orders for substation equipment and power supply equipment; Power Supply and Facility Systems net sales -3% due to the absence of large-scale data center-related orders received in Japan in the prior-year period",
+       "figure": "Energy net sales 82.5 billion yen; operating profit 12.1 billion yen",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Fuji Electric results presentation: Consolidated Financial Results for 1Q FY2026 (07-30-2026)",
+       "signal": "Forecast raised: six months ending September 30, 2026 net sales 594.0 billion yen (from 569.0) and operating profit 58.0 billion yen (from 44.0); Energy revision driven by demand growth for data centers and semiconductor plants in the power supply and facility systems business. Full year ending March 31, 2027 net sales 1,300.0 billion yen (from 1,275.0), operating profit 156.5 billion yen (from 142.5); no change to the second-half forecast",
+       "figure": "H1 net sales 594.0 billion yen; FY net sales 1,300.0 billion yen, operating profit 156.5 billion yen",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ]
+    }
+   ]
+  },
+  "components/power_semiconductor.json": {
+   "players": [
+    {
+     "company": "Fuji Electric",
+     "domain": "power",
+     "sector": "Power Semiconductors",
+     "product": "Industrial and automotive power semiconductors",
+     "quarterly_data": [
+      {
+       "quarter": "Fuji Electric results presentation: Consolidated Financial Results for 1Q FY2026 (07-30-2026)",
+       "signal": "Semiconductors segment 1Q net sales 54.4 billion yen (54.8 a year earlier), operating profit 3.1 billion yen (4.9). Industrial semiconductors 31.3 billion yen (27.8) on higher motor drive demand; automotive semiconductors 23.1 billion yen (27.0) on reduced demand for power semiconductors for electrified vehicles; capital investment 2.8 billion yen (9.0). Full-year Semiconductors forecast net sales 227.5 billion yen, operating profit 16.5 billion yen",
+       "figure": "segment net sales 54.4 billion yen; operating profit 3.1 billion yen",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

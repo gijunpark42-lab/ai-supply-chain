@@ -1,0 +1,40 @@
+{
+ "source": "Meiko Electronics results briefing: FY2026 Q1 Financial Results Briefing (08-06-2026)",
+ "new_nodes": {
+  "Meiko Electronics": {
+   "ticker": "6787.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "PCB maker reporting a separate 'AI Server' application line and fast-growing HDI board sales; AI-server board demand flows directly into its revenue.",
+   "evidence": "Meiko FY2026 Q1 briefing (08-06-2026), net sales by product application: 'AI Server 1.4 2.6 1.2 85.7%' (billion yen).",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group weak_evidence)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "Meiko Electronics",
+     "layer": "advanced_packaging",
+     "sector": "FC-BGA Substrate",
+     "product": "HDI (build-up) and multilayer printed circuit boards, including boards for AI servers",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Meiko Electronics results briefing: FY2026 Q1 Financial Results Briefing (08-06-2026)",
+       "signal": "FY2026 Q1 (April-June 2026): net sales 73.2 billion yen vs 53.1 (+38.0%); PCB sales 60.2 vs 42.7 (+41.0%); operating income 6.1 vs 5.6 (+8.7%).",
+       "figure": "Net sales 73.2 billion yen (+38.0%); PCB 60.2 billion yen (+41.0%)",
+       "topics": []
+      },
+      {
+       "quarter": "Meiko Electronics results briefing: FY2026 Q1 Financial Results Briefing (08-06-2026)",
+       "signal": "Net sales by application, Q1: AI Server 2.6 billion yen vs 1.4 (+85.7%); satellite communications 12.2 vs 4.3 (+183.7%); automotive 27.7 vs 22.1. By specification: HDI 35.5 vs 22.7 (+56.4%), MLB 23.1 vs 18.6, package substrates 0.4 (flat).",
+       "figure": "AI Server 2.6 billion yen (+85.7%); HDI 35.5 billion yen (+56.4%)",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "source": "WhiteFiber Q2 FY2026 (08-12-2026)",
+ "new_nodes": {
+  "WhiteFiber": {
+   "ticker": "WYFI",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "why": "Develops and operates retrofit AI data centers (NC-1 North Carolina, MTL-1/2/3 Montreal) leased to neoclouds such as Nscale and Cerebras, and runs a GPU cloud business deploying NVIDIA B300 / Vera Rubin clusters on multi-year contracts; neocloud capacity build-outs drive its colocation and cloud revenue.",
+   "evidence": "WhiteFiber Q2 FY2026 call (08-12-2026), CEO Sam Tabar: 'NC-1 has moved into active customer deployment. As of today, approximately 20 MW of IT capacity is available to support the installation and testing activities of Nscale and its investment-grade offtaker' under a 10-year agreement of approximately $865 million of contracted revenue for 40 MW of IT load.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "WhiteFiber",
+     "layer": "cloud_infra",
+     "sector": "Datacenter Colocation",
+     "product": "AI colocation in retrofit data centers (NC-1 North Carolina 40 MW IT leased to Nscale; MTL-3 Montreal for Cerebras) plus GPU cloud services on NVIDIA B300 / Vera Rubin clusters",
+     "quarterly_data": [
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CFO: second quarter revenue was $28.8 million, an increase of 54% from $18.7 million in the second quarter of 2025. Cloud services revenue was $23.8 million (prior year $16.6 million), including approximately $12.3 million associated with the previously disclosed customer termination; underlying cloud results reflected temporary downtime between the terminated contracts and the replacement contract. Colocation revenue was $4.7 million (prior year $1.7 million), mainly from MTL-3 under the Cerebras agreement.",
+       "figure": "Revenue $28.8M (+54% YoY); cloud services $23.8M; colocation $4.7M",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CFO: gross profit excluding depreciation and amortization was $17.1 million, a gross margin of approximately 59% (prior year approximately 51%). Adjusted EBITDA was about $5.5 million; net loss was $15 million or $0.39 per diluted share. Cash and cash equivalents were $56.1 million; deferred revenue was approximately $143 million, primarily customer prepayments for NC-1 and cloud services deployments.",
+       "figure": "Gross margin ~59%; adjusted EBITDA ~$5.5M; deferred revenue ~$143M",
+       "topics": []
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CEO: NC-1 has moved into active customer deployment; approximately 20 MW of IT capacity is available for Nscale and its investment-grade offtaker, and initial billing has commenced for the initial tranches. The remaining capacity is turned over progressively through August, and by the end of this month the full 40 MW of contracted IT load will reach full run rate billing. The ramp was affected by delivering and commissioning issues with certain switchgear equipment, since resolved, amid persistent supply chain constraints; the contracted economics remain unchanged.",
+       "figure": "~20 MW IT available; full 40 MW at run-rate billing by end of August 2026",
+       "topics": [
+        "power_cooling",
+        "supply_tightness"
+       ],
+       "slot": "supply_status",
+       "counterparty": "NScale",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CEO: WhiteFiber expects Duke Energy to provide a delivery schedule for the next 45 MW of gross capacity at NC-1 in the near term; Nscale will receive priority notification of that capacity under the existing agreement, and inbound interest for the tranche is extremely strong. WhiteFiber is also working with Duke Energy on a potential additional 200 MW of incremental power, which would bring NC-1 to approximately 300 MW gross (longer-term, subject to the utility process).",
+       "figure": "Next 45 MW gross at NC-1; potential additional 200 MW (~300 MW gross)",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "Canada: WhiteFiber decided to move forward at MTL-2, developing approximately 5 MW of gross capacity targeting completion around year-end, as traditional colocation or a vertically integrated colocation-plus-cloud deployment. MTL-1 recent customer renewals support a stable outlook; at MTL-3 the Cerebras deployment continues to perform well and WhiteFiber is pursuing additional utility capacity for a meaningful expansion.",
+       "figure": "MTL-2 ~5 MW gross, completion around year-end 2026",
+       "topics": [],
+       "counterparty": "Cerebras",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CEO: since the last call WhiteFiber entered into new multi-year cloud services agreements representing more than $540 million in aggregate contract value; based on contracts signed to date the cloud portfolio is expected to generate more than $200 million of annualized revenue once fully deployed. One is a three-year agreement with Baseten to deploy 1,392 NVIDIA B300 GPUs at a third-party data center in Ontario, approximately $165 million of contract value, service targeted to commence in November, with an option to extend up to two additional years.",
+       "figure": ">$540M new cloud contract value; >$200M annualized cloud revenue once deployed; Baseten 1,392 B300 GPUs, ~$165M",
+       "topics": [],
+       "slot": "backlog_or_b2b",
+       "counterparty": "Baseten",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CEO: three-year agreement with Prime Intellect to deploy 576 NVIDIA Vera Rubin 200 GPUs in Canada, WhiteFiber's first Vera Rubin deployment, approximately $108 million of contract value, service targeted to commence in the second quarter of 2027. Both the Baseten and Prime Intellect deals expand existing customer relationships.",
+       "figure": "576 Vera Rubin GPUs, ~$108M, service from Q2 2027",
+       "topics": [
+        "transitions"
+       ],
+       "counterparty": "Prime Intellect",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CEO: the previously announced five-year deployment in the Paris region (over $160 million of contract value) is targeting an end of September ready for service date. WhiteFiber also entered a five-year agreement with an existing customer to deploy 576 NVIDIA B300 GPUs in Iceland, approximately $87.5 million of contract value plus potential revenue sharing, with deployment expected to commence later this year.",
+       "figure": "Paris >$160M, ready for service end of September 2026; Iceland 576 B300 GPUs, ~$87.5M",
+       "topics": [],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CEO: agreement with data center developer and operator KRAMBU gives WhiteFiber exclusive access to 100 MW of liquid cooled colocation capacity beginning in 2027, with potential to expand, to support cloud growth. VP Cloud Services: the partnership also helps GPU availability, as KRAMBU's data center designs have helped it obtain allocations WhiteFiber can take advantage of.",
+       "figure": "Exclusive access to 100 MW liquid-cooled colocation from 2027",
+       "topics": [
+        "power_cooling"
+       ],
+       "counterparty": "KRAMBU",
+       "counterparty_role": "supplier"
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CEO: in cross-data-center networking (Project Redwood, patent-pending) WhiteFiber demonstrated 111.2 Tbps of bandwidth with guaranteed sub-millisecond latency across 83 KM, aiming to aggregate smaller sites into a virtual super cluster; initial commercial launch targeted by this September, possibly with licensing later. Modal was selected as the customer for the R&D cluster because of its intense training workloads.",
+       "figure": "111.2 Tbps across 83 KM, sub-millisecond latency; commercial launch targeted September 2026",
+       "topics": [
+        "product_launches"
+       ],
+       "counterparty": "Modal",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "CEO: demand for power-ready, high-density AI infrastructure remains very strong and is particularly acute for 2027 deployments; capacity able to reach the market within the next 12-18 months will remain extremely scarce. The most actionable pipeline site could support approximately 60 MW in 2027 and scale to more than 250 MW over time; WhiteFiber is negotiating a purchase agreement, and the President said it leans towards a single-tenant opportunity.",
+       "figure": "Next site ~60 MW in 2027, >250 MW over time",
+       "topics": [
+        "supply_tightness",
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "WhiteFiber Q2 FY2026 (08-12-2026)",
+       "signal": "VP Cloud Services: customers are moving to longer duration cloud contracts; H100 cost per GPU hour is actually higher today than when it was released, so customers want to preserve GPU access and lower total lease cost. Managed services (customer-funded hardware and capacity operated by WhiteFiber) see demand from neoclouds, financial partners and frontier AI labs, with a margin profile more like software than hardware. WhiteFiber does not plan speculative GPU purchases in the near term.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ]
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "NScale",
+       "relationship": "NC-1 (North Carolina) AI colocation: 40 MW of IT load leased to Nscale under a 10-year agreement",
+       "contracts": [
+        {
+         "source": "WhiteFiber Q2 FY2026 (08-12-2026)",
+         "signal": "CEO: WhiteFiber signed a transformational 10-year agreement representing approximately $865 million of contracted revenue for 40 MW of IT workload at NC-1 with Nscale; capacity is being turned over in a phased schedule to Nscale and its investment-grade offtaker, initial billing has commenced, and full 40 MW run rate billing is expected by the end of August. Nscale holds priority notification on the next 45 MW tranche.",
+         "units": "40 MW of IT load",
+         "value": "approximately $865 million of contracted revenue",
+         "date_signed": "not stated",
+         "type": "10-year colocation agreement",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

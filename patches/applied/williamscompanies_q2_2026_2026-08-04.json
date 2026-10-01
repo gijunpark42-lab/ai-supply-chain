@@ -1,0 +1,66 @@
+{
+ "source": "Williams Companies Q2 FY2026 (08-04-2026)",
+ "new_nodes": {
+  "Williams Companies": {
+   "ticker": "WMB",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Its Power Innovation business builds and operates behind-the-meter gas power plants for data-center customers (Socrates phase 1 delivered 200 MW, five projects underway), and its Transco pipeline expansions serve data-center power demand.",
+   "evidence": "CEO Chad Zamarin: \"we achieved in-service for phase 1 of Socrates, delivering a utility scale 200 MW of power to our customer in under 18 months since commercialization\"; \"our solution of bringing very tailored infrastructure to data center projects is just gaining additional momentum\" (Williams Companies Q2 FY2026 call, 08-04-2026)",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Williams Companies",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "Power Innovation behind-the-meter gas power plants for data centers (Socrates, Aquila, Apollo) and Transco natural gas pipeline expansions serving data-center power demand",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Williams Companies Q2 FY2026 (08-04-2026)",
+       "signal": "CFO John Porter: Q2 2026 EBITDA was up 6% over 2025 ($1.8 billion to $1.92 billion) and up 10% year to date. Transmission, Power & Gulf improved $56 million or about 6%, led by the Gulf businesses (+23%) and natural gas storage (+23%); Northeast G&P grew $39 million or 8%; the West grew $18 million or about 5%, led by Haynesville investments.",
+       "figure": "Q2 EBITDA $1.92 billion (+6%); year to date +10%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Williams Companies Q2 FY2026 (08-04-2026)",
+       "signal": "Guidance: full-year 2026 adjusted EBITDA raised to $8.3 billion-$8.5 billion ($200 million higher at the midpoint, including the Momentum Midstream acquisition); long-term EBITDA growth target raised to 11-plus % compound annual growth through 2030 from 10-plus %, which management says centers on the existing contracted book and excludes further power or pipeline commercialization; year-end leverage about 3.9 times (3.75 times on a full-year run-rate basis).",
+       "figure": "2026 adjusted EBITDA $8.3 billion-$8.5 billion; EBITDA CAGR target 11-plus % through 2030",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Williams Companies Q2 FY2026 (08-04-2026)",
+       "signal": "Power Innovation: phase 1 of Socrates achieved in-service, delivering a utility scale 200 MW of power to the customer in under 18 months since commercialization, on time and within budget (closer to 14 months from property handover, per the CEO). COO Larry Larsen: load testing confirmed AI load following works as intended; first power is being delivered this week with ramp-up over the month. The next phase of Socrates is on track before year-end; Aquila, Apollo and the other projects are trending on schedule and on budget.",
+       "figure": "Socrates phase 1: 200 MW in service; next phase before year-end",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Williams Companies Q2 FY2026 (08-04-2026)",
+       "signal": "CEO Chad Zamarin on the behind-the-meter backlog: commercial interest in its data-center power projects continues to strengthen; conversations are ongoing with multiple different counterparties, the backlog is supported by multiple customers beyond the first primary customer, and the company expects to commercialize additional projects between now and the end of the year; discussions are not exclusive to any one hyperscaler; contract terms will continue to extend in duration. CFO: five Power Innovation projects are currently underway. COO: the company has locked up the turbines to support its backlog; equipment timing, not turbines alone, sets the pace of commercialization through the decade.",
+       "figure": "five Power Innovation projects underway",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Williams Companies Q2 FY2026 (08-04-2026)",
+       "signal": "Pipelines: Transco Power Express was further upsized to an 800 million cubic feet per day expansion to serve load growth, power demand and data center growth in Virginia; customer agreements signed for Leidy Access and Garden Connector; a 7-mile Line 200 lateral will serve power demand in Lake Charles, Louisiana. Announced with the Momentum Midstream acquisition (which adds roughly six BCF per day of gathering capacity and over four BCF per day of take-or-pay pipeline capacity): Shelby Connector with initial committed capacity of up to 750 million cubic feet per day (in service first half of 2028) and the fully contracted Delta Access pipeline with initial capacity of 2.25 Bcf per day (early 2029) underpinned by LNG and power customers.",
+       "figure": "Power Express 800 million cubic feet per day; Shelby Connector up to 750 million cubic feet per day; Delta Access 2.25 Bcf per day",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "source": "AMEC investor Q&A: SSE e-Interactive (09-10-2026)",
+ "new_nodes": {
+  "AMEC": {
+   "ticker": "688012.SS",
+   "exchange": "SSE",
+   "country": "CN",
+   "why": "Chinese etch / deposition tool maker: its plasma etch tools run in volume production of 128-layer-and-above 3D NAND and its tungsten deposition tools serve 3D memory word lines, so NAND capex drives its orders",
+   "evidence": "AMEC 2026 Half-Year Report (08-20-2026): 'In 3D NAND manufacturing, the company's plasma etch tools are used in volume production of 128 layers and above'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/nand_flash.json": {
+   "players": [
+    {
+     "company": "AMEC",
+     "layer": "equipment",
+     "sector": "Deposition & Etch",
+     "product": "plasma etch tools for 3D NAND and advanced logic (CCP incl. 60:1 ultra-high-aspect-ratio dielectric etch; cryogenic high-aspect-ratio ICP etch) plus tungsten CVD / ALD deposition for 3D NAND word lines",
+     "quarterly_data": [
+      {
+       "quarter": "AMEC investor Q&A: SSE e-Interactive (09-10-2026)",
+       "signal": "The company said on SSE e-Interactive: as customer orders enter a period of large-scale delivery it keeps working closely with its supply chain to raise delivery capacity; it has a good overseas customer base and has cumulatively delivered about 800 reaction chambers to the most advanced overseas logic customer(s); it keeps engaging more prospective overseas customers.",
+       "figure": "about 800 reaction chambers delivered cumulatively to overseas most-advanced logic customer(s)",
+       "topics": [],
+       "slot": "supply_status"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

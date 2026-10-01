@@ -1,0 +1,78 @@
+{
+ "source": "Brookfield Renewable Q2 FY2026 (07-31-2026)",
+ "new_nodes": {
+  "Brookfield Renewable": {
+   "ticker": "BEP",
+   "exchange": "NYSE",
+   "country": "BM",
+   "why": "Supplies hydro, wind, solar and battery-storage power under long-term contracts to the largest corporate buyers of electricity, including a 20-year hydro contract with Google, and owns Westinghouse (nuclear fuel, services and AP1000 reactors); hyperscaler power demand drives its contracting.",
+   "evidence": "CFO Patrick: \"the refinancing of our Safe Harbor hydro portfolio on the back of signing a 20-year contract with Google last year\"; CIO Jeh Vevaina: \"hyperscalers and governments increasingly require reliable, dispatchable power alongside low-cost, fast-to-market renewable generation\" (Brookfield Renewable Q2 FY2026 call, 07-31-2026)",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Brookfield Renewable",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "Contracted hydro, wind, solar and battery-storage power for corporate and hyperscaler buyers, plus Westinghouse nuclear fuel, services and AP1000 reactors",
+     "connects_to": [
+      {
+       "company": "Google",
+       "relationship": "Hydro power supply under a 20-year contract (Safe Harbor hydro portfolio)",
+       "contracts": [
+        {
+         "source": "Brookfield Renewable Q2 FY2026 (07-31-2026)",
+         "signal": "CFO Patrick: the quarter included the largest private placement financing in Brookfield Renewable's history, the refinancing of the Safe Harbor hydro portfolio on the back of signing a 20-year contract with Google last year.",
+         "units": "20-year contract (Safe Harbor hydro portfolio)",
+         "value": "no specific figure",
+         "date_signed": "last year (as stated on the 07-31-2026 call)",
+         "type": "power purchase agreement",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      }
+     ],
+     "quarterly_data": [
+      {
+       "quarter": "Brookfield Renewable Q2 FY2026 (07-31-2026)",
+       "signal": "CEO Connor Teskey: Q2 2026 FFO was $421 million, up 13% year over year, or $0.62 per unit, up 11% per unit; last-twelve-month FFO was $1.444 billion or $2.14 per unit, up 14% and 11%. Segments: hydroelectric FFO $336 million; solar and wind $166 million; distributed energy, storage and sustainable solutions $84 million, where Westinghouse FFO was up over 60% versus the prior year excluding a large new reactor licensing fee earned in Q2 last year.",
+       "figure": "FFO $421 million (+13%); $0.62 per unit (+11%); LTM FFO $1.444 billion",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Brookfield Renewable Q2 FY2026 (07-31-2026)",
+       "signal": "CEO: in the quarter the company commissioned 1.3 GW of new capacity, signed power purchase agreements for 2.6 GW from its advanced development pipeline, and deployed or committed $5 billion into growth ($760 million net to BEP). CEO: global electricity demand is accelerating and there is simply not enough new capacity coming online to keep up, compounded by grid infrastructure that has not kept pace; customers are balancing speed to power, scale, cost and security of supply.",
+       "figure": "1.3 GW commissioned; PPAs for 2.6 GW signed",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Brookfield Renewable Q2 FY2026 (07-31-2026)",
+       "signal": "Battery storage: CIO Jeh Vevaina says hyperscalers and governments increasingly require reliable, dispatchable power alongside renewables; the announced acquisition of Aypa, the largest standalone battery storage platform in North America, adds approximately 3 GW of highly contracted operating and under-construction assets, 3.5 GW of contracted projects and a pipeline of more than 20 GW, doubling operating and under-construction battery capacity to approximately 6 GW and expanding the development pipeline by over 30% to more than 80 GW. CEO: batteries are the fastest-growing technology at Brookfield Renewable; the company is one of, if not the largest, procurers of utility-scale energy storage equipment and is now entering large-scale global framework agreements with the largest battery equipment producers; long term it expects battery LCOEs to keep falling, with possible short-term noise from input costs.",
+       "figure": "Aypa: approximately 3 GW operating and under construction, 3.5 GW contracted, more than 20 GW pipeline; battery capacity to approximately 6 GW",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Brookfield Renewable Q2 FY2026 (07-31-2026)",
+       "signal": "Westinghouse (owned by Brookfield Renewable): its fuel, services and maintenance businesses service approximately half the current global reactor fleet. During the quarter the U.S. Department of Energy issued a commitment for up to $17.5 billion in loan facilities to support procurement of long lead equipment for up to 10 Westinghouse AP1000 reactors in the U.S., building on the partnership with the U.S. government to support approximately $80 billion of new Westinghouse reactors; the program is expected to accelerate deployment timelines by up to three years. CEO: the company is actively engaged with seven utility partners that have identified project sites, working toward executing long lead equipment orders.",
+       "figure": "up to $17.5 billion DOE loan commitment; up to 10 AP1000 reactors; seven utility partners",
+       "topics": [
+        "power_cooling"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

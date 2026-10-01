@@ -1,0 +1,66 @@
+{
+ "source": "Formosa Advanced Technologies IR presentation: Q2 2026 results investor conference (09-17-2026)",
+ "new_nodes": {
+  "Formosa Advanced Technologies": {
+   "ticker": "8131.TW",
+   "exchange": "TWSE",
+   "country": "TW",
+   "why": "Memory back-end OEM: packages and tests DRAM ICs and assembles memory modules, mainly for Nanya Technology (71% of 2025 net sales); AI-driven DRAM tightness (HBM/DDR5 crowding out DDR4) is lifting its packaging/test volumes, OEM prices and capex (TSV, bumping, chip stacking at its new Factory 5).",
+   "evidence": "Formosa Advanced Technologies 2025 annual report: customers above 10% of sales - Nanya Technology (related party) NT$7,042,085 thousand, 71% of 2025 net sales (76% in 2024, 77% in Q1 2026); the company provides one-stop chip probing, assembly, final test and module services.",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Formosa Advanced Technologies",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "product": "DRAM IC packaging and testing (wafer probe, assembly, final test) and DRAM memory module (DIMM) assembly - turn-key memory back-end OEM services",
+     "quarterly_data": [
+      {
+       "quarter": "Formosa Advanced Technologies IR presentation: Q2 2026 results investor conference (09-17-2026)",
+       "signal": "Q2 2026 net sales NT$3,157,252 thousand, up 7.2% QoQ and 50.2% YoY (Q2 2025: NT$2,101,645 thousand); gross margin 19.6% (Q2 2025: -1.5%); operating income NT$484,649 thousand (15.4%); net income NT$429,003 thousand, EPS NT$0.97. Management: revenue rose on higher quantity and higher OEM prices",
+       "figure": "Q2 2026 net sales NT$3,157,252 thousand (+50.2% YoY)",
+       "topics": []
+      },
+      {
+       "quarter": "Formosa Advanced Technologies IR presentation: Q2 2026 results investor conference (09-17-2026)",
+       "signal": "Capex: estimated 2026 capex NT$ 5946 million; actual H1 2026 capex NT$ 1280 million (Q2 2026 capital expenditures NT$861,569 thousand, free cash flow NT$-856,287 thousand)",
+       "figure": "2026 capex estimate NT$ 5946 million",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Formosa Advanced Technologies IR presentation: Q2 2026 results investor conference (09-17-2026)",
+       "signal": "R&D plan: wafer bump and RDL - equipment relocation and setup in Q2 2026, installation and initial process trials in Q3, pilot-run validation in Q4, targeting 20K+ bumps/die for full-flow wafer bump production and extending from memory FCCSP to high-pin-count ASIC and FCBGA logic packaging. 3D TSV, BVR and 2-layer chip stacking successfully developed, product validation expected in Q4; 4-layer chip stacking trials planned for Q2 next year; products expected for high-capacity, high-speed DDR5 R-DIMM server modules",
+       "figure": "no specific figure",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Formosa Advanced Technologies IR presentation: Q2 2026 results investor conference (09-17-2026)",
+       "signal": "Business overview: management says the rapid expansion of AI applications is changing the memory supply-demand structure, with demand much exceeding supply, creating a positive cycle for IC assembly and test OEM; short-term product-portfolio adjustment, long-term capacity expansion. The advanced assembly process equipment at Factory #5 was delivered and installed in Q3 2026, with machine verification and product certification expected in Q4",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Formosa Advanced Technologies IR presentation: Q2 2026 results investor conference (09-17-2026)",
+       "signal": "Market outlook (company): HBM and RDIMM demand from AI and general servers has squeezed the supply of consumer memory; rising DRAM IC prices slowed end-consumer spot module demand while server and industrial module demand stays stable; the supply-demand imbalance is driving memory prices up and prompting Taiwanese makers to raise output and expand capacity, which will also boost assembly and test OEM demand",
+       "figure": "no specific figure",
+       "topics": [
+        "hbm"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

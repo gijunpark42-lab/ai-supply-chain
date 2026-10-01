@@ -1,0 +1,45 @@
+{
+ "source": "Union Tool analyst meeting material: Financial Results for the First Half of FY2026 (08-07-2026)",
+ "new_nodes": {
+  "Union Tool": {
+   "ticker": "6278.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "PCB drill maker whose ULF-coated drills are used to drill package substrates; demand for package substrates for data center servers drives its sales, so its stock benefits from AI package-substrate build-out",
+   "evidence": "Union Tool H1 FY2026 analyst meeting material: 'Demand for semiconductor packages (PKGs) is increasing due to generative AI, and our ULF-coated drills are used in drilling processes for package substrates.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group weak_evidence)"
+  }
+ },
+ "chains": {
+  "manufacturing/packaging_substrate.json": {
+   "players": [
+    {
+     "company": "Union Tool",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "PCB drills, incl. ULF-coated drills used to drill semiconductor package substrates, and long-flute drills",
+     "quarterly_data": [
+      {
+       "quarter": "Union Tool analyst meeting material: Financial Results for the First Half of FY2026 (08-07-2026)",
+       "signal": "Company: demand for high-end PCB drills is growing rapidly, supported by expansion in the generative AI market, and capital investment is being increased to expand production capacity. Construction of Factory No. 6 at the Nagaoka Plant is scheduled for completion in June 2027 (planned investment approx. JPY 6,200 million). FY2026 cash allocation plan: capital investment 18,200 million yen and R&D 2,300 million yen, to expand supply capacity for ULF-coated drills and long-flute drills through the rapid startup of in-house equipment.",
+       "figure": "Nagaoka Factory No. 6: approx. JPY 6,200 million, completion June 2027; FY2026 capital investment 18,200 million yen",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Union Tool analyst meeting material: Financial Results for the First Half of FY2026 (08-07-2026)",
+       "signal": "Company: demand for semiconductor packages is increasing due to generative AI, and its ULF-coated drills are used in drilling processes for package substrates. ULF-coated products were 36.9% of PCB drill sales in FY26.6 (35.0% in FY25). PCB drill sales were ¥20,183 million in H1 FY2026 (¥29,026 million in full-year FY2025).",
+       "figure": "ULF-coated share of PCB drill sales 36.9%; PCB drill sales ¥20,183 million (H1 FY2026)",
+       "topics": [
+        "packaging_substrate"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

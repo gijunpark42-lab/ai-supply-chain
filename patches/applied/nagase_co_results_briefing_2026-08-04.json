@@ -1,0 +1,56 @@
+{
+ "source": "Nagase & Co. results briefing: FY2026 First Quarter Financial Briefing (08-04-2026)",
+ "new_nodes": {
+  "Nagase & Co.": {
+   "ticker": "8012.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Its manufacturing subsidiary Nagase ChemteX makes formulated epoxy resins (liquid molding compound, LMC) whose sales for AI semiconductors are rising; more AI memory/logic packaging means more molding-compound volume.",
+   "evidence": "Nagase FY2026 Q1 briefing (08-04-2026): 'LMC sales of products for AI semiconductors increased, while sales of products for mobile devices declined.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group low_ai_share)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Nagase & Co.",
+     "layer": "materials",
+     "sector": "Solder & Bonding Materials",
+     "product": "Formulated epoxy resins for AI semiconductors: liquid molding compound (LMC) and advanced sheet molding compound (a-SMC) encapsulants (Nagase ChemteX)",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Nagase & Co. results briefing: FY2026 First Quarter Financial Briefing (08-04-2026)",
+       "signal": "FY2026 Q1 (April-June 2026): record-high net sales and profits at all levels for any first quarter; sales 2,797 vs 2,373 and operating income 170 vs 102 (100 millions of yen). Management: in Electronics, sales were strong for Nagase ChemteX formulated epoxy resins used in semiconductors for AI.",
+       "figure": "Sales 2,797 vs 2,373; operating income 170 vs 102 (100 millions of yen)",
+       "topics": []
+      },
+      {
+       "quarter": "Nagase & Co. results briefing: FY2026 First Quarter Financial Briefing (08-04-2026)",
+       "signal": "Nagase ChemteX Group: operating income from formulated epoxy resins increased; LMC (liquid molding compound) sales of products for AI semiconductors increased while sales for mobile devices declined. a-SMC (advanced sheet molding compound) has been adopted as an encapsulant for high-performance IC package substrates used in advanced semiconductors, and small-volume production has begun. Group Q1 sales 102 vs 79, operating income 17 vs 9 (100 millions of yen).",
+       "figure": "Nagase ChemteX Group sales 102 vs 79; operating income 17 vs 9 (100 millions of yen)",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Nagase & Co. results briefing: FY2026 First Quarter Financial Briefing (08-04-2026)",
+       "signal": "Electronics segment Q1: sales 491 vs 415 and operating income 49 vs 30 (100 millions of yen); Pac Tech Group performed well on bumping contract services; sales of semiconductor materials increased in Greater China.",
+       "figure": "Electronics sales 491 vs 415; operating income 49 vs 30 (100 millions of yen)",
+       "topics": []
+      },
+      {
+       "quarter": "Nagase & Co. results briefing: FY2026 First Quarter Financial Briefing (08-04-2026)",
+       "signal": "FY2026 (year to March 2027) forecast unchanged: sales 10,000 and operating income 450 (100 millions of yen); Nagase ChemteX Group forecast sales 356, operating income 37. Management: sales of formulated epoxy resins used in semiconductors for AI outperformed expectations; because of the situation in the Middle East the company plans to reassess the full-year forecast at the second-quarter results.",
+       "figure": "FY2026 forecast: sales 10,000, operating income 450 (100 millions of yen); Nagase ChemteX sales 356",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

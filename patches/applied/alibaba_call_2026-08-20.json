@@ -1,0 +1,100 @@
+{
+ "source": "Alibaba Q1 FY2027 (08-20-2026)",
+ "new_nodes": {
+  "Alibaba": {
+   "ticker": "BABA",
+   "exchange": "NYSE",
+   "country": "CN",
+   "why": "Designs its own server CPUs and AI chips (T-Head) and deploys them at scale in Alibaba Cloud, replacing commercially procured chips; data-center CPU and AI compute demand drives its cloud revenue and margins",
+   "evidence": "Alibaba Q1 FY2027 (08-20-2026): CEO - 'T-Head has established a full-stack proprietary silicon portfolio spanning GPU, CPU, and networking chips'; management increased procurement of CPUs on agent-driven demand",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "Alibaba",
+     "layer": "compute_hardware",
+     "sector": "Server CPU",
+     "product": "T-Head in-house server CPUs (Yitian 710 Arm server CPU) alongside Zhenwu AI processors and networking chips, deployed in Alibaba Cloud data centers",
+     "quarterly_data": [
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "Total revenue increased 9% year-over-year to CNY 269 billion; total adjusted EBITDA decreased 30% to CNY 27.3 billion, mainly on technology investment (CFO).",
+       "figure": "revenue CNY 269 billion, +9% YoY",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "Alibaba Cloud external revenue grew 45%, a 22-quarter high, with adjusted EBITDA margin of 11.6% (CEO) / segment EBITDA margin 12% (CFO); AI-related product revenue was CNY 12.4 billion (run rate CNY 49.5 billion, around $7.3 billion), its 12th consecutive quarter of triple-digit growth, and 35% of external cloud revenue. Model and application services ARR including MaaS surpassed CNY 16 billion as of August.",
+       "figure": "cloud external revenue +45%; AI revenue CNY 12.4 billion; MaaS ARR over CNY 16 billion",
+       "topics": []
+      },
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "Management forecast: next quarter's annualized AI-related revenue will approach $10 billion; cloud revenue growth will accelerate further in the coming quarters and EBITDA margin will expand steadily; it remains confident of the year-end target of CNY 30 billion MaaS ARR, and has good visibility into achieving gross margin of 20%.",
+       "figure": "AI revenue run rate approaching $10 billion next quarter; CNY 30 billion MaaS ARR year-end target",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "CEO: based on market feedback and the contract pipeline, compute demand will continue to outstrip supply; management: there is an industry consensus that the AI compute shortage will not be resolved until at least 2030; the cloud has robust pricing power in a supply-constrained market.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "CapEx was CNY 67.7 billion in the quarter (CFO). Of the three-year CNY 380 billion capital investment plan announced last February, CNY 190 billion had been spent by the end of the June quarter; management: the quarter's increase reflects hardware delivery timing, increased procurement of CPUs on a substantial surge in demand driven by AI agents, and rising prices for semiconductor components; the quarter should not be annualized.",
+       "figure": "capex CNY 67.7 billion; CNY 190 billion of CNY 380 billion plan spent",
+       "topics": [
+        "cpu"
+       ]
+      },
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "CEO: AI agents directly drive demand for tokens and GPU compute and significantly boost demand for traditional cloud products across CPU compute, storage, databases and networking.",
+       "figure": "no specific figure",
+       "topics": [
+        "cpu"
+       ]
+      },
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "CEO: T-Head has a full-stack proprietary silicon portfolio spanning GPU, CPU and networking chips; Zhenwu chips served more than 650 customers on Alibaba Cloud as of early August; the SuperNode instance powered by the next-generation Zhenwu M890 AI processor launched on Alibaba Cloud at commercial scale and can run inference for models with more than 2 trillion parameters (used by Kimi K3 and Qwen 3.8 Max), with supply ramping in the second half of the year. Management: over 500,000 of the last-generation T-Head chips have been manufactured and shipped; development of generation 2 chips starts in the second half of this year.",
+       "figure": "more than 650 customers; over 500,000 chips shipped",
+       "topics": [
+        "product_launches"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "Management: as proprietary T-Head chips account for a rising share of total chips in its data centers and replace commercially procured chips, it expects substantially higher gross margin; servers typically break even within three years over a five-year useful life, and higher margins and chip substitution could shorten the payback to 2.5 years or less.",
+       "figure": "three-year breakeven; five-year useful life",
+       "topics": []
+      },
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "CEO: Alibaba Cloud cut the delivery time for hyperscale AI data centers to 100 days; Qwen 3.8 Max (2.4 trillion parameters) weights were opened, and Qwen models have been downloaded more than 3 billion times with more than 300,000 derivative models.",
+       "figure": "100 days; 2.4 trillion parameters",
+       "topics": []
+      },
+      {
+       "quarter": "Alibaba Q1 FY2027 (08-20-2026)",
+       "signal": "Alibaba E-commerce Group revenue CNY 205.9 billion (+4%), adjusted EBITDA CNY 39.7 billion; China Quick Commerce revenue CNY 53.3 billion (+45%), expected to reach overall profitability in FY2029; AI Labs and Applications adjusted EBITDA loss of CNY 13.9 billion, expected to narrow (CFO / management).",
+       "figure": "CNY 205.9 billion; CNY 53.3 billion; loss CNY 13.9 billion",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

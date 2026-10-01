@@ -1,0 +1,36 @@
+{
+ "source": "Anritsu IR meeting materials: FY2026 Q1 Investor Presentation (08-17-2026)",
+ "new_nodes": {
+  "Anritsu": {
+   "ticker": "6754.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Its Test & Measurement business sells evaluation and manufacturing-test instruments to optical transceiver makers (BERTWave MP2110A for 400GE/800GE/1.6TE modules, optical spectrum analyzer for CPO laser evaluation); AI data-center demand in the optical transceiver market drove T&M revenue +34% in Q1 FY2026.",
+   "evidence": "Anritsu Q1 FY2026 results presentation (07-30-2026): 'In the T&M business, data center-related demand, such as in the optical transceiver market, remained strong due to the spread of AI'; Q&A: 'We have received orders for both 800GE and 1.6TE related products.'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "Anritsu",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "Optical transceiver test instruments: BERTWave MP2110A (400GE/800GE/1.6TE module manufacturing test), MP1900A Signal Quality Analyzer, MS9740B optical spectrum analyzer for CPO/LD evaluation",
+     "quarterly_data": [
+      {
+       "quarter": "Anritsu IR meeting materials: FY2026 Q1 Investor Presentation (08-17-2026)",
+       "signal": "Data center test lineup: BERTWave MP2110A for optical transceiver manufacturing evaluation (simultaneous four-channel measurement, 200G/Lane signal evaluation, 400GE/800GE/1.6TE signals, new support for 1.6TE modules) and CPO optical waveform evaluation; MS9740B optical spectrum analyzer for optical transceiver / LD evaluation for CPO; ME7848A opto-electronic network analyzer for silicon photonics / device chip evaluation up to the 110 GHz band; new MT9100A multi channel fiber tester for multicore fiber; MP1900A signal quality analyzer for PCIe Gen6/Gen7. Company market overview: manufacturing ramp-up of 1.6TE optical transceivers",
+       "figure": "200G/Lane; up to the 110 GHz band",
+       "topics": [
+        "optical_speed"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,85 @@
+{
+ "source": "ASICLand Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "ASICLand": {
+   "ticker": "445090",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Korea's only TSMC Value Chain Alliance (VCA) design house: turnkey ASIC design and wafer supply on TSMC processes for fabless and memory customers, with AI semiconductors its top strategic market; AI ASIC tape-outs and mass production at TSMC drive its revenue.",
+   "evidence": "ASICLand Q2 FY2026 (08-14-2026) half-year report, II. Business: the company is TSMC's only official VCA partner in Korea; TSMC is its main wafer supplier (FAB purchases KRW 16,912M production + KRW 31,346M development in H1 2026); design contracts with SK Hynix (KRW 31,851M, 2025-05-27).",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "ASICLand",
+     "layer": "compute_hardware",
+     "sector": "Custom AI ASIC (hyperscaler silicon)",
+     "product": "TSMC-ecosystem (VCA) turnkey ASIC design and wafer supply, incl. AI accelerator and memory-controller SoCs",
+     "connects_to": [
+      {
+       "company": "TSMC",
+       "relationship": "ASIC designs manufactured at TSMC (TSMC VCA partner; wafer purchases)",
+       "contracts": [
+        {
+         "source": "ASICLand Q2 FY2026 (08-14-2026)",
+         "signal": "ASICLand is TSMC's only official Value Chain Alliance (VCA) partner in Korea (one of seven VCAs worldwide) and orders wafers from TSMC for customers' chips; H1 2026 FAB purchases from TSMC were KRW 16,912M for production (20.3% of purchases) and KRW 31,346M for development; it has completed projects on TSMC 5nm, 6nm, 7nm, 12nm, 16nm and 28nm",
+         "units": "wafer purchases (production and development)",
+         "value": "KRW 16,912M production + KRW 31,346M development (H1 2026)",
+         "date_signed": "VCA since 2019",
+         "type": "purchase",
+         "topics": [
+          "foundry"
+         ]
+        }
+       ]
+      },
+      {
+       "company": "SK Hynix",
+       "relationship": "custom ASIC design services for SK Hynix",
+       "contracts": [
+        {
+         "source": "ASICLand Q2 FY2026 (08-14-2026)",
+         "signal": "Single sales contracts with SK Hynix for custom semiconductor (ASIC) design: KRW 19,738M signed 2024-11-01, ended 2026-06-26 (KRW 19,347M supplied in H1 2026); and KRW 31,851M signed 2025-05-27, running to 2027-12-31 (KRW 2,552M supplied cumulatively; backlog KRW 29,299M at June 30, 2026)",
+         "units": "two ASIC design contracts",
+         "value": "KRW 31,851M (2025-05-27); KRW 19,738M (2024-11-01)",
+         "date_signed": "2024-11-01 and 2025-05-27",
+         "type": "design-service contract",
+         "topics": []
+        }
+       ]
+      }
+     ],
+     "quarterly_data": [
+      {
+       "quarter": "ASICLand Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report: H1 2026 revenue KRW 113,727,541,801 (H1 2025: KRW 30,460,754,504) and operating profit KRW 4,988,814,436 (H1 2025: operating loss KRW 13,163,592,267); Q2 2026 revenue KRW 59,739,940,884 (Q2 2025: KRW 14,694,253,124) and Q2 operating profit KRW 7,980,160,424 (Q2 2025: loss KRW 5,227,397,694). H1 revenue by application (KRW M): memory 68,266 (60.0%), consumer electronics 23,168 (20.4%), AI 13,024 (11.5%), display 2,403, IoT & 5G 1,646, automotive 1,081, industrial 704, others 3,435; mass production 21,192 and development 92,536; exports 31,277",
+       "figure": "H1 2026 revenue KRW 113,727,541,801; operating profit KRW 4,988,814,436; AI 11.5% of revenue",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "ASICLand Q2 FY2026 (08-14-2026)",
+       "signal": "Backlog on publicly disclosed contracts KRW 61,821M at June 30, 2026 (contract total KRW 179,082M). Disclosed customers besides SK Hynix: FADU (design, KRW 29,976M, 2024-07-30 to 2027-07-11), Supergate (design, KRW 13,240M), Mobilint (design, KRW 15,431M), Primemas (design, KRW 9,473M) and an undisclosed Company A (mass-production supply, KRW 25,434M, 2026-01-08 to 2026-12-31, backlog KRW 19,053M). Customers above 10% of H1 revenue (not named): A KRW 26,023,759 thousand, B KRW 26,449,713 thousand, C KRW 21,500,310 thousand",
+       "figure": "disclosed-contract backlog KRW 61,821M",
+       "counterparty": "FADU, Supergate, Mobilint, Primemas, undisclosed Company A",
+       "counterparty_role": "customer",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "ASICLand Q2 FY2026 (08-14-2026)",
+       "signal": "Management calls AI semiconductors its most important strategic market: NPUs, server accelerators and AI-device object recognition are in development on TSMC 5nm, 7nm and 12nm. The company says it developed Korea's first AI chip on 7nm; government-funded projects in development include a 2,000 TFLOPS-class server AI deep-learning processor and module (2020.04-2026.12, KRW 18,830M) and a chiplet heterogeneous-integration AI chip (2023.04-2027.12, KRW 7,757M). Competitors named: GUC and Alchip",
+       "figure": "2,000 TFLOPS-class server AI processor project KRW 18,830M",
+       "topics": [
+        "foundry"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

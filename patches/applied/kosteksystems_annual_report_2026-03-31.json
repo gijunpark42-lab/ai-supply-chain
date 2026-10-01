@@ -1,0 +1,68 @@
+{
+ "source": "Kostek Systems annual report: FY2025 business report (03-31-2026)",
+ "new_nodes": {
+  "Kostek Systems": {
+   "ticker": "169670",
+   "exchange": "KONEX",
+   "country": "KR",
+   "why": "Korean equipment maker of carrier-wafer temporary bonders / debonders, peel-off and UV bump de-taping tools used in TSV / HBM stacking; its HBM peel-off system is in mass-production evaluation at Samsung, so HBM capacity build-out drives its packaging-tool sales",
+   "evidence": "Kostek Systems annual report: FY2025 business report (03-31-2026): 'In 2024 it signed a joint evaluation contract with Samsung Electronics for an HBM peel-off system, and in 2025 delivered the HBM peel-off system mass-production evaluation tool'",
+   "approved": "user pre-approved 2026-09-28 for waitlist groups clear/affiliate/low_ai_share/kr_early/weak_evidence/unnamed_tenant (enrich_waitlist.json, group kr_early)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Kostek Systems",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "carrier-wafer temporary bonders and debonders, HBM peel-off systems and UV bump de-taping tools for TSV / HBM and fan-out packaging (HBM peel-off in Samsung mass-production evaluation), plus vacuum cluster wafer-transfer systems",
+     "quarterly_data": [
+      {
+       "quarter": "Kostek Systems annual report: FY2025 business report (03-31-2026)",
+       "signal": "FY2025 (DART annual report, separate statements): revenue KRW 19,234,500,597 against KRW 23,857,703,545 in FY2024 (-19%), an operating loss of KRW 742,951,447 against a profit of KRW 84,878,266, and a net loss of KRW 2,136,087,025. Wafer-transfer equipment was KRW 16,371M of revenue (exports KRW 9,622M), semiconductor wafer bonders KRW 95M (FY2024: KRW 477M) and micro-LED transfer equipment nil. Two customers each passed 10% of revenue: KRW 10,369,005,072 and KRW 6,993,732,660 (not named).",
+       "figure": "FY2025 rev KRW 19,234,500,597 (-19%); operating loss KRW 742,951,447; wafer-transfer equipment KRW 16,371M; wafer bonders KRW 95M",
+       "topics": []
+      },
+      {
+       "quarter": "Kostek Systems annual report: FY2025 business report (03-31-2026)",
+       "signal": "Orders: for wafer-transfer equipment ordered for delivery during 2026, 60 units worth KRW 25,200M were booked, 38 units worth KRW 12,005M delivered, leaving a backlog of 22 units worth KRW 13,195M; there was no backlog for wafer bonders or micro-LED transfer tools. Production capacity of KRW 58,650M was used 28.08% in FY2025 (35.60% in FY2024).",
+       "figure": "backlog 22 units / KRW 13,195M (wafer-transfer equipment); utilisation 28.08%",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Kostek Systems annual report: FY2025 business report (03-31-2026)",
+       "signal": "Product pipeline: the HBM peel-off system removes temporary-adhesive residue from the device wafer after carrier debonding without damaging the TSV bumps; it was developed from September 2024 to October 2025 and is now delivered to Samsung Electronics for performance and mass-production-readiness testing, due to finish in June 2026. A UV de-taping system for Samsung's AI accelerator 2.3D packaging is under a 2025 joint evaluation contract with delivery scheduled for June 2026. The company names HBM makers Samsung Electronics, SK Hynix and Micron Technology and packaging houses Amkor Technology, Nepes and LB Semicon as the demand base for its temporary bonders / debonders, and is demonstrating a debonder to domestic 'Company S'.",
+       "figure": "Samsung HBM peel-off evaluation to finish June 2026; 2.3D UV de-taping tool delivery June 2026",
+       "topics": [
+        "hbm"
+       ],
+       "slot": "next_catalyst"
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Samsung",
+       "relationship": "HBM peel-off system and 2.3D UV de-taping tool delivered to Samsung for joint / mass-production evaluation",
+       "contracts": [
+        {
+         "source": "Kostek Systems annual report: FY2025 business report (03-31-2026)",
+         "signal": "Kostek signed a joint evaluation contract with Samsung Electronics for an HBM peel-off system in 2024 and delivered the mass-production evaluation tool in 2025; the R&D record lists the HBM peel-off system sale as a conditional sales commitment of KRW 1.5 billion. In 2025 it also signed a joint evaluation contract for Samsung's AI accelerator 2.3D UV de-taping system, with delivery scheduled for June 2026. Earlier (2022) it delivered a micro-LED vacuum aligner and pre-bonder to Samsung.",
+         "units": "no specific figure",
+         "value": "KRW 1.5 billion conditional sales commitment (HBM peel-off system)",
+         "date_signed": "2024 (HBM peel-off joint evaluation); 2025 (UV de-taping joint evaluation)",
+         "type": "evaluation / conditional purchase",
+         "topics": [
+          "hbm"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

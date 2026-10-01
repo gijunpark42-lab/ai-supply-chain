@@ -1,0 +1,87 @@
+{
+ "source": "PMT Q2 FY2026 (08-13-2026)",
+ "new_nodes": {
+  "PMT": {
+   "ticker": "147760",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "A MEMS probe-card maker (formerly Micro Friend): probe cards for DRAM and NAND wafer test are 98.11% of its H1 2026 sales and are supplied mainly to Samsung Electronics, so memory wafer-test demand at Samsung (and new Taiwanese / Chinese chipmakers) drives its revenue.",
+   "evidence": "PMT Q2 FY2026 (08-13-2026) half-year report: its DRAM MEMS probe card won Samsung Electronics mass-production approval in December 2006, it stably supplies DRAM and NAND probe cards to Samsung Electronics, and customers above 5% of H1 2026 sales were Samsung Electronics, SAMSUNG (CHINA) SEMICONDUCTOR and Macronix.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group kr_early)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "PMT",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "2D / 3D MEMS probe cards for 12-inch DRAM and NAND wafer test",
+     "quarterly_data": [
+      {
+       "quarter": "PMT Q2 FY2026 (08-13-2026)",
+       "signal": "Half-year report: Q2 2026 revenue KRW 18,475,175,489 (Q2 2025: KRW 5,803,774,200) and operating profit KRW 1,256,128,336 (Q2 2025: operating loss KRW 4,662,668,914); H1 2026 revenue KRW 34,349,696,257 (H1 2025: KRW 12,020,723,528), operating profit KRW 1,418,170,682 (H1 2025: loss KRW 8,337,372,458) and net income KRW 920,290,565. H1 revenue already exceeds FY2025's KRW 25,288M (FY2025 operating loss KRW 20,396M)",
+       "figure": "Q2 2026 revenue KRW 18,475,175,489; H1 revenue KRW 34,349,696,257; H1 operating profit KRW 1,418,170,682",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "PMT Q2 FY2026 (08-13-2026)",
+       "signal": "H1 2026 mix: semiconductor test probe cards KRW 33,700M (98.11%), other (maintenance, MEMS process services) KRW 650M. Probe-card exports KRW 21,477M versus domestic KRW 12,223M (FY2025 exports KRW 12,488M); Q2 overseas revenue KRW 13,777,225,489. Average probe-card price KRW 164M per card, up from KRW 148M in FY2025 and KRW 135M in FY2024. It supplies DRAM and NAND probe cards and has been making 2D MEMS probe cards since May 2023 alongside 3D MEMS",
+       "figure": "probe cards KRW 33,700M (98.11%); average price KRW 164M per card",
+       "topics": []
+      },
+      {
+       "quarter": "PMT Q2 FY2026 (08-13-2026)",
+       "signal": "H1 2026 probe-card capacity 240 cards, output 232, utilisation 96.7% (FY2025: 49.3%; FY2024: 26.2%); capacity was recalculated after moving to a mixed 2D / 3D MEMS process and using capacity for R&D, and may change as yields improve. Planned 2026-2027 facility investment KRW 39,501M (machinery KRW 23,941M, building KRW 14,031M, other KRW 1,529M), KRW 1,021M spent; equity raised on 2026-06-30 for facilities (KRW 37,593M) is to be spent from Q3 2026",
+       "figure": "utilisation 96.7% (232 of 240 cards); facility plan KRW 39,501M",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "PMT Q2 FY2026 (08-13-2026)",
+       "signal": "Orders: a probe-card supply contract filed 2026-05-20 for KRW 6,552M (KRW 3,744M supplied and KRW 1,092M received so far; KRW 2,808M of supply and KRW 5,460M of payment still to come; customer not named in the report). Products are built to chipmakers' production plans on short-lead orders, with volumes forecast during joint development",
+       "figure": "KRW 6,552M probe-card supply contract",
+       "counterparty": "undisclosed customer",
+       "counterparty_role": "customer",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "PMT Q2 FY2026 (08-13-2026)",
+       "signal": "Customers: those above 5% of H1 2026 revenue were Samsung Electronics, SAMSUNG (CHINA) SEMICONDUCTOR and Macronix (MXIC). The company says it is developing new customers among Taiwanese and Chinese chipmakers, and names FormFactor, Micronics Japan, Japan Electronic Materials, Korea Instruments and TSE as its direct competitors in supplying memory probe cards to Samsung Electronics",
+       "figure": "no specific figure",
+       "counterparty": "Macronix",
+       "counterparty_role": "customer",
+       "topics": []
+      },
+      {
+       "quarter": "PMT Q2 FY2026 (08-13-2026)",
+       "signal": "Company view: the domestic probe-card market is set by Samsung Electronics' and SK Hynix's demand (100% of memory demand), and probe-card consumption should keep rising; probe pins per card are rising from 20,000 to 50,000 to 100,000, and its bonding-free MEMS process, which forms pins directly on the 12-inch ceramic substrate, limits cost growth as pin counts rise. It has also completed a non-memory MEMS probe card and package test sockets now in mass-production verification. R&D spending KRW 1,529M (4.5% of revenue); H1 raw-material purchases KRW 18,827M (ceramic MLC substrates KRW 7,250M, PCBs KRW 4,726M)",
+       "figure": "probe pins per card 20,000 to 50,000 to 100,000; R&D KRW 1,529M (4.5%)",
+       "topics": []
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Samsung",
+       "relationship": "DRAM / NAND MEMS probe cards",
+       "contracts": [
+        {
+         "source": "PMT Q2 FY2026 (08-13-2026)",
+         "signal": "The half-year report says PMT's DRAM MEMS probe card received Samsung Electronics mass-production approval in December 2006, that it stably supplies DRAM and NAND probe cards to Samsung Electronics and is expanding its share as a partner, and that Samsung Electronics and SAMSUNG (CHINA) SEMICONDUCTOR were each above 5% of H1 2026 revenue",
+         "units": "DRAM and NAND MEMS probe cards",
+         "value": "no specific figure",
+         "date_signed": "mass-production approval December 2006",
+         "type": "customer share",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

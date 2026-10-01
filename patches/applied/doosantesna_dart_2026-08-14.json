@@ -1,0 +1,85 @@
+{
+ "source": "Doosan Tesna Q2 FY2026 (08-14-2026)",
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "Doosan Tesna",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "product": "Outsourced wafer test and package test for system semiconductors (SoC, CIS, MCU, smart card IC)",
+     "quarterly_data": [
+      {
+       "quarter": "Doosan Tesna Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report: H1 2026 revenue KRW 157,755,031 thousand - wafer test KRW 144,604,608 thousand, package test KRW 11,369,922 thousand, die preparation KRW 1,780,501 thousand; exports (indirect, zero-rated) KRW 126,198,661 thousand. Q2 2026 revenue KRW 80,925,531,000 and operating profit KRW 9,850,780,000 (H1 operating profit KRW 15,334,512,000). Wafer test makes up most of test revenue.",
+       "figure": "H1 revenue KRW 157,755,031 thousand; Q2 revenue KRW 80,925,531,000; Q2 operating profit KRW 9,850,780,000",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Doosan Tesna Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report: wafer test utilisation 57.8% in H1 2026 (45.5% in 2025, 61.9% in 2024); package test utilisation 58.2%; die preparation utilisation 8.9%. Capacity is measured as full production over 720 hours per month.",
+       "figure": "wafer test utilisation 57.8%",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Doosan Tesna Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report investment plan (estimates, may change): semiconductor test equipment acquisitions of KRW 190,877 million (04-28-2026 to 10-30-2026) and KRW 205,308 million (10-15-2025 to 03-31-2027), both to meet rising test demand; new plant facilities KRW 230,342 million (07-04-2024 to 11-30-2027). H1 2026 cash spent on property, plant and equipment KRW 70,982,185,000.",
+       "figure": "test equipment KRW 190,877 million and KRW 205,308 million; plant KRW 230,342 million",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Doosan Tesna Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report customer concentration: the company's customers are mostly large semiconductor companies; one unnamed large semiconductor company (over 10% of revenue) accounted for KRW 149,605,000 thousand of H1 2026 revenue (KRW 127,433,000 thousand in H1 2025).",
+       "figure": "KRW 149,605,000 thousand from one customer in H1 2026",
+       "topics": []
+      },
+      {
+       "quarter": "Doosan Tesna Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report subsequent event: on 07-09-2026 the board decided to discontinue the die preparation (DP) business to focus on core competencies and improve profitability; its assets and liabilities are to be sold or liquidated.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "Doosan Tesna Q2 FY2026 (08-14-2026)",
+       "signal": "Customer SemiFive (associate, 1.95% stake): related-party revenue from SemiFive KRW 1,670,946 thousand in H1 2026.",
+       "figure": "KRW 1,670,946 thousand",
+       "topics": [],
+       "counterparty": "SemiFive",
+       "counterparty_role": "customer"
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Samsung",
+       "relationship": "wafer test and test-program development for Samsung Electronics system semiconductors",
+       "contracts": [
+        {
+         "source": "Doosan Tesna Q2 FY2026 (08-14-2026)",
+         "signal": "Half-year report: Doosan Tesna's R&D centre develops wafer-test and package-test programs for products of Samsung Electronics as well as several fabless companies; the company's customers are mostly large semiconductor companies.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer relationship (test services)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "new_nodes": {
+  "Doosan Tesna": {
+   "ticker": "131970",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Korean outsourced test house for system semiconductors (wafer test is most of revenue); its test revenue rises with foundry / system-chip volumes, including Samsung Electronics products.",
+   "evidence": "Doosan Tesna Q2 FY2026 (08-14-2026): R&D centre develops test programs for Samsung Electronics and several fabless companies' products; H1 2026 wafer test revenue KRW 144,604,608 thousand.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group affiliate)"
+  }
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "source": "Yest Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "Yest": {
+   "ticker": "122640",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Makes pressure-cure equipment used in the HBM underfill process plus thermal/annealing tools; its semiconductor equipment sales (64% of standalone H1 2026 sales) go to Samsung Electronics and SK Hynix, so HBM packaging capacity additions drive its orders.",
+   "evidence": "Yest half-year report (filed 08-14-2026): pressure cure is used in the HBM underfill process (void removal and curing); main products are built for Samsung Electronics' semiconductor production processes, and orders continue from SK Hynix and Amkor.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Yest",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "Pressure-cure equipment for HBM underfill (void removal and curing), high-pressure annealing and furnaces",
+     "quarterly_data": [
+      {
+       "quarter": "Yest Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report: H1 2026 consolidated revenue KRW 69,447,996,151 (H1 2025: KRW 48,852,188,860) and operating profit KRW 7,628,267,384 (H1 2025: KRW 5,065,053,944); Q2 2026 revenue KRW 41,945,739,918 (Q2 2025: KRW 23,767,355,831) and Q2 operating profit KRW 4,565,708,670 (Q2 2025: KRW 2,847,502,470); H1 net income KRW 5,100,392,021 (H1 2025: net loss KRW 2,846,560,341)",
+       "figure": "H1 2026 revenue KRW 69,447,996,151; operating profit KRW 7,628,267,384",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Yest Q2 FY2026 (08-14-2026)",
+       "signal": "Products: pressure-cure equipment used in the HBM underfill process (void removal and curing); high-pressure annealing with high-pressure hydrogen (deuterium) to cure interface defects in front-end processes; furnaces for wafer cleaning and ion stabilization; plus autoclaves and laminators for OLED. Company history: new HBM equipment production began in December 2023, and in December 2025 it won an order for a 125-wafer HPA (high-pressure annealing) tool from a memory customer. Standalone H1 2026 sales: semiconductor equipment KRW 37,178M (64%), display equipment KRW 20,596M (36%); semiconductor/display equipment 83.19% of consolidated sales",
+       "figure": "semiconductor equipment KRW 37,178M (64% of standalone sales)",
+       "topics": [
+        "hbm"
+       ]
+      },
+      {
+       "quarter": "Yest Q2 FY2026 (08-14-2026)",
+       "signal": "Customers: Samsung Electronics, SK Hynix and Samsung Display; orders also continue to come from SK Hynix and Amkor, and the company is expanding to local foundry and memory makers in Taiwan, Japan and China. Customers above 10% of consolidated H1 2026 revenue (names not disclosed): A KRW 30,890,758 thousand (affiliates combined; H1 2025: KRW 14,907,382 thousand), B KRW 9,758,000 thousand, C KRW 9,471,300 thousand, D KRW 6,998,358 thousand, E KRW 4,972,145 thousand. US revenue KRW 2,922,609 thousand (H1 2025: KRW 396,734 thousand)",
+       "figure": "Customer A KRW 30,890,758 thousand",
+       "topics": [],
+       "counterparty": "Samsung Electronics, SK Hynix, Samsung Display, Amkor; undisclosed Customers A-E",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "Yest Q2 FY2026 (08-14-2026)",
+       "signal": "Order backlog is not disclosed at customers' request; transaction price allocated to partially unsatisfied contracts KRW 4,654,750 thousand, all expected to be recognized in the next reporting period; advances received on equipment supply contracts KRW 3,729,025 thousand (end-2025: KRW 469,000 thousand); contract assets KRW 1,834,650 thousand",
+       "figure": "unsatisfied performance obligations KRW 4,654,750 thousand",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Yest Q2 FY2026 (08-14-2026)",
+       "signal": "Capex and R&D: H1 2026 consolidated PP&E additions KRW 5,449,022 thousand, mostly construction in progress (KRW 5,161,691 thousand); R&D KRW 4,783,036 thousand (8.26% of sales). Litigation: HPSP has filed two patent-infringement injunction suits against the company (KRW 100,000,000 each), pending at first instance at the Seoul Central District Court",
+       "figure": "construction in progress additions KRW 5,161,691 thousand",
+       "topics": []
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Samsung",
+       "relationship": "Thermal-process, temperature-control and inspection equipment for semiconductor lines",
+       "contracts": [
+        {
+         "source": "Yest Q2 FY2026 (08-14-2026)",
+         "signal": "Half-year report: Yest's main products are thermal-processing, temperature-control and inspection equipment designed to the specifications of Samsung Electronics' semiconductor production processes; Samsung Electronics is named among its major customers",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer relationship",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "SK Hynix",
+       "relationship": "Semiconductor thermal / pressure process equipment",
+       "contracts": [
+        {
+         "source": "Yest Q2 FY2026 (08-14-2026)",
+         "signal": "Half-year report: orders continue to be received from SK Hynix; SK Hynix is named among the company's customers",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer relationship",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "Amkor Technology",
+       "relationship": "Semiconductor packaging process equipment",
+       "contracts": [
+        {
+         "source": "Yest Q2 FY2026 (08-14-2026)",
+         "signal": "Half-year report: orders continue to be received from Amkor in the domestic market",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer relationship",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

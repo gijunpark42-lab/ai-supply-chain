@@ -1,0 +1,108 @@
+{
+ "source": "NiSource Q2 FY2026 (08-05-2026)",
+ "new_nodes": {
+  "NiSource": {
+   "ticker": "NI",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Regulated utility whose NIPSCO GenCo builds dedicated generation under special contracts to serve Amazon and Alphabet data centers in Indiana ($7.6 billion of GenCo capital supporting data center customers; 4 GW signed, 9 GW pipeline).",
+   "evidence": "NiSource Q2 FY2026 (08-05-2026), CEO Lloyd Yates: 'In June, the IURC approved the original Amazon special contract, the related power purchase agreement, and the generation resource proposed to support the agreement... We also continue to execute on our Alphabet partnership, receiving IURC approval of the agreement in July.'",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "NiSource",
+     "domain": "power",
+     "sector": "Utilities & Grid Operators",
+     "product": "NIPSCO GenCo generation and electric service built under IURC-approved special contracts and PPAs for Amazon and Alphabet data centers in Indiana",
+     "quarterly_data": [
+      {
+       "quarter": "NiSource Q2 FY2026 (08-05-2026)",
+       "signal": "Q2 2026 consolidated adjusted EPS of $0.16 versus $0.22 a year earlier; year-to-date adjusted EPS of $1.22, up $0.03; new rates and recovery mechanisms (NIPSCO Electric, Columbia Gas of Ohio and Pennsylvania) were offset by higher O&M from storm activity and workforce continuity costs during union negotiations. CFO expects earnings weighted to the second half, supported by recovery mechanisms, Virginia and Ohio regulatory activity and Alphabet's energization.",
+       "figure": "adj EPS $0.16 (vs $0.22); YTD adj EPS $1.22 (+$0.03)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "NiSource Q2 FY2026 (08-05-2026)",
+       "signal": "Reaffirmed 2026 consolidated adjusted EPS guidance of $2.02-$2.07; base plan adjusted EPS growth of 6%-8% annually through 2030 and consolidated adjusted EPS CAGR of 9%-10% from 2026 through 2033; base plan rate base growth of 8%-10% through 2030 and consolidated rate base growth of 9%-11% from 2026 through 2033. CFO: with IURC approval of the Amazon and Alphabet special contracts, GenCo remains on track to add incremental value to consolidated earnings for 2026 and beyond; GenCo segment reporting expected by the end of the fiscal year.",
+       "figure": "2026 adj EPS $2.02-$2.07; 9%-10% EPS CAGR 2026-2033",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "NiSource Q2 FY2026 (08-05-2026)",
+       "signal": "Five-year capital outlook unchanged: $21 billion of base business investment, $2 billion of upside opportunities (largely generation, gas AMI, economic development and electric T&D) and $7.6 billion of GenCo capital investment supporting data center customers. Further opportunities not in the plan include electric generation for MISO resource requirements, MISO long-range transmission, PHMSA compliance and advanced metering.",
+       "figure": "$21 billion base; $2 billion upside; $7.6 billion GenCo capex",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "NiSource Q2 FY2026 (08-05-2026)",
+       "signal": "Data center pipeline: CEO: 'we've signed 4 GW, we're active with strategic negotiations for another 3 GW, and we have another 2 GW behind that', and the company is studying how to expand beyond the 9 GW (land, zoning, transmission, fuel supply, equipment); CCO Michael Luhrs said this is pre-planning, not a sign of a constraint. CEO declined to comment on Microsoft or the LaPorte County opportunity beyond a 2024 joint announcement with Microsoft.",
+       "figure": "4 GW signed; 3 GW in negotiation; 2 GW additional; 9 GW pipeline",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "NiSource Q2 FY2026 (08-05-2026)",
+       "signal": "The Amazon and Alphabet agreements are expected to provide approximately $1.4 billion of bill reductions for existing NIPSCO electric customers over their contract terms (up to $124 annually for an average residential customer), with benefits flowing as early as Q4 2026 once projects are energized; parties agreed to support expedited 90-120 day procedural schedules for future data center agreements.",
+       "figure": "$1.4 billion customer bill reductions; up to $124 annually; 90-120 day schedules",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "NiSource Q2 FY2026 (08-05-2026)",
+       "signal": "Regulatory: rate cases filed in Virginia and Kentucky with decisions expected by the first half of 2027; Ohio approved infrastructure tracker mechanisms; the IURC order on NIPSCO's gas TDSIC tracker requires the company to better demonstrate project benefits (no change to capex plan or EPS outlook); a third federal order requires continued operation of the Schahfer coal plant, with cost recovery sought through a FERC Section 205 filing. Over $40 million of cost optimization initiatives identified.",
+       "figure": "over $40 million cost optimization",
+       "topics": []
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Amazon",
+       "relationship": "NIPSCO GenCo generation and electric service for Amazon data centers in Indiana (special contract and PPA)",
+       "contracts": [
+        {
+         "source": "NiSource Q2 FY2026 (08-05-2026)",
+         "signal": "In June the IURC approved the original Amazon special contract, the related power purchase agreement and the generation resource proposed to support it. On July 17th NIPSCO filed for approval of amendments to its Amazon Data Center Electric Service Agreement and the associated PPA with GenCo, which increase Amazon's contracted load by 400 MW (already in guidance); final order sought by November.",
+         "units": "contracted load +400 MW",
+         "value": "no specific figure",
+         "date_signed": "amendments filed July 17th, 2026",
+         "type": "power supply agreement",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      },
+      {
+       "company": "Google",
+       "relationship": "NIPSCO GenCo generation and electric service for Alphabet data center load in Indiana (special contract)",
+       "contracts": [
+        {
+         "source": "NiSource Q2 FY2026 (08-05-2026)",
+         "signal": "NiSource received IURC approval of its Alphabet agreement in July; CEO: 'We are ready to energize this project, which is on track to occur this summer with load expected to ramp to full capacity by 2030.'",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "IURC approval July 2026",
+         "type": "power supply agreement",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

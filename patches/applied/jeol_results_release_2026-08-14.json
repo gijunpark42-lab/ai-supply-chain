@@ -1,0 +1,41 @@
+{
+ "source": "JEOL results release: Consolidated Financial Results for the Three Months Ended June 30, 2026 (08-14-2026)",
+ "new_nodes": {
+  "JEOL": {
+   "ticker": "6951.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "same node as the JEOL results presentation patch (electron-beam mask writers and e-beam lithography systems); repeated so this patch passes on its own",
+   "evidence": "JEOL results presentation: Financial Results for Q1 FY2026 (08-14-2026): 'Multi-Beam Mask Writer: Customer inquiries continue to increase, while demand is recovering gradually'",
+   "approved": "user pre-approved 2026-10-01 for group scan_2026_10_01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "JEOL",
+     "layer": "equipment",
+     "sector": "Lithography",
+     "product": "multi-beam and single-beam electron-beam mask writers and spot-beam electron-beam lithography systems (Industrial Equipment); TEM / FIB systems for semiconductor inspection",
+     "quarterly_data": [
+      {
+       "quarter": "JEOL results release: Consolidated Financial Results for the Three Months Ended June 30, 2026 (08-14-2026)",
+       "signal": "Three months ended June 30, 2026: net sales JPY 24,465 million (-39.1%), operating loss JPY 1,961 million (prior-year operating profit JPY 5,792 million). Industrial Equipment segment sales JPY 4,976 million against JPY 14,455 million and segment profit JPY 221 million against JPY 7,183 million; Industrial Equipment sales in China were JPY 196 million against JPY 8,119 million. The Medical Equipment Business was transferred at the beginning of the fiscal year and is no longer a reporting segment.",
+       "figure": "net sales JPY 24,465 million (-39.1%); Industrial Equipment sales JPY 4,976 million (prior JPY 14,455 million)",
+       "topics": []
+      },
+      {
+       "quarter": "JEOL results release: Consolidated Financial Results for the Three Months Ended June 30, 2026 (08-14-2026)",
+       "signal": "Forecast for the fiscal year ending March 31, 2027 unchanged: net sales JPY 164,000 million (-8.6%), operating profit JPY 26,500 million (+1.9%); six months ending September 30, 2026: net sales JPY 63,000 million, operating profit JPY 6,000 million.",
+       "figure": "FY net sales JPY 164,000 million; operating profit JPY 26,500 million; 1H net sales JPY 63,000 million",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

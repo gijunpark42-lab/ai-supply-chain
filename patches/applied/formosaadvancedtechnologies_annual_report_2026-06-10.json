@@ -1,0 +1,88 @@
+{
+ "source": "Formosa Advanced Technologies annual report: 2025 Annual Report (06-10-2026)",
+ "new_nodes": {
+  "Formosa Advanced Technologies": {
+   "ticker": "8131.TW",
+   "exchange": "TWSE",
+   "country": "TW",
+   "why": "Memory back-end OEM: packages and tests DRAM ICs and assembles memory modules, mainly for Nanya Technology (71% of 2025 net sales); AI-driven DRAM tightness (HBM/DDR5 crowding out DDR4) is lifting its packaging/test volumes, OEM prices and capex (TSV, bumping, chip stacking at its new Factory 5).",
+   "evidence": "Formosa Advanced Technologies 2025 annual report: customers above 10% of sales - Nanya Technology (related party) NT$7,042,085 thousand, 71% of 2025 net sales (76% in 2024, 77% in Q1 2026); the company provides one-stop chip probing, assembly, final test and module services.",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Formosa Advanced Technologies",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "product": "DRAM IC packaging and testing (wafer probe, assembly, final test) and DRAM memory module (DIMM) assembly - turn-key memory back-end OEM services",
+     "quarterly_data": [
+      {
+       "quarter": "Formosa Advanced Technologies annual report: 2025 Annual Report (06-10-2026)",
+       "signal": "2025 annual report: net sales NT$9,921,208 thousand vs NT$8,932,564 thousand in 2024 (up 11.1%); pre-tax profit fell 33.1% as a weak first-half DRAM market and unfavourable exchange rates hit results. IC packaging and testing revenue fell 1.1% while memory module revenue rose 73.3%",
+       "figure": "2025 net sales NT$9,921,208 thousand (+11.1%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Formosa Advanced Technologies annual report: 2025 Annual Report (06-10-2026)",
+       "signal": "2025 sales mix: IC packaging and testing 74%, memory modules 26%. 2025 packaging/test output 1,611,696 thousand units (sales 1,654,371 thousand units); modules 14,677 thousand produced and 13,673 thousand sold",
+       "figure": "packaging/test 74% of sales; 1,654,371 thousand units sold",
+       "topics": []
+      },
+      {
+       "quarter": "Formosa Advanced Technologies annual report: 2025 Annual Report (06-10-2026)",
+       "signal": "Letter to shareholders: in H2 2025 the major DRAM makers gave priority capacity to high-value HBM and DDR5 for AI demand, causing a structural DDR4 shortage from H2; Taiwanese DRAM fabs expanded DDR4 orders and output, lifting demand for downstream packaging and testing, and the company won DDR4 packaging/test orders and expanded bottleneck capacity. The company expects 2026 memory demand to keep exceeding supply and is cautiously optimistic on OEM packaging/test demand",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Formosa Advanced Technologies annual report: 2025 Annual Report (06-10-2026)",
+       "signal": "2026 operating plan: raise DDR4 packaging/test order intake and capacity; develop advanced packaging processes and build lines for customers' high-speed DDR5 and customised memory; win more multi-chip, logic and Flash packaging customers; pursue DDR4 server memory module OEM orders and co-develop DDR5 server modules; add SMT lines to expand DDR5 gaming and standard module capacity",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Formosa Advanced Technologies annual report: 2025 Annual Report (06-10-2026)",
+       "signal": "New Factory 5 expansion for customers' long-term orders: construction began in 2022 and the use permit was obtained in 2025; cleanroom and utility systems are being built, with trial production and verification from H2 2026. The new plant will introduce TSV, bumping and high-speed test processes; wafer bumping and RDL lines are being set up, alongside development of 2- and 4-layer flip-chip stacking for AI and high-performance computing memory",
+       "figure": "no specific figure",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Formosa Advanced Technologies annual report: 2025 Annual Report (06-10-2026)",
+       "signal": "2025 R&D expense NT$249,668 thousand; developed DDR5 8G and 16G 1A/1B nm packaging and test, DDR4/DDR5 server memory modules (8G to 128G), and 100G/200G/400G/800G optical communication module development",
+       "figure": "R&D NT$249,668 thousand",
+       "topics": []
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Nanya Technology",
+       "relationship": "DRAM IC packaging, test and memory module OEM services (Nanya Technology is a related party and major shareholder)",
+       "contracts": [
+        {
+         "source": "Formosa Advanced Technologies annual report: 2025 Annual Report (06-10-2026)",
+         "signal": "Customers above 10% of sales: Nanya Technology (related party) NT$7,042,085 thousand, 71% of 2025 net sales; 76% in 2024 (NT$6,759,003 thousand) and 77% in Q1 2026 (NT$2,260,843 thousand)",
+         "units": "no specific figure",
+         "value": "NT$7,042,085 thousand (71% of 2025 net sales)",
+         "date_signed": "2025",
+         "type": "customer share",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

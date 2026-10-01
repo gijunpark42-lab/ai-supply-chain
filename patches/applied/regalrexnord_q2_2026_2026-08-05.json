@@ -1,0 +1,75 @@
+{
+ "source": "Regal Rexnord Q2 FY2026 (08-05-2026)",
+ "new_nodes": {
+  "Regal Rexnord": {
+   "ticker": "RRX",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Builds ePOD modular data-center power systems and data-center switchgear for data-center customers; data-center demand drives its AMC segment orders and switchgear revenue.",
+   "evidence": "CFO Rob Rehard: \"Our fourth quarter revenue outlook for AMC is now also benefiting from $15 million of ePOD sales\"; \"we still expect that this year, we should be around $180 million in switchgear\" (Regal Rexnord Q2 FY2026 call, 08-05-2026)",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Regal Rexnord",
+     "domain": "power",
+     "sector": "Datacenter Power",
+     "product": "ePOD modular data-center power systems and data-center switchgear",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Regal Rexnord Q2 FY2026 (08-05-2026)",
+       "signal": "CFO Rob Rehard: Q2 2026 sales were up 4.2% versus the prior year, up 3.3% organically; adjusted gross margin 39.8% (37.8% excluding IEEPA tariff refunds of $32 million); adjusted EBITDA margin 23.5% (21.5% excluding refunds); adjusted EPS $2.99 ($2.60 excluding refunds). Automation & Motion Control (AMC) sales rose 15.6% organically, with especially strong growth in data center, discrete automation and aerospace and defense (up 8% excluding data center); Industrial Powertrain Solutions rose 2% organically, led by the energy market including power gen benefiting from data center growth; Power Efficiency Solutions fell 6.6% organically on residential HVAC and pool, while commercial HVAC was aided by data center construction.",
+       "figure": "sales +4.2% (organic +3.3%); AMC +15.6% organic; IPS +2%; PES -6.6%; adjusted EPS $2.99",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Regal Rexnord Q2 FY2026 (08-05-2026)",
+       "signal": "CFO: Q2 orders on a daily basis were up 8.8% versus the prior year (8.1% excluding data center); AMC orders were up 17.1% (15% excluding data center) with AMC book-to-bill of 1.02, and nearly half of AMC's first-half order growth reflects longer-cycle projects and blanket orders expected to benefit 2027 and in some cases 2028. IPS 2027 shippable backlog is up over 20% versus the 2026 shippable backlog at the same time last year. Enterprise orders in July were up 7% on a daily basis.",
+       "figure": "orders +8.8% (8.1% excluding data center); AMC orders +17.1%; AMC book-to-bill 1.02; July orders +7%",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Regal Rexnord Q2 FY2026 (08-05-2026)",
+       "signal": "Guidance: 2026 sales guidance unchanged at $6.2 billion and 4.5% growth; adjusted EBITDA margin now forecast at 22.1% (21.3% excluding tariff refunds); adjusted EPS range narrowed to $10.35-$10.85 (midpoint $10.60 unchanged); free cash flow guidance $600 million, down $50 million. AMC annual sales growth raised to low double digits from high single digits, including $15 million of ePOD revenue expected in the year; IPS lowered to low single digits; PES lowered to flat to a low single-digit decline.",
+       "figure": "2026 sales $6.2 billion (4.5% growth); adjusted EPS $10.35-$10.85; adjusted EBITDA margin 22.1%; cash flow $600 million",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Regal Rexnord Q2 FY2026 (08-05-2026)",
+       "signal": "ePOD modular data-center power: CFO says the Q4 2026 AMC revenue outlook now includes $15 million of ePOD sales (the majority of initial ePOD orders was expected to hit 2027 with some spillover into 2028); the new ePOD facility is on schedule, infrastructure nearly complete, leadership hired and direct labor ramping, on track to be operational in time for customer production schedules; margin still assumed at approximately 20%; additional ePOD orders possibly late this year or early next year. CEO Aamir Paul: the company was invited into the space by customers of its Thomson Power business who were not satisfied with the quality and delivery they were getting; designs are locked and those customers alone have a pipeline the company can scale with.",
+       "figure": "$15 million of ePOD sales in Q4 2026; approximately 20% margin assumed",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Regal Rexnord Q2 FY2026 (08-05-2026)",
+       "signal": "CFO: switchgear is growing at market levels; the company expects around $180 million of switchgear this year and as much as $240 million or so, $250 million next year; the switchgear funnel remains around the level communicated previously. CEO: some of the data-center solutions integrate content from Tier 1 providers like ABB, Schneider and Eaton; hyperscalers want reliability and have acute time-to-power schedules, and the shift from stick-build to modular is driven by construction labor; air-moving products from PES can be added since not all modular solutions will be liquid-cooled.",
+       "figure": "switchgear around $180 million in 2026; as much as $240 million or so, $250 million next year",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Regal Rexnord Q2 FY2026 (08-05-2026)",
+       "signal": "CFO on rare earth magnets: for commercial uses, sourcing and mitigation actions are progressing and the company believes it will be mostly mitigated within this quarter; approvals for defense applications remain slow while demand is improving, so the primary risk is not being able to serve additional demand rather than an impact on the current backlog.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

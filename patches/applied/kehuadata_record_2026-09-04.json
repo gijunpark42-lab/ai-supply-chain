@@ -1,0 +1,64 @@
+{
+ "source": "Kehua Data IR activity record: 2026-01 (09-04-2026)",
+ "new_nodes": {
+  "Kehua Data": {
+   "ticker": "002335.SZ",
+   "exchange": "SZSE",
+   "country": "CN",
+   "why": "Supplies UPS / power modules and liquid-cooling CDUs for AI data centers; data-center revenue was its largest growth line in H1 2026",
+   "evidence": "Kehua Data IR activity record: 2026-01 (09-04-2026): 200kW high-density UPS power module for 1.2MW UPS; liquid-cooling CDUs from 200kW to 2MW; shortlisted for a major internet company's 1.2MW CDU and delivered in volume in H1 2026",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group weak_evidence)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Kehua Data",
+     "domain": "power",
+     "sector": "Datacenter Power",
+     "product": "Data-center UPS (1.2MW UPS on 200kW high-density UPS power modules), lithium battery systems, liquid-cooling CDUs (200kW to 2MW) and liquid-cooled POD micro-modules for AI data centers",
+     "quarterly_data": [
+      {
+       "quarter": "Kehua Data IR activity record: 2026-01 (09-04-2026)",
+       "signal": "Management (IR record, H1 2026 results): revenue RMB 38.84 hundred million (+4.05%) and net profit attributable to shareholders RMB 3.96 hundred million (+62.69%). Data-center revenue RMB 15.91 hundred million (+13.81%, gross margin 23.07%); smart power RMB 3.2 hundred million (-27.23%, gross margin 36.48%); new energy RMB 19.26 hundred million (+4.01%, gross margin 21.81%).",
+       "figure": "Revenue RMB 38.84 hundred million (+4.05%); data center RMB 15.91 hundred million (+13.81%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Kehua Data IR activity record: 2026-01 (09-04-2026)",
+       "signal": "Management (IR record): liquid cooling - the company has built its own MW-level liquid-cooling test platform and co-develops liquid-cooling CDUs with leading domestic and overseas internet companies; in H1 2026 it was shortlisted for a major internet company's jointly developed 1.2MW CDU and delivered it in volume in H1. Its WiseMDC liquid-cooled POD fits 32 or 128 compute nodes with 40-120kW per cabinet and PUE as low as 1.15. It plans to add liquid-cooling CDUs and supporting products to its fundraising project Smart Manufacturing Base (phase I) to meet AIDC capacity needs.",
+       "figure": "1.2MW CDU shortlisted and delivered in volume (H1 2026)",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Kehua Data IR activity record: 2026-01 (09-04-2026)",
+       "signal": "Management (IR record): H1 2026 overseas revenue RMB 8.53 hundred million, 21.96% of revenue, +135.15%; new-energy product gross margin rose 4.30% year on year. In AI data centers the company follows leading domestic internet companies' builds in Thailand and Indonesia, using Southeast Asia as its AIDC beachhead, and pursues business with leading chip makers and cloud companies in North America and Europe.",
+       "figure": "Overseas revenue RMB 8.53 hundred million (21.96% of revenue, +135.15%)",
+       "topics": []
+      },
+      {
+       "quarter": "Kehua Data IR activity record: 2026-01 (09-04-2026)",
+       "signal": "Management (IR record): on the electrical side the company's 200kW high-density UPS power module (which it calls a global first launch) gives its 1.2MW UPS a smaller footprint and faster dynamic response to AI load swings; its S3 lithium battery system uses parallel battery modules; its liquid-cooling CDUs cover 200kW to 2MW cooling capacity; with several leading internet companies it co-developed an elastic DC integrated cabinet and DC-STS products.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Kehua Data IR activity record: 2026-01 (09-04-2026)",
+       "signal": "Management (IR record): in H1 2026 the company's self-built Beijing Shanhe Wangu intelligent computing center opened, using its own UPS, power modules, liquid-cooling CDUs, liquid-cooled micro-modules and DCIM; planned computing scale 12000P with cabinets up to 150kW.",
+       "figure": "no specific figure",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

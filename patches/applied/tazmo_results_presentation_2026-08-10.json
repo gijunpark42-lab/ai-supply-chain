@@ -1,0 +1,70 @@
+{
+ "source": "Tazmo results presentation: Q2 FY2026 Financial Announcement (08-10-2026)",
+ "new_nodes": {
+  "Tazmo": {
+   "ticker": "6266.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Makes temporary bonding / debonding systems for wafer thinning and coaters / developers for advanced packaging (WLP / PLP); its advanced-packaging equipment sales grew with AI-driven logic demand.",
+   "evidence": "Tazmo Q2 FY2026 presentation (08-10-2026): 'AI-driven expansion of the logic semiconductor market has significantly grown sales of TAZMO's advanced packaging equipment.'",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group weak_evidence)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Tazmo",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "Temporary bonding / debonding systems for wafer thinning and coaters / developers for advanced packaging (WLP / PLP)",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Tazmo results presentation: Q2 FY2026 Financial Announcement (08-10-2026)",
+       "signal": "First half FY2026 (Q2 cumulative, to June 2026): net sales 12,684 million yen (-24.4%), operating income 123 million yen (-95.1%), short of plan on delays in inspection and acceptance in Semiconductor Equipment and Surface Treatment Equipment, valuation losses on equipment not yet accepted and provisions for additional costs. Semiconductor equipment net sales 6,080 vs 7,088 million yen (-14.2%).",
+       "figure": "Net sales 12,684 million yen (-24.4%); operating income 123 million yen (-95.1%)",
+       "topics": []
+      },
+      {
+       "quarter": "Tazmo results presentation: Q2 FY2026 Financial Announcement (08-10-2026)",
+       "signal": "Order intake grew substantially in Semiconductor Equipment, Transfer Equipment and Surface Treatment Equipment, at record highs on both a quarterly and a cumulative basis; order backlog 54,743 million yen at Q2 end. Management: WLP equipment orders for advanced packaging declined QoQ after large Q1 orders while coater/developer orders expanded; PLP inquiries are increasing for coating, debonding and cleaning; power-semiconductor equipment inquiries are gradually increasing; 'we remain optimistic'.",
+       "figure": "Order backlog 54,743 million yen",
+       "topics": [
+        "packaging_substrate"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Tazmo results presentation: Q2 FY2026 Financial Announcement (08-10-2026)",
+       "signal": "Company: AI-driven expansion of the logic semiconductor market has significantly grown sales of Tazmo's advanced packaging equipment, net sales of which rose approx. 8x from 2021 to 2025.",
+       "figure": "Advanced packaging equipment net sales approx. 8x (2021 to 2025)",
+       "topics": [
+        "packaging_substrate"
+       ]
+      },
+      {
+       "quarter": "Tazmo results presentation: Q2 FY2026 Financial Announcement (08-10-2026)",
+       "signal": "FY2026 (year to December 2026) full-year estimate: net sales 35,500 million yen, operating income 3,600 million yen, net income 2,500 million yen; H1 net sales reached 35.7% of the full-year estimate.",
+       "figure": "FY2026 estimate: net sales 35,500 million yen; operating income 3,600 million yen",
+       "topics": [],
+       "slot": "guidance"
+      }
+     ]
+    }
+   ]
+  },
+  "components/nand_flash.json": {
+   "players": [
+    {
+     "company": "Tazmo",
+     "layer": "equipment",
+     "sector": "Deposition & Etch",
+     "product": "Coaters / developers and single-wafer cleaning systems",
+     "connects_to": [],
+     "quarterly_data": []
+    }
+   ]
+  }
+ }
+}

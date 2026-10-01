@@ -1,0 +1,68 @@
+{
+ "source": "Ardentec IR presentation: 2026 Q2 investor conference (07-24-2026)",
+ "new_nodes": {
+  "Ardentec": {
+   "ticker": "3264.TWO",
+   "exchange": "TPEx",
+   "country": "TW",
+   "why": "Outsourced test house (wafer sorting 70.3% and final test 29.0% of H1 2026 revenue, 55.4% from fabless customers) adding capacity for CPO EIC / PIC testing; test volumes rise with advanced-chip output",
+   "evidence": "Ardentec 2026 Q2 investor conference deck (07-24-2026): Q2 revenue NT$4,534 million +32.4% YoY; wafer sorting 70.3% / final test 29.0% of H1 revenue; CPO EIC / PIC test capacity >150 tools; Longtan plant in mass production from July",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group weak_evidence)"
+  }
+ },
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "Ardentec",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "product": "Outsourced semiconductor testing: wafer sorting (probing) and final test for fabless and IDM chips, plus CPO EIC / PIC optoelectronic testing",
+     "quarterly_data": [
+      {
+       "quarter": "Ardentec IR presentation: 2026 Q2 investor conference (07-24-2026)",
+       "signal": "Q2 2026 revenue NT$4,534 million, up 13.8% QoQ and 32.4% YoY; gross margin 40.2% (36.3% a year earlier); operating margin 30.4%; net income NT$1,156 million, up 105.2% YoY; EPS NT$2.44. H1 2026 revenue NT$8,517 million (+28.3%), net income NT$2,080 million (+78.6%), EPS NT$4.39.",
+       "figure": "Q2 2026 revenue NT$4,534 million (+32.4% YoY); gross margin 40.2%; net income NT$1,156 million (+105.2%)",
+       "topics": []
+      },
+      {
+       "quarter": "Ardentec IR presentation: 2026 Q2 investor conference (07-24-2026)",
+       "signal": "H1 2026 revenue mix: by product wafer sorting 70.3% (71.6% in H1 2025), final test 29.0% (28.0%); by customer fabless 55.4% (53.7%), IDM 43.4% (44.3%), foundry 1.2%; by application communication / connectivity 33.0%, ATV / security 18.8%, RF IC 12.5%, storage 11.1%, PC / consumer 10.0%, general MCU 8.0%, memory 5.3%.",
+       "figure": "Wafer sorting 70.3%, final test 29.0%; fabless 55.4% of H1 2026 revenue",
+       "topics": []
+      },
+      {
+       "quarter": "Ardentec IR presentation: 2026 Q2 investor conference (07-24-2026)",
+       "signal": "Capex: acquisition of property, plant and equipment NT$7,007 million in H1 2026 (NT$1,865 million in H1 2025), free cash flow -NT$4,466 million. Longtan plant: tools purchased in 2026 Q1, customer validation completed and tools installed in Q2, official mass production from July (Q3).",
+       "figure": "H1 2026 PP&E purchases NT$7,007 million; Longtan plant mass production from July 2026",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Ardentec IR presentation: 2026 Q2 investor conference (07-24-2026)",
+       "signal": "Silicon photonics: the Ardentec group offers optoelectronic testing and advanced heterogeneous-integration packaging for the CPO ecosystem and partners with Fabrinet (and a group company) for one-stop CPO integration. CPO test capacity: EIC / PIC >150 tools; MicroLED >50 tools (being built). The group's new Hukou plant (>3,500 ping) starts mass production of new silicon-photonics products in Q3. The group's packaging affiliate launched a 12-inch silicon-photonics wafer-level packaging line in 2024, brought in several new customers in 2025 (30+ NPI products) and has >10 new customers in introduction / design in 2026.",
+       "figure": "CPO EIC / PIC test capacity >150 tools; Hukou silicon-photonics mass production Q3 2026",
+       "topics": [
+        "cpo",
+        "silicon_photonics"
+       ],
+       "slot": "next_catalyst",
+       "counterparty": "Fabrinet",
+       "counterparty_role": "partner"
+      }
+     ]
+    }
+   ]
+  },
+  "accelerators/broadcom_custom_asic.json": {
+   "players": [
+    {
+     "company": "Ardentec",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "product": "Outsourced semiconductor testing: wafer sorting (probing) and final test for fabless and IDM chips, plus CPO EIC / PIC optoelectronic testing"
+    }
+   ]
+  }
+ }
+}

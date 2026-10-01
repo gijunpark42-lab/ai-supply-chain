@@ -1,0 +1,86 @@
+{
+ "source": "Duke Energy Q2 FY2026 (08-04-2026)",
+ "new_nodes": {
+  "Duke Energy": {
+   "ticker": "DUK",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Regulated utility that serves data centers under electric service agreements (7.8 GW secured with data center customers, 15.4 GW pipeline) and is building generation (15 GW by 2031, GE Vernova gas turbines) to meet that load.",
+   "evidence": "CFO Brian Savoy: \"We have now secured 7.8 GW of electric service agreements with data center customers\" (Duke Energy Q2 FY2026 call, 08-04-2026)",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Duke Energy",
+     "domain": "power",
+     "sector": "Utilities & Grid Operators",
+     "product": "Regulated electric service to data-center customers under electric service agreements (ESAs) with minimum take provisions",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Duke Energy Q2 FY2026 (08-04-2026)",
+       "signal": "CEO Harry Sideris / CFO Brian Savoy: Q2 2026 adjusted EPS was $1.43 (reported $1.38) versus $1.25 in the prior year; electric utilities and infrastructure was up $0.15, driven by customer growth and infrastructure investment, partly offset by higher depreciation and interest; gas utilities largely flat; the other segment up $0.03.",
+       "figure": "adjusted EPS $1.43 vs $1.25; reported EPS $1.38",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Duke Energy Q2 FY2026 (08-04-2026)",
+       "signal": "Guidance: on track for the 2026 adjusted EPS range of $6.55-$6.80; long-term EPS growth of 5%-7% through 2030 reaffirmed, with confidence in delivering the top half of the range beginning in 2028 as economic development projects under ESAs ramp; FFO to debt target of 14.5% for the year (15% longer term). The company is deploying more than $1 billion per month under its regulated capital plan.",
+       "figure": "2026 EPS $6.55-$6.80; EPS growth 5%-7% through 2030; FFO to debt 14.5%",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Duke Energy Q2 FY2026 (08-04-2026)",
+       "signal": "CFO: Duke has now secured 7.8 GW of electric service agreements with data center customers and expects the remainder of the 15.4-GW large-load pipeline to convert to ESAs by the first half of 2027 (CEO: the majority of the late-stage pipeline is in Florida and Indiana, with more opportunities in the Carolinas, Ohio and Kentucky). Customers are moving to vertical construction and are expected to begin taking energy as early as the second half of 2027 and into 2028, ramping to full contracted load through the early 2030s; contracts contain minimum take provisions. Additional contracts would add $5 billion-$10 billion of upside to the current five-year capital plan, particularly in Indiana and Florida. Newly signed ESAs raised the Carolinas load forecast to the high load scenario.",
+       "figure": "7.8 GW of data center ESAs; 15.4-GW pipeline; $5 billion-$10 billion capital upside",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Duke Energy Q2 FY2026 (08-04-2026)",
+       "signal": "Generation build: on track to add 15 GW of capacity by 2031; the gas portfolio has approximately 5 GW under construction and an additional 2.5 GW in development; gas turbines available under the GE Vernova framework agreement increased to 26, with the first turbine delivered to the Person County combined cycle site in July and the second later this year. CEO: all the gas needed through the early 2030s is secured. Nuclear: about 300 MW of uprates and license extensions to 80 years (two approved by the NRC, Brunswick SLR filing by year-end); on new nuclear the AP1000 seems to be in the lead, but Duke is not yet in a position to decide and needs financial risk protections first.",
+       "figure": "15 GW by 2031; approximately 5 GW gas under construction; 26 GE Vernova turbines; about 300 MW nuclear uprates",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      }
+     ]
+    },
+    {
+     "company": "GE Vernova",
+     "domain": "power",
+     "sector": "Grid",
+     "product": "grid-level power transformers and switchgear",
+     "connects_to": [
+      {
+       "company": "Duke Energy",
+       "relationship": "Gas turbine supply under a framework agreement",
+       "contracts": [
+        {
+         "source": "Duke Energy Q2 FY2026 (08-04-2026)",
+         "signal": "Duke Energy CEO Harry Sideris: Duke increased the number of gas turbines available under its framework agreement with GE Vernova to 26 to align with the next phase of build in the IRPs; the first turbine was delivered to the Person County combined cycle site in July and the second will be delivered later this year.",
+         "units": "26 gas turbines",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "framework agreement",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      }
+     ],
+     "quarterly_data": []
+    }
+   ]
+  }
+ }
+}

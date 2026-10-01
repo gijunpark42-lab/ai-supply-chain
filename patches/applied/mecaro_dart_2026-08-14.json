@@ -1,0 +1,96 @@
+{
+ "source": "Mecaro Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "Mecaro": {
+   "ticker": "241770",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Korean maker of the metal heater blocks that heat and hold wafers inside CVD / deposition chambers at Samsung and SK Hynix memory fabs (heater blocks 97.68% of H1 2026 revenue); now ramping AlN ceramic heaters for 500C+ CVD - its sales track memory-fab deposition capacity built for DRAM / HBM",
+   "evidence": "Mecaro Q2 FY2026 (08-14-2026): 'the semiconductor materials the company focuses on are items used directly by chip makers such as Samsung Electronics and SK Hynix, so in Korea the company supplies 100% directly'; metal heater block market share above 90% at domestic Samsung Electronics and SK Hynix",
+   "approved": "user pre-approved 2026-10-01 for group scan_2026_10_01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Mecaro",
+     "layer": "materials",
+     "sector": "Components & Parts Suppliers",
+     "product": "aluminium (metal) heater blocks that hold and heat wafers in CVD / deposition chambers, plus AlN ceramic heater blocks for 500C+ high-temperature CVD (mass production from July 2026)",
+     "quarterly_data": [
+      {
+       "quarter": "Mecaro Q2 FY2026 (08-14-2026)",
+       "signal": "H1 2026 (DART half-year report, consolidated): revenue KRW 50,866M, operating profit KRW 8,593M and net profit KRW 9,619M; the company says higher customer sales and FX lifted revenue 15% year on year, operating profit 28% and net profit 33%. Q2 alone revenue KRW 25,345,823,739 (Q2 2025: KRW 22,898,120,774) with operating profit KRW 4,485,384,717 (KRW 3,397,142,180). Heater blocks were KRW 49,684,629 thousand, 97.68% of H1 revenue. By region China took 50.30% of revenue (KRW 25,586,336 thousand), Korea KRW 21,498,469 thousand and other countries KRW 3,781,585 thousand.",
+       "figure": "H1 rev KRW 50,866M (+15% YoY), OP KRW 8,593M (+28%), NP KRW 9,619M (+33%); Q2 rev KRW 25,345,823,739 vs KRW 22,898,120,774; heater blocks 97.68% of revenue",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Mecaro Q2 FY2026 (08-14-2026)",
+       "signal": "AlN ceramic heater: Mecaro developed an AlN (aluminium nitride) ceramic heater block for semiconductor processes above 500C; in July 2026 it finished the joint development project with its customer, completed quality certification and entered mass production. The company says AlN heaters have higher thermal conductivity and high-temperature stability than metal heater blocks and suit high-temperature CVD (aluminium heater blocks are used below 400C, AlN above 500C), extending its line-up from metal heater blocks into ceramic parts.",
+       "figure": "mass production from July 2026; process temperatures above 500C",
+       "topics": [
+        "product_launches"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Mecaro Q2 FY2026 (08-14-2026)",
+       "signal": "Heater-block capacity H1 2026: capacity 5,290 units, output 4,675 units, utilisation 88.37% (FY2025: capacity 11,317, output 8,775, utilisation 77.54%; FY2024 95.39%). The company says it keeps investing in production equipment to raise capacity. Average heater-block price rose to KRW 6,997 thousand per unit domestic and KRW 16,496 thousand export in H1 2026, from KRW 5,003 thousand and KRW 12,917 thousand in FY2025. The Seongbon site is to handle R&D and production for the expansion of the ceramic parts business.",
+       "figure": "utilisation 88.37% (FY2025 77.54%); capacity 5,290 units, output 4,675 units in H1; ASP domestic KRW 6,997 thousand / export KRW 16,496 thousand",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Mecaro Q2 FY2026 (08-14-2026)",
+       "signal": "Customers (DART half-year report): three customers each took more than 10% of H1 2026 revenue - KRW 21,789,748 thousand (42.84%), KRW 7,435,501 thousand (14.62%) and KRW 7,034,329 thousand (13.83%). The largest equals the related-party sales to associate Chip Core Technology (China; 44.50% held through Mecaro China), which under a technology-transfer agreement manufactures and sells metal heater blocks in China and pays Mecaro royalties on contract products from 2026 to 2040. The company states its metal heater block market share is above 90% at domestic Samsung Electronics and SK Hynix and that it ranks first in Korea.",
+       "figure": "top customer KRW 21,789,748 thousand (42.84% of H1 revenue) = Chip Core Technology; others 14.62% and 13.83%; metal heater block share above 90% at Samsung Electronics and SK Hynix",
+       "counterparty": "Chip Core Technology",
+       "counterparty_role": "customer",
+       "topics": []
+      },
+      {
+       "quarter": "Mecaro Q2 FY2026 (08-14-2026)",
+       "signal": "Acquisition (operating facts): on July 31, 2026 Mecaro completed the purchase of 100% of Samil Tech, a maker of semiconductor manufacturing equipment and back-end process automation systems, to add back-end equipment and automation capability; it plans to use Samil Tech's equipment-manufacturing base to build production of equipment based on Lambda Micro's variable-frequency microwave heating technology.",
+       "figure": "100% of Samil Tech, closed July 31, 2026",
+       "topics": []
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Samsung",
+       "relationship": "metal heater blocks for deposition (CVD) chambers supplied directly to Samsung semiconductor fabs",
+       "contracts": [
+        {
+         "source": "Mecaro Q2 FY2026 (08-14-2026)",
+         "signal": "The half-year report names Samsung Electronics as a chip maker that uses Mecaro's heater blocks directly, supplied 100% directly in Korea; Mecaro registered as a Samsung Electronics supplier in December 2006, and Samsung Electronics is co-applicant with Mecaro on heater-block patent applications (substrate processing apparatus; substrate support device) in Korea and the US.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated (supplier since December 2006)",
+         "type": "supply relationship",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "SK Hynix",
+       "relationship": "metal heater blocks for deposition (CVD) chambers supplied directly to SK Hynix fabs",
+       "contracts": [
+        {
+         "source": "Mecaro Q2 FY2026 (08-14-2026)",
+         "signal": "The half-year report names SK Hynix as a chip maker that uses Mecaro's heater blocks directly, supplied 100% directly in Korea; Mecaro registered as a supplier to Hynix Semiconductor in December 2000, two months after its founding.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated (supplier since December 2000)",
+         "type": "supply relationship",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

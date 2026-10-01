@@ -1,0 +1,114 @@
+{
+ "source": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+ "new_nodes": {
+  "Rolls-Royce": {
+   "ticker": "RR.",
+   "exchange": "LSE",
+   "country": "GB",
+   "why": "Its Power Systems division sells backup engines and gas engines for prime power to data centres; power generation revenues grew 41% in H1 2026 with data centre revenue growing faster, and hyperscaler framework agreements run to 2030.",
+   "evidence": "Rolls-Royce Q2 FY2026 (07-30-2026), CEO: 'In power generation, we are seeing increasing demand for both backup engines and gas engines for use as a prime power source for data centres.' CFO: 'Power gen order growth was even higher, driven by data centres which included growing demand for gas engines for prime power use.'",
+   "approved": "user pre-approved 2026-10-01 for group scan_2026_10_01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Rolls-Royce",
+     "domain": "power",
+     "sector": "Generation",
+     "sub_sector": null,
+     "product": "Power Systems division: backup engines and gas engines for prime power at data centres; next-generation engine to replace the Series 4000, targeting the data centre market with increased power density (launch 2028)",
+     "quarterly_data": [
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "First half 2026: Group revenues grew by 26% to GBP 11.3 billion; Group operating profit grew by 46% to GBP 2.5 billion; operating margin 22.5% compared to 19.1% last year; free cash flow of GBP 2 billion, 24% higher; net cash position of just over GBP 2 billion; return on capital 22%.",
+       "figure": "revenue GBP 11.3 billion (+26%); operating profit GBP 2.5 billion (+46%); margin 22.5%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "Raised 2026 guidance: underlying operating profit of GBP 4.7 billion to GBP 4.9 billion with year-on-year improvement across all three divisions, driven by higher Civil LTSA margins and contract catch-ups, stronger power generation profitability and higher Defence aftermarket growth; free cash flow of GBP 3.8 billion to GBP 4 billion including a GBP 150 million to GBP 200 million supply chain headwind. CEO: given first-half progress 'we may revisit our mid-term targets'.",
+       "figure": "2026 operating profit GBP 4.7 billion to GBP 4.9 billion; FCF GBP 3.8 billion to GBP 4 billion",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "Power Systems H1 order intake of GBP 4.6 billion, more than 50% higher than last year, book-to-bill 1.8x; power gen order growth even higher, driven by data centres including growing demand for gas engines for prime power use. CFO: order book fully covered for the remainder of the year, with growing firm order cover for 2027 and '28 and, via power gen's multiyear framework deals, increasing visibility to 2030. CEO: a GBP 8 billion order book; 'already taking orders for data centres for '28'; framework agreements with hyperscalers 'with penalties' go all the way to 2030, and another big hyperscaler deal was expected to be authorised by the investment committee early the following week.",
+       "figure": "order intake GBP 4.6 billion (book-to-bill 1.8x); order book GBP 8 billion",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "Power Systems H1 operating profit grew to GBP 528 million, a 72% increase, with operating margin of 20.3%, driven by power gen revenues growing 41% and data centre revenue growing even faster; CFO: stronger growth from hyperscalers 'who want our higher power density engines with additional systems across multiple regions'; governmental revenues grew by 25%; Power Systems cash flow GBP 507 million.",
+       "figure": "operating profit GBP 528 million (+72%), margin 20.3%; power gen revenue +41%",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "New target: 25% per year growth in power generation OE revenues to 2030 (previous target 20% growth to 2028), reflecting strong backup growth plus growing demand for gas engines for prime power; governmental growth of 20% per year to 2030. CEO: prime power is less than 10% of the power generation business today and is expected to be 15% to 20% by 2030, with both backup and gas engines growing; gas engines used for prime power generate significantly more aftermarket revenue, arriving after about three years.",
+       "figure": "power gen OE revenue +25% per year to 2030; prime power less than 10% now, 15% to 20% by 2030",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "Continuing to invest in the next-generation engine to replace the Series 4000, targeting the data centre market with increased power density; remains on track to launch in 2028.",
+       "figure": "launch 2028",
+       "topics": [
+        "power_cooling",
+        "product_launches"
+       ],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "CEO on gas engines: 'Now we see enormous demand coming'; Rolls-Royce has some capacity in its plan and can scale up without investment, then will need to invest; CFO: 2026 net investments weighted to the second half including additional capacity in power gen given the stronger outlook. CEO: almost exclusively all of these gas engines will go to the US because of the grid situation there; almost 50% of Power Systems profit comes from services.",
+       "figure": "almost 50% of Power Systems profit from services",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "CEO on overcapacity risk as competitors add capacity: 'I don't actually see that risk', citing data centre / power gen order intake up more than 50%, the order book and hyperscaler framework agreements with penalties to 2030; said digital infrastructure investment will continue and NVIDIA's product roadmap shows chips 'requiring more and more power'; gas-engine visibility is good to 2030 and investments target that horizon rather than speculative capacity.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "Rolls-Royce SMR was selected in Sweden for three units; contracts signed in the UK and Czech Republic and in the execution phase; in July signed an MoU with CEZ and the Czech government to prepare two further sites; ambition to commission two SMRs per year in the mid-2030s, rising to eight per year at maturity. CEO: SMR and Power Systems teams now meet hyperscalers together; with data centres of 200 to 500 megawatts, a 470 megawatt SMR could supply continuous net-zero power.",
+       "figure": "Sweden three units; two SMRs per year mid-2030s rising to eight",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "Civil Aerospace H1: operating profit GBP 1.6 billion, a 31% increase, operating margin 25.3%; OE deliveries of 279, 18% higher (157 large engines, 122 business aviation); 712 shop visits, of which 294 large engine refurbs (35% higher); large engine flying hours 113% of 2019 levels; net contractual margin improvements GBP 497 million. CFO: product cost inflation remains an industry-wide challenge, especially rare earths and elementals; supply chain charge expected to reduce in 2027 and be gone by 2028.",
+       "figure": "Civil operating profit GBP 1.6 billion (+31%), margin 25.3%; 279 OE deliveries",
+       "topics": []
+      },
+      {
+       "quarter": "Rolls-Royce Q2 FY2026 (07-30-2026)",
+       "signal": "Defence H1: operating profit GBP 522 million, almost 60% higher, operating margin 21%; order intake close to GBP 2.5 billion with book-to-bill of one; order backlog GBP 17.5 billion, over three years of revenue.",
+       "figure": "Defence operating profit GBP 522 million, margin 21%; backlog GBP 17.5 billion",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

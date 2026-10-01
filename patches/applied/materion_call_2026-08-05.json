@@ -1,0 +1,74 @@
+{
+ "source": "Materion Q2 FY2026 (08-05-2026)",
+ "new_nodes": {
+  "Materion": {
+   "ticker": "MTRN",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Its Electronic Materials segment supplies sputtering targets and PVD materials for leading-edge logic and memory chips; AI chip demand drives its semiconductor sales (+23%) and orders",
+   "evidence": "Materion Q2 FY2026 (08-05-2026): CFO - Electronic Materials value-added sales up 15% 'driven by continued strength in semiconductor as AI adoption fuels high demand for semiconductor chips'; CEO - semiconductor sales up 23% on leading-edge logic and memory",
+   "approved": "user pre-approved 2026-10-01 (enrich_waitlist.json, group scan_2026_10_01)"
+  }
+ },
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "Materion",
+     "layer": "materials",
+     "sector": "Photomask & Targets",
+     "product": "High-purity sputtering targets, evaporation materials and PVD consumables (backing plates, crucible liners) for leading-edge logic, memory (incl. HBM) and data storage",
+     "quarterly_data": [
+      {
+       "quarter": "Materion Q2 FY2026 (08-05-2026)",
+       "signal": "Record value-added sales of $308.2 million, up 15% year-over-year and 18% sequentially; adjusted EBITDA a record $71.8 million (23.3% of value-added sales); adjusted EPS a record $1.90, up 39% (CFO).",
+       "figure": "value-added sales $308.2 million, +15% YoY",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Materion Q2 FY2026 (08-05-2026)",
+       "signal": "Electronic Materials value-added sales were $87.4 million, up 15% year-over-year, driven by semiconductor as AI adoption fuels demand for chips and data storage devices plus new business wins; record adjusted EBITDA of $28 million (32% of value-added sales), up 57%, the fifth consecutive quarter of margin expansion (CFO). CEO: sales to the semiconductor market were up 23% year-over-year as AI drives growth across leading-edge logic and memory.",
+       "figure": "Electronic Materials $87.4 million, +15%; semiconductor sales +23%",
+       "topics": []
+      },
+      {
+       "quarter": "Materion Q2 FY2026 (08-05-2026)",
+       "signal": "CEO: record backlog up roughly 30% from last year and 20% since the start of the year; first-half incoming orders reached a new high, up nearly 30% year-over-year; semiconductor orders are up 20% with a meaningful uptick in demand for high-performance memory applications; telecom and data center sales grew almost 50% on the AI infrastructure build-out.",
+       "figure": "backlog +30% YoY; semiconductor orders +20%; telecom and data center almost 50%",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Materion Q2 FY2026 (08-05-2026)",
+       "signal": "Guidance raised for the second consecutive quarter: mid-teens 2026 sales growth and adjusted EPS of $6.80-$7.20 (prior $6-$6.50), roughly 30% above last year at the midpoint; CFO expects additional Electronic Materials top-line improvement from rising semiconductor demand and new business.",
+       "figure": "adjusted EPS $6.80-$7.20",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Materion Q2 FY2026 (08-05-2026)",
+       "signal": "CFO: Q2 Electronic Materials mix was probably richer than will be seen all year, but margins will structurally be well ahead of last year. CEO: Materion supplies across power semi, communications, data storage, logic, memory and high bandwidth memory, and believes its orders are for consumption within roughly six to nine months, not inventory buildup.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "Materion Q2 FY2026 (08-05-2026)",
+       "signal": "CEO: capacity is well-positioned to support the growth coming in the next year, funded where possible by customers and government; CFO: Materion was awarded a $65 million investment from one of the primes to expand beryllium capacity, not shown in the CapEx forecast.",
+       "figure": "$65 million beryllium capacity investment",
+       "topics": [],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Materion Q2 FY2026 (08-05-2026)",
+       "signal": "CEO: defense incoming orders were $90 million in the first half with more than $500 million of open RFQs (around $300 million last quarter); space orders doubled year-over-year and the space business has grown six times in three to four years (about 25% of aerospace and defense); a new $15 million program was secured for engine materials for a major commercial space customer. Performance Materials value-added sales $190 million (+13%); Precision Optics $30.8 million (+26%) (CFO).",
+       "figure": "$90 million orders; $500 million RFQs; $15 million program",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

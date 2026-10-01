@@ -1,0 +1,77 @@
+{
+ "source": "Pemtron Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "Pemtron": {
+   "ticker": "168360",
+   "exchange": "KOSDAQ",
+   "country": "KR",
+   "why": "Makes 3D wafer-bump, wire-bonding and memory-module vision inspection systems and won an HBM inspection equipment order in 2025; memory makers' packaging build-outs (Micron Memory Malaysia contracts) drive its semiconductor inspection sales.",
+   "evidence": "Pemtron half-year report (filed 08-14-2026): high-bandwidth memory (HBM) semiconductor inspection equipment order in 2025; semiconductor inspection equipment supply contracts with Micron Memory Malaysia SDN. BHD. (KRW 4,998M and KRW 3,149M).",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group clear)"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "Pemtron",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "3D wafer-bump, wire-bonding and memory-module vision inspection systems (HBM inspection)",
+     "quarterly_data": [
+      {
+       "quarter": "Pemtron Q2 FY2026 (08-14-2026)",
+       "signal": "Half-year report: H1 2026 consolidated revenue KRW 40,943,213,610 (H1 2025: KRW 27,804,519,787) and operating profit KRW 349,931,214 (H1 2025: operating loss KRW 2,759,389,881); Q2 2026 revenue KRW 24,004,276,738 (Q2 2025: KRW 16,711,700,723) and Q2 operating profit KRW 1,393,395,009 (Q2 2025: KRW 259,209,424); H1 net loss KRW 3,641,593,069 (H1 2025: KRW 7,563,715,062). By product: SMT inspection KRW 29,975,892 thousand (73.2%), semiconductor inspection KRW 10,967,321 thousand (26.8%)",
+       "figure": "H1 2026 revenue KRW 40,943,213,610; operating profit KRW 349,931,214",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Pemtron Q2 FY2026 (08-14-2026)",
+       "signal": "Semiconductor inspection products: 3D wafer-bump inspection (FC-BGA bump solder, coining and pre-coat, foreign material, metal mask), wire-bonding inspection, package outer-appearance inspection for OSATs and memory-module final inspection. Company history lists a memory-module inspection order in 2024, a high-bandwidth memory (HBM) semiconductor inspection equipment order in 2025 and a next-generation memory-module inspection order in 2026; the company says wafer inspection is an oligopoly of itself and two overseas firms. H1 2026 R&D KRW 7,188M (17.56% of revenue)",
+       "figure": "R&D KRW 7,188M (17.56% of revenue)",
+       "topics": [
+        "hbm"
+       ]
+      },
+      {
+       "quarter": "Pemtron Q2 FY2026 (08-14-2026)",
+       "signal": "SMT inspection supply contract with KTG INTERNATIONAL CORPORATION (first disclosed 2026-03-10, term 2026-03-10 to 2026-09-30), KRW 2,251M supplied in H1 2026; exports 70.1% of sales",
+       "figure": "KRW 5,273M contract",
+       "topics": [],
+       "slot": "backlog_or_b2b",
+       "counterparty": "KTG International",
+       "counterparty_role": "customer"
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Micron",
+       "relationship": "Memory semiconductor inspection equipment",
+       "contracts": [
+        {
+         "source": "Pemtron Q2 FY2026 (08-14-2026)",
+         "signal": "Semiconductor inspection equipment supply contract with Micron Memory Malaysia SDN. BHD. (first disclosed 2026-06-23), term 2026-06-22 to 2027-04-30; in progress, nothing supplied by June 30, 2026",
+         "units": "semiconductor inspection equipment",
+         "value": "KRW 4,998 million",
+         "date_signed": "2026-06-22",
+         "type": "supply agreement",
+         "topics": []
+        },
+        {
+         "source": "Pemtron Q2 FY2026 (08-14-2026)",
+         "signal": "Semiconductor inspection equipment supply contract with Micron Memory Malaysia SDN. BHD. (first disclosed 2026-02-05), term 2026-02-04 to 2026-11-16; KRW 3,149 million supplied in H1 2026",
+         "units": "semiconductor inspection equipment",
+         "value": "KRW 3,149 million",
+         "date_signed": "2026-02-04",
+         "type": "supply agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

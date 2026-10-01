@@ -1,0 +1,62 @@
+{
+ "source": "Seondo Electric Q2 FY2026 (09-30-2026)",
+ "new_nodes": {
+  "Seondo Electric": {
+   "ticker": "007610.KS",
+   "exchange": "KOSPI",
+   "country": "KR",
+   "why": "Makes gas-insulated switchgear (GIS), switchboards, vacuum circuit breakers and protection-relay panels for power plants, substations and industrial facilities; names SK Hynix and KEPCO as main customers, so grid and fab/data-center power build-outs drive its orders.",
+   "evidence": "Seondo Electric Q2 FY2026 (09-30-2026) corrected half-year report, II. Business: power-conversion equipment segment makes switchboards, vacuum circuit breakers, gas-insulated switchgear and protection relays; main customers SK Hynix and Korea Electric Power Corporation.",
+   "approved": "user pre-approved 2026-09-28 (enrich_waitlist.json, group kr_early)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Seondo Electric",
+     "domain": "power",
+     "sector": "Grid",
+     "product": "gas-insulated switchgear (GIS), MV switchboards, vacuum circuit breakers and protection-relay panels",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Seondo Electric Q2 FY2026 (09-30-2026)",
+       "signal": "Corrected half-year report (filed 09-30-2026; the original was filed 08-13-2026 and the correction restates the statement of changes in equity): H1 2026 revenue KRW 8,069,222,048 (H1 2025: KRW 15,171,833,326) and an operating loss of KRW 1,521,912,121 (H1 2025: loss KRW 1,053,969,981); Q2 2026 revenue KRW 3,013,066,933 (Q2 2025: KRW 7,835,856,706), Q2 operating loss KRW 1,026,263,203. H1 product revenue: GIS KRW 3,953M (49.0%), switchboards KRW 2,196M (27.2%), relay panels KRW 1,732M (21.5%), other KRW 188M (2.3%); all sales domestic",
+       "figure": "H1 2026 revenue KRW 8,069,222,048; operating loss KRW 1,521,912,121",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Seondo Electric Q2 FY2026 (09-30-2026)",
+       "signal": "Main customers of the power-conversion equipment segment (switchboards, vacuum circuit breakers, gas-insulated switchgear, protection relays) are SK Hynix and Korea Electric Power Corporation. Toshiba supplies digital and other relays (KRW 776M, 8.3% of H1 raw-material purchases) and licenses power-system protection-relay technology to the company under a technology-tie-up agreement",
+       "figure": "Toshiba relay purchases KRW 776M (8.3%)",
+       "counterparty": "SK Hynix, Korea Electric Power Corporation (customers); Toshiba (supplier and licensor)",
+       "counterparty_role": "customer",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Seondo Electric Q2 FY2026 (09-30-2026)",
+       "signal": "H1 2026 production KRW 9,653M against a capacity of KRW 31,546M (switchboards 17,907, relay panels 3,203, GIS 9,644, other 792), average utilisation 31%",
+       "figure": "utilisation 31%",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Seondo Electric Q2 FY2026 (09-30-2026)",
+       "signal": "R&D: 7.2kV high-voltage switchboard (3-phase, 4,000A, 40kA, 60Hz, arc-resistant) testing, completed in April; 12kV switchboard (3-phase, 2,000A, 1250A) testing to complete July 2026; 72.5kV eco-friendly switchgear using dry air as the insulating medium in development, completion expected in 2026. Planned investment of KRW 1,500M in machinery over the next three fiscal years (KRW 500M a year) to raise capacity",
+       "figure": "72.5kV dry-air switchgear due 2026; machinery capex KRW 1,500M",
+       "topics": [
+        "power_cooling"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
