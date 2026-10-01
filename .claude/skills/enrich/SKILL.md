@@ -163,6 +163,13 @@ approves, not the user). When a source names a company that is not in the chain 
 4. Every added node is named in the run report and the HANDOFF log — structure never changes silently.
    `utils/check_patch.py` refuses a new node without `approved`, without its metadata entry, or under a removed /
    duplicate name.
+5. **Every new node gets its brand logo in the same run (user, 2026-10-01).** After applying, the coordinator fetches
+   a logo for each added company that has no `static/logos/manifest.json` entry, following
+   `docs/memory/logo_fetching.md` (ticker-proven identity; companieslogo search API → Wikidata P154 → official
+   site; SVG preferred; render on both chip colours to check). Parallel agents write only
+   `static/logos/<node id>.<ext>`; the coordinator alone appends `{"file","bg"}` to `static/logos/manifest.json`
+   (append only, no key sorting) and then runs `graph_build.py --sync` (or `npm run sync`) so `web/public/logos`
+   is refreshed. A node with no reliable logo is listed in the report instead of shipping a guessed one.
 
 **JOB 4 — New edges:** only when the source explicitly states a supply or customer relationship, the speaker is
 management (not an analyst), both companies are players in that chain, and it is not a joint demonstration or a
