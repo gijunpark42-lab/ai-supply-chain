@@ -91,8 +91,10 @@ def source_kind(label, doc_path):
         return "8-K"
     if "DART supply contract" in label:
         return "DART supply contract"
-    if " press release" in label:
-        return "press release"
+    if " press release" in label or " MOPS material information:" in label:
+        return "press release"                       # a Taiwan 重大訊息 (mops.py) is slotted like a company release
+    if " MOPS monthly revenue:" in label:
+        return "monthly revenue"
     if " IR presentation" in label:
         return "IR presentation"
     if " TDnet: " in label:                          # Japan TDnet filing (tdnet.py); a results-meeting Q&A
@@ -115,6 +117,7 @@ ALLOWED_SLOTS = {
     "TDnet filing": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},      # same as a deck / IR release
     "regulatory filing": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},  # a utility IRP / load report (utility_filings.py)
     "DART preliminary results": {"revenue_growth"},
+    "monthly revenue": {"revenue_growth"},           # Taiwan monthly revenue report (mops.py)
     "call / conference / periodic report": SLOTS,
 }
 

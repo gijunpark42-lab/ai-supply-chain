@@ -10,8 +10,8 @@ MediaTek, Lite-On, Nanya Technology hold English calls and stay on Workflow 2d.)
 法說會 itself — MOPS lists every conference (t100sb02_1), Taiwanese finance channels upload the
 full call to YouTube (非凡 "完整公開" etc.), `yt-dlp` pulls the audio, and local `faster-whisper`
 produces OUR OWN verbatim Chinese transcript (~30 min CPU per 1-hour call; verified on the
-Foxconn Q2 FY2026 call). MOPS deck PDFs are WAF-blocked and monthly revenue is NOT a transcript —
-neither is an enrichment source.
+Foxconn Q2 FY2026 call). MOPS decks, material information and monthly revenue are company filings, not transcripts:
+since 2026-10-01 `mops.py` collects them (references/mops.md), a separate step of `enrich taiwan`.
 
 **Trigger: the user says `enrich tw`.**
 1. `python tw.py sync` — MOPS results-call discovery (this month + last) → YouTube search →

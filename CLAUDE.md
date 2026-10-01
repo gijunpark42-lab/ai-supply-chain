@@ -287,6 +287,8 @@ earnings-ai/
 ├── utility_filings.py        # US utilities' OWN regulatory filings on data-center load (IRPs, large-load reports, data-center tariffs) →
 │                             #   transcripts/utility_filings/*.txt (full) + *_load.txt (extract the enricher reads); monthly step of `enrich us`
 ├── utility_filings/sources.json # curated company → official pages / Georgia PSC dockets / documents (sync_state.json + pending.json GENERATED)
+├── mops.py                   # Taiwan MOPS filings: 法說會 decks, important 重大訊息, monthly revenue (no-feed companies) → transcripts/mops/*.txt
+│                             #   (part of `enrich taiwan`); mops/sync_state.json = ids handled + skip reasons, mops/pending.json = queue
 ├── ir/feeds.json             # company → IR source: RSS, HTML list page (kind page) or JSON endpoint (kind json); ir/sync_state.json + ir/pending.json GENERATED
 ├── verify_queue.json         # labels applied but not yet through the Opus verifier; auto-verify at 5+ (enrich skill rule 7)
 ├── investing/pending.json    # GENERATED — files saved by sync/conferences, not yet enriched (`enrich intl` rows = transcript, `enrich conference` rows = conference)
@@ -385,6 +387,7 @@ and follow it — do not improvise the procedure from this table.**
 | `enrich tdnet` | `enrich` → `references/tdnet.md` | Japanese timely disclosures from TSE TDnet via `tdnet.py sync → pending → done` (results, forecast revisions, capex, plans, agreements, M&A; English version preferred; 31-day window); company documents, English entries, never `revenue_growth`. Also a step of `enrich japan`. |
 | `enrich us calls` | `enrich` → `references/us.md` | Workflow 2c — US calls only via Alpha Vantage (`av.py sync → pending → done`), defeatbeta fallback. |
 | `enrich intl` | `enrich` → `references/intl.md` | Workflow 2d — Taiwan/Japan/Europe/HK/China via Investing.com (`investing.py`). |
+| `enrich taiwan` (MOPS step) | `enrich` → `references/mops.md` | Taiwan MOPS filings via `mops.py sync → pending → done`: 法說會 decks, important 重大訊息 (orders, capacity / capex, incidents, guidance, M&A), monthly revenue for companies without an IR feed; company filings, English entries. |
 | `enrich tw` | `enrich` → `references/tw.md` | Workflow 2e — Taiwan Chinese-language 法說會 via video + whisper (`tw.py`). |
 | `enrich edgar` | `enrich` → `references/edgar.md` | Workflow 2f — US names via SEC EDGAR (`edgar_pull.py` → queue → done): 8-Ks with every exhibit whole, 10-K/10-Q customer + supplier/backlog paragraphs + XBRL. COMPLETENESS CONTRACT: every filing read once to the last page (`utils/show_filing.py`), enriched files immutable (re-pull → delta only), `utils/check_edgar_patch.py` pre-flight, enricher + independent verifier, settled rulings. |
 | `enrich ir` | `enrich` → `references/ir.md` | Workflow 2h — company IR press releases via each company's own RSS feed (`ir_pull.py discover / sync / pending / done`) → `transcripts/ir/`; company-issued only, never articles; facts only, demos ≠ shipping. |

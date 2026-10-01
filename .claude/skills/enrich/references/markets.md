@@ -69,11 +69,16 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    (references/intl.md — at most the 2 most recent quarters per company).
 2. Chinese-language calls (tw.py `COMPANIES`): `python tw.py sync` → `python tw.py transcribe` (slow: run it
    detached / overnight) → `python tw.py pending` (references/tw.md — the transcript has no speaker labels).
-3. Board gaps: a company on neither Investing.com nor tw.py's list → mark it once checked.
-4. Conference talks (`--kind conference --market TW`), IR releases (`ir_pull.py pending --market TW`; Chinese
-   headlines are labelled `release <id>` — write the entries in English).
-5. `python graph_build.py --sync`, then `python investing.py done --kind transcript --market TW`, `python tw.py done`,
-   `python investing.py done --kind conference --market TW`, `ir_pull.py done --label …` per handled release.
+3. MOPS filings: `python mops.py sync` → `python mops.py pending` → enrich every row (references/mops.md): 法說會
+   decks (`deck`), important 重大訊息 (`material`: orders, capacity / capex, incidents, guidance, M&A) and monthly
+   revenue (`revenue`, only companies without an IR feed). Company filings, not transcripts; after the calls (depth rule).
+4. Board gaps: a company on neither Investing.com nor tw.py's list → mark it once checked.
+5. Conference talks (`--kind conference --market TW`), IR releases (`ir_pull.py pending --market TW`; Chinese
+   headlines are labelled `release <id>` — write the entries in English). A release with a same-day MOPS filing
+   (`# SEE ALSO` line in the MOPS file) is enriched once.
+6. `python graph_build.py --sync`, then `python investing.py done --kind transcript --market TW`, `python tw.py done`,
+   `python mops.py done --label …` per handled MOPS row, `python investing.py done --kind conference --market TW`,
+   `ir_pull.py done --label …` per handled release.
 
 ## `enrich japan` / `enrich europe` / `enrich china`
 1. Calls: `python investing.py sync` → `python investing.py pending --kind transcript --market JP|EU|CN`
