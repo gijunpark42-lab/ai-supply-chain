@@ -278,6 +278,9 @@ earnings-ai/
 ├── kind.py                   # Korean IR presentations: the KRX KIND IR library + six large-cap IR sites → transcripts/kind/*.txt,
 │                             #   and Samsung's official earnings-call script → transcripts/kr_calls/*.txt (`enrich kind`, part of `enrich korea`)
 ├── kind/sync_state.json      # kind.py: last sync, runs, every irSeq handled, deck hashes; kind/pending.json = decks not yet enriched
+├── cninfo.py                 # China A-shares (SZSE/SSE): IR activity records (投资者关系活动记录表, cninfo + SSE e互动) and the company's
+│                             #   answers on SZSE 互动易 / SSE e互动 → transcripts/cninfo/*.txt (management Q&A; part of `enrich china`)
+├── cninfo/sync_state.json    # cninfo.py: per-company last sync, every item id handled (saved / skip:<why>), filter rules; cninfo/pending.json = queue
 ├── ir/feeds.json             # company → IR source: RSS, HTML list page (kind page) or JSON endpoint (kind json); ir/sync_state.json + ir/pending.json GENERATED
 ├── verify_queue.json         # labels applied but not yet through the Opus verifier; auto-verify at 5+ (enrich skill rule 7)
 ├── investing/pending.json    # GENERATED — files saved by sync/conferences, not yet enriched (`enrich intl` rows = transcript, `enrich conference` rows = conference)
