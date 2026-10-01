@@ -247,6 +247,30 @@ export function searchNodes(index: IndexedNode[], query: string, limit = 10): Se
   return { hits: hits.slice(0, limit), group };
 }
 
+// One short product to label a company's search row ("SK Hynix  HBM4 stacks  000660").
+// A company in several chains has several product texts; take the SHORTEST distinct
+// one, skipping texts that describe it as a buyer/customer of someone else's product
+// (unless that is all it has). null when the company lists no product.
+const BUYER_ROLE = /(buyer|customer)/i;
+export function representativeProduct(node: VizNode): string | null {
+  let best: string | null = null;
+  let bestIsBuyer = true;
+  for (const p of node.products || []) {
+    const text = p.product;
+    if (!text) continue;
+    const isBuyer = BUYER_ROLE.test(text);
+    if (
+      best === null ||
+      (bestIsBuyer && !isBuyer) ||
+      (bestIsBuyer === isBuyer && text.length < best.length)
+    ) {
+      best = text;
+      bestIsBuyer = isBuyer;
+    }
+  }
+  return best;
+}
+
 // ── Recent picks (localStorage) ────────────────────────────────────────────
 // The last 8 companies the user picked, newest first. Every localStorage call is
 // wrapped in try/catch: it throws in private windows / SSR / when storage is full,
