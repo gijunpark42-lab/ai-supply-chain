@@ -93,6 +93,9 @@ PIPELINES = [
     {"id": "tdnet",      "name": "Japan TDnet disclosures",    "command": "enrich japan",
      "dirs": ["transcripts/tdnet"],              "state": "tdnet/sync_state.json",    "pending": "tdnet/pending.json",
      "source": "TSE TDnet timely disclosures (tdnet.py) — results, forecasts, capex, plans, deals; company filings, not transcripts"},
+    {"id": "mops",       "name": "Taiwan MOPS filings",        "command": "enrich taiwan",
+     "dirs": ["transcripts/mops"],               "state": "mops/sync_state.json",     "pending": "mops/pending.json",
+     "source": "MOPS 法說會 decks, important 重大訊息 and monthly revenue (mops.py) — company filings, not transcripts"},
     {"id": "manual",     "name": "Pasted transcripts",         "command": "Transcript:<company>",
      "dirs": [],                                 "state": None,                       "pending": None,
      "source": "URL / pasted text enriched directly in Claude Code"},
@@ -184,22 +187,24 @@ MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan"
                   "EU": "enrich europe", "CN": "enrich china", "other": "enrich intl"}
 # The collectors that fetch each market's calls / filings. IR feeds and the conference listing
 # serve every market at once, so they are reported once ("shared collectors"), not per market.
-MARKET_COLLECTORS = {"US": ["us", "utility"], "KR": ["dart", "kind"], "TW": ["intl", "tw"], "JP": ["intl", "tdnet"],
+MARKET_COLLECTORS = {"US": ["us", "utility"], "KR": ["dart", "kind"], "TW": ["intl", "tw", "mops"], "JP": ["intl", "tdnet"],
                      "EU": ["intl"], "CN": ["intl", "cninfo"], "other": ["intl"]}
 SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7, "kind": 3,
               "tdnet": 3,   # TDnet keeps only 31 days
               "cninfo": 7,  # days (SSE e互动 shows only about one month, so never let it slip past ~3 weeks)
-              "utility": 30}   # days (utility_filings.py: monthly — IRPs and large-load reports change slowly)
+              "utility": 30,   # days (utility_filings.py: monthly — IRPs and large-load reports change slowly)
+              "mops": 3}
 COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", "kind": "KIND IR deck sync (kind.py)",
                    "tdnet": "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days)",
                    "cninfo": "China IR record / Q&A sync (cninfo.py)",
                    "utility": "utility regulatory-filing sync (utility_filings.py, monthly)",
+                   "mops": "MOPS sync (mops.py)",
                    "intl": "Investing.com call sync (investing.py)", "tw": "Taiwan Chinese-call sync (tw.py)",
                    "edgar": "EDGAR pull (edgar_pull.py)", "ir": "IR feed sync (ir_pull.py)",
                    "conference": "conference listing (investing.py conferences)"}
 WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing", "kind": "IR deck", "krcalls": "call",
                  "tdnet": "TDnet filing", "cninfo": "IR record / investor Q&A",
-                 "utility": "utility filing",
+                 "utility": "utility filing", "mops": "MOPS filing",
                  "conference": "conference", "ir": "IR release"}
 LIST_MAX = 12        # names printed per list on ENRICH_STATUS.md (the JSON keeps every name)
 
@@ -274,7 +279,7 @@ def own_sources(graph, label_pipeline, label_file):
                 kind = "call"
                 calls.add(day)
             else:
-                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "tdnet", "cninfo", "utility") else "other"
+                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "tdnet", "cninfo", "utility", "mops") else "other"
             latest[kind] = max(latest.get(kind, ""), day)
         out[company] = {"calls": sorted(calls), "latest": latest}
     return out
@@ -607,7 +612,7 @@ def build_enrich_status(graph=None):
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)
-        elif pid in ("kind", "krcalls", "tdnet", "cninfo", "utility"):
+        elif pid in ("kind", "krcalls", "tdnet", "cninfo", "utility", "mops"):
             row["last_sync"] = state.get("last_sync")
             row["extra"]["runs"] = state.get("runs", [])[-5:]
         elif pid == "ir":

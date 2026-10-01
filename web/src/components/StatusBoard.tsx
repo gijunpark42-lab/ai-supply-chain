@@ -51,6 +51,7 @@ const WAITING_NAMES: Record<string, string> = {
   kind: "IR deck",
   krcalls: "call",
   tdnet: "TDnet filing",
+  mops: "MOPS filing",
 };
 
 const waitingText = (w: Record<string, number>) =>
