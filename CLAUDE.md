@@ -290,6 +290,7 @@ earnings-ai/
 ├── mops.py                   # Taiwan MOPS filings: 法說會 decks, important 重大訊息, monthly revenue (no-feed companies) → transcripts/mops/*.txt
 │                             #   (part of `enrich taiwan`); mops/sync_state.json = ids handled + skip reasons, mops/pending.json = queue
 ├── ir/feeds.json             # company → IR source: RSS, HTML list page (kind page) or JSON endpoint (kind json); ir/sync_state.json + ir/pending.json GENERATED
+├── enrich_waitlist.json      # queue of user-pre-approved new companies (gap scan 2026-09-28) — `enrich waitlist` onboards them per market
 ├── verify_queue.json         # labels applied but not yet through the Opus verifier; auto-verify at 5+ (enrich skill rule 7)
 ├── investing/pending.json    # GENERATED — files saved by sync/conferences, not yet enriched (`enrich intl` rows = transcript, `enrich conference` rows = conference)
 ├── tw.py                     # Taiwan Chinese-call companies: 法說會 video → whisper transcript → transcripts/tw/*.txt (Workflow 2e)
@@ -391,6 +392,7 @@ and follow it — do not improvise the procedure from this table.**
 | `enrich tw` | `enrich` → `references/tw.md` | Workflow 2e — Taiwan Chinese-language 法說會 via video + whisper (`tw.py`). |
 | `enrich edgar` | `enrich` → `references/edgar.md` | Workflow 2f — US names via SEC EDGAR (`edgar_pull.py` → queue → done): 8-Ks with every exhibit whole, 10-K/10-Q customer + supplier/backlog paragraphs + XBRL. COMPLETENESS CONTRACT: every filing read once to the last page (`utils/show_filing.py`), enriched files immutable (re-pull → delta only), `utils/check_edgar_patch.py` pre-flight, enricher + independent verifier, settled rulings. |
 | `enrich ir` | `enrich` → `references/ir.md` | Workflow 2h — company IR press releases via each company's own RSS feed (`ir_pull.py discover / sync / pending / done`) → `transcripts/ir/`; company-issued only, never articles; facts only, demos ≠ shipping. |
+| `enrich waitlist` / `enrich waitlist <market>` | `enrich` → `references/waitlist.md` | Onboard the new companies queued in `enrich_waitlist.json` (user pre-approved 2026-09-28): identity check → `company_metadata.json` → that market's collectors → first patch adds the node; edges only from company documents; row status `added` / `dropped`. |
 | `enrich conference` | `enrich` → `references/conferences.md` | Workflow 2g — investor-conference fireside chats (all listed names, US too) via `investing.py conferences`; only what the call did not say; multi-agent enrich + verify, `graph_build.py --sync`, verification loop, memory update. |
 | `ask 실행` / `ask up` / `ask 종료` / `ask down` | `ask-server` | Workflow 3 — check/restart the local Opus engine behind the live Ask tab (fixed Tailscale address). **Never run `local-ask/up.mjs`** — it overwrites `LOCAL_ASK_URL` on Vercel with a throwaway Cloudflare address. |
 
