@@ -55,7 +55,9 @@ no filing time for monthly revenue: its label is dated the day `sync` first saw 
    - `material`: what was acquired / ordered / decided, the counterparty when named (no new node unless JOB 3 approves),
      the stated purpose ("for future business development", "capacity expansion"), dates. Never financing terms, and
      never the price of an acquisition (§2) — the asset's own scale (area, capacity, units) is a fact; a capex budget
-     amount is a capex fact.
+     amount is a capex fact. Land, building and lease purchase prices (incl. right-of-use amounts) are deal prices — leave
+     them out; equipment purchases and construction / facility-works contracts are capex facts — keep the amount
+     (2026-10-01). Who approved it and how the price was negotiated are procedure, not facts.
    - `revenue`: the month's net revenue and the YoY change as filed (no arithmetic); the filed reason for a ±50% change
      is the company's own statement — attribute it.
    - Slots (`utils/check_patch.py` enforces them): `deck` and `material` = the "Company IR presentation / press

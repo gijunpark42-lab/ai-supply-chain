@@ -202,12 +202,13 @@ which slot:
 | Source | Slots |
 |---|---|
 | Earnings call, investor-conference talk (management speaking), DART periodic report, China IR activity record / investor Q&A (`cninfo.py`, management Q&A) | any — the ONE best entry per slot |
+| Company's own statutory financial statements outside Korea (Taiwan quarterly / half-year / annual consolidated statements, China half-year / annual reports) | like a DART periodic report — any, the ONE best entry per slot (2026-10-01) |
 | DART preliminary results (잠정실적) | `revenue_growth` only (the later periodic report supersedes it) |
 | DART supply contract with an undisclosed customer | `backlog_or_b2b` only |
 | 8-K | any, but only when newer than every same-slot entry of the company; otherwise none |
 | 10-K / 10-Q | none |
 | Taiwan MOPS monthly revenue (`mops.py`) | none — enriched without a slot, like the IR-release monthly revenue entries (user, 2026-10-01) |
-| Company IR presentation (deck; `kind.py`, `mops.py`) or Taiwan MOPS material information (`mops.py`) | same as a company IR press release (row below); never `revenue_growth` — DART holds the quarter's numbers |
+| Company IR presentation (deck; `kind.py`, `mops.py`) or Taiwan MOPS material information (`mops.py`) | same as a company IR press release (row below); never `revenue_growth` — DART holds the quarter's numbers. A results deck may also fill `backlog_or_b2b` with the company's own stated total orders / order backlog (2026-10-01) |
 | Japan TDnet filing (`tdnet.py`) | same as a company IR press release (row below), never `revenue_growth`; a results-meeting Q&A record (`_qa` file) = the call / conference row |
 | Utility regulatory filing (IRP, large-load report or tariff; `utility_filings.py`) | same as a company IR press release (the row below): the company's load / capacity plan → `guidance`, contracted large load → `backlog_or_b2b`; never `revenue_growth` |
 | Company IR press release | `guidance` (company guidance / targets), `next_catalyst` (a new product launch, availability, production or shipment start with a date), `backlog_or_b2b` (a named order, contract or design win), `supply_status` (capacity, utilisation, sold-out) — only what the release itself states; never `revenue_growth`; a demo never fills a slot |

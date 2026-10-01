@@ -175,90 +175,6 @@
    "question": "Some IR rows only link to a company deck/PDF that was not saved: Global Standard Technology Q2 deck, Sakai Chemical IR Fair 2026 deck, Murata / Sumitomo Metal Mining / Panasonic / Legrand results and guidance PDFs. Fetch and enrich these PDFs (and fix ir_pull to save PDF bodies for these sites)?",
    "label": null,
    "at": "2026-10-01"
-  },
-  {
-   "subject": "AES going private",
-   "question": "AES was added 10-01 per the user's ruling, from its Q3 2025 call only (no call since: on 03-01-2026 AES agreed to be taken private by a GIP/EQT-led consortium; HSR, stockholders, CFIUS and Ohio PUC approvals done, closing expected late 2026 / early 2027, NYSE listing ends). Its 8-K / 10-K / 10-Q (11.8 GW signed tech PPAs, 12.0 GW backlog) were NOT enriched because this run skipped EDGAR. Keep the node after delisting, enrich those filings, or remove it?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Daifuku sector",
-   "question": "Daifuku (cleanroom AMHS) sits in foundry equipment / 'Deposition & Etch' as the nearest catch-all (Ichor, Advanced Energy there too). Add an 'AMHS / fab automation' sector, or leave it?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Genius Electronic Optical",
-   "question": "Its optical_networking Components placement rests only on an undated product page; the 2025 annual report shows only phone / car / VR lenses. Pre-approved, kept — remove or keep?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Aggregate backlog in backlog_or_b2b",
-   "question": "Results decks / 決算短信 total orders or backlog (no named order) fill backlog_or_b2b on Daifuku, Daihen, Hirata, Hon Precision, Kurita, Tazmo, Sanyo Denki, Seikoh Giken. The IR-release row asks for a named order. Allow aggregate backlog from a company's own results documents, or strip those slots?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Land / lease prices in MOPS filings",
-   "question": "Verifiers removed land, building and lease purchase prices as deal prices (Unimicron Hukou NT$10.09bn, Elite Material, Foxconn Santa Clara, PCL Penang, Inventec Katy, Kaori, Wistron Texas lease) but kept equipment purchases and construction contracts as capex. Confirm that line.",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Routine MOPS facility-works filings",
-   "question": "Taiwan material-information filings for NT$0.3-0.4bn plant facility works (contractors only, no capacity figure) were enriched for consistency (Unimicron, Nanya, KYEC). Keep capturing them, or set a threshold?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Group subsidiaries listed separately",
-   "question": "New nodes Foxconn Industrial Internet and Foxconn Interconnect Technology (both Hon Hai subsidiaries) and Hanwha Vision (listed parent of the existing Hanwha Semitech node; both describe TC bonders) may double-count group facts. Keep all, or fold?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Lotte Energy Materials on Vera Rubin",
-   "question": "Its nvidia_vera_rubin placement rests only on a KED Global article; its own report says 'Elecfoil for AI accelerators' with no NVIDIA/Rubin link (packaging_substrate placement is supported). Kept because you said add — remove the Rubin placement?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Isu Petasys older entries",
-   "question": "Pre-existing Isu Petasys Q2 FY2026 entries carry derived percentages (+46/+61/+57% YoY, ASP +8.9%) the filing does not print, and its 'Supplier Lotte Energy Materials' entry now duplicates the new Lotte -> Isu Petasys edge. Rewrite / delete them in the next accuracy pass?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Taiwan quarterly statements and revenue_growth",
-   "question": "Innodisk and Insyde fill revenue_growth from Taiwan Q2 consolidated financial statements (statutory, but closer to a 10-Q which fills no slot). Allow, or no slot?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Candidate edges found by verifiers",
-   "question": "Stated in company documents but not yet added (next run?): Grace Fabric -> Shengyi Technology / Nan Ya Plastics, Truelight -> Lightron, Doosan Tesna -> SemiFive, Soulbrain -> DNF (parent), Sinocera -> Fenghua, Fortune Precision -> Piotech, ASICLand -> FADU (KRW 29,976M design contract), Apaq -> ASUS / Gigabyte, Advantest -> Powertech, Hongchen Photonics (private) -> Eoptolink.",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Optional second placements",
-   "question": "Verifiers suggest extra placements for new nodes: Denka (CCL resin/silica), Dongshan Precision (PCB maker), Sanan Optoelectronics (InP optical chips), Feilihua (foundry quartz), Sumitomo Osaka Cement (electrostatic chucks), Alibaba (cloud_infra Hyperscaler Cloud), Okamoto now moved to packaging_substrate. Add any?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Sector gaps seen in onboarding",
-   "question": "No good home for: PCB makers (they sit in 'FC-BGA Substrate'), HDD components (NHK Spring under Nearline HDD), process tapes (Lintec under Process Chemicals), molding compounds / fillers (Novoray, Nagase under Substrate Materials / Solder), SiC-growth graphite (Mersen under SiC Wafers). Add sectors?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Out-of-segment rule on multi-segment new nodes",
-   "question": "For Rolls-Royce, Samsung SDI, LG Energy Solution, Materion, Mersen etc. verifiers cut segment-specific facts outside the node's chain even from calls / DART reports, but kept company-wide tables. The call rule says never filter by chain theme. Confirm which wins for new single-placement nodes.",
-   "label": null,
-   "at": "2026-10-01"
   }
  ],
  "answered": [
@@ -365,6 +281,118 @@
    "at": "2026-09-29",
    "answer": "question reworded by the same run (entries since trimmed by the verifier) - see the new TTM question",
    "answered": "2026-09-29"
+  },
+  {
+   "subject": "AES going private",
+   "question": "AES was added 10-01 per the user's ruling, from its Q3 2025 call only (no call since: on 03-01-2026 AES agreed to be taken private by a GIP/EQT-led consortium; HSR, stockholders, CFIUS and Ohio PUC approvals done, closing expected late 2026 / early 2027, NYSE listing ends). Its 8-K / 10-K / 10-Q (11.8 GW signed tech PPAs, 12.0 GW backlog) were NOT enriched because this run skipped EDGAR. Keep the node after delisting, enrich those filings, or remove it?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "User 2026-10-01: remove AES. Node, metadata, logo removed; AES is back on check_patch DO_NOT_ADD; waitlist row dropped.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Daifuku sector",
+   "question": "Daifuku (cleanroom AMHS) sits in foundry equipment / 'Deposition & Etch' as the nearest catch-all (Ichor, Advanced Energy there too). Add an 'AMHS / fab automation' sector, or leave it?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): keep Daifuku in foundry equipment / Deposition & Etch as the nearest existing home (Ichor, Advanced Energy sit there too). No new sector.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Genius Electronic Optical",
+   "question": "Its optical_networking Components placement rests only on an undated product page; the 2025 annual report shows only phone / car / VR lenses. Pre-approved, kept — remove or keep?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): keep — user pre-approved, and the product page is the company's own document.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Aggregate backlog in backlog_or_b2b",
+   "question": "Results decks / 決算短信 total orders or backlog (no named order) fill backlog_or_b2b on Daifuku, Daihen, Hirata, Hon Precision, Kurita, Tazmo, Sanyo Denki, Seikoh Giken. The IR-release row asks for a named order. Allow aggregate backlog from a company's own results documents, or strip those slots?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): allowed — a company's own results deck / results summary may fill backlog_or_b2b with its stated total orders or order backlog; press releases still need a named order. Written into the SKILL.md slot table.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Land / lease prices in MOPS filings",
+   "question": "Verifiers removed land, building and lease purchase prices as deal prices (Unimicron Hukou NT$10.09bn, Elite Material, Foxconn Santa Clara, PCL Penang, Inventec Katy, Kaori, Wistron Texas lease) but kept equipment purchases and construction contracts as capex. Confirm that line.",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): confirmed — land, building and lease purchase prices are deal prices (dropped); equipment purchases and construction contracts are capex facts (kept). Written into references/mops.md.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Routine MOPS facility-works filings",
+   "question": "Taiwan material-information filings for NT$0.3-0.4bn plant facility works (contractors only, no capacity figure) were enriched for consistency (Unimicron, Nanya, KYEC). Keep capturing them, or set a threshold?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): keep capturing them under the mops.md thresholds (equipment >= NT$1bn, plant works >= NT$200M); approval / negotiation procedure is left out.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Group subsidiaries listed separately",
+   "question": "New nodes Foxconn Industrial Internet and Foxconn Interconnect Technology (both Hon Hai subsidiaries) and Hanwha Vision (listed parent of the existing Hanwha Semitech node; both describe TC bonders) may double-count group facts. Keep all, or fold?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): keep all — separately listed companies are separate nodes; a group fact goes only on the node of the company that filed it (one fact, one node).",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Lotte Energy Materials on Vera Rubin",
+   "question": "Its nvidia_vera_rubin placement rests only on a KED Global article; its own report says 'Elecfoil for AI accelerators' with no NVIDIA/Rubin link (packaging_substrate placement is supported). Kept because you said add — remove the Rubin placement?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): removed the Rubin placement (empty; no company document links it to NVIDIA/Rubin). packaging_substrate placement and the Lotte -> Isu Petasys edge stay.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Taiwan quarterly statements and revenue_growth",
+   "question": "Innodisk and Insyde fill revenue_growth from Taiwan Q2 consolidated financial statements (statutory, but closer to a 10-Q which fills no slot). Allow, or no slot?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): allowed — Taiwan / China statutory financial statements are periodic reports like DART and may fill any slot. Written into the SKILL.md slot table.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Optional second placements",
+   "question": "Verifiers suggest extra placements for new nodes: Denka (CCL resin/silica), Dongshan Precision (PCB maker), Sanan Optoelectronics (InP optical chips), Feilihua (foundry quartz), Sumitomo Osaka Cement (electrostatic chucks), Alibaba (cloud_infra Hyperscaler Cloud), Okamoto now moved to packaging_substrate. Add any?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): not added now — a second placement is added only when a company document ties that product to the chain; revisit per company in a later run.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Sector gaps seen in onboarding",
+   "question": "No good home for: PCB makers (they sit in 'FC-BGA Substrate'), HDD components (NHK Spring under Nearline HDD), process tapes (Lintec under Process Chemicals), molding compounds / fillers (Novoray, Nagase under Substrate Materials / Solder), SiC-growth graphite (Mersen under SiC Wafers). Add sectors?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): no new sectors now; the nearest existing homes stay. Revisit if a gap collects more companies.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Out-of-segment rule on multi-segment new nodes",
+   "question": "For Rolls-Royce, Samsung SDI, LG Energy Solution, Materion, Mersen etc. verifiers cut segment-specific facts outside the node's chain even from calls / DART reports, but kept company-wide tables. The call rule says never filter by chain theme. Confirm which wins for new single-placement nodes.",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): the verifiers' line stands — on a single-placement new node, segment-specific facts outside its chain are dropped even from calls / DART, company-wide tables stay.",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Candidate edges found by verifiers",
+   "question": "Stated in company documents but not yet added (next run?): Grace Fabric -> Shengyi Technology / Nan Ya Plastics, Truelight -> Lightron, Doosan Tesna -> SemiFive, Soulbrain -> DNF (parent), Sinocera -> Fenghua, Fortune Precision -> Piotech, ASICLand -> FADU (KRW 29,976M design contract), Apaq -> ASUS / Gigabyte, Advantest -> Powertech, Hongchen Photonics (private) -> Eoptolink.",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): added (company documents state them, both companies in the same chain): Grace Fabric -> Shengyi Technology / Nan Ya Plastics, Truelight -> Lightron, Sinocera -> Fenghua, Advantest -> Powertech. Skipped: Fortune Precision -> Piotech, ASICLand -> FADU, Apaq -> ASUS / Gigabyte (no shared chain); Doosan Tesna -> SemiFive and DNF <-> Soulbrain (related-party amounts without the product); Hongchen Photonics (private).",
+   "answered": "2026-10-01"
+  },
+  {
+   "subject": "Isu Petasys older entries",
+   "question": "Pre-existing Isu Petasys Q2 FY2026 entries carry derived percentages (+46/+61/+57% YoY, ASP +8.9%) the filing does not print, and its 'Supplier Lotte Energy Materials' entry now duplicates the new Lotte -> Isu Petasys edge. Rewrite / delete them in the next accuracy pass?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Coordinator decision (user delegated 2026-10-01: \"나머지는 니가 알아서해줘\"): fixed — an independent verifier rewrote the derived percentages to printed figures and deleted the duplicate Lotte supplier entry (corrections isu-fix).",
+   "answered": "2026-10-01"
   }
  ]
 }
