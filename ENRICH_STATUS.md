@@ -1,6 +1,6 @@
 # Enrichment status board
 
-Generated 2026-10-01 20:43 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-01 21:06 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
@@ -95,7 +95,7 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
 | US earnings calls | `enrich us calls` | 2026-09-30 | 2026-10-01 | 0 | 338 | 337 |
-| US SEC filings | `enrich edgar` | 2026-10-01 | 2026-09-16 | 175 | 1294 | 432 |
+| US SEC filings | `enrich edgar` | 2026-10-01 | 2026-10-01 | 175 | 1294 | 433 |
 | Korea DART filings | `enrich dart` | 2026-10-01 | 2026-10-01 | 0 | 151 | 159 |
 | Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-01 | 2026-10-01 | 5 | 59 | 56 |
 | Taiwan Chinese 法說會 | `enrich tw` | 2026-09-07 | 2026-09-07 | 0 | 17 | 17 |
