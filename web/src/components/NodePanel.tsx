@@ -347,7 +347,7 @@ const OnFileRow = memo(function OnFileRow({ g }: { g: OnFile }) {
 // screener slots say, and who are its biggest customers / suppliers. Everything
 // below the card is the same detail as before, with long lists collapsed.
 
-const GLANCE_PRODUCTS = 8; // product chips shown before "+N more"
+const GLANCE_PRODUCTS = 4; // product chips shown before "+N more"
 const GLANCE_PARTNERS = 5; // top customers / suppliers shown per side
 const GLANCE_SNIPPET = 140; // characters of a signal shown when the slot has no figure
 
@@ -712,8 +712,6 @@ export default function NodePanel({
           )}
         </div>
 
-        <GlanceCard node={node} slots={slots} customers={customers} suppliers={suppliers} onNavigate={onNavigate} />
-
         <div className="np-actions">
           {node.ticker && (
             <button
@@ -750,6 +748,11 @@ export default function NodePanel({
         ) : null}
         {node.ticker && <Fundamentals ticker={node.ticker} exchange={node.exchange} />}
 
+        {/* "At a glance" sits under the price + chart (user, 2026-10-01). */}
+        <GlanceCard node={node} slots={slots} customers={customers} suppliers={suppliers} onNavigate={onNavigate} />
+
+        {/* Rendered only with a report, so an empty row adds no extra gap under the card. */}
+        {node.hasReport && (
         <div className="panel-btns">
           {node.hasReport && (
             <button className="btn" onClick={() => setShowReport((s) => !s)}>
@@ -767,6 +770,7 @@ export default function NodePanel({
             </button>
           )}
         </div>
+        )}
 
         {showReport && (
           <div className="repbox">
