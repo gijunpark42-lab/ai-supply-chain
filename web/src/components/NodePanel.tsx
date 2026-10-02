@@ -341,7 +341,197 @@ const OnFileRow = memo(function OnFileRow({ g }: { g: OnFile }) {
   );
 });
 
-const SIG_PAGE = 8; // signals shown before "Show more"
+// ── "At a glance" summary card (top of the panel, added 2026-10-01) ─────────
+// With 818 companies the panel had become one long list. The card answers the
+// first questions in one screen: what does the company make, what do the five
+// screener slots say, and who are its biggest customers / suppliers. Everything
+// below the card is the same detail as before, with long lists collapsed.
+
+const GLANCE_PRODUCTS = 8; // product chips shown before "+N more"
+const GLANCE_PARTNERS = 5; // top customers / suppliers shown per side
+const GLANCE_SNIPPET = 140; // characters of a signal shown when the slot has no figure
+
+// Cut a (translated) text to `max` characters on a word boundary, adding "…".
+function snippet(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const space = cut.lastIndexOf(" ");
+  return (space > max * 0.6 ? cut.slice(0, space) : cut).trimEnd() + "…";
+}
+
+// Biggest counterparts first: the most contracts on the edge, then the most
+// recently active one, then A→Z. Takes the groups groupEdges() already built.
+function topPartners(groups: Group[], max: number): Group[] {
+  return [...groups]
+    .sort(
+      (a, b) =>
+        b.contracts.length - a.contracts.length || b.latest - a.latest || a.company.localeCompare(b.company)
+    )
+    .slice(0, max);
+}
+
+// One slot row of the card: label, the short figure (or a trimmed signal), the
+// source date, and a toggle that shows the full signal in place.
+const GlanceSlot = memo(function GlanceSlot({
+  label,
+  q,
+  company,
+}: {
+  label: string;
+  q: QuarterlyData;
+  company: string;
+}) {
+  useLang();
+  const [open, setOpen] = useState(false);
+  const lab = splitLabel(q.quarter);
+  const fig = hasFigure(q.figure);
+  const signal = tr(q.signal);
+  return (
+    <div className="np-gl-slot">
+      <div className="np-gl-slot-k">{t(label)}</div>
+      <div className="np-gl-slot-body">
+        <div className={"np-gl-slot-v" + (fig ? " fig" : "")}>{fig ? tr(q.figure) : snippet(signal, GLANCE_SNIPPET)}</div>
+        <div className="np-gl-slot-d">
+          {lab.date && <span className="np-date">{lab.date}</span>}
+          <span className="np-src">{lab.text}</span>
+          <button className="np-linkbtn np-gl-more" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+            {open ? t("Hide details") : t("Full signal")}
+          </button>
+        </div>
+        {open && (
+          <div className="np-gl-full">
+            <div className="sig-s">{signal}</div>
+            <div className="np-sig-head">
+              <EvidenceButton kind="qd" company={company} label={q.quarter} signal={q.signal} />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+});
+
+// One side of "Key relationships": up to five clickable counterparts.
+function GlancePartners({
+  title,
+  groups,
+  total,
+  onNavigate,
+}: {
+  title: string;
+  groups: Group[];
+  total: number;
+  onNavigate: (id: string) => void;
+}) {
+  if (groups.length === 0) return null;
+  return (
+    <div className="np-gl-side">
+      <div className="np-gl-sub">
+        {title}
+        {total > groups.length && <span> · {t("top {n} of {total}", { n: groups.length, total })}</span>}
+      </div>
+      <div className="np-gl-partners">
+        {groups.map((g) => {
+          const n = g.contracts.length;
+          return (
+            <button
+              key={g.company}
+              className="np-gl-partner"
+              onClick={() => onNavigate(g.company)}
+              title={tr(g.relationship)}
+            >
+              <span className="np-gl-partner-name">{name(g.company)}</span>
+              {n > 0 && <span className="np-gl-partner-n">{t(n === 1 ? "{n} deal" : "{n} deals", { n })}</span>}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function GlanceCard({
+  node,
+  slots,
+  customers,
+  suppliers,
+  onNavigate,
+}: {
+  node: VizNode;
+  slots: { key: Slot; label: string; q: QuarterlyData }[];
+  customers: Group[];
+  suppliers: Group[];
+  onNavigate: (id: string) => void;
+}) {
+  const [allProducts, setAllProducts] = useState(false);
+  // Product line chips: one per (chain, product) placement, duplicates dropped.
+  const products = useMemo(() => {
+    const seen = new Set<string>();
+    return node.products.filter((p) => {
+      const k = p.chain + "|" + p.product;
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
+  }, [node]);
+  const topCustomers = useMemo(() => topPartners(customers, GLANCE_PARTNERS), [customers]);
+  const topSuppliers = useMemo(() => topPartners(suppliers, GLANCE_PARTNERS), [suppliers]);
+  const shownProducts = allProducts ? products : products.slice(0, GLANCE_PRODUCTS);
+
+  if (products.length === 0 && slots.length === 0 && topCustomers.length === 0 && topSuppliers.length === 0)
+    return null;
+
+  return (
+    <section className="np-glance" aria-label={t("At a glance")}>
+      <div className="np-gl-head">{t("At a glance")}</div>
+
+      {products.length > 0 && (
+        <div className="np-gl-products">
+          {shownProducts.map((p) => (
+            <span className="np-gl-chip" key={p.chain + "|" + p.product} title={tr(p.product)}>
+              <b>{slugLabel(p.chain)}</b>
+              <span>{tr(p.product)}</span>
+            </span>
+          ))}
+          {products.length > GLANCE_PRODUCTS && (
+            <button className="np-linkbtn" onClick={() => setAllProducts((s) => !s)}>
+              {allProducts ? t("show fewer") : t("+{n} more", { n: products.length - GLANCE_PRODUCTS })}
+            </button>
+          )}
+        </div>
+      )}
+
+      {slots.length > 0 && (
+        <div className="np-gl-slots">
+          {slots.map((s) => (
+            <GlanceSlot key={s.key} label={s.label} q={s.q} company={node.id} />
+          ))}
+        </div>
+      )}
+
+      {(topCustomers.length > 0 || topSuppliers.length > 0) && (
+        <div className="np-gl-rel">
+          <GlancePartners title={t("Top customers") + " →"} groups={topCustomers} total={customers.length} onNavigate={onNavigate} />
+          <GlancePartners title={"← " + t("Top suppliers")} groups={topSuppliers} total={suppliers.length} onNavigate={onNavigate} />
+        </div>
+      )}
+    </section>
+  );
+}
+
+// ── Long lists below the card: newest LIST_PREVIEW items, then "Show all (N)" ─
+const LIST_PREVIEW = 5;
+
+function ShowAllToggle({ total, open, onToggle }: { total: number; open: boolean; onToggle: () => void }) {
+  if (total <= LIST_PREVIEW) return null;
+  return (
+    <button className="np-linkbtn np-showall" onClick={onToggle} aria-expanded={open}>
+      {open ? t("Show less") : t("Show all ({n})", { n: total })}
+    </button>
+  );
+}
+
+const SIG_PAGE = LIST_PREVIEW; // signals shown before "Show more" (was 8 before 2026-10-01)
 const SIG_STEP = 12; // how many each click adds
 const PLAIN_SUPPLIERS = 18; // no-deal suppliers listed before "+N more"
 
@@ -363,7 +553,20 @@ export default function NodePanel({
   const [filter, setFilter] = useState(""); // free-text signal filter
   const [sigLimit, setSigLimit] = useState(SIG_PAGE);
   const [allPlain, setAllPlain] = useState(false);
+  // Which long lists the user expanded with "Show all (N)" (keys: "timeline",
+  // "customers", "suppliers", "products", "onfile-c", "onfile-s").
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const isOpen = (key: string) => expanded.has(key);
+  const toggleOpen = (key: string) =>
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      next.has(key) ? next.delete(key) : next.add(key);
+      return next;
+    });
+  // The first LIST_PREVIEW items of a list, or all of them once expanded.
+  const preview = <T,>(key: string, list: T[]): T[] => (isOpen(key) ? list : list.slice(0, LIST_PREVIEW));
   const { copied, copy } = useCopy();
+  const backdropRef = useRef<HTMLDivElement>(null);
 
   // Reset per-node view state.
   useEffect(() => {
@@ -372,6 +575,10 @@ export default function NodePanel({
     setFilter("");
     setSigLimit(SIG_PAGE);
     setAllPlain(false);
+    setExpanded(new Set());
+    // Opening another company from inside the panel starts at its "At a glance"
+    // card, not at the scroll position of the previous company.
+    backdropRef.current?.scrollTo({ top: 0 });
   }, [node.id]);
 
   // Esc closes the panel. The handler lives on `window` for the panel's whole
@@ -457,7 +664,7 @@ export default function NodePanel({
   const onFileCount = onFile.customers.length + onFile.suppliers.length;
 
   return (
-    <div className="panel-backdrop" onClick={onClose}>
+    <div className="panel-backdrop" onClick={onClose} ref={backdropRef}>
       <div
         className={"panel" + (glass ? " glass" : "")}
         onClick={(e) => e.stopPropagation()}
@@ -504,6 +711,8 @@ export default function NodePanel({
             <span className="muted">{t("no signals yet")}</span>
           )}
         </div>
+
+        <GlanceCard node={node} slots={slots} customers={customers} suppliers={suppliers} onNavigate={onNavigate} />
 
         <div className="np-actions">
           {node.ticker && (
@@ -565,27 +774,8 @@ export default function NodePanel({
           </div>
         )}
 
-        {slots.length > 0 && (
-          <>
-            <div className="pcol-head">{t("Latest by slot")}</div>
-            <div className="np-slots">
-              {slots.map((s) => {
-                const lab = splitLabel(s.q.quarter);
-                const fig = hasFigure(s.q.figure);
-                return (
-                  <div className="np-slot" key={s.key} title={`${tr(s.q.signal)}\n\n${s.q.quarter}`}>
-                    <div className="np-slot-k">{t(s.label)}</div>
-                    <div className={"np-slot-v" + (fig ? " fig" : "")}>{fig ? tr(s.q.figure) : tr(s.q.signal)}</div>
-                    <div className="np-slot-d">
-                      {lab.date ? `${lab.date} · ` : ""}
-                      {lab.text}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </>
-        )}
+        {/* "Latest by slot" lived here until 2026-10-01; the same five slots
+            (same latest-dated rule) are now shown in the "At a glance" card at the top. */}
 
         {badges.length > 0 && (
           <div className="badge-row">
@@ -619,12 +809,13 @@ export default function NodePanel({
 
         {node.products.length > 0 && (
           <div className="prod-cards">
-            {node.products.map((p, i) => (
+            {preview("products", node.products).map((p, i) => (
               <div className="prod-card" key={i}>
                 <div className="prod-chain">{slugLabel(p.chain)}</div>
                 <div className="prod-name">{tr(p.product)}</div>
               </div>
             ))}
+            <ShowAllToggle total={node.products.length} open={isOpen("products")} onToggle={() => toggleOpen("products")} />
           </div>
         )}
 
@@ -659,12 +850,13 @@ export default function NodePanel({
             {timeline.length > 0 && (
               <>
                 <div className="pcol-head">{t("Product / Capacity Timeline")}</div>
-                {timeline.map((item, i) => (
+                {preview("timeline", timeline).map((item, i) => (
                   <div className="tl-item" key={i}>
                     <span className="tl-when">{item.when}</span>
                     <span>{tr(item.text)}</span>
                   </div>
                 ))}
+                <ShowAllToggle total={timeline.length} open={isOpen("timeline")} onToggle={() => toggleOpen("timeline")} />
               </>
             )}
             {ownSigs.length > 0 && (
@@ -726,6 +918,11 @@ export default function NodePanel({
                         {t("Show {n} more ({hidden} hidden)", { n: Math.min(hiddenSigs, SIG_STEP), hidden: hiddenSigs })}
                       </button>
                     )}
+                    {hiddenSigs > SIG_STEP && (
+                      <button className="btn np-btn-sm" onClick={() => setSigLimit(filteredSigs.length)}>
+                        {t("Show all ({n})", { n: filteredSigs.length })}
+                      </button>
+                    )}
                     {sigLimit > SIG_PAGE && (
                       <button className="btn np-btn-sm" onClick={() => setSigLimit(SIG_PAGE)}>
                         {t("Show less")}
@@ -741,9 +938,10 @@ export default function NodePanel({
             {customers.length > 0 && (
               <>
                 <div className="pcol-head">{t("Customers")} →</div>
-                {customers.map((g) => (
+                {preview("customers", customers).map((g) => (
                   <EdgeGroupCard g={g} key={g.company} onNavigate={onNavigate} company={node.id} target={g.company} />
                 ))}
+                <ShowAllToggle total={customers.length} open={isOpen("customers")} onToggle={() => toggleOpen("customers")} />
               </>
             )}
             {(dealSuppliers.length > 0 || plainAll.length > 0) && (
@@ -751,9 +949,10 @@ export default function NodePanel({
                 <div className="pcol-head" style={{ marginTop: customers.length ? "1rem" : 0 }}>
                   ← {t("Suppliers")}
                 </div>
-                {dealSuppliers.map((g) => (
+                {preview("suppliers", dealSuppliers).map((g) => (
                   <EdgeGroupCard g={g} key={g.company} onNavigate={onNavigate} company={g.company} target={node.id} />
                 ))}
+                <ShowAllToggle total={dealSuppliers.length} open={isOpen("suppliers")} onToggle={() => toggleOpen("suppliers")} />
                 {plainAll.length > 0 && (
                   <div className="deal-plain">
                     {plainSuppliers.map((s, i) => (
@@ -791,16 +990,18 @@ export default function NodePanel({
               <div className="pcol">
                 <div className="np-of-sub">{t("Customers")} ({onFile.customers.length})</div>
                 {onFile.customers.length === 0 && <div className="np-empty">{t("none on file")}</div>}
-                {onFile.customers.map((g) => (
+                {preview("onfile-c", onFile.customers).map((g) => (
                   <OnFileRow g={g} key={g.name} />
                 ))}
+                <ShowAllToggle total={onFile.customers.length} open={isOpen("onfile-c")} onToggle={() => toggleOpen("onfile-c")} />
               </div>
               <div className="pcol">
                 <div className="np-of-sub">{t("Suppliers")} ({onFile.suppliers.length})</div>
                 {onFile.suppliers.length === 0 && <div className="np-empty">{t("none on file")}</div>}
-                {onFile.suppliers.map((g) => (
+                {preview("onfile-s", onFile.suppliers).map((g) => (
                   <OnFileRow g={g} key={g.name} />
                 ))}
+                <ShowAllToggle total={onFile.suppliers.length} open={isOpen("onfile-s")} onToggle={() => toggleOpen("onfile-s")} />
               </div>
             </div>
           </div>

@@ -35,47 +35,167 @@
   line-height: 1.4;
 }
 
-/* ── "Latest by slot" strip ───────────────────────────────────────────── */
-.np-slots {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 8px;
-  margin: 0.9rem 0;
-}
-.np-slot {
-  background: var(--ap-surface2);
+/* ── "At a glance" summary card (top of the panel, 2026-10-01) ─────────
+   Product chips, the five screener slots and the top customers / suppliers.
+   Replaces the old "Latest by slot" strip (same data, same latest-dated rule). */
+.np-glance {
   border: 1px solid var(--ap-border);
-  border-radius: 10px;
-  padding: 8px 10px;
-  min-width: 0;
+  border-radius: 14px;
+  background: var(--ap-surface2);
+  padding: 12px 14px 10px;
+  margin: 0.2rem 0 1rem;
 }
-.np-slot-k {
+.np-gl-head {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ap-muted);
+  margin-bottom: 8px;
+}
+.np-gl-products {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.np-gl-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  max-width: 100%;
+  border: 1px solid var(--ap-border);
+  border-radius: 980px;
+  padding: 2px 10px;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: var(--ap-text);
+  background: rgba(255, 255, 255, 0.03);
+}
+.np-gl-chip b {
+  font-weight: 600;
+  color: var(--ap-muted);
+  white-space: nowrap;
+}
+.np-gl-chip span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.np-gl-slots {
+  border-top: 1px solid var(--ap-border);
+}
+.np-gl-slot {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--ap-border);
+}
+.np-gl-slot-k {
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--ap-muted);
-  margin-bottom: 3px;
+  padding-top: 2px;
 }
-.np-slot-v {
+.np-gl-slot-v {
   font-size: 0.84rem;
-  line-height: 1.35;
-  /* clamp long figures to 3 lines; the full text is in the title tooltip */
+  line-height: 1.4;
+  /* long figures clamp to 3 lines; "Full signal" shows everything */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.np-slot-v.fig {
+.np-gl-slot-v.fig {
   color: var(--ap-blue-hi);
 }
-.np-slot-d {
+.np-gl-slot-d {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 3px;
+}
+.np-gl-slot-d .np-src {
   font-size: 0.7rem;
+}
+.np-gl-more {
+  margin-left: auto;
+  padding: 0;
+}
+.np-gl-full {
+  margin-top: 6px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--ap-border);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+.np-gl-rel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+.np-gl-sub {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ap-text);
+  margin-bottom: 5px;
+}
+.np-gl-sub span {
+  font-weight: 500;
   color: var(--ap-muted);
-  margin-top: 4px;
-  white-space: nowrap;
+}
+.np-gl-partners {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.np-gl-partner {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid var(--ap-border);
+  border-radius: 8px;
+  background: var(--ap-surface);
+  color: var(--ap-text);
+  font: inherit;
+  font-size: 0.82rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.np-gl-partner:hover {
+  border-color: var(--ap-blue);
+  background: rgba(41, 151, 255, 0.08);
+}
+.np-gl-partner-name {
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.np-gl-partner-n {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--ap-muted);
+  white-space: nowrap;
+}
+/* "Show all (N)" under a collapsed list */
+.np-showall {
+  display: block;
+  margin: 2px 0 6px;
 }
 
 /* ── Signals: filter box + topic chips ────────────────────────────────── */
@@ -305,8 +425,8 @@
     justify-content: center;
     min-height: 36px;
   }
-  .np-slots {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  .np-gl-rel {
+    grid-template-columns: 1fr;
   }
   .np-of-meta,
   .np-deal-meta,
@@ -315,8 +435,10 @@
     max-width: none;
   }
 }
-@media (max-width: 400px) {
-  .np-slots {
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 480px) {
+  /* Slot label above its value instead of beside it. */
+  .np-gl-slot {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 }
