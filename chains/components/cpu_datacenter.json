@@ -1512,7 +1512,8 @@
                 {
                   "quarter": "Arm Holdings Q1 FY2027 (07-29-2026)",
                   "signal": "Record Q1 FY2027: revenue $1.29B (+22% YoY), royalty $715M (+22%, highest-ever Q1), licensing $574M (+23%, also a Q1 record), non-GAAP EPS $0.45 (+29%, above the high end of guidance). Non-GAAP opex $733M (+18%, ~$27M below guidance on tooling/emulation timing, not headcount); non-GAAP operating income $531M at ~41% margin (+200bps YoY). Free cash flow $665M in the quarter, $1.4B trailing twelve months. Of the $574M licensing, the SoftBank technology-licensing and design-services agreement contributed $193M, with a ~$200M quarterly run rate expected for the rest of the year. ACV +13% YoY. Q2 guide: revenue $1.38B +/- $50M (+22% at midpoint), licensing +~30%, royalty up low-teens (13%), opex ~$780M, EPS $0.47 +/- $0.04.",
-                  "figure": "Q1 rev $1.29B (+22%); royalty $715M, licensing $574M; EPS $0.45; Q2 guide $1.38B"
+                  "figure": "Q1 rev $1.29B (+22%); royalty $715M, licensing $574M; EPS $0.45; Q2 guide $1.38B",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Arm Holdings Q1 FY2027 (07-29-2026)",
@@ -1522,12 +1523,14 @@
                 {
                   "quarter": "Arm Holdings Q1 FY2027 (07-29-2026)",
                   "signal": "Arm AGI CPU status: initial product DELIVERED to multiple customers; manufacturing capacity SECURED for the $1B opportunity across FY2027-FY2028, while demand now EXCEEDS $2B with new customers added in the U.S. and China. Confidence in achieving upside above $1B increased over the past 90 days; a detailed revenue and margin update comes at Q3 results. Gross margin unchanged from prior guidance: high-30s to low-40s% for the first generation (Q4 FY2027 and FY2028), targeting 50% over the next couple of years by bringing in-house work previously done by an ASIC partner. The AGI CPU is a 128-core design; more cores is 'clearly the direction of travel' for agentic workloads. Silicon revenue will be broken out as a THIRD reporting line (separate from licensing and royalty) once it exceeds 10% of revenue — expected in FY2028, with first shipments at the end of calendar 2026.",
-                  "figure": "AGI CPU demand >$2B, $1B supply secured; GM high-30s/low-40s -> 50%; silicon line breaks out FY2028"
+                  "figure": "AGI CPU demand >$2B, $1B supply secured; GM high-30s/low-40s -> 50%; silicon line breaks out FY2028",
+                  "slot": "backlog_or_b2b"
                 },
                 {
                   "quarter": "Arm Holdings Q1 FY2027 (07-29-2026)",
                   "signal": "Supply chain is the binding constraint on the AGI CPU ramp, not demand: 'It is a very tight market across everything. Whether it's memory, whether it's test equipment, whether it's substrates, whether it's TSMC wafers' — Rene Haas noting even CPU rivals with their own fabs 'have not been able to supply the demand'. Confidence improved across ALL of wafers, substrates, test capacity and memory over the past 90 days, and management sees no single-point-of-failure component risk. Relief is expected as capacity expands into calendar 2028-2029 (FY2029-FY2030), where wafer and memory capacity estimates are up ~70-100%.",
-                  "figure": "wafers/substrates/test/memory all tight; capacity +70-100% by CY2028-29"
+                  "figure": "wafers/substrates/test/memory all tight; capacity +70-100% by CY2028-29",
+                  "slot": "supply_status"
                 },
                 {
                   "quarter": "Arm Holdings Q1 FY2027 (07-29-2026)",
@@ -1537,7 +1540,8 @@
                 {
                   "quarter": "Arm Holdings Q1 FY2027 (07-29-2026)",
                   "signal": "Royalty mix shift — cloud AI is offsetting a weaker smartphone market. Higher memory prices are inflating handset BOM and OEMs are raising prices; the drag has broadened from the low end to 'all parts of the market, even some upper and mid-tier'. FY2027 royalty growth expectation trimmed from ~20% to 'closer to the high teens', with Q2 royalty guided to 13%; Arm still projects double-digit smartphone royalty growth despite a double-digit decline in the smartphone market, because most customers have moved to Armv9 and CSS (higher royalty rates). Licensing was raised to compensate, leaving the combined business ahead of plan. Management reaffirmed 20%+ royalty growth for FY2028-FY2029 as memory-driven handset weakness laps.",
-                  "figure": "FY27 royalty growth ~20% -> high teens; Q2 royalty +13%; 20%+ reaffirmed FY28-29"
+                  "figure": "FY27 royalty growth ~20% -> high teens; Q2 royalty +13%; 20%+ reaffirmed FY28-29",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "Arm Holdings Q1 FY2027 (07-29-2026)",
@@ -1637,7 +1641,8 @@
                 {
                   "quarter": "Qualcomm Q3 FY2026 (07-29-2026)",
                   "signal": "CALL-ONLY / FIRST QUALCOMM-SOURCED DATA ON THE SERVER-CPU PLAN (previously this node carried only an Arm-sourced mention of Dragonfly C1000). Qualcomm's data-center roadmap is now phased: connectivity in fiscal 2026, custom silicon and AI accelerators in fiscal 2027, and SERVER-CLASS CPUs IN FISCAL 2028 - 'leveraging decades of leadership in power-efficient compute'. The thesis is disaggregated inference: 'efficient token generation and total cost of ownership are fundamental to scaling AI, and as a result INFERENCE IS BECOMING DISAGGREGATED in the data center and will be increasingly distributed... hybrid inference will evolve across the entire compute continuum, from data center to on-premise, network edge, and edge devices.' Supporting the CPU/accelerator stack, Qualcomm CLOSED THE ACQUISITION OF MODULAR INC (integration underway) to deliver an end-to-end, HARDWARE-AGNOSTIC AI software stack - with the stated ambition 'to change the current industry approach to AI software from CLOSED TO OPEN systems to promote enhanced competition, innovation, and resilience' (ModCon in August). Financial frame: data-center revenue $5B in FY2027 to $15B in FY2029 with the CPU one of three legs; non-handset >50% of QCT revenue in FY2027 rising to ~2/3 in FY2029; FQ4 opex ~$2.7B reflecting Modular plus continued data-center roadmap investment ahead of the revenue ramp (Alphawave and Modular both now in the opex base). Management is candid about the bar: 'we recognize that investors want to see more proof points that we can successfully execute on our plans as a new entrant.'",
-                  "figure": "Server-class CPUs in FY2028; Modular acquisition CLOSED (open, hardware-agnostic AI stack); DC revenue $5B FY27 -> $15B FY29"
+                  "figure": "Server-class CPUs in FY2028; Modular acquisition CLOSED (open, hardware-agnostic AI stack); DC revenue $5B FY27 -> $15B FY29",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "Qualcomm Goldman Sachs conference 2026 (09-08-2026)",
@@ -1741,7 +1746,8 @@
                 {
                   "quarter": "AMD Q2 FY2026 (08-04-2026)",
                   "signal": "FIFTH consecutive quarter of record server CPU revenue: cloud AND enterprise each grew MORE THAN 70% YoY (beating the prior-quarter outlook), with double-digit growth in BOTH units and ASPs (units higher; ASPs up on core-count mix). x86 server revenue share gained YoY on Turin + Genoa. Turin now powers nearly ONE-THIRD of the >1,600 EPYC public-cloud instance types; >230 fifth-gen EPYC platforms in market; enterprise logged a FOURTH straight record sell-through quarter. Outlook stepped up sharply: server revenue +>80% YoY in H2 2026 and +>70% for FULL-YEAR 2027 off a much higher base; server CPU TAM raised to >50% annual growth reaching ~$220 BILLION by 2030 (vs >$120B guided just one quarter ago) — with AGENTIC-AI SANDBOX SERVERS the largest and fastest-growing bucket of that 2030 TAM (vs general-purpose and AI head-nodes). Server CPU supply is TIGHT ('much of this demand was unforecasted'); AMD is raising wafer, back-end and substrate capacity through 2026 and expects 2027 supply to be better than 2026.",
-                  "figure": "5th record qtr; cloud & enterprise each +>70%; H2-26 server +>80%; FY27 +>70%; TAM ~$220B by 2030; supply tight"
+                  "figure": "5th record qtr; cloud & enterprise each +>70%; H2-26 server +>80%; FY27 +>70%; TAM ~$220B by 2030; supply tight",
+                  "slot": "supply_status"
                 },
                 {
                   "quarter": "AMD Q2 FY2026 (08-04-2026)",
@@ -1762,8 +1768,7 @@
                   "figure": "early view of 2027 server revenue roughly 20% larger than the whole 2025 server market; x86 share from 0.4 to the high 40s",
                   "topics": [
                     "cpu"
-                  ],
-                  "slot": "revenue_growth"
+                  ]
                 },
                 {
                   "quarter": "AMD Technology Leadership Forum 2026 (08-11-2026)",
@@ -2208,7 +2213,8 @@
                 {
                   "quarter": "Intel Q2 FY2026 (07-23-2026)",
                   "signal": "Q2 2026 (ended 06-27-2026): revenue $16.1B, UP 25% YoY — CEO Lip-Bu Tan: 'our strongest revenue growth in more than fifteen years'. DATA CENTER AND AI (DCAI) revenue $6.3B, UP 59% YoY — the fastest-growing segment; Client Computing and Physical AI Group (CCPG, formerly CCG) $8.9B (+13%); total Intel Products $15.1B (+28%); All other $0.7B (-33%). Non-GAAP gross margin 41.8% (+12.1 ppts YoY), non-GAAP operating margin 17.2% (vs -3.9%), non-GAAP EPS $0.42 (vs -$0.10); GAAP EPS -$2.16 on a large charge. Cash from operations $7.0B. Q3 2026 guide: revenue $15.8-16.8B, non-GAAP gross margin 42.0%, non-GAAP EPS $0.38. CFO Zinsner: beat guidance 'on robust demand and improved execution, including volume upside driven by HIGHER FACTORY YIELDS and improved cycle times', and Intel is 'meaningfully increasing our investments in EQUIPMENT, CLEAN ROOM SPACE, and SUBSTRATES' to support growth this year and next across products and foundry.",
-                  "figure": "Rev $16.1B (+25%, best in 15+ yrs); DCAI $6.3B (+59%); non-GAAP EPS $0.42"
+                  "figure": "Rev $16.1B (+25%, best in 15+ yrs); DCAI $6.3B (+59%); non-GAAP EPS $0.42",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Intel Q2 FY2026 (07-23-2026)",
@@ -2218,7 +2224,8 @@
                 {
                   "quarter": "Intel Q2 FY2026 (07-23-2026)",
                   "signal": "CALL — SERVER DEMAND AND THE CPU:GPU RATIO: Q2 beat the guidance midpoint by $1.8 BILLION (7th straight beat); AI-driven businesses grew >70% YoY and are now ~70% OF REVENUE (from 60% in Q1). Q2 YoY server growth was the STRONGEST ON RECORD; DCAI operating margin hit 40% ($2.5B, +$1B QoQ). Intel is UNDERSHIPPING demand by >$1B/quarter and 'will NOT catch up' even in Q4 — supply growth is skewed to end-Q3/Q4, especially servers; GRANITE RAPIDS IS 'EXTREMELY TIGHT' (Intel 3 the critical node). Choke points beyond wafers: advanced packaging, SUBSTRATES, T-GLASS and MEMORY — 'probably our most challenged parts of the supply chain.' Industry server-CPU units to grow strong double digits THIS YEAR AND NEXT with momentum into 2028; pricing is ASP-PER-CORE so rising core counts lift ASPs → DCAI revenue CAGR 'well NORTH of double digits' for the next few years. On the CPU:GPU ratio: 'we're almost in PARITY at this point and could eventually even skew MORE TO CPUs on a unit basis.' On AMD's new $220B-by-2030 server TAM: no number offered, but the market 'is going to grow significantly.' PC side: market down low-double-digits in 2026 on memory costs — Intel will PIVOT as much wafer production as possible to data-center CPUs; client strength was largely ASP (mix + like-for-like price increases passing on inflation); AI PC now two-thirds of client mix; edge ~10% of CCPG.",
-                  "figure": "Beat by $1.8B; record server growth; DCAI margin 40%; undershipping >$1B/qtr into Q4; CPU:GPU ~parity -> CPU skew; DCAI CAGR well north of DD"
+                  "figure": "Beat by $1.8B; record server growth; DCAI margin 40%; undershipping >$1B/qtr into Q4; CPU:GPU ~parity -> CPU skew; DCAI CAGR well north of DD",
+                  "slot": "supply_status"
                 },
                 {
                   "quarter": "Intel Q2 FY2026 (07-23-2026)",
@@ -2987,7 +2994,8 @@
                 {
                   "quarter": "Rambus Q2 FY2026 (07-27-2026)",
                   "signal": "ALL-TIME RECORD quarter, above guidance: total revenue $207.4M (+20% YoY) vs $192-198M guided; RECORD PRODUCT REVENUE $99.2M (+22% YoY, +13% QoQ) vs $95-101M guided; royalties $84.2M (+23% YoY); contract and other $24.0M; licensing billings $84.1M. Non-GAAP operating income $93.7M (45% margin); non-GAAP EPS $0.77 (vs $0.65-0.73 guided; GAAP $0.61). Cash from operations $61.2M; cash + marketable securities $824.9M (+$38.8M QoQ). Q3 2026 guidance implies a STEP-UP IN PRODUCT REVENUE to $110-116M (vs $99.2M) on total revenue $210-216M, with royalties easing to $69-75M and non-GAAP EPS $0.75-0.82. CEO Luc Seraphin: 'a new all-time high in revenue and non-GAAP earnings, fueled by record product revenue'; positioned for 'the rapid expansion of AI INFERENCE AND AGENTIC WORKLOADS'.",
-                  "figure": "Record rev $207.4M (+20%); record product rev $99.2M (+22%); Q3 product guide $110-116M"
+                  "figure": "Record rev $207.4M (+20%); record product rev $99.2M (+22%); Q3 product guide $110-116M",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Rambus Q2 FY2026 (07-27-2026)",
@@ -2997,12 +3005,14 @@
                 {
                   "quarter": "Rambus Q2 FY2026 (07-27-2026)",
                   "signal": "CALL — TIER-1 HYPERSCALER HBM IP WIN CONFIRMED: 'an exciting DESIGN WIN WITH A TIER-1 U.S. HYPERSCALER FOR NEXT-GENERATION HBM IN FUTURE AI CHIPS' — clarified in Q&A as an IP (LICENSE) win, not a product: the hyperscaler defines the SoC/memory-subsystem architecture with Rambus engaged BEFORE standards are finalized, and the chosen implementation then PROLIFERATES — whoever builds the silicon (in-house or ASIC partners) licenses the IP (multi-license, not volume-based). Management: hyperscalers are playing a growing role defining their own architectures on complex subsystems like memory — a key reason confidence in the 10-15%/yr silicon IP growth 'continues to build.' PCIe 7 SWITCH IP (128 GT/s): license revenue lands 'in the coming quarters,' WELL AHEAD of end products (which ramp 12-24 months later) — early engagement doubles as market intelligence. CXL stance reconfirmed: an interconnect protocol, not a product — product market looks FRAGMENTED/ASIC-like, so Rambus serves it with IP and keeps chip investment in STANDARD products. Patent licensing: 'every company that builds memory has to have a license agreement with us' — including CXMT, whose rise is a long-run licensing positive.",
-                  "figure": "Tier-1 US hyperscaler NEXT-GEN HBM IP design win (license; proliferates with the architecture); PCIe7 license revenue near-term; CXMT licensed"
+                  "figure": "Tier-1 US hyperscaler NEXT-GEN HBM IP design win (license; proliferates with the architecture); PCIe7 license revenue near-term; CXMT licensed",
+                  "slot": "backlog_or_b2b"
                 },
                 {
                   "quarter": "Rambus Q2 FY2026 (07-27-2026)",
                   "signal": "CALL — SERVER UNIT VIEW RAISED; 2027 CONTENT STACK: server-market unit view moved UP from mid-to-high single digit to DOUBLE-DIGIT growth (Gartner ~12%; 'we believe we're growing faster than that') — agentic AI is the driver, and latency-critical agentic servers use the MAXIMUM CHANNEL COUNT (keeping KV-cache pulls fast) rather than maximum capacity. Channel roadmap: AMD at 12 channels, Intel moved 8 -> 12, and 'the whole market is going to move to 16' — secular, not a step function. 2027 growth stack: all-DDR5 market with accelerating sub-generations (Gen6 RCD introduced before Gen5 even ships = share-gain shot each generation), MRDIMM kicks in when both CPU vendors' platforms ramp (Q4-2026 contribution MINIMAL, material in 2027; 4x silicon content per module), companion chips rising from low-double-digit to MID-DOUBLE-DIGIT % of product revenue by end of Q4, plus client/AI-PC chipsets. Business is UNIT-based (no memory-style pricing dynamics; NO price increases on standard products; product GM model 60-65% intact). Supply: lead times LENGTHENING, tightness persists through 2027; built $16M of strategic inventory for Q3/Q4/early-2027 ramps; NO signs of customer inventory build; platform ramps 'typically take a little longer than people anticipate.'",
-                  "figure": "Server units now seen +double-digit (Gartner ~12%, Rambus faster); channels 8->12->16; MRDIMM material 2027 (4x content); companions -> mid-DD% of product rev"
+                  "figure": "Server units now seen +double-digit (Gartner ~12%, Rambus faster); channels 8->12->16; MRDIMM material 2027 (4x content); companions -> mid-DD% of product rev",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "Rambus 10-Q (07-28-2026)",

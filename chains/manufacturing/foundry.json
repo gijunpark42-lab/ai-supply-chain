@@ -769,7 +769,8 @@
                 {
                   "quarter": "NVIDIA Q2 FY2027 (08-26-2026)",
                   "signal": "'Our entire supply chain is challenged. Everybody is really running flat out.' Supply for ~70% FY2028 growth is secured against demand of ~100%; capacity comes online daily with yield improvements; supply commitments (largest in the first three years) underpin the Vera Rubin ramp. Supply remains a bottleneck at least through end of FY2028.",
-                  "figure": "supply 70% vs demand 100%; bottleneck through FY2028"
+                  "figure": "supply 70% vs demand 100%; bottleneck through FY2028",
+                  "slot": "supply_status"
                 }
               ]
             },
@@ -2089,12 +2090,14 @@
                 {
                   "quarter": "Apple Q3 FY2026 (07-30-2026)",
                   "signal": "STRONGEST JUNE QUARTER EVER — leading-edge silicon demand keeps compounding: FQ3 revenue $109.4B, UP 16% year over year, with iPhone, Mac and Services each setting June-quarter records and double-digit growth IN EVERY GEOGRAPHIC SEGMENT. Gross margin 50.1% — including a favorable ~2-percentage-point impact from TARIFF REFUNDS — and diluted EPS $2.02, up 29%. Installed base of active devices at a new all-time high across all major product categories and regions. AI angle: WWDC26 introduced 'the all-new SIRI AI' alongside the latest software platforms — sustaining Apple's pull on TSMC leading-edge capacity (the prior quarter's constraint was explicitly advanced-node availability, not memory).",
-                  "figure": "FQ3 $109.4B (+16%), best June qtr ever; EPS $2.02 (+29%); GM 50.1% incl ~2pts tariff refunds; Siri AI"
+                  "figure": "FQ3 $109.4B (+16%), best June qtr ever; EPS $2.02 (+29%); GM 50.1% incl ~2pts tariff refunds; Siri AI",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Apple Q3 FY2026 (07-30-2026)",
                   "signal": "CALL-ONLY: THE JUNE-QUARTER SHORTFALL WAS A LEADING-EDGE NODE SHORTAGE, AND IT GETS WORSE IN SEPTEMBER. Cook: June-quarter supply constraints hit 'primarily the Mac, and to a lesser extent, iPhone and iPad', and 'the constraints were primarily driven by the availability of the ADVANCED NODES that our SoCs are produced on'. Root cause is 'not a regular supply issue - it's a DEMAND FORECAST issue' (iPhone +22% and Mac +29% ran ahead of Apple's own high expectations). 'We are seeing LESS FLEXIBILITY in the supply chain than normal... we've been pulling supply ahead. At some point, there's a limit to that.' For the September quarter the supply-constraint impact 'increases SIGNIFICANTLY sequentially' and now spans iPhone, Mac AND iPad - 'we've got a quarter that we're going to be scrambling on the supply side'. Asked whether adding a second US fab operator would help, Cook rejected the premise: 'this isn't a partner or supplier issue.'",
-                  "figure": "Sept-qtr constraint impact up SIGNIFICANTLY QoQ; iPhone + Mac + iPad all constrained"
+                  "figure": "Sept-qtr constraint impact up SIGNIFICANTLY QoQ; iPhone + Mac + iPad all constrained",
+                  "slot": "supply_status"
                 },
                 {
                   "quarter": "Apple Q3 FY2026 (07-30-2026)",
@@ -2104,7 +2107,8 @@
                 {
                   "quarter": "Apple Q3 FY2026 (07-30-2026)",
                   "signal": "CALL-ONLY: MEMORY IS NOW THE ENTIRE MARGIN STORY, QUANTIFIED. CFO Parekh's bridge: total-company GM 49.3% (Mar qtr) -> 48.1% (Jun qtr, ex-tariff-refund) = -120bps, and 'MORE THAN 100% of that can be explained by the MEMORY COST change' - FX 'was a factor' but 'the main driver was really the memory cost impact'. The same holds into the September guide: 48.1% -> 46.5% midpoint (ex-refund) = -160bps, again more than fully explained by memory, with partial offsets from carry-in inventory, lower non-memory component costs and favorable mix. Reported June-quarter GM was 50.1% INCLUDING ~2pts of tariff refunds (products GM 40.1%, +140bps QoQ including >2.5pts of refunds; services GM 75.6%, -110bps on mix). September guide: revenue +9-11% YoY (FX -2.5pts sequential + rising supply constraints), iPhone mid-teens, GM 47-48% incl. ~1pt refunds, opex $19.1-19.4B, tax ~16.5%.",
-                  "figure": "Jun GM 48.1% ex-refund (-120bps, >100% memory-driven); Sep guide GM 47-48%, rev +9-11%"
+                  "figure": "Jun GM 48.1% ex-refund (-120bps, >100% memory-driven); Sep guide GM 47-48%, rev +9-11%",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "Apple Q3 FY2026 (07-30-2026)",
@@ -3166,7 +3170,8 @@
                 {
                   "quarter": "Intel Q2 FY2026 (07-23-2026)",
                   "signal": "CALL — 18A EXECUTION AND THE 14A COMMIT: 18A output came in ~25% ABOVE TARGET and rose MORE THAN 50% QoQ; Q3 quarter-to-date 18A yields are trending ahead of the targets set in March. The primary PANTHER LAKE SKU's cost is DOWN ~50% YEAR-TO-DATE with another ~20% reduction planned this year and further meaningful cuts in 2027 — Panther Lake margins are still below corporate average (early lifecycle) but are expected to rise ABOVE it as yields improve. INTEL 14A: PDK 0.5 complete, PDK 0.9 on track for October; 256Mb SRAM yield, defect density and transistor performance all AHEAD of an aggressive internal schedule, with defect density OUTPACING 18A at the same stage; risk production H2 2027 (internal), and Intel made the DECISION IN Q2 TO FULLY COMMIT TO HIGH-VOLUME 14A RAMP IN 2028. External foundry revenue $293M; foundry operating loss narrowed $348M QoQ to $2.1B on yields/cycle-time/scale. External-customer psychology: 'the moment they see PDK 0.9 and the yield, they start to get excited about what product to run and how much capacity we can provide.' CAPEX: 2026 raised to MORE THAN $20B with TOOLING SPEND +40% vs 2025 (space largely built); 2027 to be SIGNIFICANTLY ABOVE 2026, vast majority in the US — 2021-2026 US tools+space spend approaching $100 BILLION, more than any other semiconductor company; AMIC returns $0.35 per $1 of US investment; CUSTOMER PREPAYS are already unlocking capacity; longer node lifetimes (the Intel 7 pattern) underpin returns.",
-                  "figure": "18A output +25% vs target, +>50% QoQ; Panther Lake cost -50% YTD; 14A HVM 2028 FULLY COMMITTED; capex >$20B (tooling +40%), 2027 up big; US spend ~$100B 2021-26"
+                  "figure": "18A output +25% vs target, +>50% QoQ; Panther Lake cost -50% YTD; 14A HVM 2028 FULLY COMMITTED; capex >$20B (tooling +40%), 2027 up big; US spend ~$100B 2021-26",
+                  "slot": "next_catalyst"
                 },
                 {
                   "quarter": "Intel 10-K (01-23-2026)",
@@ -3822,17 +3827,20 @@
                 {
                   "quarter": "ASML Q2 FY2026 (07-15-2026)",
                   "signal": "Q2 2026: total net sales EUR 9.3B, ABOVE the high end of guidance on higher Installed Base Management sales. Net system sales EUR 6.6B — EUV EUR 3.8B (including one High-NA system) and non-EUV EUR 2.8B; system sales split almost evenly logic 51% / memory 49%. Installed Base Management EUR 2.8B (~EUR 300M above guidance) on upgrade business. Gross margin 54% (above guidance) helped by very high-margin IBM components; R&D EUR 1.3B (elevated by technology/IT transformation costs), SG&A EUR 0.3B; net income EUR 2.9B (31.3% of sales), EPS EUR 7.59; free cash flow EUR 1.3B; cash + short-term investments EUR 7.6B; EUR 1.1B of buybacks under the 2026-2028 program. Q3 2026 guide: net sales EUR 11-12B (a step change), IBM ~EUR 2.9B, gross margin 55-57%. FY2026 GUIDANCE RAISED to net sales EUR 43-45B (from EUR 36-40B) with gross margin 54-56%. China ~20% of full-year net sales.",
-                  "figure": "Q2 sales EUR 9.3B, GM 54%, EPS EUR 7.59; FY26 raised to EUR 43-45B; Q3 EUR 11-12B"
+                  "figure": "Q2 sales EUR 9.3B, GM 54%, EPS EUR 7.59; FY26 raised to EUR 43-45B; Q3 EUR 11-12B",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "ASML Q2 FY2026 (07-15-2026)",
                   "signal": "Segment growth for FY2026 quantified: ADVANCED LOGIC foundry-related net system sales to grow OVER 25%, and MEMORY-related net system sales to grow OVER 75%. EUV: ~65 Low-NA EUV systems to ship this year with EUV net system sales growth OVER 45%. DUV: ~130 immersion shipments (similar to 2025 after re-accelerating output with supply-chain partners), dry DUV up markedly; non-EUV net system sales +~25%. Installed Base Management sales to grow over 30% on the expanding EUV installed base plus performance/productivity upgrades. Demand drivers — logic: 3nm capacity expansion for the latest generation of AI accelerators PLUS 5nm and 4nm for the diverse set of AI chips, 2nm ramping rapidly for next-gen HPC/mobile, and customers already planning 1.4nm investment. DRAM: supply challenges driving up BOTH DDR AND HBM PRICES have prompted significant fab expansion including plans to build MULTIPLE MEGA FABS phasing in over coming years; litho intensity rising as customers migrate to advanced nodes (1b/1c use more EUV layers), with Low-NA EUV growth driven by replacing multi-patterning with more cost-effective SINGLE-EXPOSE EUV. CEO on DRAM: 'this combination which create a bit the perfect storm for ASML on DRAM this year and most probably the next few years to come'.",
-                  "figure": "FY26 logic system sales +>25%, memory +>75%; ~65 Low-NA EUV shipped; EUV sales +>45%"
+                  "figure": "FY26 logic system sales +>25%, memory +>75%; ~65 Low-NA EUV shipped; EUV sales +>45%",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "ASML Q2 FY2026 (07-15-2026)",
                   "signal": "CAPACITY EXPANSION on multi-year customer visibility: order momentum 'extremely strong' through H1 with backlog increasing across a broad mix of customers. For 2027 ASML is now CLOSE TO FULLY COVERED WITH ORDERS FOR LOW-NA EUV and is planning to increase Low-NA EUV capacity by ~30%; for 2028 it has ALREADY RECEIVED A SIGNIFICANT NUMBER of Low-NA EUV orders (~two years in advance, a situation 'we haven't enjoyed in many years') and is investigating a FURTHER 30% increase (toward ~110 units). Immersion capacity to rise 30% in 2027 with a potential further 30% for 2028 under investigation. All of these increases are achievable WITHIN THE EXISTING CLEANROOM FOOTPRINT by optimizing existing space — no new cleanroom required. Pricing: value-based pricing gives 'more flexibility for pricing than what you would have seen in the past', though long order lead times delay the effect. Next Capital Markets Day 06-10-2027.",
-                  "figure": "2027 Low-NA EUV nearly sold out, capacity +30%; 2028 +30% under study (~110 units)"
+                  "figure": "2027 Low-NA EUV nearly sold out, capacity +30%; 2028 +30% under study (~110 units)",
+                  "slot": "supply_status"
                 },
                 {
                   "quarter": "ASML Q4 FY2025 (01-28-2026)",
@@ -3905,7 +3913,8 @@
                 {
                   "quarter": "Lasertec Q3 FY2026 (04-30-2026)",
                   "signal": "Nine-month FY2026 (Jul 2025–Mar 2026) net sales JPY 169.5B up 0.4% YoY — semiconductor-related products JPY 124.7B down 6.7% while services jumped 35.5% to JPY 42.1B; operating income JPY 78.2B (-1.4%), net income JPY 56.8B (+7.8%); management cites strong demand for GPUs, HBM and other advanced semiconductors driving heightened capex by device makers",
-                  "figure": "9M sales JPY 169.5B (+0.4%); OP JPY 78.2B; services +35.5%"
+                  "figure": "9M sales JPY 169.5B (+0.4%); OP JPY 78.2B; services +35.5%",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Lasertec Q3 FY2026 (04-30-2026)",
@@ -3915,7 +3924,8 @@
                 {
                   "quarter": "Lasertec Q3 FY2026 (04-30-2026)",
                   "signal": "FY2026 (ending June 2026) forecast unchanged from January guidance: net sales JPY 220B (-12.5% YoY), operating income JPY 100B (-18.6%), net income JPY 72B — a digestion year after FY2025's peak",
-                  "figure": "FY2026 guide: sales JPY 220B (-12.5%), OP JPY 100B (-18.6%)"
+                  "figure": "FY2026 guide: sales JPY 220B (-12.5%), OP JPY 100B (-18.6%)",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "Lasertec Q3 FY2026 (04-30-2026)",
@@ -4298,17 +4308,20 @@
                 {
                   "quarter": "Applied Materials Q3 FY2026 (08-13-2026)",
                   "signal": "Record Q3 FY2026 revenue $9.1B (+15% QoQ - highest QoQ revenue growth in company history; +25% YoY); non-GAAP GM 50.4% (13th consecutive quarter of YoY GM expansion), record operating margin 34%, record EPS $3.50 (+41% YoY). Semi Systems record $7.0B (+18% QoQ, +27% YoY), segment GM 55.4%; GAA + FinFET capacity additions drove record foundry logic revenue. Q4 guide: revenue $10.25B +/-$0.5B (+51% YoY), EPS $4.02 (+85% YoY), Semi Systems ~$7.9B (+62% YoY).",
-                  "figure": "$9.1B rev; Q4 guide $10.25B (+51% YoY)"
+                  "figure": "$9.1B rev; Q4 guide $10.25B (+51% YoY)",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Applied Materials Q3 FY2026 (08-13-2026)",
                   "signal": "CY2026 semi-systems growth outlook raised AGAIN: >20% (Feb) -> >30% (May) -> 'greater than that' now; expects to outgrow the market and gain share. Leading-edge foundry logic + DRAM + advanced packaging = ~80% of WFE growth in 2026 AND 2027 (similar, maybe better profile in 2027). ICAPS now expected to grow this year AND next (was flat-to-slightly-up) - bright spots in power and photonics/optical chips; China 26% of semi systems + AGS revenue, now expected to GROW this calendar year led by 28nm foundry logic.",
-                  "figure": "CY26 growth raised above >30%; 80% of WFE growth from logic+DRAM+packaging"
+                  "figure": "CY26 growth raised above >30%; 80% of WFE growth from logic+DRAM+packaging",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "Applied Materials Q3 FY2026 (08-13-2026)",
                   "signal": "Customers announced 10+ new fab projects just this quarter; leading-edge logic and DRAM fabs running at FULL capacity. Largest customers giving rolling 8-quarter forecasts, longer-lead-time POs with cancellation/expedite charges, and some conversations extending to 2030; clean room availability is what governs industry shipments. Applied hiring to have capacity to DOUBLE quarterly system output from current levels by 2028 (+1,500 manufacturing/AGS hires this quarter; new Singapore manufacturing center officially opened; next expansion planned for 2030). Record operating cash flow >$3B, FCF $2.3B.",
-                  "figure": "10+ new fab projects; 2x output capacity by 2028"
+                  "figure": "10+ new fab projects; 2x output capacity by 2028",
+                  "slot": "supply_status"
                 },
                 {
                   "quarter": "Applied Materials Q3 FY2026 (08-13-2026)",
@@ -4363,8 +4376,7 @@
                   "figure": "fab tracker well over 100 factories, more than 10 added in each of the last two quarters; CSP capex over $700 billion this year for U.S. companies, almost $1 trillion globally",
                   "topics": [
                     "supply_tightness"
-                  ],
-                  "slot": "backlog_or_b2b"
+                  ]
                 },
                 {
                   "quarter": "Applied Materials Citi conference 2026 (09-08-2026)",
@@ -4538,7 +4550,8 @@
                 {
                   "quarter": "Lam Research Q4 FY2026 (07-29-2026)",
                   "signal": "RECORD June quarter (Q4 FY2026, ended 06-28-2026): revenue $6.72B (+15% QoQ, +30% YoY) — record revenue, operating margin AND EPS; non-GAAP gross margin 52.0% (+210bps QoQ), operating margin 38.4%, EPS $1.82. FY2026: revenue $23.23B (+26% vs $18.44B FY2025), EPS $5.82 (vs $4.13). September-quarter guide $8.1B +/- $400M — UP >20% SEQUENTIALLY — with GM 52%, OM 39.5%, EPS $2.15. CY2026 WFE now seen in the LOW $150B RANGE (up from the $140B view last quarter); third consecutive year of WFE outperformance; CY27+ called an 'extraordinary set-up' — customers have announced multi-year timelines for new fab projects. CEO Archer: 'AI-driven demand continues to reshape the semiconductor industry.' Mix: foundry 44% of systems revenue, memory 46% (DRAM 23% + NVM 23%); region Taiwan 27%, China 26%, Korea 20%. CSBG record $2.47B (+43% YoY). FCF $1.27B in Q; cash $5.6B; headcount ~22,400 (+1,800 QoQ).",
-                  "figure": "Record $6.72B rev (+30% YoY), EPS $1.82; Sept guide $8.1B (+>20% QoQ); CY26 WFE low-$150B"
+                  "figure": "Record $6.72B rev (+30% YoY), EPS $1.82; Sept guide $8.1B (+>20% QoQ); CY26 WFE low-$150B",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Lam Research Q4 FY2026 (07-29-2026)",
@@ -4553,7 +4566,8 @@
                 {
                   "quarter": "Lam Research Q4 FY2026 (07-29-2026)",
                   "signal": "CALL — LONG-TERM MODEL RAISED: June-quarter gross margin 52.0% was Lam's HIGHEST IN 20 YEARS; new multi-year targets of MID-50s% GROSS MARGIN and MID-40s% OPERATING MARGIN (up from the 2025 Investor Day frame), on SAM running ~36-36.5% of WFE this year and trending to high-30s. Margin drivers: 7-country manufacturing footprint (Oregon/California/Ohio/Malaysia/Taiwan/Korea/Austria) as a strategic pricing/supply asset, annual new-product value pricing, and scale. DEMAND SIGNAL REVERSAL: deferred revenue rose $213M QoQ to $2.43B driven primarily by CUSTOMER DOWN PAYMENTS — one quarter after down payments hit a ~4-year low. FY2026 closed with records: $23.2B revenue, 50.6% GM, EPS $5.82 (+41%). CSBG third straight record (~$2.5B, +43% YoY, record upgrades). PANEL-LEVEL PACKAGING: 510mm x 515mm panel systems shipped into development programs across multiple geographies, first 310mm x 310mm tool ships this year; future AI packages seen exceeding 9x RETICLE SIZE (~3x today's mainstream) — the driver for wafer->panel transition. Capex held at 4-5% of revenue incl. major lab investments; tax rate rises to mid-teens from the September quarter.",
-                  "figure": "GM 52% = 20-yr high; targets raised to mid-50s GM / mid-40s OM; down payments rebounded (+$213M deferred); panel tools shipped (510x515 + first 310x310)"
+                  "figure": "GM 52% = 20-yr high; targets raised to mid-50s GM / mid-40s OM; down payments rebounded (+$213M deferred); panel tools shipped (510x515 + first 310x310)",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "Lam Research 10-Q (04-23-2026)",
@@ -4615,8 +4629,7 @@
                   "figure": "no specific figure",
                   "topics": [
                     "foundry"
-                  ],
-                  "slot": "next_catalyst"
+                  ]
                 },
                 {
                   "quarter": "Lam Research Goldman Sachs conference 2026 (09-10-2026)",
@@ -4667,8 +4680,7 @@
                   "figure": "industry utilization basically at 100% driving spare-parts consumption (reaffirmed: CSPG nearly $2.5 billion, third consecutive record; cobots on 8 tool types)",
                   "topics": [
                     "supply_tightness"
-                  ],
-                  "slot": "revenue_growth"
+                  ]
                 },
                 {
                   "quarter": "Lam Research Q2 FY2026 (01-28-2026)",
@@ -6874,12 +6886,14 @@
                 {
                   "quarter": "KLA Q4 FY2026 (07-28-2026)",
                   "signal": "FISCAL Q4 (June quarter) and FY2026 close: total revenues $3.66B, ABOVE the midpoint of guidance; GAAP net income $1.36B with GAAP diluted EPS $1.04 and non-GAAP diluted EPS $1.05, both at the UPPER END of the guidance range. Full fiscal year 2026: revenues $13.58B with GAAP net income $4.83B and GAAP diluted EPS $3.66. By segment, SEMICONDUCTOR PROCESS CONTROL — the core franchise — delivered $3.257B in the quarter (up 13% from $2.878B a year earlier) and $12.245B for the fiscal year (up 12% from $10.947B); Specialty Semiconductor Process $159.7M in the quarter ($584.1M for the year); PCB and Component Inspection $241.1M in the quarter, up 56% from $154.1M, and $750.4M for the year versus $621.7M. GUIDANCE FOR FISCAL Q1 2027 (September quarter) STEPS UP SHARPLY TO $4.0 BILLION +/- $200M — roughly +9% sequentially and well above the June quarter — with GAAP gross margin 61.6% +/-1.0%, non-GAAP gross margin 62.5% +/-1.0%, and GAAP diluted EPS $1.14 +/- $0.10.",
-                  "figure": "FQ4 rev $3.66B (beat), process control $3.257B (+13%); Sept-qtr guide $4.0B +/- $200M"
+                  "figure": "FQ4 rev $3.66B (beat), process control $3.257B (+13%); Sept-qtr guide $4.0B +/- $200M",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "KLA Q4 FY2026 (07-28-2026)",
                   "signal": "CALL — WFE RAISED AGAIN AND THE 2027 SETUP: CY2026 WFE (incl. advanced packaging) raised to 'approximately the LOW $150 BILLION range' (from $140B+), mid-20% growth over ~$120B in 2025 — the ~4th raise this year, matching Lam's view. CY2027: 'unprecedented visibility' — consensus ~$190 BILLION ('not too many bearish views'), implying another mid-20s growth year; KLA is deliberately SIZING CAPACITY FOR THE MORE BULLISH SCENARIOS (demand +10-20% above that) and is already signing SUPPLIER CAPACITY AGREEMENTS FOR 2029-AND-BEYOND needs (optical components take 12-24 months to capacitize). Demand proof: backlog/RPO ~$12.5B in the imminent 10-Q and growing; lead times ~12 months on average, 18-24 months for some products — customer conversations are already about H2-2027 DELIVERIES; H2 CY2026 revenue to run ~20% ABOVE H1 as long-lead supply comes online (H1 was shipment-constrained), with sequential growth into 2027. BROADENING LEADING EDGE: 'the world needs more advanced logic' — investment widening beyond the leader (analyst cites Intel pulling 14A in by a year with KLA share rising, Samsung foundry wins incl. Broadcom 2nm/3nm, Rapidus, Terafab initiatives) after years of single-player efficiency; plus GREENFIELD fabs adding whole-new-tool demand. Financial detail: incremental operating margin 59% in the quarter; memory-pricing GM headwind ~100bps+ 'likely continues through 2027' then flips to a TAILWIND; services on a new 13-15% LT growth model (low end this year, high end next); 2030 model ($215B WFE / $1.4T semi revenue) already being overtaken — semi revenue likely hits $1.4T in 2026, and if the market normalizes higher, KLA 'would exceed the model.'",
-                  "figure": "CY26 WFE low-$150B (raised); 2027 ~$190B consensus, sizing for +10-20% above; backlog ~$12.5B; H2 +20% vs H1; supplier agreements out to 2029+"
+                  "figure": "CY26 WFE low-$150B (raised); 2027 ~$190B consensus, sizing for +10-20% above; backlog ~$12.5B; H2 +20% vs H1; supplier agreements out to 2029+",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "KLA 10-K (08-06-2026)",
@@ -7041,7 +7055,8 @@
                 {
                   "quarter": "Teradyne Q2 FY2026 (07-29-2026)",
                   "signal": "SECOND CONSECUTIVE RECORD QUARTER, above the high end of guidance: revenue $1,329M — Semiconductor Test $1,122M, Product Test $107M, Robotics $100M — with GAAP net income $374.5M and GAAP EPS $2.38 (non-GAAP net income $389M). Year-on-year market expansion across ALL THREE business groups; record MEMORY revenue on DRAM strength plus a NAND final-test resurgence. CEO Greg Smith frames the arc: 'our strategy to capture test and robotics opportunities FROM WAFER TO AI DATA CENTER has driven another record quarter... In the short term, our Q3 guidance reflects robust AI-related demand. Looking further ahead, RAPID INCREASE IN WAFER FAB EQUIPMENT INVESTMENT sets the stage for continued growth in 2027 and beyond.' Q3 2026 guide: revenue $1,200-1,300M, non-GAAP EPS $1.85-2.15.",
-                  "figure": "Record $1,329M (Semi Test $1,122M); record memory test; WFE surge = 2027+ growth setup"
+                  "figure": "Record $1,329M (Semi Test $1,122M); record memory test; WFE surge = 2027+ growth setup",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Teradyne Q2 FY2026 (07-29-2026)",
@@ -7198,12 +7213,14 @@
                 {
                   "quarter": "Cohu Q2 FY2026 (07-30-2026)",
                   "signal": "Q2 2026 sales $149M, UP 38% YoY, with recurring revenue about 53% of total. Estimated semiconductor TEST UTILIZATION improved sequentially to 80% at quarter end — a level management calls 'typically a turning point for capex by our core IDM customer base' — with computing and industrial in the low 80s and automotive/mobile in the high 70s. BOOKINGS: computing led with 46% of total system orders and was UP ~150% YEAR OVER YEAR on Eclipse growth in high-performance computing; industrial orders +87% YoY; consumer +29%; mobile roughly flat; automotive DOWN 24% in a segment 'that continues to struggle in this recovery cycle'. Fiscal 2026 revenue outlook raised to about 35% growth.",
-                  "figure": "Q2 sales $149M (+38% YoY); computing orders +150% YoY = 46% of systems; test utilization 80%"
+                  "figure": "Q2 sales $149M (+38% YoY); computing orders +150% YoY = 46% of systems; test utilization 80%",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Cohu Q2 FY2026 (07-30-2026)",
                   "signal": "HIGH-PERFORMANCE COMPUTING PIPELINE QUANTIFIED AT ~$850 MILLION ANNUALLY: approximately $190M of qualified annual opportunity across 4 customers, $250M in active qualification across 5 customers, and roughly $445M of early-stage engagement across 10 additional customers. On that progress Cohu RAISED its fiscal 2026 HPC revenue estimate to $100-110 MILLION. The driver is the ECLIPSE handler with advanced ACTIVE THERMAL CONTROL for extreme power and next-generation JetAc Max devices used in data centers — a configurable thermal handler usable across multiple device generations, which reduces customer capital risk and supports faster production ramps; high-power thermal control is called a key differentiator for test quality and first-pass yield. HPC customers also expanded adoption of Cohu's PACE prescriptive analytics software. CAPACITY: Cohu is working with supply partners and EXPANDING INTERNAL MANUFACTURING IN MALAYSIA, expecting to DOUBLE OUTPUT BY YEAR END with another step up in capacity by mid-2027, and is increasing its presence and infrastructure at OSATs IN SOUTHEAST ASIA to support FABLESS AND HYPERSCALER programs moving from qualification into production ramp.",
-                  "figure": "HPC pipeline ~$850M/yr; FY26 HPC revenue raised to $100-110M; Malaysia output doubling by year-end"
+                  "figure": "HPC pipeline ~$850M/yr; FY26 HPC revenue raised to $100-110M; Malaysia output doubling by year-end",
+                  "slot": "backlog_or_b2b"
                 },
                 {
                   "quarter": "Cohu 10-K (02-17-2026)",
@@ -7364,12 +7381,14 @@
                 {
                   "quarter": "Aehr Test Systems Q4 FY2026 (07-14-2026)",
                   "signal": "END-MARKET TRANSFORMATION COMPLETE — from EV silicon carbide to AI: two years ago OVER 95% of Aehr's business was tied to silicon carbide for electric vehicles; in fiscal 2026 almost 95% of revenue came from markets OTHER than EV SiC. Reliability and production WAFER-LEVEL BURN-IN and screening for AI ACCELERATORS, CPUs AND NETWORK PROCESSORS were the fastest-growing markets and accounted for approximately 71% OF TOTAL ANNUAL REVENUE; OPTICAL DEVICE TEST AND BURN-IN for data-center transceivers, chip-to-chip I/O and hard disk drives added another 20%. Q4 exceeded consensus with RECORD QUARTERLY BOOKINGS and a record backlog (effective backlog over $100 million). FY2027 GUIDANCE: revenue $130-150 MILLION, representing 2.6x to 3x fiscal 2026 revenue, with non-GAAP pretax profitability of 18-22%; management says it is NOT CAPACITY LIMITED even at the $150M level and sees scope to raise guidance further as additional orders materialise.",
-                  "figure": "FY27 guide $130-150M (2.6-3x FY26); AI processors ~71% of revenue, optical ~20%; backlog >$100M"
+                  "figure": "FY27 guide $130-150M (2.6-3x FY26); AI processors ~71% of revenue, optical ~20%; backlog >$100M",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "Aehr Test Systems Q4 FY2026 (07-14-2026)",
                   "signal": "LEAD AI-PROCESSOR CUSTOMER SCALING: Aehr's lead AI-processor wafer-level burn-in customer is 'significantly ramping their products', driving increased forecast capacity needs for FOX systems and proprietary WaferPak full-wafer contactors; over the past year that customer ordered fully automated WAFERPAK ALIGNERS to integrate with its installed base, DOUBLED its systems from Aehr, and is forecasting significant increases in WAFER ALLOCATION FROM ITS FOUNDRY (previously a constraint on its growth). Critically, the customer MOVED ALL PRODUCTION BURN-IN SCREENING TO WAFER-LEVEL BURN-IN on Aehr's system and NO LONGER PERFORMS ANY SYSTEM-LEVEL SCREENING of those products — Aehr is described as 'a critical supplier'. Technology advantage cited: the WaferPak contactor manages INDIVIDUAL DIE TEMPERATURES, giving significantly better thermal management than conventional package-level approaches; systems process up to a quarter of a wafer at a time with as many as NINE WAFERS TESTED IN PARALLEL.",
-                  "figure": "Lead AI customer doubled systems, moved ALL production burn-in to wafer level; 9 wafers in parallel"
+                  "figure": "Lead AI customer doubled systems, moved ALL production burn-in to wafer level; 9 wafers in parallel",
+                  "slot": "backlog_or_b2b"
                 },
                 {
                   "quarter": "Aehr Test Systems Q4 FY2026 (07-14-2026)",
@@ -7671,17 +7690,20 @@
                 {
                   "quarter": "FormFactor Q2 FY2026 (07-29-2026)",
                   "signal": "RECORD REVENUE, GROSS PROFIT AND EPS, exceeding the high end of the outlook: Q2 (ended 06-27-2026) revenue $258.2M (+14.2% QoQ, +31.9% YoY); GAAP gross margin 50.7%; GAAP EPS $0.71 / non-GAAP $0.82 (versus $0.12 / $0.27 a year earlier). Broad-based demand with the two named growth initiatives — HIGH BANDWIDTH MEMORY (Probe Cards) and CO-PACKAGED OPTICS (Systems) — each driving sequential segment increases. Four-quarter transformation: revenue +>30%, non-GAAP gross margin +1,500bps, EPS TRIPLED, on FormFactor's position 'at the intersection of high-performance compute and ADVANCED PACKAGING'. Q3 guided to ANOTHER record: revenue $270M +/- $10M, non-GAAP gross margin 54% +/- 1.5%, non-GAAP EPS $0.86 +/- $0.09, with particular strength in FOUNDRY & LOGIC.",
-                  "figure": "Record $258.2M, GAAP GM 50.7%, EPS tripled in 4 qtrs; Q3 record guide $270M / 54% GM"
+                  "figure": "Record $258.2M, GAAP GM 50.7%, EPS tripled in 4 qtrs; Q3 record guide $270M / 54% GM",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "FormFactor Q2 FY2026 (07-29-2026)",
                   "signal": "CALL-ONLY: TWO TARGET-MODEL MILESTONES CLEARED AT ONCE - FormFactor surpassed a $1 BILLION ANNUAL REVENUE RUN RATE and exceeded 50% GROSS MARGIN in the same quarter (Q2 revenue $258.2M vs a $235-245M guide; non-GAAP GM 53.3%, +430bps QoQ; non-GAAP EPS $0.82; systems segment a record $48.5M, +74% QoQ). CFO's margin decomposition matters more than the headline: ~1/3 of the sequential gain is DURABLE baseline cost reduction, ~1/3 volume, and ~1/3 NON-RECURRING (IEEPA tariff refunds plus precious-metal reclaim from the Baldwin Park shutdown) - so 'baseline non-GAAP gross margins have improved to AROUND 51%' at Q2 volumes. Q3 guide: revenue $270M +/- $10M, non-GAAP GM 54% +/- 150bps (including ~300bps of IEEPA tariff refunds; the call transcript's '$79 million' for that refund is inconsistent with 300bps of a $270M quarter and reads as ~$7.9M), non-GAAP EPS $0.86 +/- $0.09, with higher volume offset by less favorable DRAM mix. Capacity: the FARMERS BRANCH (Texas) site comes online in Q4 2026 and ramps through 2027 at a structurally lower cost, reaching initial target capacity - roughly equivalent to the entire California probe footprint - by the beginning of 2028, when it turns ACCRETIVE to gross margin; 2026 cash capex $140-170M, pre-production ramp costs $25-30M (in G&A), partly offset by a $24.2M Texas Semiconductor Innovation Fund grant. 2030 target model reaffirmed: $1.6B revenue, 55% gross margin, $5 EPS.",
-                  "figure": "Q2 $258.2M, GM 53.3% (baseline ~51%), EPS $0.82; Q3 $270M/54%/$0.86; Farmers Branch accretive 2028"
+                  "figure": "Q2 $258.2M, GM 53.3% (baseline ~51%), EPS $0.82; Q3 $270M/54%/$0.86; Farmers Branch accretive 2028",
+                  "slot": "guidance"
                 },
                 {
                   "quarter": "FormFactor Q2 FY2026 (07-29-2026)",
                   "signal": "CALL-ONLY: THE CPU/GPU/ASIC PROBE-CARD LADDER, SPELLED OUT. Foundry & logic grew on data-center CPU demand as 'the trend of increasing CPU COMPUTE INTENSITY to enable AGENTIC AI use cases is now broadly appreciated'. Three distinct vectors: (1) incumbent share with 'a leader in data center CPUs'; (2) an expanding relationship with 'the world leader in high-performance compute', where a strong networking position is extending into that customer's GPU AND CPU product lines - FormFactor is QUALIFIED and 'shipping production units for revenue here in the THIRD QUARTER' (no GPU revenue was in Q2; the business is currently the competitor's); (3) qualification plus multiple design wins at 'a large fabless XPU customer', characterized as LOW SINGLE-DIGIT market share today with capacity commitments the near-term governor until Farmers Branch opens. HYPERSCALER CUSTOM ASICs are the next step-change: 'the next generation of something like a GOOGLE TPU is going to require an ADVANCED MEMS PROBE because of the power and speed requirements it runs at' - the same threshold crossing GPUs made two-to-four years ago - with little 2026 revenue but a key-supplier position expected as those parts ramp in 2027. Taiwan revenue +30% QoQ; the leading foundry was again a 10% customer (11%).",
-                  "figure": "GPU probe cards qualified, production shipments start Q3; next-gen Google TPU needs advanced MEMS probe (2027)"
+                  "figure": "GPU probe cards qualified, production shipments start Q3; next-gen Google TPU needs advanced MEMS probe (2027)",
+                  "slot": "next_catalyst"
                 },
                 {
                   "quarter": "FormFactor 10-Q (08-04-2026)",
@@ -8385,8 +8407,7 @@
                   "figure": "about 10 customers across 15 different applications; majority expected to convert to orders throughout 2027",
                   "topics": [
                     "product_launches"
-                  ],
-                  "slot": "next_catalyst"
+                  ]
                 },
                 {
                   "quarter": "Onto Innovation Citi’s Global TMT Conference 2026 (09-09-2026)",
@@ -8917,7 +8938,8 @@
                 {
                   "quarter": "Shin-Etsu Chemical Q4 FY2026 (04-28-2026)",
                   "signal": "FY2026 (ended March 2026) consolidated results: net sales 2,573.9B yen (+0.5% YoY), operating income 635.2B yen (-14.4%), net income 474.4B yen (-11.2%) — in line with the forecasts announced last July. The decline came entirely from Infrastructure Materials (PVC -43% OI on soft North America/Asia pricing); Electronics Materials grew and is now 54% of total operating income. Temporarily NOT providing FY2027 guidance — the US-Israel/Iran war makes energy and raw-material (crude/naphtha) prices impossible to reasonably forecast.",
-                  "figure": "Sales 2,573.9B yen +0.5%; OI 635.2B yen -14.4%; Electronics = 54% of OI; no FY2027 guidance"
+                  "figure": "Sales 2,573.9B yen +0.5%; OI 635.2B yen -14.4%; Electronics = 54% of OI; no FY2027 guidance",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Shin-Etsu Chemical Q4 FY2026 (04-28-2026)",
@@ -8927,7 +8949,8 @@
                 {
                   "quarter": "Shin-Etsu Chemical Q4 FY2026 (04-28-2026)",
                   "signal": "Capacity: the Isesaki Campus — a new 83B-yen manufacturing and R&D base for semiconductor lithography materials (photoresist) — has started operations (completed 2025). Shintech (US) announced a further $3.4B capital investment to expand PVC feedstock production (scheduled completion by end-2030), on top of the completed $1.25B PVC phase 2.",
-                  "figure": "83B yen Isesaki photoresist campus operational; Shintech +$3.4B"
+                  "figure": "83B yen Isesaki photoresist campus operational; Shintech +$3.4B",
+                  "slot": "supply_status"
                 },
                 {
                   "quarter": "Shin-Etsu Chemical Q4 FY2026 (04-28-2026)",
@@ -9454,7 +9477,8 @@
                 {
                   "quarter": "Tokyo Ohka Kogyo Q1 FY2026 (05-11-2026)",
                   "signal": "Q1 2026 (Jan-Mar): net sales 67.1B yen (+23.6%), operating income 15.1B yen (+53.8%), net profit 11.7B yen (+55.8%) — generative-AI-related demand EXCEEDED initial expectations, prompting an upward revision of the mid-term plan's quantitative targets. Electronic Functional Materials (photoresists) 35.8B yen (+29.0%); High-Purity Chemicals 30.0B yen (+17.2%). Building a new manufacturing building at the Koriyama plant (EUV/ArF/KrF photoresists), operations from H2 2026; strategic investment + joint development with Irresistible Materials for next-gen EUV resists (Feb 2026).",
-                  "figure": "Q1 sales +23.6%, OP +53.8%; photoresist div +29%; Koriyama EUV building H2 2026"
+                  "figure": "Q1 sales +23.6%, OP +53.8%; photoresist div +29%; Koriyama EUV building H2 2026",
+                  "slot": "revenue_growth"
                 },
                 {
                   "signal": "TOK commenced operations at the new Aso Kumamoto Site of its Aso Plant (Kikuchi City, Kumamoto, Japan; construction completed in 2024), built for the supply and quality control of high-purity chemicals to respond to growing demand as semiconductor production expands in the Kyushu area; the company will seek to expand its supply capacity through synergy between the site and the Aso Plant. Company: the TOK Group plans total capital investments of 76.0 billion yen over the three-year tok Medium-Term Plan 2027 (began fiscal 2025), the largest investment scale in its history, and will continue to expand production capacity in Japan and overseas.",
@@ -9956,7 +9980,8 @@
                 {
                   "quarter": "Entegris Q2 FY2026 (08-04-2026)",
                   "signal": "Q2 2026: net sales $883M (up from $812M in Q1 — roughly +9% sequentially), GAAP diluted EPS $0.61 and non-GAAP EPS $0.93, EXCEEDING GUIDANCE ACROSS ALL KEY METRICS. CEO Dave Reeder: 'improving semiconductor demand and ACCELERATING CUSTOMER CAPITAL INVESTMENTS drove DOUBLE-DIGIT GROWTH ACROSS BOTH OUR UNIT- AND CAPEX-RELATED BUSINESSES' — confirming that the fab-construction/WFE wave (TSMC $60-64B, +$100B Arizona; KLA's step-up guide) is flowing through to materials and contamination control. Q3 2026 guide steps up again: sales $905-935M with GAAP EPS $0.75-0.83 and non-GAAP EPS $0.96-1.04. Segments: Materials Solutions (deposition materials, CMP slurries/pads, implant gases, etch/clean chemistries) and Advanced Purity Solutions (filtration, purification, contamination control).",
-                  "figure": "Q2 $883M (+~9% QoQ), non-GAAP EPS $0.93, beat all metrics; Q3 guide $905-935M"
+                  "figure": "Q2 $883M (+~9% QoQ), non-GAAP EPS $0.93, beat all metrics; Q3 guide $905-935M",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Entegris 10-K (02-11-2026)",
@@ -10522,7 +10547,8 @@
                 {
                   "quarter": "Solstice Advanced Materials Q2 FY2026 (07-30-2026)",
                   "signal": "ELECTRONIC MATERIALS GROWING ON SEMICONDUCTOR DEMAND: in the Electronic and Specialty Materials segment, net sales growth 'was driven by ROBUST DEMAND IN OUR ELECTRONIC MATERIALS BUSINESS FOR SEMICONDUCTOR APPLICATIONS'. Capacity is being added specifically for this: growth capex includes the SPOKANE EXPANSION 'to meet robust SPUTTERING TARGET DEMAND'. Company Q2: net sales $1.148B (+11% YoY, ~11% organic on both volume and favourable pricing), ABOVE the top end of guidance; adjusted EBITDA $290M (+2%) at a 25.3% margin, also above the top end of guidance; GAAP net income $119M ($0.75/diluted share) and adjusted diluted EPS $0.88; H1 operating cash $461M and free cash flow $248M despite a large year-over-year step-up in growth capex. Six of seven businesses grew, four at double-digit rates, and FULL-YEAR 2026 GUIDANCE WAS RAISED. Management names the secular trends powering results as 'artificial intelligence, DATA CENTERS, SEMICONDUCTOR MANUFACTURING and THERMAL MANAGEMENT'.",
-                  "figure": "Electronic materials growth on semiconductor demand; Spokane expansion for sputtering targets; FY26 guide raised"
+                  "figure": "Electronic materials growth on semiconductor demand; Spokane expansion for sputtering targets; FY26 guide raised",
+                  "slot": "revenue_growth"
                 },
                 {
                   "quarter": "Solstice Advanced Materials Q2 FY2026 (07-30-2026)",
