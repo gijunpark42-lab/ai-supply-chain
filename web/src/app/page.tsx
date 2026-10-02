@@ -5,7 +5,7 @@ import type { MergedGraph, LogoManifest, VizNode } from "@/lib/types";
 import { fetchJson, buildViz } from "@/lib/data";
 import { CHAIN_COLORS, LAYERS, DOMAINS } from "@/lib/taxonomy";
 import { buildResolver } from "@/lib/company";
-import { LangProvider, LangSwitch, useLang, localNames } from "@/lib/i18n";
+import { LangProvider, LangSwitch, useLang, localNames, currentLang } from "@/lib/i18n";
 import Sidebar from "@/components/Sidebar";
 import Graph3D from "@/components/Graph3D";
 import NodePanel from "@/components/NodePanel";
@@ -26,6 +26,33 @@ const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Scre
 // X-Frame-Options / CSP frame-ancestors header, so it can be shown inline in an iframe).
 const SEMI_BOT_URL = "https://semiband-dashboard.vercel.app";
 type Tab = (typeof TABS)[number];
+
+// ── Two-level navigation (2026-10-01) ─────────────────────────────────────
+// Eleven tabs in one bar read as "a huge list", so the visible tabs are grouped:
+// the top bar picks a group, the pill bar under it picks a view in that group.
+// `tab` stays the single source of truth; the active group is derived from it,
+// so anything that calls setTab(...) keeps working.
+//
+// "Generations" is HIDDEN by the user's request (2026-10-01): it is still in
+// TABS / VIEW_INFO and its view still renders when tab === "Generations", it is
+// just not in any group. To re-enable it, add "Generations" to a group's `tabs`
+// below (e.g. Map: ["Graph", "Chain 2D", "Generations"]).
+const TAB_GROUPS: { id: string; tabs: Tab[] }[] = [
+  { id: "Map", tabs: ["Graph", "Chain 2D"] },
+  { id: "Companies", tabs: ["Screener", "Exposure", "Capex"] },
+  { id: "Signals", tabs: ["Timelines", "Picks"] },
+  { id: "Tools", tabs: ["Ask", "Semi Bot", "Status"] },
+];
+// The group a tab belongs to (index into TAB_GROUPS), or -1 for a hidden tab.
+function groupIndexOf(tab: Tab): number {
+  return TAB_GROUPS.findIndex((g) => g.tabs.includes(tab));
+}
+// A group's on-screen name. "Signals" already has another translation (시그널),
+// so the group names have their own "Tab group: X" rows in ui-strings.ts; in
+// English the bare name is shown.
+function groupLabel(id: string, t: (en: string) => string): string {
+  return currentLang() === "en" ? id : t("Tab group: " + id);
+}
 const VIEW_INFO: Record<Tab, { title: string; description: string }> = {
   Graph: { title: "Follow the connections.", description: "Explore companies and the supply relationships that connect them." },
   "Chain 2D": { title: "One product. Every layer.", description: "Trace a product chain from materials and equipment to its end customers." },
@@ -129,22 +156,52 @@ function Workspace() {
   // sit off-screen. Pull it back into view. (`block: "nearest"` keeps this from
   // scrolling the page vertically as a side effect. No `behavior: "smooth"` —
   // with the strip's scroll-snap it silently does nothing in Chrome.)
+  // Same for the group bar.
+  const groupsRef = useRef<HTMLDivElement>(null);
   const tabsRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const el = tabsRef.current?.querySelector<HTMLElement>('[aria-selected="true"]');
-    el?.scrollIntoView({ inline: "center", block: "nearest" });
+    for (const bar of [groupsRef.current, tabsRef.current]) {
+      const el = bar?.querySelector<HTMLElement>('[aria-selected="true"]');
+      el?.scrollIntoView({ inline: "center", block: "nearest" });
+    }
   }, [tab]);
 
-  const navigateTabs = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const index = TABS.indexOf(tab);
-    let next = index;
-    if (event.key === "ArrowRight") next = (index + 1) % TABS.length;
-    else if (event.key === "ArrowLeft") next = (index - 1 + TABS.length) % TABS.length;
-    else if (event.key === "Home") next = 0;
-    else if (event.key === "End") next = TABS.length - 1;
-    else return;
+  // The active group follows the tab. A hidden tab (Generations) has no group;
+  // then the Map group's pills are shown with none selected.
+  const activeGroup = Math.max(0, groupIndexOf(tab));
+  const groupTabs = TAB_GROUPS[activeGroup].tabs;
+  // The last view used in each group, so returning to a group reopens it.
+  const [lastInGroup, setLastInGroup] = useState<Record<string, Tab>>({});
+  useEffect(() => {
+    const g = groupIndexOf(tab);
+    if (g >= 0) setLastInGroup((prev) => ({ ...prev, [TAB_GROUPS[g].id]: tab }));
+  }, [tab]);
+  const openGroup = (index: number) => {
+    const g = TAB_GROUPS[index];
+    setTab(lastInGroup[g.id] || g.tabs[0]);
+  };
+
+  // Arrow keys / Home / End move along a tab bar (ARIA tabs pattern, automatic
+  // activation). `count` = buttons in the bar, `current` = the selected one.
+  const arrowTarget = (key: string, current: number, count: number): number | null => {
+    if (key === "ArrowRight") return (current + 1) % count;
+    if (key === "ArrowLeft") return (current - 1 + count) % count;
+    if (key === "Home") return 0;
+    if (key === "End") return count - 1;
+    return null;
+  };
+  const navigateGroups = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const next = arrowTarget(event.key, activeGroup, TAB_GROUPS.length);
+    if (next === null) return;
     event.preventDefault();
-    setTab(TABS[next]);
+    openGroup(next);
+    groupsRef.current?.querySelectorAll<HTMLButtonElement>("[role='tab']")[next]?.focus();
+  };
+  const navigateTabs = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const next = arrowTarget(event.key, Math.max(0, groupTabs.indexOf(tab)), groupTabs.length);
+    if (next === null) return;
+    event.preventDefault();
+    setTab(groupTabs[next]);
     tabsRef.current?.querySelectorAll<HTMLButtonElement>("[role='tab']")[next]?.focus();
   };
 
@@ -296,16 +353,36 @@ function Workspace() {
             </a>
             <LangSwitch />
           </div>
-          <div className="tabs" role="tablist" aria-label={t("Research views")} ref={tabsRef} onKeyDown={navigateTabs}>
-            {TABS.map((tabName, index) => (
+          {/* Level 1: the groups. Each group "controls" the pill bar below it. */}
+          <div className="tabs tab-groups" role="tablist" aria-label={t("Research groups")} ref={groupsRef} onKeyDown={navigateGroups}>
+            {TAB_GROUPS.map((g, index) => (
+              <button
+                key={g.id}
+                id={`research-group-${index}`}
+                className="tab"
+                role="tab"
+                aria-selected={activeGroup === index}
+                aria-controls="research-subtabs"
+                tabIndex={activeGroup === index ? 0 : -1}
+                onClick={() => openGroup(index)}
+              >
+                {groupLabel(g.id, t)}
+              </button>
+            ))}
+          </div>
+          {/* Level 2: the views in the active group (pills). Ids keep the old
+              research-tab-<index into TABS> form, which the panel is labelled by. */}
+          <div id="research-subtabs" className="tabs subtabs" role="tablist" aria-label={t("Research views")}
+            ref={tabsRef} onKeyDown={navigateTabs}>
+            {groupTabs.map((tabName) => (
               <button
                 key={tabName}
-                id={`research-tab-${index}`}
-                className="tab"
+                id={`research-tab-${TABS.indexOf(tabName)}`}
+                className="tab subtab"
                 role="tab"
                 aria-selected={tab === tabName}
                 aria-controls="research-panel"
-                tabIndex={tab === tabName ? 0 : -1}
+                tabIndex={tab === tabName || (!groupTabs.includes(tab) && tabName === groupTabs[0]) ? 0 : -1}
                 onClick={() => setTab(tabName)}
               >
                 {t(tabName)}

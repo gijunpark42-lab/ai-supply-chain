@@ -75,6 +75,28 @@
   color: #a8d7ff;
   box-shadow: none;
 }
+/* Two-level navigation (2026-10-01): group bar on top, the group's views as
+   pills under it. Both stay horizontally scrollable strips on a phone. */
+.app-header .tab-groups { padding-bottom: 2px; }
+.app-header .subtabs {
+  margin-top: 0;
+  padding: 3px 0 2px;
+  gap: 6px;
+}
+.app-header .tab.subtab {
+  padding: 5px 13px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid var(--ap-border);
+  border-radius: 980px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.app-header .tab.subtab:hover { border-color: rgba(255, 255, 255, 0.22); }
+.app-header .tab.subtab[aria-selected="true"] {
+  background: rgba(41, 151, 255, 0.16);
+  border-color: rgba(86, 172, 255, 0.45);
+  color: #cfe8ff;
+}
 .workspace-intro {
   display: flex;
   justify-content: space-between;
@@ -185,6 +207,7 @@
   .workspace-intro > div > p:last-child { font-size: 0.78rem; }
   .app-header .tabs { scrollbar-width: none; }
   .app-header .tab { min-height: 40px; padding: 8px 11px; font-size: 0.8rem; }
+  .app-header .tab.subtab { min-height: 34px; padding: 5px 12px; font-size: 0.76rem; }
   .workspace-graph-tools { padding: 15px; gap: 17px; }
   .workspace-stats { justify-content: space-between; gap: 12px; }
   .workspace-stats dd { font-size: 1.4rem; }

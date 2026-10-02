@@ -32,6 +32,13 @@ export const UI: Record<string, Row> = {
   "Status": ["현황", "状态", "ステータス"],
   "Ask": ["질문", "提问", "質問"],
   "Semi Bot": ["Semi Bot", "Semi Bot", "Semi Bot"],
+  // tab groups (2026-10-01). Keyed "Tab group: X" because "Signals" already has
+  // a different translation elsewhere (시그널); page.tsx shows the bare English name.
+  "Tab group: Map": ["지도", "地图", "マップ"],
+  "Tab group: Companies": ["기업", "公司", "企業"],
+  "Tab group: Signals": ["신호", "信号", "シグナル"],
+  "Tab group: Tools": ["도구", "工具", "ツール"],
+  "Research groups": ["리서치 그룹", "研究分组", "リサーチグループ"],
   // view intros
   "Follow the connections.": ["연결을 따라가 보세요.", "顺着关联关系探索。", "つながりをたどる。"],
   "Explore companies and the supply relationships that connect them.": ["기업들과 그들을 잇는 공급 관계를 탐색하세요.", "探索各家公司以及连接它们的供应关系。", "企業と、それらを結ぶ供給関係を探索します。"],
@@ -231,7 +238,6 @@ export const UI: Record<string, Row> = {
   "Stock Report": ["종목 리포트", "个股报告", "銘柄レポート"],
   "Download PDF": ["PDF 다운로드", "下载 PDF", "PDFをダウンロード"],
   "Loading report…": ["리포트 불러오는 중…", "正在加载报告…", "レポートを読み込み中…"],
-  "Latest by slot": ["항목별 최신 데이터", "各栏目最新数据", "項目別の最新データ"],
   "⚡ Supply tight": ["⚡ 공급 부족", "⚡ 供应紧张", "⚡ 供給逼迫"],
   "📈 Guidance raised": ["📈 가이던스 상향", "📈 上调指引", "📈 ガイダンス引き上げ"],
   "📜 Long-term contracts": ["📜 장기 계약", "📜 长期合同", "📜 長期契約"],
@@ -259,6 +265,13 @@ export const UI: Record<string, Row> = {
   "Customers & suppliers on file": ["기록된 고객 및 공급사", "已记录的客户与供应商", "記録上の顧客とサプライヤー"],
   "named in this company's filings / calls, not graph nodes": ["이 기업의 공시·실적 발표에 언급된 곳으로, 그래프 노드는 아님", "在该公司的公告/电话会议中提及，但不是图谱节点", "この企業の開示書類・説明会で言及されたが、グラフのノードではない"],
   "none on file": ["기록 없음", "暂无记录", "記録なし"],
+  // NodePanel "At a glance" card + collapsed lists (2026-10-01)
+  "At a glance": ["한눈에 보기", "概览", "概要"],
+  "Hide details": ["내용 접기", "收起详情", "詳細を隠す"],
+  "Top customers": ["주요 고객", "主要客户", "主要顧客"],
+  "Top suppliers": ["주요 공급사", "主要供应商", "主要サプライヤー"],
+  "top {n} of {total}": ["{total}곳 중 상위 {n}곳", "{total} 家中前 {n} 家", "{total}社中上位{n}社"],
+  "Show all ({n})": ["전체 보기 ({n})", "显示全部（{n}）", "すべて表示（{n}）"],
   // ── Evidence / CompanyLink / ReportView / report page ────────────────────
   "Source text is not on disk for this label": ["이 라벨의 원문이 저장되어 있지 않습니다", "该标签的原文未保存", "このラベルの原文は保存されていません"],
   "Number not found in source — flagged for review": ["원문에서 수치를 찾지 못함 — 검토 대상으로 표시", "原文中未找到该数字 — 已标记待审核", "原文に数値が見つかりません — 要確認として表示"],
