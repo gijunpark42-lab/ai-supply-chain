@@ -347,7 +347,7 @@ const OnFileRow = memo(function OnFileRow({ g }: { g: OnFile }) {
 // screener slots say, and who are its biggest customers / suppliers. Everything
 // below the card is the same detail as before, with long lists collapsed.
 
-const GLANCE_PRODUCTS = 8; // product chips shown before "+N more"
+const GLANCE_PRODUCTS = 4; // product chips shown before "+N more"
 const GLANCE_PARTNERS = 5; // top customers / suppliers shown per side
 const GLANCE_SNIPPET = 140; // characters of a signal shown when the slot has no figure
 
