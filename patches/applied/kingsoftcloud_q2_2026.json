@@ -1,0 +1,82 @@
+{
+ "source": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+ "new_nodes": {
+  "Kingsoft Cloud": {
+   "ticker": "KC",
+   "exchange": "NASDAQ",
+   "country": "CN",
+   "why": "Chinese neutral AI cloud provider selling GPU computing power and Model-as-a-Service; AI cloud gross billings grew 82% YoY and it is investing about RMB 15 billion of 2026 capex in AI compute",
+   "evidence": "Kingsoft Cloud Q2 FY2026 call (08-19-2026): 'AI cloud gross billings increased 82% to RMB 1.33 billion and accounted for 56% of public cloud revenue'; CFO: 'we maintain our full-year CapEx base case unchanged at RMB 15 billion'",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Kingsoft Cloud",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "AI cloud computing power (GPU clusters on long-term contracts) and the StarFlow Model-as-a-Service platform; the strategic cloud platform of the Xiaomi and Kingsoft ecosystem",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+       "signal": "Q2 2026: total revenue a record RMB 3.07 billion (RMB 3,072 million), up 31% YoY and the first quarter above RMB 3 billion; public cloud revenue RMB 2.36 billion, up 45% YoY; AI cloud gross billings up 82% to RMB 1.33 billion, 56% of public cloud revenue (CFO: over 43% of total revenue versus 31% a year ago); MaaS revenue in Q2 up more than 12x from the Q1 level.",
+       "figure": "revenue RMB 3.07 billion (+31% YoY); public cloud RMB 2.36 billion (+45%); AI cloud gross billings RMB 1.33 billion (+82%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+       "signal": "Q2 2026 profitability (CFO Li Yi): adjusted gross profit RMB 472 million, adjusted gross margin 15.4% (13% last quarter, 14.1% a year ago), driven by higher public cloud margins on strong AI demand; adjusted operating profit RMB 124 million, adjusted operating margin 4.0% - operating profit turned positive for the first time (versus -7.1% a year ago); adjusted net loss RMB 6 million; non-GAAP EBITDA RMB 1,100 million, up 171%. Depreciation and amortization rose 75% YoY to RMB 964 million on newly acquired and leased AI servers and network equipment; IDC costs rose 23% to RMB 990 million. Cash and cash equivalents RMB 4,674 million as of June 30, 2026.",
+       "figure": "adjusted gross margin 15.4%; adjusted operating margin 4.0%; non-GAAP EBITDA RMB 1,100 million (+171%)",
+       "topics": []
+      },
+      {
+       "quarter": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+       "signal": "Capex (CFO Li Yi): capex plus right-of-use assets from third-party financing and finance leases was RMB 3.3 billion in Q2 (RMB 2.9 billion in Q1, RMB 2.8 billion a year ago) and RMB 6.2 billion in H1 2026; 'we maintain our full-year CapEx base case unchanged at RMB 15 billion'. SVP Tian Kaiyan: full-year capex 'should still be in line with what we have been expecting'; monthly purchases are lumpy.",
+       "figure": "FY2026 capex base case RMB 15 billion; H1 RMB 6.2 billion; Q2 RMB 3.3 billion",
+       "topics": [],
+       "slot": "guidance",
+       "capex": {"field": "signal", "display": "RMB 15 billion", "period": "FY2026 base case (incl. leased assets)"}
+      },
+      {
+       "quarter": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+       "signal": "Chip supply (SVP Tian Kaiyan): limited supply, heard about since 2023, 'is actually a new norm' and 'a long-term kind of situation'; Kingsoft Cloud responds by working with more business partners and more suppliers and by increasing compatibility with made-in-China chips, which are 'particularly good in use cases such as model inference'. Its Galaxy Stack platform completed deep integration and full lifecycle management for multiple mainstream domestic AI chips for private deployments.",
+       "figure": "no specific figure",
+       "topics": ["supply_tightness"],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+       "signal": "Xiaomi and Kingsoft ecosystem: revenue RMB 810 million in Q2, up 28% YoY and 26% of total revenue; public cloud revenue from Xiaomi and Kingsoft grew 54% YoY in H1. In June shareholders approved higher annual caps for connected transactions with Xiaomi: combined 2026 and 2027 caps total RMB 10 billion, 39% higher than before. Revenue from the top five non-ecosystem customers grew 51%.",
+       "figure": "ecosystem revenue RMB 810 million (+28% YoY); Xiaomi connected-transaction caps RMB 10 billion for 2026-2027 (+39%)",
+       "topics": [],
+       "counterparty": "Xiaomi",
+       "counterparty_role": "customer (affiliate)"
+      },
+      {
+       "quarter": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+       "signal": "AI customers and products: delivered large-scale computing clusters to leading embodied AI and autonomous driving customers and expanded cooperation with a leading AI for Science customer; AI cloud serves internet services, frontier AI labs, embodied AI, autonomous driving, AI for Science, fintech, gaming and online video. StarFlow MaaS supports 120 models and serves more than 230 enterprise customers; AgentKit launched for production-grade AI agents.",
+       "figure": "StarFlow: 120 models, more than 230 enterprise customers",
+       "topics": []
+      },
+      {
+       "quarter": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+       "signal": "Pricing (SVP): Kingsoft Cloud raised prices on storage and on computing power; most customers accepted the storage increase, and for both it passed through cost increases and in some cases increased profitability. Business model (SVP Liu Tao): computing-power capacity once sold runs at 'by nature 100%' utilization under long-term contracts, while MaaS depends on token prices and model launches; CFO: MaaS is more profitable than AI computing power services at this stage, and trailing-12-month adjusted operating profit has turned positive. As a neutral cloud without proprietary models, it sells the models customers prefer, such as GLM.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+       "signal": "Enterprise cloud (management): growth was slow because upstream supply price hikes made SOE and government customers adjust budgets and delay decisions; revenue recognition is concentrated in the second half and there is 'quite a strong pipeline to deliver in second half of the year'; part of the business is shifting from project-based to operating-based, which is reported in public cloud.",
+       "figure": "no specific figure",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

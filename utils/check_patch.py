@@ -88,9 +88,12 @@ def owner_of(label):
 
 def source_kind(label, doc_path):
     """What kind of source the label names — decides which screener slots it may fill."""
-    if re.search(r" (10-K|10-Q) \(", label):
+    # A foreign issuer's 20-F / 40-F annual report and a recent listing's registration prospectus are read like a 10-K
+    # (no slot). The prospectus test is anchored to the whole label, so a press-release headline ending in "prospectus"
+    # is not caught by it.
+    if re.search(r" (10-K|10-Q|20-F|40-F) \(", label) or re.fullmatch(r"[^:]+ prospectus \(\d\d-\d\d-\d{4}\)", label):
         return "10-K/10-Q"
-    if " 8-K (" in label:
+    if " 8-K (" in label or " 6-K (" in label:      # a 6-K (foreign issuer's current report) is slotted like an 8-K
         return "8-K"
     if "DART supply contract" in label:
         return "DART supply contract"
@@ -104,6 +107,10 @@ def source_kind(label, doc_path):
         return "call / conference / periodic report" if doc_path and doc_path.endswith("_qa.txt") else "TDnet filing"
     if " regulatory filing: " in label:
         return "regulatory filing"
+    if re.search(r" (annual securities|semi-annual) report: ", label):   # Japan EDINET 有価証券報告書 / 半期報告書 (edinet.py):
+        return "call / conference / periodic report"                   # statutory statements = like a DART periodic report
+    if re.search(r" (annual|half-year|quarterly) report: ", label):    # China 年度 / 半年度 / 季度报告 (cninfo.py reports) and
+        return "call / conference / periodic report"                   # the hand-saved statutory reports: statutory statements
     if doc_path and "_prelim_" in doc_path:
         return "DART preliminary results"
     return "call / conference / periodic report"

@@ -1,0 +1,66 @@
+{
+  "source": "Solaris Energy Infrastructure 10-Q (08-06-2026)",
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Solaris Energy Infrastructure",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "behind-the-meter natural-gas turbine power generation with balance of plant, batteries and O&M for data centers (Power Solutions)",
+          "quarterly_data": [
+            {
+              "quarter": "Solaris Energy Infrastructure 10-Q (08-06-2026)",
+              "signal": "Solaris's 10-Q XBRL customer concentration: one customer accounted for 63% of revenue in Q2 2026 (45% a year earlier) and 58% for the six months ended June 30, 2026 (41%).",
+              "figure": "one customer 63% of Q2 2026 revenue; 58% for six months",
+              "topics": []
+            },
+            {
+              "quarter": "Solaris Energy Infrastructure 10-Q (08-06-2026)",
+              "signal": "Solaris's 10-Q: Solaris Power Solutions Q2 2026 revenue was $158.3 million, +109.4% from $75.6 million, providing 72% of total revenue and 80% of segment Adjusted EBITDA (69% and 78% for the six months). Power Solutions capital expenditures were $488.2 million in the quarter; six-month consolidated capex was $835.2 million, and remaining 2026 consolidated capex is expected at approximately $1 billion (approximately $97 million at Stateline, its approximately 900 MW data center project).",
+              "figure": "Power Solutions $158.3 million (+109.4% YoY); remaining 2026 capex ~$1 billion",
+              "topics": [
+                "power_cooling"
+              ]
+            },
+            {
+              "quarter": "Solaris Energy Infrastructure 10-Q (08-06-2026)",
+              "signal": "Solaris's 10-Q: purchase commitments for power equipment totaled $1,477.2 million at June 30, 2026 ($896.9 million due within twelve months), including $168.8 million related to Stateline; other supplier commitments are cancellable subject to termination penalties of 5% to 90%.",
+              "figure": "$1,477.2 million power equipment purchase commitments",
+              "topics": [
+                "power_cooling"
+              ]
+            }
+          ],
+          "connects_to": []
+        },
+        {
+          "company": "Baker Hughes",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "NovaLT and Frame 5 gas turbines plus Brush generators for behind-the-meter data-center power (Chart Industries thermal management added July 2026)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Solaris Energy Infrastructure",
+              "relationship": "NovaLT16 gas turbine generator supply",
+              "contracts": [
+                {
+                  "source": "Solaris Energy Infrastructure 10-Q (08-06-2026)",
+                  "signal": "Solaris's 10-Q: on March 13, 2026 Solaris acquired by novation from Colusa Power Infrastructure Partners all contractual rights to receive 30 NovaLT16 gas turbine generator units from Baker Hughes under an existing turbine supply contract, with Solaris substituted as purchaser. Solaris has a non-cancellable purchase obligation of $364.9 million payable to Baker Hughes as manufacturing and delivery milestones are achieved; the contract price is fixed and not subject to escalation except under limited force majeure and change in law provisions, and Solaris may terminate only on specified supplier default events.",
+                  "units": "30 NovaLT16 gas turbine generator units",
+                  "value": "$364.9 million non-cancellable purchase obligation",
+                  "date_signed": "March 13, 2026",
+                  "type": "10-Q supplier disclosure",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

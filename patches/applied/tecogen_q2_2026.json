@@ -1,0 +1,75 @@
+{
+ "source": "Tecogen Q2 FY2026 (08-13-2026)",
+ "new_nodes": {
+  "Tecogen": {
+   "ticker": "TGEN",
+   "exchange": "NYSE American",
+   "country": "US",
+   "why": "Makes natural-gas / electric dual power source chillers it is selling into data-center cooling (its data center strategy); data-center chiller orders would flow directly to its small revenue base",
+   "evidence": "Tecogen Q2 FY2026 (08-13-2026), CEO Abinand Rangesh: 'we feel confident enough to begin building some inventory of our dual power source chiller and power gen modules'; 'continued development and refinement of our dual source chiller, which... is focused on our entry into the data center market' (CFO Roger Deschenes)",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Tecogen",
+     "domain": "thermal",
+     "sector": "Air Cooling",
+     "product": "Tecochill hybrid-drive (natural-gas / electric) dual power source chillers (air-cooled, water-cooled and DTx) and InVerde power-generation modules for data-center cooling",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Tecogen Q2 FY2026 (08-13-2026)",
+       "signal": "Q2 2026 total revenues decreased 21%, or $1.5 million, to $5.8 million from $7.3 million, mainly on lower Products revenue, which fell 64% to $1.1 million (Q2 2025 benefited from cogeneration shipments to customers seeking Inflation Reduction Act tax credits). Services revenue rose 10% to $4.4 million and energy production revenue rose 35% to $0.24 million. Gross margin rose to 37.8% from 33.8%, with products gross margin 48.5% versus 29.3% on price increases and mix. Net loss was $2.2 million and adjusted EBITDA loss $1.7 million.",
+       "figure": "Q2 revenue $5.8 million (-21% YoY); products $1.1 million (-64%); services $4.4 million (+10%); gross margin 37.8%; net loss $2.2 million",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Tecogen Q2 FY2026 (08-13-2026)",
+       "signal": "CEO Abinand Rangesh: the base business backlog now stands at greater than $8 million, and the company expects a further $2 million-$3 million in projects to close over the next few months.",
+       "figure": "base business backlog greater than $8 million; further $2 million-$3 million expected to close",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Tecogen Q2 FY2026 (08-13-2026)",
+       "signal": "Management expects product revenue (and total revenue) to increase in Q3 on the higher backlog and expected project closings, with more deposits improving cash flow. Service-group cost reductions (headcount cuts at a few service centers) were made mid-quarter, with the full impact from Q3; about $300,000 of one-time costs at serviced electric-chiller sites reduced Q2 service margin by around seven percentage points; contract pricing adjustments have started, and management expects higher service margins and gross profit dollars.",
+       "figure": "Q3 product revenue expected to increase; one-time costs about $300,000 (about 7 points of service margin)",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Tecogen Q2 FY2026 (08-13-2026)",
+       "signal": "CEO Abinand Rangesh: Tecogen's data-center strategy has shifted from smaller data centers toward hyperscale and big brand developers. Over the last two months it hosted 12 product demonstrations (six in-person, six virtual) for 12 different entities, eight of them potential direct end customers; the in-person group included four data centers that are hyperscale or building hyperscale campuses, and the virtual group included chip manufacturers, engineers and another four data centers. The attending data centers represent greater than 8 gigawatts of operating capacity and, he said, collectively 15%-20% of present U.S. data center capacity. Specific projects and delivery dates were discussed, and the company is beginning to build inventory of its dual power source chiller and power gen modules to cut lead times. He opened the call by addressing 'what is taking so long for orders to close?' and said the company is prioritising closing first projects with 'the right brand names'.",
+       "figure": "12 product demonstrations; attendees greater than 8 gigawatts operating capacity, 15%-20% of present U.S. data center capacity",
+       "topics": ["power_cooling"]
+      },
+      {
+       "quarter": "Tecogen Q2 FY2026 (08-13-2026)",
+       "signal": "CEO Abinand Rangesh on Vertiv: the data-center demonstrations were arranged through Tecogen's own sales and marketing, a path parallel to its Vertiv relationship ('there are places where it may make sense to collaborate'). Any comment needs prior approval of both parties, so he deferred comment on Vertiv projects to save that approval 'for something that's more substantial'; 'things are in a very good place overall with them', and deals will be announced as they happen.",
+       "figure": "no specific figure",
+       "topics": ["power_cooling"],
+       "counterparty": "Vertiv",
+       "counterparty_role": "partner"
+      },
+      {
+       "quarter": "Tecogen Q2 FY2026 (08-13-2026)",
+       "signal": "CEO Abinand Rangesh on the product case: the dual power source chiller is closed loop (no water evaporation), runs in noise-sensitive urban settings, has very low NOx and carbon monoxide emissions, can move cooling load to natural gas when a utility asks large loads to drop load (avoiding diesel generator use) and can keep cooling during a power outage. He sees demand in new builds, phases of campus expansions, existing cloud data centers that are running out of power (often adding Tecogen chillers while keeping the electric chiller as backup) and smaller data centers using it as primary cooling; InVerde modules can shed some standby loads at peak times.",
+       "figure": "no specific figure",
+       "topics": ["power_cooling"]
+      },
+      {
+       "quarter": "Tecogen Q2 FY2026 (08-13-2026)",
+       "signal": "CEO Abinand Rangesh on the base business: power constraints and long lead times for electrical equipment such as switchgear are limiting non-data-center customers' access to cooling and power generation, which is driving some of Tecogen's demand; cogeneration and standard power generation are 'starting to come back', including larger multi-family buildings facing high utility rates or insufficient power.",
+       "figure": "no specific figure",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

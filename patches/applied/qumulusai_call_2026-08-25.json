@@ -1,0 +1,76 @@
+{
+  "source": "QumulusAI Q2 FY2026 (08-25-2026)",
+  "new_nodes": {
+    "QumulusAI": {
+      "ticker": "QMLS",
+      "exchange": "NASDAQ",
+      "country": "US",
+      "why": "Deploys and operates NVIDIA Blackwell GPU clusters as an inference-first GPU-as-a-Service cloud (fleet 3,088 GPUs, compute 84% of revenue, $282.5 million of signed contract value) and was approved as an NVIDIA Cloud Partner; its revenue grows directly with the GPU capacity it brings online.",
+      "evidence": "QumulusAI Q2 FY2026 call (08-25-2026), CEO Mike Maniscalco: 'On July 17, the day after we began trading, we were approved as an NVIDIA Cloud Partner ... One funds it, the other sources it' and 'Our GPU fleet went from 952 to 3,088'; CFO Scott Krosnowski: 'Our deployments are currently focused on the Blackwell chips.'",
+      "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+    }
+  },
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "QumulusAI",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "Inference-first GPU-as-a-Service cloud on NVIDIA Blackwell GPUs deployed in colocation sites; NVIDIA Cloud Partner",
+          "quarterly_data": [
+            {
+              "quarter": "QumulusAI Q2 FY2026 (08-25-2026)",
+              "signal": "CFO: Q2 2026 revenue was $6.7 million, up 118% from $3.1 million a year earlier. Compute revenue grew to $5.6 million from $1.3 million (up 328%) as GPUs activated on term compute contracts, 84% of revenue (43% a year ago); legacy mining hosting and cryptocurrency mining were about 16% of revenue, expected to keep declining. Gross profit $4.5 million; gross margin 66.6% versus 55.1% a year ago and 37.5% in Q1, helped by about $0.4 million of curtailment credits at the Oklahoma site. Operating loss $7.7 million with depreciation and amortization of $6.9 million; adjusted EBITDA loss $0.8 million (Q1: loss of $2.8 million); net loss $22.8 million.",
+              "figure": "Revenue $6.7 million (+118% YoY); compute revenue $5.6 million (+328%); gross margin 66.6%",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "QumulusAI Q2 FY2026 (08-25-2026)",
+              "signal": "CEO: the GPU fleet went from 952 to 3,088 GPUs in Q2, a 224% increase from Q1, mostly compute already sold coming online; everything sold this quarter was contracted before the hardware was energized. QumulusAI began trading on the Nasdaq Global Market (QMLS) via a direct listing on July 16, 2026, and was approved as an NVIDIA Cloud Partner on July 17. CFO: deployments are currently focused on Blackwell chips; the most recent Blackwell contracts generate $18 million-$20 million of annualized revenue per megawatt versus a blended figure closer to $16 million per megawatt across the installed base, with the price per GPU hour firming across the market.",
+              "figure": "GPU fleet 952 to 3,088 (+224% QoQ); $18 million-$20 million annualized revenue per MW on latest Blackwell contracts",
+              "topics": []
+            },
+            {
+              "quarter": "QumulusAI Q2 FY2026 (08-25-2026)",
+              "signal": "CEO: QumulusAI signed 21 new direct customer contracts totaling $169.7 million in Q2 (eight customers), bringing total signed contract value to $282.5 million across 40 contracts with a weighted average term of 2.2 years (deliberately shorter, as GPU prices have been rising). Direct customer relationships now account for more than 96% of recurring revenue, up from less than 10% a year ago; contracts are getting materially larger. CFO: remaining performance obligations were $173.1 million at June 30; major multi-year contracts carry prepayments of 10%-35%, and deferred revenue rose $30.5 million.",
+              "figure": "21 contracts, $169.7 million in Q2; total signed contract value $282.5 million across 40 contracts; RPO $173.1 million",
+              "topics": [],
+              "slot": "backlog_or_b2b",
+              "capex": {
+                "field": "backlog",
+                "busd": 0.2825,
+                "display": "$282.5 million total signed contract value",
+                "metric": "total signed contract value (40 contracts, 2.2-year weighted average term)"
+              }
+            },
+            {
+              "quarter": "QumulusAI Q2 FY2026 (08-25-2026)",
+              "signal": "Capacity (management): 8 MW of compute is completely sold, with final GPU deployments in progress; CFO: all capex scheduled for the 8 MW has been ordered and financed, and all 8 MW is expected to be active and revenue producing by the end of the year. CEO: QumulusAI is not demand constrained; the largest near-term constraint is land / powered shell. Last week it signed a Metro Atlanta colocation agreement for up to an initial 3.75 MW with a right of first offer for up to 7 MW more (10.75 MW total); it holds long-term land leases on two sites in Oklahoma and Texas totaling roughly 39 MW, for a combined footprint of roughly 57 MW going into 2027.",
+              "figure": "8 MW sold; Atlanta initial 3.75 MW (up to 10.75 MW); 39 MW land leases; roughly 57 MW combined footprint",
+              "topics": [
+                "supply_tightness"
+              ],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "QumulusAI Q2 FY2026 (08-25-2026)",
+              "signal": "CEO: the July 14, 2026 guidance contemplated 18 MW of HPC capacity by year end (the 8 MW plus 10 MW more to develop, of which Atlanta is the first 3.75 MW) and a $300 million ARR target; 'We are not reaffirming any of the guidance today', but management still sees good options to hit the 18 MW.",
+              "figure": "18 MW by year end; $300 million ARR target (not reaffirmed)",
+              "topics": [],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "QumulusAI Q2 FY2026 (08-25-2026)",
+              "signal": "Strategy (CEO): QumulusAI deploys GPU clusters into existing pockets of power of about 2 MW-50 MW, mostly colocation that is ready for service this year, bringing capacity online in months rather than years, and is not chasing gigawatt-scale campuses. Customers are mainly AI natives (inference, GPU model-as-a-service and generative AI companies) plus enterprise verticals; the industry is compute constrained top to bottom and customers open with when they can be running, not price. Its right to play rests on capital, powered shell, the NVIDIA Cloud Partner relationship and OEM relationships with the likes of Supermicro, Lenovo and Dell. The AI-XP initiative sites are energizing in phases, with the first site in Wichita the current focus.",
+              "figure": "pockets of power of 2 MW-50 MW",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

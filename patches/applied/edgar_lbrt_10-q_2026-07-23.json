@@ -1,0 +1,82 @@
+{
+  "source": "Liberty Energy 10-Q (07-23-2026)",
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Liberty Energy",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "On-site power generation for AI data centers and large loads (Liberty Power Innovations: multi-OEM engine generation stacks with BESS, energy management and ERCOT/PJM market participation)",
+          "quarterly_data": [
+            {
+              "quarter": "Liberty Energy 10-Q (07-23-2026)",
+              "signal": "10-Q customer concentration (unnamed): Customer A accounted for 8% and Customer B for 9% of consolidated revenues in Q2 2026 (10% and 11% in Q2 2025); for the first half of 2026 each accounted for 10% (10% and 12% in the first half of 2025).",
+              "figure": "Customer A 8%, Customer B 9% of Q2 2026 revenues",
+              "topics": []
+            },
+            {
+              "quarter": "Liberty Energy 10-Q (07-23-2026)",
+              "signal": "10-Q: purchases of property and equipment and construction in-progress were $380,861 thousand in the first half of 2026 (first half 2025: $271,441 thousand); Liberty lists purchasing long-lead time equipment for its distributed power solutions business among its primary uses of capital. Off-balance-sheet purchase commitments for generation assets supporting the distributed power business and under sand supply agreements total $35.2 million payable within 2026.",
+              "figure": "H1 2026 capex $380,861 thousand (H1 2025: $271,441 thousand); $35.2 million commitments payable within 2026",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        },
+        {
+          "company": "Caterpillar",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "large gas/diesel reciprocating gensets (PGM130, 10 MW medium-speed gas platform) and Solar Turbines gas turbines for data-center prime and backup power",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Liberty Energy",
+              "relationship": "power generation equipment (engines and balance of plant) for Liberty's data-center distributed power projects",
+              "contracts": [
+                {
+                  "source": "Liberty Energy 10-Q (07-23-2026)",
+                  "signal": "Liberty's 10-Q: on July 22, 2026 Liberty Advanced Equipment Technologies LLC, a wholly owned subsidiary of Liberty Energy, entered into an equipment supply contract with Caterpillar Inc. for power generation equipment, including engines and certain balance of plant equipment, for Liberty's prospective data center and other distributed power projects. The purchase price is approximately $801 million, excluding import taxes, duties and tariffs. Caterpillar is subject to liquidated damages under certain conditions for failure to achieve delivery milestones and performance guarantees; Liberty may terminate for individual engines for continued failure to achieve delivery milestones.",
+                  "units": "engines and certain balance of plant equipment",
+                  "value": "approximately $801 million",
+                  "date_signed": "July 22, 2026",
+                  "type": "supply agreement",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Wärtsilä",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "gas-engine power plants (Wärtsilä 50SG / 34SG reciprocating engines) for off-grid, on-site AI data-center power and grid balancing",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Liberty Energy",
+              "relationship": "power generation equipment (engines and balance of plant) for Liberty's data-center distributed power projects",
+              "contracts": [
+                {
+                  "source": "Liberty Energy 10-Q (07-23-2026)",
+                  "signal": "Liberty's 10-Q: during the three months ended June 30, 2026 Liberty entered into supply contracts with various global suppliers, including Bergen Engines AS and Wärtsilä North America, Inc., for the purchase of power generation equipment, including engines and certain balance of plant equipment, for its prospective data center and other distributed power projects.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "during the three months ended June 30, 2026",
+                  "type": "supply agreement",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

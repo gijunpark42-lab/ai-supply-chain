@@ -47,7 +47,8 @@ def say(level, msg):
 
 
 def filer_of(label):
-    return re.split(r"\s+(8-K|10-K|10-Q)\s+\(", label)[0]
+    # 6-K / 20-F / 40-F = a foreign issuer's 8-K / 10-K; "prospectus" = a recent listing's 424B4 (or S-1/A, F-1/A)
+    return re.split(r"\s+(8-K|6-K|10-K|10-Q|20-F|40-F|prospectus)\s+\(", label)[0]
 
 
 def check_tags(where, entry):

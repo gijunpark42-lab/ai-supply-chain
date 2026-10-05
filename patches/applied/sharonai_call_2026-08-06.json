@@ -1,0 +1,113 @@
+{
+  "source": "SharonAI Q2 FY2026 (08-06-2026)",
+  "new_nodes": {
+    "SharonAI": {
+      "ticker": "SHAZ",
+      "exchange": "NASDAQ",
+      "country": "AU",
+      "why": "Australian neocloud and NVIDIA Cloud Partner deploying NVIDIA B300 / GB300 GPU clusters in Australian and New Zealand AI factories (212 MW secured, more than 64,000 NVIDIA GPUs targeted by mid-2027) under about $8.8 billion of take-or-pay contracts, including a $4.9 billion six-year compute collaboration with NVIDIA.",
+      "evidence": "SharonAI Q2 FY2026 call (08-06-2026), CEO James Manning: 'NVIDIA is our primary supplier of compute. NEXTDC is our primary supplier of data center capacity' and 'the standout is a six-year strategic compute collaboration with NVIDIA, worth $4.9 billion in total contract value.'",
+      "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+    }
+  },
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "SharonAI",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "Neocloud GPU compute platform: sovereign AI factories in Australia and New Zealand running NVIDIA B300 / GB300 clusters (GPU-as-a-service, AI platform layers, high-performance storage); NVIDIA Cloud Partner",
+          "quarterly_data": [
+            {
+              "quarter": "SharonAI Q2 FY2026 (08-06-2026)",
+              "signal": "CEO: SharonAI has executed roughly $8.8 billion of total contract value year to date for 120 MW of contracted capacity under multi-year take-or-pay agreements, versus 100 MW and $2.2 billion of TCV three months earlier (the contracted book has grown roughly four times). Contracts: Kanda, GMI and ESDS in Q1 ($1.3 billion TCV); a global technology company with a major Asia-Pac presence in May ($950 million, five-year take-or-pay); NVIDIA in June ($4.9 billion, six years); a global AI lab in July ($1.32 billion, five-year take-or-pay); and a global AI platform a few days before the call ($373 million, five-year take-or-pay), a B300 deployment at a record price of over $4 per GPU hour. Contracting visibility now extends through 2031.",
+              "figure": "~$8.8 billion TCV for 120 MW contracted; $373 million B300 contract at over $4 per GPU hour",
+              "topics": [],
+              "slot": "backlog_or_b2b",
+              "capex": {
+                "field": "backlog",
+                "busd": 8.8,
+                "display": "~$8.8 billion total contract value (120 MW contracted)",
+                "metric": "total contract value executed year to date",
+                "growth": "contracted book grown roughly four times in three months"
+              }
+            },
+            {
+              "quarter": "SharonAI Q2 FY2026 (08-06-2026)",
+              "signal": "Capacity (CEO): total secured AI factory capacity is now 212 MW across Australia and New Zealand, up 80 MW from the prior guidance of 132 MW (54 MW at the start of the year), for deployment by the end of 2027; 120 MW are contracted, leaving 92 MW of secured capacity available to sell heading into the back half of the year. The additional 80 MW in Australia comes from a new partner, with some early megawatts potentially as early as late this year, definitely in Q1 next year, and delivery through 2027. SharonAI extended its footprint with its first New Zealand facility; it co-locates in partners' Tier 3 and Tier 4 data centers rather than greenfield builds.",
+              "figure": "212 MW secured (from 132 MW); 120 MW contracted; 92 MW available",
+              "topics": [
+                "supply_tightness"
+              ],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "SharonAI Q2 FY2026 (08-06-2026)",
+              "signal": "Outlook (CEO): first material revenue expected to commence in Q4 2026 as large-scale B300 and GB300 deployments come online; SharonAI targets more than 64,000 NVIDIA GPUs deployed by mid-2027 across Australia and New Zealand, which he describes as contracted demand. Demand continues to materially outpace supply, and strong pricing is expected to continue throughout the year.",
+              "figure": "first material revenue Q4 2026; more than 64,000 NVIDIA GPUs by mid-2027",
+              "topics": [],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "SharonAI Q2 FY2026 (08-06-2026)",
+              "signal": "Deployments (CEO): SharonAI handed over a B300 cluster to a customer this month, with a full month and a bit of B300 billing in Q3; next B300 and GB300 deployments are planned for the balance of the quarter and early Q4, with Q4 the quarter where revenue ramps materially. The 40,000 GB300s under the NVIDIA program (AICP) are to be deployed over the first half of 2027, with full billing in Q3 at the latest. Key risks are hardware delivery and data-center readiness.",
+              "figure": "B300 cluster handed over this month; 40,000 GB300s deployed over H1 2027",
+              "topics": [],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "SharonAI Q2 FY2026 (08-06-2026)",
+              "signal": "Market (CEO): the entire market is constrained; timely access to NVIDIA GPUs remains one of the most critical constraints, with manufacturing constraints and hyperscaler demand limiting supply and emerging providers facing long lead times, while ready data-center sites with power are increasingly scarce. Customer demand on the AICP program is for hundreds of thousands of GB300s against the 40,000 available; most AI-native customers (model builders, inference providers) want three- to five-year take-or-pay terms, and demand from the U.S. and Asia is equally strong. Capacity was sold this week at record prices for both B300 and GB300.",
+              "figure": "demand for hundreds of thousands of GB300s vs 40,000 available",
+              "topics": [
+                "supply_tightness"
+              ]
+            },
+            {
+              "quarter": "SharonAI Q2 FY2026 (08-06-2026)",
+              "signal": "Vera Rubin (CEO): SharonAI has not started pricing Vera Rubin but sees an extraordinary amount of demand for it; customers on the AICP program are asking to lock in late-2027 Vera Rubin capacity, and SharonAI is working through where its Vera Rubin deployments will be in maybe late 2027 / early 2028, going through design phases with NVIDIA's Design Review Board.",
+              "figure": "Vera Rubin deployments late 2027 / early 2028",
+              "topics": [
+                "transitions"
+              ]
+            },
+            {
+              "quarter": "SharonAI Q2 FY2026 (08-06-2026)",
+              "signal": "Storage (CEO): SharonAI expanded its partnership with VAST Data to a 600 PB storage commitment, enough backend storage to support growth of up to 100,000 GPUs. Customers want more storage than the standard three petabytes per 1,000 GPUs reference architecture: the recent $1.32 billion contract was 10 PB of storage per 1,000 GPUs, which also adds air-cooled loads to its GB environments.",
+              "figure": "600 PB VAST Data commitment; 10 PB per 1,000 GPUs vs three petabytes standard",
+              "topics": [
+                "nand_storage"
+              ],
+              "counterparty": "VAST Data",
+              "counterparty_role": "supplier"
+            },
+            {
+              "quarter": "SharonAI Q2 FY2026 (08-06-2026)",
+              "signal": "Contracting model (CEO): the customer contracts and prepays in month one, which lets SharonAI submit purchase orders for the GPUs and networking with reduced upfront capital; hardware is delivered within three to four months with final payment on delivery, installation and configuration take two to four weeks, and monthly revenue on reserved capacity is recognized from month five for the full term on a take-or-pay basis. World Wide Technology is its exclusive APAC procurement, testing and implementation partner.",
+              "figure": "hardware delivered within three to four months; revenue from month five",
+              "topics": []
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "AI compute capacity supplied to NVIDIA under a six-year strategic compute collaboration (40,000 GB300s, $4.9 billion minimum revenue)",
+              "contracts": [
+                {
+                  "source": "SharonAI Q2 FY2026 (08-06-2026)",
+                  "signal": "SharonAI CEO: a first-of-its-kind six-year strategic compute collaboration with NVIDIA - initial 72 MW, 40,000 GB300s and $4.9 billion of minimum revenue (an average of $817 million of revenue per annum at the implied base rates). NVIDIA provides a six-year anchor commitment guaranteeing a minimum revenue stream, a price floor not a ceiling; SharonAI resells the capacity to AI natives and enterprises (AICP program), retains 100% of the anchor price and shares the incremental revenue above it with NVIDIA. If it performs under the initial 40,000 GB300 allocation, the program may expand over time.",
+                  "units": "40,000 GB300s; initial 72 MW",
+                  "value": "$4.9 billion minimum revenue over six years",
+                  "date_signed": "June 2026",
+                  "type": "compute capacity agreement (anchor commitment)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

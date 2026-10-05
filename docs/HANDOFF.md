@@ -826,3 +826,43 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
     (stale 09-29 outputs found in i18n/pending/out/ with colliding chunk ids were moved aside, NOT merged) → validate clean →
     merged → build: 0 untranslated. Micron Q4 FY2026 (call 09-30) NOT enriched yet: AV quota spent, Fool 404, defeatbeta 404 —
     tonight's nightly AV sync should pull it (Jabil too). Uncommitted: yes.
+- **2026-10-01 (Claude, nightly routine) — `enrich us`** — AV sync saved 0 (Dell still `waiting`; Micron Q4 FY2026 09-30 call not on AV,
+  and av.py's gap scan misses it until its 06-24 label is 100 days old). defeatbeta is BACK: fetched Applied Digital Q4 FY2026
+  (07-27), 3M Q2 (07-21), TI Q2 (07-22), Shell Q2 (07-30, first call) — APLD/3M/TXN labels already held 1-2 entries taken from the
+  8-K releases on 2026-08-04 with no source file; the full calls added only what was missing. defeatbeta's "MU 2026Q4" is the
+  post-earnings analyst call already enriched as `Micron post-earnings analyst call 2026 (09-30-2026)` — file deleted, no patch; the
+  main Micron Q4 call is still missing (retry AV / Fool). Marked (call): Simulations Plus (Q3 07-09 on neither source, recheck 10-30),
+  POET Technologies (no transcripts anywhere, recheck 11-20). Conferences: NextEra Wolfe (10-01) + Iron Mountain RBC (09-29, 403 then
+  fetched by hand) enriched; Infineon AI & Tech conference (10-01) saved, left for `enrich europe`. IR sync 61 saved / 120 failed; all
+  45 US IR rows closed (10 patched, 35 no material facts). 16 patches (54 entries) pre-flighted clean and APPLIED to chains/.
+  **graph_build.py --sync was KILLED by Claude Code for low system memory** after apply + merged graph + derive (23:32): verify_graph,
+  the status board and the web/public/data sync did NOT run, and per the harness it was not restarted unattended.
+  NEXT: `python graph_build.py --sync` (re-applies nothing, rebuilds board + web sync + verify) → read [fail]/[warn] → Opus verifier
+  over the 16 pending labels in verify_queue.json → i18n §9. No new nodes. Open points for the user: Shell's oil/gas/LNG call facts sit
+  on its immersion-coolant node and 3M's EBO optical-connector facts on its coolant node (single-node companies, see the open
+  "Out-of-segment items" question); Modine plans to rename to "Modexus Solutions" (shareholder vote within 3 months). Uncommitted: yes.
+- **2026-10-02..04 (Claude, user-driven "대기중인거 전부 enrich" + follow-ups) — checkpoint 1**
+  - Finished the 10-01 nightly (graph_build killed for low memory): rebuild, Opus verifiers over its 16 US labels (11 corrections).
+  - Markets: KR (3 DART supply contracts, 3 IR), JP (AGC call — label fixed FY2027→FY2026, calendar FY; Nidec TDnet; 14 IR),
+    EU (Infineon conference + 5 IR), CN (Lenovo call — label fixed Q1 FY2026→Q1 FY2027, March FY; SMIC call; 15 cninfo Q&A/records),
+    TW (178 rows: 159 MOPS decks + 2 material + 17 IR; 16 enricher agents, 6 Opus verifiers, 8 corrections). Fujitsu/Sumitomo Chemical
+    intl rows were stale (already enriched) and closed. Foxconn 08-12 IR file: whole body sat in its TITLE line (label header past
+    3000 chars) — TITLE shortened, body text moved below the header, nothing lost.
+  - EDGAR: 175 + 111 filings (two runs; 10 + 6 batches, enricher + independent verifier each). New edges incl. Tempus AI suppliers
+    (Illumina/Google/Amazon), Recursion (Bayer/NVIDIA/Google), Lattice suppliers (TSMC/Samsung/ASE/Amkor), Generac→Amazon,
+    Caterpillar/Wärtsilä→Liberty, Williams→Duke/Puget, WEC→Google/Meta, NextEra→WEC, Baker Hughes→Solaris, HIVE→Cohere,
+    NVIDIA→HIVE, NVIDIA/Supermicro/Dell→WhiteFiber, PDF Solutions→Advantest, Twist→Ginkgo. Coordinator dedupe: Jazz 10-Q copy of the
+    AbCellera 8-K deal dropped. NOTE: my EDGAR enricher prompt over-restricted ai_bio pharma nodes (AI facts only) — not a written
+    rule; open user question "Pharma filing scope".
+  - Gap scan (5 research agents): 93 candidates, user approved the 48 "clear" (enrich_waitlist.json group scan_2026_10_04 +
+    company_metadata.json). 17 US names ADDED as nodes from their calls (defeatbeta) after an independent node verifier
+    (DigitalOcean NVIDIA/AMD edges dropped; ERock→Meta moved to quarterly_data — utility is the buyer; Akamai nvda_b200 placement
+    dropped). 31 non-US names still pending (CN 21 via cninfo; TW 4 via MOPS; JP Optorun via TDnet; HK 7 + 3 JP + Volex + Netweb:
+    Investing.com 403 and gap-scan document links failed — find official IR docs).
+  - New tooling (tested): edinet.py (needs EDINET_API_KEY; user postponed), cninfo.py `reports` (A-share annual/half-year reports →
+    transcripts/cninfo_reports/, backfill running), investing.py EXCLUDE Tencent ≠ Tencent Music. 20-F/6-K/prospectus extension of
+    edgar_pull.py IN PROGRESS (not in checkpoint 1). Web UI (compact signals, source badges, filter chips, click-to-expand source
+    labels) built + screenshots, NOT committed (user reviews first).
+  - Open user questions: tmp list in the session report (reverse edges Tempus↔Recursion; Merck KGaA/Oracle in ai_bio; pharma scope;
+    gas-pipeline / legacy PPA edges; bitcoin-mining scope; check_edgar_patch counterparty keys; Kioxia ticker 285A; …). Uncommitted
+    after checkpoint: web/src, edgar_pull.py, cninfo report backfill + its queue, non-US onboarding.

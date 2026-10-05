@@ -1,17 +1,23 @@
 {
- "generated": "2026-10-01 21:06",
- "labels_total": 2289,
+ "generated": "2026-10-04 19:27",
+ "labels_total": 2608,
  "pipelines": [
   {
    "id": "us",
    "name": "US earnings calls",
    "command": "enrich us calls",
    "source": "Alpha Vantage / defeatbeta (av.py)",
-   "files": 338,
-   "labels_on_disk": 338,
-   "in_graph": 337,
-   "entries": 3253,
-   "pending": [],
+   "files": 360,
+   "labels_on_disk": 360,
+   "in_graph": 358,
+   "entries": 3430,
+   "pending": [
+    {
+     "company": "Micron",
+     "label": "Micron Q4 FY2026 (09-30-2026)",
+     "file": "transcripts/av/micron_q4_2026.txt"
+    }
+   ],
    "no_data": [
     {
      "label": "AES Q3 FY2025 (11-05-2025)",
@@ -24,8 +30,8 @@
     "2025-11-05",
     "2026-09-30"
    ],
-   "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_fetch": "2026-10-04",
+   "last_enriched": "2026-10-04",
    "enriched_days": [
     {
      "day": "2026-08-31",
@@ -65,901 +71,29 @@
     },
     {
      "day": "2026-10-01",
-     "labels": 31
+     "labels": 35
+    },
+    {
+     "day": "2026-10-04",
+     "labels": 17
     }
    ],
-   "last_sync": "2026-09-30",
+   "last_sync": "2026-10-04",
    "extra": {
     "waiting": [],
-    "saved_pairs": 233
+    "saved_pairs": 234
    }
   },
   {
    "id": "edgar",
    "name": "US SEC filings",
    "command": "enrich edgar",
-   "source": "SEC EDGAR 8-K / 10-K / 10-Q (edgar_pull.py)",
-   "files": 1294,
-   "labels_on_disk": 983,
-   "in_graph": 433,
-   "entries": 1164,
-   "pending": [
-    {
-     "company": "AbCellera",
-     "label": "AbCellera 10-K (02-24-2026)",
-     "file": "transcripts/edgar/ABCL_10-K_2026-02-24_customers.txt"
-    },
-    {
-     "company": "AbCellera",
-     "label": "AbCellera 10-K (02-24-2026)",
-     "file": "transcripts/edgar/ABCL_10-K_2026-02-24_supplychain.txt"
-    },
-    {
-     "company": "AbCellera",
-     "label": "AbCellera 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/ABCL_10-Q_2026-08-05_segments.txt"
-    },
-    {
-     "company": "AbCellera",
-     "label": "AbCellera 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/ABCL_10-Q_2026-08-05_supplychain.txt"
-    },
-    {
-     "company": "AbCellera",
-     "label": "AbCellera 8-K (06-17-2026)",
-     "file": "transcripts/edgar/ABCL_8-K_2026-06-17.txt"
-    },
-    {
-     "company": "AbCellera",
-     "label": "AbCellera 8-K (07-29-2026)",
-     "file": "transcripts/edgar/ABCL_8-K_2026-07-29.txt"
-    },
-    {
-     "company": "AbCellera",
-     "label": "AbCellera 8-K (08-05-2026)",
-     "file": "transcripts/edgar/ABCL_8-K_2026-08-05.txt"
-    },
-    {
-     "company": "Absci",
-     "label": "Absci 10-K (03-24-2026)",
-     "file": "transcripts/edgar/ABSI_10-K_2026-03-24_supplychain.txt"
-    },
-    {
-     "company": "Absci",
-     "label": "Absci 10-Q (08-11-2026)",
-     "file": "transcripts/edgar/ABSI_10-Q_2026-08-11_supplychain.txt"
-    },
-    {
-     "company": "Absci",
-     "label": "Absci 8-K (06-24-2026)",
-     "file": "transcripts/edgar/ABSI_8-K_2026-06-24.txt"
-    },
-    {
-     "company": "Absci",
-     "label": "Absci 8-K (08-11-2026)",
-     "file": "transcripts/edgar/ABSI_8-K_2026-08-11.txt"
-    },
-    {
-     "company": "ACM Research",
-     "label": "ACM Research 8-K (09-30-2026)",
-     "file": "transcripts/edgar/ACMR_8-K_2026-09-30.txt"
-    },
-    {
-     "company": "Adobe",
-     "label": "Adobe 10-Q (09-22-2026)",
-     "file": "transcripts/edgar/ADBE_10-Q_2026-09-22_segments.txt"
-    },
-    {
-     "company": "Adobe",
-     "label": "Adobe 10-Q (09-22-2026)",
-     "file": "transcripts/edgar/ADBE_10-Q_2026-09-22_supplychain.txt"
-    },
-    {
-     "company": "Adeia",
-     "label": "Adeia 10-K (02-26-2026)",
-     "file": "transcripts/edgar/ADEA_10-K_2026-02-26_customers.txt"
-    },
-    {
-     "company": "Adeia",
-     "label": "Adeia 10-K (02-26-2026)",
-     "file": "transcripts/edgar/ADEA_10-K_2026-02-26_supplychain.txt"
-    },
-    {
-     "company": "Adeia",
-     "label": "Adeia 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/ADEA_10-Q_2026-08-05_segments.txt"
-    },
-    {
-     "company": "Adeia",
-     "label": "Adeia 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/ADEA_10-Q_2026-08-05_supplychain.txt"
-    },
-    {
-     "company": "Adeia",
-     "label": "Adeia 8-K (07-01-2026)",
-     "file": "transcripts/edgar/ADEA_8-K_2026-07-01.txt"
-    },
-    {
-     "company": "Adeia",
-     "label": "Adeia 8-K (09-28-2026)",
-     "file": "transcripts/edgar/ADEA_8-K_2026-09-28.txt"
-    },
-    {
-     "company": "Arteris",
-     "label": "Arteris 10-K (02-12-2026)",
-     "file": "transcripts/edgar/AIP_10-K_2026-02-12_customers.txt"
-    },
-    {
-     "company": "Arteris",
-     "label": "Arteris 10-K (02-12-2026)",
-     "file": "transcripts/edgar/AIP_10-K_2026-02-12_supplychain.txt"
-    },
-    {
-     "company": "Arteris",
-     "label": "Arteris 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/AIP_10-Q_2026-08-06_segments.txt"
-    },
-    {
-     "company": "Arteris",
-     "label": "Arteris 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/AIP_10-Q_2026-08-06_supplychain.txt"
-    },
-    {
-     "company": "Alpha and Omega Semiconductor",
-     "label": "Alpha and Omega Semiconductor 10-K (08-27-2026)",
-     "file": "transcripts/edgar/AOSL_10-K_2026-08-27_customers.txt"
-    },
-    {
-     "company": "Alpha and Omega Semiconductor",
-     "label": "Alpha and Omega Semiconductor 10-K (08-27-2026)",
-     "file": "transcripts/edgar/AOSL_10-K_2026-08-27_supplychain.txt"
-    },
-    {
-     "company": "Alpha and Omega Semiconductor",
-     "label": "Alpha and Omega Semiconductor 10-Q (05-06-2026)",
-     "file": "transcripts/edgar/AOSL_10-Q_2026-05-06_segments.txt"
-    },
-    {
-     "company": "Alpha and Omega Semiconductor",
-     "label": "Alpha and Omega Semiconductor 10-Q (05-06-2026)",
-     "file": "transcripts/edgar/AOSL_10-Q_2026-05-06_supplychain.txt"
-    },
-    {
-     "company": "Bel Fuse",
-     "label": "Bel Fuse 10-K (02-24-2026)",
-     "file": "transcripts/edgar/BELFB_10-K_2026-02-24_customers.txt"
-    },
-    {
-     "company": "Bel Fuse",
-     "label": "Bel Fuse 10-K (02-24-2026)",
-     "file": "transcripts/edgar/BELFB_10-K_2026-02-24_supplychain.txt"
-    },
-    {
-     "company": "Bel Fuse",
-     "label": "Bel Fuse 10-Q (08-04-2026)",
-     "file": "transcripts/edgar/BELFB_10-Q_2026-08-04_segments.txt"
-    },
-    {
-     "company": "Bel Fuse",
-     "label": "Bel Fuse 10-Q (08-04-2026)",
-     "file": "transcripts/edgar/BELFB_10-Q_2026-08-04_supplychain.txt"
-    },
-    {
-     "company": "Bristol Myers Squibb",
-     "label": "Bristol Myers Squibb 10-K (02-11-2026)",
-     "file": "transcripts/edgar/BMY_10-K_2026-02-11_customers.txt"
-    },
-    {
-     "company": "Bristol Myers Squibb",
-     "label": "Bristol Myers Squibb 10-K (02-11-2026)",
-     "file": "transcripts/edgar/BMY_10-K_2026-02-11_supplychain.txt"
-    },
-    {
-     "company": "Bristol Myers Squibb",
-     "label": "Bristol Myers Squibb 10-Q (07-30-2026)",
-     "file": "transcripts/edgar/BMY_10-Q_2026-07-30_segments.txt"
-    },
-    {
-     "company": "Bristol Myers Squibb",
-     "label": "Bristol Myers Squibb 10-Q (07-30-2026)",
-     "file": "transcripts/edgar/BMY_10-Q_2026-07-30_supplychain.txt"
-    },
-    {
-     "company": "Bristol Myers Squibb",
-     "label": "Bristol Myers Squibb 8-K (07-30-2026)",
-     "file": "transcripts/edgar/BMY_8-K_2026-07-30.txt"
-    },
-    {
-     "company": "Cerebras",
-     "label": "Cerebras 10-Q (08-12-2026)",
-     "file": "transcripts/edgar/CBRS_10-Q_2026-08-12_segments.txt"
-    },
-    {
-     "company": "Cerebras",
-     "label": "Cerebras 10-Q (08-12-2026)",
-     "file": "transcripts/edgar/CBRS_10-Q_2026-08-12_supplychain.txt"
-    },
-    {
-     "company": "Certara",
-     "label": "Certara 10-K (02-26-2026)",
-     "file": "transcripts/edgar/CERT_10-K_2026-02-26_customers.txt"
-    },
-    {
-     "company": "Certara",
-     "label": "Certara 10-K (02-26-2026)",
-     "file": "transcripts/edgar/CERT_10-K_2026-02-26_supplychain.txt"
-    },
-    {
-     "company": "Certara",
-     "label": "Certara 10-Q (08-04-2026)",
-     "file": "transcripts/edgar/CERT_10-Q_2026-08-04_supplychain.txt"
-    },
-    {
-     "company": "Certara",
-     "label": "Certara 8-K (06-17-2026)",
-     "file": "transcripts/edgar/CERT_8-K_2026-06-17.txt"
-    },
-    {
-     "company": "CEVA",
-     "label": "CEVA 10-K (02-27-2026)",
-     "file": "transcripts/edgar/CEVA_10-K_2026-02-27_customers.txt"
-    },
-    {
-     "company": "CEVA",
-     "label": "CEVA 10-K (02-27-2026)",
-     "file": "transcripts/edgar/CEVA_10-K_2026-02-27_supplychain.txt"
-    },
-    {
-     "company": "CEVA",
-     "label": "CEVA 10-Q (08-10-2026)",
-     "file": "transcripts/edgar/CEVA_10-Q_2026-08-10_segments.txt"
-    },
-    {
-     "company": "CEVA",
-     "label": "CEVA 10-Q (08-10-2026)",
-     "file": "transcripts/edgar/CEVA_10-Q_2026-08-10_supplychain.txt"
-    },
-    {
-     "company": "Cipher Digital",
-     "label": "Cipher Digital 8-K (09-25-2026)",
-     "file": "transcripts/edgar/CIFR_8-K_2026-09-25.txt"
-    },
-    {
-     "company": "CoreWeave",
-     "label": "CoreWeave 8-K (09-17-2026)",
-     "file": "transcripts/edgar/CRWV_8-K_2026-09-17.txt"
-    },
-    {
-     "company": "CoreWeave",
-     "label": "CoreWeave 8-K (09-22-2026)",
-     "file": "transcripts/edgar/CRWV_8-K_2026-09-22.txt"
-    },
-    {
-     "company": "Dominion Energy",
-     "label": "Dominion Energy 8-K (09-14-2026)",
-     "file": "transcripts/edgar/D_8-K_2026-09-14.txt"
-    },
-    {
-     "company": "Diodes",
-     "label": "Diodes 10-K (02-10-2026)",
-     "file": "transcripts/edgar/DIOD_10-K_2026-02-10_customers.txt"
-    },
-    {
-     "company": "Diodes",
-     "label": "Diodes 10-K (02-10-2026)",
-     "file": "transcripts/edgar/DIOD_10-K_2026-02-10_supplychain.txt"
-    },
-    {
-     "company": "Diodes",
-     "label": "Diodes 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/DIOD_10-Q_2026-08-05_segments.txt"
-    },
-    {
-     "company": "Diodes",
-     "label": "Diodes 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/DIOD_10-Q_2026-08-05_supplychain.txt"
-    },
-    {
-     "company": "Diodes",
-     "label": "Diodes 8-K (07-14-2026)",
-     "file": "transcripts/edgar/DIOD_8-K_2026-07-14.txt"
-    },
-    {
-     "company": "Diodes",
-     "label": "Diodes 8-K (07-28-2026)",
-     "file": "transcripts/edgar/DIOD_8-K_2026-07-28.txt"
-    },
-    {
-     "company": "Diodes",
-     "label": "Diodes 8-K (08-05-2026)",
-     "file": "transcripts/edgar/DIOD_8-K_2026-08-05.txt"
-    },
-    {
-     "company": "Diodes",
-     "label": "Diodes 8-K (08-12-2026)",
-     "file": "transcripts/edgar/DIOD_8-K_2026-08-12.txt"
-    },
-    {
-     "company": "Diodes",
-     "label": "Diodes 8-K (08-27-2026)",
-     "file": "transcripts/edgar/DIOD_8-K_2026-08-27.txt"
-    },
-    {
-     "company": "Ginkgo Bioworks",
-     "label": "Ginkgo Bioworks 10-K (02-26-2026)",
-     "file": "transcripts/edgar/DNA_10-K_2026-02-26_customers.txt"
-    },
-    {
-     "company": "Ginkgo Bioworks",
-     "label": "Ginkgo Bioworks 10-K (02-26-2026)",
-     "file": "transcripts/edgar/DNA_10-K_2026-02-26_supplychain.txt"
-    },
-    {
-     "company": "Ginkgo Bioworks",
-     "label": "Ginkgo Bioworks 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/DNA_10-Q_2026-08-06_supplychain.txt"
-    },
-    {
-     "company": "Flex",
-     "label": "Flex 8-K (09-15-2026)",
-     "file": "transcripts/edgar/FLEX_8-K_2026-09-15.txt"
-    },
-    {
-     "company": "Fluence Energy",
-     "label": "Fluence Energy 8-K (09-16-2026)",
-     "file": "transcripts/edgar/FLNC_8-K_2026-09-16.txt"
-    },
-    {
-     "company": "Generac",
-     "label": "Generac 8-K (09-16-2026)",
-     "file": "transcripts/edgar/GNRC_8-K_2026-09-16.txt"
-    },
-    {
-     "company": "HPE",
-     "label": "HPE 8-K (09-30-2026)",
-     "file": "transcripts/edgar/HPE_8-K_2026-09-30.txt"
-    },
-    {
-     "company": "Hut 8",
-     "label": "Hut 8 8-K (09-28-2026)",
-     "file": "transcripts/edgar/HUT_8-K_2026-09-28.txt"
-    },
-    {
-     "company": "Illumina",
-     "label": "Illumina 10-K (02-12-2026)",
-     "file": "transcripts/edgar/ILMN_10-K_2026-02-12_customers.txt"
-    },
-    {
-     "company": "Illumina",
-     "label": "Illumina 10-K (02-12-2026)",
-     "file": "transcripts/edgar/ILMN_10-K_2026-02-12_supplychain.txt"
-    },
-    {
-     "company": "Illumina",
-     "label": "Illumina 10-Q (07-31-2026)",
-     "file": "transcripts/edgar/ILMN_10-Q_2026-07-31_segments.txt"
-    },
-    {
-     "company": "Illumina",
-     "label": "Illumina 10-Q (07-31-2026)",
-     "file": "transcripts/edgar/ILMN_10-Q_2026-07-31_supplychain.txt"
-    },
-    {
-     "company": "Jazz Pharmaceuticals",
-     "label": "Jazz Pharmaceuticals 10-K (04-24-2026)",
-     "file": "transcripts/edgar/JAZZ_10-K_2026-04-24_supplychain.txt"
-    },
-    {
-     "company": "Jazz Pharmaceuticals",
-     "label": "Jazz Pharmaceuticals 10-Q (08-03-2026)",
-     "file": "transcripts/edgar/JAZZ_10-Q_2026-08-03_segments.txt"
-    },
-    {
-     "company": "Jazz Pharmaceuticals",
-     "label": "Jazz Pharmaceuticals 10-Q (08-03-2026)",
-     "file": "transcripts/edgar/JAZZ_10-Q_2026-08-03_supplychain.txt"
-    },
-    {
-     "company": "Jazz Pharmaceuticals",
-     "label": "Jazz Pharmaceuticals 8-K (08-25-2026)",
-     "file": "transcripts/edgar/JAZZ_8-K_2026-08-25.txt"
-    },
-    {
-     "company": "Jazz Pharmaceuticals",
-     "label": "Jazz Pharmaceuticals 8-K (09-15-2026)",
-     "file": "transcripts/edgar/JAZZ_8-K_2026-09-15.txt"
-    },
-    {
-     "company": "Littelfuse",
-     "label": "Littelfuse 10-K (02-19-2026)",
-     "file": "transcripts/edgar/LFUS_10-K_2026-02-19_customers.txt"
-    },
-    {
-     "company": "Littelfuse",
-     "label": "Littelfuse 10-K (02-19-2026)",
-     "file": "transcripts/edgar/LFUS_10-K_2026-02-19_supplychain.txt"
-    },
-    {
-     "company": "Littelfuse",
-     "label": "Littelfuse 10-Q (07-29-2026)",
-     "file": "transcripts/edgar/LFUS_10-Q_2026-07-29_segments.txt"
-    },
-    {
-     "company": "Littelfuse",
-     "label": "Littelfuse 10-Q (07-29-2026)",
-     "file": "transcripts/edgar/LFUS_10-Q_2026-07-29_supplychain.txt"
-    },
-    {
-     "company": "Littelfuse",
-     "label": "Littelfuse 8-K (07-29-2026)",
-     "file": "transcripts/edgar/LFUS_8-K_2026-07-29.txt"
-    },
-    {
-     "company": "Littelfuse",
-     "label": "Littelfuse 8-K (09-17-2026)",
-     "file": "transcripts/edgar/LFUS_8-K_2026-09-17.txt"
-    },
-    {
-     "company": "Eli Lilly",
-     "label": "Eli Lilly 10-K (02-12-2026)",
-     "file": "transcripts/edgar/LLY_10-K_2026-02-12_customers.txt"
-    },
-    {
-     "company": "Eli Lilly",
-     "label": "Eli Lilly 10-K (02-12-2026)",
-     "file": "transcripts/edgar/LLY_10-K_2026-02-12_supplychain.txt"
-    },
-    {
-     "company": "Eli Lilly",
-     "label": "Eli Lilly 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/LLY_10-Q_2026-08-05_segments.txt"
-    },
-    {
-     "company": "Eli Lilly",
-     "label": "Eli Lilly 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/LLY_10-Q_2026-08-05_supplychain.txt"
-    },
-    {
-     "company": "Lattice Semiconductor",
-     "label": "Lattice Semiconductor 10-K (02-13-2026)",
-     "file": "transcripts/edgar/LSCC_10-K_2026-02-13_customers.txt"
-    },
-    {
-     "company": "Lattice Semiconductor",
-     "label": "Lattice Semiconductor 10-K (02-13-2026)",
-     "file": "transcripts/edgar/LSCC_10-K_2026-02-13_supplychain.txt"
-    },
-    {
-     "company": "Lattice Semiconductor",
-     "label": "Lattice Semiconductor 10-Q (08-04-2026)",
-     "file": "transcripts/edgar/LSCC_10-Q_2026-08-04_supplychain.txt"
-    },
-    {
-     "company": "Lattice Semiconductor",
-     "label": "Lattice Semiconductor 8-K (07-27-2026)",
-     "file": "transcripts/edgar/LSCC_8-K_2026-07-27.txt"
-    },
-    {
-     "company": "Lightwave Logic",
-     "label": "Lightwave Logic 10-K (03-20-2026)",
-     "file": "transcripts/edgar/LWLG_10-K_2026-03-20_customers.txt"
-    },
-    {
-     "company": "Lightwave Logic",
-     "label": "Lightwave Logic 10-K (03-20-2026)",
-     "file": "transcripts/edgar/LWLG_10-K_2026-03-20_supplychain.txt"
-    },
-    {
-     "company": "Lightwave Logic",
-     "label": "Lightwave Logic 10-Q (08-14-2026)",
-     "file": "transcripts/edgar/LWLG_10-Q_2026-08-14_supplychain.txt"
-    },
-    {
-     "company": "Lightwave Logic",
-     "label": "Lightwave Logic 8-K (09-29-2026)",
-     "file": "transcripts/edgar/LWLG_8-K_2026-09-29.txt"
-    },
-    {
-     "company": "Microchip Technology",
-     "label": "Microchip Technology 10-K (05-21-2026)",
-     "file": "transcripts/edgar/MCHP_10-K_2026-05-21_customers.txt"
-    },
-    {
-     "company": "Microchip Technology",
-     "label": "Microchip Technology 10-K (05-21-2026)",
-     "file": "transcripts/edgar/MCHP_10-K_2026-05-21_supplychain.txt"
-    },
-    {
-     "company": "Microchip Technology",
-     "label": "Microchip Technology 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/MCHP_10-Q_2026-08-06_segments.txt"
-    },
-    {
-     "company": "Microchip Technology",
-     "label": "Microchip Technology 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/MCHP_10-Q_2026-08-06_supplychain.txt"
-    },
-    {
-     "company": "MP Materials",
-     "label": "MP Materials 10-K (02-26-2026)",
-     "file": "transcripts/edgar/MP_10-K_2026-02-26_customers.txt"
-    },
-    {
-     "company": "MP Materials",
-     "label": "MP Materials 10-K (02-26-2026)",
-     "file": "transcripts/edgar/MP_10-K_2026-02-26_supplychain.txt"
-    },
-    {
-     "company": "MP Materials",
-     "label": "MP Materials 10-Q (08-07-2026)",
-     "file": "transcripts/edgar/MP_10-Q_2026-08-07_segments.txt"
-    },
-    {
-     "company": "MP Materials",
-     "label": "MP Materials 10-Q (08-07-2026)",
-     "file": "transcripts/edgar/MP_10-Q_2026-08-07_supplychain.txt"
-    },
-    {
-     "company": "Nautilus Biotechnology",
-     "label": "Nautilus Biotechnology 10-K (02-26-2026)",
-     "file": "transcripts/edgar/NAUT_10-K_2026-02-26_supplychain.txt"
-    },
-    {
-     "company": "Nautilus Biotechnology",
-     "label": "Nautilus Biotechnology 10-Q (07-28-2026)",
-     "file": "transcripts/edgar/NAUT_10-Q_2026-07-28_segments.txt"
-    },
-    {
-     "company": "Nautilus Biotechnology",
-     "label": "Nautilus Biotechnology 10-Q (07-28-2026)",
-     "file": "transcripts/edgar/NAUT_10-Q_2026-07-28_supplychain.txt"
-    },
-    {
-     "company": "NextEra Energy",
-     "label": "NextEra Energy 8-K (09-14-2026)",
-     "file": "transcripts/edgar/NEE_8-K_2026-09-14.txt"
-    },
-    {
-     "company": "nVent",
-     "label": "nVent 8-K (09-15-2026)",
-     "file": "transcripts/edgar/NVT_8-K_2026-09-15.txt"
-    },
-    {
-     "company": "NXP Semiconductors",
-     "label": "NXP Semiconductors 10-K (02-19-2026)",
-     "file": "transcripts/edgar/NXPI_10-K_2026-02-19_customers.txt"
-    },
-    {
-     "company": "NXP Semiconductors",
-     "label": "NXP Semiconductors 10-K (02-19-2026)",
-     "file": "transcripts/edgar/NXPI_10-K_2026-02-19_supplychain.txt"
-    },
-    {
-     "company": "NXP Semiconductors",
-     "label": "NXP Semiconductors 10-Q (07-28-2026)",
-     "file": "transcripts/edgar/NXPI_10-Q_2026-07-28_supplychain.txt"
-    },
-    {
-     "company": "NXP Semiconductors",
-     "label": "NXP Semiconductors 8-K (06-11-2026)",
-     "file": "transcripts/edgar/NXPI_8-K_2026-06-11.txt"
-    },
-    {
-     "company": "NXP Semiconductors",
-     "label": "NXP Semiconductors 8-K (08-28-2026)",
-     "file": "transcripts/edgar/NXPI_8-K_2026-08-28.txt"
-    },
-    {
-     "company": "Oracle",
-     "label": "Oracle 10-Q (09-11-2026)",
-     "file": "transcripts/edgar/ORCL_10-Q_2026-09-11_segments.txt"
-    },
-    {
-     "company": "Oracle",
-     "label": "Oracle 10-Q (09-11-2026)",
-     "file": "transcripts/edgar/ORCL_10-Q_2026-09-11_supplychain.txt"
-    },
-    {
-     "company": "Pacific Biosciences",
-     "label": "Pacific Biosciences 10-K (02-25-2026)",
-     "file": "transcripts/edgar/PACB_10-K_2026-02-25_customers.txt"
-    },
-    {
-     "company": "Pacific Biosciences",
-     "label": "Pacific Biosciences 10-K (02-25-2026)",
-     "file": "transcripts/edgar/PACB_10-K_2026-02-25_supplychain.txt"
-    },
-    {
-     "company": "Pacific Biosciences",
-     "label": "Pacific Biosciences 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/PACB_10-Q_2026-08-06_segments.txt"
-    },
-    {
-     "company": "Pacific Biosciences",
-     "label": "Pacific Biosciences 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/PACB_10-Q_2026-08-06_supplychain.txt"
-    },
-    {
-     "company": "Pacific Biosciences",
-     "label": "Pacific Biosciences 8-K (08-05-2026)",
-     "file": "transcripts/edgar/PACB_8-K_2026-08-05.txt"
-    },
-    {
-     "company": "PDF Solutions",
-     "label": "PDF Solutions 10-K (02-24-2026)",
-     "file": "transcripts/edgar/PDFS_10-K_2026-02-24_customers.txt"
-    },
-    {
-     "company": "PDF Solutions",
-     "label": "PDF Solutions 10-K (02-24-2026)",
-     "file": "transcripts/edgar/PDFS_10-K_2026-02-24_supplychain.txt"
-    },
-    {
-     "company": "PDF Solutions",
-     "label": "PDF Solutions 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/PDFS_10-Q_2026-08-06_segments.txt"
-    },
-    {
-     "company": "PDF Solutions",
-     "label": "PDF Solutions 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/PDFS_10-Q_2026-08-06_supplychain.txt"
-    },
-    {
-     "company": "Quanta Services",
-     "label": "Quanta Services 8-K (09-15-2026)",
-     "file": "transcripts/edgar/PWR_8-K_2026-09-15.txt"
-    },
-    {
-     "company": "Relay Therapeutics",
-     "label": "Relay Therapeutics 10-K (02-26-2026)",
-     "file": "transcripts/edgar/RLAY_10-K_2026-02-26_supplychain.txt"
-    },
-    {
-     "company": "Relay Therapeutics",
-     "label": "Relay Therapeutics 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/RLAY_10-Q_2026-08-06_supplychain.txt"
-    },
-    {
-     "company": "Relay Therapeutics",
-     "label": "Relay Therapeutics 8-K (08-06-2026)",
-     "file": "transcripts/edgar/RLAY_8-K_2026-08-06.txt"
-    },
-    {
-     "company": "Recursion",
-     "label": "Recursion 10-K (02-25-2026)",
-     "file": "transcripts/edgar/RXRX_10-K_2026-02-25_customers.txt"
-    },
-    {
-     "company": "Recursion",
-     "label": "Recursion 10-K (02-25-2026)",
-     "file": "transcripts/edgar/RXRX_10-K_2026-02-25_supplychain.txt"
-    },
-    {
-     "company": "Recursion",
-     "label": "Recursion 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/RXRX_10-Q_2026-08-05_segments.txt"
-    },
-    {
-     "company": "Recursion",
-     "label": "Recursion 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/RXRX_10-Q_2026-08-05_supplychain.txt"
-    },
-    {
-     "company": "Recursion",
-     "label": "Recursion 8-K (08-05-2026)",
-     "file": "transcripts/edgar/RXRX_8-K_2026-08-05.txt"
-    },
-    {
-     "company": "Recursion",
-     "label": "Recursion 8-K (09-21-2026)",
-     "file": "transcripts/edgar/RXRX_8-K_2026-09-21.txt"
-    },
-    {
-     "company": "Schrödinger",
-     "label": "Schrödinger 10-K (02-25-2026)",
-     "file": "transcripts/edgar/SDGR_10-K_2026-02-25_customers.txt"
-    },
-    {
-     "company": "Schrödinger",
-     "label": "Schrödinger 10-K (02-25-2026)",
-     "file": "transcripts/edgar/SDGR_10-K_2026-02-25_supplychain.txt"
-    },
-    {
-     "company": "Schrödinger",
-     "label": "Schrödinger 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/SDGR_10-Q_2026-08-05_segments.txt"
-    },
-    {
-     "company": "Schrödinger",
-     "label": "Schrödinger 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/SDGR_10-Q_2026-08-05_supplychain.txt"
-    },
-    {
-     "company": "Schrödinger",
-     "label": "Schrödinger 8-K (06-29-2026)",
-     "file": "transcripts/edgar/SDGR_8-K_2026-06-29.txt"
-    },
-    {
-     "company": "Simulations Plus",
-     "label": "Simulations Plus 10-K (12-01-2025)",
-     "file": "transcripts/edgar/SLP_10-K_2025-12-01_customers.txt"
-    },
-    {
-     "company": "Simulations Plus",
-     "label": "Simulations Plus 10-K (12-01-2025)",
-     "file": "transcripts/edgar/SLP_10-K_2025-12-01_supplychain.txt"
-    },
-    {
-     "company": "Simulations Plus",
-     "label": "Simulations Plus 10-Q (07-09-2026)",
-     "file": "transcripts/edgar/SLP_10-Q_2026-07-09_segments.txt"
-    },
-    {
-     "company": "Simulations Plus",
-     "label": "Simulations Plus 10-Q (07-09-2026)",
-     "file": "transcripts/edgar/SLP_10-Q_2026-07-09_supplychain.txt"
-    },
-    {
-     "company": "Simulations Plus",
-     "label": "Simulations Plus 8-K (07-09-2026)",
-     "file": "transcripts/edgar/SLP_8-K_2026-07-09.txt"
-    },
-    {
-     "company": "Skyworks Solutions",
-     "label": "Skyworks Solutions 10-K (01-30-2026)",
-     "file": "transcripts/edgar/SWKS_10-K_2026-01-30_customers.txt"
-    },
-    {
-     "company": "Skyworks Solutions",
-     "label": "Skyworks Solutions 10-K (01-30-2026)",
-     "file": "transcripts/edgar/SWKS_10-K_2026-01-30_supplychain.txt"
-    },
-    {
-     "company": "Skyworks Solutions",
-     "label": "Skyworks Solutions 10-Q (07-28-2026)",
-     "file": "transcripts/edgar/SWKS_10-Q_2026-07-28_supplychain.txt"
-    },
-    {
-     "company": "Skyworks Solutions",
-     "label": "Skyworks Solutions 8-K (06-12-2026)",
-     "file": "transcripts/edgar/SWKS_8-K_2026-06-12.txt"
-    },
-    {
-     "company": "Skyworks Solutions",
-     "label": "Skyworks Solutions 8-K (07-28-2026)",
-     "file": "transcripts/edgar/SWKS_8-K_2026-07-28.txt"
-    },
-    {
-     "company": "Skyworks Solutions",
-     "label": "Skyworks Solutions 8-K (09-02-2026)",
-     "file": "transcripts/edgar/SWKS_8-K_2026-09-02.txt"
-    },
-    {
-     "company": "Tempus AI",
-     "label": "Tempus AI 10-K (02-24-2026)",
-     "file": "transcripts/edgar/TEM_10-K_2026-02-24_customers.txt"
-    },
-    {
-     "company": "Tempus AI",
-     "label": "Tempus AI 10-K (02-24-2026)",
-     "file": "transcripts/edgar/TEM_10-K_2026-02-24_supplychain.txt"
-    },
-    {
-     "company": "Tempus AI",
-     "label": "Tempus AI 10-Q (07-30-2026)",
-     "file": "transcripts/edgar/TEM_10-Q_2026-07-30_segments.txt"
-    },
-    {
-     "company": "Tempus AI",
-     "label": "Tempus AI 10-Q (07-30-2026)",
-     "file": "transcripts/edgar/TEM_10-Q_2026-07-30_supplychain.txt"
-    },
-    {
-     "company": "Tempus AI",
-     "label": "Tempus AI 8-K (07-20-2026)",
-     "file": "transcripts/edgar/TEM_8-K_2026-07-20.txt"
-    },
-    {
-     "company": "Tempus AI",
-     "label": "Tempus AI 8-K (07-30-2026)",
-     "file": "transcripts/edgar/TEM_8-K_2026-07-30.txt"
-    },
-    {
-     "company": "Talen Energy",
-     "label": "Talen Energy 8-K (09-29-2026)",
-     "file": "transcripts/edgar/TLN_8-K_2026-09-29.txt"
-    },
-    {
-     "company": "TTM Technologies",
-     "label": "TTM Technologies 8-K (09-30-2026)",
-     "file": "transcripts/edgar/TTMI_8-K_2026-09-30.txt"
-    },
-    {
-     "company": "Twist Bioscience",
-     "label": "Twist Bioscience 10-K (11-17-2025)",
-     "file": "transcripts/edgar/TWST_10-K_2025-11-17_customers.txt"
-    },
-    {
-     "company": "Twist Bioscience",
-     "label": "Twist Bioscience 10-K (11-17-2025)",
-     "file": "transcripts/edgar/TWST_10-K_2025-11-17_supplychain.txt"
-    },
-    {
-     "company": "Twist Bioscience",
-     "label": "Twist Bioscience 10-Q (08-03-2026)",
-     "file": "transcripts/edgar/TWST_10-Q_2026-08-03_segments.txt"
-    },
-    {
-     "company": "Twist Bioscience",
-     "label": "Twist Bioscience 10-Q (08-03-2026)",
-     "file": "transcripts/edgar/TWST_10-Q_2026-08-03_supplychain.txt"
-    },
-    {
-     "company": "Twist Bioscience",
-     "label": "Twist Bioscience 8-K (08-05-2026)",
-     "file": "transcripts/edgar/TWST_8-K_2026-08-05.txt"
-    },
-    {
-     "company": "10x Genomics",
-     "label": "10x Genomics 10-K (02-13-2026)",
-     "file": "transcripts/edgar/TXG_10-K_2026-02-13_customers.txt"
-    },
-    {
-     "company": "10x Genomics",
-     "label": "10x Genomics 10-K (02-13-2026)",
-     "file": "transcripts/edgar/TXG_10-K_2026-02-13_supplychain.txt"
-    },
-    {
-     "company": "10x Genomics",
-     "label": "10x Genomics 10-Q (08-07-2026)",
-     "file": "transcripts/edgar/TXG_10-Q_2026-08-07_segments.txt"
-    },
-    {
-     "company": "10x Genomics",
-     "label": "10x Genomics 10-Q (08-07-2026)",
-     "file": "transcripts/edgar/TXG_10-Q_2026-08-07_supplychain.txt"
-    },
-    {
-     "company": "Texas Instruments",
-     "label": "Texas Instruments 8-K (09-17-2026)",
-     "file": "transcripts/edgar/TXN_8-K_2026-09-17.txt"
-    },
-    {
-     "company": "Vertiv",
-     "label": "Vertiv 8-K (09-24-2026)",
-     "file": "transcripts/edgar/VRT_8-K_2026-09-24.txt"
-    },
-    {
-     "company": "Vertex",
-     "label": "Vertex 10-K (02-13-2026)",
-     "file": "transcripts/edgar/VRTX_10-K_2026-02-13_customers.txt"
-    },
-    {
-     "company": "Vertex",
-     "label": "Vertex 10-K (02-13-2026)",
-     "file": "transcripts/edgar/VRTX_10-K_2026-02-13_supplychain.txt"
-    },
-    {
-     "company": "Vertex",
-     "label": "Vertex 10-Q (08-04-2026)",
-     "file": "transcripts/edgar/VRTX_10-Q_2026-08-04_segments.txt"
-    },
-    {
-     "company": "Vertex",
-     "label": "Vertex 10-Q (08-04-2026)",
-     "file": "transcripts/edgar/VRTX_10-Q_2026-08-04_supplychain.txt"
-    },
-    {
-     "company": "Vertex",
-     "label": "Vertex 8-K (07-07-2026)",
-     "file": "transcripts/edgar/VRTX_8-K_2026-07-07.txt"
-    },
-    {
-     "company": "Wolfspeed",
-     "label": "Wolfspeed 8-K (09-16-2026)",
-     "file": "transcripts/edgar/WOLF_8-K_2026-09-16.txt"
-    }
-   ],
+   "source": "SEC EDGAR 8-K / 10-K / 10-Q + foreign issuers' 6-K / 20-F / 40-F + recent IPO prospectus (edgar_pull.py)",
+   "files": 1468,
+   "labels_on_disk": 1118,
+   "in_graph": 572,
+   "entries": 1572,
+   "pending": [],
    "no_data": [
     {
      "label": "10x Genomics 8-K (08-06-2026)",
@@ -1037,6 +171,16 @@
      "why": null
     },
     {
+     "label": "ASML 20-F (02-25-2026)",
+     "file": "transcripts/edgar/ASML_20-F_2026-02-25_customers.txt",
+     "why": null
+    },
+    {
+     "label": "ASML 6-K (07-15-2026)",
+     "file": "transcripts/edgar/ASML_6-K_2026-07-15.txt",
+     "why": null
+    },
+    {
      "label": "AbCellera 8-K (06-05-2026)",
      "file": "transcripts/edgar/ABCL_8-K_2026-06-05.txt",
      "why": null
@@ -1060,6 +204,11 @@
      "label": "AbCellera 8-K (08-13-2026)",
      "file": "transcripts/edgar/ABCL_8-K_2026-08-13.txt",
      "why": null
+    },
+    {
+     "label": "Absci 10-Q (08-11-2026)",
+     "file": "transcripts/edgar/ABSI_10-Q_2026-08-11_supplychain.txt",
+     "why": "10-Q supplier / manufacturing / backlog paragraphs"
     },
     {
      "label": "Adeia 8-K (07-28-2026)",
@@ -1122,6 +271,21 @@
      "why": null
     },
     {
+     "label": "Babcock & Wilcox 8-K (06-08-2026)",
+     "file": "transcripts/edgar/BW_8-K_2026-06-08.txt",
+     "why": null
+    },
+    {
+     "label": "Babcock & Wilcox 8-K (07-13-2026)",
+     "file": "transcripts/edgar/BW_8-K_2026-07-13.txt",
+     "why": null
+    },
+    {
+     "label": "Babcock & Wilcox 8-K (09-08-2026)",
+     "file": "transcripts/edgar/BW_8-K_2026-09-08.txt",
+     "why": null
+    },
+    {
      "label": "Bel Fuse 8-K (07-02-2026)",
      "file": "transcripts/edgar/BELFB_8-K_2026-07-02.txt",
      "why": null
@@ -1130,6 +294,11 @@
      "label": "Bel Fuse 8-K (07-29-2026)",
      "file": "transcripts/edgar/BELFB_8-K_2026-07-29.txt",
      "why": null
+    },
+    {
+     "label": "Bristol Myers Squibb 10-Q (07-30-2026)",
+     "file": "transcripts/edgar/BMY_10-Q_2026-07-30_segments.txt",
+     "why": "10-Q XBRL segment revenue"
     },
     {
      "label": "CEVA 8-K (07-13-2026)",
@@ -1167,6 +336,16 @@
      "why": null
     },
     {
+     "label": "Cerebras prospectus (05-14-2026)",
+     "file": "transcripts/edgar/CBRS_424B4_2026-05-14_customers.txt",
+     "why": null
+    },
+    {
+     "label": "Certara 10-Q (08-04-2026)",
+     "file": "transcripts/edgar/CERT_10-Q_2026-08-04_supplychain.txt",
+     "why": "10-Q supplier / manufacturing / backlog paragraphs"
+    },
+    {
      "label": "Certara 8-K (08-04-2026)",
      "file": "transcripts/edgar/CERT_8-K_2026-08-04.txt",
      "why": null
@@ -1174,6 +353,21 @@
     {
      "label": "Certara 8-K (08-07-2026)",
      "file": "transcripts/edgar/CERT_8-K_2026-08-07.txt",
+     "why": null
+    },
+    {
+     "label": "CleanSpark 8-K (08-06-2026)",
+     "file": "transcripts/edgar/CLSK_8-K_2026-08-06.txt",
+     "why": null
+    },
+    {
+     "label": "CleanSpark 8-K (09-18-2026)",
+     "file": "transcripts/edgar/CLSK_8-K_2026-09-18.txt",
+     "why": null
+    },
+    {
+     "label": "CleanSpark 8-K (09-25-2026)",
+     "file": "transcripts/edgar/CLSK_8-K_2026-09-25.txt",
      "why": null
     },
     {
@@ -1202,8 +396,23 @@
      "why": "10-Q XBRL segment revenue"
     },
     {
+     "label": "Duke Energy 8-K (08-04-2026)",
+     "file": "transcripts/edgar/DUK_8-K_2026-08-04.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy 8-K (08-13-2026)",
+     "file": "transcripts/edgar/DUK_8-K_2026-08-13.txt",
+     "why": null
+    },
+    {
      "label": "Eli Lilly 8-K (08-05-2026)",
      "file": "transcripts/edgar/LLY_8-K_2026-08-05.txt",
+     "why": null
+    },
+    {
+     "label": "Flex 8-K (10-02-2026)",
+     "file": "transcripts/edgar/FLEX_8-K_2026-10-02.txt",
      "why": null
     },
     {
@@ -1219,6 +428,21 @@
     {
      "label": "Ginkgo Bioworks 8-K (08-05-2026)",
      "file": "transcripts/edgar/DNA_8-K_2026-08-05.txt",
+     "why": null
+    },
+    {
+     "label": "HIVE Digital Technologies 10-K (07-29-2026)",
+     "file": "transcripts/edgar/HIVE_10-K_2026-07-29_supplychain.txt",
+     "why": "10-K supplier / manufacturing / backlog paragraphs"
+    },
+    {
+     "label": "HIVE Digital Technologies 8-K (07-01-2026)",
+     "file": "transcripts/edgar/HIVE_8-K_2026-07-01.txt",
+     "why": null
+    },
+    {
+     "label": "HIVE Digital Technologies 8-K (08-17-2026)",
+     "file": "transcripts/edgar/HIVE_8-K_2026-08-17.txt",
      "why": null
     },
     {
@@ -1252,9 +476,29 @@
      "why": null
     },
     {
+     "label": "Iron Mountain 8-K (06-26-2026)",
+     "file": "transcripts/edgar/IRM_8-K_2026-06-26.txt",
+     "why": null
+    },
+    {
+     "label": "Iron Mountain 8-K (08-05-2026)",
+     "file": "transcripts/edgar/IRM_8-K_2026-08-05.txt",
+     "why": null
+    },
+    {
      "label": "Jabil 8-K (09-30-2026)",
      "file": "transcripts/edgar/JBL_8-K_2026-09-30.txt",
      "why": null
+    },
+    {
+     "label": "Jazz Pharmaceuticals 10-K (04-24-2026)",
+     "file": "transcripts/edgar/JAZZ_10-K_2026-04-24_supplychain.txt",
+     "why": "10-K supplier / manufacturing / backlog paragraphs"
+    },
+    {
+     "label": "Jazz Pharmaceuticals 10-Q (08-03-2026)",
+     "file": "transcripts/edgar/JAZZ_10-Q_2026-08-03_segments.txt",
+     "why": "10-Q XBRL segment revenue"
     },
     {
      "label": "Jazz Pharmaceuticals 8-K (08-03-2026)",
@@ -1282,6 +526,11 @@
      "why": null
     },
     {
+     "label": "Keel Infrastructure 8-K (08-10-2026)",
+     "file": "transcripts/edgar/KEEL_8-K_2026-08-10.txt",
+     "why": null
+    },
+    {
      "label": "Lattice Semiconductor 8-K (06-30-2026)",
      "file": "transcripts/edgar/LSCC_8-K_2026-06-30.txt",
      "why": null
@@ -1289,6 +538,21 @@
     {
      "label": "Lattice Semiconductor 8-K (08-04-2026)",
      "file": "transcripts/edgar/LSCC_8-K_2026-08-04.txt",
+     "why": null
+    },
+    {
+     "label": "Liberty Energy 8-K (06-25-2026)",
+     "file": "transcripts/edgar/LBRT_8-K_2026-06-25.txt",
+     "why": null
+    },
+    {
+     "label": "Liberty Energy 8-K (07-23-2026)",
+     "file": "transcripts/edgar/LBRT_8-K_2026-07-23.txt",
+     "why": null
+    },
+    {
+     "label": "Liberty Energy 8-K (09-18-2026)",
+     "file": "transcripts/edgar/LBRT_8-K_2026-09-18.txt",
      "why": null
     },
     {
@@ -1312,13 +576,43 @@
      "why": null
     },
     {
+     "label": "MARA Holdings 8-K (06-22-2026)",
+     "file": "transcripts/edgar/MARA_8-K_2026-06-22.txt",
+     "why": null
+    },
+    {
+     "label": "MARA Holdings 8-K (08-04-2026)",
+     "file": "transcripts/edgar/MARA_8-K_2026-08-04.txt",
+     "why": null
+    },
+    {
+     "label": "MARA Holdings 8-K (08-06-2026)",
+     "file": "transcripts/edgar/MARA_8-K_2026-08-06.txt",
+     "why": null
+    },
+    {
      "label": "MP Materials 8-K (08-06-2026)",
      "file": "transcripts/edgar/MP_8-K_2026-08-06.txt",
      "why": null
     },
     {
+     "label": "Magnachip Semiconductor 8-K (06-17-2026)",
+     "file": "transcripts/edgar/MX_8-K_2026-06-17.txt",
+     "why": null
+    },
+    {
+     "label": "Magnachip Semiconductor 8-K (07-29-2026)",
+     "file": "transcripts/edgar/MX_8-K_2026-07-29.txt",
+     "why": null
+    },
+    {
      "label": "Marvell 8-K (09-25-2026)",
      "file": "transcripts/edgar/MRVL_8-K_2026-09-25.txt",
+     "why": null
+    },
+    {
+     "label": "Materion 8-K (08-05-2026)",
+     "file": "transcripts/edgar/MTRN_8-K_2026-08-05.txt",
      "why": null
     },
     {
@@ -1342,6 +636,11 @@
      "why": null
     },
     {
+     "label": "Modine 8-K (10-01-2026)",
+     "file": "transcripts/edgar/MOD_8-K_2026-10-01.txt",
+     "why": null
+    },
+    {
      "label": "NXP Semiconductors 8-K (07-28-2026)",
      "file": "transcripts/edgar/NXPI_8-K_2026-07-28.txt",
      "why": null
@@ -1350,6 +649,16 @@
      "label": "NXP Semiconductors 8-K (09-02-2026)",
      "file": "transcripts/edgar/NXPI_8-K_2026-09-02.txt",
      "why": null
+    },
+    {
+     "label": "Nautilus Biotechnology 10-K (02-26-2026)",
+     "file": "transcripts/edgar/NAUT_10-K_2026-02-26_supplychain.txt",
+     "why": "10-K supplier / manufacturing / backlog paragraphs"
+    },
+    {
+     "label": "Nautilus Biotechnology 10-Q (07-28-2026)",
+     "file": "transcripts/edgar/NAUT_10-Q_2026-07-28_segments.txt",
+     "why": "10-Q XBRL segment revenue"
     },
     {
      "label": "Nautilus Biotechnology 8-K (07-28-2026)",
@@ -1367,8 +676,13 @@
      "why": "10-K supplier / manufacturing / backlog paragraphs"
     },
     {
-     "label": "Navitas 8-K (09-21-2026)",
-     "file": "transcripts/edgar/NVTS_8-K_2026-09-21.txt",
+     "label": "NiSource 8-K (08-05-2026)",
+     "file": "transcripts/edgar/NI_8-K_2026-08-05.txt",
+     "why": null
+    },
+    {
+     "label": "NiSource 8-K (08-18-2026)",
+     "file": "transcripts/edgar/NI_8-K_2026-08-18.txt",
      "why": null
     },
     {
@@ -1399,6 +713,26 @@
     {
      "label": "Pacific Biosciences 8-K (07-09-2026)",
      "file": "transcripts/edgar/PACB_8-K_2026-07-09.txt",
+     "why": null
+    },
+    {
+     "label": "Regal Rexnord 8-K (08-05-2026)",
+     "file": "transcripts/edgar/RRX_8-K_2026-08-05.txt",
+     "why": null
+    },
+    {
+     "label": "Riot Platforms 8-K (06-15-2026)",
+     "file": "transcripts/edgar/RIOT_8-K_2026-06-15.txt",
+     "why": null
+    },
+    {
+     "label": "Riot Platforms 8-K (08-14-2026)",
+     "file": "transcripts/edgar/RIOT_8-K_2026-08-14.txt",
+     "why": null
+    },
+    {
+     "label": "Riot Platforms 8-K (09-25-2026)",
+     "file": "transcripts/edgar/RIOT_8-K_2026-09-25.txt",
      "why": null
     },
     {
@@ -1452,6 +786,11 @@
      "why": null
     },
     {
+     "label": "Skyworks Solutions 10-K (01-30-2026)",
+     "file": "transcripts/edgar/SWKS_10-K_2026-01-30_customers.txt",
+     "why": "10-K customer concentration"
+    },
+    {
      "label": "Skyworks Solutions 8-K (08-03-2026)",
      "file": "transcripts/edgar/SWKS_8-K_2026-08-03.txt",
      "why": null
@@ -1467,9 +806,94 @@
      "why": null
     },
     {
+     "label": "Solaris Energy Infrastructure 8-K (08-05-2026)",
+     "file": "transcripts/edgar/SEI_8-K_2026-08-05.txt",
+     "why": null
+    },
+    {
+     "label": "Solaris Energy Infrastructure 8-K (09-23-2026)",
+     "file": "transcripts/edgar/SEI_8-K_2026-09-23.txt",
+     "why": null
+    },
+    {
+     "label": "Solaris Energy Infrastructure 8-K (10-01-2026)",
+     "file": "transcripts/edgar/SEI_8-K_2026-10-01.txt",
+     "why": null
+    },
+    {
      "label": "TE Connectivity 10-Q (07-24-2026)",
      "file": "transcripts/edgar/TEL_10-Q_2026-07-24_segments.txt",
      "why": "10-Q XBRL segment revenue"
+    },
+    {
+     "label": "TSMC 20-F (04-16-2026)",
+     "file": "transcripts/edgar/TSM_20-F_2026-04-16_customers.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (06-10-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-06-10.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (06-25-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-06-25.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (07-02-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-07-02.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (07-13-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-07-13.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (07-16-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-07-16.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (07-24-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-07-24.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (08-10-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-08-10.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (08-11-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-08-11.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (08-14-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-08-14.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (08-25-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-08-25.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (09-01-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-09-01.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (09-10-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-09-10.txt",
+     "why": null
+    },
+    {
+     "label": "TSMC 6-K (09-24-2026)",
+     "file": "transcripts/edgar/TSM_6-K_2026-09-24.txt",
+     "why": null
     },
     {
      "label": "TTM Technologies 8-K (09-24-2026)",
@@ -1484,6 +908,11 @@
     {
      "label": "Tesla 8-K (09-29-2026)",
      "file": "transcripts/edgar/TSLA_8-K_2026-09-29.txt",
+     "why": null
+    },
+    {
+     "label": "Tesla 8-K (10-02-2026)",
+     "file": "transcripts/edgar/TSLA_8-K_2026-10-02.txt",
      "why": null
     },
     {
@@ -1517,6 +946,16 @@
      "why": null
     },
     {
+     "label": "Vertex 10-K (02-13-2026)",
+     "file": "transcripts/edgar/VRTX_10-K_2026-02-13_customers.txt",
+     "why": "10-K customer concentration"
+    },
+    {
+     "label": "Vertex 10-Q (08-04-2026)",
+     "file": "transcripts/edgar/VRTX_10-Q_2026-08-04_segments.txt",
+     "why": "10-Q XBRL segment revenue"
+    },
+    {
      "label": "Vertex 8-K (08-03-2026)",
      "file": "transcripts/edgar/VRTX_8-K_2026-08-03.txt",
      "why": null
@@ -1532,6 +971,16 @@
      "why": null
     },
     {
+     "label": "WEC Energy Group 8-K (07-29-2026)",
+     "file": "transcripts/edgar/WEC_8-K_2026-07-29.txt",
+     "why": null
+    },
+    {
+     "label": "WEC Energy Group 8-K (08-11-2026)",
+     "file": "transcripts/edgar/WEC_8-K_2026-08-11.txt",
+     "why": null
+    },
+    {
      "label": "Wesco 8-K (09-21-2026)",
      "file": "transcripts/edgar/WCC_8-K_2026-09-21.txt",
      "why": null
@@ -1539,6 +988,31 @@
     {
      "label": "Western Digital 8-K (09-14-2026)",
      "file": "transcripts/edgar/WDC_8-K_2026-09-14.txt",
+     "why": null
+    },
+    {
+     "label": "Williams Companies 8-K (07-01-2026)",
+     "file": "transcripts/edgar/WMB_8-K_2026-07-01.txt",
+     "why": null
+    },
+    {
+     "label": "Williams Companies 8-K (08-03-2026)",
+     "file": "transcripts/edgar/WMB_8-K_2026-08-03.txt",
+     "why": null
+    },
+    {
+     "label": "Williams Companies 8-K (08-21-2026)",
+     "file": "transcripts/edgar/WMB_8-K_2026-08-21.txt",
+     "why": null
+    },
+    {
+     "label": "Williams Companies 8-K (09-03-2026)",
+     "file": "transcripts/edgar/WMB_8-K_2026-09-03.txt",
+     "why": null
+    },
+    {
+     "label": "Williams Companies 8-K (09-10-2026)",
+     "file": "transcripts/edgar/WMB_8-K_2026-09-10.txt",
      "why": null
     },
     {
@@ -1557,13 +1031,13 @@
      "why": null
     }
    ],
-   "skipped": 311,
+   "skipped": 359,
    "source_range": [
     "2025-10-03",
-    "2026-09-30"
+    "2026-10-02"
    ],
-   "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_fetch": "2026-10-04",
+   "last_enriched": "2026-10-04",
    "enriched_days": [
     {
      "day": "2026-09-10",
@@ -1576,36 +1050,44 @@
     {
      "day": "2026-10-01",
      "labels": 1
+    },
+    {
+     "day": "2026-10-02",
+     "labels": 76
+    },
+    {
+     "day": "2026-10-04",
+     "labels": 63
     }
    ],
-   "last_sync": "2026-10-01",
+   "last_sync": "2026-10-04",
    "extra": {
-    "done": 1012,
-    "dropped": 93,
+    "done": 1298,
+    "dropped": 135,
     "why": [
+     [
+      "10-Q supplier / manufacturing / backlog paragraphs",
+      192
+     ],
+     [
+      "10-K supplier / manufacturing / backlog paragraphs",
+      187
+     ],
+     [
+      "10-K customer concentration",
+      176
+     ],
+     [
+      "10-Q XBRL segment revenue",
+      150
+     ],
      [
       "no supply-chain content",
       146
      ],
      [
-      "10-Q supplier / manufacturing / backlog paragraphs",
-      137
-     ],
-     [
-      "10-K supplier / manufacturing / backlog paragraphs",
-      135
-     ],
-     [
-      "10-K customer concentration",
-      130
-     ],
-     [
       "earnings release only",
       121
-     ],
-     [
-      "10-Q XBRL segment revenue",
-      108
      ]
     ]
    }
@@ -1615,10 +1097,10 @@
    "name": "Korea DART filings",
    "command": "enrich dart",
    "source": "DART 정기보고서 / 잠정실적 / 공급계약 (dart.py)",
-   "files": 151,
-   "labels_on_disk": 161,
-   "in_graph": 159,
-   "entries": 1149,
+   "files": 154,
+   "labels_on_disk": 164,
+   "in_graph": 162,
+   "entries": 1152,
    "pending": [],
    "no_data": [
     {
@@ -1635,10 +1117,10 @@
    "skipped": 0,
    "source_range": [
     "2026-08-04",
-    "2026-10-01"
+    "2026-10-02"
    ],
-   "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_fetch": "2026-10-02",
+   "last_enriched": "2026-10-02",
    "enriched_days": [
     {
      "day": "2026-09-07",
@@ -1655,11 +1137,15 @@
     {
      "day": "2026-10-01",
      "labels": 54
+    },
+    {
+     "day": "2026-10-02",
+     "labels": 3
     }
    ],
-   "last_sync": "2026-10-01",
+   "last_sync": "2026-10-04",
    "extra": {
-    "filings_seen": 64
+    "filings_seen": 67
    }
   },
   {
@@ -1669,43 +1155,17 @@
    "source": "Investing.com call transcripts (investing.py)",
    "files": 59,
    "labels_on_disk": 59,
-   "in_graph": 56,
-   "entries": 438,
-   "pending": [
-    {
-     "company": "Lenovo",
-     "label": "Lenovo Q1 FY2026 (08-13-2026)",
-     "file": "transcripts/investing/lenovo_q1_2026.txt"
-    },
-    {
-     "company": "AGC",
-     "label": "AGC Q2 FY2027 (08-04-2026)",
-     "file": "transcripts/investing/agc_q2_2027.txt"
-    },
-    {
-     "company": "Fujitsu",
-     "label": "Fujitsu Q1 FY2027 (07-30-2026)",
-     "file": "transcripts/investing/fujitsu_q1_2027.txt"
-    },
-    {
-     "company": "SMIC",
-     "label": "SMIC Q2 FY2026 (08-14-2026)",
-     "file": "transcripts/investing/smic_q2_2026.txt"
-    },
-    {
-     "company": "Sumitomo Chemical",
-     "label": "Sumitomo Chemical Q1 FY2027 (08-04-2026)",
-     "file": "transcripts/investing/sumitomochemical_q1_2027.txt"
-    }
-   ],
+   "in_graph": 59,
+   "entries": 465,
+   "pending": [],
    "no_data": [],
    "skipped": 0,
    "source_range": [
     "2026-05-12",
     "2026-09-07"
    ],
-   "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_fetch": "2026-10-02",
+   "last_enriched": "2026-10-02",
    "enriched_days": [
     {
      "day": "2026-09-01",
@@ -1722,11 +1182,15 @@
     {
      "day": "2026-10-01",
      "labels": 26
+    },
+    {
+     "day": "2026-10-02",
+     "labels": 3
     }
    ],
-   "last_sync": "2026-10-01",
+   "last_sync": "2026-10-02",
    "extra": {
-    "articles_seen": 179
+    "articles_seen": 180
    }
   },
   {
@@ -1774,19 +1238,19 @@
    "name": "Investor conferences",
    "command": "enrich conference",
    "source": "Investing.com fireside chats (investing.py conferences)",
-   "files": 113,
-   "labels_on_disk": 113,
-   "in_graph": 113,
-   "entries": 631,
+   "files": 116,
+   "labels_on_disk": 116,
+   "in_graph": 116,
+   "entries": 647,
    "pending": [],
    "no_data": [],
    "skipped": 0,
    "source_range": [
     "2026-07-20",
-    "2026-09-30"
+    "2026-10-01"
    ],
    "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_enriched": "2026-10-02",
    "enriched_days": [
     {
      "day": "2026-09-16",
@@ -1806,28 +1270,16 @@
     },
     {
      "day": "2026-10-01",
-     "labels": 8
+     "labels": 10
+    },
+    {
+     "day": "2026-10-02",
+     "labels": 1
     }
    ],
-   "last_sync": "2026-09-30",
+   "last_sync": "2026-10-04",
    "extra": {
     "runs": [
-     {
-      "at": "2026-09-16 01:07",
-      "since": "2026-05-15",
-      "pages": 31,
-      "oldest_seen": "2026-09-09",
-      "candidates": 6,
-      "saved": 5
-     },
-     {
-      "at": "2026-09-16 01:14",
-      "since": "2026-05-15",
-      "pages": 285,
-      "oldest_seen": "2026-05-14",
-      "candidates": 4,
-      "saved": 4
-     },
      {
       "at": "2026-09-22 18:31",
       "since": "2026-09-14",
@@ -1851,6 +1303,22 @@
       "oldest_seen": "2026-09-10",
       "candidates": 7,
       "saved": 7
+     },
+     {
+      "at": "2026-10-01 23:07",
+      "since": "2026-04-04",
+      "pages": 19,
+      "oldest_seen": "2026-09-16",
+      "candidates": 3,
+      "saved": 2
+     },
+     {
+      "at": "2026-10-04 17:48",
+      "since": "2026-04-07",
+      "pages": 0,
+      "oldest_seen": null,
+      "candidates": 0,
+      "saved": 0
      }
     ]
    }
@@ -1860,125 +1328,270 @@
    "name": "Company IR press releases",
    "command": "enrich ir",
    "source": "Company IR RSS feeds (ir_pull.py) — company-issued, not transcripts",
-   "files": 1230,
-   "labels_on_disk": 1229,
-   "in_graph": 379,
-   "entries": 478,
+   "files": 1307,
+   "labels_on_disk": 1307,
+   "in_graph": 396,
+   "entries": 499,
    "pending": [
     {
-     "company": "Foxconn",
-     "label": "Foxconn press release: Hon Hai Technology Group (Foxconn) Announces Second Quarter (08-12-2026)",
-     "file": "transcripts/ir/foxconn_2026-08-12_hon-hai-technology-group-foxconn-announces-second-.txt"
+     "company": "ACM Research",
+     "label": "ACM Research press release: ACM Research Announces Participation in 18th Annual CEO (09-30-2026)",
+     "file": "transcripts/ir/acmresearch_2026-09-30_acm-research-announces-participation-in-18th-annua.txt"
     },
     {
-     "company": "Toppan",
-     "label": "Toppan press release: TOPPAN Establishes FC-BGA Substrate Production Site in (09-30-2026)",
-     "file": "transcripts/ir/toppan_2026-09-30_toppan-establishes-fc-bga-substrate-production-sit.txt"
+     "company": "ACM Research",
+     "label": "ACM Research press release: ACM Research's Operating Subsidiary ACM Research (Shanghai) (09-30-2026)",
+     "file": "transcripts/ir/acmresearch_2026-09-30_acm-research-s-operating-subsidiary-acm-research-s.txt"
     },
     {
-     "company": "CleanSpark",
-     "label": "CleanSpark press release: CleanSpark, Inc. Announces Closing of $2.276 Billion of (09-25-2026)",
-     "file": "transcripts/ir/cleanspark_2026-09-25_cleanspark-inc-announces-closing-of-2-276-billion-.txt"
+     "company": "ACM Research",
+     "label": "ACM Research press release: ACM Research's Ultra ECP ap-p Horizontal Panel (08-07-2026)",
+     "file": "transcripts/ir/acmresearch_2026-08-07_acm-research-s-ultra-ecp-ap-p-horizontal-panel-ele.txt"
     },
     {
-     "company": "CleanSpark",
-     "label": "CleanSpark press release: CleanSpark, Inc. Announces Pricing of $2.276 Billion of (09-18-2026)",
-     "file": "transcripts/ir/cleanspark_2026-09-18_cleanspark-inc-announces-pricing-of-2-276-billion-.txt"
+     "company": "ACM Research",
+     "label": "ACM Research press release: ACM Research Expands Ultra C Tahoe into a Wet Processing (08-07-2026)",
+     "file": "transcripts/ir/acmresearch_2026-08-07_acm-research-expands-ultra-c-tahoe-into-a-wet-proc.txt"
     },
     {
-     "company": "CleanSpark",
-     "label": "CleanSpark press release: CleanSpark, Inc. Announces Proposed Offering of $2.227 (09-17-2026)",
-     "file": "transcripts/ir/cleanspark_2026-09-17_cleanspark-inc-announces-proposed-offering-of-2-22.txt"
+     "company": "AGC",
+     "label": "AGC press release: AGC and Neusignal Therapeutics Collaborate on the (08-24-2026)",
+     "file": "transcripts/ir/agc_2026-08-24_agc-and-neusignal-therapeutics-collaborate-on-the-.txt"
     },
     {
-     "company": "CleanSpark",
-     "label": "CleanSpark press release: CleanSpark Releases August 2026 Operational Update (09-08-2026)",
-     "file": "transcripts/ir/cleanspark_2026-09-08_cleanspark-releases-august-2026-operational-update.txt"
+     "company": "AGC",
+     "label": "AGC press release: Japan's First Recycle Waste Window Glass from Demolition (08-19-2026)",
+     "file": "transcripts/ir/agc_2026-08-19_japan-s-first-recycle-waste-window-glass-from-demo.txt"
     },
     {
-     "company": "Favite",
-     "label": "Favite press release: release aoi-e6-8a-80-e8-a1-93-e8-ba-8d-e5-8d-87- (09-18-2026)",
-     "file": "transcripts/ir/favite_2026-09-18_release-aoi-e6-8a-80-e8-a1-93-e8-ba-8d-e5-8d-87.txt"
+     "company": "AGC",
+     "label": "AGC press release: AGC to Support Relief Efforts for the 2026 Kumamoto (08-06-2026)",
+     "file": "transcripts/ir/agc_2026-08-06_agc-to-support-relief-efforts-for-the-2026-kumamot.txt"
     },
     {
-     "company": "EnerSys",
-     "label": "EnerSys press release: EnerSys Strengthens High-Efficiency Broadband DC Power (09-29-2026)",
-     "file": "transcripts/ir/enersys_2026-09-29_enersys-strengthens-high-efficiency-broadband-dc-p.txt"
+     "company": "Applied Digital",
+     "label": "Applied Digital press release: Applied Digital Brings an Additional 75 MW of AI (10-02-2026)",
+     "file": "transcripts/ir/applieddigital_2026-10-02_applied-digital-brings-an-additional-75-mw-of-ai-i.txt"
     },
     {
-     "company": "EnerSys",
-     "label": "EnerSys press release: EnerSys Announces Development Progress on Alpha XM Edge (09-29-2026)",
-     "file": "transcripts/ir/enersys_2026-09-29_enersys-announces-development-progress-on-alpha-xm.txt"
+     "company": "AstraZeneca",
+     "label": "AstraZeneca press release: AstraZeneca and Daiichi Sankyo announce clinical (10-02-2026)",
+     "file": "transcripts/ir/astrazeneca_2026-10-02_astrazeneca-and-daiichi-sankyo-announce-clinical-c.txt"
     },
     {
-     "company": "Williams Companies",
-     "label": "Williams Companies press release: Williams Prices $2.75 Billion of Senior Notes (09-08-2026)",
-     "file": "transcripts/ir/williamscompanies_2026-09-08_williams-prices-2-75-billion-of-senior-notes.txt"
+     "company": "Diodes",
+     "label": "Diodes press release: Field-Plated Super Barrier Rectifier Devices from Diodes (09-24-2026)",
+     "file": "transcripts/ir/diodes_2026-09-24_field-plated-super-barrier-rectifier-devices-from-.txt"
     },
     {
-     "company": "Williams Companies",
-     "label": "Williams Companies press release: Williams Completes Acquisition of Momentum Midstream (09-03-2026)",
-     "file": "transcripts/ir/williamscompanies_2026-09-03_williams-completes-acquisition-of-momentum-midstre.txt"
+     "company": "Diodes",
+     "label": "Diodes press release: Diodes Completes Acquisition of ElevATE Semiconductor, (08-27-2026)",
+     "file": "transcripts/ir/diodes_2026-08-27_diodes-completes-acquisition-of-elevate-semiconduc.txt"
     },
     {
-     "company": "Duke Energy",
-     "label": "Duke Energy press release: Duke Energy grants $326,500 to boost Florida's economy (09-30-2026)",
-     "file": "transcripts/ir/dukeenergy_2026-09-30_duke-energy-grants-326-500-to-boost-florida-s-econ.txt"
+     "company": "Diodes",
+     "label": "Diodes press release: Diodes Incorporated Announces Pricing of Private Placement (08-14-2026)",
+     "file": "transcripts/ir/diodes_2026-08-14_diodes-incorporated-announces-pricing-of-private-p.txt"
     },
     {
-     "company": "Duke Energy",
-     "label": "Duke Energy press release: Duke Energy Foundation awards $100,000 to support upward (09-25-2026)",
-     "file": "transcripts/ir/dukeenergy_2026-09-25_duke-energy-foundation-awards-100-000-to-support-u.txt"
+     "company": "Diodes",
+     "label": "Diodes press release: Diodes Incorporated Announces Proposed Private Placement of (08-13-2026)",
+     "file": "transcripts/ir/diodes_2026-08-13_diodes-incorporated-announces-proposed-private-pla.txt"
     },
     {
-     "company": "Duke Energy",
-     "label": "Duke Energy press release: Duke Energy board appoints Joyce Mullen as new member (09-25-2026)",
-     "file": "transcripts/ir/dukeenergy_2026-09-25_duke-energy-board-appoints-joyce-mullen-as-new-mem.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: Lilly's Jaypirca (pirtobrutinib), the first-and-only (10-02-2026)",
+     "file": "transcripts/ir/elililly_2026-10-02_lilly-s-jaypirca-pirtobrutinib-the-first-and-only-.txt"
     },
     {
-     "company": "Duke Energy",
-     "label": "Duke Energy press release: Duke Energy Foundation, Tampa Bay Rays donate $93,000 to (09-21-2026)",
-     "file": "transcripts/ir/dukeenergy_2026-09-21_duke-energy-foundation-tampa-bay-rays-donate-93-00.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: Lilly's oral GLP-1, Foundayo (orforglipron), was associated (10-01-2026)",
+     "file": "transcripts/ir/elililly_2026-10-01_lilly-s-oral-glp-1-foundayo-orforglipron-was-assoc.txt"
     },
     {
-     "company": "Duke Energy",
-     "label": "Duke Energy press release: Duke Energy asks Carolinas customers to reduce electricity (09-18-2026)",
-     "file": "transcripts/ir/dukeenergy_2026-09-18_duke-energy-asks-carolinas-customers-to-reduce-ele.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: Lilly's oral GLP-1, Foundayo (orforglipron), demonstrated (09-30-2026)",
+     "file": "transcripts/ir/elililly_2026-09-30_lilly-s-oral-glp-1-foundayo-orforglipron-demonstra.txt"
     },
     {
-     "company": "Duke Energy",
-     "label": "Duke Energy press release: EEI recognizes Duke Energy for outstanding response to (09-16-2026)",
-     "file": "transcripts/ir/dukeenergy_2026-09-16_eei-recognizes-duke-energy-for-outstanding-respons.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: Lilly's EloraTZP (combination of eloralintide and (09-30-2026)",
+     "file": "transcripts/ir/elililly_2026-09-30_lilly-s-eloratzp-combination-of-eloralintide-and-t.txt"
     },
     {
-     "company": "Duke Energy",
-     "label": "Duke Energy press release: Duke Energy Florida requests to lower rates in 2027 (09-03-2026)",
-     "file": "transcripts/ir/dukeenergy_2026-09-03_duke-energy-florida-requests-to-lower-rates-in-202.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: New Phase 3b data show Lilly's EBGLYSS (lebrikizumab-lbkz) (09-30-2026)",
+     "file": "transcripts/ir/elililly_2026-09-30_new-phase-3b-data-show-lilly-s-ebglyss-lebrikizuma.txt"
     },
     {
-     "company": "Duke Energy",
-     "label": "Duke Energy press release: The heat is on - again: Duke Energy Ohio & Kentucky (09-02-2026)",
-     "file": "transcripts/ir/dukeenergy_2026-09-02_the-heat-is-on-again-duke-energy-ohio-kentucky-cus.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: Lilly's triple agonist, retatrutide, delivered substantial (09-29-2026)",
+     "file": "transcripts/ir/elililly_2026-09-29_lilly-s-triple-agonist-retatrutide-delivered-subst.txt"
     },
     {
-     "company": "Duke Energy",
-     "label": "Duke Energy press release: Hot weather returns to the Carolinas: Tools, programs and (09-01-2026)",
-     "file": "transcripts/ir/dukeenergy_2026-09-01_hot-weather-returns-to-the-carolinas-tools-program.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: Lilly's Zepbound (tirzepatide 10 mg and 15 mg) was (09-29-2026)",
+     "file": "transcripts/ir/elililly_2026-09-29_lilly-s-zepbound-tirzepatide-10-mg-and-15-mg-was-a.txt"
     },
     {
-     "company": "Iron Mountain",
-     "label": "Iron Mountain press release: Iron Mountain Recognized in Four Industry Analyst Reports (09-28-2026)",
-     "file": "transcripts/ir/ironmountain_2026-09-28_iron-mountain-recognized-in-four-industry-analyst-.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: Lilly's Foundayo (orforglipron) 17.2 mg showed greater (09-29-2026)",
+     "file": "transcripts/ir/elililly_2026-09-29_lilly-s-foundayo-orforglipron-17-2-mg-showed-great.txt"
     },
     {
-     "company": "Iron Mountain",
-     "label": "Iron Mountain press release: Iron Mountain Partners with the Opra national de Paris to (09-15-2026)",
-     "file": "transcripts/ir/ironmountain_2026-09-15_iron-mountain-partners-with-the-opra-national-de-p.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: Lilly launches the Lilly Change the Course Commitment, (09-28-2026)",
+     "file": "transcripts/ir/elililly_2026-09-28_lilly-launches-the-lilly-change-the-course-commitm.txt"
     },
     {
-     "company": "Iron Mountain",
-     "label": "Iron Mountain press release: Iron Mountain Expands Footprint in the Middle East with (09-02-2026)",
-     "file": "transcripts/ir/ironmountain_2026-09-02_iron-mountain-expands-footprint-in-the-middle-east.txt"
+     "company": "Eli Lilly",
+     "label": "Eli Lilly press release: FDA approves Lilly's Olumiant (baricitinib) for pediatric (09-25-2026)",
+     "file": "transcripts/ir/elililly_2026-09-25_fda-approves-lilly-s-olumiant-baricitinib-for-pedi.txt"
+    },
+    {
+     "company": "Eoptolink",
+     "label": "Eoptolink press release: ECOC 2026: Eoptolink's XPO and NPO Powering Next-Gen AI (10-02-2026)",
+     "file": "transcripts/ir/eoptolink_2026-10-02_ecoc-2026-eoptolink-s-xpo-and-npo-powering-next-ge.txt"
+    },
+    {
+     "company": "Evaxion Biotech",
+     "label": "Evaxion Biotech press release: Evaxion will present new immune data for personalized (10-02-2026)",
+     "file": "transcripts/ir/evaxionbiotech_2026-10-02_evaxion-will-present-new-immune-data-for-personali.txt"
+    },
+    {
+     "company": "Eversource",
+     "label": "Eversource press release: Eversource and Dartmouth Engineering selected for U.S. (09-29-2026)",
+     "file": "transcripts/ir/eversource_2026-09-29_eversource-and-dartmouth-engineering-selected-for-.txt"
+    },
+    {
+     "company": "Eversource",
+     "label": "Eversource press release: ISO New England selects Eversource's joint transmission (09-16-2026)",
+     "file": "transcripts/ir/eversource_2026-09-16_iso-new-england-selects-eversource-s-joint-transmi.txt"
+    },
+    {
+     "company": "Galaxy Digital",
+     "label": "Galaxy Digital press release: Galaxy Provides Update on ERCOT Batch Zero Large Load (09-08-2026)",
+     "file": "transcripts/ir/galaxydigital_2026-09-08_galaxy-provides-update-on-ercot-batch-zero-large-l.txt"
+    },
+    {
+     "company": "Galaxy Digital",
+     "label": "Galaxy Digital press release: Bank Leumi Partners with Galaxy to be the First Bank in (08-14-2026)",
+     "file": "transcripts/ir/galaxydigital_2026-08-14_bank-leumi-partners-with-galaxy-to-be-the-first-ba.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo's AI adoption and change management model helps (10-02-2026)",
+     "file": "transcripts/ir/lenovo_2026-10-02_lenovo-s-ai-adoption-and-change-management-model-h.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: DKSH Accelerates Landmark Smart Parking Deployment with (10-02-2026)",
+     "file": "transcripts/ir/lenovo_2026-10-02_dksh-accelerates-landmark-smart-parking-deployment.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Inside Raleigh's new Teen Tech Center, young creators are (08-26-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-26_inside-raleigh-s-new-teen-tech-center-young-creato.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Recognized as a World's Top Disability Inclusive (08-26-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-26_lenovo-recognized-as-a-world-s-top-disability-incl.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: From everyday shopping to the world's biggest stage: How My (08-25-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-25_from-everyday-shopping-to-the-world-s-biggest-stag.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo Expands Its Gaming Lineup with New LOQ Essential PCs (08-25-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-25_lenovo-expands-its-gaming-lineup-with-new-loq-esse.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Lenovo empowers the next generation through technology, (08-18-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-18_lenovo-empowers-the-next-generation-through-techno.txt"
+    },
+    {
+     "company": "Lenovo",
+     "label": "Lenovo press release: Repairable devices help spell the end for disposable IT (08-18-2026)",
+     "file": "transcripts/ir/lenovo_2026-08-18_repairable-devices-help-spell-the-end-for-disposab.txt"
+    },
+    {
+     "company": "Merck KGaA",
+     "label": "Merck KGaA press release: EMD Electronics Opens New R&D Facility in Wisconsin to (10-02-2026)",
+     "file": "transcripts/ir/merckkgaa_2026-10-02_emd-electronics-opens-new-r-d-facility-in-wisconsi.txt"
+    },
+    {
+     "company": "NXP Semiconductors",
+     "label": "NXP Semiconductors press release: VSMC Celebrates the Grand Opening of Its First 300mm Fab in (09-28-2026)",
+     "file": "transcripts/ir/nxpsemiconductors_2026-09-28_vsmc-celebrates-the-grand-opening-of-its-first-300.txt"
+    },
+    {
+     "company": "NXP Semiconductors",
+     "label": "NXP Semiconductors press release: NXP Semiconductors Breaks Ground on Assembly and Test Site (08-12-2026)",
+     "file": "transcripts/ir/nxpsemiconductors_2026-08-12_nxp-semiconductors-breaks-ground-on-assembly-and-t.txt"
+    },
+    {
+     "company": "NXP Semiconductors",
+     "label": "NXP Semiconductors press release: NXP Trimension Ultra-Wideband Powers BMW Group's Digital (08-04-2026)",
+     "file": "transcripts/ir/nxpsemiconductors_2026-08-04_nxp-trimension-ultra-wideband-powers-bmw-group-s-d.txt"
+    },
+    {
+     "company": "Novo Nordisk",
+     "label": "Novo Nordisk press release: Novo provides update on the denecimig Biologics License (10-02-2026)",
+     "file": "transcripts/ir/novonordisk_2026-10-02_novo-provides-update-on-the-denecimig-biologics-li.txt"
+    },
+    {
+     "company": "Renesas",
+     "label": "Renesas press release: UPDATE: Renesas Announces Establishment of New Subsidiary (10-02-2026)",
+     "file": "transcripts/ir/renesas_2026-10-02_update-renesas-announces-establishment-of-new-subs.txt"
+    },
+    {
+     "company": "TDK",
+     "label": "TDK press release: TDK demonstrates the world's first direct retinal (10-02-2026)",
+     "file": "transcripts/ir/tdk_2026-10-02_tdk-demonstrates-the-world-s-first-direct-retinal-.txt"
+    },
+    {
+     "company": "Tempus AI",
+     "label": "Tempus AI press release: Tempus Announces 13 Abstracts Accepted for Presentation at (10-01-2026)",
+     "file": "transcripts/ir/tempusai_2026-10-01_tempus-announces-13-abstracts-accepted-for-present.txt"
+    },
+    {
+     "company": "Tempus AI",
+     "label": "Tempus AI press release: Tempus Receives FDA Clearance for its ECG-MR AI Product (09-28-2026)",
+     "file": "transcripts/ir/tempusai_2026-09-28_tempus-receives-fda-clearance-for-its-ecg-mr-ai-pr.txt"
+    },
+    {
+     "company": "Tempus AI",
+     "label": "Tempus AI press release: Tempus and Recursion Extend Existing Data License Agreement (09-21-2026)",
+     "file": "transcripts/ir/tempusai_2026-09-21_tempus-and-recursion-extend-existing-data-license-.txt"
+    },
+    {
+     "company": "Tempus AI",
+     "label": "Tempus AI press release: Tempus Launches Effort to Build the Largest Multimodal (09-11-2026)",
+     "file": "transcripts/ir/tempusai_2026-09-11_tempus-launches-effort-to-build-the-largest-multim.txt"
+    },
+    {
+     "company": "Tempus AI",
+     "label": "Tempus AI press release: Tempus Secures Up to $9.5 Million in ARPA-H ADVOCATE (09-09-2026)",
+     "file": "transcripts/ir/tempusai_2026-09-09_tempus-secures-up-to-9-5-million-in-arpa-h-advocat.txt"
+    },
+    {
+     "company": "Tempus AI",
+     "label": "Tempus AI press release: Tempus Receives FDA Clearance for its AI Product Intended (08-24-2026)",
+     "file": "transcripts/ir/tempusai_2026-08-24_tempus-receives-fda-clearance-for-its-ai-product-i.txt"
+    },
+    {
+     "company": "Tempus AI",
+     "label": "Tempus AI press release: Tempus Study Published in Nature Medicine Demonstrates (08-04-2026)",
+     "file": "transcripts/ir/tempusai_2026-08-04_tempus-study-published-in-nature-medicine-demonstr.txt"
+    },
+    {
+     "company": "UMC",
+     "label": "UMC press release: UMC Named Among HR Asia Best Companies to Work for in Asia (08-17-2026)",
+     "file": "transcripts/ir/umc_2026-08-17_umc-named-among-hr-asia-best-companies-to-work-for.txt"
     }
    ],
    "no_data": [
@@ -2000,21 +1613,6 @@
     {
      "label": "AAON press release: AAON Introduces The Aaon Group as Its New Enterprise (08-21-2026)",
      "file": "transcripts/ir/aaon_2026-08-21_aaon-introduces-the-aaon-group-as-its-new-enterpri.txt",
-     "why": null
-    },
-    {
-     "label": "ACM Research press release: ACM Research Announces Participation in 18th Annual CEO (09-30-2026)",
-     "file": "transcripts/ir/acmresearch_2026-09-30_acm-research-announces-participation-in-18th-annua.txt",
-     "why": null
-    },
-    {
-     "label": "ACM Research press release: ACM Research Expands Ultra C Tahoe into a Wet Processing (08-07-2026)",
-     "file": "transcripts/ir/acmresearch_2026-08-07_acm-research-expands-ultra-c-tahoe-into-a-wet-proc.txt",
-     "why": null
-    },
-    {
-     "label": "ACM Research press release: ACM Research's Ultra ECP ap-p Horizontal Panel (08-07-2026)",
-     "file": "transcripts/ir/acmresearch_2026-08-07_acm-research-s-ultra-ecp-ap-p-horizontal-panel-ele.txt",
      "why": null
     },
     {
@@ -2040,6 +1638,11 @@
     {
      "label": "AGC press release: AGC Glass Europe and Saint-Gobain Launch Large-Scale Hybrid (08-31-2026)",
      "file": "transcripts/ir/agc_2026-08-31_agc-glass-europe-and-saint-gobain-launch-large-sca.txt",
+     "why": null
+    },
+    {
+     "label": "AGC press release: AGC Receives an Excellence Award at the \"9th SX Awards\" for (10-02-2026)",
+     "file": "transcripts/ir/agc_2026-10-02_agc-receives-an-excellence-award-at-the-9th-sx-awa.txt",
      "why": null
     },
     {
@@ -2103,8 +1706,18 @@
      "why": null
     },
     {
+     "label": "ASUS press release: ASUS Announces Intel-Powered ExpertBook P3 G2 (08-20-2026)",
+     "file": "transcripts/ir/asus_2026-08-20_asus-announces-intel-powered-expertbook-p3-g2.txt",
+     "why": null
+    },
+    {
      "label": "ASUS press release: ASUS Announces WiFi 8 Router Availability in Canada Ahead (09-04-2026)",
      "file": "transcripts/ir/asus_2026-09-04_asus-announces-wifi-8-router-availability-in-canad.txt",
+     "why": null
+    },
+    {
+     "label": "ASUS press release: ASUS Commits US$96,800 to Support Colombia Earthquake (08-18-2026)",
+     "file": "transcripts/ir/asus_2026-08-18_asus-commits-us-96-800-to-support-colombia-earthqu.txt",
      "why": null
     },
     {
@@ -2133,6 +1746,41 @@
      "why": null
     },
     {
+     "label": "ASUS press release: ASUS Republic of Gamers Announces 20th Anniversary Charity (08-25-2026)",
+     "file": "transcripts/ir/asus_2026-08-25_asus-republic-of-gamers-announces-20th-anniversary.txt",
+     "why": null
+    },
+    {
+     "label": "ASUS press release: ASUS Republic of Gamers Announces New Esports Hardware and (08-25-2026)",
+     "file": "transcripts/ir/asus_2026-08-25_asus-republic-of-gamers-announces-new-esports-hard.txt",
+     "why": null
+    },
+    {
+     "label": "ASUS press release: ASUS Republic of Gamers Announces ROG Archer Suitcase 20 (08-24-2026)",
+     "file": "transcripts/ir/asus_2026-08-24_asus-republic-of-gamers-announces-rog-archer-suitc.txt",
+     "why": null
+    },
+    {
+     "label": "ASUS press release: ASUS Republic of Gamers Announces ROG Flux Charger Dock (08-24-2026)",
+     "file": "transcripts/ir/asus_2026-08-24_asus-republic-of-gamers-announces-rog-flux-charger.txt",
+     "why": null
+    },
+    {
+     "label": "ASUS press release: ASUS Republic of Gamers Announces ROG XBOX Ally X20 is Now (08-25-2026)",
+     "file": "transcripts/ir/asus_2026-08-25_asus-republic-of-gamers-announces-rog-xbox-ally-x2.txt",
+     "why": null
+    },
+    {
+     "label": "ASUS press release: ASUS Republic of Gamers Announces an Arsenal of New Gaming (08-25-2026)",
+     "file": "transcripts/ir/asus_2026-08-25_asus-republic-of-gamers-announces-an-arsenal-of-ne.txt",
+     "why": null
+    },
+    {
+     "label": "ASUS press release: ASUS Republic of Gamers Celebrates 20 Years of ROG at (08-12-2026)",
+     "file": "transcripts/ir/asus_2026-08-12_asus-republic-of-gamers-celebrates-20-years-of-rog.txt",
+     "why": null
+    },
+    {
      "label": "ASUS press release: ASUS Showcases AI-Powered ProArt Creator Solutions at IBC (09-11-2026)",
      "file": "transcripts/ir/asus_2026-09-11_asus-showcases-ai-powered-proart-creator-solutions.txt",
      "why": null
@@ -2145,6 +1793,11 @@
     {
      "label": "ASUS press release: ASUS Showcases ProArt PCs Powered by NVIDIA RTX Spark at (09-02-2026)",
      "file": "transcripts/ir/asus_2026-09-02_asus-showcases-proart-pcs-powered-by-nvidia-rtx-sp.txt",
+     "why": null
+    },
+    {
+     "label": "ASUS press release: ASUS Statement on ITC Initial Determination in (08-17-2026)",
+     "file": "transcripts/ir/asus_2026-08-17_asus-statement-on-itc-initial-determination-in-inv.txt",
      "why": null
     },
     {
@@ -2168,6 +1821,11 @@
      "why": null
     },
     {
+     "label": "ASUS press release: Announcing the New ASUS ExpertBook B3 G2 (08-20-2026)",
+     "file": "transcripts/ir/asus_2026-08-20_announcing-the-new-asus-expertbook-b3-g2.txt",
+     "why": null
+    },
+    {
      "label": "ASUS press release: Announcing the New ASUS Googlebook 14 (09-23-2026)",
      "file": "transcripts/ir/asus_2026-09-23_announcing-the-new-asus-googlebook-14.txt",
      "why": null
@@ -2175,6 +1833,11 @@
     {
      "label": "ASUS press release: Qualcomm and ASUS announce collaboration through launch of (09-02-2026)",
      "file": "transcripts/ir/asus_2026-09-02_qualcomm-and-asus-announce-collaboration-through-l.txt",
+     "why": null
+    },
+    {
+     "label": "ASUS press release: ROG Swift OLED PG259QWS Ace Selected as Official Monitor (08-25-2026)",
+     "file": "transcripts/ir/asus_2026-08-25_rog-swift-oled-pg259qws-ace-selected-as-official-m.txt",
      "why": null
     },
     {
@@ -2558,6 +2221,16 @@
      "why": null
     },
     {
+     "label": "Bitdeer Technologies press release: Bitdeer AI Announces Sell-out of its 9.5MW A102 Malaysia (08-31-2026)",
+     "file": "transcripts/ir/bitdeertechnologies_2026-08-31_bitdeer-ai-announces-sell-out-of-its-9-5mw-a102-ma.txt",
+     "why": null
+    },
+    {
+     "label": "Bizlink press release: BizLink Receives Lam Research 2026 Supplier Excellence Award (08-21-2026)",
+     "file": "transcripts/ir/bizlink_2026-08-21_bizlink-receives-lam-research-2026-supplier-excell.txt",
+     "why": null
+    },
+    {
      "label": "Bloom Energy press release: Bloom Energy Hits the Road with ESPN College Football (09-11-2026)",
      "file": "transcripts/ir/bloomenergy_2026-09-11_bloom-energy-hits-the-road-with-espn-college-footb.txt",
      "why": null
@@ -2698,6 +2371,21 @@
      "why": null
     },
     {
+     "label": "CleanSpark press release: CleanSpark, Inc. Announces Closing of $2.276 Billion of (09-25-2026)",
+     "file": "transcripts/ir/cleanspark_2026-09-25_cleanspark-inc-announces-closing-of-2-276-billion-.txt",
+     "why": null
+    },
+    {
+     "label": "CleanSpark press release: CleanSpark, Inc. Announces Pricing of $2.276 Billion of (09-18-2026)",
+     "file": "transcripts/ir/cleanspark_2026-09-18_cleanspark-inc-announces-pricing-of-2-276-billion-.txt",
+     "why": null
+    },
+    {
+     "label": "CleanSpark press release: CleanSpark, Inc. Announces Proposed Offering of $2.227 (09-17-2026)",
+     "file": "transcripts/ir/cleanspark_2026-09-17_cleanspark-inc-announces-proposed-offering-of-2-22.txt",
+     "why": null
+    },
+    {
      "label": "Coherent press release: Coherent Brings AI Datacenter and Photonics Thought (09-08-2026)",
      "file": "transcripts/ir/coherent_2026-09-08_coherent-brings-ai-datacenter-and-photonics-though.txt",
      "why": null
@@ -2773,6 +2461,16 @@
      "why": null
     },
     {
+     "label": "Dai Nippon Printing press release: Announcement Regarding Completion of Share Acquisition of (10-01-2026)",
+     "file": "transcripts/ir/dainipponprinting_2026-10-01_announcement-regarding-completion-of-share-acquisi.txt",
+     "why": null
+    },
+    {
+     "label": "Dai Nippon Printing press release: DNP Develops Aseptic Filling-Compatible Container: PET (10-02-2026)",
+     "file": "transcripts/ir/dainipponprinting_2026-10-02_dnp-develops-aseptic-filling-compatible-container-.txt",
+     "why": null
+    },
+    {
      "label": "Dai Nippon Printing press release: DNP Launches DP-RX2 Photo Printer for Growing EventPhoto (09-16-2026)",
      "file": "transcripts/ir/dainipponprinting_2026-09-16_dnp-launches-dp-rx2-photo-printer-for-growing-even.txt",
      "why": null
@@ -2813,21 +2511,6 @@
      "why": null
     },
     {
-     "label": "Diodes press release: Diodes Incorporated Announces Pricing of Private Placement (08-14-2026)",
-     "file": "transcripts/ir/diodes_2026-08-14_diodes-incorporated-announces-pricing-of-private-p.txt",
-     "why": null
-    },
-    {
-     "label": "Diodes press release: Diodes Incorporated Announces Proposed Private Placement of (08-13-2026)",
-     "file": "transcripts/ir/diodes_2026-08-13_diodes-incorporated-announces-proposed-private-pla.txt",
-     "why": null
-    },
-    {
-     "label": "Diodes press release: Field-Plated Super Barrier Rectifier Devices from Diodes (09-24-2026)",
-     "file": "transcripts/ir/diodes_2026-09-24_field-plated-super-barrier-rectifier-devices-from-.txt",
-     "why": null
-    },
-    {
      "label": "Dominion Energy press release: Dominion Energy Charitable Foundation Fall Grant Cycle Now (08-10-2026)",
      "file": "transcripts/ir/dominionenergy_2026-08-10_dominion-energy-charitable-foundation-fall-grant-c.txt",
      "why": null
@@ -2835,6 +2518,51 @@
     {
      "label": "Dominion Energy press release: NextEra Energy and Dominion Energy announce (09-14-2026)",
      "file": "transcripts/ir/dominionenergy_2026-09-14_nextera-energy-and-dominion-energy-announce-transf.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy press release: Duke Energy Florida requests to lower rates in 2027 (09-03-2026)",
+     "file": "transcripts/ir/dukeenergy_2026-09-03_duke-energy-florida-requests-to-lower-rates-in-202.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy press release: Duke Energy Foundation awards $100,000 to support upward (09-25-2026)",
+     "file": "transcripts/ir/dukeenergy_2026-09-25_duke-energy-foundation-awards-100-000-to-support-u.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy press release: Duke Energy Foundation, Tampa Bay Rays donate $93,000 to (09-21-2026)",
+     "file": "transcripts/ir/dukeenergy_2026-09-21_duke-energy-foundation-tampa-bay-rays-donate-93-00.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy press release: Duke Energy asks Carolinas customers to reduce electricity (09-18-2026)",
+     "file": "transcripts/ir/dukeenergy_2026-09-18_duke-energy-asks-carolinas-customers-to-reduce-ele.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy press release: Duke Energy board appoints Joyce Mullen as new member (09-25-2026)",
+     "file": "transcripts/ir/dukeenergy_2026-09-25_duke-energy-board-appoints-joyce-mullen-as-new-mem.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy press release: Duke Energy grants $326,500 to boost Florida's economy (09-30-2026)",
+     "file": "transcripts/ir/dukeenergy_2026-09-30_duke-energy-grants-326-500-to-boost-florida-s-econ.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy press release: EEI recognizes Duke Energy for outstanding response to (09-16-2026)",
+     "file": "transcripts/ir/dukeenergy_2026-09-16_eei-recognizes-duke-energy-for-outstanding-respons.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy press release: Hot weather returns to the Carolinas: Tools, programs and (09-01-2026)",
+     "file": "transcripts/ir/dukeenergy_2026-09-01_hot-weather-returns-to-the-carolinas-tools-program.txt",
+     "why": null
+    },
+    {
+     "label": "Duke Energy press release: The heat is on - again: Duke Energy Ohio & Kentucky (09-02-2026)",
+     "file": "transcripts/ir/dukeenergy_2026-09-02_the-heat-is-on-again-duke-energy-ohio-kentucky-cus.txt",
      "why": null
     },
     {
@@ -2863,38 +2591,8 @@
      "why": null
     },
     {
-     "label": "Eli Lilly press release: Lilly launches the Lilly Change the Course Commitment, (09-28-2026)",
-     "file": "transcripts/ir/elililly_2026-09-28_lilly-launches-the-lilly-change-the-course-commitm.txt",
-     "why": null
-    },
-    {
      "label": "Eli Lilly press release: Lilly to acquire Merida Biosciences to advance treatments (08-31-2026)",
      "file": "transcripts/ir/elililly_2026-08-31_lilly-to-acquire-merida-biosciences-to-advance-tre.txt",
-     "why": null
-    },
-    {
-     "label": "Eli Lilly press release: Lilly's EloraTZP (combination of eloralintide and (09-30-2026)",
-     "file": "transcripts/ir/elililly_2026-09-30_lilly-s-eloratzp-combination-of-eloralintide-and-t.txt",
-     "why": null
-    },
-    {
-     "label": "Eli Lilly press release: Lilly's Foundayo (orforglipron) 17.2 mg showed greater (09-29-2026)",
-     "file": "transcripts/ir/elililly_2026-09-29_lilly-s-foundayo-orforglipron-17-2-mg-showed-great.txt",
-     "why": null
-    },
-    {
-     "label": "Eli Lilly press release: Lilly's Zepbound (tirzepatide 10 mg and 15 mg) was (09-29-2026)",
-     "file": "transcripts/ir/elililly_2026-09-29_lilly-s-zepbound-tirzepatide-10-mg-and-15-mg-was-a.txt",
-     "why": null
-    },
-    {
-     "label": "Eli Lilly press release: Lilly's oral GLP-1, Foundayo (orforglipron), demonstrated (09-30-2026)",
-     "file": "transcripts/ir/elililly_2026-09-30_lilly-s-oral-glp-1-foundayo-orforglipron-demonstra.txt",
-     "why": null
-    },
-    {
-     "label": "Eli Lilly press release: Lilly's triple agonist, retatrutide, delivered substantial (09-29-2026)",
-     "file": "transcripts/ir/elililly_2026-09-29_lilly-s-triple-agonist-retatrutide-delivered-subst.txt",
      "why": null
     },
     {
@@ -2903,8 +2601,18 @@
      "why": null
     },
     {
-     "label": "Eli Lilly press release: New Phase 3b data show Lilly's EBGLYSS (lebrikizumab-lbkz) (09-30-2026)",
-     "file": "transcripts/ir/elililly_2026-09-30_new-phase-3b-data-show-lilly-s-ebglyss-lebrikizuma.txt",
+     "label": "EnerSys press release: EnerSys Announces Development Progress on Alpha XM Edge (09-29-2026)",
+     "file": "transcripts/ir/enersys_2026-09-29_enersys-announces-development-progress-on-alpha-xm.txt",
+     "why": null
+    },
+    {
+     "label": "EnerSys press release: EnerSys Receives 5.0 Diamond Rating for Alpha XM Edge Power (10-01-2026)",
+     "file": "transcripts/ir/enersys_2026-10-01_enersys-receives-5-0-diamond-rating-for-alpha-xm-e.txt",
+     "why": null
+    },
+    {
+     "label": "EnerSys press release: EnerSys Strengthens High-Efficiency Broadband DC Power (09-29-2026)",
+     "file": "transcripts/ir/enersys_2026-09-29_enersys-strengthens-high-efficiency-broadband-dc-p.txt",
      "why": null
     },
     {
@@ -2943,13 +2651,13 @@
      "why": null
     },
     {
-     "label": "Eversource press release: Eversource and Dartmouth Engineering selected for U.S. (09-29-2026)",
-     "file": "transcripts/ir/eversource_2026-09-29_eversource-and-dartmouth-engineering-selected-for-.txt",
+     "label": "FSP Technology press release: FSP Unveils the World's First 80 PLUS 230V Ruby-Certified (09-22-2026)",
+     "file": "transcripts/ir/fsptechnology_2026-09-22_fsp-unveils-the-world-s-first-80-plus-230v-ruby-ce.txt",
      "why": null
     },
     {
-     "label": "FSP Technology press release: FSP Unveils the World's First 80 PLUS 230V Ruby-Certified (09-22-2026)",
-     "file": "transcripts/ir/fsptechnology_2026-09-22_fsp-unveils-the-world-s-first-80-plus-230v-ruby-ce.txt",
+     "label": "Favite press release: release aoi-e6-8a-80-e8-a1-93-e8-ba-8d-e5-8d-87- (09-18-2026)",
+     "file": "transcripts/ir/favite_2026-09-18_release-aoi-e6-8a-80-e8-a1-93-e8-ba-8d-e5-8d-87.txt",
      "why": null
     },
     {
@@ -3068,6 +2776,11 @@
      "why": null
     },
     {
+     "label": "Furukawa Electric press release: Development of elemental technology for decomposition of (10-02-2026)",
+     "file": "transcripts/ir/furukawaelectric_2026-10-02_development-of-elemental-technology-for-decomposit.txt",
+     "why": null
+    },
+    {
      "label": "GE Vernova press release: Blue Energy moves Texas gas-plus-nuclear project into NRC (09-15-2026)",
      "file": "transcripts/ir/gevernova_2026-09-15_blue-energy-moves-texas-gas-plus-nuclear-project-i.txt",
      "why": null
@@ -3075,6 +2788,11 @@
     {
      "label": "GE Vernova press release: GE Vernova Announces Chief Financial Officer Transition (08-27-2026)",
      "file": "transcripts/ir/gevernova_2026-08-27_ge-vernova-announces-chief-financial-officer-trans.txt",
+     "why": null
+    },
+    {
+     "label": "GE Vernova press release: GE Vernova and PROTEC Celebrate Next Engineers Engineering (10-01-2026)",
+     "file": "transcripts/ir/gevernova_2026-10-01_ge-vernova-and-protec-celebrate-next-engineers-eng.txt",
      "why": null
     },
     {
@@ -3100,11 +2818,6 @@
     {
      "label": "GE Vernova press release: Vineyard Wind and GE Vernova Announce Resolution of (09-16-2026)",
      "file": "transcripts/ir/gevernova_2026-09-16_vineyard-wind-and-ge-vernova-announce-resolution-o.txt",
-     "why": null
-    },
-    {
-     "label": "Galaxy Digital press release: Bank Leumi Partners with Galaxy to be the First Bank in (08-14-2026)",
-     "file": "transcripts/ir/galaxydigital_2026-08-14_bank-leumi-partners-with-galaxy-to-be-the-first-ba.txt",
      "why": null
     },
     {
@@ -3253,6 +2966,26 @@
      "why": null
     },
     {
+     "label": "Iron Mountain press release: Clutter by Iron Mountain Reimagines Personal Storage, (08-13-2026)",
+     "file": "transcripts/ir/ironmountain_2026-08-13_clutter-by-iron-mountain-reimagines-personal-stora.txt",
+     "why": null
+    },
+    {
+     "label": "Iron Mountain press release: Iron Mountain Expands Footprint in the Middle East with (09-02-2026)",
+     "file": "transcripts/ir/ironmountain_2026-09-02_iron-mountain-expands-footprint-in-the-middle-east.txt",
+     "why": null
+    },
+    {
+     "label": "Iron Mountain press release: Iron Mountain Partners with the Opra national de Paris to (09-15-2026)",
+     "file": "transcripts/ir/ironmountain_2026-09-15_iron-mountain-partners-with-the-opra-national-de-p.txt",
+     "why": null
+    },
+    {
+     "label": "Iron Mountain press release: Iron Mountain Recognized in Four Industry Analyst Reports (09-28-2026)",
+     "file": "transcripts/ir/ironmountain_2026-09-28_iron-mountain-recognized-in-four-industry-analyst-.txt",
+     "why": null
+    },
+    {
      "label": "JCET press release: JCET Hosts Global Supplier Day 2026 in Jiangyin (09-17-2026)",
      "file": "transcripts/ir/jcet_2026-09-17_jcet-hosts-global-supplier-day-2026-in-jiangyin.txt",
      "why": null
@@ -3340,6 +3073,11 @@
     {
      "label": "Kaori Heat Treatment press release: Super Computing 2026 (09-14-2026)",
      "file": "transcripts/ir/kaoriheattreatment_2026-09-14_super-computing-2026.txt",
+     "why": null
+    },
+    {
+     "label": "Keel Infrastructure press release: Keel Infrastructure Supports Governor Shapiro's GRID (08-20-2026)",
+     "file": "transcripts/ir/keelinfrastructure_2026-08-20_keel-infrastructure-supports-governor-shapiro-s-gr.txt",
      "why": null
     },
     {
@@ -3435,6 +3173,11 @@
     {
      "label": "Korea Zinc press release: release ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-2026 (09-23-2026)",
      "file": "transcripts/ir/koreazinc_2026-09-23_release-ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-2026.txt",
+     "why": null
+    },
+    {
+     "label": "Korea Zinc press release: release ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ea-b (09-29-2026)",
+     "file": "transcripts/ir/koreazinc_2026-09-29_release-ea-b3-a0-eb-a0-a4-ec-95-84-ec-97-b0-ea-b.txt",
      "why": null
     },
     {
@@ -3763,6 +3506,11 @@
      "why": null
     },
     {
+     "label": "Lumentum press release: Lumentum Announces Speaker Lineup at 2026 OCP Global Summit (10-01-2026)",
+     "file": "transcripts/ir/lumentum_2026-10-01_lumentum-announces-speaker-lineup-at-2026-ocp-glob.txt",
+     "why": null
+    },
+    {
      "label": "Lumentum press release: Lumentum Announces Upcoming Investor Events (08-14-2026)",
      "file": "transcripts/ir/lumentum_2026-08-14_lumentum-announces-upcoming-investor-events.txt",
      "why": null
@@ -3800,6 +3548,11 @@
     {
      "label": "Magnachip Semiconductor press release: Magnachip Announces Strategic Investment by Navitas (09-21-2026)",
      "file": "transcripts/ir/magnachipsemiconductor_2026-09-21_magnachip-announces-strategic-investment-by-navita.txt",
+     "why": null
+    },
+    {
+     "label": "Magnachip Semiconductor press release: Magnachip Reports Results for Second Quarter 2026 (07-29-2026)",
+     "file": "transcripts/ir/magnachipsemiconductor_2026-07-29_magnachip-reports-results-for-second-quarter-2026.txt",
      "why": null
     },
     {
@@ -4075,6 +3828,11 @@
     {
      "label": "Mitsubishi Heavy Industries press release: Approval in Principle (AiP) Acquired for Standard (09-15-2026)",
      "file": "transcripts/ir/mitsubishiheavyindustries_2026-09-15_approval-in-principle-aip-acquired-for-standard-lo.txt",
+     "why": null
+    },
+    {
+     "label": "Mitsubishi Heavy Industries press release: MHI Acquires Industrial Development Site in Shimonoseki, (10-02-2026)",
+     "file": "transcripts/ir/mitsubishiheavyindustries_2026-10-02_mhi-acquires-industrial-development-site-in-shimon.txt",
      "why": null
     },
     {
@@ -4373,6 +4131,11 @@
      "why": null
     },
     {
+     "label": "NetApp press release: NetApp Recognizes Winners of 2026 North America Partner (10-01-2026)",
+     "file": "transcripts/ir/netapp_2026-10-01_netapp-recognizes-winners-of-2026-north-america-pa.txt",
+     "why": null
+    },
+    {
      "label": "NetApp press release: NetApp and AWS Accelerate Storage Migrations with AWS (09-03-2026)",
      "file": "transcripts/ir/netapp_2026-09-03_netapp-and-aws-accelerate-storage-migrations-with-.txt",
      "why": null
@@ -4390,6 +4153,11 @@
     {
      "label": "NextEra Energy press release: NextEra Energy and Dominion Energy announce (09-14-2026)",
      "file": "transcripts/ir/nexteraenergy_2026-09-14_nextera-energy-and-dominion-energy-announce-transf.txt",
+     "why": null
+    },
+    {
+     "label": "NextEra Energy press release: NextEra Energy announces participation at the 2026 Wolfe (10-01-2026)",
+     "file": "transcripts/ir/nexteraenergy_2026-10-01_nextera-energy-announces-participation-at-the-2026.txt",
      "why": null
     },
     {
@@ -4475,6 +4243,16 @@
     {
      "label": "Nokia press release: ESpanix deploys Nokia Deepfield Defender to protect Spain's (09-14-2026)",
      "file": "transcripts/ir/nokia_2026-09-14_espanix-deploys-nokia-deepfield-defender-to-protec.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: ICEYE and Nokia partner to launch secure and sovereign (10-01-2026)",
+     "file": "transcripts/ir/nokia_2026-10-01_iceye-and-nokia-partner-to-launch-secure-and-sover.txt",
+     "why": null
+    },
+    {
+     "label": "Nokia press release: Inseego completes acquisition of Nokia's Fixed Wireless (10-01-2026)",
+     "file": "transcripts/ir/nokia_2026-10-01_inseego-completes-acquisition-of-nokia-s-fixed-wir.txt",
      "why": null
     },
     {
@@ -4565,6 +4343,11 @@
     {
      "label": "Novo Nordisk press release: Novo's Ozempic (semaglutide) 2 mg associated with lower (09-29-2026)",
      "file": "transcripts/ir/novonordisk_2026-09-29_novo-s-ozempic-semaglutide-2-mg-associated-with-lo.txt",
+     "why": null
+    },
+    {
+     "label": "Novo Nordisk press release: Novo's Wegovy (semaglutide) reduced liver fat to normal (10-01-2026)",
+     "file": "transcripts/ir/novonordisk_2026-10-01_novo-s-wegovy-semaglutide-reduced-liver-fat-to-nor.txt",
      "why": null
     },
     {
@@ -4935,6 +4718,11 @@
     {
      "label": "SK Hynix press release: Clarification Regarding Recent Media Reports on Solidigm (10-01-2026)",
      "file": "transcripts/ir/skhynix_2026-10-01_clarification-regarding-recent-media-reports-on-so.txt",
+     "why": null
+    },
+    {
+     "label": "SK Hynix press release: [AI Ecosystem] Redesigning infrastructure: Why architecture (10-01-2026)",
+     "file": "transcripts/ir/skhynix_2026-10-01_ai-ecosystem-redesigning-infrastructure-why-archit.txt",
      "why": null
     },
     {
@@ -5428,6 +5216,11 @@
      "why": null
     },
     {
+     "label": "Shell press release: Total Voting Rights (10-01-2026)",
+     "file": "transcripts/ir/shell_2026-10-01_total-voting-rights.txt",
+     "why": null
+    },
+    {
      "label": "Shell press release: Transaction in Own Shares (09-18-2026)",
      "file": "transcripts/ir/shell_2026-09-18_transaction-in-own-shares.txt",
      "why": null
@@ -5608,6 +5401,11 @@
      "why": null
     },
     {
+     "label": "SoftBank press release: Execution of Follow-on Investment (Third Tranche) in OpenAI (10-01-2026)",
+     "file": "transcripts/ir/softbank_2026-10-01_execution-of-follow-on-investment-third-tranche-in.txt",
+     "why": null
+    },
+    {
      "label": "SoftBank press release: Issuance of Foreign Currency-Denominated Senior Notes (09-24-2026)",
      "file": "transcripts/ir/softbank_2026-09-24_issuance-of-foreign-currency-denominated-senior-no.txt",
      "why": null
@@ -5663,6 +5461,11 @@
      "why": null
     },
     {
+     "label": "Sumitomo Bakelite press release: Notice Regarding the Recognition of Gain on Sale of (10-01-2026)",
+     "file": "transcripts/ir/sumitomobakelite_2026-10-01_notice-regarding-the-recognition-of-gain-on-sale-o.txt",
+     "why": null
+    },
+    {
      "label": "Sumitomo Bakelite press release: Sumitomo Bakelite Co., Ltd. Enters into Distribution (09-29-2026)",
      "file": "transcripts/ir/sumitomobakelite_2026-09-29_sumitomo-bakelite-co-ltd-enters-into-distribution-.txt",
      "why": null
@@ -5675,6 +5478,11 @@
     {
      "label": "Sumitomo Electric press release: Sumitomo Electric Exhibits Thunderbolt5 and DisplayPort2.1 (09-07-2026)",
      "file": "transcripts/ir/sumitomoelectric_2026-09-07_sumitomo-electric-exhibits-thunderbolt5-and-displa.txt",
+     "why": null
+    },
+    {
+     "label": "Sumitomo Electric press release: Sumitomo Electric Publishes the Group's Integrated Report (10-02-2026)",
+     "file": "transcripts/ir/sumitomoelectric_2026-10-02_sumitomo-electric-publishes-the-group-s-integrated.txt",
      "why": null
     },
     {
@@ -5823,11 +5631,6 @@
      "why": null
     },
     {
-     "label": "Tempus AI press release: Tempus Study Published in Nature Medicine Demonstrates (08-04-2026)",
-     "file": "transcripts/ir/tempusai_2026-08-04_tempus-study-published-in-nature-medicine-demonstr.txt",
-     "why": null
-    },
-    {
      "label": "Teradyne press release: Teradyne Opens Office in India, Deepening Commitment to the (09-14-2026)",
      "file": "transcripts/ir/teradyne_2026-09-14_teradyne-opens-office-in-india-deepening-commitmen.txt",
      "why": null
@@ -5863,6 +5666,11 @@
      "why": null
     },
     {
+     "label": "Toppan press release: TOPPAN Establishes FC-BGA Substrate Production Site in (09-30-2026)",
+     "file": "transcripts/ir/toppan_2026-09-30_toppan-establishes-fc-bga-substrate-production-sit.txt",
+     "why": null
+    },
+    {
      "label": "Toppan press release: TOPPAN Group Inaugurates New BOPP Film Manufacturing Line (09-17-2026)",
      "file": "transcripts/ir/toppan_2026-09-17_toppan-group-inaugurates-new-bopp-film-manufacturi.txt",
      "why": null
@@ -5885,6 +5693,11 @@
     {
      "label": "Trane Technologies press release: Trane Technologies Demonstrates Industry-First 800-Volt (09-30-2026)",
      "file": "transcripts/ir/tranetechnologies_2026-09-30_trane-technologies-demonstrates-industry-first-800.txt",
+     "why": null
+    },
+    {
+     "label": "Trane Technologies press release: Trane Technologies Introduces Residential Cold Climate Heat (10-01-2026)",
+     "file": "transcripts/ir/tranetechnologies_2026-10-01_trane-technologies-introduces-residential-cold-cli.txt",
      "why": null
     },
     {
@@ -6013,6 +5826,11 @@
      "why": null
     },
     {
+     "label": "Vishay press release: Vishay Intertechnology SOT-227 Power Modules Increase Power (10-01-2026)",
+     "file": "transcripts/ir/vishay_2026-10-01_vishay-intertechnology-sot-227-power-modules-incre.txt",
+     "why": null
+    },
+    {
      "label": "Vishay press release: Vishay Intertechnology Standard Rectifiers Deliver High (09-15-2026)",
      "file": "transcripts/ir/vishay_2026-09-15_vishay-intertechnology-standard-rectifiers-deliver.txt",
      "why": null
@@ -6043,6 +5861,11 @@
      "why": null
     },
     {
+     "label": "WEC Energy Group press release: WEC Energy Group's 2025 Corporate Responsibility Report (08-10-2026)",
+     "file": "transcripts/ir/wecenergygroup_2026-08-10_wec-energy-group-s-2025-corporate-responsibility-r.txt",
+     "why": null
+    },
+    {
      "label": "Wesco press release: Wesco Earns 2026 Great Place To Work Certification (09-18-2026)",
      "file": "transcripts/ir/wesco_2026-09-18_wesco-earns-2026-great-place-to-work-certification.txt",
      "why": null
@@ -6065,6 +5888,11 @@
     {
      "label": "Western Digital press release: Western Digital Announces Redemption of 3.00% Convertible (09-14-2026)",
      "file": "transcripts/ir/westerndigital_2026-09-14_western-digital-announces-redemption-of-3-00-conve.txt",
+     "why": null
+    },
+    {
+     "label": "Williams Companies press release: Williams Prices $2.75 Billion of Senior Notes (09-08-2026)",
+     "file": "transcripts/ir/williamscompanies_2026-09-08_williams-prices-2-75-billion-of-senior-notes.txt",
      "why": null
     },
     {
@@ -6108,6 +5936,11 @@
      "why": null
     },
     {
+     "label": "eMemory press release: PUFsecurity, subsidiary of eMemory, Advances (08-19-2026)",
+     "file": "transcripts/ir/ememory_2026-08-19_pufsecurity-subsidiary-of-ememory-advances-hardwar.txt",
+     "why": null
+    },
+    {
      "label": "nVent press release: nVent Names Courtney Nelson Wills General Counsel (09-29-2026)",
      "file": "transcripts/ir/nvent_2026-09-29_nvent-names-courtney-nelson-wills-general-counsel.txt",
      "why": null
@@ -6126,10 +5959,10 @@
    "skipped": 0,
    "source_range": [
     "2026-05-29",
-    "2026-10-01"
+    "2026-10-02"
    ],
-   "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_fetch": "2026-10-04",
+   "last_enriched": "2026-10-04",
    "enriched_days": [
     {
      "day": "2026-09-25",
@@ -6141,40 +5974,21 @@
     },
     {
      "day": "2026-10-01",
-     "labels": 184
+     "labels": 193
+    },
+    {
+     "day": "2026-10-02",
+     "labels": 6
+    },
+    {
+     "day": "2026-10-04",
+     "labels": 2
     }
    ],
-   "last_sync": "2026-10-01",
+   "last_sync": "2026-10-04",
    "extra": {
     "runs": [
      {
-      "at": "2026-10-01 03:53",
-      "since": "per company (latest call)",
-      "feeds": 1,
-      "saved": 3,
-      "skip": 1,
-      "fail": 0,
-      "seen": 0
-     },
-     {
-      "at": "2026-10-01 03:53",
-      "since": "per company (latest call)",
-      "feeds": 1,
-      "saved": 0,
-      "skip": 0,
-      "fail": 0,
-      "seen": 0
-     },
-     {
-      "at": "2026-10-01 03:53",
-      "since": "per company (latest call)",
-      "feeds": 1,
-      "saved": 0,
-      "skip": 0,
-      "fail": 0,
-      "seen": 0
-     },
-     {
       "at": "2026-10-01 03:54",
       "since": "per company (latest call)",
       "feeds": 1,
@@ -6191,9 +6005,36 @@
       "skip": 0,
       "fail": 0,
       "seen": 0
+     },
+     {
+      "at": "2026-10-01 23:25",
+      "since": "per company (latest call)",
+      "feeds": 368,
+      "saved": 61,
+      "skip": 31,
+      "fail": 120,
+      "seen": 1463
+     },
+     {
+      "at": "2026-10-02 23:06",
+      "since": "2026-06-04",
+      "feeds": 1,
+      "saved": 0,
+      "skip": 3,
+      "fail": 0,
+      "seen": 1
+     },
+     {
+      "at": "2026-10-04 17:59",
+      "since": "per company (latest call)",
+      "feeds": 368,
+      "saved": 52,
+      "skip": 19,
+      "fail": 116,
+      "seen": 1479
      }
     ],
-    "feeds": 368
+    "feeds": 376
    }
   },
   {
@@ -6271,7 +6112,7 @@
      "labels": 37
     }
    ],
-   "last_sync": "2026-10-01",
+   "last_sync": "2026-10-04",
    "extra": {
     "runs": [
      {
@@ -6298,6 +6139,26 @@
       "at": "2026-10-01 03:08",
       "since": "2026-09-24",
       "listed": 18,
+      "ours": 0,
+      "saved": 0,
+      "skipped": 0,
+      "site_saved": 0,
+      "site_skipped": 0
+     },
+     {
+      "at": "2026-10-02 17:52",
+      "since": "2026-09-24",
+      "listed": 21,
+      "ours": 0,
+      "saved": 0,
+      "skipped": 0,
+      "site_saved": 0,
+      "site_skipped": 0
+     },
+     {
+      "at": "2026-10-04 17:40",
+      "since": "2026-09-25",
+      "listed": 21,
       "ours": 0,
       "saved": 0,
       "skipped": 0,
@@ -6379,7 +6240,7 @@
      "labels": 1
     }
    ],
-   "last_sync": "2026-10-01",
+   "last_sync": "2026-10-04",
    "extra": {
     "runs": [
      {
@@ -6411,6 +6272,26 @@
       "skipped": 0,
       "site_saved": 0,
       "site_skipped": 0
+     },
+     {
+      "at": "2026-10-02 17:52",
+      "since": "2026-09-24",
+      "listed": 21,
+      "ours": 0,
+      "saved": 0,
+      "skipped": 0,
+      "site_saved": 0,
+      "site_skipped": 0
+     },
+     {
+      "at": "2026-10-04 17:40",
+      "since": "2026-09-25",
+      "listed": 21,
+      "ours": 0,
+      "saved": 0,
+      "skipped": 0,
+      "site_saved": 0,
+      "site_skipped": 0
      }
     ]
    }
@@ -6420,40 +6301,150 @@
    "name": "China IR records + investor Q&A",
    "command": "enrich china",
    "source": "cninfo 投资者关系活动记录表 + SZSE 互动易 / SSE e互动 answers (cninfo.py) — management Q&A, not calls",
-   "files": 149,
-   "labels_on_disk": 149,
-   "in_graph": 98,
-   "entries": 276,
+   "files": 186,
+   "labels_on_disk": 186,
+   "in_graph": 108,
+   "entries": 299,
    "pending": [
     {
-     "company": "Unisplendour",
-     "label": "Unisplendour investor Q&A: SZSE Interactive Easy (09-01-2026)",
-     "file": "transcripts/cninfo/unisplendour_2026-09-01_qa_szse.txt"
+     "company": "Range Intelligent Computing",
+     "label": "Range Intelligent Computing investor Q&A: SZSE Interactive Easy (09-23-2026)",
+     "file": "transcripts/cninfo/rangeintelligentcomputing_2026-09-23_qa_szse.txt"
     },
     {
-     "company": "Unisplendour",
-     "label": "Unisplendour investor Q&A: SZSE Interactive Easy (09-15-2026)",
-     "file": "transcripts/cninfo/unisplendour_2026-09-15_qa_szse.txt"
+     "company": "Sugon",
+     "label": "Sugon investor Q&A: SSE e-Interactive (09-14-2026)",
+     "file": "transcripts/cninfo/sugon_2026-09-14_qa_sse.txt"
     },
     {
-     "company": "Longsys",
-     "label": "Longsys investor Q&A: SZSE Interactive Easy (09-01-2026)",
-     "file": "transcripts/cninfo/longsys_2026-09-01_qa_szse.txt"
+     "company": "ZTE",
+     "label": "ZTE investor Q&A: SZSE Interactive Easy (09-29-2026)",
+     "file": "transcripts/cninfo/zte_2026-09-29_qa_szse.txt"
     },
     {
-     "company": "Longsys",
-     "label": "Longsys investor Q&A: SZSE Interactive Easy (09-02-2026)",
-     "file": "transcripts/cninfo/longsys_2026-09-02_qa_szse.txt"
+     "company": "ZTE",
+     "label": "ZTE investor Q&A: SZSE Interactive Easy (09-30-2026)",
+     "file": "transcripts/cninfo/zte_2026-09-30_qa_szse.txt"
     },
     {
-     "company": "Longsys",
-     "label": "Longsys investor Q&A: SZSE Interactive Easy (09-04-2026)",
-     "file": "transcripts/cninfo/longsys_2026-09-04_qa_szse.txt"
+     "company": "Huafeng Technology",
+     "label": "Huafeng Technology IR activity record: 2026-09-21 (09-21-2026)",
+     "file": "transcripts/cninfo/huafengtechnology_2026-09-21_record_1791206.txt"
     },
     {
-     "company": "Longsys",
-     "label": "Longsys investor Q&A: SZSE Interactive Easy (09-08-2026)",
-     "file": "transcripts/cninfo/longsys_2026-09-08_qa_szse.txt"
+     "company": "Huafeng Technology",
+     "label": "Huafeng Technology IR activity record: 2026-09-30 (09-30-2026)",
+     "file": "transcripts/cninfo/huafengtechnology_2026-09-30_record_1793506.txt"
+    },
+    {
+     "company": "Huafeng Technology",
+     "label": "Huafeng Technology investor Q&A: SSE e-Interactive (09-23-2026)",
+     "file": "transcripts/cninfo/huafengtechnology_2026-09-23_qa_sse.txt"
+    },
+    {
+     "company": "Huafeng Technology",
+     "label": "Huafeng Technology investor Q&A: SSE e-Interactive (09-24-2026)",
+     "file": "transcripts/cninfo/huafengtechnology_2026-09-24_qa_sse.txt"
+    },
+    {
+     "company": "Woer Heat-Shrinkable Material",
+     "label": "Woer Heat-Shrinkable Material investor Q&A: SZSE Interactive Easy (09-07-2026)",
+     "file": "transcripts/cninfo/woerheatshrinkablematerial_2026-09-07_qa_szse.txt"
+    },
+    {
+     "company": "Woer Heat-Shrinkable Material",
+     "label": "Woer Heat-Shrinkable Material investor Q&A: SZSE Interactive Easy (09-09-2026)",
+     "file": "transcripts/cninfo/woerheatshrinkablematerial_2026-09-09_qa_szse.txt"
+    },
+    {
+     "company": "Woer Heat-Shrinkable Material",
+     "label": "Woer Heat-Shrinkable Material investor Q&A: SZSE Interactive Easy (09-10-2026)",
+     "file": "transcripts/cninfo/woerheatshrinkablematerial_2026-09-10_qa_szse.txt"
+    },
+    {
+     "company": "Woer Heat-Shrinkable Material",
+     "label": "Woer Heat-Shrinkable Material investor Q&A: SZSE Interactive Easy (09-11-2026)",
+     "file": "transcripts/cninfo/woerheatshrinkablematerial_2026-09-11_qa_szse.txt"
+    },
+    {
+     "company": "Woer Heat-Shrinkable Material",
+     "label": "Woer Heat-Shrinkable Material investor Q&A: SZSE Interactive Easy (09-14-2026)",
+     "file": "transcripts/cninfo/woerheatshrinkablematerial_2026-09-14_qa_szse.txt"
+    },
+    {
+     "company": "Woer Heat-Shrinkable Material",
+     "label": "Woer Heat-Shrinkable Material investor Q&A: SZSE Interactive Easy (09-17-2026)",
+     "file": "transcripts/cninfo/woerheatshrinkablematerial_2026-09-17_qa_szse.txt"
+    },
+    {
+     "company": "Woer Heat-Shrinkable Material",
+     "label": "Woer Heat-Shrinkable Material investor Q&A: SZSE Interactive Easy (09-28-2026)",
+     "file": "transcripts/cninfo/woerheatshrinkablematerial_2026-09-28_qa_szse.txt"
+    },
+    {
+     "company": "Feirongda",
+     "label": "Feirongda investor Q&A: SZSE Interactive Easy (09-07-2026)",
+     "file": "transcripts/cninfo/feirongda_2026-09-07_qa_szse.txt"
+    },
+    {
+     "company": "Feirongda",
+     "label": "Feirongda investor Q&A: SZSE Interactive Easy (09-14-2026)",
+     "file": "transcripts/cninfo/feirongda_2026-09-14_qa_szse.txt"
+    },
+    {
+     "company": "Feirongda",
+     "label": "Feirongda investor Q&A: SZSE Interactive Easy (09-21-2026)",
+     "file": "transcripts/cninfo/feirongda_2026-09-21_qa_szse.txt"
+    },
+    {
+     "company": "Feirongda",
+     "label": "Feirongda investor Q&A: SZSE Interactive Easy (09-24-2026)",
+     "file": "transcripts/cninfo/feirongda_2026-09-24_qa_szse.txt"
+    },
+    {
+     "company": "Gaolan",
+     "label": "Gaolan IR activity record: 2026-004 (09-15-2026)",
+     "file": "transcripts/cninfo/gaolan_2026-09-15_record_1225566321.txt"
+    },
+    {
+     "company": "Gaolan",
+     "label": "Gaolan investor Q&A: SZSE Interactive Easy (09-18-2026)",
+     "file": "transcripts/cninfo/gaolan_2026-09-18_qa_szse.txt"
+    },
+    {
+     "company": "Jones Tech",
+     "label": "Jones Tech investor Q&A: SZSE Interactive Easy (09-11-2026)",
+     "file": "transcripts/cninfo/jonestech_2026-09-11_qa_szse.txt"
+    },
+    {
+     "company": "Lingyi iTech",
+     "label": "Lingyi iTech IR activity record: 2026-010 (09-15-2026)",
+     "file": "transcripts/cninfo/lingyiitech_2026-09-15_record_1225565331.txt"
+    },
+    {
+     "company": "Lingyi iTech",
+     "label": "Lingyi iTech investor Q&A: SZSE Interactive Easy (09-07-2026)",
+     "file": "transcripts/cninfo/lingyiitech_2026-09-07_qa_szse.txt"
+    },
+    {
+     "company": "Lingyi iTech",
+     "label": "Lingyi iTech investor Q&A: SZSE Interactive Easy (09-09-2026)",
+     "file": "transcripts/cninfo/lingyiitech_2026-09-09_qa_szse.txt"
+    },
+    {
+     "company": "Lingyi iTech",
+     "label": "Lingyi iTech investor Q&A: SZSE Interactive Easy (09-11-2026)",
+     "file": "transcripts/cninfo/lingyiitech_2026-09-11_qa_szse.txt"
+    },
+    {
+     "company": "Lingyi iTech",
+     "label": "Lingyi iTech investor Q&A: SZSE Interactive Easy (09-28-2026)",
+     "file": "transcripts/cninfo/lingyiitech_2026-09-28_qa_szse.txt"
+    },
+    {
+     "company": "Lingyi iTech",
+     "label": "Lingyi iTech investor Q&A: SZSE Interactive Easy (09-29-2026)",
+     "file": "transcripts/cninfo/lingyiitech_2026-09-29_qa_szse.txt"
     }
    ],
    "no_data": [
@@ -6465,6 +6456,11 @@
     {
      "label": "Biwin Storage Technology investor Q&A: SSE e-Interactive (09-22-2026)",
      "file": "transcripts/cninfo/biwinstoragetechnology_2026-09-22_qa_sse.txt",
+     "why": null
+    },
+    {
+     "label": "Cambricon investor Q&A: SSE e-Interactive (09-30-2026)",
+     "file": "transcripts/cninfo/cambricon_2026-09-30_qa_sse.txt",
      "why": null
     },
     {
@@ -6490,6 +6486,11 @@
     {
      "label": "Han's CNC Technology investor Q&A: SZSE Interactive Easy (09-14-2026)",
      "file": "transcripts/cninfo/hanscnctechnology_2026-09-14_qa_szse.txt",
+     "why": null
+    },
+    {
+     "label": "Hengtong Optic-Electric investor Q&A: SSE e-Interactive (09-30-2026)",
+     "file": "transcripts/cninfo/hengtongopticelectric_2026-09-30_qa_sse.txt",
      "why": null
     },
     {
@@ -6535,6 +6536,16 @@
     {
      "label": "Kehua Data investor Q&A: SZSE Interactive Easy (09-23-2026)",
      "file": "transcripts/cninfo/kehuadata_2026-09-23_qa_szse.txt",
+     "why": null
+    },
+    {
+     "label": "Longsys investor Q&A: SZSE Interactive Easy (09-04-2026)",
+     "file": "transcripts/cninfo/longsys_2026-09-04_qa_szse.txt",
+     "why": null
+    },
+    {
+     "label": "Longsys investor Q&A: SZSE Interactive Easy (09-08-2026)",
+     "file": "transcripts/cninfo/longsys_2026-09-08_qa_szse.txt",
      "why": null
     },
     {
@@ -6628,6 +6639,11 @@
      "why": null
     },
     {
+     "label": "Unisplendour investor Q&A: SZSE Interactive Easy (09-01-2026)",
+     "file": "transcripts/cninfo/unisplendour_2026-09-01_qa_szse.txt",
+     "why": null
+    },
+    {
      "label": "Victory Giant Technology investor Q&A: SZSE Interactive Easy (09-07-2026)",
      "file": "transcripts/cninfo/victorygianttechnology_2026-09-07_qa_szse.txt",
      "why": null
@@ -6688,47 +6704,21 @@
     "2026-08-23",
     "2026-09-30"
    ],
-   "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_fetch": "2026-10-04",
+   "last_enriched": "2026-10-02",
    "enriched_days": [
     {
      "day": "2026-10-01",
      "labels": 98
+    },
+    {
+     "day": "2026-10-02",
+     "labels": 10
     }
    ],
-   "last_sync": "2026-10-01",
+   "last_sync": "2026-10-05",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-01 17:28",
-      "since": "per company",
-      "company": "WUS Printed Circuit",
-      "records": 6,
-      "qa_files": 0,
-      "answers_kept": 0,
-      "answers_skipped": 0,
-      "skipped": 0
-     },
-     {
-      "at": "2026-10-01 17:28",
-      "since": "2026-08-01",
-      "company": "Innolight",
-      "records": 1,
-      "qa_files": 0,
-      "answers_kept": 0,
-      "answers_skipped": 0,
-      "skipped": 0
-     },
-     {
-      "at": "2026-10-01 17:29",
-      "since": "per company",
-      "company": "Eoptolink",
-      "records": 0,
-      "qa_files": 0,
-      "answers_kept": 0,
-      "answers_skipped": 0,
-      "skipped": 0
-     },
      {
       "at": "2026-10-01 17:35",
       "since": "per company",
@@ -6748,6 +6738,564 @@
       "answers_kept": 272,
       "answers_skipped": 287,
       "skipped": 0
+     },
+     {
+      "at": "2026-10-03 08:59",
+      "since": "per company",
+      "company": "all",
+      "records": 2,
+      "qa_files": 7,
+      "answers_kept": 12,
+      "answers_skipped": 8,
+      "skipped": 0
+     },
+     {
+      "at": "2026-10-05 08:45",
+      "since": "per company",
+      "company": "all",
+      "records": 0,
+      "qa_files": 0,
+      "answers_kept": 0,
+      "answers_skipped": 0,
+      "skipped": 0
+     },
+     {
+      "at": "2026-10-05 09:56",
+      "since": "per company",
+      "company": "all",
+      "records": 4,
+      "qa_files": 24,
+      "answers_kept": 69,
+      "answers_skipped": 86,
+      "skipped": 0
+     }
+    ]
+   }
+  },
+  {
+   "id": "cnreports",
+   "name": "China periodic reports",
+   "command": "enrich china",
+   "source": "cninfo 年度报告 / 半年度报告 / 季度报告 (cninfo.py reports) — company statutory reports, not transcripts",
+   "files": 154,
+   "labels_on_disk": 77,
+   "in_graph": 0,
+   "entries": 0,
+   "pending": [
+    {
+     "company": "Innolight",
+     "label": "Innolight annual report: 2025 Annual Report (03-31-2026)",
+     "file": "transcripts/cninfo_reports/innolight_2026-03-31_report_1225056459_extract.txt"
+    },
+    {
+     "company": "Innolight",
+     "label": "Innolight half-year report: 2026 Half-Year Report (08-22-2026)",
+     "file": "transcripts/cninfo_reports/innolight_2026-08-22_report_1225491753_extract.txt"
+    },
+    {
+     "company": "Eoptolink",
+     "label": "Eoptolink annual report: 2025 Annual Report (04-24-2026)",
+     "file": "transcripts/cninfo_reports/eoptolink_2026-04-24_report_1225172598_extract.txt"
+    },
+    {
+     "company": "Eoptolink",
+     "label": "Eoptolink half-year report: 2026 Half-Year Report (08-25-2026)",
+     "file": "transcripts/cninfo_reports/eoptolink_2026-08-25_report_1225499406_extract.txt"
+    },
+    {
+     "company": "Hengtong Optic-Electric",
+     "label": "Hengtong Optic-Electric annual report: 2025 Annual Report (04-25-2026)",
+     "file": "transcripts/cninfo_reports/hengtongopticelectric_2026-04-25_report_1225195764_extract.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink annual report: 2025 Annual Report (04-23-2026)",
+     "file": "transcripts/cninfo_reports/accelink_2026-04-23_report_1225148212_extract.txt"
+    },
+    {
+     "company": "Accelink",
+     "label": "Accelink half-year report: 2026 Half-Year Report (08-20-2026)",
+     "file": "transcripts/cninfo_reports/accelink_2026-08-20_report_1225482609_extract.txt"
+    },
+    {
+     "company": "Yuanjie",
+     "label": "Yuanjie annual report: 2025 Annual Report (03-25-2026)",
+     "file": "transcripts/cninfo_reports/yuanjie_2026-03-25_report_1225028582_extract.txt"
+    },
+    {
+     "company": "Yuanjie",
+     "label": "Yuanjie half-year report: 2026 Half-Year Report (08-29-2026)",
+     "file": "transcripts/cninfo_reports/yuanjie_2026-08-29_report_1225527905_extract.txt"
+    },
+    {
+     "company": "TFC Optical",
+     "label": "TFC Optical annual report: 2025 Annual Report (04-08-2026)",
+     "file": "transcripts/cninfo_reports/tfcoptical_2026-04-08_report_1225082705_extract.txt"
+    },
+    {
+     "company": "TFC Optical",
+     "label": "TFC Optical half-year report: 2026 Half-Year Report (08-19-2026)",
+     "file": "transcripts/cninfo_reports/tfcoptical_2026-08-19_report_1225480328_extract.txt"
+    },
+    {
+     "company": "WUS Printed Circuit",
+     "label": "WUS Printed Circuit annual report: 2025 Annual Report (03-25-2026)",
+     "file": "transcripts/cninfo_reports/wusprintedcircuit_2026-03-25_report_1225027832_extract.txt"
+    },
+    {
+     "company": "WUS Printed Circuit",
+     "label": "WUS Printed Circuit half-year report: 2026 Half-Year Report (08-26-2026)",
+     "file": "transcripts/cninfo_reports/wusprintedcircuit_2026-08-26_report_1225502252_extract.txt"
+    },
+    {
+     "company": "Huatian Technology",
+     "label": "Huatian Technology annual report: 2025 Annual Report (03-31-2026)",
+     "file": "transcripts/cninfo_reports/huatiantechnology_2026-03-31_report_1225059982_extract.txt"
+    },
+    {
+     "company": "Huatian Technology",
+     "label": "Huatian Technology half-year report: 2026 Half-Year Report (08-22-2026)",
+     "file": "transcripts/cninfo_reports/huatiantechnology_2026-08-22_report_1225488275_extract.txt"
+    },
+    {
+     "company": "JCET",
+     "label": "JCET annual report: 2025 Annual Report (04-10-2026)",
+     "file": "transcripts/cninfo_reports/jcet_2026-04-10_report_1225091498_extract.txt"
+    },
+    {
+     "company": "JCET",
+     "label": "JCET half-year report: 2026 Half-Year Report (08-21-2026)",
+     "file": "transcripts/cninfo_reports/jcet_2026-08-21_report_1225487900_extract.txt"
+    },
+    {
+     "company": "TFME",
+     "label": "TFME annual report: 2025 Annual Report (04-17-2026)",
+     "file": "transcripts/cninfo_reports/tfme_2026-04-17_report_1225112762_extract.txt"
+    },
+    {
+     "company": "TFME",
+     "label": "TFME half-year report: 2026 Half-Year Report (08-29-2026)",
+     "file": "transcripts/cninfo_reports/tfme_2026-08-29_report_1225527099_extract.txt"
+    },
+    {
+     "company": "Montage Technology",
+     "label": "Montage Technology annual report: 2025 Annual Report (03-31-2026)",
+     "file": "transcripts/cninfo_reports/montagetechnology_2026-03-31_report_1225057736_extract.txt"
+    },
+    {
+     "company": "Montage Technology",
+     "label": "Montage Technology half-year report: 2026 Half-Year Report (08-29-2026)",
+     "file": "transcripts/cninfo_reports/montagetechnology_2026-08-29_report_1225530486_extract.txt"
+    },
+    {
+     "company": "Luxshare",
+     "label": "Luxshare annual report: 2025 Annual Report (04-15-2026)",
+     "file": "transcripts/cninfo_reports/luxshare_2026-04-15_report_1225104908_extract.txt"
+    },
+    {
+     "company": "Luxshare",
+     "label": "Luxshare half-year report: 2026 Half-Year Report (08-25-2026)",
+     "file": "transcripts/cninfo_reports/luxshare_2026-08-25_report_1225500221_extract.txt"
+    },
+    {
+     "company": "Victory Giant Technology",
+     "label": "Victory Giant Technology annual report: 2025 Annual Report (03-13-2026)",
+     "file": "transcripts/cninfo_reports/victorygianttechnology_2026-03-13_report_1225007455_extract.txt"
+    },
+    {
+     "company": "Victory Giant Technology",
+     "label": "Victory Giant Technology half-year report: 2026 Half-Year Report (08-28-2026)",
+     "file": "transcripts/cninfo_reports/victorygianttechnology_2026-08-28_report_1225522515_extract.txt"
+    },
+    {
+     "company": "Sinopack",
+     "label": "Sinopack annual report: 2025 Annual Report (04-29-2026)",
+     "file": "transcripts/cninfo_reports/sinopack_2026-04-29_report_1225224991_extract.txt"
+    },
+    {
+     "company": "Sinopack",
+     "label": "Sinopack half-year report: 2026 Half-Year Report (08-25-2026)",
+     "file": "transcripts/cninfo_reports/sinopack_2026-08-25_report_1225497769_extract.txt"
+    },
+    {
+     "company": "T&S Communications",
+     "label": "T&S Communications annual report: 2025 Annual Report (03-31-2026)",
+     "file": "transcripts/cninfo_reports/tscommunications_2026-03-31_report_1225061015_extract.txt"
+    },
+    {
+     "company": "Advanced Fiber Resources",
+     "label": "Advanced Fiber Resources annual report: 2025 Annual Report (03-24-2026)",
+     "file": "transcripts/cninfo_reports/advancedfiberresources_2026-03-24_report_1225026091_extract.txt"
+    },
+    {
+     "company": "CIG Shanghai",
+     "label": "CIG Shanghai annual report: 2025 Annual Report (03-31-2026)",
+     "file": "transcripts/cninfo_reports/cigshanghai_2026-03-31_report_1225053610_extract.txt"
+    },
+    {
+     "company": "CIG Shanghai",
+     "label": "CIG Shanghai half-year report: 2026 Half-Year Report (08-25-2026)",
+     "file": "transcripts/cninfo_reports/cigshanghai_2026-08-25_report_1225496844_extract.txt"
+    },
+    {
+     "company": "HGTECH",
+     "label": "HGTECH annual report: 2025 Annual Report (03-26-2026)",
+     "file": "transcripts/cninfo_reports/hgtech_2026-03-26_report_1225031509_extract.txt"
+    },
+    {
+     "company": "HGTECH",
+     "label": "HGTECH half-year report: 2026 Half-Year Report (08-27-2026)",
+     "file": "transcripts/cninfo_reports/hgtech_2026-08-27_report_1225513179_extract.txt"
+    },
+    {
+     "company": "Linktel Technologies",
+     "label": "Linktel Technologies annual report: 2025 Annual Report (04-29-2026)",
+     "file": "transcripts/cninfo_reports/linkteltechnologies_2026-04-29_report_1225239616_extract.txt"
+    },
+    {
+     "company": "Shijia Photons",
+     "label": "Shijia Photons annual report: 2025 Annual Report (04-18-2026)",
+     "file": "transcripts/cninfo_reports/shijiaphotons_2026-04-18_report_1225122538_extract.txt"
+    },
+    {
+     "company": "Yoke Technology",
+     "label": "Yoke Technology annual report: 2025 Annual Report (04-28-2026)",
+     "file": "transcripts/cninfo_reports/yoketechnology_2026-04-28_report_1225216877_extract.txt"
+    },
+    {
+     "company": "Yoke Technology",
+     "label": "Yoke Technology half-year report: 2026 Half-Year Report (08-26-2026)",
+     "file": "transcripts/cninfo_reports/yoketechnology_2026-08-26_report_1225503911_extract.txt"
+    },
+    {
+     "company": "AMEC",
+     "label": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+     "file": "transcripts/cninfo_reports/amec_2026-03-31_report_1225062431_extract.txt"
+    },
+    {
+     "company": "NAURA",
+     "label": "NAURA annual report: 2025 Annual Report (04-18-2026)",
+     "file": "transcripts/cninfo_reports/naura_2026-04-18_report_1225122918_extract.txt"
+    },
+    {
+     "company": "Boqian New Materials",
+     "label": "Boqian New Materials annual report: 2025 Annual Report (04-18-2026)",
+     "file": "transcripts/cninfo_reports/boqiannewmaterials_2026-04-18_report_1225119301_extract.txt"
+    },
+    {
+     "company": "Boqian New Materials",
+     "label": "Boqian New Materials half-year report: 2026 Half-Year Report (08-29-2026)",
+     "file": "transcripts/cninfo_reports/boqiannewmaterials_2026-08-29_report_1225524944_extract.txt"
+    },
+    {
+     "company": "Sinocera",
+     "label": "Sinocera annual report: 2025 Annual Report (04-21-2026)",
+     "file": "transcripts/cninfo_reports/sinocera_2026-04-21_report_1225126921_extract.txt"
+    },
+    {
+     "company": "Sinocera",
+     "label": "Sinocera half-year report: 2026 Half-Year Report (08-06-2026)",
+     "file": "transcripts/cninfo_reports/sinocera_2026-08-06_report_1225459777_extract.txt"
+    },
+    {
+     "company": "Envicool",
+     "label": "Envicool annual report: 2025 Annual Report (04-21-2026)",
+     "file": "transcripts/cninfo_reports/envicool_2026-04-21_report_1225131813_extract.txt"
+    },
+    {
+     "company": "Megmeet",
+     "label": "Megmeet annual report: 2025 Annual Report (04-29-2026)",
+     "file": "transcripts/cninfo_reports/megmeet_2026-04-29_report_1225238056_extract.txt"
+    },
+    {
+     "company": "Megmeet",
+     "label": "Megmeet half-year report: 2026 Half-Year Report (08-28-2026)",
+     "file": "transcripts/cninfo_reports/megmeet_2026-08-28_report_1225522762_extract.txt"
+    },
+    {
+     "company": "Foxconn Industrial Internet",
+     "label": "Foxconn Industrial Internet annual report: 2025 Annual Report (03-11-2026)",
+     "file": "transcripts/cninfo_reports/foxconnindustrialinternet_2026-03-11_report_1225004420_extract.txt"
+    },
+    {
+     "company": "Three-Circle",
+     "label": "Three-Circle annual report: 2025 Annual Report (03-28-2026)",
+     "file": "transcripts/cninfo_reports/threecircle_2026-03-28_report_1225041594_extract.txt"
+    },
+    {
+     "company": "Dongshan Precision",
+     "label": "Dongshan Precision annual report: 2025 Annual Report (04-22-2026)",
+     "file": "transcripts/cninfo_reports/dongshanprecision_2026-04-22_report_1225139318_extract.txt"
+    },
+    {
+     "company": "Shengyi Technology",
+     "label": "Shengyi Technology annual report: 2025 Annual Report (04-25-2026)",
+     "file": "transcripts/cninfo_reports/shengyitechnology_2026-04-25_report_1225195409_extract.txt"
+    },
+    {
+     "company": "Shennan Circuits",
+     "label": "Shennan Circuits annual report: 2025 Annual Report (03-13-2026)",
+     "file": "transcripts/cninfo_reports/shennancircuits_2026-03-13_report_1225006760_extract.txt"
+    },
+    {
+     "company": "Shennan Circuits",
+     "label": "Shennan Circuits half-year report: 2026 Half-Year Report (08-27-2026)",
+     "file": "transcripts/cninfo_reports/shennancircuits_2026-08-27_report_1225512708_extract.txt"
+    },
+    {
+     "company": "Kinwong",
+     "label": "Kinwong annual report: 2025 Annual Report (03-28-2026)",
+     "file": "transcripts/cninfo_reports/kinwong_2026-03-28_report_1225046569_extract.txt"
+    },
+    {
+     "company": "Zhaolong Interconnect",
+     "label": "Zhaolong Interconnect annual report: 2025 Annual Report (04-28-2026)",
+     "file": "transcripts/cninfo_reports/zhaolonginterconnect_2026-04-28_report_1225211482_extract.txt"
+    },
+    {
+     "company": "Delton Technology",
+     "label": "Delton Technology annual report: 2025 Annual Report (03-28-2026)",
+     "file": "transcripts/cninfo_reports/deltontechnology_2026-03-28_report_1225044663_extract.txt"
+    },
+    {
+     "company": "Delton Technology",
+     "label": "Delton Technology half-year report: 2026 Half-Year Report (08-08-2026)",
+     "file": "transcripts/cninfo_reports/deltontechnology_2026-08-08_report_1225464824_extract.txt"
+    },
+    {
+     "company": "Huaqin Technology",
+     "label": "Huaqin Technology annual report: 2025 Annual Report (03-24-2026)",
+     "file": "transcripts/cninfo_reports/huaqintechnology_2026-03-24_report_1225025934_extract.txt"
+    },
+    {
+     "company": "Huaqin Technology",
+     "label": "Huaqin Technology half-year report: 2026 Half-Year Report (08-26-2026)",
+     "file": "transcripts/cninfo_reports/huaqintechnology_2026-08-26_report_1225502465_extract.txt"
+    },
+    {
+     "company": "Piotech",
+     "label": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+     "file": "transcripts/cninfo_reports/piotech_2026-04-28_report_1225222226_extract.txt"
+    },
+    {
+     "company": "CASTECH",
+     "label": "CASTECH annual report: 2025 Annual Report (04-29-2026)",
+     "file": "transcripts/cninfo_reports/castech_2026-04-29_report_1225227139_extract.txt"
+    },
+    {
+     "company": "CASTECH",
+     "label": "CASTECH half-year report: 2026 Half-Year Report (08-28-2026)",
+     "file": "transcripts/cninfo_reports/castech_2026-08-28_report_1225516323_extract.txt"
+    },
+    {
+     "company": "Optowide Technologies",
+     "label": "Optowide Technologies annual report: 2025 Annual Report (04-25-2026)",
+     "file": "transcripts/cninfo_reports/optowidetechnologies_2026-04-25_report_1225177429_extract.txt"
+    },
+    {
+     "company": "Kehua Data",
+     "label": "Kehua Data annual report: 2025 Annual Report (04-27-2026)",
+     "file": "transcripts/cninfo_reports/kehuadata_2026-04-27_report_1225194937_extract.txt"
+    },
+    {
+     "company": "Kehua Data",
+     "label": "Kehua Data half-year report: 2026 Half-Year Report (08-28-2026)",
+     "file": "transcripts/cninfo_reports/kehuadata_2026-08-28_report_1225522569_extract.txt"
+    },
+    {
+     "company": "Fenghua Advanced Technology",
+     "label": "Fenghua Advanced Technology annual report: 2025 Annual Report (04-21-2026)",
+     "file": "transcripts/cninfo_reports/fenghuaadvancedtechnology_2026-04-21_report_1225129320_extract.txt"
+    },
+    {
+     "company": "Fenghua Advanced Technology",
+     "label": "Fenghua Advanced Technology half-year report: 2026 Half-Year Report (08-28-2026)",
+     "file": "transcripts/cninfo_reports/fenghuaadvancedtechnology_2026-08-28_report_1225518982_extract.txt"
+    },
+    {
+     "company": "Grace Fabric Technology",
+     "label": "Grace Fabric Technology annual report: 2025 Annual Report (04-10-2026)",
+     "file": "transcripts/cninfo_reports/gracefabrictechnology_2026-04-10_report_1225088508_extract.txt"
+    },
+    {
+     "company": "Inspur Electronic Information",
+     "label": "Inspur Electronic Information annual report: 2025 Annual Report (04-11-2026)",
+     "file": "transcripts/cninfo_reports/inspurelectronicinformation_2026-04-11_report_1225096638_extract.txt"
+    },
+    {
+     "company": "Cambricon",
+     "label": "Cambricon annual report: 2025 Annual Report (03-13-2026)",
+     "file": "transcripts/cninfo_reports/cambricon_2026-03-13_report_1225007336_extract.txt"
+    },
+    {
+     "company": "Shengyi Electronics",
+     "label": "Shengyi Electronics annual report: 2025 Annual Report (04-24-2026)",
+     "file": "transcripts/cninfo_reports/shengyielectronics_2026-04-24_report_1225167248_extract.txt"
+    },
+    {
+     "company": "Hygon Information Technology",
+     "label": "Hygon Information Technology annual report: 2025 Annual Report (04-08-2026)",
+     "file": "transcripts/cninfo_reports/hygoninformationtechnology_2026-04-08_report_1225083088_extract.txt"
+    },
+    {
+     "company": "Moore Threads",
+     "label": "Moore Threads annual report: 2025 Annual Report (04-27-2026)",
+     "file": "transcripts/cninfo_reports/moorethreads_2026-04-27_report_1225197717_extract.txt"
+    },
+    {
+     "company": "MetaX",
+     "label": "MetaX annual report: 2025 Annual Report (03-27-2026)",
+     "file": "transcripts/cninfo_reports/metax_2026-03-27_report_1225036092_extract.txt"
+    },
+    {
+     "company": "VeriSilicon",
+     "label": "VeriSilicon annual report: 2025 Annual Report (03-31-2026)",
+     "file": "transcripts/cninfo_reports/verisilicon_2026-03-31_report_1225060349_extract.txt"
+    },
+    {
+     "company": "Unisplendour",
+     "label": "Unisplendour annual report: 2025 Annual Report (04-15-2026)",
+     "file": "transcripts/cninfo_reports/unisplendour_2026-04-15_report_1225101866_extract.txt"
+    },
+    {
+     "company": "Unisplendour",
+     "label": "Unisplendour half-year report: 2026 Half-Year Report (08-29-2026)",
+     "file": "transcripts/cninfo_reports/unisplendour_2026-08-29_report_1225524307_extract.txt"
+    },
+    {
+     "company": "Shenzhen Honor Electronic",
+     "label": "Shenzhen Honor Electronic annual report: 2025 Annual Report (04-22-2026)",
+     "file": "transcripts/cninfo_reports/shenzhenhonorelectronic_2026-04-22_report_1225135602_extract.txt"
+    },
+    {
+     "company": "Hwatsing Technology",
+     "label": "Hwatsing Technology annual report: 2025 Annual Report (04-23-2026)",
+     "file": "transcripts/cninfo_reports/hwatsingtechnology_2026-04-23_report_1225156951_extract.txt"
+    },
+    {
+     "company": "SICC",
+     "label": "SICC annual report: 2025 Annual Report (03-28-2026)",
+     "file": "transcripts/cninfo_reports/sicc_2026-03-28_report_1225049103_extract.txt"
+    },
+    {
+     "company": "SICC",
+     "label": "SICC half-year report: 2026 Half-Year Report (08-20-2026)",
+     "file": "transcripts/cninfo_reports/sicc_2026-08-20_report_1225483857_extract.txt"
+    },
+    {
+     "company": "Kingsemi",
+     "label": "Kingsemi annual report: 2025 Annual Report (04-18-2026)",
+     "file": "transcripts/cninfo_reports/kingsemi_2026-04-18_report_1225120170_extract.txt"
+    },
+    {
+     "company": "Skyverse Technology",
+     "label": "Skyverse Technology annual report: 2025 Annual Report (04-25-2026)",
+     "file": "transcripts/cninfo_reports/skyversetechnology_2026-04-25_report_1225182753_extract.txt"
+    },
+    {
+     "company": "Fortune Precision",
+     "label": "Fortune Precision annual report: 2025 Annual Report (04-30-2026)",
+     "file": "transcripts/cninfo_reports/fortuneprecision_2026-04-30_report_1225265029_extract.txt"
+    },
+    {
+     "company": "Anji Microelectronics",
+     "label": "Anji Microelectronics annual report: 2025 Annual Report (04-16-2026)",
+     "file": "transcripts/cninfo_reports/anjimicroelectronics_2026-04-16_report_1225108553_extract.txt"
+    },
+    {
+     "company": "Anji Microelectronics",
+     "label": "Anji Microelectronics half-year report: 2026 Half-Year Report (08-27-2026)",
+     "file": "transcripts/cninfo_reports/anjimicroelectronics_2026-08-27_report_1225513853_extract.txt"
+    },
+    {
+     "company": "Hubei Dinglong",
+     "label": "Hubei Dinglong annual report: 2025 Annual Report (03-27-2026)",
+     "file": "transcripts/cninfo_reports/hubeidinglong_2026-03-27_report_1225036149_extract.txt"
+    },
+    {
+     "company": "Hubei Dinglong",
+     "label": "Hubei Dinglong half-year report: 2026 Half-Year Report (08-26-2026)",
+     "file": "transcripts/cninfo_reports/hubeidinglong_2026-08-26_report_1225507131_extract.txt"
+    },
+    {
+     "company": "Jiangfeng Electronic Materials",
+     "label": "Jiangfeng Electronic Materials annual report: 2025 Annual Report (04-16-2026)",
+     "file": "transcripts/cninfo_reports/jiangfengelectronicmaterials_2026-04-16_report_1225108970_extract.txt"
+    },
+    {
+     "company": "Jiangfeng Electronic Materials",
+     "label": "Jiangfeng Electronic Materials half-year report: 2026 Half-Year Report (08-25-2026)",
+     "file": "transcripts/cninfo_reports/jiangfengelectronicmaterials_2026-08-25_report_1225500171_extract.txt"
+    },
+    {
+     "company": "National Silicon Industry Group",
+     "label": "National Silicon Industry Group annual report: 2025 Annual Report (04-17-2026)",
+     "file": "transcripts/cninfo_reports/nationalsiliconindustrygroup_2026-04-17_report_1225114274_extract.txt"
+    },
+    {
+     "company": "National Silicon Industry Group",
+     "label": "National Silicon Industry Group half-year report: 2026 Half-Year Report (08-20-2026)",
+     "file": "transcripts/cninfo_reports/nationalsiliconindustrygroup_2026-08-20_report_1225483472_extract.txt"
+    },
+    {
+     "company": "Sanan Optoelectronics",
+     "label": "Sanan Optoelectronics annual report: 2025 Annual Report (04-25-2026)",
+     "file": "transcripts/cninfo_reports/sananoptoelectronics_2026-04-25_report_1225193540_extract.txt"
+    },
+    {
+     "company": "Sanan Optoelectronics",
+     "label": "Sanan Optoelectronics half-year report: 2026 Half-Year Report (08-26-2026)",
+     "file": "transcripts/cninfo_reports/sananoptoelectronics_2026-08-26_report_1225501696_extract.txt"
+    },
+    {
+     "company": "Longsys",
+     "label": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+     "file": "transcripts/cninfo_reports/longsys_2026-04-28_report_1225214128_extract.txt"
+    }
+   ],
+   "no_data": [],
+   "skipped": 0,
+   "source_range": [
+    "2026-03-11",
+    "2026-08-29"
+   ],
+   "last_fetch": "2026-10-04",
+   "last_enriched": null,
+   "enriched_days": [],
+   "last_sync": "2026-10-04",
+   "extra": {
+    "runs": [
+     {
+      "at": "2026-10-05 09:28",
+      "since": "per company",
+      "company": "Innolight",
+      "saved": 2,
+      "skipped": 4,
+      "failed": 0
+     },
+     {
+      "at": "2026-10-05 09:29",
+      "since": "per company",
+      "company": "Eoptolink",
+      "saved": 2,
+      "skipped": 4,
+      "failed": 0
+     },
+     {
+      "at": "2026-10-05 09:30",
+      "since": "per company",
+      "company": "Hengtong Optic-Electric",
+      "saved": 1,
+      "skipped": 5,
+      "failed": 0
+     },
+     {
+      "at": "2026-10-05 09:47",
+      "since": "per company",
+      "company": "Innolight",
+      "saved": 0,
+      "skipped": 0,
+      "failed": 0
      }
     ]
    }
@@ -6757,11 +7305,27 @@
    "name": "Japan TDnet disclosures",
    "command": "enrich japan",
    "source": "TSE TDnet timely disclosures (tdnet.py) — results, forecasts, capex, plans, deals; company filings, not transcripts",
-   "files": 19,
-   "labels_on_disk": 19,
-   "in_graph": 5,
-   "entries": 6,
-   "pending": [],
+   "files": 25,
+   "labels_on_disk": 25,
+   "in_graph": 7,
+   "entries": 13,
+   "pending": [
+    {
+     "company": "Datasection",
+     "label": "Datasection TDnet: release 140120261001544806 (10-01-2026)",
+     "file": "transcripts/tdnet/datasection_2026-10-01_140120261001544806.txt"
+    },
+    {
+     "company": "Renesas",
+     "label": "Renesas TDnet: release 140120261002545124 (10-02-2026)",
+     "file": "transcripts/tdnet/renesas_2026-10-02_140120261002545124.txt"
+    },
+    {
+     "company": "Optorun",
+     "label": "Optorun TDnet: release 140120260928541188 (09-28-2026)",
+     "file": "transcripts/tdnet/optorun_2026-09-28_140120260928541188.txt"
+    }
+   ],
    "no_data": [
     {
      "label": "Fujifilm TDnet: Partial Transfer of Businesses in the Graphic (09-09-2026)",
@@ -6804,6 +7368,11 @@
      "why": null
     },
     {
+     "label": "Niterra TDnet: Cancellation of Disclosed Matter) Notice Regarding (10-02-2026)",
+     "file": "transcripts/tdnet/niterra_2026-10-02_e140120261002545294.txt",
+     "why": null
+    },
+    {
      "label": "Resonac (Showa Denko) TDnet: Completion of Execution of Partial Spin-off of Crasus (10-01-2026)",
      "file": "transcripts/tdnet/resonacshowadenko_2026-10-01_e140120260930543687.txt",
      "why": null
@@ -6837,45 +7406,114 @@
    "skipped": 0,
    "source_range": [
     "2026-09-09",
-    "2026-10-01"
+    "2026-10-02"
    ],
-   "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_fetch": "2026-10-04",
+   "last_enriched": "2026-10-02",
    "enriched_days": [
     {
      "day": "2026-10-01",
      "labels": 5
+    },
+    {
+     "day": "2026-10-02",
+     "labels": 2
     }
    ],
-   "last_sync": "2026-10-01",
+   "last_sync": "2026-10-04",
    "extra": {
     "runs": [
      {
-      "at": "2026-10-01 02:42",
-      "days": "20260901..20261001",
+      "at": "2026-10-04 17:40",
+      "days": "20260929..20261005",
       "companies": null,
-      "listed": 6744,
-      "ours": 188,
-      "saved": 19,
-      "skipped": 165,
-      "later": 3,
+      "listed": 1852,
+      "ours": 88,
+      "saved": 2,
+      "skipped": 0,
+      "later": 0,
+      "skip_reasons": {}
+     },
+     {
+      "at": "2026-10-04 18:59",
+      "days": "20260905..20261005",
+      "companies": [
+       "Nippon Chemi-Con"
+      ],
+      "listed": 5685,
+      "ours": 2,
+      "saved": 0,
+      "skipped": 2,
+      "later": 0,
       "skip_reasons": {
-       "buyback / treasury stock": 50,
-       "other notice type": 33,
-       "officer change": 15,
-       "English duplicate": 15,
-       "one-off gain / loss": 14,
-       "listing / share admin": 8,
-       "results-date notice": 7,
-       "financing": 6,
-       "dividend": 6,
-       "stock compensation": 4,
-       "governance": 3,
-       "correction": 2,
-       "shareholder meeting": 2
+       "other notice type": 2
       }
+     },
+     {
+      "at": "2026-10-04 19:00",
+      "days": "20260905..20261005",
+      "companies": [
+       "Optorun"
+      ],
+      "listed": 5691,
+      "ours": 2,
+      "saved": 1,
+      "skipped": 1,
+      "later": 0,
+      "skip_reasons": {
+       "other notice type": 1
+      }
+     },
+     {
+      "at": "2026-10-04 19:02",
+      "days": "20260905..20261005",
+      "companies": [
+       "Enplas"
+      ],
+      "listed": 5691,
+      "ours": 2,
+      "saved": 0,
+      "skipped": 2,
+      "later": 0,
+      "skip_reasons": {
+       "officer change": 2
+      }
+     },
+     {
+      "at": "2026-10-04 19:03",
+      "days": "20260905..20261005",
+      "companies": [
+       "Fuso Chemical"
+      ],
+      "listed": 5691,
+      "ours": 0,
+      "saved": 0,
+      "skipped": 0,
+      "later": 0,
+      "skip_reasons": {}
      }
     ]
+   }
+  },
+  {
+   "id": "edinet",
+   "name": "Japan EDINET statutory reports",
+   "command": "enrich japan",
+   "source": "FSA EDINET 有価証券報告書 / 半期報告書 (edinet.py) — major customers, capex, R&D, MD&A; company filings, not transcripts",
+   "files": 0,
+   "labels_on_disk": 0,
+   "in_graph": 0,
+   "entries": 0,
+   "pending": [],
+   "no_data": [],
+   "skipped": 0,
+   "source_range": null,
+   "last_fetch": null,
+   "last_enriched": null,
+   "enriched_days": [],
+   "last_sync": null,
+   "extra": {
+    "runs": []
    }
   },
   {
@@ -6883,15 +7521,111 @@
    "name": "Taiwan MOPS filings",
    "command": "enrich taiwan",
    "source": "MOPS 法說會 decks, important 重大訊息 and monthly revenue (mops.py) — company filings, not transcripts",
-   "files": 200,
-   "labels_on_disk": 200,
-   "in_graph": 173,
-   "entries": 179,
-   "pending": [],
+   "files": 366,
+   "labels_on_disk": 366,
+   "in_graph": 297,
+   "entries": 448,
+   "pending": [
+    {
+     "company": "Kenmec Mechanical Engineering",
+     "label": "Kenmec Mechanical Engineering MOPS monthly revenue: August 2026 (09-10-2026)",
+     "file": "transcripts/mops/kenmecmechanicalengineering_2026-09-10_revenue_202608.txt"
+    },
+    {
+     "company": "Foxsemicon Integrated Technology",
+     "label": "Foxsemicon Integrated Technology IR presentation: MOPS 341320260909E001 (09-09-2026)",
+     "file": "transcripts/mops/foxsemiconintegratedtechnology_2026-09-09_deck_341320260909E001.txt"
+    },
+    {
+     "company": "Foxsemicon Integrated Technology",
+     "label": "Foxsemicon Integrated Technology MOPS monthly revenue: August 2026 (09-10-2026)",
+     "file": "transcripts/mops/foxsemiconintegratedtechnology_2026-09-10_revenue_202608.txt"
+    },
+    {
+     "company": "Advanced Echem Materials",
+     "label": "Advanced Echem Materials MOPS monthly revenue: August 2026 (09-10-2026)",
+     "file": "transcripts/mops/advancedechemmaterials_2026-09-10_revenue_202608.txt"
+    },
+    {
+     "company": "Ableprint Technology",
+     "label": "Ableprint Technology MOPS monthly revenue: August 2026 (09-10-2026)",
+     "file": "transcripts/mops/ableprinttechnology_2026-09-10_revenue_202608.txt"
+    }
+   ],
    "no_data": [
+    {
+     "label": "AcBel Polytech IR presentation: MOPS 628220260914E001 (09-15-2026)",
+     "file": "transcripts/mops/acbelpolytech_2026-09-15_deck_628220260914E001.txt",
+     "why": null
+    },
+    {
+     "label": "Advanced Wireless Semiconductor IR presentation: MOPS 808620260907E001 (09-09-2026)",
+     "file": "transcripts/mops/advancedwirelesssemiconductor_2026-09-09_deck_808620260907E001.txt",
+     "why": null
+    },
+    {
+     "label": "Alchip IR presentation: MOPS 366120260814E001 (08-14-2026)",
+     "file": "transcripts/mops/alchip_2026-08-14_deck_366120260814E001.txt",
+     "why": null
+    },
+    {
+     "label": "Allis Electric IR presentation: MOPS 151420260826E001 (08-27-2026)",
+     "file": "transcripts/mops/alliselectric_2026-08-27_deck_151420260826E001.txt",
+     "why": null
+    },
+    {
+     "label": "Ardentec IR presentation: MOPS 326420260724E001 (07-24-2026)",
+     "file": "transcripts/mops/ardentec_2026-07-24_deck_326420260724E001.txt",
+     "why": null
+    },
+    {
+     "label": "CHPT (Chunghwa Precision Test) IR presentation: MOPS 651020260817E001 (08-25-2026)",
+     "file": "transcripts/mops/chptchunghwaprecisiontest_2026-08-25_deck_651020260817E001.txt",
+     "why": null
+    },
+    {
+     "label": "Chenbro IR presentation: MOPS 821020260818E001 (08-19-2026)",
+     "file": "transcripts/mops/chenbro_2026-08-19_deck_821020260818E001.txt",
+     "why": null
+    },
+    {
+     "label": "Chenbro IR presentation: MOPS 821020260907E001 (09-04-2026)",
+     "file": "transcripts/mops/chenbro_2026-09-04_deck_821020260907E001.txt",
+     "why": null
+    },
+    {
+     "label": "Chenbro IR presentation: MOPS 821020260907E002 (09-14-2026)",
+     "file": "transcripts/mops/chenbro_2026-09-14_deck_821020260907E002.txt",
+     "why": null
+    },
     {
      "label": "Compal Electronics MOPS material information: release 2324-20260918-2 (09-18-2026)",
      "file": "transcripts/mops/compalelectronics_2026-09-18_material_2324-20260918-2.txt",
+     "why": null
+    },
+    {
+     "label": "Daxin Materials IR presentation: MOPS 523420260813E001 (08-14-2026)",
+     "file": "transcripts/mops/daxinmaterials_2026-08-14_deck_523420260813E001.txt",
+     "why": null
+    },
+    {
+     "label": "Dynapack International Technology IR presentation: MOPS 321120260729E001 (07-29-2026)",
+     "file": "transcripts/mops/dynapackinternationaltechnology_2026-07-29_deck_321120260729E001.txt",
+     "why": null
+    },
+    {
+     "label": "Formosa Advanced Technologies IR presentation: MOPS 813120260917E001 (09-17-2026)",
+     "file": "transcripts/mops/formosaadvancedtechnologies_2026-09-17_deck_813120260917E001.txt",
+     "why": null
+    },
+    {
+     "label": "Fositek IR presentation: MOPS 680520260505E001 (06-09-2026)",
+     "file": "transcripts/mops/fositek_2026-06-09_deck_680520260505E001.txt",
+     "why": null
+    },
+    {
+     "label": "Fositek IR presentation: MOPS 680520260804E001 (08-04-2026)",
+     "file": "transcripts/mops/fositek_2026-08-04_deck_680520260804E001.txt",
      "why": null
     },
     {
@@ -6915,6 +7649,16 @@
      "why": null
     },
     {
+     "label": "Gallant Precision Machining IR presentation: MOPS 544320260812E001 (08-12-2026)",
+     "file": "transcripts/mops/gallantprecisionmachining_2026-08-12_deck_544320260812E001.txt",
+     "why": null
+    },
+    {
+     "label": "Global Communication Semiconductors IR presentation: MOPS 499120260805E001 (08-05-2026)",
+     "file": "transcripts/mops/globalcommunicationsemiconductors_2026-08-05_deck_499120260805E001.txt",
+     "why": null
+    },
+    {
      "label": "GlobalWafers MOPS material information: release 6488-20260722-1 (07-22-2026)",
      "file": "transcripts/mops/globalwafers_2026-07-22_material_6488-20260722-1.txt",
      "why": null
@@ -6927,6 +7671,16 @@
     {
      "label": "GlobalWafers MOPS material information: release 6488-20260914-2 (09-14-2026)",
      "file": "transcripts/mops/globalwafers_2026-09-14_material_6488-20260914-2.txt",
+     "why": null
+    },
+    {
+     "label": "Gudeng Precision IR presentation: MOPS 368020260828E001 (09-01-2026)",
+     "file": "transcripts/mops/gudengprecision_2026-09-01_deck_368020260828E001.txt",
+     "why": null
+    },
+    {
+     "label": "Innodisk IR presentation: MOPS 528920260827E001 (08-27-2026)",
+     "file": "transcripts/mops/innodisk_2026-08-27_deck_528920260827E001.txt",
      "why": null
     },
     {
@@ -6945,8 +7699,43 @@
      "why": null
     },
     {
+     "label": "King Slide IR presentation: MOPS 205920260807E001 (08-07-2026)",
+     "file": "transcripts/mops/kingslide_2026-08-07_deck_205920260807E001.txt",
+     "why": null
+    },
+    {
+     "label": "Kinik IR presentation: MOPS 156020260612E001 (06-12-2026)",
+     "file": "transcripts/mops/kinik_2026-06-12_deck_156020260612E001.txt",
+     "why": null
+    },
+    {
+     "label": "Kinik IR presentation: MOPS 156020260907E003 (09-16-2026)",
+     "file": "transcripts/mops/kinik_2026-09-16_deck_156020260907E003.txt",
+     "why": null
+    },
+    {
+     "label": "Kinsus IR presentation: MOPS 318920260519E001 (06-03-2026)",
+     "file": "transcripts/mops/kinsus_2026-06-03_deck_318920260519E001.txt",
+     "why": null
+    },
+    {
+     "label": "Kinsus IR presentation: MOPS 318920260903E001 (09-04-2026)",
+     "file": "transcripts/mops/kinsus_2026-09-04_deck_318920260903E001.txt",
+     "why": null
+    },
+    {
      "label": "Lite-On MOPS material information: release 2301-20260903-1 (09-03-2026)",
      "file": "transcripts/mops/liteon_2026-09-03_material_2301-20260903-1.txt",
+     "why": null
+    },
+    {
+     "label": "LuxNet IR presentation: MOPS 497920260828E001 (08-28-2026)",
+     "file": "transcripts/mops/luxnet_2026-08-28_deck_497920260828E001.txt",
+     "why": null
+    },
+    {
+     "label": "MediaTek IR presentation: MOPS 245420260731E002 (07-31-2026)",
+     "file": "transcripts/mops/mediatek_2026-07-31_deck_245420260731E002.txt",
      "why": null
     },
     {
@@ -6955,8 +7744,23 @@
      "why": null
     },
     {
+     "label": "Nan Ya Plastics IR presentation: MOPS 130320260820E001 (08-21-2026)",
+     "file": "transcripts/mops/nanyaplastics_2026-08-21_deck_130320260820E001.txt",
+     "why": null
+    },
+    {
+     "label": "Nan Ya Plastics IR presentation: MOPS 130320260910E001 (09-11-2026)",
+     "file": "transcripts/mops/nanyaplastics_2026-09-11_deck_130320260910E001.txt",
+     "why": null
+    },
+    {
      "label": "Nan Ya Plastics MOPS material information: release 1303-20260923-2 (09-23-2026)",
      "file": "transcripts/mops/nanyaplastics_2026-09-23_material_1303-20260923-2.txt",
+     "why": null
+    },
+    {
+     "label": "Nanya Technology IR presentation: MOPS 240820260710E001 (07-10-2026)",
+     "file": "transcripts/mops/nanyatechnology_2026-07-10_deck_240820260710E001.txt",
      "why": null
     },
     {
@@ -6970,6 +7774,11 @@
      "why": null
     },
     {
+     "label": "Parade Technologies IR presentation: MOPS 496620260805E001 (08-05-2026)",
+     "file": "transcripts/mops/paradetechnologies_2026-08-05_deck_496620260805E001.txt",
+     "why": null
+    },
+    {
      "label": "Pegatron MOPS material information: release 4938-20260831-2 (08-31-2026)",
      "file": "transcripts/mops/pegatron_2026-08-31_material_4938-20260831-2.txt",
      "why": null
@@ -6980,8 +7789,38 @@
      "why": null
     },
     {
+     "label": "Realtek IR presentation: MOPS 237920260730E002 (07-30-2026)",
+     "file": "transcripts/mops/realtek_2026-07-30_deck_237920260730E002.txt",
+     "why": null
+    },
+    {
      "label": "Realtek MOPS material information: release 2379-20260730-4 (07-30-2026)",
      "file": "transcripts/mops/realtek_2026-07-30_material_2379-20260730-4.txt",
+     "why": null
+    },
+    {
+     "label": "Ta Liang Technology IR presentation: MOPS 316720260902E001 (09-03-2026)",
+     "file": "transcripts/mops/taliangtechnology_2026-09-03_deck_316720260902E001.txt",
+     "why": null
+    },
+    {
+     "label": "Tripod Technology IR presentation: MOPS 304420260825E001 (08-26-2026)",
+     "file": "transcripts/mops/tripodtechnology_2026-08-26_deck_304420260825E001.txt",
+     "why": null
+    },
+    {
+     "label": "Tripod Technology IR presentation: MOPS 304420260915E001 (09-16-2026)",
+     "file": "transcripts/mops/tripodtechnology_2026-09-16_deck_304420260915E001.txt",
+     "why": null
+    },
+    {
+     "label": "Unimicron IR presentation: MOPS 303720260529E001 (06-04-2026)",
+     "file": "transcripts/mops/unimicron_2026-06-04_deck_303720260529E001.txt",
+     "why": null
+    },
+    {
+     "label": "Win Semiconductors IR presentation: MOPS 310520260909E001 (09-14-2026)",
+     "file": "transcripts/mops/winsemiconductors_2026-09-14_deck_310520260909E001.txt",
      "why": null
     },
     {
@@ -7015,6 +7854,11 @@
      "why": null
     },
     {
+     "label": "Yageo IR presentation: MOPS 232720260813E001 (08-17-2026)",
+     "file": "transcripts/mops/yageo_2026-08-17_deck_232720260813E001.txt",
+     "why": null
+    },
+    {
      "label": "Zhen Ding MOPS material information: release 4958-20260811-3 (08-11-2026)",
      "file": "transcripts/mops/zhending_2026-08-11_material_4958-20260811-3.txt",
      "why": null
@@ -7023,67 +7867,82 @@
      "label": "Zhen Ding MOPS material information: release 4958-20260911-2 (09-11-2026)",
      "file": "transcripts/mops/zhending_2026-09-11_material_4958-20260911-2.txt",
      "why": null
+    },
+    {
+     "label": "eMemory IR presentation: MOPS 352920260827E003 (09-10-2026)",
+     "file": "transcripts/mops/ememory_2026-09-10_deck_352920260827E003.txt",
+     "why": null
     }
    ],
    "skipped": 0,
    "source_range": [
-    "2026-06-10",
-    "2026-10-01"
+    "2026-06-03",
+    "2026-10-02"
    ],
-   "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_fetch": "2026-10-04",
+   "last_enriched": "2026-10-04",
    "enriched_days": [
     {
      "day": "2026-10-01",
      "labels": 173
+    },
+    {
+     "day": "2026-10-04",
+     "labels": 124
     }
    ],
-   "last_sync": "2026-10-01",
+   "last_sync": "2026-10-04",
    "extra": {
     "runs": [
      {
-      "at": "2026-10-01 02:30",
+      "at": "2026-10-02 18:29",
       "since": "per company",
-      "companies": 1,
-      "deck_saved": 0,
-      "deck_skipped": 0,
-      "material_saved": 1,
-      "material_skipped": 10,
-      "revenue_saved": 2,
-      "deck_list_failed": 3
-     },
-     {
-      "at": "2026-10-01 02:31",
-      "since": "per company",
-      "companies": 1,
-      "deck_saved": 0,
-      "deck_skipped": 0,
-      "material_saved": 5,
-      "material_skipped": 40,
-      "revenue_saved": 0,
-      "deck_list_failed": 3
-     },
-     {
-      "at": "2026-10-01 02:32",
-      "since": "per company",
-      "companies": 1,
-      "deck_saved": 0,
-      "deck_skipped": 0,
+      "companies": 127,
+      "deck_saved": 159,
+      "deck_skipped": 119,
       "material_saved": 2,
-      "material_skipped": 9,
-      "revenue_saved": 2,
-      "deck_list_failed": 3
+      "material_skipped": 14,
+      "revenue_saved": 0
      },
      {
-      "at": "2026-10-01 03:02",
+      "at": "2026-10-04 18:55",
       "since": "per company",
-      "companies": 126,
+      "companies": 1,
       "deck_saved": 0,
       "deck_skipped": 0,
-      "material_saved": 99,
-      "material_skipped": 535,
-      "revenue_saved": 86,
-      "deck_list_failed": 5
+      "material_saved": 0,
+      "material_skipped": 2,
+      "revenue_saved": 1
+     },
+     {
+      "at": "2026-10-04 18:56",
+      "since": "per company",
+      "companies": 1,
+      "deck_saved": 1,
+      "deck_skipped": 0,
+      "material_saved": 0,
+      "material_skipped": 0,
+      "revenue_saved": 1
+     },
+     {
+      "at": "2026-10-04 18:57",
+      "since": "per company",
+      "companies": 1,
+      "deck_saved": 0,
+      "deck_skipped": 0,
+      "material_saved": 0,
+      "material_skipped": 1,
+      "revenue_saved": 1
+     },
+     {
+      "at": "2026-10-04 18:58",
+      "since": "per company",
+      "companies": 1,
+      "deck_saved": 0,
+      "deck_skipped": 0,
+      "material_saved": 0,
+      "material_skipped": 1,
+      "revenue_saved": 1
      }
     ]
    }
@@ -7095,8 +7954,8 @@
    "source": "URL / pasted text enriched directly in Claude Code",
    "files": 478,
    "labels_on_disk": 270,
-   "in_graph": 478,
-   "entries": 2629,
+   "in_graph": 475,
+   "entries": 2624,
    "pending": [],
    "no_data": [
     {
@@ -7623,18 +8482,6 @@
   },
   {
    "day": "2026-10-01",
-   "pipeline": "manual",
-   "files": 478,
-   "in_graph": 478,
-   "pending": 0,
-   "last_sync": "2026-10-01",
-   "source_range": [
-    "2024-12-20",
-    "2026-10-01"
-   ]
-  },
-  {
-   "day": "2026-10-01",
    "pipeline": "intl",
    "files": 59,
    "in_graph": 56,
@@ -7643,18 +8490,6 @@
    "source_range": [
     "2026-05-12",
     "2026-09-07"
-   ]
-  },
-  {
-   "day": "2026-10-01",
-   "pipeline": "ir",
-   "files": 1230,
-   "in_graph": 379,
-   "pending": 23,
-   "last_sync": "2026-10-01",
-   "source_range": [
-    "2026-05-29",
-    "2026-10-01"
    ]
   },
   {
@@ -7707,18 +8542,6 @@
   },
   {
    "day": "2026-10-01",
-   "pipeline": "us",
-   "files": 338,
-   "in_graph": 337,
-   "pending": 0,
-   "last_sync": "2026-09-30",
-   "source_range": [
-    "2025-11-05",
-    "2026-09-30"
-   ]
-  },
-  {
-   "day": "2026-10-01",
    "pipeline": "edgar",
    "files": 1294,
    "in_graph": 433,
@@ -7728,42 +8551,330 @@
     "2025-10-03",
     "2026-09-30"
    ]
+  },
+  {
+   "day": "2026-10-01",
+   "pipeline": "us",
+   "files": 343,
+   "in_graph": 340,
+   "pending": 0,
+   "last_sync": "2026-10-01",
+   "source_range": [
+    "2025-11-05",
+    "2026-09-30"
+   ]
+  },
+  {
+   "day": "2026-10-01",
+   "pipeline": "ir",
+   "files": 1230,
+   "in_graph": 379,
+   "pending": 38,
+   "last_sync": "2026-10-01",
+   "source_range": [
+    "2026-05-29",
+    "2026-10-01"
+   ]
+  },
+  {
+   "day": "2026-10-01",
+   "pipeline": "manual",
+   "files": 478,
+   "in_graph": 475,
+   "pending": 0,
+   "last_sync": "2026-10-01",
+   "source_range": [
+    "2024-12-20",
+    "2026-10-01"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "conference",
+   "files": 116,
+   "in_graph": 115,
+   "pending": 1,
+   "last_sync": "2026-10-01",
+   "source_range": [
+    "2026-07-20",
+    "2026-10-01"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "ir",
+   "files": 1286,
+   "in_graph": 389,
+   "pending": 39,
+   "last_sync": "2026-10-01",
+   "source_range": [
+    "2026-05-29",
+    "2026-10-02"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "us",
+   "files": 342,
+   "in_graph": 341,
+   "pending": 0,
+   "last_sync": "2026-10-02",
+   "source_range": [
+    "2025-11-05",
+    "2026-09-30"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "dart",
+   "files": 154,
+   "in_graph": 159,
+   "pending": 3,
+   "last_sync": "2026-10-02",
+   "source_range": [
+    "2026-08-04",
+    "2026-10-02"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "intl",
+   "files": 59,
+   "in_graph": 56,
+   "pending": 5,
+   "last_sync": "2026-10-02",
+   "source_range": [
+    "2026-05-12",
+    "2026-09-07"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "kind",
+   "files": 47,
+   "in_graph": 37,
+   "pending": 0,
+   "last_sync": "2026-10-02",
+   "source_range": [
+    "2026-04-23",
+    "2026-09-18"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "krcalls",
+   "files": 1,
+   "in_graph": 1,
+   "pending": 0,
+   "last_sync": "2026-10-02",
+   "source_range": [
+    "2026-07-30",
+    "2026-07-30"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "cninfo",
+   "files": 158,
+   "in_graph": 98,
+   "pending": 15,
+   "last_sync": "2026-10-03",
+   "source_range": [
+    "2026-08-23",
+    "2026-09-30"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "tdnet",
+   "files": 22,
+   "in_graph": 5,
+   "pending": 3,
+   "last_sync": "2026-10-02",
+   "source_range": [
+    "2026-09-09",
+    "2026-10-02"
+   ]
+  },
+  {
+   "day": "2026-10-02",
+   "pipeline": "mops",
+   "files": 361,
+   "in_graph": 173,
+   "pending": 161,
+   "last_sync": "2026-10-02",
+   "source_range": [
+    "2026-06-03",
+    "2026-10-02"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "dart",
+   "files": 154,
+   "in_graph": 162,
+   "pending": 0,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2026-08-04",
+    "2026-10-02"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "intl",
+   "files": 59,
+   "in_graph": 59,
+   "pending": 0,
+   "last_sync": "2026-10-02",
+   "source_range": [
+    "2026-05-12",
+    "2026-09-07"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "conference",
+   "files": 116,
+   "in_graph": 116,
+   "pending": 0,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2026-07-20",
+    "2026-10-01"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "kind",
+   "files": 47,
+   "in_graph": 37,
+   "pending": 0,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2026-04-23",
+    "2026-09-18"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "krcalls",
+   "files": 1,
+   "in_graph": 1,
+   "pending": 0,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2026-07-30",
+    "2026-07-30"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "us",
+   "files": 360,
+   "in_graph": 358,
+   "pending": 1,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2025-11-05",
+    "2026-09-30"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "ir",
+   "files": 1307,
+   "in_graph": 396,
+   "pending": 52,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2026-05-29",
+    "2026-10-02"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "cninfo",
+   "files": 186,
+   "in_graph": 108,
+   "pending": 28,
+   "last_sync": "2026-10-05",
+   "source_range": [
+    "2026-08-23",
+    "2026-09-30"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "edinet",
+   "files": 0,
+   "in_graph": 0,
+   "pending": 0,
+   "last_sync": null,
+   "source_range": null
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "mops",
+   "files": 366,
+   "in_graph": 297,
+   "pending": 5,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2026-06-03",
+    "2026-10-02"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "edgar",
+   "files": 1468,
+   "in_graph": 572,
+   "pending": 0,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2025-10-03",
+    "2026-10-02"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "cnreports",
+   "files": 154,
+   "in_graph": 0,
+   "pending": 94,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2026-03-11",
+    "2026-08-29"
+   ]
+  },
+  {
+   "day": "2026-10-04",
+   "pipeline": "tdnet",
+   "files": 25,
+   "in_graph": 7,
+   "pending": 3,
+   "last_sync": "2026-10-04",
+   "source_range": [
+    "2026-09-09",
+    "2026-10-02"
+   ]
   }
  ],
  "board": {
-  "today": "2026-10-01",
+  "today": "2026-10-04",
   "markets": [
    {
     "id": "US",
     "name": "United States",
     "command": "enrich us",
-    "companies": 217,
-    "call_current": 208,
-    "overdue": [
-     {
-      "company": "Applied Digital",
-      "last_call": "2026-04-09"
-     },
-     {
-      "company": "Simulations Plus",
-      "last_call": "2026-04-09"
-     },
-     {
-      "company": "3M",
-      "last_call": "2026-04-21"
-     },
-     {
-      "company": "Texas Instruments",
-      "last_call": "2026-04-22"
-     }
-    ],
-    "never": [
-     "POET Technologies",
-     "Shell"
-    ],
+    "companies": 234,
+    "call_current": 229,
+    "overdue": [],
+    "never": [],
     "nothing": [
-     "POET Technologies",
-     "Shell"
+     "POET Technologies"
     ],
     "dart_never": [],
     "marked": [
@@ -7772,6 +8883,12 @@
       "source": "call",
       "why": "no free transcript source (AI-bio chain check, recorded 2026-09-18)",
       "recheck": "2026-12-25"
+     },
+     {
+      "company": "POET Technologies",
+      "source": "call",
+      "why": "no call on Alpha Vantage (Q2 08-13 never posted) or defeatbeta (no POET transcripts at all; checked 2026-10-01)",
+      "recheck": "2026-11-20"
      },
      {
       "company": "Relay Therapeutics",
@@ -7784,14 +8901,21 @@
       "source": "call",
       "why": "no free transcript source (AI-bio chain check, recorded 2026-09-18)",
       "recheck": "2026-12-25"
+     },
+     {
+      "company": "Simulations Plus",
+      "source": "call",
+      "why": "Q3 FY2026 call (07-09-2026) not on Alpha Vantage or defeatbeta (defeatbeta's latest SLP call is 04-09-2026; checked 2026-10-01); next call ~late Oct",
+      "recheck": "2026-10-30"
      }
     ],
     "feeds": 199,
     "waiting": {
-     "ir": 20
+     "us": 1,
+     "ir": 37
     },
     "collectors": {
-     "us": "2026-09-30",
+     "us": "2026-10-04",
      "utility": "2026-10-01"
     }
    },
@@ -7944,8 +9068,8 @@
     "feeds": 25,
     "waiting": {},
     "collectors": {
-     "dart": "2026-10-01",
-     "kind": "2026-10-01"
+     "dart": "2026-10-04",
+     "kind": "2026-10-04"
     }
    },
    {
@@ -8075,38 +9199,20 @@
      "uPI Semiconductor"
     ],
     "nothing": [
-     "AP Memory",
      "ASMedia",
-     "Andes Technology",
-     "Chenbro",
-     "Chroma ATE",
-     "Faraday Technology",
-     "Grand Process Technology",
-     "ITEQ",
-     "King Slide",
-     "Kinsus",
-     "Lotes",
-     "MPI Corporation",
-     "Nuvoton",
-     "Powerchip (PSMC)",
-     "Silergy",
-     "Sino-American Silicon",
      "Sunonwealth",
-     "VisEra",
-     "Win Semiconductors",
-     "WinWay Technology",
-     "uPI Semiconductor"
+     "WinWay Technology"
     ],
     "dart_never": [],
     "marked": [],
     "feeds": 49,
     "waiting": {
-     "ir": 2
+     "mops": 5
     },
     "collectors": {
-     "intl": "2026-10-01",
+     "intl": "2026-10-02",
      "tw": "2026-09-07",
-     "mops": "2026-10-01"
+     "mops": "2026-10-04"
     }
    },
    {
@@ -8114,7 +9220,7 @@
     "name": "Japan",
     "command": "enrich japan",
     "companies": 120,
-    "call_current": 12,
+    "call_current": 13,
     "overdue": [
      {
       "company": "Murata",
@@ -8123,7 +9229,6 @@
     ],
     "never": [
      "ADEKA",
-     "AGC",
      "Accretech (Tokyo Seimitsu)",
      "Anritsu",
      "Asahi Kasei",
@@ -8231,7 +9336,6 @@
      "Yamaichi Electronics"
     ],
     "nothing": [
-     "AGC",
      "Accretech (Tokyo Seimitsu)",
      "Asahi Kasei",
      "Asetek",
@@ -8248,7 +9352,6 @@
      "Kyocera",
      "Micronics Japan",
      "Mitsubishi Electric",
-     "Nidec",
      "Nippon Chemical Industrial",
      "Nitto Boseki",
      "Rohm",
@@ -8267,12 +9370,13 @@
     "marked": [],
     "feeds": 60,
     "waiting": {
-     "intl": 3,
-     "ir": 1
+     "ir": 5,
+     "tdnet": 3
     },
     "collectors": {
-     "intl": "2026-10-01",
-     "tdnet": "2026-10-01"
+     "intl": "2026-10-02",
+     "tdnet": "2026-10-04",
+     "edinet": null
     }
    },
    {
@@ -8318,9 +9422,11 @@
     "dart_never": [],
     "marked": [],
     "feeds": 21,
-    "waiting": {},
+    "waiting": {
+     "ir": 1
+    },
     "collectors": {
-     "intl": "2026-10-01"
+     "intl": "2026-10-02"
     }
    },
    {
@@ -8328,7 +9434,7 @@
     "name": "China / Hong Kong",
     "command": "enrich china",
     "companies": 96,
-    "call_current": 1,
+    "call_current": 3,
     "overdue": [],
     "never": [
      "AMEC",
@@ -8381,7 +9487,6 @@
      "Kingsemi",
      "Kinwong",
      "Kstar",
-     "Lenovo",
      "Linktel Technologies",
      "Longsys",
      "Luxshare",
@@ -8397,7 +9502,6 @@
      "POCO Holding",
      "Piotech",
      "SICC",
-     "SMIC",
      "Sanan Optoelectronics",
      "Shengyi Electronics",
      "Shengyi Technology",
@@ -8437,12 +9541,14 @@
     "marked": [],
     "feeds": 12,
     "waiting": {
-     "intl": 2,
-     "cninfo": 6
+     "ir": 9,
+     "cninfo": 28,
+     "cnreports": 94
     },
     "collectors": {
-     "intl": "2026-10-01",
-     "cninfo": "2026-10-01"
+     "intl": "2026-10-02",
+     "cninfo": "2026-10-05",
+     "cnreports": "2026-10-04"
     }
    },
    {
@@ -8476,17 +9582,21 @@
     "feeds": 2,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-01"
+     "intl": "2026-10-02"
     }
    }
   ],
   "next_actions": [
    {
+    "command": "Opus verifier over verify_queue.json",
+    "reasons": [
+     "17 applied labels are waiting for the independent check (rule: at 5+)"
+    ]
+   },
+   {
     "command": "enrich us",
     "reasons": [
-     "20 fetched file(s) waiting to be enriched (20 IR release)",
-     "4 overdue for a call: Applied Digital (last 2026-04-09), Simulations Plus (last 2026-04-09), 3M (last 2026-04-21), Texas Instruments (last 2026-04-22)",
-     "2 never had a call enriched (fetch with defeatbeta, mark the ones with none): POET Technologies, Shell"
+     "38 fetched file(s) waiting to be enriched (37 IR release, 1 call)"
     ]
    },
    {
@@ -8496,41 +9606,37 @@
     ]
    },
    {
-    "command": "enrich edgar",
-    "reasons": [
-     "175 filings queued"
-    ]
-   },
-   {
     "command": "enrich taiwan",
     "reasons": [
-     "2 fetched file(s) waiting to be enriched (2 IR release)",
-     "Taiwan Chinese-call sync (tw.py) last ran 24 days ago (2026-09-07)",
+     "5 fetched file(s) waiting to be enriched (5 MOPS filing)",
+     "Taiwan Chinese-call sync (tw.py) last ran 27 days ago (2026-09-07)",
      "4 overdue for a call: Wiwynn (last 2026-02-26), Inventec (last 2026-05-12), Gigabyte (last 2026-05-15), VPEC (last 2026-05-27)"
     ]
    },
    {
     "command": "enrich japan",
     "reasons": [
-     "4 fetched file(s) waiting to be enriched (3 call, 1 IR release)",
+     "8 fetched file(s) waiting to be enriched (5 IR release, 3 TDnet filing)",
      "1 overdue for a call: Murata (last 2026-04-30)"
     ]
    },
    {
     "command": "enrich europe",
     "reasons": [
+     "1 fetched file(s) waiting to be enriched (1 IR release)",
      "3 overdue for a call: Schneider Electric (last 2026-04-30), Legrand (last 2026-05-12), AT&S (last 2026-05-21)"
     ]
    },
    {
     "command": "enrich china",
     "reasons": [
-     "8 fetched file(s) waiting to be enriched (6 IR record / investor Q&A, 2 call)"
+     "131 fetched file(s) waiting to be enriched (28 IR record / investor Q&A, 94 periodic report, 9 IR release)"
     ]
    }
   ],
   "setup": [
-   "Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are SK Hynix 2026-04-23, Samsung Electro-Mechanics 2026-04-30, Samsung 2026-07-30; 123 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual."
+   "Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are SK Hynix 2026-04-23, Samsung Electro-Mechanics 2026-04-30, Samsung 2026-07-30; 123 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual.",
+   "EDINET (Japan's annual / semi-annual securities reports: major customers, capex, R&D — edinet.py) needs a free API key: register at https://api.edinet-fsa.go.jp/api/auth/index.aspx?mode=1 and add `EDINET_API_KEY=<key>` to .env. Until then `enrich japan` skips its EDINET step."
   ],
   "questions": [
    {
@@ -8668,18 +9774,18 @@
   ],
   "shared": {
    "ir": {
-    "last_sync": "2026-10-01",
+    "last_sync": "2026-10-04",
     "days": 0,
     "due": false,
-    "feeds": 368
+    "feeds": 376
    },
    "conference": {
-    "last_sync": "2026-09-30",
-    "days": 1,
+    "last_sync": "2026-10-04",
+    "days": 0,
     "due": false
    }
   },
-  "verify_pending": 0,
+  "verify_pending": 17,
   "notes": [
    {
     "at": "2026-10-01 00:10",

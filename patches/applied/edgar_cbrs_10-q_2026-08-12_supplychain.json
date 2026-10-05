@@ -1,0 +1,111 @@
+{
+  "source": "Cerebras 10-Q (08-12-2026)",
+  "chains": {
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "Cerebras",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "sub_sector": null,
+          "product": "wafer-scale engine (WSE) AI inference accelerator",
+          "quarterly_data": [
+            {
+              "quarter": "Cerebras 10-Q (08-12-2026)",
+              "signal": "Cerebras' 10-Q: Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) accounted for 34% of total revenue in the three months ended June 30, 2026 (70% a year earlier) and 49% in the six months (47% a year earlier).",
+              "figure": "MBZUAI 34% of Q2 2026 revenue (70% in Q2 2025); 49% of 1H 2026 revenue (47% in 1H 2025)",
+              "topics": []
+            },
+            {
+              "quarter": "Cerebras 10-Q (08-12-2026)",
+              "signal": "Cerebras' 10-Q: Group 42 Holding Ltd (together with its affiliates, G42) accounted for 9% of total revenue in the three months ended June 30, 2026 (18% a year earlier) and 10% in the six months (41% a year earlier).",
+              "figure": "G42 9% of Q2 2026 revenue (18% in Q2 2025); 10% of 1H 2026 revenue (41% in 1H 2025)",
+              "topics": []
+            },
+            {
+              "quarter": "Cerebras 10-Q (08-12-2026)",
+              "signal": "Cerebras' 10-Q concentration tables (customers not named): Customer B accounted for 32% of revenue in the three months ended June 30, 2026 and 20% in the six months, and 57% of accounts receivable at June 30, 2026; Customer C accounted for 10% of Q2 2026 revenue. On the supply side, three suppliers accounted for 13%, 12% and 10% of total purchases in the six months ended June 30, 2026 (two suppliers at 16% and 10% a year earlier); certain manufacturing materials are available only from a limited number of suppliers.",
+              "figure": "Customer B 32% of Q2 2026 revenue (20% of 1H 2026), 57% of receivables; Customer C 10% of Q2 2026 revenue; top three suppliers 13%, 12%, 10% of 1H 2026 purchases",
+              "topics": []
+            },
+            {
+              "quarter": "Cerebras 10-Q (08-12-2026)",
+              "signal": "Cerebras' 10-Q revenue mix: GAAP hardware revenue was $54.1M in the quarter ended June 30, 2026, -23.0% YoY vs $70.3M, while cloud and other services rose to 70.0% of revenue (32.0% a year earlier). The company expects cloud and other services revenue to comprise a significantly higher percentage of total revenue in future periods as a result of the OpenAI MRA, and expects pass-through revenue to also increase significantly in the near term as initial Committed Capacity will be deployed in its cloud.",
+              "figure": "hardware revenue $54.1M (-23.0% YoY vs $70.3M); cloud and other services 70.0% of Q2 2026 revenue vs 32.0%",
+              "topics": []
+            },
+            {
+              "quarter": "Cerebras 10-Q (08-12-2026)",
+              "signal": "Cerebras' 10-Q capacity build-out: purchases of property and equipment were $548,873 thousand in the six months ended June 30, 2026 vs $185,094 thousand a year earlier, and right-of-use assets obtained in exchange for lease obligations were $318,429 thousand; the company says it has entered, and expects to continue to enter, into long-term lease commitments with third-party data center providers and other significant supplier commitments, including investments in scaling up its contract manufacturers.",
+              "figure": "1H 2026 purchases of property and equipment $548,873 thousand (vs $185,094 thousand); right-of-use assets obtained $318,429 thousand",
+              "topics": []
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "OpenAI",
+              "relationship": "wafer-scale AI inference compute",
+              "contracts": [
+                {
+                  "source": "Cerebras 10-Q (08-12-2026)",
+                  "signal": "Cerebras' 10-Q: under the December 2025 Master Relationship Agreement (MRA), OpenAI committed to purchase 750MW of AI inference compute capacity and related services, with deployment expected in tranches during 2026 through 2028, over a term of three or four years extendable by OpenAI to a maximum of five years; OpenAI also has the option to purchase an additional 1.25GW of capacity for deployment in tranches by the end of 2030, for up to a total of 2.0GW. Cerebras must deliver capacity tranches across specified numbers of data centers with minimum capacity thresholds; the MRA contains exclusivity provisions restricting work with certain named competitors of OpenAI. Revenue recognized under the arrangement was $56.8 million in Q2 2026 and $74.4 million in the six months ended June 30, 2026, and a significant amount of the $25.4 billion RPO is attributable to the MRA.",
+                  "units": "750MW committed capacity; option for an additional 1.25GW (up to 2.0GW in total)",
+                  "value": "revenue recognized $56.8 million (Q2 2026) and $74.4 million (six months ended June 30, 2026)",
+                  "date_signed": "December 2025",
+                  "type": "master relationship agreement - committed AI inference capacity",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "Amazon",
+              "relationship": "CS-3 wafer-scale decode systems deployed in AWS data centers (disaggregated inference with Trainium3 prefill)",
+              "contracts": [
+                {
+                  "source": "Cerebras 10-Q (08-12-2026)",
+                  "signal": "Cerebras' 10-Q: in June 2026 Cerebras entered into a global hardware leasing agreement (the AWS Commercial Agreement) to deploy a joint compute solution in AWS data centers, together with related software and support services. It includes an initial multi-year lease of Cerebras systems, options for future procurement of products and services, pricing commitments, exclusivity, and minimum manufacturing capacity guarantees in favor of AWS. As of June 30, 2026 the lease commencement conditions had not been satisfied, so no revenue had been recognized under the arrangement.",
+                  "units": "initial multi-year lease of Cerebras systems; minimum manufacturing capacity guarantees",
+                  "value": "no specific figure (no revenue recognized as of June 30, 2026)",
+                  "date_signed": "June 2026",
+                  "type": "hardware leasing agreement (AWS Commercial Agreement)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "TSMC",
+          "layer": "foundry",
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "sub_sector": null,
+          "product": "leading-edge wafer fab (N3/N2 GAA logic dies)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Cerebras",
+              "relationship": "5 nm logic wafers for the wafer-scale engine (on-wafer SRAM, no CoWoS)",
+              "contracts": [
+                {
+                  "source": "Cerebras 10-Q (08-12-2026)",
+                  "signal": "Cerebras' 10-Q: Cerebras depends on one third-party foundry, TSMC, to manufacture its proprietary processor and TSMC fabricates all of its wafers; the WSE-2 was manufactured on TSMC's 7nm process and the WSE-3 on TSMC's 5nm process. Cerebras has no formalized long-term supply or allocation commitments from TSMC, the wafer is a long-lead-time component, and the company has experienced delays in securing tape-out slots.",
+                  "units": "all wafers (sole foundry); WSE-2 on 7nm, WSE-3 on 5nm",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "10-Q supplier disclosure",
+                  "topics": [
+                    "foundry"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

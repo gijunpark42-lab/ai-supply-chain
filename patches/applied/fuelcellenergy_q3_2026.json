@@ -1,0 +1,86 @@
+{
+  "source": "FuelCell Energy Q3 FY2026 (09-02-2026)",
+  "new_nodes": {
+    "FuelCell Energy": {
+      "ticker": "FCEL",
+      "exchange": "NASDAQ",
+      "country": "United States",
+      "why": "Makes carbonate fuel-cell power plants (FuelCell Energy Blocks) sold as behind-the-meter baseload power for data centers, which are now about 97% of its sales pipeline.",
+      "evidence": "CEO: 'We secured our first order for FuelCell Energy Blocks to supply baseload power for data center applications'; 'data centers, which now accounts for about 97% of the total third quarter pipeline.'",
+      "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+    }
+  },
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "FuelCell Energy",
+          "domain": "power",
+          "sector": "Generation",
+          "sub_sector": null,
+          "product": "Carbonate fuel-cell power plants (FuelCell Energy Blocks) for behind-the-meter baseload data-center power",
+          "quarterly_data": [
+            {
+              "quarter": "FuelCell Energy Q3 FY2026 (09-02-2026)",
+              "signal": "Fiscal Q3 (July quarter) revenue $33 million, a 29% decline from $46.7 million. Products revenue $18 million (from $26 million) on fewer module deliveries to South Korea after completing the Gyeonggi Green Energy repowering; service $2.4 million (from $3.1 million); generation $8.8 million (from $12.4 million) with the 7.4 MW Groton Project out of service all quarter pending an upgrade; advanced technology contracts $3.8 million. Gross loss $24.5 million including $17 million of charges tied to Phase Zero of the Fit Energy agreement because current product costs exceed its contractual pricing; adjusted EBITDA -$36.7 million. Annualized production rate approximately 37 MW.",
+              "figure": "Q3 revenue $33 million (-29% YoY); gross loss $24.5 million incl. $17 million Phase Zero charges; adjusted EBITDA -$36.7 million",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "FuelCell Energy Q3 FY2026 (09-02-2026)",
+              "signal": "Total committed and awarded capacity backlog $3.6 billion as of July 31, 2026. Committed backlog (definitive, non-cancellable) $1.3 billion, up approximately 4.1% year-over-year; awarded capacity backlog (a new category for commercial awards and capacity reservations) $2.4 billion, driven by the 350 MW across phases one, two and three of the Fit Energy agreement. CFO Michael Bishop: awarded capacity backlog 'is not contracted firm order backlog or a guarantee of future revenue'. After quarter end the company closed a 75 MW capacity reservation agreement with a major colocation data center operator for a Texas project, expected to enter awarded capacity backlog; CEO Jason Few anticipates follow-on opportunities with the same customer.",
+              "figure": "backlog $3.6 billion (committed $1.3 billion + awarded capacity $2.4 billion); 75 MW capacity reservation with a colocation data center operator (Texas)",
+              "topics": ["power_cooling"],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "FuelCell Energy Q3 FY2026 (09-02-2026)",
+              "signal": "First order for FuelCell Energy Blocks for data center baseload power: a capital equipment purchase agreement signed in June with Fit Energy covering up to 380 MW across four phases, sized to the customer's deployment schedule. An upfront deposit was received on the initial 30 MW phase (Phase Zero), which the company expects to begin delivering in the fourth quarter of fiscal 2026, with the balance completed in fiscal 2027; the remaining phases are at Fit Energy's election, not sequential, gated by Fit Energy closing agreements with its own customer.",
+              "figure": "Fit Energy agreement up to 380 MW across four phases; committed 30 MW Phase Zero deliveries begin Q4 FY2026",
+              "topics": ["power_cooling"],
+              "slot": "next_catalyst",
+              "counterparty": "Fit Energy",
+              "counterparty_role": "customer"
+            },
+            {
+              "quarter": "FuelCell Energy Q3 FY2026 (09-02-2026)",
+              "signal": "Manufacturing ramp at Torrington, Connecticut: annualized production rate to rise from approximately 37 MW to the plant's current full capacity of 100 MW, expected in October 2026 (an additional factory shift added); long-term goal of 500 MW of annualized production capacity by June 2028, estimated to cost $200 million-$275 million and described as fully funded. During the quarter the factory design was finalized, significant equipment purchase commitments made and installation of a new high-volume tape caster begun; tape casting is a key constraint, with the unlock installed next fiscal year.",
+              "figure": "production rate ~37 MW to 100 MW (October 2026); 500 MW capacity by June 2028 ($200 million-$275 million)",
+              "topics": ["power_cooling"],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "FuelCell Energy Q3 FY2026 (09-02-2026)",
+              "signal": "Targets: positive adjusted EBITDA in the fourth quarter of fiscal 2027, needing 'at least 100 MW of volume' plus conversion of awarded capacity backlog into committed contracts, alignment with customer delivery schedules and manufacturing cost reductions (CFO, with no assurance these will be achieved). Fiscal 2026 capex now $10 million-$20 million versus a prior $20 million-$30 million, due to equipment delivery timing.",
+              "figure": "positive adjusted EBITDA targeted in Q4 FY2027; FY2026 capex $10 million-$20 million (from $20 million-$30 million)",
+              "topics": [],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "FuelCell Energy Q3 FY2026 (09-02-2026)",
+              "signal": "Fiscal 2026 year-to-date sales pipeline about 10 GW of active proposals; data centers account for about 97% of the third-quarter pipeline. CEO: 'The AI economy will not be constrained by silicon. It will be constrained by access to electricity'; distributed generation 'will become an essential layer of AI infrastructure'. Customers can reserve manufacturing capacity through awarded capacity agreements with a set date to reach definitive agreements. CEO cites absorption chilling to lower data center PUE, low noise, water-neutral operation and no fuel combustion as advantages.",
+              "figure": "~10 GW pipeline; data centers ~97% of Q3 pipeline",
+              "topics": ["power_cooling"]
+            },
+            {
+              "quarter": "FuelCell Energy Q3 FY2026 (09-02-2026)",
+              "signal": "Signed a memorandum of understanding with Siemens to design and supply the electrical balance of plant systems for FuelCell Energy installations, aimed at accelerating deployment and lowering the cost of large-scale projects exceeding 100 MW; the companies plan to jointly develop integrated distributed energy systems combining fuel cells with battery energy storage, microgrid controls and medium-voltage electrical equipment for AI data center workloads.",
+              "figure": "MOU with Siemens for electrical balance of plant; projects exceeding 100 MW",
+              "topics": ["power_cooling"],
+              "counterparty": "Siemens",
+              "counterparty_role": "partner"
+            },
+            {
+              "quarter": "FuelCell Energy Q3 FY2026 (09-02-2026)",
+              "signal": "Supply chain: the carbonate platform uses no rare earth minerals and is scandium-free, relying on commodity metals such as nickel and steel; over 90% of the supply chain is sourced domestically in the United States and approximately 93% of FuelCell Energy Block components are reusable or recyclable through a take-back program. Other operations: completed repowering of the 42-module Gyeonggi Green Energy project in South Korea; delivered and installed the first two carbonate fuel cell carbon capture modules at ExxonMobil's Rotterdam complex under a joint development agreement with ExxonMobil Technology and Engineering Company (an industrial-scale demonstration targeting capture of 90+% of carbon).",
+              "figure": "over 90% domestic US supply chain; scandium-free, no rare earths; 42-module Gyeonggi repowering completed",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

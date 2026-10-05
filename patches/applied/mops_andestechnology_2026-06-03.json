@@ -1,0 +1,67 @@
+{
+ "source": "Andes Technology IR presentation: MOPS 653320260602E001 (06-03-2026)",
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "Andes Technology",
+     "layer": "software_infra",
+     "sector": "EDA / Design Tools",
+     "product": "RISC-V CPU / vector processor IP (NX27V, AX45MPV, AX66) for AI accelerators",
+     "quarterly_data": [
+      {
+       "quarter": "Andes Technology IR presentation: MOPS 653320260602E001 (06-03-2026)",
+       "signal": "Q1 2026 revenue up 20.3% YoY and down 29.2% QoQ; licence revenue +26.4% YoY / -44.3% QoQ; royalty revenue +9.2% YoY / +8.2% QoQ; operating expenses +21.5% YoY / +1.9% QoQ. Q1 2026 EPS (3.28), a net loss (Q4 2025: (0.52)). Monthly revenue tables in the deck: April 2026 NT$106,862 thousand (+22.87% YoY), January-April 2026 NT$433,218 thousand (+20.93%); full-year 2025 NT$1,478,187 thousand (+7.00%).",
+       "figure": "Q1 2026 revenue +20.3% YoY; EPS (3.28); Jan-Apr 2026 revenue NT$433,218 thousand (+20.93%)",
+       "topics": []
+      },
+      {
+       "quarter": "Andes Technology IR presentation: MOPS 653320260602E001 (06-03-2026)",
+       "signal": "Company profile per the deck: pure-play CPU IP vendor with ~20Bn+ total shipments of Andes-embedded SoCs, 350+ worldwide licensees and 400+ employees (80% R&D); 5th-generation AndeStar V5 RISC-V architecture. AndesCore roadmap: 60 Series 13-stage out-of-order AX65 / AX66 (SpecInt 2K6 8.78 / 9.5), Cuzco series (RVA23+), AX46MPV with VLEN up to 2048 bit, AX45MPV with VLEN up to 1024 bit, NX27V with VLEN up to 512 bit. The AX66 is a 64-bit out-of-order, 4-wide-decode, 13-stage core with SMP up to 8 cores, RVA23-profile compliant, aimed at applications including SmartNIC / DPU, AI SoCs, edge servers and edge / data-center AI/ML inference.",
+       "figure": "~20Bn+ Andes-embedded SoCs shipped; 350+ licensees; AX66 up to 8 cores",
+       "topics": []
+      },
+      {
+       "quarter": "Andes Technology IR presentation: MOPS 653320260602E001 (06-03-2026)",
+       "signal": "Customer designs shown in the deck: Fractile.ai's compute-in-memory inference chip uses the Andes AX45MPV with Andes Custom Extensions (ACE) (100% in-memory inference); Axelera's Metis SoC for computer vision (214 TOPS per chip, 15 TOPs/W) uses RISC-V AX25 processors for processing-element and system control.",
+       "figure": "Axelera Metis 214 TOPS per chip with AX25 cores; Fractile.ai uses AX45MPV + ACE",
+       "topics": []
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Meta",
+       "relationship": "RISC-V cores in Meta's MTIA accelerator",
+       "contracts": [
+        {
+         "source": "Andes Technology IR presentation: MOPS 653320260602E001 (06-03-2026)",
+         "signal": "Deck: Meta's first-generation MTIA (Meta Training / Inference Accelerator; ISCA 2023 paper 'MTIA: First Generation Silicon Targeting Meta's Recommendation Systems') is powered by the Andes AX25-V100, an early version of the NX27V, plus Andes Custom Extensions for new interfaces, instructions and registers.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "design win (CPU IP)",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "d-Matrix",
+       "relationship": "RISC-V CPU IP (AX46MPV) in the Raptor inference accelerator",
+       "contracts": [
+        {
+         "source": "Andes Technology IR presentation: MOPS 653320260602E001 (06-03-2026)",
+         "signal": "Deck: d-Matrix's Raptor data-center inference accelerator, under development and the first to feature d-Matrix's 3D In-Memory Compute (3DIMC), integrates the Andes AX46MPV as both the orchestration and vector compute engine; the deck cites early results of up to 2.3x performance improvement on key transformer kernels versus the previous-generation core.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "design win (CPU IP)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

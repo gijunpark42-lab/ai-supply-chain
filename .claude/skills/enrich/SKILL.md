@@ -34,8 +34,8 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 | `enrich` | The board's **Run next** list, top to bottom (refresh the board first). |
 | `enrich us` | Every US gap except SEC filings — calls (+ defeatbeta fallback), overdue / never-enriched companies, conference talks, IR releases; monthly also the utilities' own regulatory filings (`utility_filings.py`). Meant to run daily. |
 | `enrich korea` | DART filings (+ backfill of Korean companies with no filing enriched), IR presentations and Samsung's official call script (`kind.py`: KRX KIND library + six large-cap IR sites), conference talks, IR releases. |
-| `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | That market's calls (Investing.com; Taiwan Chinese-language calls via tw.py), conference talks, IR releases; Taiwan also its MOPS filings (`mops.py`: 法說會 decks, important 重大訊息, monthly revenue); China also the A-share IR activity records and investor Q&A answers (`cninfo.py`); Japan also its TDnet timely disclosures (`tdnet.py`: results, forecast revisions, capex, plans, agreements, M&A). |
-| `enrich edgar` | SEC 8-K / 10-K / 10-Q (weekly; not part of `enrich us`). |
+| `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | That market's calls (Investing.com; Taiwan Chinese-language calls via tw.py), conference talks, IR releases; Taiwan also its MOPS filings (`mops.py`: 法說會 decks, important 重大訊息, monthly revenue); China also the A-share IR activity records and investor Q&A answers (`cninfo.py`) and their periodic reports (`cninfo.py reports`: top-5 customers / suppliers, capacity, construction in progress, R&D, MD&A); Japan also its TDnet timely disclosures (`tdnet.py`: results, forecast revisions, capex, plans, agreements, M&A) and its EDINET annual / semi-annual securities reports (`edinet.py`: major customers, capex, R&D, MD&A). |
+| `enrich edgar` | SEC 8-K / 10-K / 10-Q, foreign issuers' 6-K / 20-F / 40-F, recent listings' prospectus (weekly; not part of `enrich us`). |
 | `enrich waitlist` / `enrich waitlist <market>` | Onboard the user-pre-approved new companies queued in `enrich_waitlist.json`, each market by its own rules (`references/waitlist.md`). |
 | `enrich us calls` · `enrich dart` · `enrich kind` · `enrich tdnet` · `enrich intl` · `enrich tw` · `enrich conference` · `enrich ir` | One source, across every market it covers (reference table below). |
 | a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py`; others: the market's source) and state the call date before enriching. |
@@ -130,8 +130,11 @@ capacity, demand, shortages, guidance, management views).
   "value": "$ amount or 'no specific figure'", "date_signed": "year/quarter or 'not stated'",
   "type": "supply agreement / purchase / customer share / deployment / capacity lease / licence / partnership / …" }
 ```
-A filed "customer X is n% of revenue" fact uses `type` `customer share` (DART) or `10-K customer concentration` /
-`10-Q customer concentration` (EDGAR) — the Exposure tab reads exactly these.
+A filed "customer X is n% of revenue" fact uses `type` `customer share` (DART), `10-K customer concentration` /
+`10-Q customer concentration` / `20-F customer concentration` / `40-F customer concentration` / `prospectus customer
+concentration` (EDGAR) or `annual securities report customer share` / `semi-annual report customer
+share` (EDINET) or `annual report customer share` / `half-year report customer share` (China, `cninfo.py reports`)
+— the Exposure tab reads exactly these.
 
 **JOB 3 — New companies: added with an independent Claude approval** (user decision 2026-09-26: Claude
 approves, not the user). When a source names a company that is not in the chain and passes the litmus test
@@ -202,11 +205,12 @@ which slot:
 | Source | Slots |
 |---|---|
 | Earnings call, investor-conference talk (management speaking), DART periodic report, China IR activity record / investor Q&A (`cninfo.py`, management Q&A) | any — the ONE best entry per slot |
-| Company's own statutory financial statements outside Korea (Taiwan quarterly / half-year / annual consolidated statements, China half-year / annual reports) | like a DART periodic report — any, the ONE best entry per slot (2026-10-01) |
+| Company's own statutory financial statements outside Korea (Taiwan quarterly / half-year / annual consolidated statements, China annual / half-year / quarterly reports from `cninfo.py reports` (2026-10-04), Japan annual securities reports / semi-annual reports from EDINET — `edinet.py`, 2026-10-04) | like a DART periodic report — any, the ONE best entry per slot (2026-10-01) |
 | DART preliminary results (잠정실적) | `revenue_growth` only (the later periodic report supersedes it) |
 | DART supply contract with an undisclosed customer | `backlog_or_b2b` only |
 | 8-K | any, but only when newer than every same-slot entry of the company; otherwise none |
 | 10-K / 10-Q | none |
+| Foreign issuer's 6-K / 20-F / 40-F, recent listing's prospectus (`edgar_pull.py`, 2026-10-04) | 6-K = the 8-K row (a monthly revenue report: none, like MOPS monthly revenue); 20-F / 40-F / prospectus = none, like a 10-K |
 | Taiwan MOPS monthly revenue (`mops.py`) | none — enriched without a slot, like the IR-release monthly revenue entries (user, 2026-10-01) |
 | Company IR presentation (deck; `kind.py`, `mops.py`) or Taiwan MOPS material information (`mops.py`) | same as a company IR press release (row below); never `revenue_growth` — DART holds the quarter's numbers. A results deck may also fill `backlog_or_b2b` with the company's own stated total orders / order backlog (2026-10-01) |
 | Japan TDnet filing (`tdnet.py`) | same as a company IR press release (row below), never `revenue_growth`; a results-meeting Q&A record (`_qa` file) = the call / conference row |
@@ -224,6 +228,7 @@ the key out when an entry fills no slot (never `"slot": null`). `utils/check_pat
 | DART periodic / preliminary report | same shape, dated the filing; the 사업보고서 is Q4 of the year it covers | `SK Hynix Q2 FY2026 (08-14-2026)` |
 | DART supply contract | `[Company] DART supply contract (MM-DD-YYYY)` | `Sanil Electric DART supply contract (08-20-2026)` |
 | SEC filing | `[Company] 8-K` / `10-K` / `10-Q` `(MM-DD-YYYY)` | `Lumentum 8-K (08-11-2026)` |
+| SEC filing of a foreign issuer / a recent listing's prospectus (424B4, else S-1/A or F-1/A) | `[Company] 6-K` / `20-F` / `40-F` / `prospectus` `(MM-DD-YYYY)`, dated the filing | `TSMC 6-K (09-10-2026)`, `Cerebras prospectus (05-14-2026)` |
 | Investor conference / company event | `[Company] [Event] [YYYY] (MM-DD-YYYY)` | `Credo Goldman Sachs conference 2026 (09-10-2026)` |
 | Company IR press release (saved by `ir_pull.py` or by hand) | `[Company] press release: [headline, ≤ 60 chars] (MM-DD-YYYY)`; a non-English headline becomes `release <id from the URL>` | `Supermicro press release: Supermicro Now Shipping NVIDIA Vera Rubin NVL72 Racks (09-23-2026)` |
 | Korean IR presentation from KRX KIND (`kind.py`) | `[Company] IR presentation: KIND <irSeq> (MM-DD-YYYY)`, dated the IR event | `Nepes IR presentation: KIND 19356 (09-18-2026)` |
@@ -233,7 +238,9 @@ the key out when an entry fills no slot (never `"slot": null`). `utils/check_pat
 | Taiwan monthly revenue from MOPS (`mops.py`) | `[Company] MOPS monthly revenue: <Month YYYY> (MM-DD-YYYY)` | `Auras Technology MOPS monthly revenue: August 2026 (09-10-2026)` |
 | China A-share IR activity record (`cninfo.py`) | `[Company] IR activity record: [record no., else the date] (MM-DD-YYYY)`, dated the disclosure day | `Innolight IR activity record: 2026-008 (08-23-2026)` |
 | China A-share investor Q&A answers (`cninfo.py`, one file per company per answer day) | `[Company] investor Q&A: [SZSE Interactive Easy \| SSE e-Interactive] (MM-DD-YYYY)` | `Eoptolink investor Q&A: SZSE Interactive Easy (09-23-2026)` |
+| China A-share periodic report (`cninfo.py reports`; the shape of the reports saved by hand earlier) | `[Company] annual report: [YYYY] Annual Report (MM-DD-YYYY)` / `[Company] half-year report: [YYYY] Half-Year Report (…)` / `[Company] quarterly report: [YYYY] Q1\|Q3 Report (…)`; YYYY = the fiscal (calendar) year, dated the disclosure day | `Innolight annual report: 2025 Annual Report (03-31-2026)` |
 | Japan TDnet timely disclosure (`tdnet.py`) | `[Company] TDnet: [short English title, ≤ 60 chars] (MM-DD-YYYY)` for an English version; `[Company] TDnet: release <doc id> (MM-DD-YYYY)` for a Japanese-only filing; dated the disclosure day | `Taiyo Yuden TDnet: Conclusion of a Memorandum of Understanding Regarding (09-29-2026)` |
+| Japan annual securities report / semi-annual report from EDINET (`edinet.py`) | `[Company] annual securities report: FY[YYYY] (MM-DD-YYYY)` / `[Company] semi-annual report: H1 FY[YYYY] (MM-DD-YYYY)`; an amended one adds `amended ` before the type; FY = the year the fiscal year ENDS in (a March year Apr 2025 – Mar 2026 = FY2026, as for the calls); dated the filing day | `SUMCO semi-annual report: H1 FY2026 (08-07-2026)` (December year); a March-year company's report filed in late June 2026 = `… annual securities report: FY2026 (06-dd-2026)` |
 | US utility regulatory filing (`utility_filings.py`) | `[Company] regulatory filing: [document short title] (MM-DD-YYYY)`, dated the filing; [Company] = the graph node (the parent of the filing subsidiary) | `Southern Company regulatory filing: Georgia Power Large Load Economic Development Report Q2 2026 (08-17-2026)` |
 | Other company document (deck, investor-day material) | `[Company] [document type]: [title] (MM-DD-YYYY)` | — |
 | Third-party note | legacy only — no new ones (articles are pointers, §2) | `Goldman Sachs optical note (04-17-2026)` |
@@ -331,11 +338,13 @@ These build ON TOP of everything above. When a command fires, read its reference
 | `enrich intl` | Taiwan / Japan / Europe / HK / China — Investing.com (`investing.py`) | `references/intl.md` |
 | `enrich tw` | Taiwan Chinese-language 法說會 — video + whisper (`tw.py`) | `references/tw.md` |
 | `enrich taiwan` (MOPS step) | Taiwan listed names — 法說會 decks, important 重大訊息, monthly revenue from MOPS (`mops.py`) | `references/mops.md` |
-| `enrich edgar` | US-listed names — SEC 8-Ks (every exhibit whole) + 10-K / 10-Q customer, supplier, backlog paragraphs + XBRL (`edgar_pull.py`); completeness contract: read once, never reopen | `references/edgar.md` |
+| `enrich edgar` | US-listed names — SEC 8-Ks (every exhibit whole) + 10-K / 10-Q customer, supplier, backlog paragraphs + XBRL (`edgar_pull.py`); foreign issuers' 6-K / 20-F / 40-F and recent listings' prospectus the same way; completeness contract: read once, never reopen | `references/edgar.md` |
 | `enrich conference` | Every listed name (US too) — investor-conference fireside chats via Investing.com (`investing.py conferences`); depth rule, multi-agent + verification loop, memory update | `references/conferences.md` |
 | `enrich ir` | Company-issued IR press releases via each company's own feed (`ir_pull.py`); important releases only, facts only | `references/ir.md` |
 | `enrich china` (step 1b) | China A-share names — IR activity records (投资者关系活动记录表) from cninfo / SSE e互动 and the company's answers on SZSE 互动易 / SSE e互动 (`cninfo.py`); management Q&A, answers only | `references/cninfo.md` |
+| `enrich china` (step 1d) | China A-share names — 年度报告 / 半年度报告 / 季度报告 from cninfo (`cninfo.py reports`; full text + `_extract`): top-5 customers / suppliers, capacity, construction in progress, R&D, MD&A | `references/cninfo.md` ("China A-share periodic reports") |
 | `enrich us` (monthly step) | US utilities' own IRPs, large-load reports and data-center tariffs (`utility_filings.py`; full text + `_load` extract) | `references/utility_filings.md` |
+| `enrich japan` (step 1c) | Japanese listed names — FSA EDINET 有価証券報告書 / 半期報告書 (`edinet.py`; full text + `_extract`): major customers with % of sales, production / orders / sales, capex and new-facility plans, R&D, MD&A | `references/edinet.md` |
 | `enrich waitlist` | New companies queued in `enrich_waitlist.json` (user pre-approved 2026-09-28) — metadata first, then each market's collectors, first patch adds the node | `references/waitlist.md` |
 
 `enrich ir <Company>` runs only that company's feed (`ir_pull.py sync --company "<Company>"`).

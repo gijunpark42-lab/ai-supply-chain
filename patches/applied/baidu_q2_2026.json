@@ -1,0 +1,91 @@
+{
+ "source": "Baidu Q2 FY2026 (08-18-2026)",
+ "new_nodes": {
+  "Baidu": {
+   "ticker": "BIDU",
+   "exchange": "NASDAQ",
+   "country": "CN",
+   "why": "Chinese hyperscaler whose AI Cloud Infra (GPU cloud, Qianfan MaaS) runs on its own Kunlunxin AI chips and ERNIE models; GPU cloud revenue grew 283% YoY on AI compute demand",
+   "evidence": "Baidu Q2 FY2026 call (08-18-2026), CEO Robin Li: 'Within AI Cloud Infra, GPU cloud revenue nearly quadrupled year-over-year, growing 283%' and 'our proprietary AI chips, Kunlunxin'",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "Baidu",
+     "layer": "cloud_infra",
+     "sector": "Hyperscaler Cloud",
+     "product": "Baidu AI Cloud Infra (GPU cloud and CPU cloud, Qianfan MaaS platform) built on proprietary Kunlunxin AI chips (M100, upcoming M300), plus ERNIE foundation models",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "Q2 2026: total Baidu revenue CNY 31.3 billion, down 2% QoQ and 4% YoY; Baidu general business revenue CNY 25.2 billion (down 4% YoY), of which Baidu Core AI-powered business CNY 12.5 billion, half of the total. AI Cloud Infra revenue grew 50% YoY (CEO: 'once again outpacing the broader market'); within it GPU cloud revenue grew 283% YoY, accelerating from 184% in Q1 and its fourth straight quarter of triple-digit growth. iQIYI revenue CNY 6.3 billion.",
+       "figure": "total revenue CNY 31.3 billion (-4% YoY); AI Cloud Infra +50% YoY; GPU cloud +283% YoY (Q1: 184%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "Q2 2026 profitability (CFO): operating income CNY 3.0 billion, operating margin 10%; non-GAAP operating income CNY 3.8 billion, margin 12%; net income attributable to Baidu CNY 2.3 billion, non-GAAP CNY 2.6 billion; cost of revenues CNY 19.1 billion, up 4% YoY mainly on higher costs related to the AI cloud business; operating cash flow CNY 3.4 billion; total cash and investments CNY 283.1 billion as of June 30, 2026.",
+       "figure": "operating income CNY 3.0 billion (10% margin); non-GAAP operating income CNY 3.8 billion; cost of revenues CNY 19.1 billion",
+       "topics": []
+      },
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "Outlook: CEO Robin Li 'we believe AI Cloud Infra revenue growth will remain strong in the second half, with the potential for further acceleration'; EVP Dou Shen (AI Cloud Group), based on current demand trends and customer pipelines, is 'confident that AI Cloud Infra can maintain strong growth in the second half with the potential for further acceleration'. EVP Julius Rong Luo expects the advertising business to remain under pressure in the second half, as Baidu deliberately holds back on monetizing AI search.",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "Compute supply (management): CEO - demand remained robust across training and inference workloads 'while computing supply remains constrained across the market'. EVP Dou Shen - in China's domestic market 'supply likely to remain constrained for some time', and customers are increasingly seeking high-performance, reliable and cost-efficient domestic AI chips.",
+       "figure": "no specific figure",
+       "topics": ["supply_tightness"],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "Kunlunxin (Baidu's proprietary AI chips, CEO): demand remained robust and broadened across industries, with a growing number of customers adopting its chips; Kunlunxin has developed and commercialized three generations of AI chips over more than a decade, with a roadmap including the latest M100, optimized for large-scale inference, and the upcoming M300. In Q2 it extended support to newer Chinese foundation models (Kimi K3, GLM 5.2, MiniMax M3, Hunyuan 3) and improved inference throughput. EVP Dou Shen: Kunlunxin is an important part of the infrastructure layer of Baidu's full-stack AI architecture and is expected to keep playing a meaningful role in its AI infrastructure; the self-developed chips give AI Cloud Infra an end-to-end cost advantage.",
+       "figure": "three generations of AI chips; M100 (latest), M300 (upcoming)",
+       "topics": ["product_launches"]
+      },
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "AI Cloud Infra drivers and margins (management): existing key clients in online gaming, e-commerce and lifestyle content keep increasing usage and spending, the customer count grew rapidly, and demand is broad-based across internet, embodied AI, autonomous driving, smartphones and financial services; embodied AI revenue grew approximately six-fold YoY in Q2. AI Cloud Infra profit and margins both increased YoY; GPU cloud is a growing share of the mix and carries a more attractive margin than traditional CPU cloud. EVP Dou Shen and CFO see 'a lot of room' / 'meaningful room' for long-term AI Cloud Infra margin expansion from the GPU cloud mix shift, MaaS scale and the self-developed chips.",
+       "figure": "embodied AI revenue approximately six-fold YoY",
+       "topics": []
+      },
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "Qianfan MaaS: revenue from external customers' token usage on Qianfan grew more than nine-fold YoY in Q2, driven by rising daily average token consumption; the platform covers the ERNIE family and virtually all of China's leading models. EVP Dou Shen: MaaS is still a relatively small share of AI Cloud Infra revenue but is expected over the longer term to become an increasingly meaningful contributor to margins.",
+       "figure": "external token-usage revenue more than nine-fold YoY",
+       "topics": []
+      },
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "Investment stance (CFO Henry He): 'we are still in an AI investment cycle, and our commitment to that investment is unwavering'; Baidu is 'in a critical phase of investment' and intends to keep investing decisively while maintaining discipline on ROIC, operating efficiency and cash flow; investments are driven by clear demand from customers and internal businesses, and Baidu is strengthening its supply chain management to improve capital efficiency.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "ERNIE and AI applications (CEO): Baidu reorganized its model teams and brought in top AI talent, and is 'confident in accelerating AI integration and bring ERNIE back into the top-tier of foundation models', taking an application-driven approach. In June, ERNIE Assistant daily active users grew 83% YoY with daily average conversation rounds more than tripled; AI DAU penetration across Baidu Wenku and Baidu Drive rose 27.4% YoY; Miaoda monthly active users rose 67% versus March. A well-known Chinese internet company expanded its digital-human live-streaming deployment to approximately 2.5x after one quarter.",
+       "figure": "ERNIE Assistant DAU +83% YoY; Miaoda MAU +67% vs March",
+       "topics": []
+      },
+      {
+       "quarter": "Baidu Q2 FY2026 (08-18-2026)",
+       "signal": "Apollo Go robotaxi (CEO): around 1 million fully driverless operational rides in Q2 and cumulative public rides above 23 million as of June 2026; ride volume was temporarily affected by operational adjustments in certain domestic cities for regulatory considerations, with operations resuming as of August. Fully driverless commercial operations launched in Dubai in July (also via the Uber app); Hong Kong granted its first fully driverless testing permits in June; open-road testing began in London in July with Uber and Lyft and in Switzerland with PostBus. Fully driverless vehicles averaged approximately one airbag deployment every 14.4 million kilometers.",
+       "figure": "around 1 million fully driverless rides in Q2; cumulative rides above 23 million",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

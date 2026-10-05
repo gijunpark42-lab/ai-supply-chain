@@ -1,0 +1,65 @@
+{
+  "reviewer": "verify-tw-1004-3",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "ITEQ",
+      "target": null,
+      "label": "ITEQ IR presentation: MOPS 621320260525E001 (06-03-2026)",
+      "signal_prefix": "Company view: hyperscale data center and AI server upgrades",
+      "action": "set",
+      "set": {
+        "signal": "Company view: hyperscale data center and AI server upgrades expedite the growth of high speed / frequency material demand, and ITEQ's market share in high speed / frequency material is to 'uplift robustly'; the product line extends to M9 Extreme Low Loss (Df 0.0010~0.0005) above M8 Super Ultra Low Loss (Df 0.0015~0.0010). The company calls itself a worldwide top supplier in high speed / frequency laminate (claim). Deck on AI server CCL content: the AI server GPU OAM board (content value high) uses Very Low Loss CCL at 20 to 30 layers (HDI) and the GPU UBB board (content value high) Ultra Low Loss / VLL CCL at 20 to 30 layers (incl. HDI), versus Very Low Loss CCL at 14 to 24 layers for the CPU mainboard (content value mid)."
+      },
+      "reason": "The deck gives the GPU OAM board Very Low Loss CCL and only the UBB board Ultra Low Loss / VLL; the entry gave both boards ULL / VLL.",
+      "evidence": "AI Server GPU OAM*8 (Content Value - high) CCL: Very Low Loss Layer count: 20 to 30 (HDI) | AI Server GPU UBB (Content Value - high) CCL: Ultra Low Loss / VLL Layer count: 20 to 30 (incl. HDI)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Gudeng Precision",
+      "target": null,
+      "label": "Gudeng Precision IR presentation: MOPS 368020260826E001 (08-27-2026)",
+      "signal_prefix": "Gudeng's results-briefing deck gives its Q2 2026 income statement",
+      "action": "set",
+      "set": {
+        "signal": "Gudeng's results-briefing deck prints an income statement whose columns it labels '2026 Q2' and '2025 Q2' (stated in USD): revenue US$130,619,281 versus US$106,837,656; gross profit US$56,465,344 (43% margin, vs 42%); operating income US$21,608,813 (17%); non-operating income US$10,493,094 (vs a US$5,257,594 loss); net income US$27,874,969 (21%) versus US$8,797,999; EPS NT$8.09 versus NT$2.64. Group revenue for January-July 2026 was US$157 million (full-year 2025: US$232 million). Revenue mix for 2026: reticle carriers 58%, wafer carriers 31%, others 11% (2025: 53% / 38% / 9%)."
+      },
+      "reason": "Numbers are as printed, but the deck's own Jan-Jul 2026 group revenue (US$157 million) and its quarterly revenue chart do not fit a single-quarter revenue of US$130.6 million; the period is attributed to the deck's column label instead of asserted as fact.",
+      "evidence": "Income Statement YOY 2026 Q2 2025 Q2 Revenue 130,619,281 100% 106,837,656 100% ... USD | 2026 Jan.~Jul. Group Revenue: US$ 157 million"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "ADATA Technology",
+      "target": null,
+      "label": "ADATA Technology IR presentation: MOPS 326020260806E001 (08-06-2026)",
+      "signal_prefix": "Memory contract prices shown in ADATA's deck",
+      "action": "delete",
+      "reason": "Industry contract-price series (DRAM / NAND market prices with a 'Q3F' forecast mark, no source printed) - third-party market data, not ADATA's own figures or stated guidance; deck third-party market data is not captured.",
+      "evidence": "DRAM Contract Prices Unit: USD ... 2026Q3F DDR4 8GB SO-DIMM DDR5 8GB SO-DIMM Up more than 20% | NAND Flash Contract Prices ... 512Gb TLC Wafer Up more than 35%"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "GlobalWafers",
+      "target": null,
+      "label": "Sino-American Silicon IR presentation: MOPS 548320260807E001 (08-07-2026)",
+      "signal_prefix": "Parent Sino-American Silicon's Q2 2026 deck (GlobalWafers section) adds",
+      "action": "delete",
+      "reason": "Restates GlobalWafers' own Q2 2026 deck (label 'GlobalWafers IR presentation: MOPS 648820260804E001 (08-04-2026)'), which already holds the NT$20.8 billion (US$0.66 billion) prepayment, the H2 inventory build-up, the Q2 gross-margin explanation and the tightening advanced-wafer-supply view; keep the company's own document (coordinator dedupe note).",
+      "evidence": "Prepayment NT$20.8 billion (US$0.66 billion) | Q226 Inventories increased QoQ, mainly due to inventory build-up in preparation for anticipated demand in H2."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Taiwan Speciality Chemicals",
+      "target": null,
+      "label": "Sino-American Silicon IR presentation: MOPS 548320260807E001 (08-07-2026)",
+      "signal_prefix": "Group affiliate Sino-American Silicon's Q2 2026 deck on Taiwan Speciality Chemicals",
+      "action": "set",
+      "set": {
+        "signal": "Group affiliate Sino-American Silicon's Q2 2026 deck on Taiwan Speciality Chemicals (TSC): in 1H26 standalone revenue rose 29.7% YoY, with consolidated revenue and EPS at record highs. The core disilane product continues to benefit from strong order visibility and sustained customer demand; AHF has entered stable supply while certifications progress across multiple semiconductor customers; the first precursor product is undergoing customer qualification and process evaluations. Subsidiary Hung Jie Technology (HJT, component cleaning / coating / maintenance): 1H26 revenue NT$782.7 million (+6.4% YoY), record-high revenue as advanced-process projects entered mass production after qualification; capacity is approaching full utilization, with the Hsinchu and Tainan expansions progressing to plan, and advanced packaging projects in customer validation.",
+        "figure": "1H26 standalone revenue +29.7% YoY; HJT 1H26 revenue NT$782.7 million (+6.4% YoY)"
+      },
+      "reason": "Dedupe against TSC's own deck (label 'Taiwan Speciality Chemicals IR presentation: MOPS 477220260831E001 (09-01-2026)'), which already states 1H26 consolidated revenue NT$1,749,937 thousand (+262.8%) and the disilane capacity-expansion plan; the remaining SAS-deck facts are not in TSC's own documents and stay.",
+      "evidence": "In 1H26, standalone revenue rose 29.7% YoY, while consolidated revenue reached NT$1.7 billion, up 262.8% YoY. | HJT: 1H26 revenue was NT$782.7 million, representing a 6.4% YoY increase."
+    }
+  ]
+}

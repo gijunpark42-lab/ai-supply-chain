@@ -87,18 +87,30 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    online) → `python tdnet.py pending` → enrich every row (references/tdnet.md: results / 決算短信, forecast revisions,
    capex and plant notices, results decks, mid-term plans, agreements, M&A operating facts; English version when TSE
    lists one; entries in English) — after the calls, so a 決算短信 adds only what the call did not say.
+1c. Japan only — EDINET statutory reports (needs `EDINET_API_KEY` in .env; without it the board shows a setup line and
+   this step is skipped): `python edinet.py sync` (weekly is enough — EDINET keeps 10 years) → `python edinet.py pending`
+   → enrich every row (references/edinet.md: 有価証券報告書 / 半期報告書 — major customers with % of sales, production /
+   orders / sales, capex and new-facility plans, R&D, management's analysis; read the `_extract`, entries in English) —
+   after the calls and TDnet, adding only what they did not say. New Japanese node: `python edinet.py fetch "<Company>"`.
 1b. China only — management Q&A of the A-share names (SZSE / SSE): `python cninfo.py sync` → `python cninfo.py pending`
    → enrich every row (references/cninfo.md): IR activity records (投资者关系活动记录表, `record` rows) and the company's
    answers on SZSE 互动易 / SSE e互动 (`qa` rows), both treated like a conference talk (answers = the company,
    questions = context only), entries in English → `python cninfo.py done --label "<label>"` each. Run the sync at
    least weekly: SSE e互动 shows only about one month. Hong Kong-only names (ASMPT, Lenovo, Innoscience) are out of its scope.
+1d. China only — periodic reports of the same A-share names: `python cninfo.py reports` (in the same run as
+   `cninfo.py sync`; the board asks after 7 days) → `python cninfo.py pending` (`report` rows) → enrich every row
+   (references/cninfo.md, "China A-share periodic reports": 年度报告 / 半年度报告 / 季度报告 — read the `_extract`; top-5
+   customers / suppliers, capacity, construction in progress, R&D, MD&A; a named customer that is a node → contract
+   `annual report customer share` / `half-year report customer share`, unnamed ones → the filer's quarterly_data;
+   entries in English) → `python cninfo.py done --label "<label>"` each. A company's report is enriched BEFORE its
+   1b record / Q&A rows when both wait (a filing before management Q&A, the frame's order); ≤ 3 reports per agent.
 2. Conference talks (`--kind conference --market …`), IR releases (`ir_pull.py pending --market …`; non-English
    headlines → `release <id>` labels; entries in English). A Japanese IR release that restates a TDnet filing
    already enriched yields nothing (`restates <label>`).
 3. `python graph_build.py --sync`, then `python investing.py done --kind transcript --market …`,
-   `python tdnet.py done --label …` per handled filing (Japan),
+   `python tdnet.py done --label …` per handled filing and `python edinet.py done --label …` per handled report (Japan),
    `python investing.py done --kind conference --market …`, `ir_pull.py done --label …` per handled release
-   (China: plus `cninfo.py done --label …` per handled record / Q&A file).
+   (China: plus `cninfo.py done --label …` per handled record / Q&A file and periodic report).
 
 `enrich intl` (source command) = the calls step for every non-US, non-Korean market at once, including the
 few "other listed" names (SGX, TSX, ASX, IDX).

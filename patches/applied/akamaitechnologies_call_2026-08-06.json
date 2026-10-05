@@ -1,0 +1,102 @@
+{
+  "source": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+  "new_nodes": {
+    "Akamai Technologies": {
+      "ticker": "AKAM",
+      "exchange": "NASDAQ",
+      "country": "US",
+      "why": "Its cloud infrastructure services (CIS) business sells GPU cloud capacity for AI inference on NVIDIA GPUs under multi-year commitments (more than $2.8 billion signed in 2026); every GPU cluster it builds and leases out is NVIDIA demand, and CIS is the growth engine management says will lift company revenue growth into the low teens in 2027.",
+      "evidence": "Akamai Technologies Q2 FY2026 call (08-06-2026), CFO Ed McGowan: 'Securing a four-year, $600 million GPU services deal with a leading U.S.-based technology company focused on robotics development brings our recently announced major wins to over $2.8 billion this year' and 'We're placing another order with NVIDIA for a significant chunk of additional GPUs.'",
+      "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+    }
+  },
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "Akamai Technologies",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "Akamai Inference Cloud / cloud infrastructure services (CIS): distributed GPU cloud for AI inference on NVIDIA GPUs, sold on multi-year take-or-pay commitments",
+          "quarterly_data": [
+            {
+              "quarter": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+              "signal": "CFO: Q2 2026 revenue was $1.1 billion, up 5% year-over-year as reported and in constant currency. Cloud infrastructure services (CIS) revenue was $99 million, up 39%, in line with expectations; security revenue $604 million, up 10% as reported (9% constant currency); delivery and other cloud applications $396 million, down 6%. International revenue $549 million, about 50% of total. Non-GAAP net income $236 million, or $1.59 per diluted share (down 8%); non-GAAP operating margin 25%, reflecting expanded colocation investments, higher depreciation and headcount to fuel CIS growth.",
+              "figure": "Revenue $1.1 billion (+5% YoY); CIS $99 million (+39%); security $604 million (+10%); non-GAAP EPS $1.59; operating margin 25%",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+              "signal": "CEO: a U.S.-based technology company has committed more than $600 million over four years for Akamai's cloud infrastructure services to power its robotics development (CFO: a four-year GPU services deal). This brings the total of multi-year commitments signed so far this year for cloud infrastructure services to more than $2.8 billion. CFO: no material revenue impact from the new customer in 2026; revenue expected to fully ramp throughout 2027. These large contracts are backed by take-or-pay commitments.",
+              "figure": "more than $600 million over four years; multi-year commitments more than $2.8 billion in 2026",
+              "topics": [],
+              "slot": "backlog_or_b2b",
+              "capex": {
+                "field": "backlog",
+                "busd": 2.8,
+                "display": "more than $2.8 billion of multi-year CIS commitments signed in 2026",
+                "metric": "multi-year cloud infrastructure services commitments signed so far this year"
+              }
+            },
+            {
+              "quarter": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+              "signal": "CFO: GPU demand remains exceptionally strong and all of Akamai's GPU capacity is completely sold out. Q2 capex was $347 million, or 32% of revenue, below guidance because some GPU shipments arrived a few weeks later than expected after quarter end, pushing the bulk of the planned spend into Q3. Driven by the $600 million new customer win and a very robust pipeline, Akamai expects to invest up to $500 million in capex to replenish and expand its GPU capacity, about $60 million of it this year and the remainder in early 2027.",
+              "figure": "GPU capacity sold out; Q2 capex $347 million (32% of revenue); up to $500 million GPU capex (about $60 million in 2026)",
+              "topics": [
+                "supply_tightness"
+              ],
+              "slot": "supply_status",
+              "capex": {
+                "field": "capex_q",
+                "busd": 0.347,
+                "display": "$347 million (Q2 2026, 32% of revenue)"
+              }
+            },
+            {
+              "quarter": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+              "signal": "Guidance (CFO): Q3 2026 revenue $1.105 billion-$1.13 billion, up 5%-7% as reported; cash gross margin about 70% (impacted by the increase in colocation for CIS); non-GAAP operating margin 24%-26%; non-GAAP EPS $1.60-$1.80; Q3 capex $475 million-$525 million (about 43%-46% of revenue), stepping up for the slipped GPU shipments and build-outs for the major contracts. Full-year 2026 revenue $4.445 billion-$4.53 billion, up 6%-8% as reported; CIS growth of at least 50% in constant currency; security high single digits; delivery and other cloud apps down mid-single digits; non-GAAP operating margin about 25%-26%; capex about 40% of revenue; non-GAAP EPS $6.40-$7.05. CEO: security portfolio expected to generate more than $2.4 billion of revenue this year. Management now anticipates overall revenue growth accelerating into the low teens in 2027.",
+              "figure": "Q3 revenue $1.105 billion-$1.13 billion; FY2026 revenue $4.445 billion-$4.53 billion; CIS growth at least 50%; Q3 capex $475 million-$525 million; 2027 growth low teens",
+              "topics": [],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+              "signal": "CFO: no CIS growth acceleration is expected in Q3 because some GPUs arrived later than expected; in Q4 he expects 'a big hockey stick' of acceleration as the GPUs taken into inventory are racked and the big contracts start producing revenue in Q4, with the ramp continuing significantly into Q1 2027 and acceleration continuing throughout 2027. Everything is on track; it is a matter of delivery and set-up time, not of signing.",
+              "figure": "large CIS contracts start producing revenue in Q4 2026",
+              "topics": [],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+              "signal": "Economics of large CIS contracts (CFO, illustrative across signed deals and pipeline): multi-megawatt, multi-year deployments backed by take-or-pay commitments deliver non-GAAP cash gross margins from the mid-60% up to the mid-70%, and non-GAAP operating margins from the low to mid-20% up to the low 30% after hardware depreciation and other operating expenses. The gap between signing and revenue recognition is usually six to nine months for large deals; margins are a bit lower while ramping, with full profitability typically about a quarter after racking (on the long end five or six months). Most growth comes from the committed reserved-capacity model, although on-demand is also offered; customers generally reserve capacity months in advance.",
+              "figure": "cash gross margin mid-60% to mid-70%; operating margin low to mid-20% up to low 30%; six to nine months from signing to revenue",
+              "topics": []
+            },
+            {
+              "quarter": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+              "signal": "Pricing (CFO): inventory is tight and data-center availability is tight; prices are moving relatively quickly in the marketplace and Akamai is able to pass on increases, with mechanisms in large contracts for movements in memory or hardware costs; follow-on orders are priced higher ('We just mark that price right up'). On procurement, data-center contracts are fixed for as long a term as possible with a small upfront power escalator, and hardware maintenance is negotiated upfront.",
+              "figure": "no specific figure",
+              "topics": [
+                "supply_tightness"
+              ]
+            },
+            {
+              "quarter": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+              "signal": "Footprint and power (management): Akamai has servers in 700 cities in 130 countries and is expanding GPUs to more cities and larger locations; CEO says it is in a very good position to get the data-center capacity and power it needs, with a pipeline of data-center space coming online through the end of next year (CFO). CFO: Akamai's GPU deployments typically ask data-center builders for 5-10 MW, maybe 15, 20 MW, not gigawatt facilities, and its large backbone lets it site capacity where power is cheaper.",
+              "figure": "700 cities, 130 countries; typical deployments 5-10 MW, up to 15-20 MW",
+              "topics": []
+            },
+            {
+              "quarter": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+              "signal": "Strategy (CEO): Akamai aims to provide a unified distributed grid for AI inference, pushing inference to the edge alongside its CPU platform; it is not in the business of training foundation models, though usage of models and training of medium or smaller models works well on the platform. Robotics is a key use case (high-bandwidth video, latency-sensitive inference). Customer examples: a Singapore AI patent intelligence platform moved inference from a hyperscaler to Akamai, boosting performance by 30% and cutting infrastructure costs by 20%; a global AI software company in India chose Akamai for GenAI image creation in a $12 million win over a hyperscaler.",
+              "figure": "performance +30%, costs -20% (customer example); $12 million win over a hyperscaler",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

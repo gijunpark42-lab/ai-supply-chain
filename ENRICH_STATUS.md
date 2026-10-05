@@ -1,21 +1,21 @@
 # Enrichment status board
 
-Generated 2026-10-01 21:06 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-04 19:27 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
 ## Run next
 
-1. **`enrich us`** — 20 fetched file(s) waiting to be enriched (20 IR release); 4 overdue for a call: Applied Digital (last 2026-04-09), Simulations Plus (last 2026-04-09), 3M (last 2026-04-21), Texas Instruments (last 2026-04-22); 2 never had a call enriched (fetch with defeatbeta, mark the ones with none): POET Technologies, Shell
-2. **`enrich korea`** — 1 have no DART filing enriched (backfill with `dart.py fetch`): Kostek Systems
-3. **`enrich edgar`** — 175 filings queued
-4. **`enrich taiwan`** — 2 fetched file(s) waiting to be enriched (2 IR release); Taiwan Chinese-call sync (tw.py) last ran 24 days ago (2026-09-07); 4 overdue for a call: Wiwynn (last 2026-02-26), Inventec (last 2026-05-12), Gigabyte (last 2026-05-15), VPEC (last 2026-05-27)
-5. **`enrich japan`** — 4 fetched file(s) waiting to be enriched (3 call, 1 IR release); 1 overdue for a call: Murata (last 2026-04-30)
-6. **`enrich europe`** — 3 overdue for a call: Schneider Electric (last 2026-04-30), Legrand (last 2026-05-12), AT&S (last 2026-05-21)
-7. **`enrich china`** — 8 fetched file(s) waiting to be enriched (6 IR record / investor Q&A, 2 call)
+1. **`Opus verifier over verify_queue.json`** — 17 applied labels are waiting for the independent check (rule: at 5+)
+2. **`enrich us`** — 38 fetched file(s) waiting to be enriched (37 IR release, 1 call)
+3. **`enrich korea`** — 1 have no DART filing enriched (backfill with `dart.py fetch`): Kostek Systems
+4. **`enrich taiwan`** — 5 fetched file(s) waiting to be enriched (5 MOPS filing); Taiwan Chinese-call sync (tw.py) last ran 27 days ago (2026-09-07); 4 overdue for a call: Wiwynn (last 2026-02-26), Inventec (last 2026-05-12), Gigabyte (last 2026-05-15), VPEC (last 2026-05-27)
+5. **`enrich japan`** — 8 fetched file(s) waiting to be enriched (5 IR release, 3 TDnet filing); 1 overdue for a call: Murata (last 2026-04-30)
+6. **`enrich europe`** — 1 fetched file(s) waiting to be enriched (1 IR release); 3 overdue for a call: Schneider Electric (last 2026-04-30), Legrand (last 2026-05-12), AT&S (last 2026-05-21)
+7. **`enrich china`** — 131 fetched file(s) waiting to be enriched (28 IR record / investor Q&A, 94 periodic report, 9 IR release)
 
-Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-01 (368 feeds); conference listing walked 2026-09-30.
-Opus verification queue: 0 label(s) waiting (runs at 5+).
+Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-04 (376 feeds); conference listing walked 2026-10-04.
+Opus verification queue: 17 label(s) waiting (runs at 5+).
 
 ## Needs a decision or setup
 
@@ -42,28 +42,27 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 - **Question for the user — Out-of-segment items on single-node companies:** Verifiers deleted out-of-segment facts on companies with one node: Murata EMI-filter plant (MLCC node), Infineon NOR Flash sale (power node), LG Innotek robotics (substrate node; belongs on its edge_ai node), Sumitomo Metal Mining bonded SiC substrate (mlcc node, still present). Should such companies get extra placements, or keep dropping these facts? (asked 2026-10-01; answer, then `enrich_status.py resolve "Out-of-segment items on single-node companies" --answer "…"`)
 - **Question for the user — Company decks behind IR notices:** Some IR rows only link to a company deck/PDF that was not saved: Global Standard Technology Q2 deck, Sakai Chemical IR Fair 2026 deck, Murata / Sumitomo Metal Mining / Panasonic / Legrand results and guidance PDFs. Fetch and enrich these PDFs (and fix ir_pull to save PDF bodies for these sites)? (asked 2026-10-01; answer, then `enrich_status.py resolve "Company decks behind IR notices" --answer "…"`)
 - Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are SK Hynix 2026-04-23, Samsung Electro-Mechanics 2026-04-30, Samsung 2026-07-30; 123 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual.
+- EDINET (Japan's annual / semi-annual securities reports: major customers, capex, R&D — edinet.py) needs a free API key: register at https://api.edinet-fsa.go.jp/api/auth/index.aspx?mode=1 and add `EDINET_API_KEY=<key>` to .env. Until then `enrich japan` skips its EDINET step.
 
 ## Markets
 
 | Market | Companies | Call current | Overdue | Never had a call | No own data | Waiting | IR feeds | Collector last ran |
 |---|---|---|---|---|---|---|---|---|
-| US — United States | 217 | 208 | 4 | 2 | 2 | 20 | 199 | us 2026-09-30, utility 2026-10-01 |
-| KR — Korea | 126 | 1 | 2 | 123 | 0 | 0 | 25 | dart 2026-10-01, kind 2026-10-01 |
-| TW — Taiwan | 127 | 23 | 4 | 100 | 21 | 2 | 49 | intl 2026-10-01, tw 2026-09-07, mops 2026-10-01 |
-| JP — Japan | 120 | 12 | 1 | 107 | 31 | 4 | 60 | intl 2026-10-01, tdnet 2026-10-01 |
-| EU — Europe | 39 | 26 | 3 | 10 | 6 | 0 | 21 | intl 2026-10-01 |
-| CN — China / Hong Kong | 96 | 1 | 0 | 95 | 4 | 8 | 12 | intl 2026-10-01, cninfo 2026-10-01 |
-| other — Other listed | 14 | 3 | 0 | 11 | 4 | 0 | 2 | intl 2026-10-01 |
+| US — United States | 234 | 229 | 0 | 0 | 1 | 38 | 199 | us 2026-10-04, utility 2026-10-01 |
+| KR — Korea | 126 | 1 | 2 | 123 | 0 | 0 | 25 | dart 2026-10-04, kind 2026-10-04 |
+| TW — Taiwan | 127 | 23 | 4 | 100 | 3 | 5 | 49 | intl 2026-10-02, tw 2026-09-07, mops 2026-10-04 |
+| JP — Japan | 120 | 13 | 1 | 106 | 29 | 8 | 60 | intl 2026-10-02, tdnet 2026-10-04, edinet never |
+| EU — Europe | 39 | 26 | 3 | 10 | 6 | 1 | 21 | intl 2026-10-02 |
+| CN — China / Hong Kong | 96 | 3 | 0 | 93 | 4 | 131 | 12 | intl 2026-10-02, cninfo 2026-10-05, cnreports 2026-10-04 |
+| other — Other listed | 14 | 3 | 0 | 11 | 4 | 0 | 2 | intl 2026-10-02 |
 
 `Call current` = the latest own earnings call is within the company's usual gap + 3 weeks. `No own data` = not one entry from the company's own documents yet (new nodes land here). Marked companies (no source exists) are left out of Overdue / Never.
 
 ## Details by market
 
 ### US — United States (`enrich us`)
-- Overdue for a call: Applied Digital (last 2026-04-09), Simulations Plus (last 2026-04-09), 3M (last 2026-04-21), Texas Instruments (last 2026-04-22)
-- Never had a call enriched: POET Technologies, Shell
-- Waiting to enrich: 20 IR release
-- Known gaps, do not re-search: Bayer (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Relay Therapeutics (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Roche-Genentech (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25)
+- Waiting to enrich: 37 IR release, 1 call
+- Known gaps, do not re-search: Bayer (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), POET Technologies (call: no call on Alpha Vantage (Q2 08-13 never posted) or defeatbeta (no POET transcripts at all; checked 2026-10-01); recheck 2026-11-20), Relay Therapeutics (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Roche-Genentech (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Simulations Plus (call: Q3 FY2026 call (07-09-2026) not on Alpha Vantage or defeatbeta (defeatbeta's latest SLP call is 04-09-2026; checked 2026-10-01); next call ~late Oct; recheck 2026-10-30)
 
 ### KR — Korea (`enrich korea`)
 - Overdue for a call: SK Hynix (last 2026-04-23), Samsung Electro-Mechanics (last 2026-04-30)
@@ -72,20 +71,21 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 ### TW — Taiwan (`enrich taiwan`)
 - Overdue for a call: Wiwynn (last 2026-02-26), Inventec (last 2026-05-12), Gigabyte (last 2026-05-15), VPEC (last 2026-05-27)
 - Never had a call enriched: ADATA Technology, ADDA, AP Memory, ASMedia, ASPEED, ASRock, AVC (Asia Vital Components), AcBel Polytech, Accton Technology, Advanced Energy Solution, Advanced Wireless Semiconductor, All Ring Tech … +88 more
-- Waiting to enrich: 2 IR release
+- Waiting to enrich: 5 MOPS filing
 
 ### JP — Japan (`enrich japan`)
 - Overdue for a call: Murata (last 2026-04-30)
-- Never had a call enriched: ADEKA, AGC, Accretech (Tokyo Seimitsu), Anritsu, Asahi Kasei, Asetek, Canon, Dai Nippon Printing, Daifuku, Daihen, Daikin Industries, Datasection … +95 more
-- Waiting to enrich: 3 call, 1 IR release
+- Never had a call enriched: ADEKA, Accretech (Tokyo Seimitsu), Anritsu, Asahi Kasei, Asetek, Canon, Dai Nippon Printing, Daifuku, Daihen, Daikin Industries, Datasection, Denka … +94 more
+- Waiting to enrich: 5 IR release, 3 TDnet filing
 
 ### EU — Europe (`enrich europe`)
 - Overdue for a call: Schneider Electric (last 2026-04-30), Legrand (last 2026-05-12), AT&S (last 2026-05-21)
 - Never had a call enriched: ASM International, Comet Holding, Inficon, LPKF Laser & Electronics, Merck KGaA, Prysmian, Rolls-Royce, SUSS MicroTec, Siemens Energy, VAT Group
+- Waiting to enrich: 1 IR release
 
 ### CN — China / Hong Kong (`enrich china`)
-- Never had a call enriched: AMEC, Accelink, Advanced Fiber Resources, Anhui Tongguan Copper Foil, Anji Microelectronics, Biren Technology, Biwin Storage Technology, Boqian New Materials, Broadex Technologies, CASTECH, CIG Shanghai, CXMT … +83 more
-- Waiting to enrich: 6 IR record / investor Q&A, 2 call
+- Never had a call enriched: AMEC, Accelink, Advanced Fiber Resources, Anhui Tongguan Copper Foil, Anji Microelectronics, Biren Technology, Biwin Storage Technology, Boqian New Materials, Broadex Technologies, CASTECH, CIG Shanghai, CXMT … +81 more
+- Waiting to enrich: 28 IR record / investor Q&A, 94 periodic report, 9 IR release
 
 ### other — Other listed (`enrich intl`)
 - Never had a call enriched: AEM Holdings, E2E Networks, Frencken Group, Frontken, HFCL, Hammond Power Solutions, Indosat, Lynas Rare Earths, NEXTDC, UMS Integration, YTL Power International
@@ -94,20 +94,22 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
-| US earnings calls | `enrich us calls` | 2026-09-30 | 2026-10-01 | 0 | 338 | 337 |
-| US SEC filings | `enrich edgar` | 2026-10-01 | 2026-10-01 | 175 | 1294 | 433 |
-| Korea DART filings | `enrich dart` | 2026-10-01 | 2026-10-01 | 0 | 151 | 159 |
-| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-01 | 2026-10-01 | 5 | 59 | 56 |
+| US earnings calls | `enrich us calls` | 2026-10-04 | 2026-10-04 | 1 | 360 | 358 |
+| US SEC filings | `enrich edgar` | 2026-10-04 | 2026-10-04 | 0 | 1468 | 572 |
+| Korea DART filings | `enrich dart` | 2026-10-04 | 2026-10-02 | 0 | 154 | 162 |
+| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-02 | 2026-10-02 | 0 | 59 | 59 |
 | Taiwan Chinese 法說會 | `enrich tw` | 2026-09-07 | 2026-09-07 | 0 | 17 | 17 |
-| Investor conferences | `enrich conference` | 2026-09-30 | 2026-10-01 | 0 | 113 | 113 |
-| Company IR press releases | `enrich ir` | 2026-10-01 | 2026-10-01 | 23 | 1230 | 379 |
-| Korea IR decks (KIND) | `enrich korea` | 2026-10-01 | 2026-09-27 | 0 | 47 | 37 |
+| Investor conferences | `enrich conference` | 2026-10-04 | 2026-10-02 | 0 | 116 | 116 |
+| Company IR press releases | `enrich ir` | 2026-10-04 | 2026-10-04 | 52 | 1307 | 396 |
+| Korea IR decks (KIND) | `enrich korea` | 2026-10-04 | 2026-09-27 | 0 | 47 | 37 |
 | US utility regulatory filings | `enrich us` | 2026-10-01 | 2026-10-01 | 0 | 6 | 3 |
-| Korea earnings-call scripts | `enrich korea` | 2026-10-01 | 2026-09-27 | 0 | 1 | 1 |
-| China IR records + investor Q&A | `enrich china` | 2026-10-01 | 2026-10-01 | 6 | 149 | 98 |
-| Japan TDnet disclosures | `enrich japan` | 2026-10-01 | 2026-10-01 | 0 | 19 | 5 |
-| Taiwan MOPS filings | `enrich taiwan` | 2026-10-01 | 2026-10-01 | 0 | 200 | 173 |
-| Pasted transcripts | `Transcript:<company>` | 2026-10-01 | 2026-10-01 | 0 | 478 | 478 |
+| Korea earnings-call scripts | `enrich korea` | 2026-10-04 | 2026-09-27 | 0 | 1 | 1 |
+| China IR records + investor Q&A | `enrich china` | 2026-10-05 | 2026-10-02 | 28 | 186 | 108 |
+| China periodic reports | `enrich china` | 2026-10-04 | - | 94 | 154 | 0 |
+| Japan TDnet disclosures | `enrich japan` | 2026-10-04 | 2026-10-02 | 3 | 25 | 7 |
+| Japan EDINET statutory reports | `enrich japan` | - | - | 0 | 0 | 0 |
+| Taiwan MOPS filings | `enrich taiwan` | 2026-10-04 | 2026-10-04 | 5 | 366 | 297 |
+| Pasted transcripts | `Transcript:<company>` | 2026-10-01 | 2026-10-01 | 0 | 478 | 475 |
 
 ## Coordinator notes (newest first)
 

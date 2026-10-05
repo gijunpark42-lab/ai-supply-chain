@@ -8,7 +8,8 @@
   "kr_early": "Korean small cap, sampling/pre-volume or customer undisclosed — user: add now.",
   "weak_evidence": "Evidence is theme lists / blogs / rumor — user: add; the enrich run must look for a primary source.",
   "unnamed_tenant": "Tenant or customer undisclosed / core business elsewhere — user: add anyway.",
-  "scan_2026_10_01": "Second gap scan 2026-10-01 (chain-wide); each row confirmed by a company-issued source; user approved adding (2026-10-01)."
+  "scan_2026_10_01": "Second gap scan 2026-10-01 (chain-wide); each row confirmed by a company-issued source; user approved adding (2026-10-01).",
+  "scan_2026_10_04": "Gap scan 2026-10-04 (5 research agents: power, thermal, optical, semis, compute). The 48 'clear' candidates — each with a company-issued document stating its AI / data-center role — approved by the user on 2026-10-04 ('48개 전부 추가해'). Edges only from company documents (articles name some customers, e.g. Enflame-Tencent, Range-ByteDance — not confirmed). Fermi placed in neocloud.json cloud_infra (AI campus developer / lessor)."
  },
  "companies": [
   {
@@ -6205,6 +6206,1028 @@
    "node": "Anritsu",
    "added": "2026-10-01",
    "label": "Anritsu results presentation: Financial Results for the 1st quarter FY2026 (07-30-2026)"
+  },
+  {
+   "name": "Akamai Technologies",
+   "ticker": "AKAM",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "US",
+   "chains": [
+    "neocloud",
+    "nvda_b200"
+   ],
+   "supplies": "Akamai Inference Cloud / distributed GPU cloud: multi-thousand NVIDIA Blackwell RTX PRO 6000 Server Edition cluster",
+   "customers": [
+    "NVIDIA"
+   ],
+   "evidence": [],
+   "company_doc": "https://akamai.com/newsroom/press-release/akamai-discloses-technical-details-on-ai-cluster-deal",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Release dated 2026-03-05. The customer is unnamed. The core business is CDN/security, but the AI cloud contract is stated by the company.",
+   "node": "Akamai Technologies",
+   "added": "2026-10-04",
+   "label": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+   "note_placement": "nvda_b200 placement dropped by coordinator (RTX PRO 6000 is not B200; not in the call)"
+  },
+  {
+   "name": "Baidu",
+   "ticker": "BIDU",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "CN",
+   "chains": [
+    "cpu_datacenter"
+   ],
+   "supplies": "AI Cloud Infra (GPU cloud) + ERNIE models; parent of Kunlunxin AI chips",
+   "customers": [],
+   "evidence": [],
+   "company_doc": "https://ir.baidu.com/news-releases/news-release-details/baidu-announces-second-quarter-2026-results",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Also HKEX 9888. Kunlunxin is a subsidiary (division rule: do not add it separately unless it lists). Could also sit in compute_hardware (Custom AI ASIC).",
+   "node": "Baidu",
+   "added": "2026-10-04",
+   "label": "Baidu Q2 FY2026 (08-18-2026)"
+  },
+  {
+   "name": "DigitalOcean",
+   "ticker": "DOCN",
+   "exchange": "NYSE",
+   "market": "US",
+   "country": "US",
+   "chains": [
+    "neocloud",
+    "amd_mi450_helios"
+   ],
+   "supplies": "AI-native inference cloud: GPU Droplets on NVIDIA HGX H100/H200/B300 and AMD Instinct MI300X/MI325X/MI350X (MI355X liquid-cooled racks next)",
+   "customers": [
+    "NVIDIA",
+    "AMD"
+   ],
+   "evidence": [
+    "https://www.businesswire.com/news/home/20250612003497/en"
+   ],
+   "company_doc": "https://www.nasdaq.com/press-release/digitalocean-elevates-its-agentic-inference-cloud-gpu-droplets-powered-amd-instincttm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "The AMD collaboration release is dated 2025-06-12. The 10-K would also serve as the evidence document.",
+   "node": "DigitalOcean",
+   "added": "2026-10-04",
+   "label": "DigitalOcean Q2 FY2026 (08-04-2026)",
+   "unconfirmed_customers": [
+    "NVIDIA",
+    "AMD"
+   ],
+   "note_placement": "amd_mi450_helios not placed (no neocloud sector there; call does not mention MI450)"
+  },
+  {
+   "name": "Kingsoft Cloud",
+   "ticker": "KC",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "CN",
+   "chains": [
+    "neocloud"
+   ],
+   "supplies": "AI cloud infrastructure + Model-as-a-Service (GPU cloud)",
+   "customers": [],
+   "evidence": [],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0001795589/000110465926098490/tm2623439d2_ex99-1.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Dual-listed, Nasdaq KC + HKEX 3896.",
+   "node": "Kingsoft Cloud",
+   "added": "2026-10-04",
+   "label": "Kingsoft Cloud Q2 FY2026 (08-19-2026)"
+  },
+  {
+   "name": "MiniMax",
+   "ticker": "0100.HK",
+   "exchange": "HKEX",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "neocloud"
+   ],
+   "supplies": "Foundation models + Open Platform API and AI-native products",
+   "customers": [],
+   "evidence": [
+    "https://www.minimax.io/news/minimax-announces-first-half-2026-financial-results-1787744160"
+   ],
+   "company_doc": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0826/2026082600680.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "IPO on HKEX 2026-01-09. Loss-making. No supplier or cloud partner named in the interim announcement."
+  },
+  {
+   "name": "Netweb Technologies India",
+   "ticker": "NETWEB.NS",
+   "exchange": "NSE",
+   "market": "other",
+   "country": "IN",
+   "chains": [
+    "nvda_b200",
+    "neocloud"
+   ],
+   "supplies": "Tyrone AI servers / supercomputing systems: Camarero GB200 (NVIDIA GB200 NVL4) and Camarero Spark (GB10)",
+   "customers": [
+    "NVIDIA"
+   ],
+   "evidence": [],
+   "company_doc": "https://nsearchives.nseindia.com/corporate/NETWEB1234_18022026070604_Press_Release.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Also BSE 543945. Release dated 2026-02-18 is a product launch, not shipments."
+  },
+  {
+   "name": "QumulusAI",
+   "ticker": "QMLS",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "US",
+   "chains": [
+    "neocloud"
+   ],
+   "supplies": "GPU-as-a-Service cloud (inference-first): 1,632 NVIDIA Blackwell B300 GPUs purchased; NVIDIA Cloud Partner",
+   "customers": [
+    "NVIDIA"
+   ],
+   "evidence": [],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0002084026/000143774926028918/ex_1008743.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "IPO on Nasdaq 2026-07-16. Also has residual bitcoin mining. The 8-K exhibit says it became an NVIDIA Cloud Partner on 2026-07-17.",
+   "node": "QumulusAI",
+   "added": "2026-10-04",
+   "label": "QumulusAI Q2 FY2026 (08-25-2026)"
+  },
+  {
+   "name": "Range Intelligent Computing",
+   "ticker": "300442.SZ",
+   "exchange": "SZSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "neocloud"
+   ],
+   "supplies": "AIDC (AI data-center) campuses: seven campuses incl. Beijing-Tianjin-Hebei, wholesale for internet majors",
+   "customers": [],
+   "evidence": [
+    "https://stock.10jqka.com.cn/20260131/c674456924.shtml"
+   ],
+   "company_doc": "https://static.cninfo.com.cn/finalpage/2025-04-27/1223348505.PDF",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Chinese-listed (Range Technology / Range Intelligent Computing Technology Group). Articles say ByteDance is about 60% of revenue, but the company document checked does not name it, so no edge. Issued a data-center C-REIT in August 2025."
+  },
+  {
+   "name": "SUNeVision",
+   "ticker": "1686.HK",
+   "exchange": "HKEX",
+   "market": "CN",
+   "country": "HK",
+   "chains": [
+    "neocloud"
+   ],
+   "supplies": "Hong Kong data centers (iAdvantage; MEGA IDC high-density, liquid-cooling-ready campus)",
+   "customers": [],
+   "evidence": [],
+   "company_doc": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0901/2026090102069.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Sun Hung Kai Properties subsidiary. Customers unnamed."
+  },
+  {
+   "name": "SharonAI",
+   "ticker": "SHAZ",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "AU",
+   "chains": [
+    "neocloud"
+   ],
+   "supplies": "Neocloud GPU compute platform / sovereign AI factories (Australia + US)",
+   "customers": [
+    "NVIDIA",
+    "Cisco",
+    "NEXTDC"
+   ],
+   "evidence": [
+    "https://www.sec.gov/Archives/edgar/data/0002068385/000149315226027509/forms-1.htm"
+   ],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226014405/ex99-1.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Nasdaq IPO priced 2026-02-18 at $30. Sold its 50% stake in the Texas Critical Data Centers JV for US$70M.",
+   "node": "SharonAI",
+   "added": "2026-10-04",
+   "label": "SharonAI Q2 FY2026 (08-06-2026)",
+   "unconfirmed_customers": [
+    "Cisco"
+   ]
+  },
+  {
+   "name": "Sugon",
+   "ticker": "603019.SS",
+   "exchange": "SSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "cpu_datacenter"
+   ],
+   "supplies": "AI servers: scaleX640 single-cabinet supernode and scaleX 10,000-card supercluster; HPC; liquid cooling",
+   "customers": [
+    "Hygon Information Technology"
+   ],
+   "evidence": [
+    "https://www.theregister.com/2025/12/11/hygon_sugon_merger_cancelled/"
+   ],
+   "company_doc": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225104563.PDF",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Chinese name Zhongke Shuguang / Dawning Information Industry. The Hygon merger was called off in December 2025. Sugon holds a Hygon stake; a Hygon supply edge still needs a company document stating it. On the US Entity List."
+  },
+  {
+   "name": "Tencent",
+   "ticker": "0700.HK",
+   "exchange": "HKEX",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "cpu_datacenter"
+   ],
+   "supplies": "Hyperscaler cloud + Hunyuan (Hy) models; AI compute capex",
+   "customers": [],
+   "evidence": [],
+   "company_doc": "https://www.tencent.com/wp-content/uploads/2026/08/Tencent-Announces-2026-Second-Quarter-Results.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "A peer of Alibaba (node). Sector Hyperscaler Cloud (could also sit in ai_models). Capex feeds the Capex tab."
+  },
+  {
+   "name": "VNET Group",
+   "ticker": "VNET",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "CN",
+   "chains": [
+    "neocloud"
+   ],
+   "supplies": "Wholesale hyperscale IDC (China): 1,007 MW wholesale capacity in service as of 2026-06-30",
+   "customers": [],
+   "evidence": [
+    "https://pulse2.com/vnet-wholesale-data-center-revenue-jumps-29-as-capacity-in-service-reaches-1007mw"
+   ],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0001508475/000110465926065937/tm2615608d1_ex99-1.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Customers are unnamed in releases, so no edge. A peer of GDS Holdings in the graph.",
+   "node": "VNET Group",
+   "added": "2026-10-04",
+   "label": "VNET Group Q2 FY2026 (08-18-2026)"
+  },
+  {
+   "name": "Zhipu AI",
+   "ticker": "2513.HK",
+   "exchange": "HKEX",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "neocloud"
+   ],
+   "supplies": "GLM foundation models (z.ai), API / MaaS",
+   "customers": [],
+   "evidence": [
+    "https://www.trendingtopics.eu/z-ai-maker-of-glms-makes-142-million-in-revenue-at-a-71-billion-market-value/"
+   ],
+   "company_doc": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0331/2026033101549.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "IPO on HKEX 2026-01-08. Legal name Knowledge Atlas Technology Joint Stock Co. The linked company document is the FY2025 annual results (2026-03-31)."
+  },
+  {
+   "name": "ZTE",
+   "ticker": "000063.SZ",
+   "exchange": "SZSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "cpu_datacenter",
+    "optical_networking"
+   ],
+   "supplies": "AI servers / storage and data-center solutions; OEX-architecture SuperPod",
+   "customers": [],
+   "evidence": [],
+   "company_doc": "https://www.zte.com.cn/global/about/news/zte-reports-record-high-h1-2026-revenue-of-rmb-78-billion-with-computing-revenue-share-exceeding-35-percentages.html",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Also HKEX 0763. Mostly a telecom equipment and handset maker, so AI is about a third of sales."
+  },
+  {
+   "name": "Fermi",
+   "ticker": "FRMI",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "US",
+   "chains": [
+    "neocloud"
+   ],
+   "supplies": "Hyperscale AI data-center campus developer with behind-the-meter power (Project Matador, Carson County TX)",
+   "customers": [],
+   "evidence": [
+    "https://www.sec.gov/Archives/edgar/data/0002071778/000207177826000046/fermiq22026erex_991.htm"
+   ],
+   "company_doc": "https://www.nasdaq.com/press-release/correction-source-fermi-announces-binding-lease-agreement-tensorwave-2026-08-10",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "IPO October 2025 (Nasdaq + LSE). The tenant TensorWave is private and not a node. An earlier prospective tenant fell through. Lease announced 2026-08-10. The pointer is the Q2 2026 8-K earnings exhibit, also company-issued.",
+   "node": "Fermi",
+   "added": "2026-10-04",
+   "label": "Fermi Q2 FY2026 (08-13-2026)"
+  },
+  {
+   "name": "Centec Communications",
+   "ticker": "688702.SS",
+   "exchange": "SSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "optical_networking"
+   ],
+   "supplies": "Ethernet switch chips (12.8T / 25.6T flagship, up to 800G ports) for large-scale data centers and cloud",
+   "customers": [],
+   "evidence": [
+    "https://m.gelonghui.com/news/5305974"
+   ],
+   "company_doc": "https://paper.cnstock.com/html/2026-04/23/content_2203739.htm",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Suzhou Centec Communications Co., Ltd. (Chinese short name Shengke Tongxin), IPO 2023-09-14. Doc = its 2025 annual report summary in the statutory newspaper: 12.8T/25.6T chips 'for large-scale data centers and cloud services', supplied into 'domestic mainstream equipment makers'; 2025 revenue RMB 1,150.53 million. Still loss-making. Sector: Networking ASIC. No named customer in the doc, so no edge yet."
+  },
+  {
+   "name": "Dingtong Technology",
+   "ticker": "688668.SS",
+   "exchange": "SSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "optical_networking"
+   ],
+   "supplies": "112G/224G high-speed I/O connector cages and components (air- and liquid-cooled cages) for AI servers / switches",
+   "customers": [
+    "Amphenol",
+    "TE Connectivity",
+    "Luxshare"
+   ],
+   "evidence": [
+    "https://finance.eastmoney.com/a/202606053761950977.html"
+   ],
+   "company_doc": "https://pdf.dfcfw.com/pdf/H22_AN202607141826958445_1.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Dongguan Dingtong Precision Metal Co., Ltd. Doc = its own IR activity record no. 2026-006 (June 2026): 'direct customers are mainly Amphenol, Molex, TE Connectivity, AVIC Jonhon'. Luxshare appears only in the pointer article, so confirm it before adding it as a customer. Molex is private, so it is not a node."
+  },
+  {
+   "name": "Huafeng Technology",
+   "ticker": "688629.SS",
+   "exchange": "SSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "optical_networking",
+    "cpu_datacenter"
+   ],
+   "supplies": "High-speed backplane cable modules / high-speed connectors for AI servers (112G moving to 224G, now in volume delivery)",
+   "customers": [
+    "Alibaba",
+    "Inspur Electronic Information",
+    "Huaqin Technology",
+    "ZTE"
+   ],
+   "evidence": [
+    "https://m.gelonghui.com/news/5273123"
+   ],
+   "company_doc": "https://pdf.dfcfw.com/pdf/H2_AN202606301826581341_1.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Sichuan Huafeng Technology Co., Ltd. Doc = its own IR activity record no. 2026-002 (mirrored from the SSE filing): 'expanding ByteDance, Alibaba and other internet customers, also covering ZTE, Inspur, Huaqin, xFusion and other AI-server makers'; 'sample testing' is ongoing with some, so edges should be added only where the source says supply, not sampling. The 'major customer A' (believed to be Huawei) is not named."
+  },
+  {
+   "name": "Lightelligence",
+   "ticker": "1879.HK",
+   "exchange": "HKEX",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "optical_networking"
+   ],
+   "supplies": "Scale-up optical interconnect: LightSphere X GPU-supernode optical circuit switch (dOCS), OCS silicon-photonics PIC, NPO/CPO and transceiver PIC",
+   "customers": [],
+   "evidence": [
+    "https://www.trendforce.com/news/2026/04/30/news-worlds-first-ai-silicon-photonics-chip-listed-company-officially-goes-public/"
+   ],
+   "company_doc": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0821/2026082100256.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Shanghai Xizhi Technology Co., Ltd.; IPO 2026-04-28 on HKEX Main Board under Chapter 18C (pre-commercial). Doc = 2026 interim results announcement (several-thousand-GPU LightSphere X cluster deployed; OCS PIC in mass production). Small revenue (RMB 106 million in 2025), so placement could be Scale-up rather than Components. No customer named."
+  },
+  {
+   "name": "Optorun",
+   "ticker": "6235.T",
+   "exchange": "TSE",
+   "market": "JP",
+   "country": "JP",
+   "chains": [
+    "optical_networking"
+   ],
+   "supplies": "Optical thin-film deposition equipment (RPD series) for optical-communication filters / components used in data-center transceivers",
+   "customers": [],
+   "evidence": [
+    "https://filingreader.com/news-wire/tokyo/2026-08-07/optorun-keeps-forecast-as-optical-communications-orders-surge"
+   ],
+   "company_doc": "https://www.optorun.co.jp/ir/library/library_02.html",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Company doc = the 2026-08-07 Q2 tanshin / results deck in its IR library (I confirmed the filing's title through the pointer but did not open the PDF itself; the enricher must read it to confirm the JPY 20.0 billion figure). Fiscal year ends in December. Sector: equipment / Deposition & Etch."
+  },
+  {
+   "name": "Ruijie Networks",
+   "ticker": "301165.SZ",
+   "exchange": "SZSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "optical_networking",
+    "cpu_datacenter"
+   ],
+   "supplies": "400G/800G data-center Ethernet switches (Scale-out); 128-port 800G box switch for AI clusters",
+   "customers": [
+    "Alibaba"
+   ],
+   "evidence": [
+    "https://network-switch.com/blogs/news/ruijie-800g-switch-and-wi-fi-7-product-shifts"
+   ],
+   "company_doc": "https://www.ruijie.com/en-global/customer-stories/bytedance/",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Company customer story states its 100G single-chip switches are more than half of ByteDance's Clos IDC switches and it is upgrading ByteDance to 400G AIGC networks (ByteDance is not a node). Alibaba as a customer comes from pointers only - enricher should confirm from the annual report on cninfo before adding an edge. Sector: Scale-out (beside Arista)."
+  },
+  {
+   "name": "Time Interconnect Technology",
+   "ticker": "1729.HK",
+   "exchange": "HKEX",
+   "market": "CN",
+   "country": "HK",
+   "chains": [
+    "optical_networking",
+    "cpu_datacenter"
+   ],
+   "supplies": "Data-center cable assemblies (copper and optical fiber/MPO assemblies) and server products",
+   "customers": [],
+   "evidence": [
+    "https://quartr.com/events/time-interconnect-technology-limited-1729-h1-2026_F4yHoVJk"
+   ],
+   "company_doc": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082803026.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Chinese short name Huiju Keji. Acquired Leoni's LCS cable group and DJC copper wire. Customer names not found in my read; the enricher should read the interim report fully for named customers. Sector: Components (beside Bizlink/Amphenol)."
+  },
+  {
+   "name": "Volex",
+   "ticker": "VLX.L",
+   "exchange": "LSE",
+   "market": "EU",
+   "country": "GB",
+   "chains": [
+    "optical_networking"
+   ],
+   "supplies": "High-speed copper interconnects for AI/HPC data centers (DAC, ACC and AEC cables up to 1.6T) plus data-center power cords",
+   "customers": [],
+   "evidence": [
+    "https://www.ajbell.co.uk/news/articles/volex-hails-outstanding-year-revenue-and-profit-advance"
+   ],
+   "company_doc": "https://www.volex.com/media/s3lpvbiu/volex-plc-fy2026-full-year-results-presentation.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "FY2026 revenue $1.24 billion per pointer; check that the deck states the data-centre figures before use. Volex does not name customers (they are anonymised), so it would start as a node without edges."
+  },
+  {
+   "name": "Woer Heat-Shrinkable Material",
+   "ticker": "002130.SZ",
+   "exchange": "SZSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "optical_networking"
+   ],
+   "supplies": "Single-lane 224G high-speed copper communication cable (twinax wire used in DAC / server cable assemblies)",
+   "customers": [
+    "Amphenol",
+    "TE Connectivity"
+   ],
+   "evidence": [
+    "https://www.lixinger.com/equity/company/detail/sz/002130/2130/shareholders-interactions"
+   ],
+   "company_doc": "https://static.cninfo.com.cn/finalpage/2025-05-09/1223513547.PDF",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Shenzhen Woer Heat-Shrinkable Material Co., Ltd. (Chinese short name Woer Hecai). Doc = its own IR activity record no. 2025-002: '224G single-lane high-speed communication cable has achieved stable mass production and batch delivery'. Named customers Amphenol, Molex, TE (Tyco) come from the company's SZSE interactive answers (pointer) - the enricher must confirm those from a company document before adding edges. A newer (2026) record should be pulled. Most revenue is still heat-shrink materials and power cable accessories."
+  },
+  {
+   "name": "Enplas",
+   "ticker": "6961.T",
+   "exchange": "TSE",
+   "market": "JP",
+   "country": "JP",
+   "chains": [
+    "foundry",
+    "optical_networking"
+   ],
+   "supplies": "Plastic lens arrays / lens connectors for optical transceivers (1.6T transceiver lenses in mass production); also burn-in sockets for AI-server GPUs/ASICs (equipment / test)",
+   "customers": [],
+   "evidence": [
+    "https://quartr.com/events/enplas-corporation-6961-q4-2026_F173RyuO"
+   ],
+   "company_doc": "https://www.enplas.co.jp/en/english/wp-content/uploads/2026/07/20260729_1Q_e.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Two AI roles: the optical lens part fits interconnect / Components (beside Seikoh Giken, Focuslight), and the burn-in socket part fits equipment / Metrology-Inspection or test (beside Yamaichi). The Digital Communication segment fell sharply in FY2026 while the new lens connector launch slipped to 2Q FY2027 or later; the AI growth today is mostly the sockets."
+  },
+  {
+   "name": "Allegro MicroSystems",
+   "ticker": "ALGM",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "United States",
+   "chains": [
+    "power_semiconductor"
+   ],
+   "supplies": "High-speed current sensors for AI server power supplies and power-backup (BBU) systems, plus fan motor drivers and isolated gate drivers",
+   "customers": [],
+   "evidence": [
+    "https://www.nasdaq.com/articles/algm-q1-earnings-call-highlights-ai-data-center-growth"
+   ],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0000866291/000119312526280259/algm_fy26_annual_report.pdf",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Mostly automotive; data center is a fast-growing minority. PSU customers (Delta / Lite-On etc.) are not named in what was seen.",
+   "node": "Allegro MicroSystems",
+   "added": "2026-10-04",
+   "label": "Allegro MicroSystems Q1 FY2027 (07-30-2026)"
+  },
+  {
+   "name": "ERock",
+   "ticker": "EROC",
+   "exchange": "NYSE",
+   "market": "US",
+   "country": "United States",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Modular natural-gas generator systems (on-site prime and backup power) for AI data centers",
+   "customers": [
+    "Anthropic",
+    "Meta"
+   ],
+   "evidence": [
+    "https://www.renaissancecapital.com/IPO-Center/News/119704/Gas-generator-provider-ERock-prices-IPO-at-$21.50-the-midpoint-of-the-range"
+   ],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0002110029/000119312526344714/eroc-ex99_1.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Formerly Enchanted Rock. IPO June 2026 at $21.50 (NYSE: EROC). The Meta link runs through El Paso Electric (a utility), so the edge is Meta campus support, not a direct sale to Meta; the verifier should word it carefully.",
+   "node": "ERock",
+   "added": "2026-10-04",
+   "label": "ERock Q2 FY2026 (08-12-2026)",
+   "unconfirmed_customers": [
+    "Meta"
+   ]
+  },
+  {
+   "name": "Fervo Energy",
+   "ticker": "FRVO",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "United States",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Enhanced geothermal baseload power (Cape Station GeoCluster, Utah) contracted to hyperscalers",
+   "customers": [
+    "Google"
+   ],
+   "evidence": [
+    "https://www.briefing.com/story-stocks/archive/2026/9/1/fervo-energy-gets-energized-with-google-ppa-advancing-cape-station-development-(frvo)"
+   ],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0001853868/000162828026059707/exhibit991pressrelease9126.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "IPO May 13, 2026 at $27. It is a generator / IPP like Constellation or Talen, so the placement is generation for data centers.",
+   "node": "Fervo Energy",
+   "added": "2026-10-04",
+   "label": "Fervo Energy Q2 FY2026 (08-12-2026)",
+   "unconfirmed_customers": [
+    "Google"
+   ]
+  },
+  {
+   "name": "Forgent Power Solutions",
+   "ticker": "FPS",
+   "exchange": "NYSE",
+   "market": "US",
+   "country": "United States",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Data-center electrical distribution equipment (the 'powertrain'): medium/low-voltage switchgear and switchboards, transformers, automatic transfer switches, PDUs, eHouses and prefabricated power skids",
+   "customers": [],
+   "evidence": [
+    "https://www.renaissancecapital.com/IPO-Center/News/116759/Electrical-equipment-maker-Forgent-Power-Solutions-prices-US-IPO-at-$27-mid"
+   ],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0002080126/000208012626000034/exhibit991earningsrelease_.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "IPO priced Feb 4, 2026 at $27 (NYSE: FPS). Fiscal year ends June 30. No customer is named in the release.",
+   "node": "Forgent Power Solutions",
+   "added": "2026-10-04",
+   "label": "Forgent Power Solutions Q4 FY2026 (09-15-2026)"
+  },
+  {
+   "name": "FuelCell Energy",
+   "ticker": "FCEL",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "United States",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Utility-scale carbonate fuel-cell power plants for on-site baseload data-center power",
+   "customers": [],
+   "evidence": [
+    "https://s21.q4cdn.com/256256048/files/doc_news/FuelCell-Energy-and-Fit-Energy-Announce-Strategic-Agreement-for-up-to-380-MW-of-Clean-Power-for-Data-Centers-2026.pdf"
+   ],
+   "company_doc": "https://s21.q4cdn.com/256256048/files/doc_news/FuelCell-Energy-Reports-Third-Fiscal-Quarter-2026-Results-Executes-First-Data-Center-Power-Agreement-Increases-Annualized-Production--RUK9E.pdf",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Data-center revenue is only beginning; the counterparties (Fit Energy, the unnamed operator) are not graph nodes.",
+   "node": "FuelCell Energy",
+   "added": "2026-10-04",
+   "label": "FuelCell Energy Q3 FY2026 (09-02-2026)"
+  },
+  {
+   "name": "Nippon Chemi-Con",
+   "ticker": "6997.T",
+   "exchange": "TSE",
+   "market": "JP",
+   "country": "Japan",
+   "chains": [
+    "power_semiconductor"
+   ],
+   "supplies": "Large-size aluminium electrolytic and hybrid capacitors (KHR series) for AI server power supplies",
+   "customers": [],
+   "evidence": [
+    "https://www.trendforce.com/news/?p=59514"
+   ],
+   "company_doc": "https://www.chemi-con.co.jp/en/company/ir/library/presentation/pdf/explanatory_2026q1-E.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Passive-component peer of Murata / TDK / Samwha / Apaq already in the graph. PSU customers are not named."
+  },
+  {
+   "name": "Power Solutions International",
+   "ticker": "PSIX",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "United States",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Engine-generator power systems (standby / prime gensets and engines) for data centers",
+   "customers": [],
+   "evidence": [],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0001137091/000162828026054346/psiearningsrelease-june302.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Majority-owned by Weichai Power (also proposed below). It is separately listed, so it is not a division, but the coordinator may want to place both or only one. Q2 2026 sales fell 21% y/y on uneven data-center order timing.",
+   "node": "Power Solutions International",
+   "added": "2026-10-04",
+   "label": "Power Solutions International Q2 FY2026 (08-06-2026)"
+  },
+  {
+   "name": "Ableprint Technology",
+   "ticker": "7734.TWO",
+   "exchange": "TPEx",
+   "market": "TW",
+   "country": "TW",
+   "chains": [
+    "packaging_substrate"
+   ],
+   "supplies": "pressure void-removal (defoaming) ovens, high-pressure vacuum reflow and warpage suppression systems for CoWoS / SoIC / panel-level packaging",
+   "customers": [
+    "TSMC",
+    "Intel"
+   ],
+   "evidence": [
+    "https://www.digitimes.com/news/a20260211PD230.html"
+   ],
+   "company_doc": "https://mops.twse.com.tw/ (company code 7734, investor-conference decks)",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Chinese name 印能科技 (English abbreviation APT). Listed on TPEx 2025-02-26 at NT$1,250. I could not open a company document (the search budget ran out), so the TSMC / Intel links come from articles; mops.py should pull the deck. Do not add an edge until a company doc names TSMC / Intel."
+  },
+  {
+   "name": "Advanced Echem Materials",
+   "ticker": "4749.TWO",
+   "exchange": "TPEx",
+   "market": "TW",
+   "country": "TW",
+   "chains": [
+    "foundry"
+   ],
+   "supplies": "lithography specialty chemicals (EBR, BARC, rinse / surface modifier, cleaners) for leading-edge nodes; advanced-packaging materials",
+   "customers": [
+    "TSMC"
+   ],
+   "evidence": [
+    "https://www.moneyweekly.com.tw/_Article?AID=237346"
+   ],
+   "company_doc": "https://www.aemc.com.tw/investors/",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Chinese name 新應材. Moved to the TPEx main board in Jan 2025. The TSMC / N2 facts come from articles; the company's MOPS 法說會 deck should be pulled to confirm them (company doc is the IR page)."
+  },
+  {
+   "name": "Amtech Systems",
+   "ticker": "ASYS",
+   "exchange": "NASDAQ",
+   "market": "US",
+   "country": "US",
+   "chains": [
+    "packaging_substrate"
+   ],
+   "supplies": "reflow / thermal processing equipment (BTU) for AI semiconductor device packaging and AI server board assembly",
+   "customers": [],
+   "evidence": [
+    "https://secure.businesswire.com/news/home/20260805842439/en/Amtech-Systems-Reports-Fiscal-2026-Third-Quarter-Financial-Results"
+   ],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0000720500/000119312526211838/asys-ex99_1.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Small cap. The 8-K exhibit read is the Q2 FY2026 release (quarter ended 2026-03-31); the Q3 release (08-05-2026) says AI-related revenue up ~120% YoY. Customers not named.",
+   "node": "Amtech Systems",
+   "added": "2026-10-04",
+   "label": "Amtech Systems Q3 FY2026 (08-05-2026)"
+  },
+  {
+   "name": "Enflame",
+   "ticker": "688801.SS",
+   "exchange": "SSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "foundry"
+   ],
+   "supplies": "cloud AI training / inference accelerator chips and cards",
+   "customers": [],
+   "evidence": [
+    "https://www.caixinglobal.com/2026-09-02/tencent-backed-ai-chipmaker-enflame-eyes-9-billion-valuation-in-ipo-102481053.html"
+   ],
+   "company_doc": "https://pdf.dfcfw.com/pdf/H2_AN202609091829180067_1.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Listed on the STAR Market 2026-09-11 (offer RMB 142.18). Full name: Shanghai Enflame Technology Co., Ltd. The company doc given is the listing notice, which confirms the code and date only. The role and the Tencent share come from the prospectus on sse.com.cn, which the enricher should pull. Tencent is not a node."
+  },
+  {
+   "name": "Foxsemicon Integrated Technology",
+   "ticker": "3413.TW",
+   "exchange": "TWSE",
+   "market": "TW",
+   "country": "TW",
+   "chains": [
+    "foundry"
+   ],
+   "supplies": "precision modules, chambers and sub-systems contract-manufactured for front-end etch / deposition / metrology tools",
+   "customers": [
+    "Applied Materials"
+   ],
+   "evidence": [
+    "https://apps.digitimes.com/news/a20220413PD209/foxsemicon-applied-materials.html"
+   ],
+   "company_doc": "https://www.foxsemicon.com",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Chinese name 京鼎. Foxconn affiliate, but separately listed with its own customers; check whether the user treats Foxconn-group listcos as separate nodes (Foxconn Industrial Internet and Foxconn Interconnect are). The company doc is only the website; the MOPS 法說會 deck should be pulled to confirm the Applied Materials / AI statements."
+  },
+  {
+   "name": "Fuso Chemical",
+   "ticker": "4368.T",
+   "exchange": "TSE",
+   "market": "JP",
+   "country": "JP",
+   "chains": [
+    "foundry",
+    "hbm_memory"
+   ],
+   "supplies": "ultra-high-purity colloidal silica (Quartron) for CMP slurries; adopted for TSMC N2",
+   "customers": [
+    "TSMC"
+   ],
+   "evidence": [
+    "https://www.datacenterknowledge.com/data-center-chips/chip-materials-maker-goes-into-debt-rather-than-raise-prices"
+   ],
+   "company_doc": "https://fusokk.co.jp/wp-content/uploads/2026/05/3825ea4ad1fdd4d92c8cd3dc0e6e81d3.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Deck is Japanese only (translate). Fujimi listed as a peer and a probable slurry customer; the deck does not name Fujimi, so the only company-stated tie is TSMC N2."
+  },
+  {
+   "name": "Iluvatar CoreX",
+   "ticker": "9903.HK",
+   "exchange": "HKEX",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "foundry"
+   ],
+   "supplies": "GPGPU training and inference accelerators",
+   "customers": [],
+   "evidence": [
+    "https://kirkland.com/news/press-release/2026/01/kirkland-advises-iluvatar-corex-on-its-hong-kong-ipo"
+   ],
+   "company_doc": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082802626.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "IPO on HKEX Main Board 2026-01-08 (offer HK$144.6). Full legal name: Shanghai Iluvatar CoreX Semiconductor Co., Ltd. Interim announcement is in English. No foundry named."
+  },
+  {
+   "name": "SJ Semiconductor",
+   "ticker": "688820.SS",
+   "exchange": "SSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "packaging_substrate"
+   ],
+   "supplies": "2.5D / 3DIC chiplet integration packaging, 12-inch bumping and wafer probing for high-performance-computing / AI chips",
+   "customers": [],
+   "evidence": [
+    "https://en.prnasia.com/releases/apac/sjsemi-closed-700m-new-financing-to-further-boost-its-advanced-packaging-projects-474529.shtml"
+   ],
+   "company_doc": "https://stockmc.xueqiu.com/202608/688820_20260820_O2R3.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "IPO 2026-04-21 (RMB 5.03 billion raised). Founded in 2014 as an SMIC + JCET JV; those are shareholders, not a supply edge. The company doc is the half-year report, mirrored on xueqiu (the original is on sse.com.cn). Customer names come from articles and need a company document before any edge."
+  },
+  {
+   "name": "Feirongda",
+   "ticker": "300602.SZ",
+   "exchange": "SZSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "AI-server single- and two-phase liquid-cooling cold-plate modules, 3D-VC heat sinks, CDUs, quick connectors, liquid-cooled chassis / racks, thermal materials and fans",
+   "customers": [],
+   "evidence": [
+    "https://news.10jqka.com.cn/20250805/c670130302.shtml"
+   ],
+   "company_doc": "https://static.cninfo.com.cn/finalpage/2025-04-28/1223363207.PDF",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Customers not named in the company document. Also large consumer-electronics / communications EMI business."
+  },
+  {
+   "name": "Gaolan",
+   "ticker": "300499.SZ",
+   "exchange": "SZSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Data-center liquid-cooling systems on the facility side (cold-plate and immersion, two-phase in development) for internet companies and IDC builders",
+   "customers": [],
+   "evidence": [
+    "https://caifuhao.eastmoney.com/news/20250924190823394877780"
+   ],
+   "company_doc": "https://static.cninfo.com.cn/finalpage/2026-03-03/1224994772.PDF",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Articles claim Alibaba orders and a Vertiv / NVIDIA GB300 route; NOT confirmed in the company document, so no edge proposed. Segment figure combines data center and energy-storage thermal."
+  },
+  {
+   "name": "Gates Industrial",
+   "ticker": "GTES",
+   "exchange": "NYSE",
+   "market": "US",
+   "country": "US",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Data center liquid-cooling product line: Data Master / Megaflex / Eco hoses, Universal Quick Disconnects (UQD), data center pumps and supply-line couplings",
+   "customers": [],
+   "evidence": [
+    "https://www.marketbeat.com/instant-alerts/gates-industrial-q2-earnings-call-highlights-2026-07-31/"
+   ],
+   "company_doc": "https://s22.q4cdn.com/277773419/files/doc_events/2025/Nov/12/Gates-Industrial-Baird-Conference-Presentation.pdf",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "Q2 2026 call (per pointer) mentions an industrial water-pump program with a major U.S.-based server manufacturer, not named. Data center is still a small share of ~$3.6B sales.",
+   "node": "Gates Industrial",
+   "added": "2026-10-04",
+   "label": "Gates Industrial Q2 FY2026 (07-31-2026)"
+  },
+  {
+   "name": "Jones Tech",
+   "ticker": "300684.SZ",
+   "exchange": "SZSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "power_cooling",
+    "optical_networking"
+   ],
+   "supplies": "Thermal interface materials (TIM), vapor chambers, heat pipes and liquid-cooling modules for servers, switches and 800G / 1.6T optical modules (connector cold plates, NPO liquid cooling)",
+   "customers": [
+    "Innolight"
+   ],
+   "evidence": [
+    "https://stock.10jqka.com.cn/20260825/c679242966.shtml"
+   ],
+   "company_doc": "https://static.cninfo.com.cn/finalpage/2026-08-25/1225494920.PDF",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Chinese name 中石科技 (Beijing Zhongshi Weiye Technology), English listing name Jones Tech PLC. Innolight tie is a shareholding (reported 10.47% stake per article) - affiliate question for the verifier; supply relationship to Innolight not stated."
+  },
+  {
+   "name": "Kenmec Mechanical Engineering",
+   "ticker": "6125.TW",
+   "exchange": "TWSE",
+   "market": "TW",
+   "country": "TW",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Liquid-cooling CDUs (incl. 1,400 kW liquid-to-liquid and 2.5 MW units via subsidiary Kentec), water-to-air Sidecar units, liquid-cooling quick connectors and two-phase immersion systems for AI server racks",
+   "customers": [],
+   "evidence": [
+    "https://blog.fugle.tw/post/earnings-call-6125-2026-08-19"
+   ],
+   "company_doc": "https://www.kenmec.com/en/",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Ticker 6125 also used by Okamoto Machine Tool Works (6125.T) in metadata - different exchange, no clash in name. Company doc is the corporate site; the MOPS 法說會 deck (2026-08-19) should be pulled via mops.py for evidence. Also does data-center construction (contractor side) and automation."
+  },
+  {
+   "name": "Lingyi iTech",
+   "ticker": "002600.SZ",
+   "exchange": "SZSE",
+   "market": "CN",
+   "country": "CN",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Server liquid cooling via subsidiary Readore: UQD quick disconnects, manifolds, server and optical-module cold plates, phase-change modules, server VC / 3DVC, busbars, memory cold plates",
+   "customers": [
+    "AMD"
+   ],
+   "evidence": [
+    "https://stock.10jqka.com.cn/20260131/c674457794.shtml"
+   ],
+   "company_doc": "https://pdf.dfcfw.com/pdf/H2_AN202607231827280035_1.pdf",
+   "group": "scan_2026_10_04",
+   "status": "pending",
+   "note": "Company doc is the cninfo IR record mirrored on dfcfw. Majority of revenue is still consumer-electronics precision parts; Readore control acquired 2026-01-30 (35% equity + voting rights)."
+  },
+  {
+   "name": "Tecogen",
+   "ticker": "TGEN",
+   "exchange": "NYSE American",
+   "market": "US",
+   "country": "US",
+   "chains": [
+    "power_cooling"
+   ],
+   "supplies": "Tecochill hybrid-drive (natural-gas / electric) air-cooled and water-cooled chillers (1 MW to 1.5 MW) and DTx chillers for data-center cooling",
+   "customers": [
+    "Vertiv"
+   ],
+   "evidence": [
+    "https://www.barchart.com/story/news/3141246/tecogen-business-update"
+   ],
+   "company_doc": "https://www.sec.gov/Archives/edgar/data/0001537435/000153743526000066/tgen-20260630.htm",
+   "group": "scan_2026_10_04",
+   "status": "added",
+   "note": "The Vertiv 1 MW unit is a demonstration deployment; the edge is a sales/marketing agreement (Vertiv as reseller), not a demo. Tiny market cap.",
+   "node": "Tecogen",
+   "added": "2026-10-04",
+   "label": "Tecogen Q2 FY2026 (08-13-2026)",
+   "unconfirmed_customers": [
+    "Vertiv"
+   ]
   }
  ],
  "edges": [

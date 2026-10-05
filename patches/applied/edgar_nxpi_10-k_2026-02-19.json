@@ -1,0 +1,74 @@
+{
+  "source": "NXP Semiconductors 10-K (02-19-2026)",
+  "chains": {
+    "components/optical_networking.json": {
+      "players": [
+        {
+          "company": "NXP Semiconductors",
+          "layer": "compute_hardware",
+          "sector": "Networking ASIC",
+          "sub_sector": null,
+          "product": "Layerscape control-plane processors for top-of-rack switches and SmartNICs",
+          "quarterly_data": [
+            {
+              "quarter": "NXP Semiconductors 10-K (02-19-2026)",
+              "signal": "10-K customer concentration: distributor Avnet accounted for 23% of NXP's revenue in 2025 and 22% in 2024 (the notes state that one distributor accounted for 23%, 22% and 21% in 2025, 2024 and 2023); no other distributor and no direct customer accounted for more than 10% of revenue. Distributors provided $7,051 million of 2025 revenue and direct sales $5,084 million (total $12,269 million). NXP lists its 10 largest end customers, some supplied by distributors, in alphabetical order as Apple, Aptiv, Aumovio, Bosch, Denso, Harman Auto, Hyundai, LGE Automotive, Samsung and Visteon, and its five largest distribution partners as Arrow, Avnet, Nexty, WT Micro and World Peace.",
+              "figure": "Avnet 23% of 2025 revenue (22% in 2024); distributors $7,051 million, direct $5,084 million of $12,269 million",
+              "topics": []
+            },
+            {
+              "quarter": "NXP Semiconductors 10-K (02-19-2026)",
+              "signal": "10-K revenue by end market for 2025: Communication Infrastructure & Other was $1,296 million, down 23.6% from $1,697 million in 2024; total revenue was $12,269 million, down 2.7%.",
+              "figure": "Communication Infrastructure & Other $1,296 million (-23.6%); total revenue $12,269 million (-2.7%)",
+              "topics": []
+            },
+            {
+              "quarter": "NXP Semiconductors 10-K (02-19-2026)",
+              "signal": "10-K manufacturing: NXP runs a hybrid model of wholly owned fabs, a fab operated jointly with another semiconductor company, third-party foundries and assembly and test subcontractors. European Semiconductor Manufacturing Company (ESMC) will build and operate a new 300mm wafer fab in Dresden, Germany; ESMC is 70% owned by TSMC, with Bosch, Infineon and NXP each owning 10%, NXP is entitled to 10% of the fab's capacity, and initial production is currently targeted to begin in 2028. NXP's SSMC 8-inch wafer fab in Singapore is jointly owned by TSMC and NXP.",
+              "figure": "ESMC: NXP entitled to 10% of capacity; initial production targeted in 2028",
+              "topics": [
+                "foundry"
+              ]
+            },
+            {
+              "quarter": "NXP Semiconductors 10-K (02-19-2026)",
+              "signal": "10-K supply commitments and capex: as of December 31, 2025 NXP had purchase commitments with suppliers, primarily for raw materials, semi-finished goods and manufacturing services and for some non-production items, of $3,087 million (other than commitments directly with its foundry joint ventures), of which $1,423 million is expected to be paid in the next 12 months. Cash outflows for capital expenditures were $397 million in 2025 versus $727 million in 2024; NXP expects to maintain similar capex as a percentage of revenue in 2026, consistent with its long-term financial model, given its focus on external investments in foundry partners.",
+              "figure": "purchase commitments $3,087 million ($1,423 million in the next 12 months); capex $397 million in 2025 vs $727 million in 2024",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    },
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "Vanguard International Semiconductor",
+          "layer": "foundry",
+          "sector": "Compound Semi Foundry (GaN/SiC/InP)",
+          "sub_sector": null,
+          "product": "8-inch specialty foundry (PMIC / power discretes) with GaN-on-QST power platform; TSMC-licensed 650V/80V GaN-on-Si (development from early 2026, production targeted 1H 2028); VSMC 300mm JV fab in Singapore with NXP (production from 2027)",
+          "connects_to": [
+            {
+              "company": "NXP Semiconductors",
+              "relationship": "VSMC 12-inch joint-venture fab capacity",
+              "contracts": [
+                {
+                  "source": "NXP Semiconductors 10-K (02-19-2026)",
+                  "signal": "NXP's 10-K: VisionPower Semiconductor Manufacturing Company (VSMC) will build and operate a new 300mm wafer fab in Singapore; VSMC is 60% owned by Vanguard International Semiconductor and 40% owned by NXP, NXP is entitled to 40% of the fab's capacity, and initial production is currently targeted to begin in 2027. NXP has an agreed purchase commitment with VSMC that over the lifetime of the factory the minimal loading will be between 80% - 90%, resulting in a total purchase commitment of approximately $14,096 million expected to be purchased over 37 years once wafer production starts. Besides its VSMC equity commitment, NXP has committed to contribute $1,200 million to support the long-term capacity infrastructure ($855 million contributed by year-end 2025).",
+                  "units": "40% of VSMC fab capacity; minimal loading 80% - 90% over the factory lifetime",
+                  "value": "approximately $14,096 million total purchase commitment over 37 years; $1,200 million capacity infrastructure contribution",
+                  "date_signed": "not stated",
+                  "type": "10-K supplier disclosure",
+                  "topics": [
+                    "foundry"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

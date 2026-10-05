@@ -99,6 +99,7 @@ EXCLUDE = {
     "ABB": ["ABB India", "ABB Power"],
     "Schneider Electric": ["Schneider Electric Infrastructure"],   # the Indian listed subsidiary
     "Siemens": ["Healthineers", "Siemens Ltd"],
+    "Tencent": ["Tencent Music"],       # Tencent Music Entertainment (TME) is a separate listing, not our node
 }
 # Listed Indian subsidiaries of European parents report separately; never ours.
 EXCLUDE_ANY = [r"\bIndia\b"]
