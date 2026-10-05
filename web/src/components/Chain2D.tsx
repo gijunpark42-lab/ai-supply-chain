@@ -10,6 +10,7 @@ import {
 } from "@/lib/chain2d";
 import { useLang } from "@/lib/i18n";
 import "./Graph.css";
+import "./SignalText.css"; // source-type badges inside the edge popup (lib/chain2d.ts)
 
 interface ChainIndexEntry {
   id: string;

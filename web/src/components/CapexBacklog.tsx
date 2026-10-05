@@ -14,6 +14,7 @@ import {
 } from "@/lib/table";
 import CompanyLink from "./CompanyLink";
 import CellText from "./CellText";
+import { SourceBadge } from "./SignalText";
 import { t, tr, name, useLang } from "@/lib/i18n";
 import "./Tables.css";
 
@@ -351,7 +352,9 @@ export default function CapexBacklog({
                         detail={{ source: r.source }} />
                     </td>
                     <td data-label={t("Source")}>
-                      <CellText text={r.source} label={t("Source")} subject={r.name} className="cb-source" />
+                      <CellText text={r.source} label={t("Source")} subject={r.name} className="cb-source">
+                        {r.source && <SourceBadge label={r.source} />} {r.source}
+                      </CellText>
                     </td>
                   </tr>
                 ))}

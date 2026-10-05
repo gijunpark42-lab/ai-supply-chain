@@ -14,6 +14,7 @@ import {
 import { guessIntent, normalizeIntent, LOCAL_MODEL_ID } from "@/lib/askPrompt.mjs";
 import { t, name, useLang, type Lang } from "@/lib/i18n";
 import { slugLabel } from "@/lib/taxonomy";
+import { SignalBody, SourceBadge } from "./SignalText";
 import "./AskGraph.css";
 
 // AskGraph — the "Ask" tab. Type a question → three steps:
@@ -406,7 +407,7 @@ function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }
           <ol>
             {snippets.map((s, i) => (
               <li key={i}>
-                <SnippetView s={s} n={i + 1} onOpen={onOpen} />
+                <SnippetView s={s} n={i + 1} onOpen={onOpen} clamp />
               </li>
             ))}
           </ol>
@@ -423,11 +424,13 @@ function SnippetView({
   n,
   onOpen,
   highlight,
+  clamp,
 }: {
   s: Snippet;
   n: number;
   onOpen: (id: string) => void;
   highlight?: boolean;
+  clamp?: boolean;
 }) {
   return (
     <div className={"ask-snip" + (highlight ? " on" : "")}>
@@ -446,9 +449,19 @@ function SnippetView({
           </>
         )}
         {s.chain && <span className="ask-chain">· {slugLabel(s.chain)}</span>}
-        <span className="ask-label">· {s.label}</span>
+        <span className="ask-label">
+          · <SourceBadge label={s.label} /> {s.label}
+        </span>
       </div>
-      <div className="ask-snip-text">{s.text}</div>
+      {/* The open citation shows the whole snippet; the "Context used" list
+          clamps each one to two lines with a More toggle. */}
+      {clamp ? (
+        <div className="ask-snip-text">
+          <SignalBody text={s.text} />
+        </div>
+      ) : (
+        <div className="ask-snip-text">{s.text}</div>
+      )}
     </div>
   );
 }

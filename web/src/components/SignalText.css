@@ -1,0 +1,119 @@
+/* SignalText.css — the source-type badge and the compact signal body
+   (SignalText.tsx). Every class is prefixed .sx- ; colours sit on the dark
+   --ap-* surfaces (and the lighter glass mode) with readable contrast. */
+
+/* ── Source-type badge ──────────────────────────────────────────────────── */
+.sx-badge {
+  display: inline-block;
+  flex: 0 0 auto;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  padding: 0 6px;
+  border-radius: 5px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  text-transform: none;
+  vertical-align: middle;
+  cursor: default;
+}
+/* One hue per source group, kept as an "r, g, b" custom property so the badge,
+   the NodePanel filter-chip dot and the Chain 2D popup all use the same colour. */
+.sx-k-call { --sx-rgb: 108, 182, 255; }
+.sx-k-conference { --sx-rgb: 195, 155, 255; }
+.sx-k-filing { --sx-rgb: 227, 179, 65; }
+.sx-k-release { --sx-rgb: 86, 211, 100; }
+.sx-k-deck { --sx-rgb: 57, 197, 207; }
+.sx-k-disclosure { --sx-rgb: 255, 166, 87; }
+.sx-k-qa { --sx-rgb: 247, 120, 186; }
+.sx-k-other { --sx-rgb: 154, 160, 168; }
+.sx-badge {
+  color: rgb(var(--sx-rgb, 154, 160, 168));
+  background: rgba(var(--sx-rgb, 154, 160, 168), 0.1);
+  border-color: rgba(var(--sx-rgb, 154, 160, 168), 0.4);
+}
+.sx-badge.sx-k-other {
+  background: transparent;
+  border-color: var(--ap-border);
+}
+
+/* ── Signal body: headline (figure) + clamped text ──────────────────────── */
+.sx-head {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ap-blue-hi);
+  margin-top: 3px;
+  overflow-wrap: anywhere;
+}
+.sx-text {
+  font-size: 0.83rem;
+  line-height: 1.45;
+  color: rgba(245, 245, 247, 0.84);
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+}
+/* No vertical padding on these two: the More/Less test compares scrollHeight
+   with N × line-height. */
+.sx-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.sx-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  margin-top: 3px;
+}
+.sx-more {
+  background: none;
+  border: none;
+  padding: 2px 0;
+  margin-right: 4px;
+  color: var(--ap-blue);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+.sx-more:hover {
+  color: var(--ap-blue-hi);
+}
+.sx-more:focus-visible {
+  outline: 2px solid var(--ap-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── A source label that is cut off (SourceText) ───────────────────────── */
+/* Only a label that really ends in "…" is clickable; it hints with a dotted
+   underline on hover / focus and opens to the full label. */
+.sx-src-cut {
+  cursor: pointer;
+  border-radius: 3px;
+}
+.sx-src-cut:hover,
+.sx-src-cut:focus-visible {
+  color: var(--ap-text);
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+.sx-src-cut:focus-visible {
+  outline: 2px solid var(--ap-blue);
+  outline-offset: 1px;
+}
+.sx-src-open {
+  color: var(--ap-text);
+}
+
+/* Phones: a bigger tap target for the toggle. */
+@media (max-width: 860px) {
+  .sx-more {
+    min-height: 32px;
+    padding: 4px 6px 4px 0;
+  }
+}

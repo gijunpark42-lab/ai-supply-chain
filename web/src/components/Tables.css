@@ -551,17 +551,19 @@ body.glass .tb-tip {
 }
 
 @media (max-width: 700px) {
-  /* Inside the card-stack (globals.css) every cell shows in full, so the
-     clamp and its corner mark step aside — same specificity, later file wins. */
-  .data.tl td .cell.tb-clamp,
+  /* Inside the card-stack (globals.css) the other cells show in full, but the
+     long prose cells (Signal, Figure — ~500 characters each) stay clamped, to
+     4 lines here; a tap expands them in place (CellText), the "⋯" mark says so.
+     Same specificity as the desktop rule, later in the file → wins. */
+  .data.tl td .cell.tb-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
   .data.tl td .cell.tb-clamp.tb-expanded {
     display: block;
     -webkit-line-clamp: unset;
     overflow: visible;
-    cursor: default;
-  }
-  .data.tl td:has(> .cell.clipped)::after {
-    content: none;
   }
   /* A group header is a divider between cards, not a card of its own. */
   .data.tl tr.tb-group {

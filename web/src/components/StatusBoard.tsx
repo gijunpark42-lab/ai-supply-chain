@@ -51,6 +51,7 @@ const WAITING_NAMES: Record<string, string> = {
   kind: "IR deck",
   krcalls: "call",
   tdnet: "TDnet filing",
+  edinet: "EDINET report",
   mops: "MOPS filing",
 };
 
