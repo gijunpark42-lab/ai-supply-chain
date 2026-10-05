@@ -1,0 +1,45 @@
+{
+  "reviewer": "verify-1004-newnodes-3",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Ableprint Technology",
+      "target": null,
+      "label": "Ableprint Technology press release: Investor Conference Presentation (English), Aug 2026 (08-27-2026)",
+      "signal_prefix": "Deck's H1 2026 headline results: net revenue printed as '17.9 billion'",
+      "action": "set",
+      "set": {
+        "signal": "Deck's 26H1 financial results slide: net revenue YoY 63%; gross margin 66% (company: average 60%+, 'surpass industry peers'); net income YoY +105%. The slide's revenue and net-income totals are not captured: the English deck prints '17.9 billion' and '8.0 billion' on a slide labelled 'In NT$ thousands', so the printed unit is inconsistent",
+        "figure": "H1 2026 net revenue YoY 63%; gross margin 66%; net income YoY +105%"
+      },
+      "reason": "The English deck's '17.9 billion' / '8.0 billion' are a unit mistranslation (the slide itself is labelled 'In NT$ thousands'); the entry must not present 17.9 billion as H1 revenue. Keep only the percentages the slide states.",
+      "evidence": "In NT$ thousands Net Revenue 17.9 billion YoY 63% Gross profit 66% Avg. 60%↑ Surpass industry peers Net Income 8.0 billion YoY +105%"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Ableprint Technology",
+      "target": null,
+      "label": "Ableprint Technology press release: Investor Conference Presentation (English), Aug 2026 (08-27-2026)",
+      "signal_prefix": "Company calls itself a 'Global Leader in De-void Solutions'",
+      "action": "set",
+      "set": {
+        "signal": "Company calls itself a 'Global Leader in De-void Solutions' and 'Process Systems & PlatForms Integrator' addressing four packaging challenges (residue, warpage, metal joint, heat dissipation). Product milestones: 1st Gen Void-Free, 2nd Gen model for WLP, PLP and FCBGA, 3rd Gen model for RDL and bumping, 4th Gen LEAPSolve platform, plus WSAS-C / WSAS-V warpage suppression and WGBA (Warpage Gang Bond Annealing); products named VFS, VTS Pioneer, PRO and EvoRTS. On its 'oS' process-flow slide the company says '3 steps can be removed!' with EvoRTS (company claim); a slide headed 'CPO CoPoS/CoWoP/CoS Blooming Application' also shows EvoRTS and WSAS"
+      },
+      "reason": "The deck does not map VFS to the 1st generation or call the flow 'chip-on-substrate' (it prints 'oS Process Flow'); the EvoRTS/WSAS link to CPO / CoPoS is slide co-location only. Rewritten to what the slides print.",
+      "evidence": "oS Process Flow ... 3 steps can be removed! ... With EvoRTS SKIP ... CPO CoPoS/CoWoP/CoS Blooming Application ... EvoRTS WSAS"
+    },
+    {
+      "kind": "contract",
+      "company": "Advanced Echem Materials",
+      "target": "TSMC",
+      "label": "Advanced Echem Materials press release: Investor Conference Presentation (English), Aug 2026 (08-19-2026)",
+      "signal_prefix": "AEMC's deck lists the 'TSMC Excellent Performance Award, 2022'",
+      "action": "set",
+      "set": {
+        "date_signed": "not stated"
+      },
+      "reason": "2022 is the year of the award, not of the customer relationship; the deck gives no start date for supplying TSMC.",
+      "evidence": "TSMC Excellent Performance Award, 2022 Excellent Material Development and Production Support in Lithography Materials."
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "reviewer": "verify-1005-cn-14",
+  "items": [
+    {
+      "kind": "contract",
+      "company": "National Silicon Industry Group",
+      "target": "TSMC",
+      "label": "National Silicon Industry Group annual report: 2025 Annual Report (04-17-2026)",
+      "signal_prefix": "The 2025 annual report lists TSMC among the company's international customers",
+      "action": "delete",
+      "reason": "List-only mention ('international customers include TSMC, UMC, STMicroelectronics, Vishay'); JOB 4 / batch rule: a list-only mention is not an edge. The edge was created by this patch (HEAD had no NSIG edges).",
+      "evidence": "国际客户包括台积电、联电、意法半导体、威世等全球头部芯片厂商"
+    },
+    {
+      "kind": "contract",
+      "company": "National Silicon Industry Group",
+      "target": "UMC",
+      "label": "National Silicon Industry Group annual report: 2025 Annual Report (04-17-2026)",
+      "signal_prefix": "The 2025 annual report lists UMC among the company's international customers",
+      "action": "delete",
+      "reason": "List-only mention in the business overview; not a stated supply relationship with figures, so no edge contract (JOB 4 / batch rule).",
+      "evidence": "国际客户包括台积电、联电、意法半导体、威世等全球头部芯片厂商"
+    },
+    {
+      "kind": "contract",
+      "company": "National Silicon Industry Group",
+      "target": "SMIC",
+      "label": "National Silicon Industry Group annual report: 2025 Annual Report (04-17-2026)",
+      "signal_prefix": "The 2025 annual report lists SMIC among the company's domestic customers",
+      "action": "delete",
+      "reason": "List-only mention ('domestic customers cover SMIC, Huahong Grace, CR Micro'); not an edge under JOB 4 / batch rule.",
+      "evidence": "国内客户涵盖中芯国际、华虹宏力、华润微等主要芯片制造企业"
+    },
+    {
+      "kind": "contract",
+      "company": "National Silicon Industry Group",
+      "target": "Hua Hong Semiconductor",
+      "label": "National Silicon Industry Group annual report: 2025 Annual Report (04-17-2026)",
+      "signal_prefix": "The 2025 annual report lists Huahong Grace among the company's domestic customers",
+      "action": "delete",
+      "reason": "List-only mention; not an edge under JOB 4 / batch rule.",
+      "evidence": "国内客户涵盖中芯国际、华虹宏力、华润微等主要芯片制造企业"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Ningxia Orient Tantalum",
+      "target": null,
+      "label": "Ningxia Orient Tantalum annual report: 2025 Annual Report (03-31-2026)",
+      "signal_prefix": "Supplier Mineracao Taboca (Brazil; controlled by the same ultimate controlling party",
+      "action": "set",
+      "set": {
+        "signal": "Supplier Mineracao Taboca (controlled by the same ultimate controlling party as the company): 2025 related-party purchases of raw materials from Mineracao Taboca were RMB 448,600,089.30; year-end accounts payable to it RMB 60,565,451.76. Separately, under its resource-reserve drive the company signed a 3000-tonne ferro-tantalum-niobium alloy contract in 2025 to secure tantalum-niobium raw-material supply (counterparty not named in the report)."
+      },
+      "reason": "'Brazil' is background knowledge; the report never states the supplier's country (no mention of Brazil anywhere in the filing). Rest verified.",
+      "evidence": "MINERACAO TABOCA S A 同受最终控制方控制 ... MINERACAO TABOCA S A 采购原材料 448,600,089.30"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Ningxia Orient Tantalum",
+      "target": null,
+      "label": "Ningxia Orient Tantalum annual report: 2025 Annual Report (03-31-2026)",
+      "signal_prefix": "2025 annual report: R&D input RMB 41,565,949.69",
+      "action": "set",
+      "set": {
+        "signal": "2025 annual report: R&D input RMB 41,565,949.69 (2.69% of revenue, down 26.92%), of which 39.78% capitalised; 317 R&D staff. The MD&A puts total R&D funding at RMB 11274 ten-thousand, up 22.92%. The report says high-specific-capacitance high-purity tantalum powder samples passed customer certification and are sold in volume; a research project on uniform fine-grain high-purity tantalum aims to push tantalum target volume production."
+      },
+      "reason": "Standing rule: awards are not captured; removed the clause about the 5N5 tantalum target project winning an industry science award. Numbers verified.",
+      "evidence": "项目荣获中国有色金属工业协会科技进步奖二等奖 ... 高比容高纯钽粉样品通过用户认证并批量销售"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Ningxia Orient Tantalum",
+      "target": null,
+      "label": "Ningxia Orient Tantalum half-year report: 2026 Half-Year Report (08-25-2026)",
+      "signal_prefix": "2026 half-year report: R&D input RMB 23,936,450.47",
+      "action": "set",
+      "set": {
+        "signal": "2026 half-year report: R&D input RMB 23,936,450.47 (down 2.33%). The company says its high-purity tantalum powder for 6N-and-above high-purity tantalum targets broke through two core technologies (deep removal of trace impurities and low-contamination smelting); it mastered processing of two new 1.3GHz niobium RF superconducting cavity models; and niobium-based refractory alloy powder and multi-laser additive manufacturing reached small-batch production."
+      },
+      "reason": "Standing rule: awards / rankings are not captured; removed the clause about the 50K tantalum powder being selected as a representative result of a central-SOE materials alliance. Rest verified.",
+      "evidence": "“高可靠 50K 钽粉”入选央企高端有色金属材料创新联合体代表性成果"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "reviewer": "verify-1005-missed-4",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Focuslight Technologies",
+      "target": null,
+      "label": "Focuslight Technologies annual report: 2025 Annual Report (04-29-2026)",
+      "signal_prefix": "Datacom R&D projects (annual report, in-progress project table): the datacom micro-optics",
+      "action": "set",
+      "set": {
+        "signal": "Datacom R&D projects (annual report, in-progress project table): the datacom micro-optics lens development project (expected total investment RMB 630.00 ten-thousand; RMB 473.56 ten-thousand invested in 2025, RMB 630.03 ten-thousand cumulative) has completed the micro-lens thermal-forming process and material system, and industry customers are gradually adopting it; its stated target is to develop cost-effective datacom modules with excellent durability. The silicon-etched micro-prism / lens angle connector development project (RMB 320.00 ten-thousand; RMB 79.97 ten-thousand invested) is developing one- and two-dimensional prism-lens array devices for datacom; the product design has been accepted by the customer and it is at the initial sample delivery stage."
+      },
+      "reason": "The project table's target column says cost-effective, highly durable datacom modules; 'micro-lenses and lens arrays' was added by the enricher.",
+      "evidence": "拟达到目标: 开发性价比高，耐久性优异的数据通讯模块"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Piotech",
+      "target": null,
+      "label": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+      "signal_prefix": "ALD progress (2025 annual report): PE-ALD tools built on the VS-300T platform",
+      "action": "set",
+      "set": {
+        "signal": "ALD progress (2025 annual report): PE-ALD tools built on the VS-300T platform kept winning customer orders for multiple tools and shipping, with customer validation progressing smoothly; the company says the tool can be used for double / multiple patterning in advanced logic and memory chips and for TSV isolation layers in advanced packaging. Its Thermal-ALD tools are in industrial use (Al2O3, AlN, TiN, TiON films) and kept winning orders and shipping; the TiN process tool passed customer validation and now covers advanced-logic and advanced-packaging customers."
+      },
+      "reason": "The source says TSV isolation layer (TSV隔离层) for the VS-300T PE-ALD tool; '(liner)' is not in that passage.",
+      "evidence": "该设备可应用于先进逻辑芯片和存储芯片中的双重/多重曝光图形转移，以及先进封装TSV 隔离层等"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Zhongtian Technology",
+      "target": null,
+      "label": "Zhongtian Technology annual report: 2025 Annual Report (04-25-2026)",
+      "signal_prefix": "2025 annual report: Zhongtian's PCB copper foil business",
+      "action": "set",
+      "set": {
+        "signal": "2025 annual report: Zhongtian's PCB copper foil business (high-frequency high-speed, ultra-thick and customised foil) shipped more than two ten-thousand tons of standard foil in 2025; its high-end series is in batch supply for high-end servers, industrial control and precision communication, and through long-term cooperation with leading domestic copper-clad-laminate makers its customers cover consumer electronics, automotive electronics, AI servers, AIDC power supplies, automotive boards, optical modules and switches, with customer certification of high-end products progressing. Company (2026 plan): it will focus on RTF and HVLP high-frequency high-speed copper foil, speeding R&D and scale mass production, and lay out embedded-resistor and carrier copper foil.",
+        "figure": "standard copper foil shipments above two ten-thousand tons in 2025"
+      },
+      "reason": "The report prints the volume in Chinese numerals (liang wan dun = two ten-thousand tons); per the cninfo rule 'wan' amounts keep the printed digits, so '20,000' is a conversion not found in the source.",
+      "evidence": "报告期内标箔总出货量突破两万吨，位居国内前十"
+    }
+  ]
+}

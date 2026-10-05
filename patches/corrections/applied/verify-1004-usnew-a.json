@@ -1,0 +1,60 @@
+{
+  "reviewer": "verify-1004-usnew-a",
+  "items": [
+    {
+      "kind": "contract",
+      "company": "NVIDIA",
+      "target": "Akamai Technologies",
+      "label": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+      "signal_prefix": "Akamai CFO: Akamai sold out its previous GPU order and is",
+      "action": "set",
+      "set": {"date_signed": "not stated (order being placed at the time of the 08-06-2026 call)"},
+      "reason": "The call does not name a quarter for the order; 'Q3 2026' was inferred from the call date. Keep only what the CFO said (present tense, 'we're placing').",
+      "evidence": "We're placing another order with NVIDIA for a significant chunk of additional GPUs, some to satisfy the new order"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Baidu",
+      "target": null,
+      "label": "Baidu Q2 FY2026 (08-18-2026)",
+      "signal_prefix": "Apollo Go robotaxi (CEO): around 1 million fully driverless operational rides",
+      "action": "set",
+      "set": {"signal": "Apollo Go robotaxi (CEO): around 1 million fully driverless operational rides in Q2 and cumulative public rides above 23 million as of June 2026; ride volume was temporarily affected by operational adjustments in certain domestic cities for regulatory considerations, with operations in the affected cities beginning to resume as of August. Fully driverless commercial operations launched in Dubai in July (also via the Uber app); Hong Kong granted its first fully driverless testing permits in June; open-road testing began in London in July with Uber and Lyft; open-road testing also began in Switzerland with PostBus (no date given). Fully driverless vehicles averaged approximately one airbag deployment every 14.4 million kilometers."},
+      "reason": "The call gives no date for the Switzerland testing start; the old wording let 'in July' read across to Switzerland. Also 'resuming as of August' applies to the affected cities.",
+      "evidence": "In July, Apollo Go began open road testing there in partnership with Uber and Lyft. ... In Switzerland, we began open road testing in partnership with PostBus."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "VNET Group",
+      "target": null,
+      "label": "VNET Group Q2 FY2026 (08-18-2026)",
+      "signal_prefix": "Delivery plan: 117 MW delivered in H1 2026; six data centers under construction",
+      "action": "set",
+      "set": {"signal": "Delivery plan: 117 MW delivered in H1 2026; six data centers under construction (five in the Greater Beijing Area, one in the Yangtze River Delta); about 585 MW to be delivered over the next 12 months - around 333 MW in H2 2026 and around 252 MW in H1 2027 - mostly from the Ulanqab IDC campus. Management expects customers' move-in pace to be 'marginally' faster in H2 2026 than in H1 (move-in pace depends on chip supply and on customers' model iteration and project progress), and says domestically produced chips are quickly ramping up production, with H2 2026 production capacity 'fairly clear', which will push the move-in pace higher. Over 90% of wholesale IDC revenue is recurring, with a weighted average remaining lease term of seven years."},
+      "reason": "Hedge dropped: management said the move-in pace would be faster 'marginally' compared to the first half; keep the hedge and the stated drivers.",
+      "evidence": "Overall, we are expecting to see a faster moving pace in the second half of this year, marginally compared to the first half."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SharonAI",
+      "target": null,
+      "label": "SharonAI Q2 FY2026 (08-06-2026)",
+      "signal_prefix": "Deployments (CEO): SharonAI handed over a B300 cluster to a customer this month",
+      "action": "set",
+      "set": {"signal": "Deployments (CEO): SharonAI handed over a B300 cluster to a customer this month, with a full month and a bit of B300 billing in Q3; next B300 and GB300 deployments are planned for the balance of the quarter and early Q4, with Q4 the quarter where revenue ramps materially. The 40,000 GB300s under the NVIDIA program (AICP) are to be deployed over the first half of 2027, with full billing across that cluster in Q3 (CEO, as transcribed: 'full billing on our latest in Q3'). Key risks are hardware delivery and data-center readiness."},
+      "reason": "The transcript line is garbled ('full billing on our latest in Q3'); 'at the latest' is an interpretation. State it with the transcribed words.",
+      "evidence": "We're looking to ensure that we've got deployment over, half one 2027 with full billing on our latest in Q3 across that cluster."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Fermi",
+      "target": null,
+      "label": "Fermi Q2 FY2026 (08-13-2026)",
+      "signal_prefix": "Power delivery plan (COO): Fermi plans to deliver 640 MW of nameplate capacity",
+      "action": "set",
+      "set": {"signal": "Power delivery plan (COO): Fermi plans to deliver 640 MW of nameplate capacity by the fourth quarter of 2027, with the first 210 MW available July 1st, 2027. With the Hillcore alliance the Project Matador campus doubles to 4.8 GW of total power (from 2.2 GW), and Fermi holds a 6 GW air permit. CFO: power-side capex typically runs $3 million/MW-$4 million/MW of gross power capacity and a turnkey data center about $10 million/MW-$12 million/MW, and this project is in that range; Fermi is not disclosing a total project cost. Chairman: over $1.5 billion of assets already built into the ground."},
+      "reason": "Attribution: the '$1.5 billion of assets already built into the ground' is the Chairman's statement, not the CFO's.",
+      "evidence": "Marius Haas: a tangible asset base of over $1.5 billion that we have already built into the ground"
+    }
+  ]
+}

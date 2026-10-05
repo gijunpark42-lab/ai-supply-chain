@@ -1,0 +1,39 @@
+{
+  "reviewer": "verify-1005-cn-17",
+  "items": [
+    {
+      "kind": "contract",
+      "company": "Shenzhen Honor Electronic",
+      "target": "Foxconn",
+      "label": "Shenzhen Honor Electronic annual report: 2025 Annual Report (04-22-2026)",
+      "signal_prefix": "Annual report: the company has shipped server power supplies to domestic server system makers including Foxconn",
+      "action": "delete",
+      "reason": "List-only mention: Foxconn appears only inside customer lists (shipped to Inspur, Foxconn, Huaqin, Lenovo, ZTE, Sugon, H3C; supplier to Foxconn, Inspur, Star-Net Ruijie, H3C, Huaqin, Lenovo), not a named top-5 row, related-party deal or certified/core-supplier statement; JOB 4 and the open board question 'Customer lists in A-share reports' say no edge. The fact moves onto the filer's quarterly_data (see the set item below).",
+      "evidence": "公司已陆续为浪潮信息、富士康、华勤、联想、中兴、曙光、新华三等国内知名服务器系统商出货"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Shenzhen Honor Electronic",
+      "label": "Shenzhen Honor Electronic annual report: 2025 Annual Report (04-22-2026)",
+      "signal_prefix": "Server power customers (annual report): in China the company has shipped server power supplies",
+      "action": "set",
+      "set": {
+        "signal": "Server power customers (annual report): in China the company has shipped server power supplies to server system makers Inspur, Foxconn, Huaqin, Lenovo, ZTE, Sugon and H3C and works closely with leading domestic CSP end customers; overseas it has sales and after-sales teams in Taiwan and the US and is bringing in server system makers and CSPs."
+      },
+      "reason": "The Foxconn edge contract is deleted (list-only mention), so Foxconn goes back into the customer list on the filer's node instead of the '(Foxconn also named, see edge)' pointer.",
+      "evidence": "公司已陆续为浪潮信息、富士康、华勤、联想、中兴、曙光、新华三等国内知名服务器系统商出货，公司也同步与国内头部 CSP品牌商等终端客户保持紧密合作"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Shenzhen Fastprint Circuit Tech",
+      "label": "Shenzhen Fastprint Circuit Tech annual report: 2025 Annual Report (04-25-2026)",
+      "signal_prefix": "Company (annual report): the FCBGA substrate project is prepared for volume production",
+      "action": "set",
+      "set": {
+        "signal": "Company (annual report): the FCBGA substrate project is prepared for volume production in technology, capacity and yield; sample orders rose sharply YoY with a rising share of high-layer, large-size products. Its built capacity is ramping, but orders are growing slowly because of long customer certification cycles, so utilization is low and unit labor, depreciation and energy costs are high; in 2026 the company will push domestic customers and pursue overseas customers' factory audits, sampling and volume production. Construction in progress: Guangzhou FCBGA substrate project (budget RMB 5,000,000,000.00) 63.41% complete; Zhuhai FCBGA substrate project (budget RMB 1,000,000,000.00) 91.72%, transferred to fixed assets in 2025, taking with it a construction-in-progress impairment of RMB 5,266,570.01 already held at the start of the year (reason given: volume-production progress and investment returns fell short of expectations); Zhuhai Xingke IC package substrate project (budget RMB 1,600,000,000.00) 90.03%."
+      },
+      "reason": "The RMB 5,266,570.01 impairment is the OPENING balance of the Zhuhai FCBGA CIP impairment (provided before 2025) and was reduced in 2025 when the project was transferred to fixed assets; the entry read as if the impairment was booked in 2025.",
+      "evidence": "珠海 FCBGA 封装基板项目 50,073,549.11 5,266,570.01 44,806,979.10 (期初) ... 珠海FCBGA封装基板项目 5,266,570.01 5,266,570.01 量产进度和投资效益不及预期，本年已转固"
+    }
+  ]
+}

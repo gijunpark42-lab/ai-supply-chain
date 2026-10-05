@@ -1,0 +1,152 @@
+{
+  "source": "Nebius 20-F (04-30-2026)",
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "Nebius",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "GPU cloud",
+          "quarterly_data": [
+            {
+              "quarter": "Nebius 20-F (04-30-2026)",
+              "signal": "FY2025 results (20-F): total revenues increased by $438.3 million, or 479%, from $91.5 million in 2024 to $529.8 million in 2025, predominantly driven by the core AI cloud business. Nebius AI cloud segment revenue increased by $412.0 million, or 603%, from $68.3 million to $480.3 million, primarily driven by scaling the global infrastructure footprint and deploying next-generation GPUs; the deployment of five new locations during 2025 increased available capacity, and the customer base diversified with several AI natives, large startups, enterprise customers and (later in the year) new long-term agreements with AI hyperscalers. Nebius segment adjusted EBITDA was $59.0 million in 2025 versus a loss of $128.5 million in 2024.",
+              "figure": "FY2025 revenue $529.8 million (+479%); Nebius AI cloud $480.3 million (+603%); Nebius segment adjusted EBITDA $59.0 million",
+              "topics": []
+            },
+            {
+              "quarter": "Nebius 20-F (04-30-2026)",
+              "signal": "20-F customer and supplier concentration (customers not named): Customer A accounted for 25% of revenue in 2025 (27% in 2024) and Customer B for 15% in 2025; Customer C accounted for 11% in 2024. Customer D held 83% of gross accounts receivable as of December 31, 2025 ($597.0 million). Supplier concentration, measured on capital expenditures incurred in the year, was attributable to one supplier in 2024 and two suppliers in 2025. The 20-F says that while it has secured longer-term customer contracts with Meta and Microsoft, most customer engagements to date have been relatively short-term; it serves hundreds of customers, with the majority of its customer base currently concentrated in the US.",
+              "figure": "Customer A 25% (2025) / 27% (2024); Customer B 15% (2025); Customer D 83% of receivables; two suppliers (2025)",
+              "topics": []
+            },
+            {
+              "quarter": "Nebius 20-F (04-30-2026)",
+              "signal": "Data center capacity (20-F): approximately 170 MW of active power (capacity consumed by IT equipment and available for revenue generation) as of December 31, 2025; contracted power above 2 GW as of February 2026. Sites secured in February 2026: newly owned data center sites in Missouri and Alabama, new co-location sites in Minnesota and Oklahoma, two new co-location sites in Israel, two in France and one in the UK. Existing footprint: the greenfield Mantsala, Finland data center built to its own design, co-locations in Paris (first co-location, July 2024), Keflavik, Iceland, London (contracts secured November 2025, featuring NVIDIA Blackwell Ultra GPUs), Israel (October 2025) and Kansas City, MO (first US co-location), plus the first built-to-suit facility in Vineland, NJ (agreement February 2025).",
+              "figure": "approximately 170 MW active power (December 31, 2025); more than 2 GW contracted (February 2026)",
+              "topics": []
+            },
+            {
+              "quarter": "Nebius 20-F (04-30-2026)",
+              "signal": "Capital expenditure and committed capacity (20-F): purchases of property and equipment and intangible assets were $4,066.0 million in 2025 (versus $807.5 million in 2024), relating primarily to investments in GPUs and data center hardware. As of December 31, 2025 Nebius had executed additional lease agreements, primarily for data centers, that had not yet commenced, with aggregate estimated future undiscounted lease payments of $9,759.6 million (prepayment of $271.0 million already made); these leases commence between 2026 and 2027 with estimated lease terms up to eleven years. Deferred revenue increased by $1,561.2 million in 2025, primarily from prepayments received under strategic customer agreements.",
+              "figure": "2025 capex $4,066.0 million; not-yet-commenced data center leases $9,759.6 million",
+              "topics": []
+            },
+            {
+              "quarter": "Nebius 20-F (04-30-2026)",
+              "signal": "In-house hardware and data center design (20-F, company statements): Nebius designs its servers and racks in-house; internal tests show its servers consume approximately 20% less power than equivalent third-party hardware and are fully operational at higher temperatures. Facilities it designs and owns achieve up to four times lower overheads than industry averages (infrastructure overhead metrics such as PUE) and feature closed-loop liquid cooling systems for next-generation GPUs that do not rely on water intake; at the Finnish site, server heat is recovered into a municipal heating network.",
+              "figure": "servers approximately 20% less power; up to four times lower overheads",
+              "topics": ["power_cooling"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "Microsoft",
+              "relationship": "AI cloud / GPU capacity supply",
+              "contracts": [
+                {
+                  "source": "Nebius 20-F (04-30-2026)",
+                  "signal": "20-F terms of the Microsoft Agreement (September 2025): Nebius provides Microsoft dedicated GPU cloud computing capacity in clusters at its new Vineland, New Jersey data center over a five-year term, deployed in nine tranches during 2025 and 2026 (first tranche delivered November 2025, second February 2026). Subject to deployment and availability, Microsoft committed to pay fees estimated up to $17,392.9 million (about $17.4 billion) irrespective of actual utilization, including aggregate upfront payments of approximately $6,958.1 million, with the remaining consideration invoiced monthly through October 2031. Microsoft has service-credit and tranche-termination rights for specified delivery delays or repeated availability failures, and may acquire additional services or capacity.",
+                  "units": "nine tranches of dedicated GPU capacity (Vineland, New Jersey)",
+                  "value": "up to $17,392.9 million (about $17.4 billion); upfront payments approximately $6,958.1 million",
+                  "date_signed": "September 2025",
+                  "type": "GPU capacity agreement",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "Meta",
+              "relationship": "AI cloud / GPU capacity supply",
+              "contracts": [
+                {
+                  "source": "Nebius 20-F (04-30-2026)",
+                  "signal": "20-F terms of the first Meta agreement: on November 1, 2025 Nebius entered into a Cloud Infrastructure Services Agreement under which it provides Meta dedicated GPU cloud computing capacity and related cloud infrastructure services over a five-year term delivered in two tranches (the second in February 2026). Total contracted consideration under the initial order is approximately $2,880.7 million (approximately $2.9 billion), plus recurring monthly fees for storage, compute and connectivity; Meta must pay the contracted fees irrespective of actual utilization, with service-credit and tranche-termination rights for specified delivery delays.",
+                  "units": "two tranches of dedicated GPU capacity",
+                  "value": "approximately $2.9 billion ($2,880.7 million)",
+                  "date_signed": "November 1, 2025",
+                  "type": "GPU capacity agreement",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "GB200 / GB300 / Vera Rubin GPU systems",
+          "connects_to": [
+            {
+              "company": "Nebius",
+              "relationship": "GPU supply",
+              "contracts": [
+                {
+                  "source": "Nebius 20-F (04-30-2026)",
+                  "signal": "Nebius 20-F supplier disclosure: 'We currently rely on Nvidia for the GPU chips we use and on a limited number of other suppliers for other key components in our infrastructure', and some customers have contractually specified its use of certain suppliers for specified components. Its GPU-based servers include NVIDIA GB300 NVL72, GB200 NVL72, HGX B200, HGX B300, HGX H100 and RTX PRO 6000, with NVIDIA InfiniBand NDR/XDR GPU-to-GPU interconnects; it holds Reference Platform NVIDIA Cloud Partner status, and in March 2026 announced a strategic partnership with NVIDIA to develop and deploy the next generation of hyperscale cloud for the AI market.",
+                  "units": "GB300 NVL72, GB200 NVL72, HGX B200, HGX B300, HGX H100, RTX PRO 6000",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "20-F supplier disclosure",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "Nebius",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "AI cloud capacity",
+          "connects_to": [
+            {
+              "company": "Meta",
+              "relationship": "dedicated NVIDIA Vera Rubin compute capacity under the five-year Meta infrastructure agreement",
+              "contracts": [
+                {
+                  "source": "Nebius 20-F (04-30-2026)",
+                  "signal": "20-F: the March 2026 long-term AI infrastructure supply agreement with Meta provides approximately $12 billion of dedicated compute capacity across multiple locations 'based on large-scale deployments of the NVIDIA Vera Rubin platform', with delivery expected to commence in early 2027 (the dedicated-cluster orders deploy in tranches throughout the first half of 2027, each with associated storage and connectivity services).",
+                  "units": "dedicated NVIDIA Vera Rubin GPU capacity clusters across multiple locations",
+                  "value": "approximately $12 billion",
+                  "date_signed": "March 2026",
+                  "type": "compute capacity agreement",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Vera Rubin platform (Rubin GPU, Vera CPU, NVLink switch, Spectrum-X / Quantum-X networking)",
+          "connects_to": [
+            {
+              "company": "Nebius",
+              "relationship": "Groq 3 LPX rack-scale LPU systems + Vera Rubin supply to Nebius (first LPX customer)",
+              "contracts": [
+                {
+                  "source": "Nebius 20-F (04-30-2026)",
+                  "signal": "Nebius 20-F: Nebius announced in January 2026 that it will be among the first NVIDIA Cloud Partners to bring the next-generation NVIDIA Vera Rubin NVL72 platform to customers in the US and Europe.",
+                  "units": "NVIDIA Vera Rubin NVL72",
+                  "value": "no specific figure",
+                  "date_signed": "not stated (announced January 2026)",
+                  "type": "20-F supplier disclosure",
+                  "topics": ["product_launches"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

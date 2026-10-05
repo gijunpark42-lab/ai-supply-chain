@@ -176,8 +176,12 @@ approves, not the user). When a source names a company that is not in the chain 
    is refreshed. A node with no reliable logo is listed in the report instead of shipping a guessed one.
 
 **JOB 4 — New edges:** only when the source explicitly states a supply or customer relationship, the speaker is
-management (not an analyst), both companies are players in that chain, and it is not a joint demonstration or a
-list-only mention. Existing edges may point outside the chain file (edges merge across chains by name).
+management (not an analyst), both companies are players in that chain, and it is not a joint demonstration.
+A company's own customer list ("our customers include X, Y, Z", 主要客户包括…) DOES count as a stated customer
+relationship (user decision 2026-10-05): edge filer -> each named customer that is a player in the same chain, one
+contract per source ("X is named among the company's customers in its <source>"), units / value "no specific
+figure". Names that are not players stay on the filer's quarterly_data with `counterparty` keys.
+Existing edges may point outside the chain file (edges merge across chains by name).
 
 **JOB 5 — Tag every new entry for the derived views (Timelines / Screener / Capex):**
 The Timelines, Screener and Capex tabs are GENERATED from the graph by `derive.py` (run by `graph_build.py`) and

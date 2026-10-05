@@ -1213,7 +1213,40 @@
             {
               "company": "Samsung",
               "product": "V-NAND processed wafers (286-layer TLC/QLC dies)",
-              "connects_to": [],
+              "connects_to": [
+                {
+                  "company": "Longsys",
+                  "relationship": "Storage wafer supply (Longsys' filed main supplier)",
+                  "contracts": [
+                    {
+                      "source": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                      "signal": "Longsys' 2025 annual report names Samsung Electronics as one of its main suppliers; storage wafers are Longsys' main raw material.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2025",
+                      "type": "annual report main supplier",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Biwin Storage Technology",
+                  "relationship": "NAND and DRAM memory wafer supply",
+                  "contracts": [
+                    {
+                      "source": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                      "signal": "Biwin's annual report names Samsung among the memory wafer makers from which its core raw material, NAND and DRAM wafers, is mainly purchased.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2025",
+                      "type": "annual report named supplier",
+                      "topics": [
+                        "nand_storage"
+                      ]
+                    }
+                  ]
+                }
+              ],
               "quarterly_data": []
             },
             {
@@ -1259,6 +1292,21 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "company": "Longsys",
+                  "relationship": "Storage wafer supply (Longsys' filed main supplier)",
+                  "contracts": [
+                    {
+                      "source": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                      "signal": "Longsys' 2025 annual report names SK Hynix as one of its main suppliers; storage wafers are Longsys' main raw material.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2025",
+                      "type": "annual report main supplier",
+                      "topics": []
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -1285,7 +1333,23 @@
             {
               "company": "Micron",
               "product": "G9 232/276-layer 3D NAND processed wafers",
-              "connects_to": [],
+              "connects_to": [
+                {
+                  "company": "Longsys",
+                  "relationship": "Storage wafer supply (Longsys' filed main supplier)",
+                  "contracts": [
+                    {
+                      "source": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                      "signal": "Longsys' 2025 annual report names Micron Technology as one of its main suppliers; storage wafers are Longsys' main raw material.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2025",
+                      "type": "annual report main supplier",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
               "quarterly_data": [
                 {
                   "quarter": "Micron Q2 FY2026 (03-18-2026)",
@@ -1362,6 +1426,23 @@
                       "value": "$1.2 billion over 2026 through 2029",
                       "date_signed": "January 29, 2026",
                       "type": "manufacturing services / supply availability agreement",
+                      "topics": [
+                        "nand_storage"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "company": "Biwin Storage Technology",
+                  "relationship": "NAND memory wafer supply",
+                  "contracts": [
+                    {
+                      "source": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                      "signal": "Biwin's annual report names Kioxia among the memory wafer makers from which its core raw material, memory wafers, is mainly purchased.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2025",
+                      "type": "annual report named supplier",
                       "topics": [
                         "nand_storage"
                       ]
@@ -1463,7 +1544,17 @@
                 {
                   "company": "Kioxia",
                   "relationship": "SSD controller silicon",
-                  "contracts": []
+                  "contracts": [
+                    {
+                      "source": "Silicon Motion 20-F (04-30-2026)",
+                      "signal": "Silicon Motion 20-F: Kioxia was a 10%-or-more customer, accounting for 12% of net revenue in 2025 (US$105,704 thousand) and 15% in 2024 (US$119,727 thousand).",
+                      "units": "12% of net revenue (2025)",
+                      "value": "US$105,704 thousand (2025)",
+                      "date_signed": "FY2025",
+                      "type": "20-F customer concentration",
+                      "topics": []
+                    }
+                  ]
                 },
                 {
                   "company": "NVIDIA",
@@ -1503,6 +1594,62 @@
                         "transitions",
                         "nand_storage"
                       ]
+                    }
+                  ]
+                },
+                {
+                  "company": "Biwin Storage Technology",
+                  "relationship": "Storage controller chip supply",
+                  "contracts": [
+                    {
+                      "source": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                      "signal": "Biwin's annual report names Silicon Motion among its third-party storage controller suppliers, from which it buys controller wafers or chips against customer orders and its demand forecasts.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2025",
+                      "type": "annual report named supplier",
+                      "topics": [
+                        "nand_storage"
+                      ]
+                    },
+                    {
+                      "source": "Silicon Motion 6-K (08-10-2026)",
+                      "signal": "Silicon Motion's H1 2026 interim financial statements state that BIWIN, a leading module maker in China focusing on solid state storage devices, is one of its customers (Silicon Motion has held BIWIN common stock since a July 2021 investment).",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "customer disclosure (6-K interim financial statements)",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Micron",
+                  "relationship": "NAND flash controller supply",
+                  "contracts": [
+                    {
+                      "source": "Silicon Motion 20-F (04-30-2026)",
+                      "signal": "Silicon Motion 20-F: Micron was a 10%-or-more customer, accounting for 10% of net revenue in 2025 (US$86,201 thousand), 19% in 2024 (US$151,780 thousand) and 22% in 2023 (US$144,011 thousand).",
+                      "units": "10% of net revenue (2025)",
+                      "value": "US$86,201 thousand (2025)",
+                      "date_signed": "FY2025",
+                      "type": "20-F customer concentration",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "SK Hynix",
+                  "relationship": "flash memory storage controllers (customer named by the filer)",
+                  "contracts": [
+                    {
+                      "source": "Silicon Motion 20-F (04-30-2026)",
+                      "signal": "SK Hynix is named among Silicon Motion's customers in its 20-F: SK Hynix was one of its customers constituting more than 10% of net revenue in 2023 (with Micron and AFASTOR), and below 10% in 2024 and 2025; most of its high-performance flash storage controllers are supplied to NAND flash manufacturers.",
+                      "units": "no specific figure",
+                      "value": "US$75,836 thousand (12% of net sales, 2023)",
+                      "date_signed": "not stated",
+                      "type": "customer list mention",
+                      "topics": []
                     }
                   ]
                 }
@@ -1724,6 +1871,38 @@
                   "quarter": "Silicon Motion Q4 FY2025 (02-04-2026)",
                   "signal": "Ferri automotive/industrial storage: strong demand as customers rely on Silicon Motion for steady supply in the tight NAND market; management expects 'the ramp of automotive business to about 10% of total business by the end of this year', balancing revenue growth with margin stability and taking NAND-bundled automotive business only where incremental cost can be passed through to the automotive supply chain.",
                   "figure": "automotive about 10% of total business by the end of this year",
+                  "topics": []
+                },
+                {
+                  "quarter": "Silicon Motion 20-F (04-30-2026)",
+                  "signal": "Silicon Motion 20-F customer concentration: sales to its five largest customers were approximately 66% of 2025 net revenue (66% in 2024, 61% in 2023) and its top ten customers approximately 82%. Four customers each above 10% made up 58% of 2025 net sales: PHISEMI US$216,456 thousand (24%), Kioxia (12%), AFASTOR US$104,248 thousand (12%) and Micron (10%); in 2023 SK Hynix was also a 10%-or-more customer (12%). Most of its high-performance flash memory storage controllers are supplied to NAND flash manufacturers; customers also include module makers, hyperscalers and OEMs.",
+                  "figure": "top five 66%; PHISEMI 24%, Kioxia 12%, AFASTOR 12%, Micron 10% (2025)",
+                  "topics": []
+                },
+                {
+                  "quarter": "Silicon Motion 20-F (04-30-2026)",
+                  "signal": "Silicon Motion 20-F supplier disclosure: two outside foundries - primarily TSMC and secondarily SMIC - fabricate its semiconductors in Taiwan and China, primarily on process nodes from 6 to 55 nanometers. Its primary assembly and test subcontractors are SPIL, Powertech Technology (PTI), ASE, Orient Semiconductor Electronics (OSE), Huatian Technology, Tongfu Microelectronics, King Yuan Electronics (KYEC) and YoungTek Electronics. It has no long-term agreements with these foundries and subcontractors and orders against customers' purchase orders and forecasts; it cites packaging component shortages including T-Glass substrate as a risk at its foundries and subcontractors. Order-to-shipment takes approximately three months and up to six months when independent foundry capacity is fully utilized.",
+                  "figure": "no specific figure",
+                  "topics": []
+                },
+                {
+                  "quarter": "Silicon Motion 20-F (04-30-2026)",
+                  "signal": "Silicon Motion 20-F 2025 product mix: net sales rose 10% to US$885.6 million on new products, new customer ramps and share gains with NAND makers, module makers and OEMs. SSD controller sales decreased in the range of 0% to 5% to 45% to 50% of revenue; eMMC plus UFS controller sales increased 20% to 25% to 40% to 45% of revenue; SSD solutions sales decreased 10% to 15% to 0% to 5% of revenue. Gross margin rose to 48.3% from 45.9%; 2025 capital expenditures were US$55,065 thousand.",
+                  "figure": "SSD controllers 45%-50% of revenue; eMMC+UFS 40%-45%; SSD solutions 0%-5%; gross margin 48.3%",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Silicon Motion 6-K (08-10-2026)",
+                  "signal": "Silicon Motion H1 2026 interim financial statements: two customers each accounted for 10% or more of net sales, together 48%: PHISEMI US$300,165 thousand (38%) and AFASTOR US$83,243 thousand (10%). In H1 2025 four such customers made up 59%: PHISEMI (25%), Kioxia (12%), Micron (11%) and a customer listed as 'Longys' (11%); Kioxia and Micron were each below 10% in H1 2026. The top ten customers accounted for approximately 78% of H1 2026 net sales (84% a year earlier). By bill-to location, H1 2026 revenue from China was US$508,134 thousand (US$204,677 thousand a year earlier) and from Israel US$62,188 thousand (US$157 thousand). Shenzhen Techwinsemi Technology (TWSC), a China module maker, is also named as one of its customers.",
+                  "figure": "PHISEMI 38%, AFASTOR 10% of H1 2026 net sales; top ten ~78%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Silicon Motion 6-K (08-10-2026)",
+                  "signal": "Silicon Motion H1 2026 interim financial statements: inventories rose to US$673,042 thousand at June 30, 2026 from US$421,798 thousand at December 31, 2025, with raw materials up to US$430,679 thousand from US$172,316 thousand; the inventory increase used US$245,600 thousand of operating cash in H1 2026 and net cash used in operating activities was US$95,005 thousand.",
+                  "figure": "inventories US$673,042 thousand; raw materials US$430,679 thousand (June 30, 2026)",
                   "topics": []
                 }
               ]
@@ -2008,6 +2187,22 @@
                   "topics": [
                     "nand_storage"
                   ]
+                },
+                {
+                  "quarter": "SK Hynix Q2 FY2026 (07-29-2026)",
+                  "signal": "Q2 2026 call, prepared remarks: SK Hynix's enterprise SSD revenue increased twofold from the previous quarter, and Solidigm's revenue from high-capacity enterprise SSDs of 30 terabyte and above expanded more than threefold quarter-on-quarter.",
+                  "figure": "enterprise SSD revenue up twofold QoQ; Solidigm 30 terabyte-and-above eSSD revenue up more than threefold QoQ",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "SK Hynix Q2 FY2026 (07-29-2026)",
+                  "signal": "Q2 2026 call, Q&A (via interpreter): President Song Hyeon-jong - as AI shifts from training to inference, NAND is becoming a core part of the AI memory hierarchy and eSSD-led NAND demand is expected to keep growing. Song Chang-seop, Head of NAND Marketing - SK Hynix's strategy is not a choice among SLC, TLC or QLC but a workload-optimized portfolio - high-capacity QLC eSSDs for AI data lakes and HDD replacement, high-performance TLC eSSDs and SLC-mode high-performance SSDs - and it is developing new-tier AI storage products for KV cache offloading and near-GPU storage.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "nand_storage"
+                  ]
                 }
               ]
             },
@@ -2096,6 +2291,23 @@
                   "topics": [
                     "nand_storage",
                     "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Micron Q4 FY2026 (09-30-2026)",
+                  "signal": "CFO Mark Murphy: fiscal Q4 NAND revenue was a record $14.1 billion, up 526% year over year and 26% of total revenue, up 42% sequentially; bit shipments increased approximately 10% and prices increased approximately 30%, driven by tight NAND industry conditions. CEO Sanjay Mehrotra: data center SSD revenue in fiscal Q4 was nearly $10 billion, more than 10 times the year-ago quarter and over two-thirds of total company NAND revenue; Micron is on track to deliver the fifth consecutive year of record market share in data center SSD in calendar 2026, with design wins across the largest data center deployments; AI context memory storage used for KV cache offload and HDD displacement are expanding the addressable market for SSDs.",
+                  "figure": "FQ4 NAND revenue $14.1 billion (up 526% YoY, up 42% QoQ); data center SSD revenue nearly $10 billion, over two-thirds of NAND revenue",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Micron Q4 FY2026 (09-30-2026)",
+                  "signal": "CEO Sanjay Mehrotra, NAND outlook: calendar 2026 industry NAND bit shipments are expected to grow in the low-20s percentage range, slightly above prior expectations, with Micron NAND supply growing less than industry supply growth in calendar 2026; for calendar 2027 and 2028 industry NAND bit shipments are expected to grow approximately in the mid-20s percentage range, with the industry remaining supply constrained in both years.",
+                  "figure": "industry NAND bits: low-20s % in calendar 2026 (slightly above prior view); mid-20s % in calendar 2027 and 2028, supply constrained",
+                  "topics": [
+                    "nand_storage",
+                    "supply_tightness"
                   ]
                 }
               ]
@@ -2534,6 +2746,28 @@
                   "topics": [
                     "nand_storage"
                   ]
+                },
+                {
+                  "quarter": "Sandisk prospectus (06-06-2025)",
+                  "signal": "Sandisk's June 2025 prospectus reports revenue by end market: Cloud end-market revenue was $747 million in the nine months ended March 28, 2025 versus $155 million a year earlier, after $325 million in fiscal 2024, $500 million in fiscal 2023 and $1,264 million in fiscal 2022 (total revenue $5,454 million for the nine months; $6,663 million in fiscal 2024). Customer concentration: the top 10 customers accounted for 43% of net revenue in the nine months ended March 28, 2025 (41% a year earlier) and 41%, 47% and 47% in fiscal 2024, 2023 and 2022; no customer reached 10% in fiscal 2024 or the nine months, while one customer accounted for 15% in fiscal 2023 and 11% in fiscal 2022.",
+                  "figure": "Cloud revenue $747 million (nine months to March 28, 2025) vs $155 million; top 10 customers 43%; one customer 15% (fiscal 2023), 11% (fiscal 2022)",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Sandisk prospectus (06-06-2025)",
+                  "signal": "Sandisk's June 2025 prospectus: Flash Ventures (its manufacturing ventures with Kioxia) has historically operated at nearly 100% of its manufacturing capacity, but Sandisk temporarily reduced utilization of its share to an abnormally low level to align wafer supply with projected demand, incurring underutilization charges of $24 million in the nine months ended March 28, 2025 (a period the prospectus describes as what Sandisk believes is a mid-cycle slowdown, with additional charges expected as it moderated production levels for the rest of fiscal 2025) versus $249 million in the nine months ended March 29, 2024 and $286 million in fiscal 2023. Sandisk reduced its portion of Flash Ventures capital expenditures to approximately $773 million in 2024 from approximately $1.4 billion in 2023.",
+                  "figure": "underutilization charges $24 million (nine months to March 28, 2025) vs $249 million; Flash Ventures capex share approximately $773 million (2024) vs approximately $1.4 billion (2023)",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Sandisk prospectus (06-06-2025)",
+                  "signal": "Sandisk's prospectus lists its material cash requirements as of March 28, 2025: Flash Ventures related commitments of $4,592 million ($940 million in the remaining three months of fiscal 2025, $2,606 million in 2026-2027) and purchase obligations and other commitments of $2,781 million, which include long-term agreements with suppliers containing fixed future commitments contingent on the performance, quality and technology of the vendors' components.",
+                  "figure": "Flash Ventures related commitments $4,592 million; purchase obligations and other commitments $2,781 million (March 28, 2025)",
+                  "topics": []
                 }
               ]
             },
@@ -2741,7 +2975,38 @@
             {
               "company": "Biwin Storage Technology",
               "product": "Enterprise PCIe and SATA SSDs, RDIMM and CXL DRAM modules for servers, with in-house memory packaging and test (Huizhou) and wafer-level advanced packaging (Dongguan)",
-              "connects_to": [],
+              "connects_to": [
+                {
+                  "company": "Meta",
+                  "relationship": "ePOP storage for AI/AR glasses",
+                  "contracts": [
+                    {
+                      "source": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                      "signal": "Biwin's annual report says Meta uses its ePOP storage in AI/AR glasses and that in 2026, as AI glasses ramp, its cooperation with Meta and other key customers will keep deepening and drive continued growth of the related storage business (company expectation).",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "annual report named customer",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Google",
+                  "relationship": "Storage for smart wearables; BGA SSD on Google's approved supplier list",
+                  "contracts": [
+                    {
+                      "source": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                      "signal": "Biwin's annual report says Google uses its storage in smart wearables (Biwin is in Google's smart-wearable supply chain) and that its BGA SSD passed certification for Google's approved supplier list.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "annual report named customer",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
               "quarterly_data": [
                 {
                   "quarter": "Biwin Storage Technology IR activity record: 2026-09-09 (09-09-2026)",
@@ -2796,6 +3061,177 @@
                   "quarter": "Biwin Storage Technology IR activity record: 2026-09-24 (09-24-2026)",
                   "signal": "Management (IR record): automotive-grade storage is in volume delivery, with over 40 mainstream domestic and overseas automakers and core Tier-1 suppliers onboarded, including several mainstream overseas Tier-1s; UFS and BGA SSD next-generation automotive storage are in qualification.",
                   "figure": "40+ automakers and Tier-1s",
+                  "topics": []
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "FY2025 revenue rose 68.82% YoY as the memory industry recovered and the company expanded with leading global customers on sharply higher unit sales; net profit attributable rose 429.07% and net profit excluding non-recurring items rose 1,072.25%. Revenue climbed every quarter, Q4 being the largest; overall gross margin was 21.44% (2024: 18.19%).",
+                  "figure": "FY2025 revenue RMB 1,130,248.00 ten-thousand (2024 RMB 669,518.51 ten-thousand, +68.82%); net profit attributable RMB 85,303.52 ten-thousand (+429.07%); excluding non-recurring items RMB 78,514.36 ten-thousand (+1,072.25%); quarterly revenue Q1 RMB 154,333.40 / Q2 236,900.29 / Q3 266,274.69 / Q4 472,739.62 ten-thousand; Q4 net profit RMB 82,262.13 ten-thousand; gross margin 21.44%",
+                  "topics": [],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Main-business revenue by product in 2025: embedded storage rose 62.19% (gross margin 22.13%), PC storage rose 83.00% (18.99%), industrial and automotive storage rose 241.20% on surging demand for high-capacity in-vehicle storage (27.51%), and advanced packaging and test services rose 58.25% on AI-chip and high-performance-computing demand (37.70%). Overseas main-business revenue rose 86.91%.",
+                  "figure": "main business RMB 1,101,999.52 ten-thousand (+70.90%); embedded RMB 687,848.35 ten-thousand; PC storage RMB 369,453.54 ten-thousand; industrial/automotive RMB 27,746.21 ten-thousand; advanced packaging and test services RMB 16,951.42 ten-thousand; overseas RMB 578,243.67 ten-thousand",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Output and sales volume in 2025: embedded storage output rose 67.89% and sales volume 30.91%; consumer storage output rose 171.62% and sales volume 97.91%; industrial storage sales volume rose 539.71%. The company says inventory rose as it stocked up for large customers being onboarded.",
+                  "figure": "embedded: output 14,978.92 ten-thousand units, sales 13,418.94 ten-thousand units; consumer: output 1,435.25, sales 1,308.09 ten-thousand units; industrial: output 291.02, sales 261.64 ten-thousand units",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Top five customers were 40.95% of 2025 sales; the largest 11.05%, then 10.50%, 7.32%, 6.33% and 5.75%; no related-party sales among them; customer names withheld as trade secrets (top-five share 46.7% in 2024).",
+                  "figure": "top-5 customers RMB 462,783.17 ten-thousand, 40.95% of 2025 sales",
+                  "topics": []
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Top five suppliers were 66.41% of 2025 purchases; the largest 29.41%, then 10.21%, 9.99%, 9.97% and 6.83%; none is a related party; supplier names withheld as trade secrets.",
+                  "figure": "top-5 suppliers RMB 866,753.81 ten-thousand, 66.41% of 2025 purchases",
+                  "topics": []
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Supply: the company stocked up strategically, with year-end 2025 inventory up 122.44% to RMB 78.68 hundred million; it keeps signing long-term agreements (LTAs) with the major memory wafer makers to lock wafer capacity, and says an important North American customer joined the supply coordination and helped it obtain priority capacity from the memory makers amid tight global capacity.",
+                  "figure": "inventory RMB 78.68 hundred million (+122.44%), 50.70% of total assets",
+                  "topics": [
+                    "nand_storage",
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "AI emerging edge storage (ePOP and other storage for AI/AR glasses, smartwatches and other wearables) brought about RMB 17.51 hundred million of revenue in 2025, of which AI-glasses storage about RMB 9.6 hundred million; AI-glasses storage revenue grew about 378.09% a year (CAGR) from 2023 to 2025. The company cites Frost & Sullivan as ranking it the world's largest supplier of AI emerging edge storage solutions by 2024 revenue (company claim).",
+                  "figure": "AI edge storage about RMB 17.51 hundred million; AI glasses about RMB 9.6 hundred million; 2023-2025 CAGR about 378.09%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "R&D expense rose 41.34% and was 5.60% of revenue, with 1,262 R&D staff (44.25% of employees). The first in-house controller, the SP1800 eMMC controller, is in mass production and delivered in volume to wearable, phone (TLC and QLC) and automotive customers, and is on the national market regulator's first automotive-chip whitelist.",
+                  "figure": "R&D RMB 63,238.08 ten-thousand (+41.34%), 5.60% of revenue; 1,262 R&D staff",
+                  "topics": []
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Pipeline: the in-house SP9300 UFS 3.1 controller taped out in February 2026, with customer introduction planned from H2 2026; the consumer PCIe Gen5 SSD, in customer testing, was planned for volume delivery from the end of Q1 2026; the raised-fund portion of the Dongguan wafer-level advanced packaging project (98.42% invested) is scheduled ready by December 31, 2026 and the Huizhou packaging and memory manufacturing expansion (79.75% invested) by August 31, 2026.",
+                  "figure": "SP9300 tape-out February 2026; wafer-level packaging project total RMB 309,000 ten-thousand, RMB 133,574.36 ten-thousand invested to date",
+                  "topics": [
+                    "product_launches"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Enterprise (server) storage: the company says its products entered the core supply chains of leading OEMs, AI server makers and leading internet companies, with volume supply of PCIe SSDs and SATA SSDs, and it formed strategic partnerships with domestic enterprise customers. Products: PCIe Gen5 SSD up to 7.68TB (14GB/s read), CXL 2.0 DRAM module up to 256GB, and RDIMM up to 5600MT/s and 128GB certified on Intel Xeon and AMD EPYC platforms.",
+                  "figure": "PCIe Gen5 SSD up to 7.68TB; CXL 2.0 module up to 256GB; RDIMM 5600MT/s, 128GB",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Customers named in the annual report: OPPO, vivo, Honor, Transsion, Motorola, HMD, ZTE and TCL in smart mobile; Lenovo, Xiaomi, Acer, HP and ASUS for PC SSDs (the company calls itself the main SSD supplier for domestic Chinese PCs); BYD, Changan and Positivo among its customer base. Automotive storage was in the supply chains of 20+ mainstream domestic automakers and core Tier-1 suppliers, in volume delivery.",
+                  "figure": "20+ domestic automakers and Tier-1s",
+                  "topics": [],
+                  "counterparty": "OPPO, vivo, Honor, Transsion, Motorola, HMD, ZTE, TCL, Lenovo, Xiaomi, Acer, HP, ASUS, BYD, Changan, Positivo",
+                  "counterparty_role": "customer"
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Other suppliers named in the annual report: Western Digital is among the memory wafer makers its core raw material is mainly bought from; InnoGrit is among its third-party controller suppliers; wafers for its in-house controllers are bought mainly from SMIC and TSMC; its main substrate suppliers are Shennan Circuits, Fastprint and Hemei Jingyi, and its main PCB suppliers Victory Giant Technology, Xinqiang Electronics and Zhongjing Electronics.",
+                  "figure": "no specific figure",
+                  "topics": [],
+                  "counterparty": "Western Digital, InnoGrit, SMIC, TSMC, Shennan Circuits, Shenzhen Fastprint Circuit Tech, Hemei Jingyi, Victory Giant Technology, Xinqiang Electronics, Zhongjing Electronics",
+                  "counterparty_role": "supplier"
+                },
+                {
+                  "quarter": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                  "signal": "Brand licences: Biwin holds HP-brand licences for SSDs, aftermarket DRAM and memory cards (in China, India, Mexico, Chile and Peru extended to December 31, 2027) and a global exclusive Acer and Predator brand licence for memory and storage products; the Lenovo trademark licence ended from 2026.",
+                  "figure": "HP licence to December 31, 2027 in five countries",
+                  "topics": [],
+                  "counterparty": "HP, Acer, Lenovo",
+                  "counterparty_role": "partner (brand licensor)"
+                },
+                {
+                  "quarter": "Biwin Storage Technology half-year report: 2026 Half-Year Report (08-25-2026)",
+                  "signal": "H1 2026 revenue rose 298.10% YoY, which the report attributes to the AI compute boom and a high-prosperity memory cycle with rising product prices, plus a better product and customer mix; net profit attributable rose 3,273.48% (excluding non-recurring items +2,962.97%) and gross margin reached 54.81% (2025: 21.44%). AI emerging edge storage revenue was about RMB 28.6 hundred million, up 433.58% YoY and 126.98% sequentially, as AI glasses ramped and cooperation with Meta and other key customers deepened.",
+                  "figure": "H1 2026 revenue RMB 15,574,943,371.35 (H1 2025 RMB 3,912,336,913.69, +298.10%); net profit attributable RMB 7,165,580,281.51 (H1 2025 loss RMB 225,795,502.52); excluding non-recurring items RMB 6,632,544,841.00; gross margin 54.81%; AI edge storage about RMB 28.6 hundred million (+433.58% YoY)",
+                  "topics": [],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "Biwin Storage Technology half-year report: 2026 Half-Year Report (08-25-2026)",
+                  "signal": "Top five customers were 42.48% of H1 2026 revenue (2025: 40.95%); customer names not disclosed.",
+                  "figure": "top-5 customers 42.48% of H1 2026 revenue",
+                  "topics": []
+                },
+                {
+                  "quarter": "Biwin Storage Technology half-year report: 2026 Half-Year Report (08-25-2026)",
+                  "signal": "Supply: the two long-term raw-material purchase contracts with memory makers (names not disclosed) are a US$15 hundred million commitment for a memory wafer product (disclosed March 25, 2026) and a US$18.6080 hundred million commitment for enterprise flash dies (disclosed June 10, 2026), each with locked volume and price over 24 months. Inventory was 54.48% of total assets at June 30, 2026, and prepayments rose 1,252.62% on higher raw-material purchases.",
+                  "figure": "US$15 hundred million (memory wafers) + US$18.6080 hundred million (enterprise flash), 24 months each; inventory RMB 18,167,509,050.65; prepayments RMB 2,093,913,827.06 (+1,252.62%)",
+                  "topics": [
+                    "nand_storage",
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "Biwin Storage Technology half-year report: 2026 Half-Year Report (08-25-2026)",
+                  "signal": "Pipeline: the in-house SP9300 UFS 3.1 controller (taped out February 2026) has completed first-silicon verification, with customer introduction planned from H2 2026. Biwin is also designing its own small-capacity NAND with a leading domestic foundry at 24nm/19nm nodes for industrial, automotive and embedded markets: SLC NAND is in first-silicon verification with customer introduction planned from H2 2026, and MLC NAND is under development.",
+                  "figure": "SP9300 and SLC NAND customer introduction from H2 2026; 24nm/19nm SLC/MLC NAND",
+                  "topics": [
+                    "nand_storage",
+                    "product_launches"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Biwin Storage Technology half-year report: 2026 Half-Year Report (08-25-2026)",
+                  "signal": "Enterprise storage status: SP-series enterprise PCIe SSDs - SP406/416 in volume shipment, SP50Y/51Y in customer introduction, SP5000 in development; its SP-series enterprise PCIe Gen5 SSDs include TLC models up to 15.36TB and QLC models up to 61.44TB (U.2 and E3.S). SATA SSDs SS811/821 ship in volume and SS831/881 are in customer introduction; the CXL 2.0 DRAM module (up to 256GB) and the RDIMM (up to 6400MT/s, 128GB) are at customer sampling.",
+                  "figure": "TLC up to 15.36TB; QLC up to 61.44TB; CXL 2.0 module up to 256GB; RDIMM 6400MT/s, 128GB",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Biwin Storage Technology half-year report: 2026 Half-Year Report (08-25-2026)",
+                  "signal": "Enterprise customers: the company is deepening cooperation with Lenovo and other tier-1 OEMs toward a long-term cooperation framework and advancing business cooperation with internet cloud companies, with volume supply of PCIe SSDs and SATA SSDs.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "nand_storage"
+                  ],
+                  "counterparty": "Lenovo",
+                  "counterparty_role": "customer"
+                },
+                {
+                  "quarter": "Biwin Storage Technology half-year report: 2026 Half-Year Report (08-25-2026)",
+                  "signal": "Capacity projects: the Dongguan wafer-level advanced packaging project (total investment about RMB 30.9 hundred million) had RMB 152,125.22 ten-thousand invested by June 30, 2026 and is in small-batch trial production, with no volume-production revenue yet. The raised-fund Huizhou advanced packaging and memory manufacturing expansion (86.05% invested) is scheduled ready by August 31, 2026.",
+                  "figure": "wafer-level project RMB 152,125.22 ten-thousand invested of RMB 309,000 ten-thousand; Huizhou expansion 86.05% invested",
+                  "topics": [
+                    "packaging_substrate"
+                  ]
+                },
+                {
+                  "quarter": "Biwin Storage Technology half-year report: 2026 Half-Year Report (08-25-2026)",
+                  "signal": "Products: launched the TAU208 automotive UFS 3.1 (23.2Gbps theoretical bandwidth, AEC-Q100 Grade 2) and the M560 PCIe 5.0 SSD (up to 11000MB/s read) for AI PCs, laptops and handheld consoles; its client PCIe Gen5 SSD reached the market with volume delivery at the end of Q1 2026; its automotive UFS is in small-batch sampling and has been introduced at a leading domestic automaker.",
+                  "figure": "TAU208 23.2Gbps; M560 up to 11000MB/s read",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Biwin Storage Technology half-year report: 2026 Half-Year Report (08-25-2026)",
+                  "signal": "R&D expense rose 26.01% but fell to 2.21% of revenue (H1 2025: 6.98%) as revenue surged; R&D staff reached 1,685 (44.91% of employees, up 631 YoY).",
+                  "figure": "R&D RMB 34,392.00 ten-thousand (+26.01%), 2.21% of revenue; 1,685 R&D staff",
                   "topics": []
                 }
               ]
@@ -2951,13 +3387,206 @@
                   "topics": [
                     "nand_storage"
                   ]
+                },
+                {
+                  "quarter": "Longsys half-year report: 2026 Half-Year Report (08-11-2026)",
+                  "signal": "2026 half-year report: H1 2026 revenue RMB 24,088,363,284.95 (RMB 240.88 hundred million), up 136.26% year over year, mainly on sales growth; net profit attributable to shareholders RMB 10,576,875,808.95 (RMB 105.77 hundred million), up 71,528.66%; net profit excluding non-recurring items RMB 10,047,374,676.56, up 31,096.33%; operating cost RMB 9,899,767,031.09, up 11.55%. The company says H1 revenue was the highest for any comparable period since its listing.",
+                  "figure": "H1 2026 revenue RMB 240.88 hundred million (+136.26%); net profit RMB 105.77 hundred million (+71,528.66%)",
+                  "topics": [],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "Longsys half-year report: 2026 Half-Year Report (08-11-2026)",
+                  "signal": "H1 2026 storage products revenue RMB 23,976,629,588.10 (up 136.13%) at a 59.08% gross margin, up 45.80 points year over year; overseas revenue RMB 17,017,463,787.23 (up 142.27%, gross margin 57.60%), domestic RMB 7,070,899,497.72 (up 122.95%, gross margin 62.04%). The company says revenue and net profit of its Hong Kong subsidiary and Zilia rose mainly because the storage upcycle sharply raised storage product selling prices and gross margins.",
+                  "figure": "storage products gross margin 59.08% (+45.80 points)",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys half-year report: 2026 Half-Year Report (08-11-2026)",
+                  "signal": "H1 2026: enterprise storage revenue reached RMB 21.40 hundred million, up 208.80%; enterprise products have been introduced into the supply chains of some leading internet companies and server makers. Zilia's external sales revenue RMB 39.50 hundred million, up 184.58%; Lexar global sales revenue RMB 39.66 hundred million, up 84.90%.",
+                  "figure": "enterprise storage RMB 21.40 hundred million (+208.80%); Zilia RMB 39.50 hundred million (+184.58%); Lexar RMB 39.66 hundred million (+84.90%)",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Longsys half-year report: 2026 Half-Year Report (08-11-2026)",
+                  "signal": "2026 half-year report: as of the report date its self-designed controller chips have reached cumulative production of over 2.8 hundred million units; UFS 4.1 products carrying its self-developed 5nm UFS 4.1 controller are in volume shipment and have reached scaled commercial application.",
+                  "figure": "over 2.8 hundred million controller chips produced cumulatively",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Longsys half-year report: 2026 Half-Year Report (08-11-2026)",
+                  "signal": "H1 2026 product launches: AILPBGA, a 256-bit single-package LPDDR-interface memory with bandwidth up to 307GB/s, 24GB-64GB capacity and a 22x22mm BGA1764 package, for AI inference and edge large-model devices; and an automotive-grade UFS 4.1 with its self-developed 5nm controller (sequential read up to 4200MB/s, write up to 4000MB/s, 128GB to 512GB), which has entered introduction and validation at leading automakers.",
+                  "figure": "AILPBGA up to 307GB/s; automotive UFS 4.1 up to 4200MB/s read",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Longsys half-year report: 2026 Half-Year Report (08-11-2026)",
+                  "signal": "H1 2026 R&D spending RMB 851,431,666.36, up 91.02%, mainly on pay and benefits, R&D materials and share-based payment; 1,294 R&D staff at June 30, 2026. The raised-fund small-capacity flash memory chip design project was completed in June 2026; it has developed several SLC NAND flash chips from 192Mb to 8Gb.",
+                  "figure": "H1 R&D RMB 851,431,666.36 (+91.02%)",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys half-year report: 2026 Half-Year Report (08-11-2026)",
+                  "signal": "2026 half-year report: inventory RMB 25,777,334,419.36 at June 30, 2026 (60.12% of total assets, up from RMB 11,677,745,416.17 at end-2025), mainly from strategic stockpiling; contract liabilities rose to RMB 1,330,212,141.79 mainly on higher customer prepayments; operating cash flow RMB -3,151,429,914.77, mainly on higher cash paid for goods; long-term borrowings RMB 10,492,602,616.25.",
+                  "figure": "inventory RMB 25,777,334,419.36 (60.12% of total assets)",
+                  "topics": [
+                    "supply_tightness"
+                  ]
+                },
+                {
+                  "quarter": "Longsys half-year report: 2026 Half-Year Report (08-11-2026)",
+                  "signal": "2026 half-year report: the five largest receivable balances were 56.05% of receivables and contract assets at June 30, 2026 (RMB 2,446,819,092.39; largest 21.43%, then 18.14%, 7.23%, 5.16%, 4.09%) - a share of receivables, not of sales; names not disclosed.",
+                  "figure": "top five receivables 56.05% of receivables",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: revenue RMB 22,766,169,990.55 (RMB 227.66 hundred million), up 30.36% year over year; net profit attributable to shareholders RMB 1,423,298,162.88 (RMB 14.23 hundred million), up 185.41%; net profit excluding non-recurring items RMB 1,289,178,618.90, up 674.08%; operating cash flow RMB -1,201,201,037.10. The company says 2025 revenue was the highest for any comparable period since its listing.",
+                  "figure": "2025 revenue RMB 227.66 hundred million (+30.36%); net profit RMB 14.23 hundred million (+185.41%); net profit excl. non-recurring +674.08%",
+                  "topics": [],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 by quarter: revenue Q1 RMB 4,256,456,756.59, Q2 RMB 5,939,198,613.60, Q3 RMB 6,538,676,585.38, Q4 RMB 6,031,838,034.98; net profit attributable to shareholders Q1 RMB -151,814,511.52, Q2 RMB 166,580,773.60, Q3 RMB 697,866,792.03, Q4 RMB 710,665,108.77; Q4 operating cash flow RMB -2,123,497,115.44.",
+                  "figure": "Q4 2025 revenue RMB 6,031,838,034.98; Q4 net profit RMB 710,665,108.77",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 revenue by product: embedded storage RMB 10,012,075,974.67 (43.98% of revenue, up 18.83%, gross margin 17.94%); solid-state drives RMB 5,569,595,868.51 (24.46%, up 34.31%, gross margin 15.49%); mobile storage RMB 4,894,012,888.82 (21.50%, up 52.56%, gross margin 29.77%); memory modules RMB 2,216,493,727.54 (9.74%, up 45.15%). Storage-industry gross margin 19.40% (up 0.35 points). Overseas revenue RMB 15,218,295,630.52 (66.85% of revenue, up 22.48%), domestic RMB 7,547,874,360.03 (up 49.79%); direct sales 63.95% of revenue. Direct materials were 88.14% of operating cost.",
+                  "figure": "SSD revenue RMB 5,569,595,868.51 (+34.31%); memory modules RMB 2,216,493,727.54 (+45.15%); gross margin 19.40%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: enterprise storage revenue reached RMB 17.83 hundred million, up 93.30%; the company says its enterprise storage products have been introduced into the supply chains of some leading internet companies and server makers, and that it is one of few domestic companies able to design, combine and supply eSSD plus RDIMM at scale.",
+                  "figure": "enterprise storage revenue RMB 17.83 hundred million (+93.30%)",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: Lexar brand global sales revenue RMB 47.41 hundred million, up 34.53% (from RMB 8.64 hundred million in 2019, a 32.81% compound annual growth rate); Brazilian subsidiary Zilia sales revenue RMB 29.24 hundred million, up 26.49%.",
+                  "figure": "Lexar RMB 47.41 hundred million (+34.53%); Zilia RMB 29.24 hundred million (+26.49%)",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: storage products sales volume 48,316 ten-thousand units (down 2.04%), output 49,325 ten-thousand units (down 5.59%), year-end inventory 11,524 ten-thousand units (up 8.07%).",
+                  "figure": "sales volume 48,316 ten-thousand units (-2.04%)",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: the full series of its in-house controller chips reached volume deployment of over 1.4 hundred million units in 2025. Its self-developed 5nm UFS 4.1 controller has been introduced into the supply chains of several leading smartphone makers, and the company says UFS 4.1 products carrying its own controller will fully enter a scaled volume ramp in 2026; it also says its mSSD has won recognition from many leading PC makers and will reach scaled commercial use in 2026.",
+                  "figure": "over 1.4 hundred million controller chips deployed in 2025",
+                  "topics": [
+                    "nand_storage"
+                  ],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report products: its SPU chip (WM8500, PCIe 5.0) reaches NAND I/O of 4800MT/s and supports a single-SSD capacity of up to 128TB (company internal tests), and is adapted to its HLC technology; its UFS 4.1 controller (WM7400) uses a 5nm process. In enterprise memory it offers DDR5 RDIMM up to 256GB, has lit up SOCAMM (LPDDR5X, 128-bit I/O, up to 128GB per module) and completed development and validation of 8800/12800 MRDIMM up to 256GB; its enterprise eSSD covers 480GB to 7.68TB. The ePOP5x launched at CES 2026 and MWC 2026 (as thin as 0.52mm, DRAM rate 8533Mbps) is in solution adaptation, customer validation and market introduction.",
+                  "figure": "SPU NAND I/O 4800MT/s; up to 128TB SSD; MRDIMM up to 256GB",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: top five customers were 28.96% of 2025 sales (RMB 6,593,526,982.34); the largest 7.58%, then 6.53%, 5.75%, 4.76% and 4.34%; names not disclosed; 1.36% of sales from related parties among them.",
+                  "figure": "top five customers 28.96% of 2025 sales; largest 7.58%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: top five suppliers were 52.01% of 2025 purchases (RMB 11,552,986,597.10); the largest 14.51%, then 13.40%, 8.57%, 8.28% and 7.25%; names not disclosed; no related-party purchases among them. The company says its main raw material is storage wafers.",
+                  "figure": "top five suppliers 52.01% of 2025 purchases; largest 14.51%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: R&D spending RMB 1,047,823,664.47, up 15.11%, 4.60% of revenue (5.21% in 2024), none capitalized; 1,240 R&D staff at year-end. Projects include high-end storage for AI (next-generation enterprise SSD and enterprise RDIMM for servers; PCIe SSD and DIMM for AI devices), controller chips (WM8500 architecture design completed), small-capacity SLC / MLC NAND and NOR flash chips, and automotive and flagship LPDDR5X.",
+                  "figure": "R&D RMB 1,047,823,664.47 (+15.11%); 4.60% of revenue",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: inventory book value RMB 11,677,745,416.17 at end-2025 (51.33% of total assets, up from RMB 7,833,153,366.75), or 70.31% of current assets; 2025 inventory write-down provisions RMB 313,660,594.99. Contract liabilities rose to RMB 354,635,038.81 mainly on higher customer prepayments.",
+                  "figure": "inventory RMB 11,677,745,416.17 at end-2025",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: the company says it has long-term strategic cooperation with the main upstream storage wafer makers and is one of the few memory companies worldwide with long-term strategic direct supply agreements with several wafer makers; it names Micron, Samsung and SK Hynix as its main suppliers.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "supply_tightness"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: on 2025-06-16 its wholly owned subsidiary Longsys Electronics (HK) signed a binding memorandum of understanding with Sandisk Technologies, Inc. to launch customized UFS products and solutions for the mobile and IoT markets, combining Longsys' controller, firmware and packaging and test capabilities with Sandisk's NAND flash technology; the company says it has reached UFS 4.1 cooperation with several wafer makers including Sandisk and with several leading smartphone makers; the agreement was being performed normally at year-end.",
+                  "figure": "no specific figure",
+                  "topics": [],
+                  "counterparty": "Sandisk",
+                  "counterparty_role": "partner"
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: Maxio Technology (Hangzhou), a platform chip designer of data-storage controller chips and AIoT signal processing and transmission chips, is an associate (equity investee) of Longsys.",
+                  "figure": "no specific figure",
+                  "topics": [],
+                  "counterparty": "Maxio Technology",
+                  "counterparty_role": "investee"
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report construction in progress: cumulative investment in the Longsys Group Shanghai headquarters project reached 118.24% of budget and in the Zhongshan storage industrial park phase II (storage R&D and testing) 96.21%, both largely transferred to fixed assets in 2025, cutting construction in progress to RMB 58,765,482.19; the raised-fund Zhongshan phase II project reached its intended usable state and was closed.",
+                  "figure": "Zhongshan phase II at 96.21% of budget",
+                  "topics": []
+                },
+                {
+                  "quarter": "Longsys annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report business plan: facing continued price increases and supply shortage in the semiconductor storage market, the company plans to deepen its position in AI storage, high-end storage, its own brands and overseas markets; to increase R&D spending on next-generation controller chips and high-end storage products; to focus on device-side AI, AI server and embodied-intelligence applications; and to make targeted investments in its main plants in Suzhou, Zhongshan and Brazil to strategically expand its packaging and testing capacity.",
+                  "figure": "no specific figure",
+                  "topics": [],
+                  "slot": "guidance"
                 }
               ]
             },
             {
               "company": "Maxio Technology",
               "product": "SATA and PCIe 3.0 / 4.0 / 5.0 NVMe SSD controller chips (consumer, industrial and enterprise; enterprise PCIe 5.0 in mass-production testing) and UFS 3.1 embedded storage controllers",
-              "connects_to": [],
+              "connects_to": [
+                {
+                  "company": "Biwin Storage Technology",
+                  "relationship": "Storage controller chip supply",
+                  "contracts": [
+                    {
+                      "source": "Biwin Storage Technology annual report: 2025 Annual Report (03-20-2026)",
+                      "signal": "Biwin's annual report names Maxio Technology among its third-party storage controller suppliers, from which it buys controller wafers or chips against customer orders and its demand forecasts.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2025",
+                      "type": "annual report named supplier",
+                      "topics": [
+                        "nand_storage"
+                      ]
+                    }
+                  ]
+                }
+              ],
               "quarterly_data": [
                 {
                   "quarter": "Maxio Technology half-year report: 2026 Half-Year Report (08-26-2026)",
@@ -2990,6 +3619,81 @@
                   "figure": "inventory RMB 63,856.10 ten-thousand (21.27% of total assets)",
                   "topics": [],
                   "slot": "supply_status"
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "FY2025 revenue rose 13.06% YoY as storage demand recovered and PC-OEM wins ramped, with PCIe 3.0, PCIe 4.0 and enterprise SATA controller shipments rising markedly; net profit attributable rose 20.41% and net profit excluding non-recurring items 130.43%. Main-business gross margin was 50.52%, up 3.12 percentage points.",
+                  "figure": "FY2025 revenue RMB 1,327,129,441.63 (2024 RMB 1,173,783,923.29, +13.06%); net profit attributable RMB 142,158,465.39 (+20.41%); excluding non-recurring items RMB 101,547,828.64 (+130.43%); quarterly revenue Q1 RMB 241,060,113.77 / Q2 368,661,360.55 / Q3 311,152,965.20 / Q4 406,255,002.11; main-business gross margin 50.52%",
+                  "topics": [],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "By product in 2025: data storage controller chips rose 26.47% on higher sales volume (gross margin 54.25%), while AIoT signal processing and transmission chips fell 47.17% as downstream customers adjusted purchasing plans (gross margin 17.84%). Main-business revenue outside mainland China was RMB 610,407,492.79 (+17.22%, gross margin 55.69%).",
+                  "figure": "storage controllers RMB 1,163,096,642.41 (+26.47%, GM 54.25%); AIoT chips RMB 132,831,045.01 (-47.17%, GM 17.84%)",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "Data storage controller output rose 36.98%, sales volume 23.01% and inventory 117.90% in 2025, as the company built stock and downstream demand grew.",
+                  "figure": "storage controllers: output 7,351.91 ten-thousand units, sales 6,023.84 ten-thousand units, inventory 2,454.52 ten-thousand units",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "Top five customers were 63.37% of 2025 sales; the largest 20.31%, then 13.86%, 12.32%, 9.72% and 7.17%; the third-largest (12.32% of sales) is a related party; customer names not disclosed.",
+                  "figure": "top-5 customers RMB 84,098.94 ten-thousand, 63.37% of 2025 sales; related party 12.32%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "Top five suppliers were 93.26% of 2025 purchases; the largest, a wafer foundry, alone was 76.21%, then 6.73%, 4.97%, 3.20% and 2.14%; none is a related party; supplier names not disclosed. Wafers were 62.10% and packaging and test 30.37% of total cost of sales (fabless model).",
+                  "figure": "top-5 suppliers RMB 93,619.35 ten-thousand, 93.26% of 2025 purchases; largest (a foundry) 76.21%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "Supply: Maxio increased strategic stocking - year-end 2025 inventory rose 86.61% and was 24.48% of total assets, and prepayments rose 134.51% mainly on payments to wafer suppliers.",
+                  "figure": "inventory RMB 57,651.85 ten-thousand (24.48% of total assets, +86.61%)",
+                  "topics": [
+                    "nand_storage"
+                  ],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "R&D expense rose 18.25% and was 37.88% of revenue, with 659 R&D staff (83.74% of employees); the IPO-funded next-generation data storage controller R&D and industrialization project was 76.05% invested and is scheduled for December 2026.",
+                  "figure": "R&D RMB 502,770,241.70 (+18.25%), 37.88% of revenue; 659 R&D staff",
+                  "topics": []
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "Company outlook (annual report): its embedded UFS controller has been introduced smoothly at handset makers and will ship in volume this year; it plans to bring PCIe Gen6 SSD controllers and UFS 5.0 embedded controllers to its consumer customers (covering UFS 2.2 / 3.1 / 4.1 / 5.0), and to move its enterprise line - the enterprise PCIe Gen5 SSD controller is in mass-production testing - to PCIe Gen6 and Gen7 controllers and through cloud-provider and server-maker certification.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "nand_storage"
+                  ],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "Market position: the company says it held about 25% of 2024 independent SSD-controller shipments (second globally) and about 12.5% of the global SSD-controller market including non-independent vendors, and that its 2025 shipments rose markedly; it widened its supply share at mainstream PC-OEMs from a single product to several series.",
+                  "figure": "about 25% of 2024 independent SSD-controller shipments; about 12.5% overall",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+                  "signal": "Products: the MAP180X consumer PCIe 5.0 SSD controller series launched in 2025 and new-generation storage controllers began volume shipments; the first UFS 3.1 controller entered mass production. In AIoT, the new-generation automotive perception signal processing chip passed AEC-Q100 qualification and received a supplier nomination (design win) from mainstream domestic automakers, and the MAV0106 vision SoC reached the mass-production tape-out standard.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "product_launches"
+                  ]
                 }
               ]
             }
@@ -3759,6 +4463,73 @@
                   "figure": "about 800 reaction chambers delivered cumulatively to overseas most-advanced logic customer(s)",
                   "topics": [],
                   "slot": "supply_status"
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "2025 annual report: revenue about RMB 123.85 hundred million, up about 36.62% year over year; etch equipment sales about RMB 98.32 hundred million (+35.12%) and LPCVD equipment sales about RMB 5.06 hundred million (+224.23%), as new shipments of its high-end tools for critical etch steps in advanced logic and memory rose significantly. Net profit attributable to shareholders about RMB 21.11 hundred million (+30.69%), including about RMB 6.61 hundred million of fair-value and investment gains on equity investments; net profit excluding non-recurring items about RMB 15.50 hundred million (+11.64%), held back by R&D expense of RMB 24.75 hundred million (+74.61%). Gross margin 39.17%, down 1.89 percentage points, because it gave some customers sales discounts amid a structural change in its customer base. Mainland China revenue RMB 12,058,314,866.56 (+40.07%); Taiwan RMB 215,350,813.57 (-31.63%); other countries and regions RMB 110,972,587.98 (-21.59%). Q4 2025 revenue RMB 4,322,073,152.69 and net profit RMB 900,280,589.61.",
+                  "figure": "2025 revenue RMB 123.85 hundred million (+36.62%); etch sales RMB 98.32 hundred million (+35.12%); LPCVD sales RMB 5.06 hundred million (+224.23%); net profit RMB 21.11 hundred million (+30.69%); gross margin 39.17%",
+                  "topics": [],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "2025 output and shipments: specialised equipment production 1,660 chambers (+8.07%), sales 1,240 chambers (+27.97%), inventory 1,010 chambers (+36.67%). CCP etch shipped more than 1000 reaction chambers in 2025 alone, and its cumulative installed base passed 5000 chambers (more than 30% average annual compound growth for ten years); the cumulative ICP etch installed base reached 1800 chambers (average growth above 100% a year over nine years); cumulative LPCVD thin-film shipments passed 300 chambers. The company aims in 2026 to shorten equipment delivery cycles and strive to keep 100% on-time order delivery.",
+                  "figure": "production 1,660 chambers (+8.07%); sales 1,240 chambers (+27.97%); CCP cumulative installed base over 5000 chambers; ICP cumulative 1800 chambers",
+                  "topics": [],
+                  "slot": "supply_status"
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "Memory etch (2025 annual report): its plasma etch tools are used in volume production of 3D NAND above 200 layers, and its share of new installations for memory etch kept rising in 2025. After volume production of ultra-high-aspect-ratio deep-hole etch in 2024, its PrimoUD-RIE reached large-scale volume production of ultra-high-aspect-ratio trench etch in 2025; lab development of the next-generation tool for more advanced 3D memory ultra-high-aspect-ratio etch is complete (new chamber for highly corrosive gases and ultra-low-temperature etch, much less fluorocarbon gas). Nanova LUX-Cryo passed customer qualification, won repeat orders and is in volume production on the customer's next-generation product line. Its new-generation ICP etch tool for memory: Beta tools passed several ICP etch process qualifications at multiple technology nodes on 3D NAND and DRAM customers' lines, with some processes in high-volume production as baseline tools.",
+                  "figure": "3D NAND above 200 layers",
+                  "topics": [
+                    "nand_storage"
+                  ]
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "Deposition and other tools (2025 annual report): its contact-hole tungsten CVD tool completed mass-production verification at a leading domestic memory chipmaker and received volume orders; logic and specialty-device customers also completed verification and placed repeat orders. Its ALD TiN tool passed sample verification at several key memory customers. Its reduced-pressure epitaxy (germanium-silicon selective EPI) Beta tool is in mass-production verification at 28nm/22nm mature-node customers and in customer verification for 7nm and below, with some advanced processes in mass-production verification. More than twenty new tools across six equipment categories are under development. Advanced packaging: PrimoTSV300E for 2.5D / 3D packaging through-silicon vias won repeat orders and completed process development for 12-inch high-aspect-ratio deep-trench capacitor etch and SoIC wafer-on-wafer, verified on a leading domestic customer's line; it started developing a CuBS PVD integrated tool for advanced packaging.",
+                  "figure": "more than twenty new tools under development",
+                  "topics": [
+                    "packaging_substrate"
+                  ]
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "MOCVD (2025 annual report): AMEC says it keeps its lead in GaN-based LED MOCVD equipment. Its Micro-LED MOCVD tool PreciomoUdx met a leading domestic customer's line requirements and won repeat orders; its GaN power-device MOCVD tool PRISMO PD5 passed verification on customer lines and won repeat orders, and a new-generation GaN power MOCVD tool was shipped to a leading customer for production verification; its new 8-inch SiC epitaxy tool is in trial-production verification at leading domestic firms.",
+                  "figure": "no specific figure",
+                  "topics": []
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "Top five customers were 75.00% of 2025 sales (RMB 928,823.18 ten-thousand); the largest 39.99%, the second 19.27%, then 7.15%, 5.09% and 3.50%; names not disclosed; 15.95% of sales (RMB 197,568.09 ten-thousand) came from related parties among them.",
+                  "figure": "top five customers 75.00% of 2025 sales; largest 39.99%",
+                  "topics": []
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "Top five suppliers were 27.01% of 2025 purchases (RMB 240,944.79 ten-thousand); the largest 9.96%, then 4.96%, 4.15%, 3.98% and 3.96%; names not disclosed; no related-party purchases among them. The company says it has stable relationships with more than 800 suppliers worldwide and keeps localising key components.",
+                  "figure": "top five suppliers 27.01% of 2025 purchases; largest 9.96%",
+                  "topics": []
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "R&D and plan (2025 annual report): R&D investment about RMB 37.44 hundred million in 2025, up 52.65%, 30.23% of revenue (RMB 10.45 hundred million capitalised); 1548 R&D staff, 52.24% of employees. The company says it now develops a competitive new tool in two years or less instead of three to five, and expects to launch new products on a larger scale in the coming years. 2026 plan: segment its etch products for the different etch needs of advanced logic, DRAM and 3D NAND; further develop LPCVD, EPI and ALD products to cover more high-end critical steps; develop a new-generation GaN power MOCVD tool, SiC epitaxy and red / yellow LED MOCVD tools; consider investing in or acquiring domestic and overseas high-end semiconductor equipment and key component makers. It plans to acquire a controlling stake in Hangzhou Zhonggui Electronic Technology (wet processing) to move from dry to dry-plus-wet process solutions.",
+                  "figure": "R&D RMB 37.44 hundred million (+52.65%), 30.23% of revenue",
+                  "topics": [],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "Production bases (2025 annual report): the Nanchang base of about 14 ten-thousand square metres has been in use since July 2023 and the Shanghai Lingang base of about 18 ten-thousand square metres since August 2024; Lingang phase 2 (about 20 ten-thousand square metres) is planned to start construction in H2 2026; the Guangzhou South China headquarters R&D and production base phase 1 started construction in September 2025, expected to be completed at the end of 2026 and to start production in 2027; the Chengdu R&D and production base phase 1 started construction in October 2025, expected in production in 2027. Construction in progress RMB 862,874,481.39 at end-2025 (+32.31%); major projects: Lingang industrialisation base phase 1 (budget RMB 140,000 ten-thousand, 96% complete) and Lingang headquarters and R&D center (budget RMB 108,000 ten-thousand, 64% complete).",
+                  "figure": "Lingang phase 2 about 20 ten-thousand square metres; construction in progress RMB 862,874,481.39",
+                  "topics": []
+                },
+                {
+                  "quarter": "AMEC annual report: 2025 Annual Report (03-31-2026)",
+                  "signal": "Industry position (2025 annual report): the company says its etch tools are used on the world's advanced 3 nm and below IC production lines, and its CCP etch tools have achieved volume sales both on overseas advanced 3 nm chip production lines and on next-generation, more advanced production lines.",
+                  "figure": "3 nm and below",
+                  "topics": []
                 }
               ]
             },
@@ -3813,6 +4584,54 @@
                     "supply_tightness"
                   ],
                   "slot": "supply_status"
+                },
+                {
+                  "quarter": "NAURA annual report: 2025 Annual Report (04-18-2026)",
+                  "signal": "2025 annual report: revenue RMB 393.53 hundred million, up 30.85%, as the domestic semiconductor equipment market kept rising and localisation accelerated; market share of its etch, deposition, furnace and wet clean tools rose and new products such as ion implant added revenue; integrated-circuit equipment revenue grew more than 50%. Etch equipment revenue and thin-film deposition equipment revenue each exceeded RMB ten billion. Electronic process equipment revenue RMB 36,731,219,888.81 (+32.57%, gross margin 39.18%); electronic components RMB 2,579,277,891.07 (+10.95%, gross margin 52.95%). Net profit attributable to shareholders RMB 55.22 hundred million, down 1.77%, because R&D expense rose to RMB 54.35 hundred million (+46.96%), it added 4747 employees and share-incentive costs rose; gross margin fell from 42.93% to 40.10% mainly because component iteration and upgrade costs rose for new products under customer verification. Q4 2025 revenue RMB 12,051,732,762.97; Q4 net profit RMB 391,650,402.16. Batch orders in 2025 came mainly from leading customers in memory, logic and advanced packaging.",
+                  "figure": "2025 revenue RMB 393.53 hundred million (+30.85%); net profit RMB 55.22 hundred million (-1.77%); gross margin 40.10% (42.93% a year earlier)",
+                  "topics": [],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "NAURA annual report: 2025 Annual Report (04-18-2026)",
+                  "signal": "Memory (2025 annual report): NAURA's etch, CVD, PVD, thermal, wet clean and plating tools have been adapted to 3D NAND and HBM manufacturing and are on the volume-purchase lists of several leading memory makers, for which it has become a core supplier. In 2025 it launched ion implant and plating tools with its own IP and reached scale volume production of a 12-inch advanced low-pressure CVD silicon vertical furnace; its PVD tool covers logic, memory, specialty and advanced-packaging fabs and reached its 1000th delivered system, and cumulative vertical-furnace shipments passed 1000 units. Its 12-inch wafer-to-wafer and die-to-wafer hybrid bonding tools for HBM, 3D integration and chiplets were formally released in March 2026; the die-to-wafer tool is in industrial application.",
+                  "figure": "1000th PVD system delivered; vertical furnace cumulative shipments over 1000",
+                  "topics": [
+                    "nand_storage",
+                    "hbm"
+                  ]
+                },
+                {
+                  "quarter": "NAURA annual report: 2025 Annual Report (04-18-2026)",
+                  "signal": "Acquisitions (2025 annual report): NAURA completed the acquisition of Kingsemi (17.87% stake with a board majority, giving it control), adding front-end and advanced-packaging coater / developer and physical and single-wafer cleaning tools; its subsidiary acquired 90% of Chengdu Guotai Vacuum Equipment, adding optical coating tools for optical lenses and optical communication components. The photovoltaic downturn hurt orders, deliveries, revenue and profit of its vacuum new-energy equipment segment, which it is shifting toward semiconductor-materials, hydrogen and lithium-battery equipment.",
+                  "figure": "17.87% stake in Kingsemi; 90% of Chengdu Guotai Vacuum Equipment",
+                  "topics": []
+                },
+                {
+                  "quarter": "NAURA annual report: 2025 Annual Report (04-18-2026)",
+                  "signal": "Top five customers were 39.03% of 2025 sales (RMB 15,360,078,184.78); the largest 12.72%, the second 11.25%, then 5.91%, 4.94% and 4.20%; names not disclosed; no related-party sales among them.",
+                  "figure": "top five customers 39.03% of 2025 sales; largest 12.72%",
+                  "topics": []
+                },
+                {
+                  "quarter": "NAURA annual report: 2025 Annual Report (04-18-2026)",
+                  "signal": "Top five suppliers were 12.30% of 2025 purchases (RMB 4,063,722,536.08); the largest 3.50%, then 2.49%, 2.48%, 1.98% and 1.85%; names not disclosed; no related-party purchases among them.",
+                  "figure": "top five suppliers 12.30% of 2025 purchases; largest 3.50%",
+                  "topics": []
+                },
+                {
+                  "quarter": "NAURA annual report: 2025 Annual Report (04-18-2026)",
+                  "signal": "R&D and outlook (2025 annual report): R&D investment RMB 7,277,149,612.81 in 2025, up 34.74%, 18.49% of revenue (34.50% capitalised); R&D staff 6,511 (+42.07%). The company says it will keep focusing on mid- to high-end process nodes and aims to bring product performance to the level of leading international peers, keep its R&D expense ratio stable at a high level, speed up verification and volume production of mid- to high-end process tools, push localisation of core components with domestic suppliers to reduce import dependence, and prioritise long-term orders from leading fabs. It warns that as localisation speeds up, homogeneous competition in mature-node equipment may trigger price wars and pressure selling prices and gross margin, and that export controls on equipment and components affect its overseas supply chain.",
+                  "figure": "R&D RMB 7,277,149,612.81 (+34.74%), 18.49% of revenue; R&D staff 6,511",
+                  "topics": [],
+                  "slot": "guidance"
+                },
+                {
+                  "quarter": "NAURA annual report: 2025 Annual Report (04-18-2026)",
+                  "signal": "Capacity and output (2025 annual report): electronic process equipment production RMB 38,442,876,618.46 (+28.85%) against sales of RMB 36,731,219,888.81 (+32.57%); inventory of such equipment RMB 12,345,123,412.65 (+16.10%). The semiconductor equipment industrialisation base expansion project (phase IV), funded by raised funds, was 60.97% complete at end-2025; the components industrialisation project phase 1 was 100% complete and phase 2 21.79%. Construction in progress RMB 451,779,099.44 (RMB 209,791,288.62 a year earlier).",
+                  "figure": "phase IV base expansion 60.97% complete; equipment production RMB 38,442,876,618.46 (+28.85%)",
+                  "topics": [],
+                  "slot": "supply_status"
                 }
               ]
             },
@@ -3855,6 +4674,64 @@
                   "quarter": "Piotech half-year report: 2026 Half-Year Report (08-21-2026)",
                   "signal": "Capacity: the Shenyang second plant (over 150,000 square metres planned) has topped out and is expected to be completed and in use in 2028, adding capacity for PECVD, SACVD and HDPCVD tools.",
                   "figure": "over 150,000 square metres planned; completion expected 2028",
+                  "topics": []
+                },
+                {
+                  "quarter": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 annual report: revenue RMB 65.19 hundred million, up 58.87%, as new products and processes for advanced nodes reached volume production; net profit attributable to shareholders RMB 9.27 hundred million (+34.67%); net profit excluding non-recurring items RMB 7.23 hundred million (+103.05%). Main-business gross margin 34.01%, down 6.90 percentage points. Quarterly revenue: Q1 RMB 708,702,693.06, Q2 RMB 1,245,443,480.59, Q3 RMB 2,265,963,233.59, Q4 RMB 2,298,985,467.39. Operating cash flow RMB 36.33 hundred million (2024: -RMB 282,525,331.06) as advance payments and sales collections reached RMB 94.84 hundred million. All main-business revenue came from mainland China, sold direct.",
+                  "figure": "2025 revenue RMB 65.19 hundred million (+58.87%); net profit RMB 9.27 hundred million (+34.67%); recurring net profit RMB 7.23 hundred million (+103.05%); gross margin 34.01%",
+                  "topics": [],
+                  "slot": "revenue_growth"
+                },
+                {
+                  "quarter": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 revenue by product: PECVD about RMB 51.42 hundred million (+75.27%), as PECVD Stack (ONO), ACHM and PECVD Bianca tools built on the new PF-300T Plus and PF-300M platforms with the new pX and Supra-D chambers passed customer validation in batches and entered volume production for advanced memory and advanced logic; ALD about RMB 3.01 hundred million (+191.82%) as PE-ALD SiO2, SiN and SiCO tools scaled up and the first Thermal-ALD TiN tool passed customer validation; hybrid bonding RMB 1.36 hundred million (+41.92%) on continued wafer-to-wafer hybrid-bonding orders and validations, plus the first wafer-to-wafer fusion bonder passing customer validation.",
+                  "figure": "PECVD RMB 51.42 hundred million (+75.27%); ALD RMB 3.01 hundred million (+191.82%); hybrid bonding RMB 1.36 hundred million (+41.92%)",
+                  "topics": []
+                },
+                {
+                  "quarter": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "Order book at end-2025: orders on hand of about RMB 110 hundred million; contract liabilities RMB 48.52 hundred million, up 62.66% on much higher customer prepayments. The company added several new customers, won orders from overseas customers and says orders on hand are full.",
+                  "figure": "orders on hand about RMB 110 hundred million; contract liabilities RMB 48.52 hundred million (+62.66%)",
+                  "topics": [],
+                  "slot": "backlog_or_b2b"
+                },
+                {
+                  "quarter": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "2025 output and installed base: produced 316 tools (-7.60%), sold 250 (+32.98%), inventory 391 (+20.31%, mainly goods shipped to customers). By end-2025 it had shipped over 3,400 reaction chambers (over 400 of the new pX and Supra-D chambers, over 80 PECVD Bianca chambers, over 140 ALD, over 150 SACVD and over 120 HDPCVD chambers) into about 100 production lines, with average uptime above 90%; cumulative wafers processed on its deposition tools passed 4.57 hundred million, over 2.1 hundred million in 2025 alone. Its tools support about 100-plus process applications in logic and memory.",
+                  "figure": "sold 250 tools (+32.98%); over 3,400 chambers shipped; about 100 production lines; uptime above 90%",
+                  "topics": []
+                },
+                {
+                  "quarter": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "Product progress in 2025: PECVD Supra-D OPN, SiB and high-temperature SiN tools for advanced memory passed customer validation and keep winning orders; the higher-throughput NF-300M Supra-H platform (four six-station chambers, up to 24 wafers at a time, for multilayer ONO stacks) finished prototype build and is in process optimisation and validation; the first plasma-enhanced SAF SACVD tool passed customer validation; Flowable CVD was selected by a customer as its POR tool. 3D integration: Dione 300 wafer-to-wafer hybrid bonders won repeat orders and are in volume use; the next-generation Dione 300eX shipped to a customer for validation; the Dione 300FeX fusion bonder completed validation at an advanced-logic customer; the Pleione 300 die-to-wafer hybrid bonder (for HBM and 3D chip integration) is in customer validation; Propus 300 pre-bond surface treatment won repeat orders; Crux300 overlay metrology and Ascella300 bond-strength tools passed customer validation; the Lyra300 post-bond laser debonder was developed.",
+                  "figure": "NF-300M Supra-H processes up to 24 wafers at a time",
+                  "topics": [
+                    "hbm"
+                  ]
+                },
+                {
+                  "quarter": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "Top five customers: sales RMB 515,963.64 ten-thousand, 79.15% of 2025 sales; the largest 52.93% (RMB 345,078.37 ten-thousand), then 13.69%, 5.18%, 4.78% and 2.56%; names not disclosed; related-party sales RMB 35,337.73 ten-thousand, 5.42% of sales (within the second customer). The company says the largest customer exceeded 50% because it entered an expansion cycle and Piotech's products passed its validation in batches; the fourth customer is new to the top five in 2025. Top five suppliers: RMB 164,465.33 ten-thousand, 31.93% of purchases; the largest 12.55%; one related-party supplier (2.97%), new to the top five in 2025.",
+                  "figure": "top five customers 79.15% of 2025 sales (RMB 515,963.64 ten-thousand); largest customer 52.93%; top five suppliers 31.93% of purchases",
+                  "topics": []
+                },
+                {
+                  "quarter": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "R&D: 2025 R&D investment RMB 859,274,227.88 (+13.66%), 13.18% of revenue (2024: 18.42%), of which 10.44% capitalised; 726 R&D staff, 42.81% of employees; 2,140 patent applications and 707 granted patents cumulatively.",
+                  "figure": "R&D RMB 859,274,227.88 (+13.66%, 13.18% of revenue); 726 R&D staff",
+                  "topics": []
+                },
+                {
+                  "quarter": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "Capacity projects: the Shanghai second plant in Lingang (about 9 ten-thousand square metres, for advanced ALD R&D and industrialisation; construction budget RMB 74,097.24 ten-thousand) came into use in 2025 and the project was closed, lifting fixed assets 89.34%. Construction of the Shenyang second plant (over 15 ten-thousand square metres planned; construction budget RMB 161,648.08 ten-thousand, 7.98% invested at end-2025) has started; the raised-fund table gives April 2029 as the project's ready-for-use date.",
+                  "figure": "Shanghai second plant about 9 ten-thousand square metres, in use; Shenyang second plant budget RMB 161,648.08 ten-thousand, 7.98% invested",
+                  "topics": []
+                },
+                {
+                  "quarter": "Piotech annual report: 2025 Annual Report (04-28-2026)",
+                  "signal": "ALD progress (2025 annual report): PE-ALD tools built on the VS-300T platform kept winning customer orders for multiple tools and shipping, with customer validation progressing smoothly; the company says the tool can be used for double / multiple patterning in advanced logic and memory chips and for TSV isolation layers in advanced packaging. Its Thermal-ALD tools are in industrial use (Al2O3, AlN, TiN, TiON films) and kept winning orders and shipping; the TiN process tool passed customer validation and now covers advanced-logic and advanced-packaging customers.",
+                  "figure": "no specific figure",
                   "topics": []
                 }
               ]

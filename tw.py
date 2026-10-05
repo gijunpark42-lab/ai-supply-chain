@@ -118,7 +118,8 @@ def mops_conferences(year_roc, month):
             when = date(int(m.group(1)) + 1911, int(m.group(2)), int(m.group(3)))
             name, zh = COMPANIES[cells[0]]
             # TWSE hosts many replays as plain files: irconference.twse.com.tw/<code>_<id>_<date>_<ch|en>.mp3/mp4
-            replays = re.findall(r'href="(https?://irconference\.twse\.com\.tw/[^"]+)"', tr)
+            # MOPS writes the href with double OR single quotes (single since 2026), so accept either
+            replays = re.findall(r"""href=["'](https?://irconference\.twse\.com\.tw/[^"']+)["']""", tr)
             rows.append({"code": cells[0], "name": name, "zh": zh, "date": when,
                          "replay": replays[0] if replays else None,
                          "subject": re.sub(r"\s+", " ", cells[5])[:200]})
@@ -319,7 +320,10 @@ def transcribe_file(audio_path):
     # Most calls are Mandarin, but some replays are the English track (Yageo files
     # ending _en.mp3) -- the meta sidecar's "lang" field overrides the default.
     lang = meta.get("lang", "zh")
-    segments, info = model.transcribe(str(audio_path), language=lang, beam_size=1, vad_filter=True)
+    # No VAD: on a 2026-07-28 Faraday replay vad_filter=True dropped ~40% of the speech (1-3 min gaps), which breaks
+    # the full-transcript rule. condition_on_previous_text=False keeps no-VAD decoding from looping on silence.
+    segments, info = model.transcribe(str(audio_path), language=lang, beam_size=1, vad_filter=False,
+                                      condition_on_previous_text=False)
     lines, chars = [], 0
     for s in segments:
         stamp = f"[{int(s.start // 60):02d}:{int(s.start % 60):02d}]"
@@ -393,7 +397,7 @@ if __name__ == "__main__":
         out.with_suffix(".json").write_text(json.dumps(
             {"company": args.company, "date": str(conf_date), "url": args.url,
              "title": "manual fetch"}, ensure_ascii=False, indent=1), encoding="utf-8")
-        print(f"audio saved -> {out.relative_to(ROOT)}; run `python tw.py transcribe`")
+        print(f"audio saved -> {out}; run `python tw.py transcribe`")   # AUDIO_DIR is outside the repo: no relative_to(ROOT)
     elif args.cmd == "pending":
         rows = _load(PENDING, [])
         for r in rows:
