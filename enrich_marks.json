@@ -547,42 +547,6 @@
    "question": "At Supernova (08-19) the CEO said Cerebras uses AMD EPYC CPUs in its clusters and is 'buying a fair bit' of Arista networking. Both kept as counterparty entries on Cerebras. The existing AMD -> Cerebras edge is described as 'Helios rack systems', so an EPYC contract there would mix meanings; Arista is not a player in Cerebras' chain. Add the EPYC supply as a contract / second relationship, and an Arista -> Cerebras edge?",
    "label": "Cerebras Supernova 2026 (08-19-2026)",
    "at": "2026-10-06"
-  },
-  {
-   "subject": "Tigo Energy",
-   "question": "User-listed 2026-10-06, but Tigo's own call/filings show no data-center or AI role (residential, C&I and utility solar optimizers); not added. Add it anyway as power/Generation (solar MLPE), or leave out?",
-   "label": null,
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "Lead Wealth / TIGSTOR",
-   "question": "Private names in the GS AI-server power exhibit (Lead Wealth = BBU system, TIGSTOR = CBU module). No official source identifies either company. Give the local-language name / country, or drop them?",
-   "label": null,
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "Affiliate customer-share edges",
-   "question": "Airoha's 2025 annual report lists 'Customer A, relation: Parent Company' = MediaTek, 16.14% of sales (all chip sales, not optical). Should parent / affiliate sales disclosed only that way become customer-share edges (Exposure tab), and in which chain? Kept as a counterparty entry for now.",
-   "label": "Airoha Technology annual report: 2025 Annual Report (05-29-2026)",
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "ai_bio trial-status facts",
-   "question": "In ai_bio 8-K results releases, keep trial-status facts (approvals to run Phase 3 in 33 countries, FDA allowed a Phase 2/3, Fast Track designation, first-patient-dosed dates) or drop them as readouts? Kept as company status today; the Roswell Park first-patient release itself was dropped.",
-   "label": null,
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "Amazon -> Generate Biomedicines",
-   "question": "Generate's prospectus: it relies on cloud services 'such as Amazon Web Services' to host substantial portions of the Generate Platform. Left out as an example, not a stated relationship (unlike Caris / BillionToOne, which name an AWS agreement). Make it an edge?",
-   "label": "Generate Biomedicines prospectus (02-27-2026)",
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "Emerson second placement",
-   "question": "Emerson's DeltaV Automation Platform for Data Centers fits power/Datacenter Power, but apply_patches cannot hold a second placement in the same domain, so Emerson has one placement (power/Generation, Ovation) with DeltaV in its product text. Add a Datacenter Power placement by hand?",
-   "label": null,
-   "at": "2026-10-06"
   }
  ],
  "answered": [
@@ -825,6 +789,54 @@
    "at": "2026-10-04",
    "answer": "User 2026-10-05: delete Kenmec (node, metadata, logo, local name removed; waitlist row dropped).",
    "answered": "2026-10-05"
+  },
+  {
+   "subject": "Tigo Energy",
+   "question": "User-listed 2026-10-06, but Tigo's own call/filings show no data-center or AI role (residential, C&I and utility solar optimizers); not added. Add it anyway as power/Generation (solar MLPE), or leave out?",
+   "label": null,
+   "at": "2026-10-06",
+   "answer": "User 2026-10-06: no data-center role in its own documents -> not added.",
+   "answered": "2026-10-06"
+  },
+  {
+   "subject": "Lead Wealth / TIGSTOR",
+   "question": "Private names in the GS AI-server power exhibit (Lead Wealth = BBU system, TIGSTOR = CBU module). No official source identifies either company. Give the local-language name / country, or drop them?",
+   "label": null,
+   "at": "2026-10-06",
+   "answer": "User 2026-10-06: unidentified companies -> dropped.",
+   "answered": "2026-10-06"
+  },
+  {
+   "subject": "Affiliate customer-share edges",
+   "question": "Airoha's 2025 annual report lists 'Customer A, relation: Parent Company' = MediaTek, 16.14% of sales (all chip sales, not optical). Should parent / affiliate sales disclosed only that way become customer-share edges (Exposure tab), and in which chain? Kept as a counterparty entry for now.",
+   "label": "Airoha Technology annual report: 2025 Annual Report (05-29-2026)",
+   "at": "2026-10-06",
+   "answer": "User 2026-10-06: when the affiliate / parent customer is a company in the universe, make it an edge (customer-share contract). Airoha -> MediaTek added.",
+   "answered": "2026-10-06"
+  },
+  {
+   "subject": "ai_bio trial-status facts",
+   "question": "In ai_bio 8-K results releases, keep trial-status facts (approvals to run Phase 3 in 33 countries, FDA allowed a Phase 2/3, Fast Track designation, first-patient-dosed dates) or drop them as readouts? Kept as company status today; the Roswell Park first-patient release itself was dropped.",
+   "label": null,
+   "at": "2026-10-06",
+   "answer": "User 2026-10-06: facts important to the stock (clinical approvals, trial milestones, results) must be captured; enrich covers the whole company, the AI check applies only at universe entry. SKILL.md §2 updated; today's AI-bio nodes re-enriched (clin_* patches).",
+   "answered": "2026-10-06"
+  },
+  {
+   "subject": "Amazon -> Generate Biomedicines",
+   "question": "Generate's prospectus: it relies on cloud services 'such as Amazon Web Services' to host substantial portions of the Generate Platform. Left out as an example, not a stated relationship (unlike Caris / BillionToOne, which name an AWS agreement). Make it an edge?",
+   "label": "Generate Biomedicines prospectus (02-27-2026)",
+   "at": "2026-10-06",
+   "answer": "User 2026-10-06: do not create the edge.",
+   "answered": "2026-10-06"
+  },
+  {
+   "subject": "Emerson second placement",
+   "question": "Emerson's DeltaV Automation Platform for Data Centers fits power/Datacenter Power, but apply_patches cannot hold a second placement in the same domain, so Emerson has one placement (power/Generation, Ovation) with DeltaV in its product text. Add a Datacenter Power placement by hand?",
+   "label": null,
+   "at": "2026-10-06",
+   "answer": "User 2026-10-06: yes — Emerson added by hand at power/Datacenter Power (DeltaV for Data Centers); the DeltaV release entry moved there; Generation keeps Ovation.",
+   "answered": "2026-10-06"
   }
  ]
 }

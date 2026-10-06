@@ -1,6 +1,6 @@
 # Enrichment status board
 
-Generated 2026-10-06 07:24 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-06 09:00 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
@@ -85,12 +85,6 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 - **Question for the user — Skyworks Solutions:** Skyworks completed its combination with Qorvo on 10-05 (continues as Skyworks / SWKS). Qorvo was never a node. The release says the combined company spans RF GaN, low-voltage power, wired broadband, data center / networking, defense and automotive; Skyworks sits only in interconnect / Components and power / Power Semiconductors. Give the combined company extra placements (e.g. RF GaN under compound semiconductors), or leave the structure as is? The operating facts are on its company-wide node. — source: Skyworks Solutions press release: Skyworks Completes Combination with Qorvo (10-05-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Skyworks Solutions" --answer "…"`)
 - **Question for the user — Flex:** Flex plans to separate its Cloud and Power Infrastructure segment as a listed company, Axiom Solutions International ('Axiom'), in Q1 calendar 2027 (10-05 release). Flex's power_cooling / power_semiconductor placements mostly describe that business. When Axiom lists, should it become its own node, with Flex's placements staying, moving or split? — source: Flex press release: Flex Announces $2.0 Billion Convertible Preferred (10-05-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Flex" --answer "…"`)
 - **Question for the user — Cerebras:** At Supernova (08-19) the CEO said Cerebras uses AMD EPYC CPUs in its clusters and is 'buying a fair bit' of Arista networking. Both kept as counterparty entries on Cerebras. The existing AMD -> Cerebras edge is described as 'Helios rack systems', so an EPYC contract there would mix meanings; Arista is not a player in Cerebras' chain. Add the EPYC supply as a contract / second relationship, and an Arista -> Cerebras edge? — source: Cerebras Supernova 2026 (08-19-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Cerebras" --answer "…"`)
-- **Question for the user — Tigo Energy:** User-listed 2026-10-06, but Tigo's own call/filings show no data-center or AI role (residential, C&I and utility solar optimizers); not added. Add it anyway as power/Generation (solar MLPE), or leave out? (asked 2026-10-06; answer, then `enrich_status.py resolve "Tigo Energy" --answer "…"`)
-- **Question for the user — Lead Wealth / TIGSTOR:** Private names in the GS AI-server power exhibit (Lead Wealth = BBU system, TIGSTOR = CBU module). No official source identifies either company. Give the local-language name / country, or drop them? (asked 2026-10-06; answer, then `enrich_status.py resolve "Lead Wealth / TIGSTOR" --answer "…"`)
-- **Question for the user — Affiliate customer-share edges:** Airoha's 2025 annual report lists 'Customer A, relation: Parent Company' = MediaTek, 16.14% of sales (all chip sales, not optical). Should parent / affiliate sales disclosed only that way become customer-share edges (Exposure tab), and in which chain? Kept as a counterparty entry for now. — source: Airoha Technology annual report: 2025 Annual Report (05-29-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Affiliate customer-share edges" --answer "…"`)
-- **Question for the user — ai_bio trial-status facts:** In ai_bio 8-K results releases, keep trial-status facts (approvals to run Phase 3 in 33 countries, FDA allowed a Phase 2/3, Fast Track designation, first-patient-dosed dates) or drop them as readouts? Kept as company status today; the Roswell Park first-patient release itself was dropped. (asked 2026-10-06; answer, then `enrich_status.py resolve "ai_bio trial-status facts" --answer "…"`)
-- **Question for the user — Amazon -> Generate Biomedicines:** Generate's prospectus: it relies on cloud services 'such as Amazon Web Services' to host substantial portions of the Generate Platform. Left out as an example, not a stated relationship (unlike Caris / BillionToOne, which name an AWS agreement). Make it an edge? — source: Generate Biomedicines prospectus (02-27-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Amazon -> Generate Biomedicines" --answer "…"`)
-- **Question for the user — Emerson second placement:** Emerson's DeltaV Automation Platform for Data Centers fits power/Datacenter Power, but apply_patches cannot hold a second placement in the same domain, so Emerson has one placement (power/Generation, Ovation) with DeltaV in its product text. Add a Datacenter Power placement by hand? (asked 2026-10-06; answer, then `enrich_status.py resolve "Emerson second placement" --answer "…"`)
 - Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are Samsung Electro-Mechanics 2026-04-30, SK Hynix 2026-07-29, Samsung 2026-07-30; 123 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual.
 
 ## Markets
@@ -143,12 +137,12 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
 | US earnings calls | `enrich us calls` | 2026-10-05 | 2026-10-06 | 0 | 370 | 369 |
-| US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-06 | 0 | 2001 | 708 |
+| US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-06 | 0 | 2002 | 710 |
 | Korea DART filings | `enrich dart` | 2026-10-04 | 2026-10-05 | 0 | 154 | 162 |
 | Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-05 | 2026-10-05 | 2 | 63 | 63 |
 | Taiwan Chinese 法說會 | `enrich tw` | 2026-10-05 | 2026-10-05 | 1 | 18 | 18 |
 | Investor conferences | `enrich conference` | 2026-10-05 | 2026-10-06 | 2 | 141 | 138 |
-| Company IR press releases | `enrich ir` | 2026-10-06 | 2026-10-06 | 30 | 1414 | 436 |
+| Company IR press releases | `enrich ir` | 2026-10-06 | 2026-10-06 | 30 | 1414 | 442 |
 | Korea IR decks (KIND) | `enrich korea` | 2026-10-04 | 2026-09-27 | 0 | 47 | 37 |
 | US utility regulatory filings | `enrich us` | 2026-10-01 | 2026-10-01 | 0 | 6 | 3 |
 | Korea earnings-call scripts | `enrich korea` | 2026-10-04 | 2026-09-27 | 0 | 1 | 1 |

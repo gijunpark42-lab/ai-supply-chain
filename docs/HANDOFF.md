@@ -1010,3 +1010,13 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   - Board questions added: Tigo Energy, Lead Wealth / TIGSTOR, affiliate customer-share edges (Airoha "Customer A (Parent)"
     = MediaTek), ai_bio trial-status facts in 8-Ks, Amazon -> Generate ("such as AWS"), Emerson second placement.
   - Graph: 892 nodes / 1,908 edges. Logo-guide note: never put the user's email in a User-Agent.
+  - Round 2 (user answers, same day): RULE CHANGE in SKILL.md §2 — enrich covers the WHOLE company; every clinical /
+    regulatory fact that matters to the stock is captured (trial authorisations, first patient dosed, results, designations,
+    approvals, own validation studies); out-of-chain segment facts are captured; the AI check applies only at universe entry
+    (replaces the 09-27 approvals-only and out-of-chain rules). JOB 4: an affiliate / parent customer disclosed by relation that
+    is in the universe gets the edge (Airoha -> MediaTek, 16.14%). Tigo and Lead Wealth / TIGSTOR dropped; Amazon -> Generate
+    not created (an enricher re-added it; removed before apply). Clinical re-enrich of 7 new AI-bio nodes (enricher +
+    independent verifier each): 31 entries incl. restored Roswell Park first-patient, Eikon DMC interim analysis, Quantum-Si
+    18 amino acids / HUPO data, BillionToOne study results (clin_*.json). Emerson: user "y" -> second placement power/
+    Datacenter Power added BY HAND (DeltaV; the 08-03 release entry moved there; Generation keeps Ovation). Two background
+    jobs were reaped for low memory mid-build (no corruption; the re-run build + verify_labels for the 18 labels finished it).

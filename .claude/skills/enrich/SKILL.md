@@ -73,7 +73,7 @@ The map records **facts** and **what the company itself says**.
    `transcripts/non_transcript_sources/` with a NOT-a-transcript NOTE and a `# source label:` header).
 3. **IR press releases: only the important ones** — a named supply / customer agreement or design win, capacity /
    capex / production facts, company guidance or targets, a product launch or availability with specs and dates,
-   the operating facts of an acquisition (never its price), a fab / facility start; for ai_bio pharma / biotech nodes also a regulatory approval — FDA / EC approval or CHMP positive opinion (user, 2026-09-27; trial readouts, priority reviews and filings still yield nothing). Orders from a segment outside the node's chain yield nothing (user, 2026-09-27: e.g. Baker Hughes oilfield / OFSE orders on its power node). Anything else yields no entry:
+   the operating facts of an acquisition (never its price), a fab / facility start; for pharma / biotech / diagnostics nodes every clinical or regulatory fact that matters to the stock — trial authorisations, first patient dosed, interim / topline results and their numbers, designations (Fast Track, Breakthrough, priority review), filings and decision dates, approvals, the company's own validation-study results (user, 2026-10-06: "임상승인처럼 그 주식에 중요한것들은 당연히 넣어야함"; replaces the 2026-09-27 approvals-only rule). Facts from segments outside the node's chain ARE captured when material to the company (user, 2026-10-06: enrich covers the WHOLE company; the AI-relevance check applies only when a company enters the universe; replaces the 2026-09-27 out-of-chain-segment rule). Anything else yields no entry:
    close the row with `python ir_pull.py done --label "<label>" --why "no material facts"`. (`ir_pull.py` already
    skips the clear notices by headline: dividends, buybacks, event and results-date notices, personnel, awards,
    CSR, trade-show exhibit notices, columns and surveys.)
@@ -181,6 +181,7 @@ A company's own customer list ("our customers include X, Y, Z", 主要客户包�
 relationship (user decision 2026-10-05): edge filer -> each named customer that is a player in the same chain, one
 contract per source ("X is named among the company's customers in its <source>"), units / value "no specific
 figure". Names that are not players stay on the filer's quarterly_data with `counterparty` keys.
+A customer or supplier the filing identifies by relationship ("Customer A, relation: Parent Company", a named affiliate in the related-party note) that is a company in the universe ALSO gets the edge, with the customer-share contract (user, 2026-10-06; e.g. Airoha Technology -> MediaTek, 16.14% of 2025 sales).
 Existing edges may point outside the chain file (edges merge across chains by name).
 
 **JOB 5 — Tag every new entry for the derived views (Timelines / Screener / Capex):**
