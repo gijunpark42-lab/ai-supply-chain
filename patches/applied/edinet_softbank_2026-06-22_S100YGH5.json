@@ -1,0 +1,88 @@
+{
+  "source": "SoftBank annual securities report: FY2026 (06-22-2026)",
+  "chains": {
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "SoftBank",
+          "layer": "cloud_infra",
+          "sector": "Datacenter Colocation",
+          "product": "SoftBank Energy Portsmouth campus — land/power/shell hosting NVIDIA Compute exclusively (4.25 GW initial)",
+          "quarterly_data": [
+            {
+              "quarter": "SoftBank annual securities report: FY2026 (06-22-2026)",
+              "signal": "Fiscal year ended March 31, 2026 (annual securities report, IFRS): net sales JPY 7,798,650 million (+7.7%), with both the SoftBank segment and the AI Computing segment growing. Investment gain JPY 7,286,496 million (JPY 3,701,107 million a year earlier): SoftBank Vision Fund business (consolidated line) JPY 6,638,611 million, mainly a JPY 6,465,523 million gain on the OpenAI investment in SVF2; Holding Company Investment segment JPY 218,111 million (gains on NVIDIA shares of JPY 339,092 million - all NVIDIA shares were sold in October 2025 - and on the Intel investment of JPY 278,566 million, against losses on T-Mobile shares of JPY 656,838 million and Alibaba shares of JPY 169,742 million). SG&A rose JPY 996,519 million to JPY 4,020,928 million, including higher R&D in the AI Computing segment. Income before income tax JPY 6,134,905 million (+259.9%); net income attributable to owners of the parent JPY 5,002,271 million (+333.7%).",
+              "figure": "net sales JPY 7,798,650 million (+7.7%); investment gain JPY 7,286,496 million; net income attributable to owners JPY 5,002,271 million (+333.7%)",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "SoftBank annual securities report: FY2026 (06-22-2026)",
+              "signal": "Segments, year to March 2026 (annual securities report): the AI Computing segment (a new reportable segment from Q3: Arm, Ampere, Graphcore) had net sales of JPY 640,309 million (+8.5%; USD 4,228 million, +9.5%), mainly from higher Arm royalty revenue in edge AI, cloud AI and physical AI; in cloud AI, growing data-center CPU demand lifted shipments of Arm-based CPUs in Google Axion, AWS Graviton and the NVIDIA Vera Rubin platform. AI Computing segment loss JPY 137,266 million (loss of JPY 10,891 million a year earlier), mainly from higher R&D for next-generation technology, plus the consolidation of Ampere (acquisition completed in the year) and acquisition-related costs. SoftBank segment (SoftBank Corp., LY Corporation, PayPay) net sales JPY 7,040,875 million (+7.6%) and segment income JPY 965,002 million (+6.5%), on higher profits in finance, enterprise (cloud services growth) and consumer (more smartphone subscribers).",
+              "figure": "AI Computing net sales JPY 640,309 million (+8.5%; USD 4,228 million, +9.5%), segment loss JPY 137,266 million; SoftBank segment net sales JPY 7,040,875 million (+7.6%), segment income JPY 965,002 million (+6.5%)",
+              "topics": []
+            },
+            {
+              "quarter": "SoftBank annual securities report: FY2026 (06-22-2026)",
+              "signal": "R&D expense for the year to March 2026 was JPY 975,471 million, of which JPY 592,199 million in the AI Computing segment, mainly at Arm: the Armv9 architecture, compute subsystems (CSS), and in-house silicon chips including the Arm AGI CPU for AI and data centers, plus hiring of engineers for these programs. The report describes the Arm AGI CPU (announced March 2026, Arm's first self-designed silicon chip) as using up to 136 Neoverse V3 cores, made on TSMC's 3nm process, at 300W power and about twice the performance density per rack of x86; co-developed with Meta, which plans broad deployment in its own data centers, and being commercialized with partners including OpenAI and SAP. Management positions Arm as the core subsidiary of its medium- to long-term strategy.",
+              "figure": "R&D JPY 975,471 million, of which AI Computing JPY 592,199 million; Arm AGI CPU: up to 136 cores, TSMC 3nm, 300W",
+              "topics": ["cpu"]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "OpenAI",
+              "relationship": "Portsmouth AI factory capacity utilized by OpenAI",
+              "contracts": [
+                {
+                  "source": "SoftBank annual securities report: FY2026 (06-22-2026)",
+                  "signal": "As of March 31, 2026, SoftBank's cumulative investment in OpenAI was USD 34.6 billion (USD 2.2 billion in the prior year and USD 32.4 billion in the year, including the USD 22.5 billion second closing through SVF2 in December 2025, which completed the 2025 follow-on round at a USD 260 billion pre-money valuation), with a fair value of USD 79.6 billion and a cumulative investment gain of USD 45.0 billion. The USD 30 billion follow-on committed on February 27, 2026 (through SVF2) is at a USD 730 billion pre-money valuation, in three USD 10 billion tranches: April 1, 2026 (completed), July 1, 2026 and October 1, 2026 (scheduled; the timing may be brought forward if an OpenAI listing becomes reasonably expected); on completion the cumulative investment will be USD 64.6 billion and the stake about 13%.",
+                  "units": "cumulative investment USD 34.6 billion; fair value USD 79.6 billion; cumulative gain USD 45.0 billion (March 31, 2026)",
+                  "value": "USD 30 billion follow-on in three USD 10 billion tranches",
+                  "date_signed": "February 27, 2026",
+                  "type": "equity investment",
+                  "topics": []
+                },
+                {
+                  "source": "SoftBank annual securities report: FY2026 (06-22-2026)",
+                  "signal": "Under the Stargate Project (announced with OpenAI and others in January 2025 to build new AI infrastructure for OpenAI in the US), subsidiary Energy Global signed a strategic partnership with OpenAI in January 2026 and is building the powered shell (data-center buildings with power and network connection facilities) for a 1.2GW AI data center plan in Milam County, Texas.",
+                  "units": "1.2GW AI data center (Milam County, Texas)",
+                  "value": "no specific figure",
+                  "date_signed": "January 2026",
+                  "type": "strategic partnership / powered shell construction",
+                  "topics": ["power_cooling"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "SoftBank",
+          "layer": "cloud_infra",
+          "sector": "Datacenter Colocation",
+          "product": "AI data-center developer (Stargate) - transformer buyer",
+          "connects_to": [],
+          "quarterly_data": [
+            {
+              "quarter": "SoftBank annual securities report: FY2026 (06-22-2026)",
+              "signal": "PORTS Technology Campus, Piketon, Ohio: in March 2026 the US Department of Energy and Department of Commerce, together with SoftBank, Energy Global and AEP Ohio (a regional utility of American Electric Power), announced a public-private project to develop 10GW of power generation and a 10GW AI data center; the plan for 9.2GW of that generation is one of the projects under the USD 550 billion 'Strategic Investment Initiative' agreed between the Japanese and US governments. Management states that, as these projects need large funding, it will use external capital to limit its own funding burden while building the infrastructure.",
+              "figure": "10GW generation + 10GW AI data center; 9.2GW of generation under the USD 550 billion US-Japan initiative",
+              "topics": ["power_cooling"]
+            },
+            {
+              "quarter": "SoftBank annual securities report: FY2026 (06-22-2026)",
+              "signal": "Capex (assets accepted) in the year to March 2026 was JPY 1,387,310 million: SoftBank segment JPY 741,180 million (base stations, switching and network equipment, servers, AI compute infrastructure and AI data centers), AI Computing segment JPY 159,497 million, Other JPY 482,088 million (solar generation and battery storage). The group also booked advances of JPY 678,726 million (USD 4.2 billion) for assets related to power plants and AI infrastructure construction in the US. Planned major capex: SoftBank Corp. JPY 886.0 billion (base stations, network equipment, AI compute infrastructure and AI data centers; April 2026 to March 2027); Energy Global, LP data centers and solar plants in Texas and California USD 16,366 million (project finance and other; April 2026 to December 2028).",
+              "figure": "capex JPY 1,387,310 million; plans: SoftBank Corp. JPY 886.0 billion (to March 2027), Energy Global USD 16,366 million (to December 2028)",
+              "topics": ["power_cooling"],
+              "slot": "guidance"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

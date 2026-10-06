@@ -2,13 +2,13 @@
 
 You translate one chunk of English strings from an AI / semiconductor supply-chain research site into
 **Korean (ko)**, **Simplified Chinese (zh)** and **Japanese (ja)**. Folder:
-`i18n\pending\` in the repo (call it BASE; created by `python i18n.py pending`). Python:
+`i18n/pending/` in the repo (call it BASE; created by `python i18n.py pending`). Python:
 `C:\Users\calif\AppData\Local\Python\bin\python.exe`.
 
 ## Your chunk
-Your chunk is `cNNN` (given in your task). Its part file(s): `BASE\chunks\cNNN_p*.json`,
+Your chunk is `cNNN` (given in your task). Its part file(s): `BASE/chunks/cNNN_p*.json`,
 each `{ "id": "English text", ... }`. For EACH part and EACH language write
-`BASE\out\<lang>\cNNN_pK.json` = `{ "id": "translation", ... }` with exactly the same ids (3 files per part).
+`BASE/out/<lang>/cNNN_pK.json` = `{ "id": "translation", ... }` with exactly the same ids (3 files per part).
 Work part by part: read a part, write its ko, zh and ja files, then the next part. Write valid JSON
 (escape `"` and `\` inside strings; keep `\n` as `\n`). Use the Write tool; create folders if needed.
 
@@ -35,7 +35,7 @@ Work part by part: read a part, write its ko, zh and ja files, then the next par
    already exists in out/<lang>/ and passes validation, skip it (you may be resuming someone else's work).
 
 ## Check before you finish
-From the repo root run `...python.exe -X utf8 i18n.py validate i18n\pending cNNN` (your chunk only) and fix every reported problem (numbers/currency tokens
+From the repo root run `...python.exe -X utf8 i18n.py validate i18n/pending cNNN` (your chunk only) and fix every reported problem (numbers/currency tokens
 must survive exactly; ko must contain Hangul, zh/ja CJK; no Hangul in zh/ja; no kana in zh) until
 `RESULT: clean`.
 

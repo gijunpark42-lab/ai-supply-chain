@@ -300,6 +300,19 @@ for _name, _aliases in CN_ALIASES.items():
     KO_ALIASES.setdefault(_name, [])
     KO_ALIASES[_name] += [a for a in _aliases if a not in KO_ALIASES[_name]]
 
+# Japanese statutory reports (EDINET 有価証券報告書) write counterparties in Japanese script or full-width letters
+# (アプライド・マテリアルズ, ＪＳＲ株式会社, 南亜塑膠工業) or by a subsidiary's legal name (Changxin Xinqiao Memory
+# Technologies = CXMT's fab subsidiary). Added 2026-10-06 after the EDINET backfill's 4 counterparty_not_in_source warns.
+JP_ALIASES = {
+    "Applied Materials": ["アプライド・マテリアルズ", "アプライド マテリアルズ"],
+    "JSR Corporation": ["ＪＳＲ"],
+    "Nan Ya Plastics": ["南亜塑膠", "南亞塑膠"],
+    "CXMT": ["Changxin Xinqiao", "Changxin Memory"],
+}
+for _name, _aliases in JP_ALIASES.items():
+    KO_ALIASES.setdefault(_name, [])
+    KO_ALIASES[_name] += [a for a in _aliases if a not in KO_ALIASES[_name]]
+
 # Node names (or first words) that are also ordinary English words, or that several nodes
 # share. They never serve as a bare first-word fallback ("Together AI" must not be found by
 # the word "together"), and as whole names they only count when written as a proper noun

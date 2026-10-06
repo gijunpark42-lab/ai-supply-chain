@@ -303,7 +303,13 @@ def cmd_validate(a):
     base = a.dir
     probs = 0
     pattern = (a.chunk + "_p*.json") if a.chunk else "*.json"     # one chunk (cNNN) or all of them
-    for f in sorted(glob.glob(os.path.join(base, "chunks", pattern))):
+    files = sorted(glob.glob(os.path.join(base, "chunks", pattern)))
+    if not files:
+        # A wrong folder (e.g. Git Bash eating the backslash in i18n\pending -> "i18npending") used to report
+        # "clean" because nothing was checked. Found 2026-10-06: 37 agents "validated" an empty folder.
+        print(f"nothing checked: no chunk files match {os.path.join(base, 'chunks', pattern)} (wrong folder? use forward slashes)")
+        probs += 1
+    for f in files:
         part = os.path.basename(f)
         src = json.load(open(f, encoding="utf-8"))
         for lang in LANGS:

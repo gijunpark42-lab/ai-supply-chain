@@ -973,3 +973,40 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   Left open: MARA entry "CEO Fred Thiel: Bitcoin mining infrastructure…" carries topics ["transitions"] (should be [];
   apply_corrections cannot set topics); Skyworks 09-18 exchange-offer entry holds financing terms (older label).
   NOT committed (nightly rule).
+- **2026-10-06 (Claude, user-driven background session c14741c3) — user-listed tickers + broker-exhibit gaps + EDINET backfill**
+  - User asks: add the missing names from pasted ticker lists (power: EMR AYI ROK TYGO + LPTH; 20 AI-bio tickers), "dnp fps도",
+    three broker exhibits (GS Japan bottlenecks, UBS CPO, GS AI-server power — read as POINTERS ONLY, never a source), private
+    names as product-only nodes, then "에디넷 필요한거 싹다 enrich" (EDINET_API_KEY added to .env by the user today).
+  - 28 new nodes, all in enrich_waitlist.json group `user_list_2026_10_06` (status added + label), each from company-issued
+    documents: Emerson (power/Generation; DeltaV data-center automation in its product text — apply_patches cannot hold a
+    second placement in the same domain), Rockwell Automation, Acuity, LightPath Technologies (user override: no AI role,
+    enrich the whole company); AI bio: Generate Biomedicines, Eikon Therapeutics, Caris Life Sciences, Quantum-Si, Alamar
+    Biosciences, Medpace, MindWalk, BillionToOne; exhibit gaps: Airoha Technology, Sysgration, STL Technology, Celxpert
+    Energy, InWin Development, MinebeaMitsumi, Nichicon, Musashi Seimitsu, Nantong Jianghai; private product-only (own web
+    page saved as source): Ampace, Tenpower (subsidiary of Aucksun), XING Mobility, Rittal, Rubycon, Skeleton Technologies,
+    SENKO Advanced Components. Not added: Tigo Energy (no data-center role — board question), Lead Wealth / TIGSTOR
+    (unidentified private names — board question). FPS / ERock / VICR / GNRC / VRT / RRX and 12 AI-bio tickers were already nodes.
+  - Dai Nippon Printing: first enrich (IR Day 07-13 SCRIPTS Asia transcript + Q&A, FY results briefing 05-15, Q1 deck 08-07,
+    EDINET annual + semi-annual) + NEW placement packaging_substrate/Glass-Core Substrate (Opus verifier approved). DNP
+    names fiscal years by the START year (DNP FY2026 = project FY2027) — signals state the period explicitly.
+  - Collection notes: AV keys for new nodes must be fetched by hand with the fiscal key (av.py guesses calendar quarters
+    for a node with no label); MindWalk's AV "2026Q3" was the Q3 FY2026 call → relabelled Q4 FY2026 (07-22-2026) after
+    checking; its Q1 FY2027 call (09-14) is not on AV. edgar_pull only sees graph nodes → pulled new tickers through a
+    tmp wrapper; edgartools document_text() returned '' for GENB/EIKN 8-Ks → exhibits saved by hand in edgar format.
+    Emerson 08-03 release fetched by hand got today's date → corrected to 08-03 in file, ir/pending and sync_state.
+  - New edges: Illumina -> Caris (sole NGS supplier), Amazon -> Caris, Amazon -> BillionToOne (AWS agreements in their
+    prospectuses), MindWalk -> Sanofi (CEO-named client "Sanofi Pasteur"). Anthropic -> Rockwell (Project Glasswing)
+    deleted by the verifier (program participation, not supply) and the empty edge dropped by hand.
+  - Verification: 2 new-node verifiers; 17 Opus verifiers over 88 labels → 43 corrections (verify-1006-*.json; DNP glass-core
+    facts moved to the new placement via 2 re-add patches). verify_graph 0 fail on every new label.
+  - EDINET backfill: `edinet.py sync --since 2025-10-01` saved 261 reports of 121 existing JP nodes → workflow
+    wf_af854b3f-4e3 (121 enrichers + 121 independent verifiers editing the unapplied patches: 415 changes, 2 deletions) →
+    240 patches / 1,351 entries applied; 21 reports no material facts (mostly amendments); edinet queue 0. verify_graph
+    1,177 pass / 170 unchecked / 4 warn (Japanese-script counterparty names) → JP_ALIASES added to verify_graph.py.
+    Not added (counterparty keys only): Samyoung Electronics, Pan Pacific Copper, Sunny Optical, CUDO, NowNow Japan, etc.
+  - 28 logos + manifest (MindWalk 691px, STL 337px, Celxpert 221px official rasters; Eikon bg dark).
+  - PR #9 (timeline translation) merged into the #25 branch (dictionary union, overlays rebuilt, tsc clean); #25 merged by
+    the user (f295661), #9 auto-marked merged. i18n: 10,014 new strings translated by 37 Sonnet agents.
+  - Board questions added: Tigo Energy, Lead Wealth / TIGSTOR, affiliate customer-share edges (Airoha "Customer A (Parent)"
+    = MediaTek), ai_bio trial-status facts in 8-Ks, Amazon -> Generate ("such as AWS"), Emerson second placement.
+  - Graph: 892 nodes / 1,908 edges. Logo-guide note: never put the user's email in a User-Agent.
