@@ -1,0 +1,78 @@
+{
+ "source": "Generate Biomedicines 8-K (08-06-2026)",
+ "new_nodes": {
+  "Generate Biomedicines": {
+   "ticker": "GENB",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "why": "AI-native generative biology drug developer: its Generate Platform (machine-learning protein design integrated with large-scale biological experimentation) generates its own clinical pipeline and partnered programs (Amgen, Novartis), so the stock benefits directly as AI-designed protein therapeutics advance and partners pay for platform-designed programs",
+   "evidence": "Generate Biomedicines 8-K (08-06-2026), Q2 2026 results release: 'The Generate Platform integrates computational design with large-scale biological experimentation, enabling the creation of novel, optimized therapeutics'; 'Through a multi-target collaboration, Novartis has advanced a biologic designed with The Generate Platform into its preclinical pipeline for further development.'",
+   "approved": "user pre-approved 2026-10-06 (enrich_waitlist.json, group user_list_2026_10_06)"
+  }
+ },
+ "chains": {
+  "applications/ai_bio.json": {
+   "players": [
+    {
+     "company": "Generate Biomedicines",
+     "layer": "ai_models",
+     "sector": "AI-Native Drug Discovery",
+     "product": "The Generate Platform (machine-learning generative biology; computational design integrated with large-scale biological experimentation) and AI-engineered protein therapeutics such as GB-0895",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Generate Biomedicines 8-K (08-06-2026)",
+       "signal": "Q2 2026 results release: collaboration revenue was $6.3 million for the quarter ended June 30, 2026, compared with $10.1 million a year earlier, reflecting developments in the ongoing Amgen and Novartis research programs (six months: $13,538 thousand vs $18,948 thousand). R&D expenses were $64.3 million vs $59.7 million, the increase driven primarily by continued investment in the GB-0895 Phase 3 SOLAIRIA trials in severe asthma and offset by lower external discovery and other program-related costs; G&A expenses were $13.6 million vs $10.5 million, mainly higher stock-based compensation. Net loss was $67.3 million vs $56.7 million, and net cash used in operating activities was $138.3 million for the six months vs $101.9 million.",
+       "figure": "Q2 2026 collaboration revenue $6.3 million (Q2 2025: $10.1 million); R&D $64.3 million; net loss $67.3 million",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Generate Biomedicines 8-K (08-06-2026)",
+       "signal": "Cash, cash equivalents and marketable securities were $457.4 million at June 30, 2026, compared with $516.6 million at March 31, 2026. Generate believes its existing cash, cash equivalents and marketable securities will fund its current operating plan into the first half of 2028, and expects to require additional capital to support long-term operations.",
+       "figure": "cash and marketable securities $457.4 million; runway into the first half of 2028",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Generate Biomedicines 8-K (08-06-2026)",
+       "signal": "Platform: the Generate Platform connects computational design, large-scale experimentation and development as one system, and the company says strategic investments in agentic systems are enabling the platform and its new pipeline programs to advance at increased speed, scale and efficiency. President and CFO Jason Silvers: because the platform is 'inherently scalable', Generate can simultaneously advance its internal pipeline, execute on existing collaborations and enter additional strategic partnerships, which makes disciplined capital allocation increasingly important in deciding the optimal path for each program and opportunity.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "Generate Biomedicines 8-K (08-06-2026)",
+       "signal": "Lead program GB-0895 (anti-TSLP monoclonal antibody; WHO-proposed name golukibart) in inflammation and immunology: the global SOLAIRIA-1 and SOLAIRIA-2 replicate Phase 3 studies in severe asthma have received regulatory approvals in 33 countries as part of a planned 42-country development program, with additional approvals ongoing and recruitment underway across all six global regions (North America; Eastern/Central Europe; Asia; Western Europe; LATAM; Middle East, Africa and South Asia). A Phase 1b study in adults with COPD is ongoing.",
+       "figure": "Phase 3 regulatory approvals in 33 countries of a planned 42-country program; recruitment in all six global regions",
+       "topics": []
+      },
+      {
+       "quarter": "Generate Biomedicines 8-K (08-06-2026)",
+       "signal": "Oncology: GB-4362, an MMAE neutralizer designed to bind and neutralize circulating free MMAE released from antibody-drug conjugates so as to reduce treatment-limiting MMAE-related toxicities while preserving the ADC's activity, has FDA Fast Track designation for the prevention and/or reduction of enfortumab vedotin-induced toxicity in urothelial cancer. All patients were enrolled and initial patients dosed in the first cohort of its Phase 1 study in combination with enfortumab vedotin and pembrolizumab for locally advanced or metastatic urothelial cancer.",
+       "figure": "Phase 1 first cohort fully enrolled; FDA Fast Track designation",
+       "topics": []
+      },
+      {
+       "quarter": "Generate Biomedicines 8-K (08-06-2026)",
+       "signal": "Roswell Park Comprehensive Cancer Center (clinical partner): the Phase 1 study of GB-5267, an IL-18 armored MUC16 CAR T for patients with advanced, platinum-resistant ovarian cancer that Generate is conducting in collaboration with Roswell Park, is now recruiting; the first patient is expected to be dosed in 2026.",
+       "figure": "first patient expected to be dosed in 2026",
+       "topics": [],
+       "slot": "next_catalyst",
+       "counterparty": "Roswell Park Comprehensive Cancer Center",
+       "counterparty_role": "partner"
+      },
+      {
+       "quarter": "Generate Biomedicines 8-K (08-06-2026)",
+       "signal": "Novartis (collaboration partner): through a multi-target collaboration, Novartis has advanced a biologic designed with the Generate Platform into its preclinical pipeline for further development; Generate says this is the first time a biologic engineered using an AI-enabled platform has reached this stage (company claim). CEO Mike Nally said the quarter's milestones 'demonstrate that we can repeatedly advance programs in our own pipeline and through collaborations.'",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "backlog_or_b2b",
+       "counterparty": "Novartis",
+       "counterparty_role": "customer (collaboration partner)"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

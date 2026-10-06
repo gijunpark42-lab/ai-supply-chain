@@ -1,0 +1,31 @@
+{
+  "reviewer": "opus-verify-1006-inwin-development",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "InWin Development",
+      "target": null,
+      "label": "InWin Development IR presentation: MOPS 611720260525E001 (05-26-2026)",
+      "signal_prefix": "Company profile: founded December 11, 1985; capital NT$925 million",
+      "action": "set",
+      "set": {
+        "signal": "Balance sheet at March 31, 2026 (2026 Investor Conference deck): total assets NT$6,299,921 thousand (NT$4,396,753 thousand a year earlier), total non-current assets NT$4,059,439 thousand (NT$2,336,836 thousand), inventories NT$607,492 thousand (NT$543,540 thousand). Company profile: 1001 employees."
+      },
+      "reason": "Keep the operating balance-sheet lines (non-current assets, inventories, total assets) and headcount; drop book value per share and share capital (equity / valuation metrics, not supply-chain facts), the founding date and office list (profile trivia), and 'net sales NT$3,222 million' (restates the 2025 revenue NT$3,222,227 thousand already in the product-mix entry of this label). Figure unchanged.",
+      "evidence": "2,336,836 4,059,439 Totalnon-current assets / 4,396,753 6,299,921 Total assets / 543,540 607,492 Inventories / Number of Employees: 1001"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "InWin Development",
+      "target": null,
+      "label": "InWin Development IR presentation: MOPS 611720260525E001 (05-26-2026)",
+      "signal_prefix": "Manufacturing footprint (deck milestones, not dated in the deck)",
+      "action": "set",
+      "set": {
+        "signal": "Manufacturing footprint (deck milestones, not dated in the deck): plants in Taiwan, the USA and Malaysia. The Changxing II factory was officially opened, significantly enhancing server system assembly capabilities, and server system integration reached L11 capabilities; the company completed the construction of a U.S. system assembly factory, its Malaysia factory is under construction, and the deck lists a Production Capacity Doubling Plan. It also added system assembly lines specifically for its growing IPC business."
+      },
+      "reason": "This entry carries the supply_status slot dated 05-26-2026, so it should hold only capacity facts. The In Shin land repurchase agreement with the Jiangsu government is an undated historical milestone (listed among older items such as the 30th-anniversary event and the WINBOT launch), a land transaction rather than a capacity fact; dropped. The remaining capacity facts are verbatim and keep the 'not dated in the deck' hedge; slot kept because the Malaysia build and the Capacity Doubling Plan are stated as current.",
+      "evidence": "In Sin (China) signed a land repurchase agreement with the local government of Jiangsu Province in accordance with regional planning. / Malaysia factory under construction / Production Capacity Doubling Plan."
+    }
+  ]
+}

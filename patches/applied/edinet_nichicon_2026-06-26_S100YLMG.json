@@ -1,0 +1,98 @@
+{
+  "source": "Nichicon annual securities report: FY2026 (06-26-2026)",
+  "new_nodes": {
+    "Nichicon": {
+      "ticker": "6996.T",
+      "exchange": "TSE",
+      "country": "JP",
+      "why": "Nichicon makes aluminum electrolytic capacitors; its annual securities report says capital investment in generative-AI servers and data centers is driving rising demand for its conductive-polymer solid, conductive-polymer hybrid and large aluminum electrolytic capacitors for AI-server power supplies, and it targets order growth and a production system for the AI-server market, so AI-server power-supply builds add to its capacitor sales.",
+      "evidence": "Nichicon annual securities report: FY2026 (06-26-2026), Capacitor segment (translated): 'In information and communications, capital investment in generative AI servers and data centers has become even more active, and against this background demand for our conductive-polymer aluminum solid electrolytic capacitors, conductive-polymer hybrid aluminum electrolytic capacitors and large aluminum electrolytic capacitors for AI-server power supplies is on an expanding trend.'",
+      "approved": "user pre-approved 2026-10-06 (enrich_waitlist.json, group user_list_2026_10_06)"
+    }
+  },
+  "chains": {
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "Nichicon",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "product": "Conductive-polymer aluminum solid electrolytic and conductive-polymer hybrid aluminum electrolytic capacitors for generative-AI servers and data centers, and large aluminum electrolytic capacitors for AI-server power supplies",
+          "quarterly_data": [
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "Fiscal year ended March 31, 2026 (annual securities report): net sales JPY 169,724 million (-3.4% YoY), operating profit JPY 6,456 million (+24.1%), ordinary profit JPY 8,326 million (+10.9%), profit attributable to owners of parent JPY 6,310 million (+7.4%). Capacitor segment sales JPY 102,748 million (+3.6%; 60.5% of net sales), segment operating profit JPY 4,598 million (+196.3%); NECST segment sales JPY 66,976 million (-12.5%; 39.5% of net sales), segment operating profit JPY 1,860 million (-49.0%). Extraordinary losses included business restructuring costs of JPY 1,252 million (they include a JPY 957 million impairment loss in the Capacitor segment) and a JPY 799 million loss on valuation of investment securities. Overseas sales JPY 86,113 million, 50.7% of consolidated net sales. Sales by customer location: Japan JPY 83,611 million, Americas JPY 14,687 million, Greater China (China, Hong Kong, Taiwan) JPY 45,098 million, Asia JPY 16,891 million, Europe and other JPY 9,436 million. No single external customer accounts for 10% or more of net sales.",
+              "figure": "Net sales JPY 169,724 million (-3.4%); operating profit JPY 6,456 million (+24.1%)",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "Capacitor segment, year to March 2026 (annual securities report, management's analysis): in information and communications, capital investment in generative-AI servers and data centers became even more active, and demand for Nichicon's conductive-polymer aluminum solid electrolytic capacitors, conductive-polymer hybrid aluminum electrolytic capacitors and large aluminum electrolytic capacitors for AI-server power supplies is on an expanding trend; the company positions the field as a key growth market and keeps strengthening its supply system, including speeding up the business cycle from development to mass production. Automotive: demand for conductive-polymer hybrid aluminum electrolytic capacitors used in ADAS and electrification units keeps expanding, and the company continues to build up its production increase. xEV film capacitors left the adjustment phase that lasted through the first half and turned to recovery from the second half, including the start of mass production of new projects. Industrial inverter equipment: customer inventories of large aluminum electrolytic capacitors for power conditioners are being worked down and a recovery trend is visible. The company plans to expand its lineup of conductive-polymer solid, conductive-polymer hybrid and large AI-server power-supply aluminum electrolytic capacitors and to raise xEV film-capacitor production capacity.",
+              "figure": "Capacitor segment sales JPY 102,748 million (+3.6%); segment operating profit JPY 4,598 million (+196.3%)",
+              "topics": [
+                "power_cooling"
+              ]
+            },
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "NECST segment, year to March 2026 (annual securities report, management's analysis): residential energy storage - sales of the new flagship Tribrid storage system ESS-T5/T6 series began in the second half, with a synergy from government and local-government subsidy programs, but sales fell because the new product launched late. Quick chargers: EV adoption is lagging, but sales to infrastructure were expanded; with Japanese automakers' new EV models, more imported EVs and high energy prices the company expects more users to choose EVs and V2H systems to grow along with residential storage. Switching power supplies: the mainstay document (office-equipment) market was hit by tariff issues and the stagnant China market, and gaming, which had been strong, is now in an adjustment phase. Large special power supplies (mainly industrial special, academic and medical) were firm as planned. The company expects storage-system and EV-related equipment markets to become increasingly active given sharp energy-price swings and GX ZEH requirements.",
+              "figure": "NECST sales JPY 66,976 million (-12.5%); segment operating profit JPY 1,860 million (-49.0%)",
+              "topics": []
+            },
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "Production, orders and sales, year to March 2026 (annual securities report; production at selling prices): orders received JPY 176,225 million (101.4% of the prior year) - Capacitor JPY 109,775 million (111.2%), NECST JPY 66,449 million (88.5%); order backlog at year-end JPY 46,692 million (116.2% of the prior year-end) - Capacitor JPY 38,135 million (122.6%), NECST JPY 8,556 million (94.2%). Production JPY 169,998 million (97.8% of the prior year) - Capacitor JPY 103,429 million (105.2%), NECST JPY 66,569 million (88.2%).",
+              "figure": "Order backlog JPY 46,692 million (116.2% of prior year-end); Capacitor backlog JPY 38,135 million (122.6%)",
+              "topics": [],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "Capital expenditure, year to March 2026 (annual securities report): JPY 7,568 million (68.0% of the prior year) - Capacitor JPY 6,001 million, NECST JPY 1,566 million - mainly technology and development investment for new businesses, capacity expansion for aluminum electrolytic capacitors for automotive equipment and information and communications equipment and for xEV film capacitors, and new NECST products; depreciation JPY 8,077 million. Plan as of the year-end: JPY 10,000 million of capex (Capacitor JPY 8,000 million, NECST JPY 2,000 million) for new-product development, rationalisation and capacity expansion, centered on aluminum electrolytic capacitors for automotive and information and communications equipment, xEV film capacitors and NECST products. Significant new facility: production equipment at Nichicon Ohno (Ono, Fukui; Capacitor segment), total JPY 1,554 million, started January 2026, completion planned May 2027, raising capacity by 20%. No significant disposals are planned.",
+              "figure": "Capex JPY 7,568 million; plan JPY 10,000 million; Nichicon Ohno capacity +20% by May 2027",
+              "topics": [],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "Company outlook and strategy (annual securities report): for the year ending March 2027 the economic outlook is extremely uncertain (procurement difficulty and price increases for raw materials from the Middle East situation, high energy prices, logistics disruption, policy-rate rises, sharp currency moves, Russia-Ukraine and US tariffs); across its four focus markets (energy / environment / medical equipment; automotive and vehicle equipment; white goods and industrial inverter equipment; information and communications equipment) the company expects demand in information and communications, automotive / vehicle and environment-related fields to expand despite upward pressure on material prices. Medium-term strategy: in capacitors, focus on the automotive / vehicle and information and communications growth markets - for automotive, concentrate on selling conductive-polymer hybrid and chip-type aluminum electrolytic capacitors and expand xEV film-capacitor capacity as new projects increase; for information and communications, expand orders and establish a production system for the rise of the AI-server market, centered on conductive-polymer solid, conductive-polymer hybrid and large aluminum electrolytic capacitors. In NECST, expand the residential storage lineup and move into energy businesses such as VPP (virtual power plants), widen V2H uses and sales routes, roll out quick chargers and new charging-solution systems, and meet the demand-expansion phase in medical and academic accelerator power supplies while contributing to technology for fusion.",
+              "figure": "no specific figure",
+              "topics": [],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "Targets vs results (annual securities report): against the initial plan for the year to March 2026, net sales were JPY 169,724 million vs a plan of JPY 180,000 million (-5.7% vs plan), operating profit JPY 6,456 million vs JPY 6,000 million (+7.6%), operating margin 3.8% vs 3.3%, ordinary profit JPY 8,326 million vs JPY 7,000 million (+19.0%) and profit attributable to owners of parent JPY 6,310 million vs JPY 6,000 million (+5.2%); ordinary profit beat the plan for the fifth consecutive year. The medium-term growth target 'Vision 2025' (announced November 2021, final year the year to March 2026) of net sales of JPY 200 billion and an operating margin of 10% or more was not achieved (net sales JPY 169,724 million, operating margin 3.8%); capex was JPY 7,568 million against a target of JPY 10 billion or more a year.",
+              "figure": "Vision 2025 targets (JPY 200 billion sales, 10%+ operating margin) missed: JPY 169,724 million, 3.8%",
+              "topics": []
+            },
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "Capacitor R&D (annual securities report; group R&D JPY 7,279 million, of which Capacitor JPY 2,357 million and NECST JPY 4,921 million): launched the chip-type conductive-polymer aluminum solid electrolytic capacitor 'PCY series' with a 125°C 12,000-hour guarantee (company: industry-top level) for information and communications equipment such as AI servers and telecom base stations, where higher data-processing volumes raise power consumption and internal temperatures; developed the conductive-polymer hybrid 'GYG series' with capacitance three ranks above the standard 'GYA series' and up to 1.8 times the ripple current, for high-current automotive uses such as electric power steering (EPS), electric water pumps and electric oil pumps; developed the lead-type aluminum electrolytic 'UTF series' with up to 51.1% higher allowable ripple current, for on-board chargers (OBC) in EVs and PHEVs; developed and launched the 'UBR series' (125°C 5,000-hour guarantee, 2.5 times the life of the previous series) for telecom base-station power supplies. The small lithium-ion rechargeable battery 'SLB series' has shipped more than 50 million units cumulatively since its 2019 launch; a high-temperature version raises the maximum operating temperature from 60°C to 80°C. Film capacitors for the DC-link of xEV drive inverters (using in-house metallized film) are adopted in many vehicle models of domestic and overseas makers; development targets 800V-and-above systems and temperatures above 125°C as SiC power semiconductors advance.",
+              "figure": "R&D JPY 7,279 million (Capacitor JPY 2,357 million); PCY series 125°C 12,000-hour guarantee",
+              "topics": [
+                "product_launches"
+              ]
+            },
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "NECST R&D and orders (annual securities report): the 'Cyclic Multi Charger' quick charger for commercial EVs (EV buses and EV trucks) has been delivered to bus operators and is in operation; the third-generation Tribrid storage system 'ESS-T5/T6 series' was launched, charging solar surplus power into a storage battery and an EV battery at the same time, with up to 9.9kW output from the Tribrid power conditioner (ES-T6). Under a NEDO project with Yamanashi Prefecture and several companies, Nichicon developed the rectifier power supply for PEM water electrolysis and commercialised it as the '500kW one-pack model', which was installed in Japan's largest 16MW green-hydrogen production facility for decarbonisation trials at Suntory's Minami Alps Hakushu water plant and Hakushu distillery. It received an order for the high-power power supply for a gyrotron, a key part of a prototype reactor aimed at practical fusion energy, and is designing and producing it; it received an order for the power supplies of RIKEN's SPring-8 II upgrade plan (SPring-8 synchrotron radiation facility, Hyogo) and has started design; it continues developing medical accelerator power supplies for particle-beam (proton and heavy-ion) cancer therapy.",
+              "figure": "500kW one-pack rectifier in a 16MW green-hydrogen facility; gyrotron and SPring-8 II power-supply orders",
+              "counterparty": "RIKEN",
+              "counterparty_role": "customer (SPring-8 II accelerator power supplies)",
+              "topics": []
+            },
+            {
+              "quarter": "Nichicon annual securities report: FY2026 (06-26-2026)",
+              "signal": "Business and footprint (annual securities report): the group is Nichicon, 25 subsidiaries and 3 affiliates in two segments - Capacitor (aluminum electrolytic capacitors, small lithium-ion rechargeable batteries, film capacitors for power electronics and for xEV, transformers) and NECST (residential storage systems, V2H systems, EV/PHEV quick chargers, switching power supplies, function modules, public and industrial storage systems, large special power supplies, medical and academic accelerator power supplies, pressure sensors). Main production bases listed: Japan (Omachi, Nagano; Kusatsu, Shiga; Kameoka, Kyoto; Ono, Fukui; Iwate), Malaysia (Selangor) and China (Wuxi and Suqian). Property, plant and equipment by location at March 31, 2026: Japan JPY 39,641 million, US JPY 363 million, Greater China JPY 5,258 million, Malaysia JPY 7,216 million, other JPY 58 million (total JPY 52,538 million).",
+              "figure": "PP&E JPY 52,538 million (Japan JPY 39,641 million; Malaysia JPY 7,216 million; Greater China JPY 5,258 million)",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

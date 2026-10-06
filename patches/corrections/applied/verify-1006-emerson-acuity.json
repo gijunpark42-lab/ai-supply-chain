@@ -1,0 +1,49 @@
+{
+  "reviewer": "opus-verify-1006-emerson-acuity",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Emerson",
+      "target": null,
+      "label": "Emerson Q3 FY2026 (08-04-2026)",
+      "signal_prefix": "Ovation lead times (CEO Lal Karsanbhai): the Ovation order book",
+      "action": "set",
+      "set": {
+        "signal": "Ovation lead times (CEO Lal Karsanbhai, answering an analyst's question on Ovation lead times): 'We're sitting in the fourth quarter of '27, reaching into '28 at this point.'",
+        "figure": "fourth quarter of '27, reaching into '28"
+      },
+      "chains": ["components/power_cooling.json"],
+      "reason": "The CEO never said 'order book'; that paraphrase and the 'Q4 2027' wording come from the analysts' framing. Keep only the CEO's own words, with the question's topic named as context.",
+      "evidence": "Lal Karsanbhai (President and Chief Executive Officer): That's exactly right, Scott. We're sitting in the fourth quarter of '27, reaching into '28 at this point."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Acuity",
+      "target": null,
+      "label": "Acuity Q4 FY2026 (10-01-2026)",
+      "signal_prefix": "Data centers, CEO Neil Ashe: Acuity had 'a very strong year in data centers",
+      "action": "set",
+      "set": {
+        "slot": null
+      },
+      "chains": ["components/power_cooling.json"],
+      "reason": "next_catalyst means the nearest upcoming dated product or capacity event. The luminaire already launched in Q4 and the PLC controller has already been added. The entry has no upcoming date, and nothing else in the call qualifies, so the slot comes off.",
+      "evidence": "In the fourth quarter, we expanded the BLT family from Lithonia Lighting with a purpose-built luminaire for data centers."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Acuity",
+      "target": null,
+      "label": "Acuity Q4 FY2026 (10-01-2026)",
+      "signal_prefix": "FY2026 cash flow and capital allocation (CFO Karen Holcom)",
+      "action": "set",
+      "set": {
+        "signal": "FY2026 cash flow (CFO Karen Holcom): cash flow from operations $826 million, $225 million higher than fiscal 2025, from operating performance, tariff refunds and lower tax payments; capital expenditures $78 million.",
+        "figure": "Cash flow from operations $826 million (+$225 million); capex $78 million"
+      },
+      "chains": ["components/power_cooling.json"],
+      "reason": "Remove the financing and capital-return items, as skill section 2 and the ir_pull skip list require: debt repayments, repayment of the QSC acquisition borrowings, the dividend increase and buybacks. Operating cash flow and capex stay.",
+      "evidence": "We repaid $200 million of our debt during fiscal 2026, and after the close of the year, we repaid another $200 million."
+    }
+  ]
+}

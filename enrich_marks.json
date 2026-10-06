@@ -489,6 +489,84 @@
    "question": "Xiaomi is Kingsoft Cloud's largest named customer (an affiliate and shareholder): 20-F related-party revenue — Xiaomi Group public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand (2025). Xiaomi is not a node. Add it (e.g. as a cloud customer in neocloud.json) so a Kingsoft Cloud -> Xiaomi edge can carry this, or keep it as text on Kingsoft Cloud's node?",
    "label": null,
    "at": "2026-10-04"
+  },
+  {
+   "subject": "Out-of-chain segment facts (2026-10-06 run)",
+   "question": "Two IR releases were skipped under the out-of-chain-segment rule: Gates Industrial's 09-28 completion of its purchase of Timken's industrial / power-sports belts business (more North American belt capacity, a Mexico plant; Gates' only node is thermal / Direct-to-Chip Liquid) and Adeia's 10-05 renewal of its media IP licence with Charter / Spectrum (Adeia's node is DBI hybrid-bonding IP; media licensing is ~80% of its revenue). Should an acquisition's operating facts or licence deals outside the node's chain be recorded on the company-wide node, or keep skipping them (same family as the TTM question)?",
+   "label": "Gates Industrial press release: Gates Completes Acquisition of the Belts Business from The (09-28-2026)",
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "DigitalOcean",
+   "question": "At Citi (09-10) the CFO said 'From a GPU standpoint, we have tremendous relationships with both NVIDIA and AMD' and named Equinix, DataBank and QTS as its tier-1 data-center providers. Kept as counterparty entries on DigitalOcean's node (as the Q2 call patch did). Create NVIDIA -> DigitalOcean and AMD -> DigitalOcean edges in neocloud.json? Equinix / QTS sit only in power_cooling.json, where DigitalOcean is not a player - add cross-chain edges?",
+   "label": "DigitalOcean Citi’s Global TMT Conference 2026 (09-10-2026)",
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "H.C. Wainwright panel (09-14-2026)",
+   "question": "The CleanSpark and MARA 'H.C. Wainwright' conference files are two transcriptions of one multi-company panel. Other panelists made material statements (Core Scientific: ~500 MW with AMD, next 2,000 MW at Hunt County / Pecos / Muskogee, $125 MRC triple-net / $145 modified gross over 15 years; Bitdeer: 121 MW Volta lease in Norway, Malaysia GPU-as-a-service sites; WhiteFiber: $865M Nscale contract). Only CleanSpark's and MARA's own executives were captured. Capture other panelists that are nodes (their entries would carry a CleanSpark/MARA-prefixed label), or skip them?",
+   "label": "CleanSpark H.C. Wainwright conference 2026 (09-14-2026)",
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "Vertex conference mis-match",
+   "question": "investing.py matched 'Vertex at Goldman Sachs Communacopia + Technology Conference' (09-09-2026) to our Vertex (Pharmaceuticals) node, but the speakers are Vertex Inc. (tax software). The row was closed without enrichment; the file stays in transcripts/conferences/. Titles alone cannot tell the two apart. Add a speaker-based exclusion to investing.py, or keep closing such rows by hand?",
+   "label": "Vertex Goldman Sachs Communacopia + Technology Conference 2026 (09-09-2026)",
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "Skyworks Solutions",
+   "question": "Skyworks completed its combination with Qorvo on 10-05 (continues as Skyworks / SWKS). Qorvo was never a node. The release says the combined company spans RF GaN, low-voltage power, wired broadband, data center / networking, defense and automotive; Skyworks sits only in interconnect / Components and power / Power Semiconductors. Give the combined company extra placements (e.g. RF GaN under compound semiconductors), or leave the structure as is? The operating facts are on its company-wide node.",
+   "label": "Skyworks Solutions press release: Skyworks Completes Combination with Qorvo (10-05-2026)",
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "Flex",
+   "question": "Flex plans to separate its Cloud and Power Infrastructure segment as a listed company, Axiom Solutions International ('Axiom'), in Q1 calendar 2027 (10-05 release). Flex's power_cooling / power_semiconductor placements mostly describe that business. When Axiom lists, should it become its own node, with Flex's placements staying, moving or split?",
+   "label": "Flex press release: Flex Announces $2.0 Billion Convertible Preferred (10-05-2026)",
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "Cerebras",
+   "question": "At Supernova (08-19) the CEO said Cerebras uses AMD EPYC CPUs in its clusters and is 'buying a fair bit' of Arista networking. Both kept as counterparty entries on Cerebras. The existing AMD -> Cerebras edge is described as 'Helios rack systems', so an EPYC contract there would mix meanings; Arista is not a player in Cerebras' chain. Add the EPYC supply as a contract / second relationship, and an Arista -> Cerebras edge?",
+   "label": "Cerebras Supernova 2026 (08-19-2026)",
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "Tigo Energy",
+   "question": "User-listed 2026-10-06, but Tigo's own call/filings show no data-center or AI role (residential, C&I and utility solar optimizers); not added. Add it anyway as power/Generation (solar MLPE), or leave out?",
+   "label": null,
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "Lead Wealth / TIGSTOR",
+   "question": "Private names in the GS AI-server power exhibit (Lead Wealth = BBU system, TIGSTOR = CBU module). No official source identifies either company. Give the local-language name / country, or drop them?",
+   "label": null,
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "Affiliate customer-share edges",
+   "question": "Airoha's 2025 annual report lists 'Customer A, relation: Parent Company' = MediaTek, 16.14% of sales (all chip sales, not optical). Should parent / affiliate sales disclosed only that way become customer-share edges (Exposure tab), and in which chain? Kept as a counterparty entry for now.",
+   "label": "Airoha Technology annual report: 2025 Annual Report (05-29-2026)",
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "ai_bio trial-status facts",
+   "question": "In ai_bio 8-K results releases, keep trial-status facts (approvals to run Phase 3 in 33 countries, FDA allowed a Phase 2/3, Fast Track designation, first-patient-dosed dates) or drop them as readouts? Kept as company status today; the Roswell Park first-patient release itself was dropped.",
+   "label": null,
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "Amazon -> Generate Biomedicines",
+   "question": "Generate's prospectus: it relies on cloud services 'such as Amazon Web Services' to host substantial portions of the Generate Platform. Left out as an example, not a stated relationship (unlike Caris / BillionToOne, which name an AWS agreement). Make it an edge?",
+   "label": "Generate Biomedicines prospectus (02-27-2026)",
+   "at": "2026-10-06"
+  },
+  {
+   "subject": "Emerson second placement",
+   "question": "Emerson's DeltaV Automation Platform for Data Centers fits power/Datacenter Power, but apply_patches cannot hold a second placement in the same domain, so Emerson has one placement (power/Generation, Ovation) with DeltaV in its product text. Add a Datacenter Power placement by hand?",
+   "label": null,
+   "at": "2026-10-06"
   }
  ],
  "answered": [

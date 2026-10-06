@@ -1,0 +1,35 @@
+{
+  "source": "MinebeaMitsumi semi-annual report: H1 FY2026 (11-13-2025)",
+  "new_nodes": {
+    "MinebeaMitsumi": {
+      "ticker": "6479.T",
+      "exchange": "TSE",
+      "country": "JP",
+      "why": "MinebeaMitsumi makes fan motors for AI servers (including large fan motors for high-heat servers and fans for AI server power supplies) and the miniature ball bearings inside AI-server cooling fans, plus BBU battery protection modules and server fan-motor driver ICs. The company says demand for air cooling from AI data centers remains strong, plans AI-server net sales growth at a CAGR of approx. 22% (FY3/26 - FY3/29), and reports Precision Technologies and air-cooling fans running significantly above initial targets, so its stock benefits directly as AI-server air cooling is built and sold.",
+      "evidence": "Results briefing deck 08-05-2026, 'Five Growth Areas: AI Servers': 'Demand for air cooling remains strong ... Bearings: Secured strong forecasts from major fan motor manufacturers ... Fan motors: Fans for AI server power supplies are performing strongly ... Large fan motors: Rapid increase in new inquiries for high-heat-generating servers'; Q&A (President Yoshida): 'Demand related to air-cooling fans remains strong. Orders for ball bearings and fan motors are extremely solid'.",
+      "approved": "user pre-approved 2026-10-06 (enrich_waitlist.json, group user_list_2026_10_06)"
+    }
+  },
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "MinebeaMitsumi",
+          "domain": "thermal",
+          "sector": "Air Cooling",
+          "product": "fan motors for AI-server air cooling and server power supplies, and miniature ball bearings for AI-server cooling fan motors",
+          "quarterly_data": [
+            {
+              "quarter": "MinebeaMitsumi semi-annual report: H1 FY2026 (11-13-2025)",
+              "signal": "First half (April-September 2025) of the fiscal year ending March 2026 (semi-annual report): net sales JPY 778,314 million; operating income JPY 44,387 million (down JPY 2,401 million, -5.1%); profit before taxes JPY 40,370 million (+12.1%); profit attributable to owners of the parent JPY 28,585 million (+14.0%). Segments (net sales / operating income): Precision Technologies JPY 133,227 million (+4.4%) / JPY 28,685 million (+3.6%), ball bearings up on firm server demand for data centers and aircraft demand; Motor, Lighting & Sensing JPY 218,255 million (+1.7%) / JPY 12,392 million (-3.8%), sales up mainly on fan motor demand; Semiconductor & Electronics JPY 267,250 million (-1.3%) / JPY 9,645 million (-17.3%), mainly lower optical device sales; Access Solutions JPY 157,767 million (-3.5%) / JPY 7,146 million (+9.4%), sales down as automobile production fell. First-half R&D JPY 24,670 million; operating cash flow JPY 22,342 million (JPY 53,910 million a year earlier); total assets JPY 1,694,206 million at end-September, up mainly on inventories and property, plant and equipment.",
+              "figure": "H1 net sales JPY 778,314 million; operating income JPY 44,387 million (-5.1%)",
+              "topics": [],
+              "slot": "revenue_growth"
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,533 @@
+SOURCE: Investing.com conference transcript -- https://www.investing.com/news/transcripts/cerebras-at-supernova-2026-speed-becomes-the-new-ai-edge-93CH-4866314
+TITLE: Cerebras at Supernova 2026: speed becomes the new AI edge
+EVENT: Supernova 2026
+DATE: 08-19-2026  (article publish date = event day)
+# source label: Cerebras Supernova 2026 (08-19-2026)
+# speakers: Andrew Feldman, CEO and co-founder, Cerebras; Thibault Imbert, Head of Core Products and Platforms, OpenAI; Pavi Bhattar, AI Research Product Lead, Figma; Keith Coley, VP of Engineering, CrowdStrike; Silas Alberti, SVP of Research and Founding Engineer, Cognition; Jayshree Ullal, CEO, Arista; Mark Papermaster, CTO, AMD; Jessica Liu, SVP of Product, Cerebras
+# paragraphs: 262   characters: 91,206
+# note: no 'Full transcript' marker in the article -- summary and transcript saved together
+
+---
+Cerebras (CBRS) used its Supernova 2026 conference on Tuesday, 18 August 2026, to argue that speed has become a defining feature of AI products, not just a technical measure. The company paired that message with new hardware, fresh customer examples and a wider partner network, even as its shares fell sharply in regular trading before edging higher after hours.
+
+Andrew Feldman, Cerebras&rsquo;s chief executive and co-founder, said the industry is moving beyond speed as a benchmark and toward speed as a product requirement.
+
+The company&rsquo;s message was that AI systems should not force users to choose between intelligence and responsiveness. Speakers repeatedly said the goal is to make frontier models feel immediate enough for real-time work.
+
+Cerebras unveiled CS-4, its next-generation system architecture built on the Nexus rack-scale platform. The company said the system is designed for hyperscale deployment and future upgrades through 2027.
+
+The company said the CS-4 backpack design uses a vertical modular enclosure with direct vertical power delivery, giving 2 times more power and 2 times more cooling. Cerebras said the design is meant to support future generations of wafer-scale compute, including CS-5 in 2027.
+
+The most visible software announcement was GPT-5.6 Sol Ultrafast mode, a collaboration between Cerebras and OpenAI. The companies said the mode runs OpenAI&rsquo;s most intelligent models at up to 14 times faster than the standard tier.
+
+Feldman said the launch shows a new top end for the market. Referring to a competitive chart, he said, &ldquo;The only thing up here is GPT-5.6-Sol Ultrafast running on Cerebras. In the entire industry, the only thing here.&rdquo;
+
+Cerebras used several customer demonstrations to show how lower latency can change product behavior.
+
+Figma
+
+Cognition
+
+CrowdStrike and Armis
+
+Cerebras also framed its growth around a disaggregated infrastructure model, in which different parts of inference run on different systems.
+
+Arista Networks
+
+Cerebras did not present a traditional earnings update at the conference, but it did give several scale and deployment figures that point to its business momentum. The company reported revenue of $680.67 million in the last twelve months as of Q2 2026, representing growth of roughly 91% year-over-year. According to InvestingPro data, 9 analysts have revised their earnings upwards for the upcoming period, suggesting growing confidence in the company’s trajectory despite its current unprofitability.
+
+OpenAI said last week that it has 15 million weekly active users running Codex and ChatGPT agents, while ChatGPT has surpassed 1 billion total users. The company said agentic workflows are still a small part of usage, but they are growing quickly.
+
+Throughout the event, Cerebras contrasted its wafer-scale design with GPU-based systems.
+
+The company said its benchmark result on Humanity&rsquo;s Last Exam showed the same point. Cerebras said it completed the 2,500-question exam in 11 hours, 11 minutes and 26 seconds, less than half a day, while competitors took more than three days.
+
+Cerebras presented a roadmap that extends beyond the CS-4 launch.
+
+Cerebras said the broader market opportunity is not just faster chips, but a new layer of AI infrastructure that can support agents, real-time collaboration and low-latency decision-making.
+
+Cerebras shares closed the regular session at $219.92, down 12.73% from the previous close of $251.98. After hours, the stock rose 0.21% to $220.39.
+
+The stock has traded between $160.81 and $386.34 over the past 52 weeks.
+
+Cerebras used Supernova 2026 to present a simple message: in AI, speed is becoming part of the product itself. For investors seeking deeper analysis, Cerebras is among the 1,400+ US equities covered by comprehensive InvestingPro Pro Research Reports, which transform complex Wall Street data into clear, actionable intelligence through intuitive visuals and expert analysis. Readers can refer to the full transcript below for more detail.
+
+moderator: Please welcome Cerebras CEO and co-founder, Andrew Feldman.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Welcome, everyone. Thank you so much for coming. It is with such pride and joy we see all of you here today. To point out that while we have years of experience in building the fastest AI, managing queues out in front of our building is new to us. So forgive us for the delays there. This has been a truly extraordinary last 3 or 4 months for us. The penalty of going public. Let’s all stare at that for a little while. We can understand the cost of going public. This is it. Yeah. Right. Right. Going public is a truly extraordinary event. It allowed me to see engineers I’ve been working with for 20 years. It allowed me to know they actually own a coat and tie. We didn’t know this. It was a time to share with our families after a decade of work.
+
+It was sort of humbling in the sense that we’re now able to step forward in a different way and participate in the biggest of the big leagues and be part of the show. We were able to do this in part because we rode this enormous wave. If you close your eyes and think back 3 years ago, AI was a novelty. It was sort of a parlor trick. It was something you showed your friends and didn’t use at work. Then it became useful. Now it’s a necessity. In that necessity, speed, latency shapes what we can build, and real-time AI feels like an active collaborator when you’re engaged with it. In AI, speed is productivity. As you know, what we do at Cerebras is deliver the fastest inference speed in the industry.
+
+When you have that speed, AI responds in real time. Users do more with AI. They stay longer, they run more interesting workloads. They solve more interesting problems. Speed makes new markets, and it allows new ideas to flourish. But until recently, there was a trade-off. There was a trade-off between speed and throughput. Everybody wants speed. Nobody says, "Give me something slower." Said differently, if you really want to punish a naughty 12-year-old, don’t take away their phone. Set it to dial-up speed. For a week. This drives good behavior. You had a trade-off. You had a trade-off between smart and fast. If you went fast, you’d go to smaller models, more specialized models. But when speed is no longer a challenge, you can have both speed and intelligence. Then you can move AI to time-sensitive work.
+
+Then you can move it to new parts of the business. All sorts of new things are possible. The underpinning of our performance is our Wafer-Scale Engine. I cannot share with you how many people along this journey told us it would never work. When it worked, they said you could never make it at volume. When we made it at volume, they said you would never package it. Then JP figured out how to package it. Then they said you only had one customer in the government. Then they said after we had a sovereign cloud, they say, "You do not have a hyperscaler." Then we want a hyperscaler. They say, "Oh, you do not have a frontier lab." Now we have a frontier lab. All right?
+
+That is the journey, not just of Cerebras, but for everybody who does work that is not obvious, that is hard, that is challenging. This is at the foundation of our work. The foundation is insufficient. To deliver fast AI right now, you need a chip, you need system and a rack, you need to build massive clusters, and you need software to tie it together seamlessly. A lot of what we are going to be talking about in the next hour and a bit is how we build systems, how those systems tie together into clusters to deliver industry-leading performance and set the new bar. Speed is no longer sort of an infrastructure metric. I want you guys to really think about that. All right. For a long time, it was a benchmark. Look how fast we are.
+
+But right now it shapes how products are built and it changes fundamentally the user experience. AI, as it becomes mainstream, users expect it to feel like the best software they have ever worked with. They expect AI not to be different. It is going to be in the same category as their favorite software tools. They want it to be immediate, fluid, and responsive. When the response arrives before your attention can move, you stay in the problem. All right? You keep building. As an infrastructure builder, when you allow someone to run a software that allows them to build interesting things, you are proud. That is why you build infrastructure. All right? That is why we do this. Okay. Last week, OpenAI announced a first look at GPT-5.6 Sol Ultrafast mode.
+
+Ultrafast is a new service tier that runs OpenAI’s most intelligent models at up to 14 times faster than standard. We are testing this with select customers to start. What this brings the industry for the first time is frontier intelligence instantly. Right? 14x speed removes the speed intelligence trade-off. You can now have both. There is only one place you can get this: frontier intelligence, and instantaneous speed. Customers now complete more useful work per second. Now, I am going to show you a little demo because that is what I want to do. Oh, new slide. Keep the CEO on his toes. Reorder the slide deck. This is a cool slide. On the x-axis, you have speed. On the y-axis, you have intelligence. All right? You want to be up and to the right on both. You want to be smarter and faster, and that puts you up here.
+
+The only thing up here is GPT-5.6-Sol Ultrafast running on Cerebras. In the entire industry, the only thing here. Now I am going to show you a demo. What you are about to see is a speed run of a benchmark called Humanity’s Last Exam. For those of you who worked on a PhD, this will be depressing because it will be fast. This is a leading industry benchmark, okay? It is designed to show graduate-level reasoning. We will be on the left. There are 2,500 questions. We are going to show one to start, then we are going to go to the entire set. Let us go. Okay, we are done. First question. This is the other guys. All right, now they are done. Now what we are going to do is take the entire exam. We are done. It took 11 hours, 11 minutes, and 26 seconds, less than half a day.
+
+The other guys took more than three days. As my old soccer coach could tell you, this is the only thing I have ever been fast at. So I really appreciate the applause. Okay. What I would like to do right now is invite on stage one of the leaders in the leading frontier lab. I would like to invite Thibault on stage. Thibault is head of core products and platforms at OpenAI. We will go through a few questions and hear a little bit about what OpenAI is thinking around AI and ultrafast AI. Thibault?
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Want my water.
+
+Andrew Feldman, CEO and co-founder, Cerebras: It is good to see you.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: It’s good to see you too.
+
+Andrew Feldman, CEO and co-founder, Cerebras: If you ever think you’re having a good year or a good several years, OpenAI success can disabuse you of that fact when you’re growing as fast as any company in the history of capitalism has grown. You’re having a pretty good run. What I understand right now is that you have 15 million people a week running Codex and ChatGPT agents. Awesome numbers. These products have sort of made an enormous impact on us. If you walk around our lab, and I think this is true in most companies now, everybody’s got a GPT screen up. Talk a little bit about your strategy. Tell us a little bit about how things have been evolving and how you think of the landscape.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Sure. First of all, great to be here. It seems like we coordinated on the naming of our models in Supernova, Sol, Supernova.
+
+Andrew Feldman, CEO and co-founder, Cerebras: We are. We’re trying to follow with the celestial theme.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: It seems more coordinated than it is.
+
+Andrew Feldman, CEO and co-founder, Cerebras: That is right.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: I love it.
+
+Andrew Feldman, CEO and co-founder, Cerebras: We are not that coordinated. Have no fear.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: For me, the strategy has been very simple, build the best models, serve them at scale. Recently, we also realized it is all going to be about agents. You have to build the infrastructure to have agents run at scale, run safely, have very aligned models, build delightful interfaces to those agents so that they can do actual work for you. Up until recently, we had these trade-offs where, if you wanted to get something done fast, you had to serve a smaller model, you had to serve it at lower latency.
+
+You always had this decision to make of, "Hey, maybe I want something done now, so I am going to use a Luna size model." Or, "Okay, we can think a little bit more, so we are going to use Sol." What I love with Ultrafast is you kind of don’t have to make that decision anymore. It kind of gives a glimpse of what is to come. I think reducing the cognitive load and just building something that is delightful, just works as fast when it needs to, can also run slower in the background if you don’t need at larger scale.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Yeah. I think that is super exciting, and we are really proud of our partnership. Tell us a little bit about how Ultrafast sort of fits in with your product vision and strategy.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Yeah, we are not there yet, but we would love for Ultrafast to just be the default. I think it is a glimpse of what is to come.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Write that down, investment community.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: It’s like, as you saw in the videos, it’s quite spectacular when you’re in front of it. The first time I demoed it to someone, they were like, "Oh, this must be fake. You just planted some fake data, and show me the back end." I was like, "No, it’s just running on this hardware over there. This is this little awesome company, Cerebras, they build great chips." We’re pushing very hard on reliability. Obviously, this infrastructure that powers a very large chunk of, in the future, a very large chunk of the GDP, must be reliable. We’re pushing on the frontier of how fast we can make it. This requires rethinking the entire approach. It’s not just from the inference. Inference matters, but also the models, how do we train them? How do we think about tool calls?
+
+Where do we see new bottlenecks emerging? We rewrote a large part of a stack for Ultrafast. It was a delightful partnership.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Yeah, that’s really cool when your compute infrastructure is so fast, it pushes the software guys up the stack, and now there’s headroom, and now the hardware can get faster, right? That interplay is really a pleasure.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: When it started to work, the first thing that we did is we gave Ultrafast to the engineers working on making Ultrafast work. Just cranking that loop.
+
+Andrew Feldman, CEO and co-founder, Cerebras: You told me something back there that when your engineers have a really important problem, they will ask for Ultrafast.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Yes. Everyone wants access to Ultrafast. We reserve it for incidents, be it outages or security incidents. We have those just as any other company, and Ultrafast comes in handy. Top priority projects, we always have Ultrafast provisioned for those engineers. Important research efforts as well get Ultrafast. We reserve a lot of our capacity as well for serving it to our customers over the API, so we do not just gobble up all of the Ultrafast capacity for ourselves.
+
+Andrew Feldman, CEO and co-founder, Cerebras: What do you think is going to change in consumer behavior when they get AI at sort of this speed and this intelligence?
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Yeah, it makes you sort of realize that before you were compromising, and you had to switch tasks, or you had to sort of break the illusion that it wasn’t really real-time, and it wasn’t operating at the speed of thought. With these kinds of speeds, and future speeds, this changes, right? You can stay in the loop, stay in the flow. It becomes like this real-time interaction. You can get a lot more done much more quickly, and then every time you switch back to your normal speeds, you’re like, "Oh, wow. I forgot how slow this was.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Yeah. For those of you who remember, right, speed transformed the entertainment industry. We used to go to Blockbuster, and then Netflix delivered, in envelopes, DVDs. When the internet got fast, Netflix didn’t become better at delivering DVDs, they became a movie studio. That speed enabled an entirely new creation of new markets. They ended up buying the movie studio. I think speed, when put in the hands of entrepreneurs and developers, it allows them to create and make new things, not just be faster at the things they’ve been building for a while.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Yeah, we’re excited that it’s on the API because it will enable different kinds of approaches, different types of products that we haven’t yet come up with. Definitely when you’re sort of in the creation, in the flow, it feels like, okay, now you can try something, maybe draw something, and then get a few different proposals in real time. You can sort of explore the space, different designs. You can implement entire variations of backends all in real time. It just feels like a new world is sort of opening up.
+
+Andrew Feldman, CEO and co-founder, Cerebras: One of the things I think OpenAI has been, one of the many things that you guys have been absolutely best in the world at, is sort of imagining the scale that AI could be. You guys were out building Stargate when everybody thought it was laughably big, and now everybody’s saying, "We need it 10 times bigger.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: It is too small.
+
+Andrew Feldman, CEO and co-founder, Cerebras: It is too small. Tell us a little bit about how, educate us, how an organization thinks about scale in the way you guys do.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: I think we just have deep conviction that, and we had deep conviction that the models would get better. At some point, you reach a point where you run the model on the GPU, and it is providing more value than the cost of running it on the GPU. At that point, you want to have all the capacity in the world to just run it. This will continue to be the case. We do not see a slowdown in the level of capabilities that we are able to develop with our models. Every time we have a new generation of models, we are like, well, the utility that we produce on the current compute that we have increases. It already vastly outpaces the costs. This is a thing that we talk about all the time. It is just like, "Can we get more capacity?
+
+Can we get more capacity?" It is like the demand-
+
+Andrew Feldman, CEO and co-founder, Cerebras: They do. They talk about it all the time. Believe him.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: The demand fast outpaces the capacity that we have across our entire fleet. I don’t think there is a reason to believe that that will slow down or change.
+
+Andrew Feldman, CEO and co-founder, Cerebras: All right. Last question. We’re just sort of in the first few months, the first 6 or 8 months of a multi-year partnership, and we announced sort of the frontier model at speed as a first look. As you look forward, what are you most excited about? You’ve got maybe the best view of our industry of anybody.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Yeah. What I’m excited about is it still feels extremely early. Maybe going back to why we were building all of this capacity and why we continue to invest, we are early. If you look at the adoption of, ChatGPT is above 1 billion users right now. But really the fraction of those that use those more sophisticated agentic workflows to help them day to day, those are the numbers that we have published, 15 million. That’s the number we published last week. We’ll probably publish another number end of the week, even more impressive than that. But it’s growing fast, but it’s still a very small fraction.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: of that 1 billion. It feels extremely early. There is sort of this thing right now is you use it, and if you are technical, you are kind of used to it being clunky, but the illusion is not quite perfect yet. You do not yet have this personal AGI in your pocket that knows everything about you, your goals, your schedule for the week. Like anything that is important.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Your tone of voice.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Yes.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Your preferred, I mean-
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Every time I try to write something, I am just like, "Oh, remember my tone of voice." So it is like I have this somewhere in a file in a skill. It is like that is clunky. All of that is going to sort of reduce in something much simpler-
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: safer as well, and readily understandable by everyone in the world. That is going to be something quite different to what we have today.
+
+Andrew Feldman, CEO and co-founder, Cerebras: What an exciting vision. Thibault, thank you so much for the partnership.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Thank you for having me.
+
+Andrew Feldman, CEO and co-founder, Cerebras: For coming on stage and sharing. Ladies and gentlemen, Thibault.
+
+Thibault Imbert, Head of Core Products and Platforms, OpenAI: Thank you.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Okay. We have a little video of what customers think, both inside of OpenAI and elsewhere. Let’s go.
+
+Pavi Bhattar, AI Research Product Lead, Figma: This is the first time I have felt like I was genuinely cheating at my job.
+
+Keith Coley, VP of Engineering, CrowdStrike: When our systems go down, it is like somebody hit the emergency stop on the assembly line. I will tell it to monitor and poll that channel and essentially act as my eyes and ears to do investigation, to determine what the root cause is, to answer other people’s questions as they join the channel.
+
+Silas Alberti, SVP of Research and Founding Engineer, Cognition: There’s an old adage that performance can be a feature because when something becomes fast enough, it changes behavior.
+
+Unidentified speaker: What used to take one to two hours to collect the data, store through the data, normalize the data, and add context to it, rich intelligence to help me and my team make really effective decisions, now that happens within a 10 to 15-minute timeframe. At times it’s near real-time.
+
+Keith Coley, VP of Engineering, CrowdStrike: Using Ultrafast, I’m able to essentially search all of those haystacks all at the same time, which is really incredible, and do so concurrently.
+
+Silas Alberti, SVP of Research and Founding Engineer, Cognition: Now, frankly, Ultrafast is fast enough that I can usually get the same quality of results without splitting my attention.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Once I am in flow and writing code, I feel like I have per unit of time, which is really the constraint, more intelligence on tap.
+
+Pavi Bhattar, AI Research Product Lead, Figma: A quick code-based refactor, it costs almost nothing, and it happens almost instantly. This does mean that we build and ship things quicker, and we can sustain this momentum for much longer as well.
+
+Unidentified speaker: Because it is so quick and so effective, you do not lose the quality of intelligence.
+
+Keith Coley, VP of Engineering, CrowdStrike: We always want the most intelligence at the fastest speed. With Claude 3.6 Ultrafast, we do not have to compromise on either.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Okay. Let’s race forward. While we love our partners in the closed source community, we also are fastest on the full range of open source models, from large to small, U.S., non-U.S. On these, like just about everything we do, we are up to 15 times faster than the competition. One of the things Thibault talked about, and one of the things that is extremely top of mind for us, is the acquisition of data centers. We have data centers rolling in. Here is our data center in Santa Clara. Here is our data center in Toronto, Dallas, Texas, Minneapolis, Minnesota, Montreal. For those of you who are Canadian, I got the little thing over the E. It was pointed out to me twice while giving presentations previously. Oklahoma City.
+
+For those of you who do not know what they look like when you are building them, here is our data center in Alabama that is going up. Here is our data center in Lyon, France, going up. Here is our data center in a part of Norway that I cannot pronounce. Here is our data center in Mikkeli, Finland, one of several that are going up. We now have data centers across North America and Europe. We have brought on 600 megawatts that is online or under contract for delivery by the end of next year. It is a huge effort, and it is just the start. It is not nearly enough, but we have a whole team chasing this every single day. What you put in data centers is much more than a fast AI accelerator. AI is generated by a cluster. It is generated by a combination of equipment, some of ours, and some of others.
+
+What I would like to do right now is invite onto stage someone who has had an extraordinary career. At Cisco, she was, in my view, singularly responsible for the rise of Cisco in the late 1990s into one of the great companies of that era. She ran the Catalyst division, which was Cisco’s monster. She has been CEO of Arista now for I think 14 or 15 years and has led that company to extraordinary success. Please join me in welcoming Jayshree Ullal to the stage.
+
+Jayshree Ullal, CEO, Arista: So good to see you.
+
+Andrew Feldman, CEO and co-founder, Cerebras: How you going, Jayshree?
+
+Jayshree Ullal, CEO, Arista: Congratulations, Andrew.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Well, thank you.
+
+Jayshree Ullal, CEO, Arista: What a great company. What do you guys think? Cerebras?
+
+Andrew Feldman, CEO and co-founder, Cerebras: Okay. First, I began my career in networking, competing against Jayshree, and I would advise against that. For those of you thinking about building switches, do not compete with Jayshree. That is some sort of unhappy stuff.
+
+Jayshree Ullal, CEO, Arista: It is a lot more fun partnering.
+
+Andrew Feldman, CEO and co-founder, Cerebras: It is fun partnering. Look, one thing that has become clear as we think about the AI landscape is the amount of equipment that goes into these clusters and the need for it to be coordinated and work together, that if your network or your fabric cannot deliver the goods, it does not matter how fast your accelerator is, you are going to get bitten. As we think about that, how do you see Arista working with Cerebras to deliver these sort of extraordinary solutions?
+
+Jayshree Ullal, CEO, Arista: Absolutely. First of all, I think you are only as good on the compute side as the network. Imagine if all your Cerebras stuff were idling and waiting for the network, right? I am hoping my network can pay for itself by making your compute much faster. We live in a world of, you talked about 600 megawatts, you are going to go to gigawatts, terawatts. We live in a world of more and more thousands of tokens. We just have to deal with trillions of parameters, but you just cannot do that single-handedly.
+
+Andrew Feldman, CEO and co-founder, Cerebras: That is right.
+
+Jayshree Ullal, CEO, Arista: you or me. It is really about building the best of breed stacked together. Other companies would have you believe that everything is built by one. I think the power of all of us together is far greater than each one alone. It starts at layer one. I am creating my own OSI model here.
+
+Andrew Feldman, CEO and co-founder, Cerebras: No, no. Carry on. Yes, this is-
+
+Jayshree Ullal, CEO, Arista: For those of us who learned the textbook that had seven layers. The physical power and cooling and infrastructure is powerful. I heard you talk about how you are running around trying to find this because compute power cooling is the scarcest commodity, right?
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right now.
+
+Jayshree Ullal, CEO, Arista: If you can get that, you grab that, in any form and shape. Then, of course, there’s the compute accelerators, and nobody does this better than Cerebras from an inference perspective. Of course, there’s a few others we all know about that do some training, but here I’m going to focus on the inference. But to make this all hum, we’ve had to really think about what we do differently with AI than we did in the past with cloud. In cloud, it was easy to just say, "Okay, we’ll just throw a bunch of capacity, do low latency, have lots of bandwidth, and deal with one set of traffic," which was cloud computing. In AI, you really have different forms of traffic. The fidelity is different, the type of traffic is different. The any to any is different.
+
+We had to build different types of traffic to deal with networks, to deal with different classes of frontier models and application agents. I think this whole area, especially of frontier models and agents, is evolving too, because the enterprise has hardly come in yet.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right.
+
+Jayshree Ullal, CEO, Arista: I believe-
+
+Andrew Feldman, CEO and co-founder, Cerebras: That is true. That is a really important point, that the enterprise has been on the sideline to date.
+
+Jayshree Ullal, CEO, Arista: Yeah. We mostly talk about the neo clouds and the hyperscalers, et cetera. But I believe when you are here next time, you are going to be talking about a lot more agents, agentic generative AI, even going into our phones. This is going to be powerful. Behind all of that is, of course, the importance of a network.
+
+Andrew Feldman, CEO and co-founder, Cerebras: I have no questions. Keep going.
+
+Jayshree Ullal, CEO, Arista: Oh, you do not. Given our engineering backgrounds, I like to think in terms of x and y and z axes, right? Frankly, as a student, I was terrible at the third dimension, but it is important. When we think of this and how we work with Cerebras accelerators, we think scale up. How do we connect to as many of your I know you do not build postage stamps, you only build dinner plates, right?
+
+Andrew Feldman, CEO and co-founder, Cerebras: That’s right.
+
+Jayshree Ullal, CEO, Arista: So as much of that to get the greatest radix, whether it’s 64 or 128, how much of that can we connect until we run out of compute capacity and network capacity? Then we go from scale up to scale out. How do we connect these racks together? This is where we come in, and I think we’ve worked very closely together. But there’s another emerging market, which is how do you distribute the compute? You’re never going to get enough just to be in within one surface area. This is where you can have a multi-tenant capacity, multi-tenant engineering, where you can secure different connections of compute in a distributed fashion across distance. This is what we call the scale across, that goes across-
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right
+
+Jayshree Ullal, CEO, Arista: locations.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right.
+
+Jayshree Ullal, CEO, Arista: So that’s a little tutorial in networking from me.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Well, look, I think as we sort of have grown our partnership, Jayshree Ullal supported us when we weren’t buying very much at all, and now we’re buying a fair bit. We appreciate it. We want to say thank you. Maybe by way of final question, what do you see in the next two or three years for the networking industry and for the sort of demands placed on it by this new type of compute?
+
+Jayshree Ullal, CEO, Arista: Well, I think at one level, we’re all going to be pushing the envelope on bandwidth and latency. Just to give you guys a perspective, we were all on 10 gigabit back when you were doing networking for 10 years, right?
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right.
+
+Jayshree Ullal, CEO, Arista: But now we’ve gone from 100 gigabit to 400 to 800.
+
+Andrew Feldman, CEO and co-founder, Cerebras: We won’t tell them that you and I began building fast ethernet switches.
+
+Jayshree Ullal, CEO, Arista: But the rate and pace of throughput and capacity is now every 18 months.
+
+Andrew Feldman, CEO and co-founder, Cerebras: It’s unbelievable.
+
+Jayshree Ullal, CEO, Arista: You’ve got to keep up with your compute and processes, right? In the next three years, I fully see this going in completely wild directions of 3.2 terabits or 6.4. It’s not stopping. When it doesn’t stop like that, you also need the physical connectivity. The rate at which optics or cable or any kind of connections happen at good distances has to also keep up, and that’s a nontrivial challenge when you go at high speeds, whether it’s coherent optics or co-package, or even co-package copper when you stay within a rack.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right.
+
+Jayshree Ullal, CEO, Arista: I think the future of that is very significant. There is one other thing I want to bring up, which comes back to I don’t want any of your processes idling. The biggest challenge going forward will be how do you retain the availability of your compute by building a good network. In other words, suppose these compute cycles go away, or they break down, or somebody pulls out a cable. How do I restore and recover? This is where, while hardware is very important, software has to really help the recovery of this. Smart system upgrade, high availability, level of automation, analytics will be super important in the future as well.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Ladies and gentlemen, Jayshree.
+
+Jayshree Ullal, CEO, Arista: Thank you. Thank you very much, Andrew.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Good to see you.
+
+Jayshree Ullal, CEO, Arista: Thank you.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Thank you so much. Okay. I will say it again. Do not compete against her. Okay. I am going to take 5 minutes right now and show you NVIDIA’s roadmap for the next 5 years. And ours. Okay? Let me explain. The x-axis is tokens per second per user. Okay? This is how fast you experience AI. All right? The y-axis is how many tokens total is delivered through the solution. Right? What that means is it is the number of users that can simultaneously get the speed that is on the x-axis. We call that throughput. Everybody understand? It is really important. Speed per user, number of users times speed per user. All right? Okay. This is the graph for GPUs. They are extraordinary in this domain. This is the graph for us. We are extraordinary in this domain. Okay? Now, this should tell you exactly what the future is.
+
+This is what the roadmap for GPUs will be. This is what our roadmap will be. They will try and get faster without giving up throughput, and we will try and get more throughput without giving up speed. That is the competitive landscape. To this end, there is a solution that can be achieved through partnership. That solution is called disaggregation. By using the GPU to do part of inference, called prefill, and using Cerebras to do part of inference, called decode, you can get 10 times faster than the GPU and 5 times more throughput than Cerebras. This is an extraordinarily compelling solution. I would like to invite to the stage someone who I have admired a great deal in my career. He began his career at IBM, where he worked on the PowerPC and on their first blade servers. Listen to this next part.
+
+He then went to work for Steve Jobs. He reported to Steve Jobs and ran the iPhone business. He then went to AMD, where he was the technical sort of visionary behind a transformation that has produced the company that they are today. I would like to welcome Mark Papermaster to the stage.
+
+Mark Papermaster, CTO, AMD: Hi, Andrew.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Good to see you.
+
+moderator: Great to see you. Congratulations on this-
+
+Andrew Feldman, CEO and co-founder, Cerebras: Thank you.
+
+moderator: incredible event.
+
+Andrew Feldman, CEO and co-founder, Cerebras: One of the things that I forgot to say about Mark is he also is one of the true gentlemen in the industry.
+
+moderator: Oh.
+
+Andrew Feldman, CEO and co-founder, Cerebras: No, really. You should applaud that because there are not many of them.
+
+moderator: Thank you. To you as well.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Okay. Let’s talk a little bit about disaggregated solutions. Why now? Why was now a good time to build disaggregated solutions?
+
+moderator: Well, Andrew, I think it’s really a statement of this inflection point that we are at right now because you think about the massive infrastructure, and you were talking a moment ago about the whole GPU build-out. It’s been so dominated by training.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right.
+
+moderator: It had to get the kind of foundational model capabilities we have. That’s what’s fueling this transition right now because with that kind of capability, people are finding boundless applications that we can run inference on and get real work done. It’s a huge demand for all of us in the industry to figure out how then to accelerate inferencing tokenomics-
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right
+
+moderator: that have to be optimized, helping people get their job done. I think disaggregation is an innovation driven out of necessity.
+
+Andrew Feldman, CEO and co-founder, Cerebras: I think that’s right. I think one of the things we forget was that you make AI smart, you make it with the training.
+
+Once it’s made, once it’s smart, we’ve got to use it.
+
+moderator: There is that.
+
+Andrew Feldman, CEO and co-founder, Cerebras: And we use it with the inference. As that sort of gets more mature, we are able to attack it with specialized solutions.
+
+With solutions in partnership. Tell me a little bit about how you think about the sort of disaggregated solution bringing together the best of both worlds.
+
+moderator: Yeah.
+
+Andrew Feldman, CEO and co-founder, Cerebras: I have a slide here. You have a slide here. Let us see here. How we bring together sort of the best of both worlds.
+
+moderator: Well, that is what we love about this partnership. We know each other well. When this problem really needed to be solved, it was a partnership of two solutions that are better together.
+
+Andrew Feldman, CEO and co-founder, Cerebras: That is right.
+
+moderator: What have we been focused on at AMD? You see it with the Helios Rack coming out at the end of this year. It is a throughput monster.
+
+Andrew Feldman, CEO and co-founder, Cerebras: It is a monster. Here, we could show you. It is a monster.
+
+moderator: Right. It is a 72 GPU rack, super high bandwidth, and it is everything about it in terms of how the CPU, GPU, the networking is all about just incredibly efficient throughput. It is a perfect solution for a broad range of computing. But when you want to also have a low latency response, and we know you guys are really serving the need of these many applications, growing applications that need low latency, then what better solution than disaggregated, where the teams have really worked together to separate out, hidden from the end users, right?
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right.
+
+moderator: To really hide under the covers
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right
+
+moderator: how we send the prefill, where you have got to take a very broad context, and it really demands a parallel computation that the GPUs are perfect at, right? You can get that economic throughput.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right.
+
+moderator: Then when you think about decode, when you are really processing that token throughput and optimizing for ultra-fast response
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right
+
+moderator: and low latency, send that decode to the Wafer Scale Engine, and this combination is a win for everybody. The users get better economics-
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right
+
+moderator: and low latency and that quick response. I think this kind of disaggregated solution is really meeting a market need.
+
+Andrew Feldman, CEO and co-founder, Cerebras: I think that is right. I think one sort of reasonable way to think about the chart I showed you before is that throughput drives economics.
+
+Speed drives user experience. When we can bring them together, we are in this position of sort of you can have both.
+
+moderator: Exactly.
+
+Andrew Feldman, CEO and co-founder, Cerebras: That is enormously powerful. Sean and I have had a lot of fun working with your team, and working with Mark’s teams is always a joy. We appreciate that. You are bringing AI across AMD, and you have lots of parts. Tell us a little bit about how you are doing that.
+
+moderator: Well, it is an extension of what we just said. AI is being used for so many diverse needs, and that is what we focused in our portfolio. It is a Helios Rack at the top of our offering for those toughest, both training and inference and this huge inference throughput that we just talked about. That is our Instinct product line. We have our EPYC product line with high performance CPU servers.
+
+Andrew Feldman, CEO and co-founder, Cerebras: We use those in our cluster.
+
+moderator: That is where we have developed this tight partnership for years between AMD and Cerebras. Then, of course, local AI. When you need to run, we are seeing more and more where we are getting distilled models that can run efficiently locally, often on open-weight models. Then, of course, the adaptive compute and embedded. The way we think about it at AMD is a diverse set of workloads and an open ecosystem. That is central to us. It is a ROCm AI stack that is open, and the ability to bring a diverse set of solutions. More and more, we need innovations exactly like we are, I think, paving the way together with this disaggregated solution of AMD and Cerebras.
+
+Andrew Feldman, CEO and co-founder, Cerebras: This is a really fun partnership. Just to wrap up, Mark came, they had a board meeting this morning. He is racing back to dinner, so we thank him for making time. When you look out into the future as sort of the CTO of AMD, and you think about the compute needs in the future around AI and other, what do you see?
+
+moderator: Well, I use the word, this insatiable demand for more computing.
+
+Andrew Feldman, CEO and co-founder, Cerebras: I know.
+
+moderator: What we see now is the fact that we are still at the early days of AI applications, inferencing applications.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right
+
+moderator: it’s actually scary what that insatiable demand’s going to be. What I see going forward is we need more and more innovations like we’re doing together. I think the algorithms are going to evolve. What we’re going to see is more and more integration of diverse technologies
+
+Andrew Feldman, CEO and co-founder, Cerebras: I think so
+
+moderator: to optimize on today’s algorithms and the algorithms of tomorrow.
+
+Andrew Feldman, CEO and co-founder, Cerebras: I think that’s exactly right. What I tried to think about in sharing with you guys today was that we use AMD CPUs to manage the software that runs on the cluster. We’ve partnered with AMD to build a disaggregated solution. We use Nvidia. Excuse me, we use Nvidia. We test on Nvidia sometimes to see what they’re doing. No. We use Arista to tie everything together. That’s the start of a solution.
+
+moderator: Yes.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Right. Then we are partnering with different software vendors, and we use both closed source and open source models at the top. It is taking a village. Mark, I want to thank you for coming, and thank you so much for-
+
+moderator: Andrew, thank you very much.
+
+Andrew Feldman, CEO and co-founder, Cerebras: Thank you. Appreciate it. Ladies and gentlemen, Mark Papermaster. Okay. Here is our roadmap for the next several years. That is it. Any questions? Right. We are going to get four times faster. We are going to get 20x more throughput. This is what we are going to be doing. Our speed will double every year. In the second half of next year, we will be at 20x the throughput we are today. Now, to tell you a little bit about how this is going to work, you are going to hear from a collection of different people over the next little while. Sean is going to talk a little bit, Jessica is going to talk about. We have some very interesting things for you. But I did want to sort of leave you with this, that this is where we are going as a company. All right? Better user experience, better economics. All right?
+
+That is what we are focused on. Okay, with that, I am going to hand things over to Jessica, and we will go to the next stage. Thank you so much, everybody.
+
+moderator: Please welcome Cerebras SVP of product, Jessica Liu.
+
+Jessica Liu, SVP of Product, Cerebras: Good afternoon, everyone. Andrew has just shared our trajectory to double raw performance every year for the next several years. Now what we are going to do is take all of that speed and accelerate the hell out of AI agents. In the last year, we have already seen Cerebras speed transform all kinds of interactive AI applications. It made AI search instant, it kept developers in the flow while coding, and it made AI voice conversations feel natural. Now with AI agents, we are capable of even more complex tasks. Instead of just giving an agent a question, you can actually give it a goal and trust that it is going to figure out its way to succeeding in the goal you have given it.
+
+The agent can autonomously make a plan, call models, call tools, and it can revise this plan in a loop over and over again until it achieves the outcome that you want. It is actually this thinking and this iteration that makes agents so capable. Underneath the hood, each one of those dozens of calls incurs a latency cost. The smarter your agent, the better your outcome, but the smarter your agent, the longer it also takes for you to get to a result. Now what if you want something faster? Historically, when you want something faster, you would just use a smaller model. Then you can get to your real-time interactive voice agent, and it just means that sometimes Siri is not going to do what you want. On a given time budget on GPUs, you always have to choose.
+
+You can either use a faster, dumber model, or you can use a smarter, slower one. It is not a great trade-off to make, but importantly, it is also a false trade-off. With Cerebras, you can do both. You can have a smart and fast agent. This is why inference speed is so important to agents. When you can run the whole system 15 times faster, you do not end up with a latency debt. You actually get latency credit. You have extra time to spend on using a smarter model on more loops, even while the overall system ends up still running faster. You can do both. Now let us look at a couple of examples. Agents today can already show great outcomes on GPUs. Harvey’s Legal Benchmark completed a whole set of common client tasks in just 22 minutes.
+
+OpenAI used Codex to completely build a design tool from scratch in 25 hours. Cursor ran hundreds of parallel agents and was able to build an entire web browser in under a week. Those are some really impressive results. It is still kind of a long time. Anytime you are spending tens of minutes, tens of hours, or multiple days for something, it is a long time before you get to your response. Think about how much more you could do if you could achieve these same outcomes in 2 minutes, or 2 hours, or a single workday. If your agents could do all these tasks 15 times more quickly, you could do 15 times as many tasks in the same amount of time. You could serve 15 times as many clients. You could complete 15 times as many projects.
+
+You can take the speed and actually simply use it to make working with the agent 15 times more magical of an experience. You can also just use speed as speed. You can have that buttery iteration loop with the agent, even if you are using a large, smart model, instead of waiting 7 minutes to see if the agent even did what you wanted. We can use speed to make agentic work delightful. The best way to see this impact is from real builders who are deploying fast agents to work in the real world today. We have leaders with us from Figma and Cognition who are going to show us what is possible when agents can move at the speed of the people working with them. Please welcome to the stage first with me, Pavi Bhattar, AI Research Product Lead from Figma.
+
+Pavi Bhattar, AI Research Product Lead, Figma: Cool. Thanks, Jessica. You are going to hear fast inference a lot today. I want to spend the next 8 minutes talking about why it matters for a problem space AI has not quite mastered yet, one that pushes on agents in ways code and reasoning do not, design. Hi, everyone. My name is Pavi, and I lead product for Figma’s AI research team. In May of this year, we shipped Figma’s Design Agent, an agent that knows your canvas, knows Figma, and works right alongside of you. Let us meet the agent. There was so much that we thought about when exploring this idea. Next, I want to touch on a particular philosophy that went into building this agent. AI should adapt to your workflows. Some of our favorite tools today are where the interface melts away and you can focus on doing actual work.
+
+They are embedded into your workflow in seamless ways but appear when you need it the most. When we set out to build this agent, we knew designers needed purpose-built tools that served the essentials. As teams adopted agentic tools to build products more quickly, false choices were emerging, speed or precision, AI generation or direct manipulation. You should not have to choose. We needed to create an agent fluent in Figma and native to the ways teams work. We also knew that design is not a linear process. You start with an idea, build some prototype, hate it, throw it out, try it again. The design process is rooted in exploration, feedback, and refinement. We have built this brilliant multiplayer canvas that supports the messy middle of a very messy process. That is our product. Many of our AI tools today have started shifting that experience.
+
+Designers are used to getting an open canvas with lots of exploration, getting divergent ideas very quickly. But AI tools today focus on helping you get the highest fidelity functionality and really zero in on a singular idea. Designers are used to collaborating and riffing out in the open together. But the AI tools have created silos where the work is stuck on one person’s computer, and it is hard to share ideas really quickly, riff, and be inspired by one another. We at Figma don’t think it should be one way or another. There is room for all of it at different times, and that is exactly what we wanted to build. An AI collaborator that can help you when you need it and is embedded into your workflows. Unlike the MCP server, the agent lives directly on the multiplayer canvas. No separate setup or context switching required.
+
+All right. Let’s dive into the technical details. The bar for a design agent is fundamentally different than most coding agents. If I ask a coding agent to write a function, there is a right answer. It compiles or it doesn’t. It passes unit tests or it doesn’t. If I ask a design agent to make this feel more premium, there is no compile step. There is no unit test. The answer is right when a designer looks and says, "Yeah, that’s what I meant." When evaluating design, it is also subjective. What looks good varies by viewer, brand, and audience. Second, it is multidimensional. A design can have the perfect alignment but terrible color contrast or brilliant typography in the wrong hierarchy. Third, it is task dependent. A social media post and a pitch deck have different quality bars. Lastly, it is contextual.
+
+The same design can be great for one audience and wrong for another. Design quality resists reduction to a single metric. It is a bundle of competing signals, and the challenge is turning that bundle of soft judgments into something we can measure and hill climb in our research team. Also, as I mentioned, design not being a non-verifiable domain, it also has no ground too, and the ground keeps changing. What is great in design today might not be great tomorrow, and that is exactly what makes this such a difficult area for our research team to work on. So we decided to help solve this problem by building our own model, specifically a model fine-tuned for editing Figma files. That meant making Figma itself legible to model in ways that aren’t possible with third-party tools, with deep context of your designs, your team standards, and your best practices.
+
+This model helps power our agent. Which brings me to why Figma is uniquely positioned to build our own in-house custom model. While foundational models are getting better every day, they often still lack the ability to judge design quality in a reliable way. They might still have biases towards certain stylistic patterns, and we can build a specialized model just for design. Second, we have the corpus. Off-the-shelf models tend to also want to generate the average of their weights, so need to be steered. We have the data and context that allows for this to happen. For the past decade, Figma has watched billions of designs get built layer by layer as the world’s designers work at their craft in our products. Lastly, we have the canvas.
+
+One of our beta users put it perfectly and I quote, "I’m just happy that the agent is an environment I know and love versus having to go somewhere else with MCPs and figure out how to link it together." Last but not least, with inference hardware from Cerebras, speed can become our strategy. We can build an agent in your canvas that is cheaper, faster, specialized for the ways designers actually work. Why exactly is speed so important for agentic design? Firstly, design agents are call heavy. Earlier, I talked about how design is a messy, complicated process. The messy squiggle wasn’t just a metaphor for human design. It’s also the architecture of the agent. Slow inference forces the agent to flatten that process into generation instead of designing. Fast inference lets the agent preserve the loop, and those loops are where design quality comes from.
+
+Second, you can do more in less time with fast inference. Design is full of tedious work. None really hard on your own, but together they can eat at the day. When the agent makes those instant, we’re not saving seconds. We are returning the day so designers can get back to the fun part of design. Last but not least, designers work in loops of seconds. Every extra second between try and see a big sum from that loop. Fast inference keeps you in the flow. No more context switching. That’s the difference between AI as a tool and AI as the way you work. Working with Cerebras hasn’t just been an optimization for us. It is what helps make this product possible. Figma Agent is available in beta today and will GA soon.
+
+This is a really fun way to design and collaborate, and it’s cheaper, faster, and easier than anything ever seen before. Thank you all.
+
+moderator: Please welcome Cognition SVP of Research and Founding Engineer, Silas Alberti.
+
+Silas Alberti, SVP of Research and Founding Engineer, Cognition: Hey, what’s up? I’m Silas, and I’m super excited to be here. I’m going to talk to you a little bit about how Cognition and Cerebras have collaborated on building super fast coding agents. Also, I’m going to highlight some of our research that powers this behind the scenes. First of all, Devin. Do you remember Devin? We have these billboards in the city. This is Devin, our product suite, and we’re mainly known for Devin Cloud, which in 2024 was the world’s first self-engineering agent. Especially in the last 6 months, people have gotten really on the cloud agent train and running hundreds of agents in parallel, agents for hours at a time. But we have way more than that. Our product suite covers the entire software engineering life cycle. We have Devin Wiki for understanding and planning code bases.
+
+We have Devin Review for reviewing code and stuff like Devin Automation, so maintaining code. All of this is possible due to the incredible advances in AI models. We at Cognition use a mix of models. We use frontier models like OpenAI and Anthropic, but we’ve also increasingly invested in training our own models, and I’m going to talk to you a little bit about that today. Two of our model training projects and how we’re able to run them at lightning speeds using Cerebras. The first project I want to talk about has a special place in my heart. It’s SuiGrab, and it’s actually almost a year old, which is an eternity in AI era.
+
+The cool thing about it is it was actually the first model that Cognition and Cerebras launched together, and also one of the first models that our model training team built. At the time, we had much less compute than we have today, so we had to really pick our problems well. We noticed that coding agents spent a long time even just finding the right files in the code base to edit again and again. So we thought, "Okay, how can we make that super fast?" So we trained a small model precisely on this code base search task. Imagine you give the model a question. For example, here, how does Visual Studio Code efficiently implement file watching? Then the model’s task is to explore the code base and return just the list of files that are relevant to this question.
+
+For an RL researcher, this is incredible task because it’s verifiable, right? There’s an objective list of files that are relevant, and you can just grade, did it find the correct files? So we went and trained a model. So here on this code search eval that we built for this code base search task. Our models SuiGrab and SuiGrab Mini, as you see, performed on par or better than the frontier models at the time. It’s kind of crazy how much happened in a year, but at the time, Sonnet 4.5 was the best model on the market. Then we put this model on Cerebras, and it ran at incredible speeds. So here you see SuiGrab at the time ran at 680 tokens per second, and SuiGrab Mini even at 2,800 tokens per second. So more than 10 times faster than any other model.
+
+We optimized not just the tokens per second, but also really the end-to-end time that the agent took to complete the task, which also meant doing more things in parallel. Also at the time, Sonnet 4.5 was the first model to do parallel tool calls, and most models would still do one tool call at a time. We thought for SuiGrab, "Okay, how can we push this further and push the model to do five, six, seven, or even eight tool calls and searches in parallel?" Here you can see some of the graphs from our training run. On the right side, you see the training reward went nicely, beautifully up over the course of the run.
+
+The cool thing in terms of parallel tool calling is that at the beginning of the training run, the model would maybe do three tool calls in parallel max, and then through our training it goes up, and at the end it does many tool calls in parallel. This really pays off. What we basically did is we deployed SuiGrab into our product, together with Claude as the main agent. You have to imagine, the user asks a question to Claude, and then Claude can call SuiGrab as a tool to search the code base. Based on the results, Claude will give the final answer. What this means is there’s no compromise in terms of the quality of the answer, but you save a lot in end-to-end latency.
+
+Interestingly, as you see here, in some cases, maybe for this question, you would get a 2X, 3X, even 4X speed up in terms of end-to-end latency for the same quality of answer. After SuiGrab, we became more ambitious and said, "Okay, now let’s start training real frontier coding models." Here you see one of our charts that we released a while ago. This is Sui 1.5, a couple of months after SuiGrab, and it was the first frontier coding model that we deployed on Cerebras. I think you’ve seen graphs like this already earlier today, but it’s just incredible the speed to quality trade-off. You basically get quality in SUI ’24 that’s equivalent to the contemporaneous frontier models, but speeds that are more than five times faster than anything else. We’ve continued investing into this.
+
+This is a more recent result on our in-house coding eval FrontierCode 1.1. Our latest model, Sui 1.7, performs in terms of quality on par with GPT-5.5 in Opus Open Ed. You not only can run it at close to 1,000 tokens per second, but it’s also a lot more cost efficient. What you see here is actually a cost versus quality trade-off chart. Swarm 1.7 is the same cost and scale as like a Qwen 2.7, a Composer 2.5, or a GLM-5.2, but achieves close to frontier in quality on the eval. To recap our phenomenal collaboration with Cerebras, we’re able to serve frontier models at close to 1,000 tokens per second. We’re serving small models like SuiGrab at multiple thousands of tokens per second, and are able to achieve a four times speed up in end-to-end task completion.
+
+This is just the beginning. Much more to come, thank you so much for having me.
+
+moderator: Please welcome Cerebras SVP of product, Angela Young.
+
+Angela Young, SVP of Product, Cerebras: Hello, San Francisco. I am Angela Young, SVP of product here at Cerebras. The next competitive advantage in AI is not bigger models. It is time. For many years, we have asked the question: how smart can these models get? These models are already smart enough today to impact our daily lives and to make decisions in our businesses. No matter how smart a model is, it does not matter unless the answer is delivered in enough time to change an outcome. Every application, every mission-critical system, has a time budget. That budget could be a few hours, it could be a few minutes, or it could be milliseconds. You can think of it as a window. Within the window, an answer is useful. The answer can still influence what happens, it can shape a decision, it can change an outcome.
+
+If an answer arrives too late, it does not matter how correct that answer is. It is no longer useful, the value of that answer drops to zero. Let us take some examples from our everyday lives. Priority Uber, same-day shipping from Amazon, and Disney FastPass. If my Uber arrives too late and I miss my flight, it is game over, even if it got me to the right destination. So we buy time back. AI is no different. Every AI application also has a time budget. Once the useful window for that application is understood, the business value of fast inference becomes very clear. Take Armis. Armis is a company that runs a code scanning service. It looks for security vulnerabilities inside code.
+
+Powered by Cerebras, Armis completed a code security scan in roughly one-third the time, beating benchmark frontier models in finding more vulnerabilities, and at a fraction of the cost. That is not just a faster code scanner. That is a better product. It is a product that customers are willing to pay for. It is a perfect example of when speed, quality, and cost come together, you get an unbeatable product. In many cases, the clock is not negotiable. In payments, we have 50 milliseconds to accept or decline a transaction. In voice operations, 200 milliseconds before the human hangs up on an AI agent. In cybersecurity, 27 seconds is the fastest breakout adversary attack recorded on record, and it is getting faster every year. Let us think about that for a second. 27 seconds to prevent a company-wide data breach.
+
+The smartest answer that arrives after those 27 seconds has no value, because the decision window has closed. That is why our partnership with CrowdStrike is so important. Cybersecurity is a perfect example of an industry where speed is mission-critical, and frontier models only matter if the decisions show up in time. Please welcome on stage Keith Coley, VP of Engineering at CrowdStrike.
+
+Keith Coley, VP of Engineering, CrowdStrike: Thank you, Angela. Great to be here. Excited to talk about the partnership. Unifying security and AI. To tell you about the partnership, I really have to go back about 17 years. Bear with me, grab a drink, relax. It really starts with the founding of CrowdStrike, and that was actually on a plane. 17 years ago, our CEO and founder, George Kurtz, is on an airplane. He just took over the role of CTO of a very large computer security company. He sees another passenger turn on their laptop. They go into something known as a mandatory boot scan. If you are too young to remember that, it was awful. It was a 15-minute process that you had to wait as your computer scanned every single file before you were allowed to do anything.
+
+He notices that and says, "Well, this is not going to work for very long. People are going to come. This is prime for disruption." That led to the birth of CrowdStrike. A couple of years later, George creates CrowdStrike. In our industry, time is measured in milliseconds. Your success and failure can be between milliseconds. Thinking about real-world examples, if you have a lock on your door, you can open it in a couple of seconds. That is an acceptable trade-off, right? Keeps your house secure. Little bit of friction. Not a big deal. If that lock took 5 minutes, you probably are not going to use the lock. You are going to find a reason to say, "It is fine. I do not really need this lock.
+
+It’s too much of a pain." It leads to poor security hygiene, and that’s the same thing when you think about security and especially AI security. With computers, the frustrating experience leads to bad outcomes. With that in mind, if we start from the baseline of an acceptable window to perform inspection, what can you do when you need more time? The answer is you need faster inference, and that’s where Cerebras comes in. With fast inference, you get 5 to 10 times more inspection inside the same acceptable window of time. What does that unlock? It lowers friction. It increases adoption of security. It increases the indicators, the telemetry coming in, so we can correlate indicators of attack, indicators of compromise. Better security leads to more AI adoption, and when AI is adopted properly with security, now you’ve realized the true value of AI at scale.
+
+With that in mind, the metric that matters here for us is actually time to decision. It’s how long it takes to decide, should I allow this action or not? Should I warn about this action? Should I prevent this action? Less friction, more security enabled at all the layers. That’s why I’m so excited about this partnership. In just a few years, we’ve seen AI create a sea change across the behaviors in the entire industry, but it’s still just the tip of the iceberg for what has real potential. We think one of the biggest factors slowing AI adoption is the general anxiety around the security and safety of AI and agents. The key to getting past these concerns is faster inference, being able to do more detection, response, and decision quickly.
+
+That enables you to have low-friction adoption across the entire stack, and security enabled across all your assets. And that’s why we’re so excited to partner with Cerebras. Thank you.
+
+moderator: Please welcome Cerebras CTO and co-founder, Sean Lee.
+
+Sean Lee, CTO and co-founder, Cerebras: Hi, everyone. Thank you so much for being here today. When we started Cerebras, we had a vision to drastically change the landscape of compute for AI, and we did that by building the world’s first and only Wafer-Scale Engine chip. This is a really big deal because we solved a fundamental problem that was limiting the entire semiconductor industry for decades. This was only possible because we co-designed a system architecture for wafer scale, a system that could power and that could cool a chip the size of a wafer. This is our first-generation wafer scale system architecture. This is the system architecture on which our current product is based, and this is the architecture that brought ultrafast inference to the world.
+
+It was co-designed for wafer scale from day one, and it has served our first three generations of products, the CS-1, the CS-2, and our current generation, CS-3. It is a 16 RU server that sits in a standard data center rack, and today is deployed at scale at our customers worldwide, running production workloads every single day. Over the last few years, we as an industry, we have learned a lot. We have all learned that scaling AI inference is no longer just a server-level problem. In fact, it is a rack scale problem. It is a cluster scale problem. It is a data center-level problem. We have all learned that to really take AI inference to the next level, we need more performance. We need faster interconnects, and we need greater scale. This is exactly what we designed our next-generation system to solve.
+
+moderator: Introducing CS-4. Faster, simpler, and more powerful than any previous system. One power rack. Three compact backpacks with a Wafer-Scale Engine in each one. Adaptable to diverse data center environments. Architected to support future generations of wafer scale compute. Optimized for automated manufacturing and deployment at scale. A revolutionary system built to deploy the fastest AI across hyperscale data centers, powering the next generation of ultrafast inference. This is CS-4.
+
+Sean Lee, CTO and co-founder, Cerebras: This is CS-4. The CS-4 is our next-generation system that will push the frontier of ultrafast inference to the next level. Because with CS-4, the fastest gets even faster by providing up to 2 times faster tokens. The CS-4 was built for hyperscale, providing solutions that can provide up to 10 times more tokens per watt. Remember, today our current generation, CS-3, is already running up to 15 times faster than GPUs. The CS-4 will be 2 times even faster than that. Let me show you what that looks like. I am going to ask a model to perform a task. I am going to ask it to create an HTML file for the periodic table of all the elements. This might be something that you or your agent might ask a model to do when you are creating a webpage.
+
+We have our next generation CS-4 on the left, we have our current generation in the middle, and we have GPUs on the right. Before I press Enter, watch really carefully because you might miss it. Because CS-4 is done, and now CS-3 is done, and we are waiting on the GPU. Still waiting. It’s still going in the background. I won’t make you guys wait through all this. It is painfully slow. What you notice right off the bat is that our current generation, CS-3, is blazingly fast at over 2,300 tokens per second. But what’s crazy is that next to the next generation, CS-4, it actually felt slow. Our current generation has enabled Cerebras to already be the undisputed leader in ultra-fast inference. With CS-4, we will widen that gap and we will push the frontier even further.
+
+By the way, this is still going. This is possible because the CS-4 was designed from ground up to run faster and larger models with up to 2 times more performance per wafer and 3 times more density per rack. The CS-4 was designed from ground up for heterogeneous disaggregation by adding 2 times higher IO bandwidth and 2 times faster latency. Lastly, the CS-4 was designed from ground up for hyperscale, with 50% fewer components and up to 3 times faster data center deployments. The way we did this is with a brand-new rack scale platform architecture that we call Nexus. With the Nexus rack scale platform, we designed it for modularity so that it could be simpler to build, faster to deploy, and it is modular, so we can innovate across power, compute, and IO all independently.
+
+In the Nexus rack scale platform, in the front of the rack is the power, and this is done with modular power supplies. In the back of the rack, what you’ll see is what we call pluggable backpacks. There are 3 of them in the back of the Nexus platform. Each one contains one Wafer-Scale Engine. If we look at the backpack, what you’ll see is something that looks a little bit unique. The CS-4 backpack is the completely reimagined server. This is now the fastest AI server in the world. The backpack is a vertical modular enclosure that provides all of the power, the cooling, and the IO to the wafer. We’ve designed it specifically to be simpler than our current generation so that it can be manufactured more efficiently with 50% fewer components and 60% more manufacturing automation.
+
+What’s more is that this entire backpack architecture was conceived for more rapid data center deployment. Because we can deploy the front of the rack, all of the power supplies up front in the data center, and then we can just drop in the pluggable backpacks on site. This allows up to 3 times faster data center deployments, bringing deployment times down from days to hours. Let’s zoom into the backpack. I love this picture. This is where the wafer scale magic happens. Because inside the CS-4 backpack, we have a brand-new wafer package that has a brand-new direct vertical power delivery system that provides 2 times more power and 2 times more cooling to the wafer.
+
+Additionally, we also have a brand-new Wafer IO module that has 2 times more IO bandwidth and 2 times faster latency, and it was designed to be modular to support future upgrades as networking standards evolve. If we pull this all together, what you see is that the CS-4 system delivers 6 times higher system-level performance than our current generation. 6 times higher performance. This is possible because the CS-4 is the first system to use our faster Wafer-Scale Engine called the WSE-3 Turbo. The CS-4 is the first system to integrate 3 wafers into a single system. With these wafers, the CS-4 has 6 times more memory bandwidth, 6 times more compute, 6 times more fabric bandwidth, 6 times more IO bandwidth at half the latency. All of it enabled with a brand-new system architecture. These are some truly mind-boggling performance numbers.
+
+But in inference, the number that matters the most is memory bandwidth. The WSE-3 Turbo chip in the CS-4 system, each wafer, each chip has 43 petabytes per second of memory bandwidth. That is 2,000 times more memory bandwidth than Rubin. 2,000 times more memory bandwidth than NVIDIA’s next-generation GPU. The reason why this matters is because in inference, all of the model weights need to be read from memory over and over for every single output. On GPUs, the weights are stored off-chip. They are stored in a separate memory device called HBM, and they need to traverse this very thin and narrow memory bus to reach the compute. Cerebras, on the other hand, because our chip is so massive, we can fit all the model weights in the on-chip memory, and we can pair it with a ton of compute.
+
+By doing so, we completely remove the memory bandwidth bottleneck. In the GPU world, they try really hard to work around this memory bandwidth limitation. The way they do that is they take the model and they try to distribute it across multiple chips. They take the model experts and they distribute it across multiple GPUs using many forms of parallelism, tensor parallelism, expert parallelism, all in an attempt to aggregate the memory bandwidth from multiple chips by accessing them in parallel. But that is super complicated, and it has a tremendous amount of performance overhead because there is so much complicated communication between all of these chips. It is because in the end, it is just one problem that needs to be brought back together. So the result is actually slower performance, but not just that, it is higher power, it is higher cost.
+
+On Cerebras, on the other hand, because we have so much memory bandwidth, we can run all of the model experts on a single chip. All the experts are interleaved on the wafer memory. There is no cross-chip communication. There is no complex routing. All you get is ultra-fast performance because it is simple and efficient. All of that complexity on the GPUs, this is what all of that complexity looks like physically. This is a Rubin NVL72 rack, and if you look under the covers, what you will see is that you will see thousands and thousands of cables. What a mess. What is really funny is that NVIDIA would have you believe that this is a really good thing, right?
+
+They proudly talk about how they have 5,000 cables in every single rack connecting together all their GPUs, and they can provide more bandwidth in the entire internet running through these cables. That is a good thing? Really? I mean, how much do these cables cost in terms of performance overhead, in terms of power, in terms of actual USD cost, in terms of reliability of communication? On Cerebras, all of the communication in that cable set is done on the wafer. All of the communication is done with no cables because it is all on-chip. What is more is that on the wafer, we have 200 times more communication bandwidth than all of those cables combined, because it is all on-chip. Now, what happens when you have to go off-chip? To go off-chip in the CS-4, we designed a brand-new next generation wafer I/O interface.
+
+This has a new wafer I/O module that extends the fabric from the edges of the wafer, and it is designed to be modular and programmable so that we can extend it in the future as networking standards evolve. Here, we have actually taken a page out of the chiplet playbook. By separating the I/O from the compute silicon, we can innovate on each independently. We have higher bandwidth, and we have lower latency because we have a brand-new direct wafer link interface. This new wafer I/O module continues our commitment to standards-based networking with RoCE RDMA over Ethernet. With this new wafer I/O module, we can run the wafer links faster, which gives us 2 times more bandwidth per wafer, 2.4 terabits per second compared to 1.2 terabits in our current generation.
+
+This new wafer module, wafer I/O module also has a brand-new low latency packet processing pipeline that gives us 1.7 times faster latency through the network, down to 3 microseconds from 5 microseconds in our current generation. Lastly, the new wafer I/O module has brand-new direct wafer links, which lets us connect wafers directly to one another, bypassing the traditional network. This improves wafer-to-wafer latency by 2.5x and brings the latency down to a mere 2 microseconds. Now, why is all this important? To understand why the wafer I/O performance is important, we need to look at how it is used to run large models across multiple wafers. To do that, let me first start with our current generation CS-3. Today, our current generation in production, CS-3, already runs the largest frontier models, and it runs it really fast.
+
+GPT-5.6 Sol, as an example, today already runs on our current generation CS-3 at Ultrafast speeds. GPT-5.6 Sol is OpenAI’s leading, largest, most intelligent model already running on our current generation. Now, how do we do that? It is actually pretty simple. We do this by mapping the model as a pipeline onto the wafers. This mapping is very natural because it maps to the model architecture directly, making it seamless and fast, because we can keep all of the high communication bandwidth on the wafer, where we have all of that memory bandwidth, where we have all of that fabric bandwidth. We are only transmitting activations between wafers.
+
+Now you are starting to see why the CS-4’s I/O is important, because we can already run the largest frontier models on our current generation, but with CS-4’s higher performance and lower latency, we will be able to run even larger models of the future. Here is a graph that shows the wafer-to-wafer I/O latency versus the model size. On the X-axis is the model size in trillions of parameters. On the Y-axis is the total I/O latency across that entire wafer pipeline, all added up, all combined. This line is the CS-3. This is CS-4. 2.5 times faster with 2.5 times lower latency because of the new I/O module. What you can see is that even 10 trillion parameter models have a mere 0.2 milliseconds of I/O latency aggregate across the entire pipeline of wafers. 0.2 milliseconds. That is just a fraction of a millisecond.
+
+Recall that if the entire round trip latency is 1 millisecond, that equals 1,000 tokens per second of generation performance. What this means is that even 10 trillion parameter models can run at 1,000 tokens per second, and the I/O is not the bottleneck. What is more is that all of these numbers do not even include speculative decode. This will push even higher performance numbers. This means that with CS-4’s advanced I/O, we will enable sub-millisecond latency or more than 1,000 tokens per second on frontier models with 10 trillion parameters or even more in the future. All because of our optimized wafer-to-wafer I/O latency. I/O is important beyond just wafer-to-wafer I/O communication. In fact, we designed CS-4 so that it can connect to other hardware infrastructures. We designed CS-4 for disaggregated inference.
+
+At Cerebras, we believe very strongly in a disaggregated, heterogeneous ecosystem where the user can choose the best hardware for the job. This is the reason that we have hardware partnerships with AMD and with AWS to bring disaggregated solutions to the market. To understand why disaggregation is valuable, let me show you how it works. Inference has two parts. The first is called prefill. This is when the model is processing the user’s inputs. The second part is called decode. This is when the model is generating the output. What is actually happening under the covers is that during prefill, the model is processing all of those inputs, and it is trying to make sense of it by creating an internal representation of what it all means. We call this the context.
+
+This context is really, really important because the context is what is used during decode to generate output. Because during decode, the model takes that context and generates output one token at a time. While it is generating output one token at a time, it is extending that context until the end of the output. Now, if we step back a little bit and we look at what is actually happening in each of these phases, you can see that their properties are very different. First of all, during prefill, since the model knows all of the input upfront, it can process all of those tokens in parallel. This means that it can reuse the model weights over and over and over, and as a consequence, it has very low memory bandwidth requirements. Decode, on the other hand, is completely different. It is completely opposite.
+
+Because during decode, every single output requires reading all of those model weights from memory over and over and over. Decode, because of its serial nature, requires significantly higher memory bandwidth. Cerebras can run both prefill and decode, but as we all saw, Cerebras runs decode ultrafast. Similarly, the GPU can run both prefill and decode, but GPUs run decode slowly. Since prefill doesn’t need high memory bandwidth, it can be offloaded to the GPUs. Since decode needs high memory bandwidth, it can be offloaded to Cerebras, and we get the best of both worlds. This is the value and the power of disaggregated inference, the best hardware for the job. Efficient prefill on GPUs, and the fastest decode on Cerebras. But remember that context. That context that was generated by the prefill, but is used by decode.
+
+Well, when everything is running on the same hardware, that context can be generated locally and used locally. But in disaggregated inference, it needs to transfer from the GPU to Cerebras, and the time to transfer that context directly impacts your TTFT because the decode can’t start until it has all of the context. For very large models today, that context could be tens of gigabytes in size. That’s like transferring multiple HD movies’ worth of data on every single request. Now you see why the CS-4 IO is important, because with 2 times higher wafer bandwidth, with 2 times faster latency, we directly reduce the transfer time, which directly reduces the TTFT and improves throughput. What I just explained is a very common form of disaggregation called prefill-decode disaggregation. But it turns out there’s many other forms of disaggregation.
+
+For example, attention FFN disaggregation, and there’s many other forms that are being invented every single day. When we designed the CS-4, we anticipated this. So we designed the CS-4 IO module to be a programmable, universal disaggregation interface. So that it’s designed to support all forms of disaggregation and provide a flexible integration point with all other hardware. We do this in 2 ways. The first is our commitment to standards-based networking for universal compatibility. The second is by making the module programmable, we support future protocol extensions as networking standards evolve. Now let’s pull together everything that we just talked about today. Let’s look at the throughput interactivity landscape today. We’re very familiar with this graph now, right? GPUs can run at high throughput, but they’re slow. This is our current generation CS-3, up to 15 times faster than GPUs.
+
+This is what invented the ultrafast segment. But with CS-4, we are pushing this frontier even further by providing up to 2 times faster tokens and providing solutions that can provide up to 10 times more token capacity. With the CS-4, we are forging a brand new frontier for ultrafast inference. The CS-4 is where the fastest gets even faster, and it’s built for hyperscale. Now, let me show you what this looks like in terms of. Sorry, there’s a little bit of IT issues up here. Let me show you what’s going on here across multiple different models. This is our production performance today across many different models. Small models like Gemma, to medium-sized models like GLM and Qwen, all the way to the largest, most intelligent frontier models like GPT-5.6 Sol.
+
+Now, this is the CS-3 performance today with our current generation product, where we are already up to 15 times faster than GPUs. This is CS-4. Up to 30 times faster than GPU solutions. This level of performance is transformative because it will completely transform user experience. Up to 30 times faster tokens means significantly more interactive, engaging applications. It means offline applications now can become interactive. It will completely transform our agents because up to 30 times faster tokens means 30 times more reasoning, means 30 times more agentic calls. The CS-4 enables a new era of more capable and more intelligent agents. It is built for hyperscale, with higher performance and higher density, faster manufacturing, faster to deploy, so that we can bring more ultrafast tokens to the world. Because with less power per token, it means you can get more tokens per data center.
+
+With less cost per token, you can get more profitable data centers. This is transformative. It is available now. The Cerebras next generation CS-4 is in early access right now and will be generally available later this quarter. We are not done yet because we designed the Nexus rack scale platform architecture from day one for multiple generations of products, from CS-4 to CS-5 and CS-6. This is enabled by the modular design that allows us to independently innovate on power, compute, and IO rapidly. This is what enabled us to co-design the system architecture with our next Wafer Scale Engine, which will be in the CS-5 in 2027. Our brand new Nexus rack scale platform architecture is the foundation of our roadmap commitment for 2 times more speed every single year.
+
+This rack scale platform architecture is the foundation for our roadmap commitment to provide solutions with up to 20 times higher throughput by 2027. With this level of performance and this scale, we can provide ultrafast inference to everyone, to more customers, to more developers, to more users, to all of you. I personally believe that we are just scratching the surface. I am so excited for the future of ultrafast inference. Thank you very much.
+
+moderator: Please welcome Cerebras Chief Marketing Officer, Julie Shin Choi.
+
+Sean Lee, CTO and co-founder, Cerebras: Hello, hello. How’s everyone doing? All right. I’m Julie. I’m the Chief Marketer here at Cerebras, and on behalf of our team, thank you so much for being the best crowd ever. Wafer and I appreciate you so much. Okay? Today, we had a lot of announcements, but the main takeaway here is that Cerebras, we live to serve the fastest AI for each of you, right? We’re partnering with the absolute best customers, companies, developers, partners in the world, and we want to bring the fastest AI tokens to each of you ASAP. Who here wants to build with CS-4? Can I see a raise of hands? Make some noise, guys. Make some noise. I got to hear it. I got to hear it. I got to hear it. Woo! Okay, we want speed. We want speed. Okay. We’re going to work on that.
+
+After Tebho left, I stopped him. He’s in a rush because he has to go back to work at OpenAI down the street. Tebho and I had a conversation, and Tebho’s like, "Julie, I really love the crowd there. The vibes were just insane, and we need to do more." I said, "Tebho, I think we need to just give these people, we need to just help them fly." We’re going to work on ways to open up more and more of this amazing frontier level speed for all of you. Folks that came to Supernova, we’ll be sending you special ways to get on early access lists and just keep us honest. All right? Okay, a little bit of logistics. After this, no more talking. This room is going to be turned into a party space. The Midway is very famous.
+
+This is known for a good sound system, and the floor here is known for dancing. We have some amazing musical talent coming this evening. We’ll come back here at 7:30 to listen to DJs including Lucy Guo, an amazing technical founder and very talented musician. Everyone exit here after I leave this stage, go through those doors, and then we have plenty of demos from DeepMind, Cognition, CrowdStrike, AMD, OpenAI, us, everyone. We have demos. Go check those out, get some food, and then go to Cafe Compute and make a new friend, okay? Cerebras is here to answer all your questions about fast inference, so don’t be a stranger. All right, let’s have some fun. I’ll see you back in here at 7:30.

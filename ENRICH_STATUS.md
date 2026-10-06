@@ -1,16 +1,19 @@
 # Enrichment status board
 
-Generated 2026-10-05 02:45 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-06 05:47 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
 ## Run next
 
-1. **`enrich korea`** — 1 fetched file(s) waiting to be enriched (1 call); 1 have no DART filing enriched (backfill with `dart.py fetch`): Kostek Systems
-2. **`enrich taiwan`** — 1 fetched file(s) waiting to be enriched (1 call)
-3. **`enrich europe`** — 1 fetched file(s) waiting to be enriched (1 call)
+1. **`enrich us`** — 2 never had a call enriched (fetch with defeatbeta, mark the ones with none): Eikon Therapeutics, Generate Biomedicines
+2. **`enrich korea`** — 8 fetched file(s) waiting to be enriched (1 call, 7 IR release); 1 have no DART filing enriched (backfill with `dart.py fetch`): Kostek Systems
+3. **`enrich taiwan`** — 9 fetched file(s) waiting to be enriched (8 IR release, 1 call)
+4. **`enrich japan`** — 270 fetched file(s) waiting to be enriched (261 EDINET report, 9 IR release)
+5. **`enrich europe`** — 7 fetched file(s) waiting to be enriched (1 conference, 1 call, 5 IR release)
+6. **`enrich china`** — 2 fetched file(s) waiting to be enriched (1 conference, 1 IR release)
 
-Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-04 (376 feeds); conference listing walked 2026-10-04.
+Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-06 (387 feeds); conference listing walked 2026-10-05.
 Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 ## Needs a decision or setup
@@ -76,19 +79,30 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 - **Question for the user — Shin-Etsu Handotai:** UMC's 20-F (and Soitec's call) name Shin-Etsu Handotai (SEH) as a wafer supplier; the repo does not record SEH as part of the Shin-Etsu Chemical node (an earlier Soitec patch did put SEH on the Shin-Etsu Chemical -> Soitec edge). Map SEH to Shin-Etsu Chemical (add a naming rule) so a Shin-Etsu Chemical -> UMC '20-F supplier disclosure' edge can be added? Meanwhile it is named only in UMC's supplier entry. (asked 2026-10-04; answer, then `enrich_status.py resolve "Shin-Etsu Handotai" --answer "…"`)
 - **Question for the user — Tower Semiconductor:** The call label 'Tower Semiconductor Q2 FY2026 (08-06-2026)' is probably dated wrong: transcripts/foundry/tower_q2_2026.txt says its call date is approximate, and Tower's own 6-K of 08-04-2026 says the call was held 'today, Tuesday, August 4, 2026'. Relabel to (08-04-2026) across the applied entries and the transcript header? (asked 2026-10-04; answer, then `enrich_status.py resolve "Tower Semiconductor" --answer "…"`)
 - **Question for the user — Xiaomi:** Xiaomi is Kingsoft Cloud's largest named customer (an affiliate and shareholder): 20-F related-party revenue — Xiaomi Group public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand (2025). Xiaomi is not a node. Add it (e.g. as a cloud customer in neocloud.json) so a Kingsoft Cloud -> Xiaomi edge can carry this, or keep it as text on Kingsoft Cloud's node? (asked 2026-10-04; answer, then `enrich_status.py resolve "Xiaomi" --answer "…"`)
+- **Question for the user — Out-of-chain segment facts (2026-10-06 run):** Two IR releases were skipped under the out-of-chain-segment rule: Gates Industrial's 09-28 completion of its purchase of Timken's industrial / power-sports belts business (more North American belt capacity, a Mexico plant; Gates' only node is thermal / Direct-to-Chip Liquid) and Adeia's 10-05 renewal of its media IP licence with Charter / Spectrum (Adeia's node is DBI hybrid-bonding IP; media licensing is ~80% of its revenue). Should an acquisition's operating facts or licence deals outside the node's chain be recorded on the company-wide node, or keep skipping them (same family as the TTM question)? — source: Gates Industrial press release: Gates Completes Acquisition of the Belts Business from The (09-28-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Out-of-chain segment facts (2026-10-06 run)" --answer "…"`)
+- **Question for the user — DigitalOcean:** At Citi (09-10) the CFO said 'From a GPU standpoint, we have tremendous relationships with both NVIDIA and AMD' and named Equinix, DataBank and QTS as its tier-1 data-center providers. Kept as counterparty entries on DigitalOcean's node (as the Q2 call patch did). Create NVIDIA -> DigitalOcean and AMD -> DigitalOcean edges in neocloud.json? Equinix / QTS sit only in power_cooling.json, where DigitalOcean is not a player - add cross-chain edges? — source: DigitalOcean Citi’s Global TMT Conference 2026 (09-10-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "DigitalOcean" --answer "…"`)
+- **Question for the user — H.C. Wainwright panel (09-14-2026):** The CleanSpark and MARA 'H.C. Wainwright' conference files are two transcriptions of one multi-company panel. Other panelists made material statements (Core Scientific: ~500 MW with AMD, next 2,000 MW at Hunt County / Pecos / Muskogee, $125 MRC triple-net / $145 modified gross over 15 years; Bitdeer: 121 MW Volta lease in Norway, Malaysia GPU-as-a-service sites; WhiteFiber: $865M Nscale contract). Only CleanSpark's and MARA's own executives were captured. Capture other panelists that are nodes (their entries would carry a CleanSpark/MARA-prefixed label), or skip them? — source: CleanSpark H.C. Wainwright conference 2026 (09-14-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "H.C. Wainwright panel (09-14-2026)" --answer "…"`)
+- **Question for the user — Vertex conference mis-match:** investing.py matched 'Vertex at Goldman Sachs Communacopia + Technology Conference' (09-09-2026) to our Vertex (Pharmaceuticals) node, but the speakers are Vertex Inc. (tax software). The row was closed without enrichment; the file stays in transcripts/conferences/. Titles alone cannot tell the two apart. Add a speaker-based exclusion to investing.py, or keep closing such rows by hand? — source: Vertex Goldman Sachs Communacopia + Technology Conference 2026 (09-09-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Vertex conference mis-match" --answer "…"`)
+- **Question for the user — Skyworks Solutions:** Skyworks completed its combination with Qorvo on 10-05 (continues as Skyworks / SWKS). Qorvo was never a node. The release says the combined company spans RF GaN, low-voltage power, wired broadband, data center / networking, defense and automotive; Skyworks sits only in interconnect / Components and power / Power Semiconductors. Give the combined company extra placements (e.g. RF GaN under compound semiconductors), or leave the structure as is? The operating facts are on its company-wide node. — source: Skyworks Solutions press release: Skyworks Completes Combination with Qorvo (10-05-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Skyworks Solutions" --answer "…"`)
+- **Question for the user — Flex:** Flex plans to separate its Cloud and Power Infrastructure segment as a listed company, Axiom Solutions International ('Axiom'), in Q1 calendar 2027 (10-05 release). Flex's power_cooling / power_semiconductor placements mostly describe that business. When Axiom lists, should it become its own node, with Flex's placements staying, moving or split? — source: Flex press release: Flex Announces $2.0 Billion Convertible Preferred (10-05-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Flex" --answer "…"`)
+- **Question for the user — Cerebras:** At Supernova (08-19) the CEO said Cerebras uses AMD EPYC CPUs in its clusters and is 'buying a fair bit' of Arista networking. Both kept as counterparty entries on Cerebras. The existing AMD -> Cerebras edge is described as 'Helios rack systems', so an EPYC contract there would mix meanings; Arista is not a player in Cerebras' chain. Add the EPYC supply as a contract / second relationship, and an Arista -> Cerebras edge? — source: Cerebras Supernova 2026 (08-19-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Cerebras" --answer "…"`)
+- **Question for the user — Tigo Energy:** User-listed 2026-10-06, but Tigo's own call/filings show no data-center or AI role (residential, C&I and utility solar optimizers); not added. Add it anyway as power/Generation (solar MLPE), or leave out? (asked 2026-10-06; answer, then `enrich_status.py resolve "Tigo Energy" --answer "…"`)
+- **Question for the user — Lead Wealth / TIGSTOR:** Private names in the GS AI-server power exhibit (Lead Wealth = BBU system, TIGSTOR = CBU module). No official source identifies either company. Give the local-language name / country, or drop them? (asked 2026-10-06; answer, then `enrich_status.py resolve "Lead Wealth / TIGSTOR" --answer "…"`)
+- **Question for the user — Affiliate customer-share edges:** Airoha's 2025 annual report lists 'Customer A, relation: Parent Company' = MediaTek, 16.14% of sales (all chip sales, not optical). Should parent / affiliate sales disclosed only that way become customer-share edges (Exposure tab), and in which chain? Kept as a counterparty entry for now. — source: Airoha Technology annual report: 2025 Annual Report (05-29-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Affiliate customer-share edges" --answer "…"`)
+- **Question for the user — ai_bio trial-status facts:** In ai_bio 8-K results releases, keep trial-status facts (approvals to run Phase 3 in 33 countries, FDA allowed a Phase 2/3, Fast Track designation, first-patient-dosed dates) or drop them as readouts? Kept as company status today; the Roswell Park first-patient release itself was dropped. (asked 2026-10-06; answer, then `enrich_status.py resolve "ai_bio trial-status facts" --answer "…"`)
+- **Question for the user — Amazon -> Generate Biomedicines:** Generate's prospectus: it relies on cloud services 'such as Amazon Web Services' to host substantial portions of the Generate Platform. Left out as an example, not a stated relationship (unlike Caris / BillionToOne, which name an AWS agreement). Make it an edge? — source: Generate Biomedicines prospectus (02-27-2026) (asked 2026-10-06; answer, then `enrich_status.py resolve "Amazon -> Generate Biomedicines" --answer "…"`)
 - Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are Samsung Electro-Mechanics 2026-04-30, SK Hynix 2026-07-29, Samsung 2026-07-30; 123 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual.
-- EDINET (Japan's annual / semi-annual securities reports: major customers, capex, R&D — edinet.py) needs a free API key: register at https://api.edinet-fsa.go.jp/api/auth/index.aspx?mode=1 and add `EDINET_API_KEY=<key>` to .env. Until then `enrich japan` skips its EDINET step.
 
 ## Markets
 
 | Market | Companies | Call current | Overdue | Never had a call | No own data | Waiting | IR feeds | Collector last ran |
 |---|---|---|---|---|---|---|---|---|
-| US — United States | 234 | 228 | 0 | 0 | 0 | 0 | 199 | us 2026-10-04, utility 2026-10-01 |
-| KR — Korea | 126 | 2 | 0 | 123 | 0 | 1 | 25 | dart 2026-10-04, kind 2026-10-04 |
-| TW — Taiwan | 130 | 24 | 0 | 101 | 3 | 1 | 49 | intl 2026-10-05, tw 2026-10-05, mops 2026-10-04 |
-| JP — Japan | 124 | 14 | 0 | 110 | 29 | 0 | 60 | intl 2026-10-05, tdnet 2026-10-04, edinet never |
-| EU — Europe | 40 | 28 | 0 | 11 | 5 | 1 | 21 | intl 2026-10-05 |
-| CN — China / Hong Kong | 116 | 3 | 0 | 113 | 1 | 0 | 12 | intl 2026-10-05, cninfo 2026-10-05, cnreports 2026-10-05 |
+| US — United States | 246 | 238 | 0 | 2 | 0 | 0 | 218 | us 2026-10-05, utility 2026-10-01 |
+| KR — Korea | 126 | 2 | 0 | 123 | 0 | 8 | 25 | dart 2026-10-04, kind 2026-10-04 |
+| TW — Taiwan | 135 | 24 | 0 | 106 | 3 | 9 | 49 | intl 2026-10-05, tw 2026-10-05, mops 2026-10-06 |
+| JP — Japan | 127 | 14 | 0 | 113 | 28 | 270 | 60 | intl 2026-10-05, tdnet 2026-10-04, edinet 2026-10-06 |
+| EU — Europe | 40 | 28 | 0 | 11 | 5 | 7 | 21 | intl 2026-10-05 |
+| CN — China / Hong Kong | 117 | 3 | 0 | 114 | 1 | 2 | 12 | intl 2026-10-05, cninfo 2026-10-05, cnreports 2026-10-05 |
 | other — Other listed | 15 | 4 | 0 | 11 | 4 | 0 | 2 | intl 2026-10-05 |
 
 `Call current` = the latest own earnings call is within the company's usual gap + 3 weeks. `No own data` = not one entry from the company's own documents yet (new nodes land here). Marked companies (no source exists) are left out of Overdue / Never.
@@ -96,28 +110,31 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 ## Details by market
 
 ### US — United States (`enrich us`)
+- Never had a call enriched: Eikon Therapeutics, Generate Biomedicines
 - Known gaps, do not re-search: Bayer (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Micron (call: Q4 FY2026 MAIN earnings call (09-30-2026, Sanjay Mehrotra; prepared remarks end 'We will now open for questions'): no full transcript anywhere - Alpha Vantage MU 2026Q4, defeatbeta MU 2026Q4 and Motley Fool (10-01 'q4-2026-earnings-call-transcript') all carry only the separate POST-EARNINGS ANALYST CALL (already enriched as 'Micron post-earnings analyst call 2026 (09-30-2026)'); Micron IR posts only the prepared-remarks PDF (a script, not used), deck and release; no official YouTube upload. Checked 2026-10-05; recheck 2026-10-20), POET Technologies (call: Q2 2026 (08-13-2026): POET did not host an earnings call - the Q2 results release and both 08-13 6-Ks announce no call/webcast; IR page lists no call since a 2022 business-update call; not on Alpha Vantage (2025Q4-2026Q3 empty), defeatbeta (no POET transcripts), Motley Fool (sitemaps Aug-Sep 2026); official YouTube has only a 09-30-2026 CEO 'Business Update' video (15 min, auto captions), not a call. Checked 2026-10-05; recheck 2026-11-20), Relay Therapeutics (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Roche-Genentech (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Simulations Plus (call: Q3 FY2026: no earnings call appears to have been held (pending acquisition by Altaris, signed 06-15-2026). Company conference-calls page lists the 07-09-2026 Q3 release + deck but NO webcast link (every earlier quarter has a viavid webcast); the 07-09 release (8-K) announces no call; not on Alpha Vantage (SLP 2026Q3 empty), defeatbeta (latest 04-09-2026) or Motley Fool (sitemaps Jul-Sep 2026). Checked 2026-10-05; recheck 2026-12-15)
 
 ### KR — Korea (`enrich korea`)
 - No DART filing enriched: Kostek Systems
-- Waiting to enrich: 1 call
+- Waiting to enrich: 1 call, 7 IR release
 - Known gaps, do not re-search: Samsung Electro-Mechanics (call: Q2 2026 call (07-30-2026): no full transcript. Investing.com search + transcript listing walked 07-17..08-05 (no SEMCO article); SEMCO IR site (global + kr earnings-release / archive) has only the results PDF and a login-gated Teletogether audio replay; no official YouTube upload. Checked 2026-10-05; recheck 2027-01-03)
 
 ### TW — Taiwan (`enrich taiwan`)
-- Never had a call enriched: ADATA Technology, ADDA, AP Memory, ASMedia, ASPEED, ASRock, AVC (Asia Vital Components), Ableprint Technology, AcBel Polytech, Accton Technology, Advanced Echem Materials, Advanced Energy Solution … +89 more
-- Waiting to enrich: 1 call
+- Never had a call enriched: ADATA Technology, ADDA, AP Memory, ASMedia, ASPEED, ASRock, AVC (Asia Vital Components), Ableprint Technology, AcBel Polytech, Accton Technology, Advanced Echem Materials, Advanced Energy Solution … +94 more
+- Waiting to enrich: 8 IR release, 1 call
 - Known gaps, do not re-search: Chenbro (call: Q2 2026 online 法說會 (Yuanta, 08-07-2026) replay on zucast is registration-gated and its terms forbid recording - not downloaded; no transcript on IR site, no full YouTube upload; checked 2026-10-05; recheck 2027-01-03), Gigabyte (call: No 法說會 on MOPS Jun-Oct 2026 (Q1 was a Cathay online call 05-15); no replay, no full YouTube video; checked 2026-10-05; recheck 2027-01-03), Inventec (call: No Q2 2026 results meeting: MOPS + company IR page list only broker conferences/NDR (08-25 to 10-13) with slides, no audio/video; checked 2026-10-05; recheck 2027-01-03), VPEC (call: Company IR page: no self-hosted 法說會 in 2026; 09-04 CTBC forum has slides only, no video; checked 2026-10-05; recheck 2027-01-03), Wiwynn (call: No Q2 2026 call held: IR page lists only the Q4 2025 call (02-26) plus broker forums with slides; MOPS Jun-Oct and irconference no replay; checked 2026-10-05; recheck 2027-01-03)
 
 ### JP — Japan (`enrich japan`)
-- Never had a call enriched: ADEKA, Accretech (Tokyo Seimitsu), Anritsu, Asahi Kasei, Asetek, Canon, Dai Nippon Printing, Daifuku, Daihen, Daikin Industries, Datasection, Denka … +98 more
+- Never had a call enriched: ADEKA, Accretech (Tokyo Seimitsu), Anritsu, Asahi Kasei, Asetek, Canon, Dai Nippon Printing, Daifuku, Daihen, Daikin Industries, Datasection, Denka … +101 more
+- Waiting to enrich: 261 EDINET report, 9 IR release
 
 ### EU — Europe (`enrich europe`)
 - Never had a call enriched: ASM International, Comet Holding, Inficon, LPKF Laser & Electronics, Merck KGaA, Prysmian, Rolls-Royce, SUSS MicroTec, Siemens Energy, VAT Group, Volex
-- Waiting to enrich: 1 call
+- Waiting to enrich: 1 conference, 1 call, 5 IR release
 - Known gaps, do not re-search: Legrand (call: H1 2026 call (07-29-2026): no Investing.com transcript (13 search variants); IR site has release, slides, half-year report and audio webcast only, no transcript; no YouTube results webcast; checked 2026-10-05; recheck 2027-01-03)
 
 ### CN — China / Hong Kong (`enrich china`)
-- Never had a call enriched: AMEC, Accelink, Advanced Fiber Resources, Anhui Tongguan Copper Foil, Anji Microelectronics, Biren Technology, Biwin Storage Technology, Boqian New Materials, Broadex Technologies, CASTECH, CIG Shanghai, CXMT … +101 more
+- Never had a call enriched: AMEC, Accelink, Advanced Fiber Resources, Anhui Tongguan Copper Foil, Anji Microelectronics, Biren Technology, Biwin Storage Technology, Boqian New Materials, Broadex Technologies, CASTECH, CIG Shanghai, CXMT … +102 more
+- Waiting to enrich: 1 conference, 1 IR release
 
 ### other — Other listed (`enrich intl`)
 - Never had a call enriched: AEM Holdings, E2E Networks, Frencken Group, Frontken, HFCL, Hammond Power Solutions, Indosat, Lynas Rare Earths, NEXTDC, UMS Integration, YTL Power International
@@ -126,22 +143,22 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
-| US earnings calls | `enrich us calls` | 2026-10-04 | 2026-10-05 | 0 | 359 | 358 |
-| US SEC filings | `enrich edgar` | 2026-10-04 | 2026-10-05 | 0 | 1969 | 690 |
+| US earnings calls | `enrich us calls` | 2026-10-05 | 2026-10-06 | 0 | 370 | 369 |
+| US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-06 | 0 | 2001 | 708 |
 | Korea DART filings | `enrich dart` | 2026-10-04 | 2026-10-05 | 0 | 154 | 162 |
 | Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-05 | 2026-10-05 | 2 | 63 | 63 |
 | Taiwan Chinese 法說會 | `enrich tw` | 2026-10-05 | 2026-10-05 | 1 | 18 | 18 |
-| Investor conferences | `enrich conference` | 2026-10-04 | 2026-10-05 | 0 | 116 | 116 |
-| Company IR press releases | `enrich ir` | 2026-10-04 | 2026-10-04 | 0 | 1323 | 416 |
+| Investor conferences | `enrich conference` | 2026-10-05 | 2026-10-06 | 2 | 141 | 138 |
+| Company IR press releases | `enrich ir` | 2026-10-06 | 2026-10-06 | 30 | 1414 | 436 |
 | Korea IR decks (KIND) | `enrich korea` | 2026-10-04 | 2026-09-27 | 0 | 47 | 37 |
 | US utility regulatory filings | `enrich us` | 2026-10-01 | 2026-10-01 | 0 | 6 | 3 |
 | Korea earnings-call scripts | `enrich korea` | 2026-10-04 | 2026-09-27 | 0 | 1 | 1 |
-| China IR records + investor Q&A | `enrich china` | 2026-10-05 | 2026-10-04 | 0 | 204 | 131 |
-| China periodic reports | `enrich china` | 2026-10-05 | 2026-10-05 | 0 | 309 | 156 |
+| China IR records + investor Q&A | `enrich china` | 2026-10-05 | 2026-10-06 | 0 | 207 | 133 |
+| China periodic reports | `enrich china` | 2026-10-05 | 2026-10-06 | 0 | 314 | 159 |
 | Japan TDnet disclosures | `enrich japan` | 2026-10-04 | 2026-10-04 | 0 | 25 | 9 |
-| Japan EDINET statutory reports | `enrich japan` | - | - | 0 | 0 | 0 |
-| Taiwan MOPS filings | `enrich taiwan` | 2026-10-04 | 2026-10-04 | 0 | 366 | 301 |
-| Pasted transcripts | `Transcript:<company>` | 2026-10-05 | 2026-10-05 | 0 | 480 | 477 |
+| Japan EDINET statutory reports | `enrich japan` | 2026-10-06 | 2026-10-06 | 261 | 516 | 8 |
+| Taiwan MOPS filings | `enrich taiwan` | 2026-10-06 | 2026-10-06 | 0 | 395 | 330 |
+| Pasted transcripts | `Transcript:<company>` | 2026-10-06 | 2026-10-06 | 0 | 496 | 485 |
 
 ## Coordinator notes (newest first)
 

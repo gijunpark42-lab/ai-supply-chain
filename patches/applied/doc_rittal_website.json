@@ -1,0 +1,28 @@
+{
+  "source": "Rittal company news: Readers' Choice of the Vogel IT Portal (11-07-2024)",
+  "note": "Private company: product-only node, no enrichment (user 2026-10-06). Page: https://www.rittal.com/",
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Rittal",
+          "domain": "thermal",
+          "sector": "Heat Exchanger / CDU",
+          "product": "coolant distribution units (CDUs) for direct single-phase liquid cooling of AI servers (over 1 MW, modular in standardised OCP racks; liquid-to-liquid and liquid-to-air)",
+          "quarterly_data": [],
+          "connects_to": []
+        }
+      ]
+    }
+  },
+  "new_nodes": {
+    "Rittal": {
+      "ticker": null,
+      "exchange": null,
+      "country": "DE",
+      "why": "Named supplier in the AI-server supply chain; its own site states the product above.",
+      "evidence": "rittal.com 2024-11-07: CDU for direct single-phase liquid cooling with over 1 MW cooling output, developed with multiple hyperscalers and server OEMs, modular in standardised OCP racks; 'the power density needed by AI applications pushes air cooling to its limits'.",
+      "approved": "user pre-approved 2026-10-06 (enrich_waitlist.json, group user_list_2026_10_06; private: product-only node)"
+    }
+  }
+}

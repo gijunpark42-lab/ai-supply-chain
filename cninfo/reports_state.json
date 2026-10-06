@@ -40,6 +40,14 @@
    "saved": 151,
    "skipped": 439,
    "failed": 0
+  },
+  {
+   "at": "2026-10-06 17:19",
+   "since": "2026-04-01",
+   "company": "Nantong Jianghai",
+   "saved": 3,
+   "skipped": 2,
+   "failed": 0
   }
  ],
  "companies": {
@@ -450,6 +458,10 @@
   "Lingyi iTech": {
    "last_sync": "2026-10-05 11:07",
    "since": "2025-08-31"
+  },
+  "Nantong Jianghai": {
+   "last_sync": "2026-10-06 17:19",
+   "since": "2026-04-01"
   }
  },
  "seen": {
@@ -1060,7 +1072,12 @@
   "rep:1225254845": "skip:older: a company's first look takes only its newest report of each kind",
   "rep:1224766984": "skip:older: a company's first look takes only its newest report of each kind",
   "rep:1225043467": "enriched:2026-10-04",
-  "rep:1225530315": "enriched:2026-10-04"
+  "rep:1225530315": "enriched:2026-10-04",
+  "rep:1225484296": "skip:not the report itself (摘要) (2026年半年度报告摘要)",
+  "rep:1225087168": "skip:not the report itself (摘要) (2025年年度报告摘要)",
+  "rep:1225087169": "enriched:2026-10-06",
+  "rep:1225158399": "enriched:2026-10-06",
+  "rep:1225484297": "enriched:2026-10-06"
  },
  "docs": {
   "rep:1225056459": {
@@ -2778,6 +2795,39 @@
    "pages": 246,
    "file": "transcripts/cninfo_reports/lingyiitech_2026-08-29_report_1225530315_extract.txt",
    "full": "transcripts/cninfo_reports/lingyiitech_2026-08-29_report_1225530315.txt"
+  },
+  "rep:1225087169": {
+   "company": "Nantong Jianghai",
+   "kind": "annual",
+   "year": 2025,
+   "label": "Nantong Jianghai annual report: 2025 Annual Report (04-10-2026)",
+   "date": "2026-04-10",
+   "title": "2025年年度报告",
+   "pages": 209,
+   "file": "transcripts/cninfo_reports/nantongjianghai_2026-04-10_report_1225087169_extract.txt",
+   "full": "transcripts/cninfo_reports/nantongjianghai_2026-04-10_report_1225087169.txt"
+  },
+  "rep:1225158399": {
+   "company": "Nantong Jianghai",
+   "kind": "q1",
+   "year": 2026,
+   "label": "Nantong Jianghai quarterly report: 2026 Q1 Report (04-24-2026)",
+   "date": "2026-04-24",
+   "title": "2026年一季度报告",
+   "pages": 11,
+   "file": "transcripts/cninfo_reports/nantongjianghai_2026-04-24_report_1225158399.txt",
+   "full": "transcripts/cninfo_reports/nantongjianghai_2026-04-24_report_1225158399.txt"
+  },
+  "rep:1225484297": {
+   "company": "Nantong Jianghai",
+   "kind": "half",
+   "year": 2026,
+   "label": "Nantong Jianghai half-year report: 2026 Half-Year Report (08-21-2026)",
+   "date": "2026-08-21",
+   "title": "2026年半年度报告",
+   "pages": 167,
+   "file": "transcripts/cninfo_reports/nantongjianghai_2026-08-21_report_1225484297_extract.txt",
+   "full": "transcripts/cninfo_reports/nantongjianghai_2026-08-21_report_1225484297.txt"
   }
  },
  "hashes": {
@@ -2937,7 +2987,10 @@
   "c615b7069dec8d0a0cf7818c5965480cc16b4c171c4eb1a147f0f9655565b9ab": "Jones Tech annual report: 2025 Annual Report (04-29-2026)",
   "94d8f8040a6c66e201063704b750b4197666b42aad1d394ce288c973d7540524": "Jones Tech half-year report: 2026 Half-Year Report (08-25-2026)",
   "fbd2c1054042aa2176af2cfc9c94363cc417e220da1e903a9f0b8f5c40438e2f": "Lingyi iTech annual report: 2025 Annual Report (03-28-2026)",
-  "d61f95256341d73b89959a77d0cdba36b634d98da0003c7fa3aac520a651a020": "Lingyi iTech half-year report: 2026 Half-Year Report (08-29-2026)"
+  "d61f95256341d73b89959a77d0cdba36b634d98da0003c7fa3aac520a651a020": "Lingyi iTech half-year report: 2026 Half-Year Report (08-29-2026)",
+  "7c73103aa3c93778d2d1d18bcf55a2f76413887a8aa3f6b50f0749038edc19b3": "Nantong Jianghai annual report: 2025 Annual Report (04-10-2026)",
+  "8905f48dec247bbc53d90db604d0697fc6709834ac833c21276dfd5544531b70": "Nantong Jianghai quarterly report: 2026 Q1 Report (04-24-2026)",
+  "8ded73e8fdbc314875e48b297767709acc1b7cb3155fa819c28f375d6a50867f": "Nantong Jianghai half-year report: 2026 Half-Year Report (08-21-2026)"
  },
  "filters": {
   "kept": "the full Chinese 年度报告 / 半年度报告 / 第一季度报告 / 第三季度报告 of every SZSE / SSE company in company_metadata.json (cninfo categories 年报 / 半年报 / 一季报 / 三季报). First look per company: only the newest annual and half-year report, plus the newest quarterly report when it is newer than both; after that every report filed since the last run (from 7 days before it).",

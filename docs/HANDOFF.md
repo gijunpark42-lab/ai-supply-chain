@@ -951,3 +951,25 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
     resumable; ~15 min per call). Next: compare old vs new per call, enrich the missing parts, verify, swap the files
     into transcripts/tw/, build, i18n, commit.
   - Web UI (web/src) changes stay uncommitted until the user's OK (user: tomorrow).
+
+- **2026-10-06 (Claude, nightly routine) — `enrich us`** — AV sync saved 0 (Simulations Plus / POET / Relay `waiting` =
+  known no-source marks; Aehr reports 10-05 after close, not posted yet). defeatbeta re-saved the Aehr Q4 FY2026 (07-14)
+  call as transcripts/av/aehrtestsystems_q4_2026.txt — the label was already in the graph with no source file; not
+  re-enriched. Conference walk (the 10-04 run had walked 0 pages): 400 pages to 05-27, 25 new talks, 23 US. IR sync 61
+  saved. **Fixed ir/feeds.json: 8 keys ended in "\r"** (Baidu, DigitalOcean, QumulusAI, VNET Group, ERock, Fervo Energy,
+  Gates Industrial, Tecogen — added 10-04) → their releases were saved as "QumulusAI\r press release…"; keys stripped,
+  tonight's 13 bad saves removed and re-synced cleanly (24 releases). Skyworks 10-05 releases saved as site menu only
+  (GlobeNewswire body missed by release_body) → re-saved by hand via `ir_pull.py fetch --file` (the 09-30 clearance
+  file has the same problem; it was closed earlier as no material facts).
+  Enriched: 13 enricher agents → 38 patches / 147 entries (QumulusAI 5, DigitalOcean 5, Vertex 3, Recursion 2, Relay,
+  Lilly, Jazz 2, Schrödinger, AbCellera, MP 2, Liberty, EnerSys, CleanSpark, MARA, TeraWulf, AEP, Cerebras, Lattice,
+  Iron Mountain, Fervo 2, Flex, Magnachip, Ginkgo, Skyworks); 26 releases / 1 talk gave nothing (notices, financing,
+  restates). verify_graph 0 fail. 8 Opus verifiers → verify-us-1006-v2..v8 applied (19 set, 3 delete: Magnachip TV-PSU
+  launch out of chain, 2 Skyworks/Qorvo entries); missed-facts pass +1 Recursion entry. verify_queue pending 0.
+  No new nodes. US queues (AV / conference / IR) empty. i18n translated (2 chunks).
+  Board questions added: Out-of-chain segment facts (Gates, Adeia), DigitalOcean (NVIDIA/AMD edges), H.C. Wainwright
+  panel (other panelists), Vertex conference mis-match (Vertex Inc. vs Vertex Pharma), Skyworks (post-Qorvo placements),
+  Flex (Axiom spin-off node), Cerebras (AMD EPYC / Arista edges).
+  Left open: MARA entry "CEO Fred Thiel: Bitcoin mining infrastructure…" carries topics ["transitions"] (should be [];
+  apply_corrections cannot set topics); Skyworks 09-18 exchange-offer entry holds financing terms (older label).
+  NOT committed (nightly rule).

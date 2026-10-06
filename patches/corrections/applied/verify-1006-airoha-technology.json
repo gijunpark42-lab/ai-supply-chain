@@ -1,0 +1,32 @@
+{
+  "reviewer": "opus-verify-1006-airoha-technology",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Airoha Technology",
+      "target": null,
+      "label": "Airoha Technology annual report: 2025 Annual Report (05-29-2026)",
+      "signal_prefix": "Manufacturing and suppliers (annual report): fabless; wafers are outsourced",
+      "action": "set",
+      "set": {
+        "signal": "Manufacturing and suppliers (annual report): fabless; wafers are outsourced to foundries and packaging and testing to OSATs. Wafer supply status 'good and stable', with no supply shortage so far. Two unnamed suppliers (wafers are the primary raw material) each exceed 30% of purchases: in 2025 the largest was Company B at 43.77% of purchases (2024: 33.93%) and Company A was 37.15% (2024: 41.89%, the largest that year); total purchases NT$7,151,006 thousand (2024: NT$6,725,587 thousand), up on a recovery in market demand and more orders requiring more inventory.",
+        "figure": "Largest supplier (Company B) 43.77% of 2025 purchases"
+      },
+      "reason": "Company A and Company B were swapped for 2025: the report's supplier table (PDF p.81) lists 2025 supplier 1 = Company B NT$3,129,883 thousand 43.77% and supplier 2 = Company A NT$2,656,629 thousand 37.15%; Company A was the largest only in 2024 (41.89%). The saved pdftotext layout scrambled the column labels.",
+      "evidence": "2025: 1 Company B 3,129,883 43.77% None; 2 Company A 2,656,629 37.15% None (PDF table). Text: the proportion of purchases from the largest supplier was 41.89% and 43.77%"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Airoha Technology",
+      "target": null,
+      "label": "Airoha Technology annual report: 2025 Annual Report (05-29-2026)",
+      "signal_prefix": "Optical communications (annual report): Airoha supplies single-lane 50G PAM4-DSP",
+      "action": "set",
+      "set": {
+        "signal": "Optical communications (annual report): Airoha supplies single-lane 50G PAM4-DSP chips supporting speeds up to 400G, serving multiple global cloud service providers; its single-lane 100G PAM4-DSP chip supporting up to 800G officially entered the tape-out stage in Q4 2025. Planned new products include 100G TIA chips for 400G/800Gbps data-center optical modules. The report's product history lists the 891x single-chip PAM4 DSPs for 50-400 Gbps data-center modules (2023), and the 8968 single-channel 50 Gbps linear TIA for 200G/400G modules and the 8928 series single-channel 100 Gbps PAM4 DSPs for 400G/800G modules (both 2025)."
+      },
+      "reason": "Wrong year: in the report's 'Developed Technologies or Products in the Last Five Years' table (PDF p.80) the 8968 TIA and the 8928 series PAM4 DSP sit in the 2025 row, not 2024 (the 2024 row is 1595, ANC, 3365, 7583, 8855); the pdftotext layout misplaced the year labels.",
+      "evidence": "2025 row: Launched the 8968, a single-channel 50 Gbps linear transimpedance amplifier (TIA) ... Launched the 8928 series PAM4 DSP optical communications chips with single-channel 100 Gbps"
+    }
+  ]
+}

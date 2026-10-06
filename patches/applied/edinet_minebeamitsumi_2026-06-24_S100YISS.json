@@ -1,0 +1,100 @@
+{
+  "source": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+  "new_nodes": {
+    "MinebeaMitsumi": {
+      "ticker": "6479.T",
+      "exchange": "TSE",
+      "country": "JP",
+      "why": "MinebeaMitsumi makes fan motors for AI servers (including large fan motors for high-heat servers and fans for AI server power supplies) and the miniature ball bearings inside AI-server cooling fans, plus BBU battery protection modules and server fan-motor driver ICs. The company says demand for air cooling from AI data centers remains strong, plans AI-server net sales growth at a CAGR of approx. 22% (FY3/26 - FY3/29), and reports Precision Technologies and air-cooling fans running significantly above initial targets, so its stock benefits directly as AI-server air cooling is built and sold.",
+      "evidence": "Results briefing deck 08-05-2026, 'Five Growth Areas: AI Servers': 'Demand for air cooling remains strong ... Bearings: Secured strong forecasts from major fan motor manufacturers ... Fan motors: Fans for AI server power supplies are performing strongly ... Large fan motors: Rapid increase in new inquiries for high-heat-generating servers'; Q&A (President Yoshida): 'Demand related to air-cooling fans remains strong. Orders for ball bearings and fan motors are extremely solid'.",
+      "approved": "user pre-approved 2026-10-06 (enrich_waitlist.json, group user_list_2026_10_06)"
+    }
+  },
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "MinebeaMitsumi",
+          "domain": "thermal",
+          "sector": "Air Cooling",
+          "product": "fan motors for AI-server air cooling and server power supplies, and miniature ball bearings for AI-server cooling fan motors",
+          "quarterly_data": [
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Fiscal year ended March 31, 2026 (annual securities report): net sales JPY 1,664,387 million (+9.3%), operating income JPY 103,979 million (+10.1%), profit before taxes JPY 133,779 million (+61.9%; includes a valuation gain from the fair-value measurement of financial assets the company holds), profit attributable to owners of the parent JPY 99,034 million (+66.6%); results include Minebea Linear Motion, acquired on October 3, 2025. Segments (net sales / operating income): Precision Technologies JPY 281,151 million (+10.0%) / JPY 62,245 million (+11.8%) - ball bearing sales rose on firm server demand for data centers and aircraft demand; Motor, Lighting & Sensing JPY 456,517 million (+6.9%) / JPY 26,929 million (+6.1%) - mainly higher fan motor demand; Semiconductor & Electronics JPY 590,263 million (+16.1%) / JPY 26,669 million (+36.0%) - mainly higher mechanical component sales; Access Solutions JPY 332,249 million (+1.3%) / JPY 17,087 million (+7.3%) - higher demand for communication antennas and industrial-machinery parts; Other JPY 4,207 million with an operating loss of JPY 2,657 million; unallocated corporate costs JPY 26,294 million. Operating cash flow JPY 94,850 million (JPY 133,672 million a year earlier).",
+              "figure": "Net sales JPY 1,664,387 million (+9.3%); operating income JPY 103,979 million (+10.1%)",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Major customer (annual securities report): Nintendo accounted for JPY 207,978 million of net sales, 12.5% of the total, in the year ended March 2026 (Semiconductor & Electronics segment); no amount is shown for it in the prior year.",
+              "figure": "JPY 207,978 million; 12.5% of FY2026 net sales",
+              "counterparty": "Nintendo",
+              "counterparty_role": "customer",
+              "topics": []
+            },
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Major customer (annual securities report): the Apple group accounted for JPY 188,510 million of net sales, 11.3% of the total, in the year ended March 2026, down from JPY 238,057 million (15.6%) in the year ended March 2025 (Motor, Lighting & Sensing and Semiconductor & Electronics segments).",
+              "figure": "JPY 188,510 million; 11.3% of FY2026 net sales (15.6% in FY2025)",
+              "counterparty": "Apple",
+              "counterparty_role": "customer",
+              "topics": []
+            },
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Orders and production, year ended March 2026 (annual securities report): orders received JPY 1,762,736 million (108.1% of the prior year) and order backlog JPY 588,744 million (120.1%). By segment (orders / backlog): Precision Technologies JPY 331,765 million (115.0%) / JPY 250,476 million (125.3%); Motor, Lighting & Sensing JPY 482,127 million (104.1%) / JPY 142,386 million (121.9%); Semiconductor & Electronics JPY 603,865 million (111.3%) / JPY 132,348 million (111.5%); Access Solutions JPY 340,281 million (102.3%) / JPY 61,992 million (114.9%). Production at selling prices JPY 1,680,195 million (109.7%).",
+              "figure": "Order backlog JPY 588,744 million (120.1% of the prior year); Precision Technologies backlog JPY 250,476 million (125.3%)",
+              "topics": [],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Capital expenditure, year ended March 2026 (annual securities report): JPY 96,461 million - Precision Technologies JPY 10,275 million (mainly ball-bearing equipment in Thailand), Motor, Lighting & Sensing JPY 15,775 million (motor equipment in Thailand and Cambodia), Semiconductor & Electronics JPY 25,372 million (optical devices in the Philippines and semiconductor equipment in Japan), Access Solutions JPY 20,427 million (automotive equipment in Europe, the US and China), Other JPY 4,498 million, corporate JPY 20,114 million; it includes JPY 8,727 million of intangible assets and JPY 10,483 million of new right-of-use assets. Planned as of March 31, 2026 (own funds, start April 2026, completion March 2027): NMB-Minebea Thai (Ayutthaya; buildings and machinery for PT, MLS and SE) JPY 19,804 million; Minebea Super Solar Power (Ayutthaya) JPY 13,666 million; Cebu Mitsumi (Philippines; SE) JPY 12,347 million; Mitsumi Electric (Tama, Tokyo; SE and AS) JPY 5,682 million; Minebea (Cambodia) (Phnom Penh) JPY 4,598 million; plus an MLS building at the Yonago Plant (Tottori) of JPY 2,780 million (JPY 1,036 million paid; July 2025 to September 2026). Main plants: NMB-Minebea Thai (bearings, pivot assemblies, small motors; 25,230 employees), Minebea (Cambodia) (fan motors, DC motors, mechanical components; 7,578 employees), Minebea Electronics & Hi-Tech Components (Shanghai) (bearings, fan motors) and Cebu Mitsumi (optical devices, precision parts; 7,245 employees).",
+              "figure": "Capex JPY 96,461 million; NMB-Minebea Thai plan JPY 19,804 million (April 2026 - March 2027)",
+              "topics": [],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Precision Technologies R&D (annual securities report; JPY 2,909 million): for fan motors that cool AI servers - one use of its miniature ball bearings - the company is developing dedicated miniature ball bearings that withstand high temperatures and high-speed rotation, as a heat countermeasure for high-load computing. As what it calls the world top-share maker of HDD pivot assemblies (used in the HDD swing arm), it is developing new products for applications from high-end data-center servers to nearline, and a dedicated grease for pivot assemblies; applying the same ultra-precision assembly, it is developing cartridge bearings for LiDAR. Other work: aircraft bearings (mechanical assemblies, trunnion bearings for main landing gear and flight-control bearings, mainly for US and European aircraft makers), link-rod assemblies vertically integrated through RO-RA Aviation Systems' swage-tube technology, a heat-resistant ball-bearing unit for turbochargers developed by myonic, and new aerospace products combining CEROBEAR ceramic and hybrid bearings with myonic's special bearings.",
+              "figure": "Precision Technologies R&D JPY 2,909 million",
+              "topics": [
+                "power_cooling"
+              ]
+            },
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Group R&D, year ended March 2026 (annual securities report): JPY 49,755 million, including JPY 5,620 million of basic research not allocated to segments. Motor, Lighting & Sensing (JPY 13,949 million): HDD spindle, stepping, DC, fan and automotive motors; rare-earth bonded and high-heat-resistant magnets; ultra-thin mobile and automotive LCD backlights; LED and ultraviolet lighting; a bed-sensor monitoring system; a new thin-film strain gauge for robotics and medical sensors; and the film-type high-sensitivity strain gauge 'MINEGE' (500% or more of conventional sensitivity at 1/10 or less of the size), being commercialised for automotive, mobile / wearable and robotics. Semiconductor & Electronics (JPY 17,347 million): ABLIC's low-power, high-precision analog ICs (lithium-ion battery protection ICs, medical ICs, automotive and industrial analog ICs), Minebea Power Devices' Si-based IGBTs and power devices using next-generation materials for EVs and industrial energy saving, MEMS-based ultra-low-power sensor modules for IoT, and optical image stabilisation (OIS) camera actuators for smartphones. Access Solutions (JPY 8,555 million): mass production of electric door latches has started; sensor-integrated door handles using strain-gauge technology, compact spindle drive (CSD) and side door drive (SDD) power closures, camera monitoring system (CMS) mass-production projects and digital keys. Other JPY 1,375 million.",
+              "figure": "Group R&D JPY 49,755 million",
+              "topics": []
+            },
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Targets (annual securities report): the group aims for net sales of JPY 2.5 trillion and operating income of JPY 250 billion in the fiscal year ending March 2029, the target year of its mid-term plan. Forecast for the fiscal year ending March 2027 at filing: net sales JPY 1,690,000 million, operating income JPY 120,000 million, profit attributable to owners of the parent JPY 83,000 million. Strategy: eight core businesses (the '8 Spears' - bearings, analog semiconductors, motors, access products, sensors, connectors/switches, power supplies and wireless/communications/software) combined through 'integration' into new products; the company expects humanoid robots, autonomous driving and drones to expand as new markets.",
+              "figure": "FY3/2029 target: net sales JPY 2.5 trillion, operating income JPY 250 billion",
+              "topics": [],
+              "slot": "guidance"
+            },
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Technology licence agreements (annual securities report; MinebeaMitsumi pays initial payments plus royalties at a fixed rate on sales): Papst-Motoren (Germany) - precision motor manufacturing technology, from June 19, 1995; L3Harris Technologies (US) - manufacturing technology for the BRU-47 release unit, February 3, 1997 to August 31, 2030; Seagate Technology (US) - manufacturing technology for fluid dynamic bearings and HDD spindle motors using them, from February 29, 2000; Panasonic Holdings - patent licences for fluid-bearing motors for HDDs (from April 1, 2018) and for polygon, power brushless and small brushless motors (from February 1, 2013). The Boeing licence for the MER-200(P) multiple suspension rack expired on June 30, 2025, and the IBM copyright licence for pointing-stick operability in computer keyboards ended by mutual agreement on January 21, 2026.",
+              "figure": "Seagate licence for fluid dynamic bearing HDD spindle motors since February 29, 2000",
+              "counterparty": "Seagate",
+              "counterparty_role": "technology licensor",
+              "topics": []
+            },
+            {
+              "quarter": "MinebeaMitsumi annual securities report: FY2026 (06-24-2026)",
+              "signal": "Business structure (annual securities report): the group is MinebeaMitsumi and 146 subsidiaries, producing in Japan, China, Thailand, the Philippines, Malaysia, Cambodia, South Korea, Singapore, the US and Europe. Precision Technologies: ball bearings, rod-end bearings, mechanical parts such as HDD pivot assemblies, and aircraft fasteners. Motor, Lighting & Sensing: electronic devices (electro devices such as LCD backlights, smart products), HDD spindle motors, sensing devices (measuring instruments), stepping motors, DC motors, fan motors, automotive motors and special equipment. Semiconductor & Electronics: semiconductor devices, optical devices, mechanical components and power supply components (producers include Mitsumi Electric, ABLIC, Minebea Connect, Honda Tsushin Kogyo and Minebea Power Devices). Access Solutions: key sets, door latches, door handles and other automotive parts (U-Shin, Minebea AccessSolutions) plus industrial-machinery parts. Other: software design and development and in-house machinery.",
+              "figure": "146 subsidiaries; four business segments",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    }
+  }
+}

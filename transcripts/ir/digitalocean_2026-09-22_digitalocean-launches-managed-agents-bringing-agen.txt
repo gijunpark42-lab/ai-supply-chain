@@ -1,0 +1,80 @@
+SOURCE: DigitalOcean official press release -- https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Launches-Managed-Agents-Bringing-Agent-Execution-Tool-Access-and-Inference-Together-on-One-Cloud/default.aspx
+TITLE: DigitalOcean Launches Managed Agents, Bringing Agent Execution, Tool Access, and Inference Together on One Cloud
+DATE: 09-22-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-06.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: DigitalOcean press release: DigitalOcean Launches Managed Agents, Bringing Agent (09-22-2026)
+
+---
+DigitalOcean Launches Managed Agents, Bringing Agent Execution, Tool Access, and Inference Together on One Cloud
+
+September 22, 2026
+
+Every Managed Agents session runs in its own isolated harness runtime with harnesses that teams already use, governed access to 16,000+ tools, and Serverless Inference across 75+ open and proprietary models, with a meter that only runs when the agent is active.
+
+BROOMFIELD, Colo.--(BUSINESS WIRE)--
+
+DigitalOcean Holdings, Inc. (NYSE: DOCN), the AI-Native Cloud, today announced the public preview of DigitalOcean Managed Agents. Managed Agents is a set of services that gives every agent its own harness runtime, governed tool access, and fast Serverless Inference in one place so that developers can easily scale agentic work without having to build and maintain infrastructure themselves. Developers can pick a harness they already use, connect tools, and have their agents do meaningful work in seconds.
+
+“EC2 was the front door to the first generation cloud. Customers rented a virtual machine and assembled everything else around it. The next generation cloud is AI-native, and the agent is the front door. Agents need an integrated platform with inference and tokens to think, computers to execute, and data and applications for context, persistence, and user interaction. That integrated platform is DigitalOcean’s AI-Native Cloud.”
+
+— Vinay Kumar, Chief Product and Technology Officer, DigitalOcean
+
+After a successful private preview, Managed Agents is now available to everyone; OpenHands, Qencode, and Amplitude are already building on it.
+
+Why agents need an AI-native cloud
+
+Agents are now asked to do increasingly ambitious work like diagnose and fix checkout errors, run complex inventory simulations, and coordinate workflows across business systems. First generation cloud computing was not built for this. Three requirements make agents a new primitive: security, persistence, and responsiveness. Agents run untrusted code and touch production systems, so each session needs a hardware-isolated environment with credentials brokered outside of it. Agent work is long-running and non-linear; sessions must persist context and artifacts, continue across devices and teammates, and fork when workflows branch. Agents pause and resume constantly waiting on models, tools, and people; their environments must start and resume in milliseconds, not the minutes a VM takes. Laptops meet none of these requirements. AI builders are left to assemble a harness, sandbox environment, inference, storage, and tool access from different vendors and then write and manage the glue. Most teams end up running a handful of agents when they could be running thousands.
+
+DigitalOcean Managed Agents is purpose-built computing for agents
+
+Managed Agents is infrastructure for agents with pricing that reflects how they work. Our harness runtimes are isolated at the hardware layer with a separate secrets management service. Auto-pause functionality stops both CPU and memory charges while a session is paused, preserving its state so work can continue when needed. Agents resume from pause in 305 ms, 46% faster than other leading offerings, while tool search is 42% more accurate than conventional methods. Active CPU billing charges developers only for CPU cycles their agents consume, with no CPU charges while agents wait for model responses or tool results. Together with DigitalOcean’s Inference Services, and full stack cloud including Managed Databases and storage, Managed Agents makes everything that an agent needs for production available in one integrated AI-Native cloud. AI Builders can experience lower latency, security-hardened infrastructure, better TCO, holistic observability, and spend less time integrating vendors and managing infrastructure.
+
+Inside Managed Agents: Runtime, tools, and inference
+
+Managed Agents is built from two vertically integrated services (Harness Runtime + Action Gateway) that share one security model and a unified billing model, with native integration to DigitalOcean's Inference Engine:
+
+DigitalOcean Harness Runtime combines the functionality of a lightweight microVM, built-in tools like chromium, and a coding sandbox needed by agents to do work. The product also offers rich lifecycle APIs that persist conversational history and working state across sessions, along with pause, resume, and fork semantics so that developers can control costs and adapt workflows to the nonlinear quirks of agentic work.
+
+DigitalOcean Action Gateway gives agents governed access to more than 16,000 tools from over 500 providers through a single managed MCP endpoint, including GitHub, Jira, Stripe, PagerDuty, and Supabase, tools for Web Search, Web Fetch and Browser Automation, and a team's own MCP servers. Credentials are brokered at execution time and never reach the model or the sandbox.
+
+DigitalOcean Inference Engine connects agents to Serverless Inference on DigitalOcean-hosted open-weight models such as Nemotron 3 Ultra, Kimi K3, and GLM 5.3, proprietary models like Claude Fable 5.1 and GPT 6 Astra, or to a customer's own model endpoint. Inference Router is designed to provide your workloads the best intelligence per dollar by intelligently routing requests across models based on intent, cost, latency, or quality.
+
+Managed Agents runs the most widely used coding harnesses, including Claude Code, Codex CLI and OpenCode, as well as general-purpose agents such as Hermes and agents built with LangGraph, without modification. Teams can also package a custom agent as a standard Open Container Initiative (OCI) container image and turn it into a reusable template.
+
+What sets DigitalOcean Managed Agents apart
+
+Because Managed Agents is integrated across DigitalOcean’s five-layer AI-Native Cloud, it has features and capabilities beyond single product vendors, including collaborative sessions, lower latency performance, and security-hardened infrastructure.
+
+Collaborative sessions. Sessions live in the cloud, so a developer can start a long task, close the laptop, and resume from any device or hand the live session to a teammate. Multiple users and agents can work in shared sessions, a capability unique among major cloud providers.
+
+Lower latency. By optimizing performance from the compute infrastructure into the software layer, in DigitalOcean testing, Harness Runtimes is able to resume from pause in 305 milliseconds, 46% faster than other leading offerings, and go end-to-end from microVM creation to agent response 31% faster.
+
+Active CPU billing . CPU is billed per second of actual use at $0.044 per vCPU-hour and memory at $0.0095 per GB-hour, with snapshots at $0.005 per GiB-month. Against the leading independent sandbox provider, across multiple real world use cases, DigitalOcean can have up to 37% lower monthly TCO.
+
+Fully managed harnesses. Claude Code, Codex CLI, OpenCode and Hermes run unmodified and fully managed, alongside LangGraph agents and custom OCI images, so teams keep the harness they already use, and we handle the harness lifecycle management.
+
+Breadth of tools. Governed access to more than 16,000 tools from over 500 providers through one MCP endpoint, with brokered credentials, centralized permissions, intelligent, model-backed tool search, and human-in-the-loop approval for sensitive actions.
+
+Security-hardened Infrastructure. Single sign-on, multi-factor authentication, role-based access, audit logs, cloud firewalls and DDoS protection are included on every account at no additional cost.
+
+Customers already running DigitalOcean Managed Agents
+
+Qencode, a media processing company, built a support-triage agent on Managed Agents. The agent reviews each incoming request across Slack, email and Intercom, assesses urgency, sentiment and client revenue, creates or updates the matching Jira ticket, and flags low-confidence cases for a human. Early results suggest it saves the team an estimated four to eight hours a week while bringing response times down from hours to near-instant.
+
+“It's been a huge force-multiplier for our team. It gets the right ticket to the right person without anyone having to watch every thread themselves.”
+
+— Murad Mordukhay, CEO and co-founder, Qencode
+
+“OpenHands Agent Canvas helps engineering teams put agents to work across the full software development lifecycle, from planning and implementing changes to testing, code review, and ongoing maintenance. Agent Canvas brings those agents and workflows into one workspace, while keeping developers in control. DigitalOcean Managed Agents offers scalable compute services for agent execution in isolated microVMs and governed tool access, with durable sessions, fast startup and resume times, and CPU pricing tied to actual consumption. Its billing APIs let us attribute costs to individual customers as usage grows. Together, these capabilities give us a foundation to scale while focusing our engineering effort on helping customers automate complex workflows and ship reliable software faster.”
+
+— Robert Brennan, Co-Founder and CEO, OpenHands
+
+“Amplitude helps organizations deliver more impact when building with AI. Our newest release, Wave, gives customers an agentic PM team to unlock self-improving products by scanning all signals across product data, customer feedback, and code, recommending changes and experiments. To scale Wave, we'll use DigitalOcean’s Harness Runtime and Action Gateway for fast startup and scaling, intelligent tool discovery, secure tool access, and CPU pricing tied to consumption and agent performance. This will let us focus more of our engineering effort on helping customers build better products and get more out of their AI spend.”
+
+— Spenser Skates, Co-Founder and CEO, Amplitude
+
+Availability
+
+DigitalOcean Managed Agents is available today in public preview. Developers can create sessions with Claude Code, Codex CLI, OpenCode, Hermes, LangChain and LangGraph through the Cloud Console or the doctl CLI, and configure tool access through Action Gateway using the DigitalOcean SDK or any MCP-compatible client. New DigitalOcean users receive a $5 credit to launch their first agent session. To learn more, read the launch blog at digitalocean.com/blog or visit digitalocean.com/products/managed-agents .
