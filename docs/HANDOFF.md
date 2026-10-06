@@ -54,6 +54,8 @@ append-only history is `enrich_log.json` (commit it).
   keyboard-operated tab strip, mobile filter focus management, accessible sidebar sections/search clear,
   loading retry and empty-filter recovery. Connection count now reads immutable source edges instead of
   the force renderer's mutated links. Deploy = push to main, Vercel Root Dir = `web`.
+  2026-10-06: the company panel's ratio strip opens with a live **Mkt cap** box (local currency + ≈ USD at the live
+  FX rate; ADRs valued on the home shares) and ADR nodes end it with an **ADR premium** box (`/api/mcap`).
   Verification artifacts: `C:\Users\calif\Documents\Codex\2026-09-12\earnings-ui-review\`.
   UI release `a26a812` is live on https://gijun42.com: Vercel deployment
   `dpl_7cgbLTAkTqPEXkSjfM2WehPDaur2` (`reticulum-kh7fd65v2-gijun42.vercel.app`), Ready.
@@ -136,6 +138,11 @@ append-only history is `enrich_log.json` (commit it).
 6. **The Power Age / Power Seed:** live: cinematic scroll remains on Sites; playable, animated 3D Power Seed is on Vercel.
    Source is the separate GitHub repo `gijunpark42-lab/The-Power-Age` at commit `854a7f8`; the new game changes are
    deployed directly and intentionally uncommitted. Do not push the parent `reticulum-ai` repository.
+
+7. **Web follow-ups from the 2026-10-06 market-cap work (user decides):** `company_metadata.json` files Kioxia as
+   `6600.T`, but its TSE code is `285A` (the web maps it in `web/src/lib/yahoo.ts` SYMBOL_OVERRIDE; tdnet / other
+   pipelines still read the wrong code). TSMC's ratio strip (/api/fundamentals for TSM) mixes the ADR price with TWD
+   financials (P/B 100x); valuing ratios on the home listing like the market cap would fix it.
 
 ## 5. Standing decisions and gotchas (the ones that bite)
 
@@ -973,3 +980,15 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   Left open: MARA entry "CEO Fred Thiel: Bitcoin mining infrastructure…" carries topics ["transitions"] (should be [];
   apply_corrections cannot set topics); Skyworks 09-18 exchange-offer entry holds financing terms (older label).
   NOT committed (nightly rule).
+- **2026-10-06 (Claude) — live market cap in the company panel.** User: "모든 상장주식들 시가총액도 뜨게 해줘",
+  live updates, foreign listings in local currency AND USD, "ADR은 본주 기준"; then "market cap을 PE 박스 왼쪽에
+  박스처럼" plus an ADR premium box. Done: PR #26 (merge f04abd9) added `/api/mcap` (Yahoo company-level cap of the
+  home listing, USD via `<CUR>=X`), the HOME_LISTING map (17 ADR / NY-registry lines → home shares: TSM→2330.TW,
+  BABA→9988.HK, NVO→NOVO-B.CO, ...) and symbol fixes (Kioxia 285A.T, Simmtech / Signetics .KQ, RR.L, OMX Helsinki
+  .HE, Roche ROP.SW — these also fix the price chart and ratios for those names). Follow-up PR: the cap is now the
+  first box of the Fundamentals strip ("Mkt cap" chosen over "MC", which reads as marginal cost; KO shows 시가총액)
+  and ADR nodes get a last "ADR premium" box = ADR cap ÷ home cap, both in USD, − 1 (equals price × ADR ratio on all
+  17 pairs; TSM +19.4%, BABA +0.5%). It sits last so every other box keeps its place across companies. Coverage:
+  804 of 808 listed nodes (Yahoo has no cap for Toho Titanium, Asetek, Kostek, Enflame). Yahoo's cap counts all share
+  classes (Samsung incl. preferred > Naver's common-only 시총). Checked: tsc, next build, `/api/mcap` over all 808,
+  headless browser desktop + 420 px, 30 s live polls. Left open: §4 item 7. Uncommitted: no.
