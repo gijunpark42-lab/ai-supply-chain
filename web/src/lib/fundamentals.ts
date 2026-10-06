@@ -255,6 +255,32 @@ async function yahooOnce(symbol: string): Promise<Partial<Fundamentals> | null> 
   }
 }
 
+// Live market cap for /api/mcap, in the listing's TRADING currency (financialCurrency
+// above is the reporting one: Alibaba reports in CNY but 9988.HK trades in HKD). This
+// is Yahoo's company-level figure, all share classes (Samsung common + preferred).
+export async function yahooMarketCap(
+  symbol: string
+): Promise<{ cap: number; currency: string } | null> {
+  const s = await yahooSession();
+  if (!s) return null;
+  try {
+    const url =
+      `https://query2.finance.yahoo.com/v10/finance/quoteSummary/${encodeURIComponent(symbol)}` +
+      `?modules=price&crumb=${encodeURIComponent(s.crumb)}`;
+    const res = await fetch(url, {
+      headers: { "User-Agent": UA, Cookie: s.cookie },
+      next: { revalidate: LIVE },
+    });
+    if (res.status === 401) session = null; // stale crumb → next call re-handshakes
+    if (!res.ok) return null;
+    const p = (await res.json())?.quoteSummary?.result?.[0]?.price;
+    const cap = raw(p, "marketCap");
+    return cap && p.currency ? { cap, currency: p.currency } : null;
+  } catch {
+    return null;
+  }
+}
+
 // Pick the local provider for a Yahoo-style symbol ("000660.KS", "6857.T", "2330.TW").
 export function localProvider(symbol: string) {
   if (/^\d{6}(\.K[SQ])?$/.test(symbol)) return naver;

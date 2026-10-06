@@ -1,7 +1,8 @@
 // /api/quote — server-side Yahoo Finance proxy for NON-US listings (the yfinance
 // replacement). US tickers use the TradingView client widget instead. Returns the
-// same shape app.py's _fetch_quote produced: { price, change_pct, market_cap,
-// year_high, year_low, currency, series{range:[[ms,close]]}, as_of }.
+// same shape app.py's _fetch_quote produced: { price, change_pct, year_high,
+// year_low, currency, series{range:[[ms,close]]}, as_of }. The chart meta carries no
+// market cap, so that lives in /api/mcap.
 
 import { NextRequest, NextResponse } from "next/server";
 import { yahooSymbol } from "@/lib/yahoo";
@@ -99,7 +100,6 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({
     price: round2(last),
     change_pct: last != null && prev ? Math.round(((last - prev) / prev) * 10000) / 100 : null,
-    market_cap: meta.marketCap ?? null,
     year_high: round2(meta.fiftyTwoWeekHigh ?? null),
     year_low: round2(meta.fiftyTwoWeekLow ?? null),
     currency: meta.currency ?? null,
