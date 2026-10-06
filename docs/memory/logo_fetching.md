@@ -53,7 +53,7 @@ logo.svg), Faraday Technology (faraday-tech.com). REJECTED as unverifiable: SACM
 a 170x170 square with 58 `<g>` (an icon sprite, not a wordmark) — no rasterizer on this box, so
 structure+brand-colors is the only SVG check; when it looks like a sprite, drop it.
 Wikimedia API rate-limits: 6 parallel workers → **HTTP 429 on every call** (which silently looked
-like "no results"); go sequential with ~0.35 s sleep + backoff and a contact-email User-Agent.
+like "no results"); go sequential with ~0.35 s sleep + backoff and a descriptive User-Agent such as `earnings-ai-logo-fetch/1.0 (+https://gijun42.com)` — never put the user's email address in a User-Agent or request (privacy; fixed 2026-10-06).
 Still missing 36, and companieslogo's sitemap has NO entry for any of them (diagnostic run confirms
 the near-misses are all different companies): AD Technology, ASADA, ASPEED, Accelink, Black Forest
 Labs, CoolIT Systems, Dongjin Semichem, EO Technics, Elite Material, FläktGroup, Gaonchips, Gold
