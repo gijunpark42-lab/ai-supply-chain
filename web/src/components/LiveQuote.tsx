@@ -6,21 +6,13 @@ import { useLang } from "@/lib/i18n";
 
 const RANGES = ["1D", "1W", "1M", "YTD", "1Y", "5Y", "All"];
 const REFRESH_MS = 30_000; // auto-refresh interval while the panel is open
-const CUR: Record<string, string> = {
+export const CUR: Record<string, string> = {
   USD: "$", EUR: "€", GBP: "£", JPY: "¥", KRW: "₩", TWD: "NT$", HKD: "HK$", CNY: "¥",
 };
 
 const W = 560;
 const H = 220;
 const PAD = { l: 6, r: 46, t: 10, b: 20 };
-
-function fmtCap(v: number | null, sym: string): string {
-  if (!v) return "—";
-  if (v >= 1e12) return `${sym}${(v / 1e12).toFixed(2)}T`;
-  if (v >= 1e9) return `${sym}${(v / 1e9).toFixed(2)}B`;
-  if (v >= 1e6) return `${sym}${(v / 1e6).toFixed(1)}M`;
-  return `${sym}${v.toFixed(0)}`;
-}
 
 export default function LiveQuote({
   ticker,
@@ -118,7 +110,6 @@ export default function LiveQuote({
             )}
             <div className="lq-live">● LIVE · {data.as_of}</div>
             <div className="lq-stats">
-              <span>{t("Mkt cap")} {fmtCap(data.market_cap, sym)}</span>
               {data.year_low != null && data.year_high != null && (
                 <span>
                   {t("52-wk")} {sym}{data.year_low} – {sym}{data.year_high}

@@ -71,11 +71,22 @@ export type LogoManifest = Record<string, LogoEntry>;
 export interface LiveQuote {
   price: number | null;
   change_pct: number | null;
-  market_cap: number | null;
   year_high: number | null;
   year_low: number | null;
   currency: string;
   series: Record<string, [number, number][]>; // range -> [[epochMs, close], ...]
+  as_of: string;
+}
+
+// /api/mcap response — live market cap of the node's listing (home shares for ADRs).
+export interface MarketCap {
+  symbol: string; // the listing the cap is computed on (2330.TW for TSM)
+  adr: string | null; // the US line the node is filed under, when we looked through it
+  currency: string;
+  market_cap: number;
+  market_cap_usd: number | null;
+  adr_premium: number | null; // fraction: 0.194 = ADR 19.4% above the home shares
+  fx: number | null; // units of `currency` per 1 USD
   as_of: string;
 }
 
