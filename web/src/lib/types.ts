@@ -71,7 +71,6 @@ export type LogoManifest = Record<string, LogoEntry>;
 export interface LiveQuote {
   price: number | null;
   change_pct: number | null;
-  market_cap: number | null;
   year_high: number | null;
   year_low: number | null;
   currency: string;

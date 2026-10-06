@@ -11,6 +11,7 @@ import { yahooSymbol } from "@/lib/yahoo";
 import ReportView from "./ReportView";
 import TradingViewChart from "./TradingViewChart";
 import LiveQuote from "./LiveQuote";
+import MarketCap from "./MarketCap";
 import Fundamentals from "./Fundamentals";
 import { EvidenceButton } from "./Evidence";
 import "./NodePanel.css";
@@ -746,6 +747,7 @@ export default function NodePanel({
         ) : node.ticker ? (
           <LiveQuote ticker={node.ticker} exchange={node.exchange} />
         ) : null}
+        {node.ticker && <MarketCap ticker={node.ticker} exchange={node.exchange} />}
         {node.ticker && <Fundamentals ticker={node.ticker} exchange={node.exchange} />}
 
         {/* "At a glance" sits under the price + chart (user, 2026-10-01). */}
