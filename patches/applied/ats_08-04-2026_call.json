@@ -1,0 +1,77 @@
+{
+  "source": "AT&S Q1 FY2027 (08-04-2026)",
+  "chains": {
+    "manufacturing/packaging_substrate.json": {
+      "players": [
+        {
+          "company": "AT&S",
+          "layer": "advanced_packaging",
+          "sector": "FC-BGA Substrate",
+          "product": "IC substrate (ABF) & high-density interconnect",
+          "quarterly_data": [
+            {
+              "quarter": "AT&S Q1 FY2027 (08-04-2026)",
+              "signal": "Q1 2026/27 (CEO Michael Mertin): revenue of approximately EUR 550 million, growth of 40% constant currency year-on-year; EBITDA up 134% to EUR 165 million (margin a little more than 30%); EBIT EUR 73 million, more than the entire last year, more than +500% with a margin of more than 13%. CFO Gerrit Steen: Microelectronics revenue +93% with EBITDA margin above 42%, reflecting ramps in Kulim and Leoben, higher utilization (particularly strong in Chongqing), strong demand, improving pricing especially as of June and a favorable mix; first client payments were included in Q1 and helped the Microelectronics margin. Electronics Solutions improved quarter-over-quarter but is not yet in line with full-year expectations, due to the delay in passing cost increases to customers and investment in the readiness of the Austrian operations. Net income EUR 40.8 million; D&A slightly above EUR 90 million.",
+              "figure": "Q1 revenue approximately EUR 550 million (+40% constant currency); EBITDA EUR 165 million (+134%); EBIT EUR 73 million; Microelectronics revenue +93%, EBITDA margin above 42%",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "AT&S Q1 FY2027 (08-04-2026)",
+              "signal": "Guidance colour from the call: CFO Gerrit Steen expects Q2 to further accelerate, with growth and margin fully in line with the full-year guidance ranges; of the original guidance about one third, around 10%, was pricing-related and the rest volume, while the upgraded guidance mostly reflects new customer agreements and additional volumes. CEO Michael Mertin: the guidance includes every contract known to affect this fiscal year - contracts signed at short notice could be an add-on - and further inflationary pressure is not included. Customer agreements combine prepayment-type payments, capacity reservation and pricing agreements, are structured so that profitability is not diluted, and their effects run into fiscal 2028, 2029, including milestone bonus payments; the remaining customer prepayment contracts are to be signed within this fiscal year. CFO: across the industry CapEx to revenue is roughly one to one per annum.",
+              "figure": "pricing about one third of the original guidance (around 10%)",
+              "topics": []
+            },
+            {
+              "quarter": "AT&S Q1 FY2027 (08-04-2026)",
+              "signal": "Contracted capacity (CEO Michael Mertin): utilization guarantees and take-or-pay clauses are part of the customer contracts - 'we are fully booked for 1 and 2' (Kulim plants 1 and 2) and are now looking for further capacity for additional contracts. There are more not-yet-communicated projects in the pipeline in the three-digit EUR million range, across customers, technologies and sites. Kulim 3 (space on the campus plus an additional plot already bought) is not decided: it depends on ongoing negotiations with other customers and on customer financing that keeps AT&S's 'more or less zero net exposure' strategy.",
+              "figure": "pipeline projects in the three-digit EUR million range",
+              "topics": [
+                "packaging_substrate"
+              ],
+              "slot": "backlog_or_b2b"
+            },
+            {
+              "quarter": "AT&S Q1 FY2027 (08-04-2026)",
+              "signal": "Co-packaged optics (CEO Michael Mertin): AT&S embeds optical transceivers into circuit boards for co-packaged optics and is investing further; CPO products are high-margin, giving between 5% and 10% additional margin. AT&S is capacity-limited and filling the last bottlenecks - 'The global demand for co-packaged optics is significantly bigger than it can be globally delivered' - with very few competitors; CPO will have no impact this fiscal year but is part of the growth strategy for the next and over-next year. The next step, integrated optics on the board for chip-to-chip and chip-to-memory communication, is under discussion with customers. Separately, a large production ramp of embedded high-power components (small transformers for power delivery to AI processors) in Hinterberg, Austria will contribute to Electronics Solutions from Q2 and Q3.",
+              "figure": "CPO 5% to 10% additional margin",
+              "topics": [
+                "cpo",
+                "packaging_substrate"
+              ],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "AT&S Q1 FY2027 (08-04-2026)",
+              "signal": "Operations and supply (management): supply chain conditions remain dynamic and created some constraints during the quarter; AT&S is securing key materials and equipment and deliberately built inventory for the ramps and supply chain resilience (CFO). Chongqing capacity is being maxed out by adding equipment to serve existing customers' AI and advanced-server products; Kulim 2 is for one other big customer plus smaller ones, with a new core building for the next and over-next generation of substrates; a China for China business has been implemented. Mix: most Microelectronics revenue is substrate, mostly for server and advanced server applications, with a GPU product newer at Kulim; lines can shift between server, advanced server and AI products depending on customer demand and material availability, including different glass materials (CEO).",
+              "figure": "no specific figure",
+              "topics": [
+                "packaging_substrate",
+                "supply_tightness"
+              ]
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "AMD",
+              "relationship": "advanced IC substrates supplied to AMD from the Kulim, Malaysia plant",
+              "contracts": [
+                {
+                  "source": "AT&S Q1 FY2027 (08-04-2026)",
+                  "signal": "CEO Michael Mertin: Kulim plant 1 is dedicated to AMD and is ramping to the max; the AMD lines are flexible enough to mix server, advanced server and AI products depending on AMD's demand, and the Chongqing max-out serves demand from AMD and other customers.",
+                  "units": "Kulim plant 1 capacity",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "dedicated capacity",
+                  "topics": [
+                    "packaging_substrate"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

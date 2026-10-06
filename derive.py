@@ -521,8 +521,13 @@ def derive_capex(graph):
 
 EXPOSURE_PATH = os.path.join(OUT_DIR, "exposure.json")
 CHAINS_DIR = "chains"
-# Contract `type`s that state "customer X is n% of the supplier's revenue" (lower case).
-CONCENTRATION_TYPES = {"customer share", "10-k customer concentration", "10-q customer concentration"}
+# Contract `type`s that state "customer X is n% of the supplier's revenue" (lower case): DART, EDGAR and EDINET
+# (edinet.py: 主要な相手先別の販売実績 in a Japanese annual / semi-annual securities report), and China
+# (cninfo.py reports: a named customer of the 前五名客户 table in an A-share annual / half-year report).
+CONCENTRATION_TYPES = {"customer share", "10-k customer concentration", "10-q customer concentration",
+                       "20-f customer concentration", "40-f customer concentration", "prospectus customer concentration",
+                       "annual securities report customer share", "semi-annual report customer share",
+                       "annual report customer share", "half-year report customer share"}
 
 ROLE_WEIGHT = {
     "compute_hardware": 3, "memory": 3, "interconnect": 3, "advanced_packaging": 3, "foundry": 3,

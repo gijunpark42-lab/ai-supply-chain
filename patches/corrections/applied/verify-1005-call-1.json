@@ -1,0 +1,37 @@
+{
+  "reviewer": "verify-1005-call-1",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Murata",
+      "target": null,
+      "label": "Murata Q1 FY2026 (07-31-2026)",
+      "signal_prefix": "Costs: at the start of the year Murata expected Strait of Ho",
+      "action": "set",
+      "set": {
+        "signal": "Costs: at the start of the year Murata expected Strait of Hormuz-related cost increases of about JPY7 billion for raw materials and about JPY6 billion for energy; that impact has grown by several billion yen and precious-metal and other raw-material prices rose more than expected in April (Minamide); separately, outsourcing expenses and labor costs on production lines increased due to higher production volume. Q1 also included a JPY4 billion positive from the US tariff refund (net of amounts returned to customers). Demand assumptions: smartphones revised down 1% (low to mid-end models), automobiles slightly down mainly ICE."
+      },
+      "chains": [
+        "components/mlcc.json"
+      ],
+      "reason": "Causation misstated: the call attributes higher outsourcing / production-line labor costs to higher production volume, not to the Hormuz / precious-metal cost rise.",
+      "evidence": "costs, such as outsourcing expenses for production lines, have increased due to higher production volume."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Murata",
+      "target": null,
+      "label": "Murata Q1 FY2026 (07-31-2026)",
+      "signal_prefix": "President Nakajima on hyperscaler investment: 'I guess I sho",
+      "action": "set",
+      "set": {
+        "signal": "President Nakajima on hyperscaler investment: 'I guess I should not say bubble, but I think it is getting overheated' - electronic parts are not the bottleneck now; power, data-center hardware and buildings are, so there will be a gap with actual demand, but he does not think total capex will fall much and expects some revisions or delays; Murata tracks indicators such as power-generation turbines and fiber-optic networks to align capacity with actual demand. He sees smartphones / PCs being crowded out mainly via memory (HBM has higher added value), with low-end models staying tough. On a recent gathering in Tokyo he attended with Omori: 'It seems that MLCC supply is also a major issue for them that has been escalated. We received a lot of requests.' Automotive: with global vehicle volume about 90 million units, strong sales reflect autonomous-driving / SDV demand (inertial sensors) and MLCC / inductor demand for EV and hybrid powertrains; Chinese customers are strong on exports. Omori: automotive and data-center MLCCs use relatively different areas, so automotive supply is not a particular concern."
+      },
+      "chains": [
+        "components/mlcc.json"
+      ],
+      "reason": "'customer gathering' is an inference; the call only says 'a gathering in Tokyo' - quote Nakajima's words instead.",
+      "evidence": "I went there with Mr. Omori. It seems that MLCC supply is also a major issue for them that has been escalated. We received a lot of requests."
+    }
+  ]
+}

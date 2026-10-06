@@ -1,0 +1,87 @@
+{
+  "reviewer": "verify-1004-newnodes-7",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Feirongda",
+      "target": null,
+      "label": "Feirongda annual report: 2025 Annual Report (04-28-2026)",
+      "signal_prefix": "Servers and telecom (annual report): the company says it has entered",
+      "action": "set",
+      "set": {
+        "signal": "Servers and telecom (annual report): the company says it has entered the supply chains of mainstream server makers at home and abroad and has reached supply cooperation with mainstream domestic server makers, with some products delivered in volume; its server, switch and data-center cooling products include TIM materials, heat sinks, fans, 3D VC heat sinks, single-phase and two-phase liquid-cooling cold-plate modules, flow controllers and CDUs. It describes itself as a qualified supplier of mainstream domestic and overseas communication-equipment makers (base-station radomes, RRU/BBU cooling assemblies). Its data-center / server customers include 'Company H' (as the company names it), ZTE, Cisco, Inspur, Datang Mobile, FiberHome Supermicro, New H3C, xFusion, Lenovo, Wistron, Compal, ASUS, Eastern Communications and Shenzhou Kuntai."
+      },
+      "reason": "An annual-report entry must stand on its own source: 'named in later filings' points to sources dated after 04-28-2026; the annual report's own data-center / server customer list is written out instead.",
+      "evidence": "数据中心、服务器客户包括 H 公司、中兴、思科、浪潮、大唐移动、烽火超微、新华三、超聚变、联想、纬创、仁宝、华硕、东方通信、神州鲲泰及其他重要客户等。"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Feirongda",
+      "target": null,
+      "label": "Feirongda half-year report: 2026 Half-Year Report (08-22-2026)",
+      "signal_prefix": "Customers by segment (half-year report): terminal customers include",
+      "action": "set",
+      "set": {
+        "signal": "Customers by segment (half-year report): terminal customers include 'Company H' (as the company names it), Microsoft, Lenovo, Samsung, Honor, Xiaomi, Cowell, HP, Dell, Quanta, Pegatron, Inventec, Huaqin, Baolongda and Daineng; communications customers 'Company H', ZTE, Nokia, Ericsson, Cisco and CICT Mobile; data-center / server customers include 'Company H', ZTE, Cisco, Inspur, Datang Mobile, New H3C, xFusion, Lenovo, Wistron, Eastern Communications and Shenzhou Kuntai; NEV customers include BYD, GAC, SAIC, CRRC, Geely, Vmax, RoboSense, CATL, LG Energy Solution, CALB, REPT, Sunwoda, Gotion, Pony.ai, BorgWarner and Hesheng; PV and energy-storage customers include 'Company H', YG, Growatt, GoodWe, Sigenergy, TBEA, Inovance, Huabao New Energy, Maitian Energy, Kubo and Shouhang; other customers include Gree, Mindray, Snibe, Panasonic, DJI, Goertek, Quanta, Compal, Pegatron, Pudu, UBTech, Ninebot, Legrand and Dyson."
+      },
+      "reason": "The entry listed every customer group of the report except the data-center / server one (the group that matters for this chain); the half-year report states it on the same page.",
+      "evidence": "数据中心、服务器客户包括H 公司、中兴、思科、浪潮、大唐移动、新华三、超聚变、联想、纬创、东方通信、神州鲲泰及其他重要客户等。"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Feirongda",
+      "target": null,
+      "label": "Feirongda investor Q&A: SZSE Interactive Easy (08-25-2026)",
+      "signal_prefix": "The company said on SZSE Interactive Easy: asked whether its liquid-cooling products had entered Lenovo",
+      "action": "set",
+      "set": {
+        "signal": "The company said on SZSE Interactive Easy: asked whether its liquid-cooling products had entered Lenovo's liquid-cooled server supply chain, it said it has long-term cooperation with that customer, supplying thermal materials, graphite, fans and cooling modules, but currently does not supply it server liquid-cooling products."
+      },
+      "reason": "Depth rule: the data-center / server customer list in this answer is word for word the list in the half-year report filed three days earlier (08-22-2026); only the Lenovo statement is new.",
+      "evidence": "公司一直与该客户保持着长期持续的友好合作，有向客户提供导热材料、石墨、风扇、散热模组等产品。目前，暂未向该客户提供服务器液冷相关产品。"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Feirongda",
+      "target": null,
+      "label": "Feirongda investor Q&A: SZSE Interactive Easy (09-14-2026)",
+      "signal_prefix": "The company said on SZSE Interactive Easy: its data-center and server customers currently include",
+      "action": "delete",
+      "reason": "Restates Feirongda half-year report: 2026 Half-Year Report (08-22-2026) - the same data-center / server customer list (minus Datang Mobile); no new fact.",
+      "evidence": "目前，公司数据中心、服务器客户包括H公司、中兴、思科、浪潮、新华三、超聚变、联想、纬创、东方通信、神州鲲泰及其他重要客户等。"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Feirongda",
+      "target": null,
+      "label": "Feirongda investor Q&A: SZSE Interactive Easy (09-21-2026)",
+      "signal_prefix": "The company said on SZSE Interactive Easy: it has several self-developed cooling products",
+      "action": "delete",
+      "reason": "Restates the half-year report (08-22-2026: same server / data-center product list, products delivered in volume) and the annual report (supply cooperation with mainstream domestic server makers); the rest is a non-answer on overseas certification.",
+      "evidence": "目前，公司在服务器、数据中心等领域的散热产品包含TIM材料及各类散热器、风扇、3D VC散热器、单相液冷冷板模组、两相液冷冷板模组、流量控制仪、CDU等，且与国内主流服务器厂商达成供应合作，部分产品已实现批量交付"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Feirongda",
+      "target": null,
+      "label": "Feirongda investor Q&A: SZSE Interactive Easy (09-21-2026)",
+      "signal_prefix": "The company said on SZSE Interactive Easy that its raised-fund project",
+      "action": "delete",
+      "reason": "Restates the half-year report (08-22-2026: raised-fund new-energy related devices project, usable date December 31, 2026) and the annual report; a non-AI restatement should not take the next_catalyst cell.",
+      "evidence": "公司募投项目“新能源相关器件建设项目”正在加紧建设中，预计2026年12月31日前达到可使用状态。"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Gaolan",
+      "target": null,
+      "label": "Gaolan annual report: 2025 Annual Report (04-24-2026)",
+      "signal_prefix": "2026 business plan (annual report, company plan, not a forecast)",
+      "action": "set",
+      "set": {
+        "signal": "2026 business plan (annual report; the report states its forward-looking plans are not a substantive commitment to investors): in data-center thermal management the company plans to consolidate its relationships with leading domestic customers, replicate its overseas flagship projects, focus on AI computing markets in China, Southeast Asia, North America and the Middle East, iterate high-compute liquid-cooling solutions and optimize supply chain and cost to grow gross profit; in power thermal management it aims to hold its HVDC lead and its offshore flexible-DC position; overseas it will build on the Saudi flexible-DC valve-cooling and Thailand data-center liquid-cooling EPC projects with localized teams; and it will optimize scheduling and make production lines smarter to secure core capacity for domestic and overseas orders."
+      },
+      "reason": "Hedge mis-stated: the report does not call the plan 'not a forecast'; it says forward-looking plans do not constitute a substantive commitment to investors.",
+      "evidence": "本报告中涉及未来计划等前瞻性陈述，不构成本公司对投资者的实质承诺"
+    }
+  ]
+}

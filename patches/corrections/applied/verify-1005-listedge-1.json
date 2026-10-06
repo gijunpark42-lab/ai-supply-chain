@@ -1,0 +1,38 @@
+{
+  "reviewer": "verify-1005-listedge-1",
+  "items": [
+    {
+      "kind": "contract",
+      "company": "BESI",
+      "target": "Intel",
+      "label": "BESI Q1 FY2026 (04-23-2026)",
+      "signal_prefix": "Intel is named among BESI's customers in its Q1 2026 call",
+      "action": "delete",
+      "reason": "User rule 2026-10-05 (1): calls only from a FULL verbatim transcript. transcripts/packaging/besi_q1_2026.txt is a condensed version (17.8 KB; elided questions and answers with '...', truncated speaker names, '[forward-looking disclaimer omitted]', article summary stats), not the whole verbatim call.",
+      "evidence": "Martin: Intel EMIB relevance? / Richard Blickman: We are involved since the very beginning in placement of these EMIB modules. ... Martin: OpEx discipline? / Richard Blickman: Simply controlling cost."
+    },
+    {
+      "kind": "contract",
+      "company": "onsemi",
+      "target": "Lite-On",
+      "label": "onsemi technology leadership forum 2026 (08-11-2026)",
+      "signal_prefix": "Lite-On is named among onsemi's customers at its 2026 technology leadership forum",
+      "action": "delete",
+      "reason": "Conference depth rule: the CEO only recaps names from earlier earnings calls; the same edge already carries the onsemi Q4 FY2025 (02-09-2026) customer-list contract for Lite-On (BBU / PSU design wins). Restatement, no new fact.",
+      "evidence": "If you kind of consolidate the last few earnings call that we talked about, you have heard me talk about Flex Power, Delta, Lite-On, Great Wall, AWS, Nvidia, and so on."
+    },
+    {
+      "kind": "contract",
+      "company": "MiCo",
+      "target": "TSMC",
+      "label": "MiCo Q2 FY2026 (08-14-2026)",
+      "signal_prefix": "TSMC is named among MiCo's main customers in its H1 2026 report",
+      "action": "set",
+      "set": {
+        "signal": "TSMC is named among MiCo's main customers in its H1 2026 report: the semiconductor cleaning / coating and ceramic-parts business (Komico) names Samsung, SK hynix, Intel, Micron, TSMC, UMC and Global Foundries among the major global customers it trades with, and the main-customer table carries a row 'Intel, TSMC, Micron and others' whose amount is the same as the company's total export sales across all businesses, so no TSMC share is disclosed."
+      },
+      "reason": "The main-customer table does not itself label the rows export / domestic (only the amounts match the export / domestic totals); the explicit customer naming is the Komico business-overview sentence, now cited.",
+      "evidence": "주요 매출처로는 Samsung, SK hynix, Intel, Micron, TSMC, UMC, Global Foundries 등 전세계 Major 고객사와 거래 / Intel, TSMC, Micron 외 | 320,354 | 47.73%"
+    }
+  ]
+}

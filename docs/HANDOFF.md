@@ -826,3 +826,150 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
     (stale 09-29 outputs found in i18n/pending/out/ with colliding chunk ids were moved aside, NOT merged) → validate clean →
     merged → build: 0 untranslated. Micron Q4 FY2026 (call 09-30) NOT enriched yet: AV quota spent, Fool 404, defeatbeta 404 —
     tonight's nightly AV sync should pull it (Jabil too). Uncommitted: yes.
+- **2026-10-01 (Claude, nightly routine) — `enrich us`** — AV sync saved 0 (Dell still `waiting`; Micron Q4 FY2026 09-30 call not on AV,
+  and av.py's gap scan misses it until its 06-24 label is 100 days old). defeatbeta is BACK: fetched Applied Digital Q4 FY2026
+  (07-27), 3M Q2 (07-21), TI Q2 (07-22), Shell Q2 (07-30, first call) — APLD/3M/TXN labels already held 1-2 entries taken from the
+  8-K releases on 2026-08-04 with no source file; the full calls added only what was missing. defeatbeta's "MU 2026Q4" is the
+  post-earnings analyst call already enriched as `Micron post-earnings analyst call 2026 (09-30-2026)` — file deleted, no patch; the
+  main Micron Q4 call is still missing (retry AV / Fool). Marked (call): Simulations Plus (Q3 07-09 on neither source, recheck 10-30),
+  POET Technologies (no transcripts anywhere, recheck 11-20). Conferences: NextEra Wolfe (10-01) + Iron Mountain RBC (09-29, 403 then
+  fetched by hand) enriched; Infineon AI & Tech conference (10-01) saved, left for `enrich europe`. IR sync 61 saved / 120 failed; all
+  45 US IR rows closed (10 patched, 35 no material facts). 16 patches (54 entries) pre-flighted clean and APPLIED to chains/.
+  **graph_build.py --sync was KILLED by Claude Code for low system memory** after apply + merged graph + derive (23:32): verify_graph,
+  the status board and the web/public/data sync did NOT run, and per the harness it was not restarted unattended.
+  NEXT: `python graph_build.py --sync` (re-applies nothing, rebuilds board + web sync + verify) → read [fail]/[warn] → Opus verifier
+  over the 16 pending labels in verify_queue.json → i18n §9. No new nodes. Open points for the user: Shell's oil/gas/LNG call facts sit
+  on its immersion-coolant node and 3M's EBO optical-connector facts on its coolant node (single-node companies, see the open
+  "Out-of-segment items" question); Modine plans to rename to "Modexus Solutions" (shareholder vote within 3 months). Uncommitted: yes.
+- **2026-10-02..04 (Claude, user-driven "대기중인거 전부 enrich" + follow-ups) — checkpoint 1**
+  - Finished the 10-01 nightly (graph_build killed for low memory): rebuild, Opus verifiers over its 16 US labels (11 corrections).
+  - Markets: KR (3 DART supply contracts, 3 IR), JP (AGC call — label fixed FY2027→FY2026, calendar FY; Nidec TDnet; 14 IR),
+    EU (Infineon conference + 5 IR), CN (Lenovo call — label fixed Q1 FY2026→Q1 FY2027, March FY; SMIC call; 15 cninfo Q&A/records),
+    TW (178 rows: 159 MOPS decks + 2 material + 17 IR; 16 enricher agents, 6 Opus verifiers, 8 corrections). Fujitsu/Sumitomo Chemical
+    intl rows were stale (already enriched) and closed. Foxconn 08-12 IR file: whole body sat in its TITLE line (label header past
+    3000 chars) — TITLE shortened, body text moved below the header, nothing lost.
+  - EDGAR: 175 + 111 filings (two runs; 10 + 6 batches, enricher + independent verifier each). New edges incl. Tempus AI suppliers
+    (Illumina/Google/Amazon), Recursion (Bayer/NVIDIA/Google), Lattice suppliers (TSMC/Samsung/ASE/Amkor), Generac→Amazon,
+    Caterpillar/Wärtsilä→Liberty, Williams→Duke/Puget, WEC→Google/Meta, NextEra→WEC, Baker Hughes→Solaris, HIVE→Cohere,
+    NVIDIA→HIVE, NVIDIA/Supermicro/Dell→WhiteFiber, PDF Solutions→Advantest, Twist→Ginkgo. Coordinator dedupe: Jazz 10-Q copy of the
+    AbCellera 8-K deal dropped. NOTE: my EDGAR enricher prompt over-restricted ai_bio pharma nodes (AI facts only) — not a written
+    rule; open user question "Pharma filing scope".
+  - Gap scan (5 research agents): 93 candidates, user approved the 48 "clear" (enrich_waitlist.json group scan_2026_10_04 +
+    company_metadata.json). 17 US names ADDED as nodes from their calls (defeatbeta) after an independent node verifier
+    (DigitalOcean NVIDIA/AMD edges dropped; ERock→Meta moved to quarterly_data — utility is the buyer; Akamai nvda_b200 placement
+    dropped). 31 non-US names still pending (CN 21 via cninfo; TW 4 via MOPS; JP Optorun via TDnet; HK 7 + 3 JP + Volex + Netweb:
+    Investing.com 403 and gap-scan document links failed — find official IR docs).
+  - New tooling (tested): edinet.py (needs EDINET_API_KEY; user postponed), cninfo.py `reports` (A-share annual/half-year reports →
+    transcripts/cninfo_reports/, backfill running), investing.py EXCLUDE Tencent ≠ Tencent Music. 20-F/6-K/prospectus extension of
+    edgar_pull.py IN PROGRESS (not in checkpoint 1). Web UI (compact signals, source badges, filter chips, click-to-expand source
+    labels) built + screenshots, NOT committed (user reviews first).
+  - Open user questions: tmp list in the session report (reverse edges Tempus↔Recursion; Merck KGaA/Oracle in ai_bio; pharma scope;
+    gas-pipeline / legacy PPA edges; bitcoin-mining scope; check_edgar_patch counterparty keys; Kioxia ticker 285A; …). Uncommitted
+    after checkpoint: web/src, edgar_pull.py, cninfo report backfill + its queue, non-US onboarding.
+- **2026-10-04 (Claude, same session) — checkpoint 2 (after PR #25)**
+  - China A-share periodic reports (new `cninfo.py reports`): 151 reports saved; 53 enricher batches (≤3 reports/agent) over
+    ~110 existing-node companies → top-5 customer/supplier tables, capacity, CIP projects, R&D, outlook. New edges from NAMED
+    top-5 / related-party rows or explicit "certified supplier to X" lines (e.g. TFC Optical→Fabrinet 63.31%, TFME→AMD,
+    Jiangfeng→TSMC/SK Hynix/SMIC/UMC, NSIG→TSMC/UMC/SMIC/Hua Hong, Micron/Samsung/SK Hynix→Longsys, Biwin→Meta/Google,
+    YOFC↔Broadex, Defu→Shengyi, Fortune→Kingsemi, Viavi→DOTI, Honor→Foxconn). "Customers include …" list edges are an OPEN
+    board question ("Customer lists in A-share reports") — some agents made them (AFR, Huafeng, Jones Tech, Ruijie, NSIG), most did not.
+  - Waitlist scan_2026_10_04: all 31 non-US names onboarded except Enflame (no periodic report yet) → 30 new nodes (CN 13 incl.
+    Sugon/ZTE/Ruijie/Centec/SJ Semi; HK 7 incl. Tencent/MiniMax/Zhipu AI/Iluvatar; JP 4; TW 4; Volex; Netweb). Official docs fetched
+    by a collector agent (`ir_pull.py fetch --file` added for bot-blocked sites); Netweb's own Q1 FY27 call transcript saved by hand.
+    Logos for all 47 new nodes (17 US + 30) in static/logos + manifest. Kenmec metadata fixed to 6125.TWO / TPEx.
+  - SEC foreign issuers: edgar_pull 6-K/20-F/40-F/prospectus run → 501 new files, 250 queued; 20 batches, enricher + independent
+    verifier each, then `edgar_pull.py done`. New edges incl. Akamai→Anthropic (~$11.6B, 8-K 09-24), Lenovo→Akamai, Nebius→Meta
+    (Vera Rubin), Brookfield→Microsoft, Fervo→Google (396 MW PPA) + Baker Hughes/MHI/ABB→Fervo, ERock→Microsoft/Entergy,
+    Tecogen→Vertiv, TSMC/TEL/GPT/All Ring→ASE, SUMCO/Formosa Sumco→UMC, Advantest→ChipMOS, Silicon Motion→Micron/Biwin,
+    Sanan→STM, FuelCell→Eversource, Lenovo→SharonAI. Pharma nodes kept to the narrow practice (open "Pharma filing scope").
+  - Tool fixes: verify_graph.py now matches numbers a PDF line break cut in 2–4 pieces (`rejoined_numbers`, added text only)
+    and knows ~60 mainland-Chinese company names (CN_ALIASES merged into KO_ALIASES) → this build: 760 new entries, 0 warn,
+    0 fail. apply_patches.save_chain retries on the OneDrive "[Errno 22]" lock (one build crashed on it; chains were intact).
+  - Leftover IR/TDnet queue (54 rows) and all cninfo/mops/tdnet/ir rows closed (enriched or "no material facts").
+    verify_queue: EDGAR labels recorded as verified by the batch verifiers; 71 new-node labels + 137 other labels went to
+    Opus verifiers at the end of the session (results/corrections applied in the final build if they finished).
+  - Known gaps: edgar_pull EXHIBIT_CAP 400k cut 2 exhibits (Arm UK annual report, Brookfield circular); FuelCell 06-24 8-K
+    Explanatory Note and Cerebras prospectus supplier section look dropped by the extractor; Tower call label date probably
+    08-04 not 08-06 (board question). i18n: ~5,500 untranslated strings (not run; translate with Sonnet per the skill).
+    EDINET still waits for EDINET_API_KEY. Web UI changes (web/src) still uncommitted for the user's review.
+  - Final wrap-up (same session): the account hit the weekly Opus limit (resets 2026-10-06 12:00 PT) mid-verification.
+    Finished verifiers: new-node groups 1, 4, 5, 6, 7, 8 and China-report groups 02, 11 + both Novoray labels → their
+    corrections applied (patches/corrections/verify-1004-*.json); groups newnodes-2/3 stopped part-way (their few `set` fixes
+    applied, labels stay pending); China groups 01, 03–10, 12 never ran → labels stay pending in verify_queue.json for the
+    next run. List-only customer edges deleted per JOB 4 and the edges this run had created that were left empty dropped
+    (Jones Tech→Coherent, Huafeng→Inspur/Nokia/FiberHome, Ruijie→Alibaba/Baidu, Dingtong→Amphenol); Huafeng's customer list
+    kept as its own quarterly_data. Added missed facts: Sugon's terminated Hygon share-swap merger (board 2025-12-09), ZTE's
+    shipped 800G coherent DSP / switching / DPU chips. Full verify_graph: this session's additions 0 fail; the 120 fails
+    are older entries already on main. verify_graph aliases + Roche-Genentech, 阿里.
+  - Resumed 2026-10-05 after the user lifted the limit: the remaining 12 verifier groups re-split into 26 Opus jobs
+    (+ AFR / Grace Fabric edge checks) → verify-1005-*.json applied; verify_queue.json pending = 0. Policy applied:
+    list-only edges THIS session created → contract deleted + empty edge dropped (NSIG→TSMC/UMC/SMIC/Hua Hong,
+    AFR→Coherent, Honor→Foxconn, Huafeng→Inspur/Nokia/FiberHome, Ruijie→Alibaba/Baidu, Dingtong→Amphenol,
+    Jones Tech→Coherent); list-only contracts already on main (AFR's 8 customer edges, Grace Fabric's 4 CCL edges)
+    KEPT pending the board question; Grace Fabric→Nan Ya Plastics contract deleted (南亚 = Nanya New Material, wrong
+    node; edge left empty → board question). New nodes' product texts cut to company-stated wording (Netweb, Volex,
+    Nippon Chemi-Con, Fuso x2, Enplas, Ableprint); company_metadata country codes normalised.
+  - "Missed facts" round: verifiers listed ~45 facts → 11 enricher agents (most already on nodes under later labels)
+    → 24 patches + NSIG counterparty entries → 5 verifiers → verify-1005-missed-1..5 applied. Yuanjie contract amounts
+    written into the existing entry (correction, not a duplicate entry).
+  - verify_graph: Fujikura 藤仓 + Roche-Genentech + 阿里 aliases; three-piece wrapped numbers ("41,3 / 10.5 / 4").
+  - i18n: 5,553 strings / 30 chunks translated by Sonnet agents (16 concurrent) → validate → merge → build:
+    untranslated ko/zh/ja = 0. company_names.json +31 local names (CN/HK/TW zh, JP ja) from the companies' own reports.
+  - Session totals vs main: nodes 818→865, quarterly_data 9,328→12,014, contracts 1,098→1,240, edges 1,227→1,306.
+  - Board questions added: Grace Fabric→Nan Ya Plastics empty edge; Kenmec product/placement (third-party source only).
+    Also for the user: HGTECH equipment placement (12-inch wafer laser tools); Zhongtian copper foil in/out of chain.
+  - NOT committed (user rule). Web UI changes (web/src) still uncommitted for the user's review.
+  - User decisions 2026-10-05 (board answers): (1) customer lists ARE edges, with judgment (SKILL.md JOB 4 updated;
+    14 list-only contracts deleted earlier restored; graph-wide scan of 410 candidates by 10 agents under a strict test
+    -> 28 listedge patches, 6 verifiers -> BESI->Intel (condensed transcript), BHI->Siemens (ambiguous), onsemi conference
+    restatement dropped; LS Electric->LGES/Samsung SDI held as non-AI); (2) Grace Fabric->Nan Ya Plastics empty edge
+    removed; (3) Kenmec deleted everywhere (waitlist row dropped); (4) HGTECH equipment placement in hbm_memory;
+    (5) Zhongtian copper foil kept. Board questions resolved accordingly.
+  - Full-transcript hunt (user: earnings calls = FULL transcript only): found + enriched + verified Murata Q1 FY2026
+    (Murata IR transcript), Schneider Q2 (LSEG transcript on se.com), AT&S Q1 FY2027 (Investing.com as "Austria
+    Technologie und Systemtechnik"), SK Hynix Q2 call 07-29 (Investing.com listing walk), Faraday Q2 (BlendVision DASH
+    replay -> tw.py fetch -> whisper without VAD). No full transcript (marked call/no_source): Micron Q4 main call
+    (AV/MF carry only the separate post-earnings Q&A, already enriched; prepared remarks PDF only), Simulations Plus Q3
+    (no call held, Altaris deal), POET Q2 (no call), SEMCO Q2 (login-gated audio), Legrand H1 (audio only), Wiwynn /
+    Inventec / Gigabyte / VPEC (no Q2 results call), Chenbro (zucast registration + no-recording terms). av/pending
+    Micron row removed (duplicate of the post-earnings call).
+  - tw.py fixes: MOPS replay regex accepts single-quoted href (replays were all missed as no_media); fetch print crash;
+    whisper now vad_filter=False + condition_on_previous_text=False (VAD dropped ~40% of the Faraday call). OPEN: the
+    17 older tw transcripts were made with VAD - re-transcribe (~4-5 h CPU) needs the user's go.
+  - Open for the user: Micron prepared-remarks PDF (split-format call) as part of the full call?; BESI Q1 transcript in
+    transcripts/packaging is condensed (other BESI entries came from it); Marvell's "all 5 US hyperscalers" was mapped to
+    Amazon/Google/Oracle nodes by name (inferred, on main); CoreWeave->NVIDIA and Tempus->Recursion reverse edges are
+    blocked by check_patch's reverse-edge rule.
+  - 2nd round (user, 2026-10-05): Micron FQ4 prepared remarks enriched (prepared remarks + separate post-earnings Q&A call
+    = the full call; transcripts/memory/micron_q4_2026.txt; the duplicate av/micron_q4_2026.txt moved out); Micron's
+    09-30 backlog_or_b2b slot moved to the RPO ~$150B entry. Marvell: the inferred "5 hyperscalers including X" entries on
+    Amazon/Google/Oracle deleted, the fact kept once on Marvell's node. BESI Q1: condensed file replaced by the full
+    Investing.com transcript ("BE Semiconductor" search term), entries corrected / hedges restored, BESI->TSMC contract
+    (inferred from "Taiwan customer / AP7") deleted - edge kept as structure, BESI->Intel (EMIB, CEO-stated) added.
+    All pre-apply verified; verify_queue pending 0.
+  - IN PROGRESS: re-transcription of the 17 older Taiwan calls without VAD (job tmp tw_renovad.py -> tmp/tw_novad/,
+    resumable; ~15 min per call). Next: compare old vs new per call, enrich the missing parts, verify, swap the files
+    into transcripts/tw/, build, i18n, commit.
+  - Web UI (web/src) changes stay uncommitted until the user's OK (user: tomorrow).
+
+- **2026-10-06 (Claude, nightly routine) — `enrich us`** — AV sync saved 0 (Simulations Plus / POET / Relay `waiting` =
+  known no-source marks; Aehr reports 10-05 after close, not posted yet). defeatbeta re-saved the Aehr Q4 FY2026 (07-14)
+  call as transcripts/av/aehrtestsystems_q4_2026.txt — the label was already in the graph with no source file; not
+  re-enriched. Conference walk (the 10-04 run had walked 0 pages): 400 pages to 05-27, 25 new talks, 23 US. IR sync 61
+  saved. **Fixed ir/feeds.json: 8 keys ended in "\r"** (Baidu, DigitalOcean, QumulusAI, VNET Group, ERock, Fervo Energy,
+  Gates Industrial, Tecogen — added 10-04) → their releases were saved as "QumulusAI\r press release…"; keys stripped,
+  tonight's 13 bad saves removed and re-synced cleanly (24 releases). Skyworks 10-05 releases saved as site menu only
+  (GlobeNewswire body missed by release_body) → re-saved by hand via `ir_pull.py fetch --file` (the 09-30 clearance
+  file has the same problem; it was closed earlier as no material facts).
+  Enriched: 13 enricher agents → 38 patches / 147 entries (QumulusAI 5, DigitalOcean 5, Vertex 3, Recursion 2, Relay,
+  Lilly, Jazz 2, Schrödinger, AbCellera, MP 2, Liberty, EnerSys, CleanSpark, MARA, TeraWulf, AEP, Cerebras, Lattice,
+  Iron Mountain, Fervo 2, Flex, Magnachip, Ginkgo, Skyworks); 26 releases / 1 talk gave nothing (notices, financing,
+  restates). verify_graph 0 fail. 8 Opus verifiers → verify-us-1006-v2..v8 applied (19 set, 3 delete: Magnachip TV-PSU
+  launch out of chain, 2 Skyworks/Qorvo entries); missed-facts pass +1 Recursion entry. verify_queue pending 0.
+  No new nodes. US queues (AV / conference / IR) empty. i18n translated (2 chunks).
+  Board questions added: Out-of-chain segment facts (Gates, Adeia), DigitalOcean (NVIDIA/AMD edges), H.C. Wainwright
+  panel (other panelists), Vertex conference mis-match (Vertex Inc. vs Vertex Pharma), Skyworks (post-Qorvo placements),
+  Flex (Axiom spin-off node), Cerebras (AMD EPYC / Arista edges).
+  Left open: MARA entry "CEO Fred Thiel: Bitcoin mining infrastructure…" carries topics ["transitions"] (should be [];
+  apply_corrections cannot set topics); Skyworks 09-18 exchange-offer entry holds financing terms (older label).
+  NOT committed (nightly rule).

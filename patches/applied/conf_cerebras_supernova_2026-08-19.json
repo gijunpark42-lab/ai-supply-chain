@@ -1,0 +1,77 @@
+{
+  "source": "Cerebras Supernova 2026 (08-19-2026)",
+  "chains": {
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "Cerebras",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "product": "wafer-scale engine (WSE) AI inference accelerator",
+          "quarterly_data": [
+            {
+              "quarter": "Cerebras Supernova 2026 (08-19-2026)",
+              "signal": "CTO at Supernova: 'The Cerebras next generation CS-4 is in early access right now and will be generally available later this quarter.' The Nexus rack-scale platform was designed 'from day one for multiple generations of products, from CS-4 to CS-5 and CS-6', and Cerebras co-designed the system architecture with its next Wafer Scale Engine, 'which will be in the CS-5 in 2027'. CTO: OpenAI's GPT-5.6 Sol 'today already runs on our current generation CS-3 at Ultrafast speeds'.",
+              "figure": "CS-4 in early access now, generally available later this quarter; next Wafer Scale Engine in the CS-5 in 2027",
+              "topics": ["product_launches"],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "Cerebras Supernova 2026 (08-19-2026)",
+              "signal": "CS-4 performance claims the CTO added at Supernova: 'the CS-4 system delivers 6 times higher system-level performance than our current generation'; 'up to 2 times more performance per wafer and 3 times more density per rack'; 'up to 3 times faster data center deployments, bringing deployment times down from days to hours'; network latency 'down to 3 microseconds from 5 microseconds'. Company claim: each WSE-3 Turbo's 43 petabytes per second is '2,000 times more memory bandwidth than Rubin'. In the stage demo the current CS-3 ran 'at over 2,300 tokens per second'; the CTO said CS-4's I/O means 'even 10 trillion parameter models can run at 1,000 tokens per second'. CEO on disaggregation (GPU prefill, Cerebras decode): 'you can get 10 times faster than the GPU and 5 times more throughput than Cerebras'.",
+              "figure": "6 times higher system-level performance; 3 times more density per rack; up to 3 times faster data center deployments; CS-3 over 2,300 tokens per second (demo)",
+              "topics": []
+            },
+            {
+              "quarter": "Cerebras Supernova 2026 (08-19-2026)",
+              "signal": "CEO on data centers: showed Cerebras data centers in Santa Clara, Toronto, Dallas, Minneapolis, Montreal and Oklahoma City, and sites going up in Alabama, Lyon (France), Norway and Mikkeli (Finland, 'one of several that are going up'): 'We have brought on 600 megawatts that is online or under contract for delivery by the end of next year. It is a huge effort, and it is just the start. It is not nearly enough, but we have a whole team chasing this every single day.'",
+              "figure": "600 megawatts online or under contract for delivery by the end of next year",
+              "topics": []
+            },
+            {
+              "quarter": "Cerebras Supernova 2026 (08-19-2026)",
+              "signal": "Supplier AMD (server CPUs): CEO: 'we use AMD CPUs to manage the software that runs on the cluster' and, when AMD's CTO described the EPYC CPU server line, 'We use those in our cluster.' AMD's CTO on stage: 'That is where we have developed this tight partnership for years between AMD and Cerebras.' (The separate AMD disaggregated-inference partnership is on the AMD edge.)",
+              "figure": "no specific figure",
+              "topics": [],
+              "counterparty": "AMD",
+              "counterparty_role": "supplier (server CPUs)"
+            },
+            {
+              "quarter": "Cerebras Supernova 2026 (08-19-2026)",
+              "signal": "Supplier Arista (data-center networking): CEO: 'We use Arista to tie everything together' and 'Jayshree Ullal supported us when we weren't buying very much at all, and now we're buying a fair bit.' Arista's CEO Jayshree Ullal on stage, on connecting Cerebras racks: 'Then we go from scale up to scale out. How do we connect these racks together? This is where we come in, and I think we've worked very closely together.'",
+              "figure": "no specific figure",
+              "topics": [],
+              "counterparty": "Arista",
+              "counterparty_role": "supplier (networking)"
+            },
+            {
+              "quarter": "Cerebras Supernova 2026 (08-19-2026)",
+              "signal": "Customer Armis (code security scanning): Cerebras SVP of Product Angela Young: 'Powered by Cerebras, Armis completed a code security scan in roughly one-third the time, beating benchmark frontier models in finding more vulnerabilities, and at a fraction of the cost.'",
+              "figure": "code security scan in roughly one-third the time",
+              "topics": [],
+              "counterparty": "Armis",
+              "counterparty_role": "customer"
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "OpenAI",
+              "relationship": "wafer-scale AI inference compute",
+              "contracts": [
+                {
+                  "source": "Cerebras Supernova 2026 (08-19-2026)",
+                  "signal": "CEO: 'We're just sort of in the first few months, the first 6 or 8 months of a multi-year partnership'; on Ultrafast for GPT-5.6 Sol: 'We are testing this with select customers to start.' OpenAI's Head of Core Products and Platforms, Thibault Imbert, on stage: 'We rewrote a large part of a stack for Ultrafast'; 'we are not there yet, but we would love for Ultrafast to just be the default'; OpenAI keeps Ultrafast provisioned for incidents, top-priority projects and research, and 'We reserve a lot of our capacity as well for serving it to our customers over the API'; 'The demand fast outpaces the capacity that we have across our entire fleet.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "partnership / deployment",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

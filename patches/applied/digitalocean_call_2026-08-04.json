@@ -1,0 +1,114 @@
+{
+ "source": "DigitalOcean Q2 FY2026 (08-04-2026)",
+ "new_nodes": {
+  "DigitalOcean": {
+   "ticker": "DOCN",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Runs an AI-native inference cloud (Inference Engine, GPU capacity) on its own GPU accelerator fleet (CEO: 'a mix of both' NVIDIA and AMD) with approximately 155 MW of total committed capacity; AI customer ARR of $234 million grew 212% and inference services nearly 800%, so GPU cloud build-outs drive its growth.",
+   "evidence": "DigitalOcean Q2 FY2026 call (08-04-2026), CEO Paddy Srinivasan: 'We have a good, healthy mix of different types of accelerators in our farm ... it is a mix of both' (NVIDIA and AMD); CFO Matt Steinfort: 'AI customer ARR reached $234 million, growing 212%.'",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "DigitalOcean",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "AI-Native Cloud: inference cloud (Inference Engine, serverless inference) and GPU Droplets on NVIDIA HGX and AMD Instinct GPUs, integrated with its Core Cloud",
+     "quarterly_data": [
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "Q2 2026 revenue was $281 million, up approximately 29% year-over-year and above the high end of guidance (CEO: more than double the growth rate of a year earlier). Record $93 million of incremental ARR, the most in a quarter in company history. CFO: adjusted EBITDA $114 million (40% margin); GAAP operating income $29 million (10% margin); adjusted operating income $67 million (24% margin); non-GAAP diluted EPS $0.45; adjusted free cash flow $61 million; trailing 12-month adjusted free cash flow $175 million (17% of revenue). NDR was 102%, a three-year high, which management will no longer highlight as a key metric.",
+       "figure": "Revenue $281 million (+29% YoY); incremental ARR $93 million; adjusted EBITDA margin 40%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "AI business (management): AI customer ARR reached $234 million, growing 212% (CEO: over 200%); 85% of AI customer ARR came from inference services and Core Cloud, not from Bare Metal. Inference services (all non-Bare Metal inferencing) grew close to 800% year-over-year and represent over 70% of AI customer ARR. ARR from $100,000+ customers grew 98%, $500,000+ customers 160% and $1 million+ customers 214%; the highest-spending cohort grew from 9% of total ARR a year ago to 23% in Q2. Roughly 70% of AI customers with $100,000 or more ARR have attached a Core Cloud product.",
+       "figure": "AI customer ARR $234 million (+212%); inference services close to 800% growth, over 70% of AI ARR",
+       "topics": []
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "Inference Engine (CEO): launched in late April 2026 as a managed offering including serverless inference; over 6,000 customers since launch, customer count growing close to 60% month-over-month and token volume up 30x over the last 60 days. Open-weight models rose from around 15% of token volume after launch to close to 75%. The catalog offers 75+ open and closed models through one endpoint; DigitalOcean was a day-zero launch partner for Kimi K3 (over 400 net new customers in the first week). It now serves more than 20 billion tokens per day on OpenRouter, up more than 330% over 60 days. Named users: OpenCode uses the Inference Engine and AI-Native Cloud; Daytona builds AI sandboxes on DigitalOcean; Vercel is integrating the Inference Engine into its AI gateway.",
+       "figure": "over 6,000 customers; token volume 30x in 60 days; open-weight share close to 75%; 20 billion tokens per day on OpenRouter",
+       "topics": [
+        "product_launches"
+       ]
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "CFO: material commitments secured in the quarter increased remaining performance obligations to $894 million, up more than 12x year-over-year, with a 3.7-year average life; CEO: DigitalOcean landed its first nine-figure annual revenue commitments. Top 25 customers represented only 20% of ARR in Q2, which will only modestly increase as these deals ramp.",
+       "figure": "RPO $894 million (up more than 12x YoY); 3.7-year average life",
+       "topics": [],
+       "slot": "backlog_or_b2b",
+       "capex": {
+        "field": "backlog",
+        "busd": 0.894,
+        "display": "$894 million remaining performance obligations",
+        "metric": "remaining performance obligations",
+        "growth": "up more than 12x year-over-year"
+       }
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "Capacity (management): demand is well in excess of capacity (CEO: demand far exceeds supply). DigitalOcean secured approximately 20 MW of additional capacity this quarter, targeted to come online over late 2027 into 2028, bringing total committed capacity to approximately 155 MW, the majority online by the end of 2027; it is actively pursuing more. It is managing the same supply chain challenges facing the entire industry while delivering its 2026 capacity on time and in some cases ahead of schedule; most capacity of the new data centers was allocated to specific customers or its token fleet before launch. CFO: a diversified set of global OEMs and partnerships with the leading chip manufacturers; data centers typically take about a year from lease signature to revenue.",
+       "figure": "approximately 20 MW added; total committed capacity approximately 155 MW, majority online by end of 2027",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "Data-center launches (management): the Richmond data center launched in Q1 and the 10 MW Kansas City data center in Q2, both ahead of target, and the Memphis data center remains on track for its second-half 2026 launch. CFO: 15 MW are left in one facility, on track to come online in the second half.",
+       "figure": "Kansas City 10 MW launched; 15 MW left, second half of 2026",
+       "topics": [],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "Guidance (CFO): Q3 2026 revenue $304 million-$307 million (32%-34% year-over-year growth), adjusted EBITDA margin 38%-39%, non-GAAP diluted EPS $0.28-$0.30. Full-year 2026 revenue raised to $1.17 billion-$1.18 billion (approximately 30.5% growth) with an exit growth rate of 35% or more in Q4; adjusted EBITDA margin approximately 39%; non-GAAP diluted EPS $1.35-$1.40; adjusted free cash flow margin 11%-13% (raised). Management is even more confident in its prior estimate of 50%+ revenue growth for full-year 2027; CFO: 'we expect there to be additional upside' but it is premature to put a number on it.",
+       "figure": "Q3 revenue $304 million-$307 million; FY2026 revenue $1.17 billion-$1.18 billion (~30.5%); Q4 exit 35% or more; 2027 50%+",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "Pricing (management): DigitalOcean recently increased list prices on numerous GPU fleets / GPU generations by approximately 30%, for on-demand and spot instances, and has been raising prices on renewal or pulling capacity back for its token factory or higher-paying customers. The impact on Q2 net new ARR was very modest; the pricing is included in the 2026 guidance and helped lift the expected Q4 exit growth rate from around 30% to around 35%.",
+       "figure": "GPU list prices up approximately 30%",
+       "topics": []
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "ARR per megawatt (CFO): as a general-purpose cloud DigitalOcean generated north of $22 million of ARR per megawatt; it expects incremental ARR per megawatt from AI capacity to increase over time and thinks it is adding more ARR per megawatt than neocloud peers because it sells higher-layer services beyond Bare Metal to a broad customer base and attaches Core Cloud and CPU services. It is installing higher-capacity equipment in the same megawatts as new NVIDIA and AMD generations raise token throughput (costs per megawatt are also higher).",
+       "figure": "north of $22 million ARR per megawatt (general-purpose cloud)",
+       "topics": []
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "CEO, asked by an analyst about the mix between NVIDIA GPUs and DigitalOcean's AMD deployment: 'We have a good, healthy mix of different types of accelerators in our farm ... it is a mix of both'; he declined to say which hardware hosts which models or to discuss unit economics by hardware, adding that it runs state-of-the-art models such as GLM-5.2 or K3 'on all kinds of hardware'. CFO: as NVIDIA and AMD generations increase token throughput, the higher token capacity of the equipment being put in raises revenue potential per megawatt.",
+       "figure": "no specific figure",
+       "topics": [],
+       "counterparty": "NVIDIA",
+       "counterparty_role": "supplier"
+      },
+      {
+       "quarter": "DigitalOcean Q2 FY2026 (08-04-2026)",
+       "signal": "AMD accelerators in DigitalOcean's fleet: an analyst referred to customers using DigitalOcean's AMD deployment and the CEO answered that the accelerator farm 'is a mix of both' (NVIDIA and AMD), without disclosing the split.",
+       "figure": "no specific figure",
+       "topics": [],
+       "counterparty": "AMD",
+       "counterparty_role": "supplier"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

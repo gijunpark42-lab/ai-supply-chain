@@ -1,0 +1,71 @@
+{
+  "reviewer": "opus-verify-1006-mindwalk",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "MindWalk",
+      "target": null,
+      "label": "MindWalk 6-K (09-14-2026)",
+      "signal_prefix": "Liquidity (Q1 FY2027 MD&A and interim statements): cash on hand",
+      "action": "set",
+      "set": {
+        "signal": "Liquidity (Q1 FY2027 MD&A and interim statements): cash on hand and restricted cash was C$7.8 million at July 31, 2026 vs C$11.5 million at April 30, 2026, and the accumulated deficit reached C$148.8 million. The company expects its cash on hand will be insufficient to fund operations for at least one year from the date the statements are available to be issued, which raises substantial doubt about its ability to continue as a going concern unless it obtains financing; the timing and scope of advancing its four AI/HYFT-driven internal programs will depend on available financing.",
+        "slot": null
+      },
+      "reason": "A going-concern disclosure is an accounting liquidity assessment, not company guidance or a target (skill section 2), so the guidance slot comes off and the fact stays. Without the slot, the screener's guidance cell falls back to the call's operating-expense outlook. The ICFR material-weakness sentence is dropped because it is a governance / internal-control item.",
+      "evidence": "The Company expects its cash on hand as of July 31, 2026 will be insufficient to fund the Company's operations for at least one year from the date these financial statements are available to be issued."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "MindWalk",
+      "target": null,
+      "label": "MindWalk 6-K (09-14-2026)",
+      "signal_prefix": "Pipeline (MD&A): four AI/HYFT-driven internal programs",
+      "action": "set",
+      "set": {
+        "signal": "Pipeline (MD&A): four AI/HYFT-driven internal programs - a GLP-1 receptor agonist (AI-designed peptide; preclinical, in vitro receptor activation confirmed by an independent third-party assay against a semaglutide benchmark), a longevity companion therapeutic (undisclosed target; identified in silico, validation underway; a potential co-administration candidate with the GLP-1 agonist), a universal dengue vaccine (conserved epitope across all 4 serotypes; rabbit immunization completed, third-party neutralization testing underway) and universal influenza (functional constraint confirmed across >900 influenza A and B sequence variations). Each program is designed to be housed and financed independently. Separately, 'the Vault' holds 16 partner-ready antibody and biologics assets across oncology, immuno-oncology, vascular disease, ophthalmology and infectious disease, several of them already partnered; select programs include CD3 Fabs (MDWK-24, available for partners to combine with tumor-antigen arms), ALK-1 agonist antibodies (MDWK-21), a TrkB x CD3 bispecific (MDWK-200) and SARS-CoV-2 (MDWK-03, in final drug product form). Talem Therapeutics, a Massachusetts subsidiary, was formed to support internal and partnered therapeutic discovery programs."
+      },
+      "reason": "The entry said 'several already partnered - including' the four named assets, but the MD&A does not say those four are partnered: it lists them as 'select programs of note', MDWK-24 is 'available for partners', and only 'several assets in the Vault' are said to be partnered. Talem wording aligned with the filing.",
+      "evidence": "is available for partners to combine with anti-tumor associated antigen (TAA) arms to generate novel immunotherapeutic molecules. ... Several assets in the Vault are already partnered."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "MindWalk",
+      "target": null,
+      "label": "MindWalk 20-F (07-23-2026)",
+      "signal_prefix": "20-F XBRL revenue by product line, FY2026 (year ended April 30, 2026)",
+      "action": "set",
+      "set": {
+        "signal": "20-F XBRL revenue by product line, FY2026 (year ended April 30, 2026): project revenue C$15.4M, up 48.2% from C$10.4M; cryo storage revenue C$0.2M (-31.5% YoY) and product sales revenue C$0.0M (-85.7% YoY)."
+      },
+      "reason": "'so revenue is almost entirely project work' is the enricher's own conclusion. The 20-F extract gives only the three product-line figures and does not say this (no inference rule, skill section 2).",
+      "evidence": "Project Revenue: CAD 15.4M (fiscal year 2025-05-01 to 2026-04-30), +48.2% YoY vs CAD 10.4M (period ending 2025-04-30)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "MindWalk",
+      "target": null,
+      "label": "MindWalk press release: MindWalk Reports 21% Revenue Growth and Gross Margin (09-14-2026)",
+      "signal_prefix": "Commercial: ReefIQ, MindWalk's data platform, launched commercially",
+      "action": "set",
+      "set": {
+        "signal": "Commercial: ReefIQ, MindWalk's data platform, launched commercially in June and MindWalk is in active negotiations with multiple large pharmaceutical companies on enterprise deployments; roughly 80% of the commercial funnel by value now sits in partnership-structured engagements rather than discrete projects, spanning data management, ReefIQ and multi-target discovery. CEO Jennifer Bath: the discovery business pairs wet-lab biologics with in silico capabilities for 19 of the top 20 pharmaceutical companies; ReefIQ opens the door to enterprise partnerships of a scale well beyond the historical recurring agreements, and new partner engagements under discussion are increasingly structured as platform partnerships in which MindWalk shares in the economics of the assets it helps create. The larger loss reflects deliberate investment in ReefIQ's enterprise rollout."
+      },
+      "reason": "Restores the CEO's hedge. 'ReefIQ opens enterprise partnerships' reads as if such partnerships already exist, but she said ReefIQ 'opens the door to' them.",
+      "evidence": "On top of it, ReefIQ opens the door to enterprise partnerships of a scale well beyond our historical recurring agreements"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "MindWalk",
+      "target": null,
+      "label": "MindWalk Q4 FY2026 (07-22-2026)",
+      "signal_prefix": "AMD (CEO Jennifer Bath): MindWalk calls AMD an engineering partner",
+      "action": "set",
+      "set": {
+        "signal": "AMD (CEO Jennifer Bath): MindWalk calls AMD an engineering partner whose teams work with MindWalk's to optimize the infrastructure its AI platform runs on; its libraries were migrated off a CUDA-locked stack onto AMD's open ROCm stack as a joint build now running in daily production. Citing AMD's published case study: on Instinct MI300X hardware MindWalk screened roughly 170,000 antibody pairs in about 4.5 hours versus 145 days previously, cost per million samples in literature mining fell about 39% and embedding throughput rose about 70%."
+      },
+      "reason": "Drops the closing event-schedule sentence ('presenting at AMD Advancing AI 2026 from the call date'). Event and trade-show schedules are not captured (skill section 2). Everything else stays as written.",
+      "evidence": "Starting today, we are in San Francisco at AMD Advancing AI 2026, AMD's flagship event"
+    }
+  ]
+}

@@ -790,11 +790,6 @@ table.data th.active .sort-arrow {
   font-size: 0.86rem;
   line-height: 1.4;
 }
-.sig-f {
-  font-size: 0.82rem;
-  color: var(--ap-blue-hi);
-  margin-top: 2px;
-}
 .deal-group {
   border: 1px solid var(--ap-border);
   border-radius: 10px;
@@ -821,19 +816,6 @@ table.data th.active .sort-arrow {
   border-top: 1px solid var(--ap-border);
   margin-top: 6px;
   padding-top: 6px;
-}
-.deal-sig {
-  font-size: 0.82rem;
-  line-height: 1.4;
-}
-.deal-meta {
-  font-size: 0.76rem;
-  color: var(--ap-blue-hi);
-  margin-top: 2px;
-}
-.deal-src {
-  font-size: 0.72rem;
-  color: var(--ap-muted);
 }
 .deal-plain {
   font-size: 0.84rem;
@@ -1103,6 +1085,41 @@ table.data th.active .sort-arrow {
 }
 .c2d-epanel .ep-sig {
   margin: 2px 0;
+}
+/* Long contract signals clamp to 3 lines; chain2d.ts un-hides the More / Less
+   button only under a clamp that really cuts text (badge: SignalText.css). */
+.c2d-epanel .ep-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+.c2d-epanel .ep-clamp.ep-open {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+.c2d-epanel .ep-more {
+  background: none;
+  border: none;
+  padding: 2px 0;
+  color: #7dd3fc;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.c2d-epanel .ep-more:hover {
+  color: #e5e7eb;
+}
+.c2d-epanel .ep-more:focus-visible {
+  outline: 2px solid var(--ap-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.c2d-epanel .ep-src .sx-badge {
+  margin-right: 3px;
 }
 .c2d-epanel .ep-meta {
   color: #7dd3fc;

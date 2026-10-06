@@ -1,0 +1,76 @@
+{
+ "source": "Netweb Technologies India press release: Q1 FY27 Earnings Presentation (07-28-2026)",
+ "new_nodes": {
+  "Netweb Technologies India": {
+   "ticker": "NETWEB.NS",
+   "exchange": "NSE",
+   "country": "IN",
+   "why": "Indian OEM that designs and manufactures AI GPU systems under an OEM partnership with NVIDIA (AI Systems 62.29% of Q1 FY27 revenue), so NVIDIA Blackwell-generation AI server demand drives its revenue.",
+   "evidence": "Netweb Technologies India press release: Q1 FY27 Earnings Presentation (07-28-2026): 'One of the select OEMs in the world for designing, engineering & manufacturing latest Gen AI GPU systems & stack under OEM partnership with NVIDIA'.",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "accelerators/nvda_b200.json": {
+   "players": [
+    {
+     "company": "Netweb Technologies India",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "Tyrone AI servers / supercomputing systems designed and manufactured in India: Camarero GB200 (NVIDIA GB200 NVL4), Camarero Spark (GB10), GB300 / B300-based AI solutions",
+     "quarterly_data": [
+      {
+       "quarter": "Netweb Technologies India press release: Q1 FY27 Earnings Presentation (07-28-2026)",
+       "signal": "Customer concentration (Q1 FY27 deck): top 5 customers 81.20% and top 10 customers 87.71% of revenue from operations in Q1 FY27; revenue from repeat customers 98.92%; 28 new customers onboarded in Q1 FY27. Revenue from operations grew 5.94% QoQ from INR7,737.02 million in Q4 FY26; FY26 revenue from operations was INR21,835.63 million, of which AI Systems INR9,477.94 million.",
+       "figure": "Top 5 customers 81.20%, top 10 87.71% of Q1 FY27 revenue; FY26 revenue INR21,835.63 million",
+       "topics": []
+      },
+      {
+       "quarter": "Netweb Technologies India press release: Q1 FY27 Earnings Presentation (07-28-2026)",
+       "signal": "Deck milestones (no dates assigned here): received an order to deploy AI infrastructure for India's foundational LLM model with over 5,000 GPUs; built India's sovereign cyber-secure compute facility for CERT-IN using 650+ specialised compute units (processed through its distributor); manufacturing partnership with NVIDIA for the Grace CPU Superchip and GH200 Grace Hopper Superchip MGX server design; commissioned its end-to-end high-end computing manufacturing facility in Faridabad, capable of producing x86 and RISC-based systems.",
+       "figure": "Over 5,000 GPUs (foundational LLM order); 650+ compute units (CERT-IN)",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "product": "NVLink Switch, B200 GPU, GB200 superchip",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Netweb Technologies India",
+       "relationship": "GPU platforms for Netweb's Tyrone AI systems, designed and manufactured in India under an NVIDIA OEM partnership",
+       "contracts": [
+        {
+         "source": "Netweb Technologies India press release: Q1 FY27 Earnings Presentation (07-28-2026)",
+         "signal": "Netweb deck: Netweb is 'one of the select OEMs in the world for designing, engineering & manufacturing latest Gen AI GPU systems & stack under OEM partnership with NVIDIA'; its AI Systems are designed and manufactured in India under OEM partnership with NVIDIA and AMD. Netweb received an order for India's government-owned on-prem AI cloud facility for the National Informatics Centre (NIC), using NVIDIA's latest Blackwell architecture under the IndiaAI Mission.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "OEM partnership",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Netweb Technologies India",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "Tyrone AI servers / supercomputing systems designed and manufactured in India: Camarero GB200 (NVIDIA GB200 NVL4), Camarero Spark (GB10), GB300 / B300-based AI solutions",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

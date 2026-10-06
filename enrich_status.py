@@ -58,7 +58,7 @@ PIPELINES = [
      "source": "Alpha Vantage / defeatbeta (av.py)"},
     {"id": "edgar",      "name": "US SEC filings",             "command": "enrich edgar",
      "dirs": ["transcripts/edgar"],              "state": None,                       "pending": "edgar/pending.json",
-     "source": "SEC EDGAR 8-K / 10-K / 10-Q (edgar_pull.py)"},
+     "source": "SEC EDGAR 8-K / 10-K / 10-Q + foreign issuers' 6-K / 20-F / 40-F + recent IPO prospectus (edgar_pull.py)"},
     {"id": "dart",       "name": "Korea DART filings",         "command": "enrich dart",
      "dirs": ["transcripts/dart", "supply_contracts"], "state": "dart/sync_state.json", "pending": "dart/pending.json",
      "source": "DART 정기보고서 / 잠정실적 / 공급계약 (dart.py)"},
@@ -89,10 +89,18 @@ PIPELINES = [
      "source": "Samsung's official earnings-call script (kind.py)"},
     {"id": "cninfo",     "name": "China IR records + investor Q&A", "command": "enrich china",
      "dirs": ["transcripts/cninfo"],             "state": "cninfo/sync_state.json",   "pending": "cninfo/pending.json",
+     "pending_kind": ["record", "qa"],
      "source": "cninfo 投资者关系活动记录表 + SZSE 互动易 / SSE e互动 answers (cninfo.py) — management Q&A, not calls"},
+    {"id": "cnreports",  "name": "China periodic reports",     "command": "enrich china",
+     "dirs": ["transcripts/cninfo_reports"],     "state": "cninfo/reports_state.json", "pending": "cninfo/pending.json",
+     "pending_kind": "report",
+     "source": "cninfo 年度报告 / 半年度报告 / 季度报告 (cninfo.py reports) — company statutory reports, not transcripts"},
     {"id": "tdnet",      "name": "Japan TDnet disclosures",    "command": "enrich japan",
      "dirs": ["transcripts/tdnet"],              "state": "tdnet/sync_state.json",    "pending": "tdnet/pending.json",
      "source": "TSE TDnet timely disclosures (tdnet.py) — results, forecasts, capex, plans, deals; company filings, not transcripts"},
+    {"id": "edinet",     "name": "Japan EDINET statutory reports", "command": "enrich japan",
+     "dirs": ["transcripts/edinet"],             "state": "edinet/sync_state.json",   "pending": "edinet/pending.json",
+     "source": "FSA EDINET 有価証券報告書 / 半期報告書 (edinet.py) — major customers, capex, R&D, MD&A; company filings, not transcripts"},
     {"id": "mops",       "name": "Taiwan MOPS filings",        "command": "enrich taiwan",
      "dirs": ["transcripts/mops"],               "state": "mops/sync_state.json",     "pending": "mops/pending.json",
      "source": "MOPS 法說會 decks, important 重大訊息 and monthly revenue (mops.py) — company filings, not transcripts"},
@@ -187,26 +195,44 @@ MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan"
                   "EU": "enrich europe", "CN": "enrich china", "other": "enrich intl"}
 # The collectors that fetch each market's calls / filings. IR feeds and the conference listing
 # serve every market at once, so they are reported once ("shared collectors"), not per market.
-MARKET_COLLECTORS = {"US": ["us", "utility"], "KR": ["dart", "kind"], "TW": ["intl", "tw", "mops"], "JP": ["intl", "tdnet"],
-                     "EU": ["intl"], "CN": ["intl", "cninfo"], "other": ["intl"]}
+MARKET_COLLECTORS = {"US": ["us", "utility"], "KR": ["dart", "kind"], "TW": ["intl", "tw", "mops"],
+                     "JP": ["intl", "tdnet", "edinet"],
+                     "EU": ["intl"], "CN": ["intl", "cninfo", "cnreports"], "other": ["intl"]}
 SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7, "kind": 3,
               "tdnet": 3,   # TDnet keeps only 31 days
+              "edinet": 7,  # days (edinet.py: EDINET keeps 10 years of lists, so a gap loses nothing)
               "cninfo": 7,  # days (SSE e互动 shows only about one month, so never let it slip past ~3 weeks)
+              "cnreports": 7,  # days (cninfo.py reports: cheap when nothing is new; one `enrich china` runs both)
               "utility": 30,   # days (utility_filings.py: monthly — IRPs and large-load reports change slowly)
               "mops": 3}
 COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", "kind": "KIND IR deck sync (kind.py)",
                    "tdnet": "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days)",
+                   "edinet": "EDINET annual / semi-annual report sync (edinet.py)",
                    "cninfo": "China IR record / Q&A sync (cninfo.py)",
+                   "cnreports": "China periodic-report sync (cninfo.py reports)",
                    "utility": "utility regulatory-filing sync (utility_filings.py, monthly)",
                    "mops": "MOPS sync (mops.py)",
                    "intl": "Investing.com call sync (investing.py)", "tw": "Taiwan Chinese-call sync (tw.py)",
                    "edgar": "EDGAR pull (edgar_pull.py)", "ir": "IR feed sync (ir_pull.py)",
                    "conference": "conference listing (investing.py conferences)"}
 WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing", "kind": "IR deck", "krcalls": "call",
-                 "tdnet": "TDnet filing", "cninfo": "IR record / investor Q&A",
+                 "tdnet": "TDnet filing", "edinet": "EDINET report", "cninfo": "IR record / investor Q&A",
+                 "cnreports": "periodic report",
                  "utility": "utility filing", "mops": "MOPS filing",
                  "conference": "conference", "ir": "IR release"}
 LIST_MAX = 12        # names printed per list on ENRICH_STATUS.md (the JSON keeps every name)
+
+
+def edinet_key_set():
+    """True when EDINET_API_KEY is in the environment or in .env — edinet.py cannot download anything without it,
+    so until then the board shows a setup line instead of calling its sync due."""
+    if os.getenv("EDINET_API_KEY"):
+        return True
+    try:
+        with open(".env", encoding="utf-8") as f:
+            return any(re.match(r"\s*EDINET_API_KEY\s*=\s*\S", line) for line in f)
+    except OSError:
+        return False
 
 
 def days_between(a, b):
@@ -279,7 +305,8 @@ def own_sources(graph, label_pipeline, label_file):
                 kind = "call"
                 calls.add(day)
             else:
-                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "tdnet", "cninfo", "utility", "mops") else "other"
+                kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "tdnet", "edinet", "cninfo",
+                                      "cnreports", "utility", "mops") else "other"
             latest[kind] = max(latest.get(kind, ""), day)
         out[company] = {"calls": sorted(calls), "latest": latest}
     return out
@@ -349,6 +376,7 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
         actions.append({"command": "Opus verifier over verify_queue.json",
                         "reasons": ["%d applied labels are waiting for the independent check (rule: at 5+)" % len(vq)]})
     by_market = {m["id"]: m for m in markets}
+    edinet_ready = edinet_key_set()
     intl_said = False            # the shared Investing.com sync is named once, on the first market that needs it
     for key in ["US", "KR", "edgar", "TW", "JP", "EU", "CN", "other"]:
         reasons = []
@@ -377,6 +405,8 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
                 days, day = age(pid)
                 if pid == "tdnet":
                     continue                     # checked below for every Japan board: TDnet forgets after 31 days
+                if pid == "edinet" and not edinet_ready:
+                    continue                     # no API key yet: a setup line below, not a due sync
                 if pid == "intl" and (intl_said or not (m["call_current"] or m["overdue"])):
                     continue                     # China's own collector (cninfo) counts; Investing.com as before
                 if days is None or days > SYNC_EVERY[pid]:
@@ -413,6 +443,10 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
                      "come through kind.py). The last calls in the graph are %s; %d Korean companies never had one. A "
                      "call pasted by the user (Transcript:<company>) is enriched as usual."
                      % (short_list(["%s %s" % x for x in kr_calls], 8) or "none", kr["companies"] - len(kr_calls)))
+    if by_market["JP"]["companies"] and not edinet_ready:
+        setup.append("EDINET (Japan's annual / semi-annual securities reports: major customers, capex, R&D — edinet.py) needs "
+                     "a free API key: register at https://api.edinet-fsa.go.jp/api/auth/index.aspx?mode=1 and add "
+                     "`EDINET_API_KEY=<key>` to .env. Until then `enrich japan` skips its EDINET step.")
 
     shared = {}
     for pid in ("ir", "conference"):
@@ -538,10 +572,13 @@ def build_enrich_status(graph=None):
         # Pending queue = fetched but not yet enriched (the authoritative "what is missing").
         pending_rows = read_json(p["pending"], []) if p["pending"] else []
         if p.get("pending_kind"):
-            pending_rows = [r for r in pending_rows if r.get("kind") == p["pending_kind"]]
+            # one kind ("deck") or several (["record", "qa"]) — several pipelines share one queue file
+            kinds = [p["pending_kind"]] if isinstance(p["pending_kind"], str) else p["pending_kind"]
+            pending_rows = [r for r in pending_rows if r.get("kind") in kinds]
         pending = [{"company": r.get("company"), "label": r.get("label"), "file": r.get("file")} for r in pending_rows]
         pending_files = {r.get("file", "").replace("\\", "/") for r in pending_rows}
-        # utility_filings.py queues the `_load` extract; the full text beside it carries the same label
+        # utility_filings.py queues the `_load` extract (cninfo.py reports the `_extract`); the full text beside it
+        # carries the same label
         pending_labels = {r.get("label") for r in pending_rows}
 
         # Saved, not queued, but no data landed under its label — worth a look (a call that
@@ -560,7 +597,8 @@ def build_enrich_status(graph=None):
                 continue
             if not any(lab in labels for lab in d.labels):
                 why = edgar_why.get(path, "")
-                if why and not why.startswith("10-"):     # "10-K customer concentration" etc. = real content
+                # "10-K customer concentration", "20-F supplier / ...", "prospectus customer ..." etc. = real content
+                if why and not why.startswith(("10-", "20-F", "40-F", "prospectus")):
                     skipped += 1                          # anything else = intentional skip
                     continue
                 seen_labels.add(d.labels[0])
@@ -612,7 +650,7 @@ def build_enrich_status(graph=None):
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)
-        elif pid in ("kind", "krcalls", "tdnet", "cninfo", "utility", "mops"):
+        elif pid in ("kind", "krcalls", "tdnet", "edinet", "cninfo", "cnreports", "utility", "mops"):
             row["last_sync"] = state.get("last_sync")
             row["extra"]["runs"] = state.get("runs", [])[-5:]
         elif pid == "ir":

@@ -1,0 +1,28 @@
+{
+  "reviewer": "verify-1004-newnodes-8",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Lingyi iTech",
+      "target": null,
+      "label": "Lingyi iTech half-year report: 2026 Half-Year Report (08-29-2026)",
+      "signal_prefix": "H1 2026 segment revenue (half-year report): thermal management",
+      "action": "set",
+      "set": {
+        "signal": "H1 2026 segment revenue (half-year report): thermal management (including device-side and AI-compute server cooling) RMB 29.20 hundred million, up 43.46% YoY from RMB 20.35 hundred million, within the AI hardware segment; the report does not split out server liquid cooling."
+      },
+      "reason": "The report does not call thermal management 'the fastest-growing line'; that ranking was the enricher's own comparison of the segment table (no derived claims).",
+      "evidence": "热管理（含端侧及 AI 算力服务器散热） 29.20 20.35 43.46%"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Lingyi iTech",
+      "target": null,
+      "label": "Lingyi iTech half-year report: 2026 Half-Year Report (08-29-2026)",
+      "signal_prefix": "Customer AMD (half-year report, AI-compute server hardware milestones)",
+      "action": "delete",
+      "reason": "Restates the 2025 Annual Report milestone already on the node (annual-report AMD entry says thermal modules shipped to AMD in volume in 2025); the half-year report repeats the same 2025 milestone line, nothing new.",
+      "evidence": "2025 年 向 AMD 批量供应散热模组相关产品"
+    }
+  ]
+}

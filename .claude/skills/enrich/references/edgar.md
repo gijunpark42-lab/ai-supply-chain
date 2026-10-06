@@ -5,11 +5,16 @@ Risk Factors sections name their suppliers and whose notes disclose customer con
 `edgar_pull.py` saves them to `transcripts/edgar/` and builds a **low-noise queue**; only the queue is enriched.
 Earnings-release 8-Ks (Item 2.02 only) are pulled but never queued — the call transcript for that quarter
 (`enrich us`) is the richer source, and the release stays on disk only as a companion document for `verify_graph.py`.
+Foreign companies whose ADRs trade in New York (TSMC, ASML, ASE, UMC, Nokia, STMicro …) file **6-K** current reports and
+a **20-F** (Canadian issuers: **40-F**) annual report instead; they are pulled the same way (2026-10-04). A **recent
+listing** (IPO within `--since` or the last 18 months) also gets its registration **prospectus** (the final 424B4, else
+the latest S-1/A or F-1/A), read like a 10-K.
 
 **Trigger: the user says `enrich edgar`** — weekly, separate from the daily `enrich us` (user, 2026-09-26; the
 status board recommends it once the last pull is more than 7 days old). Run the whole loop:
-1. `python edgar_pull.py` — for every mapped US ticker: every 8-K since `--since` (default 120 days), the latest 10-K
-   and the latest 10-Q (see the coverage table below). Existing files are skipped. Do NOT use `--force` on files that
+1. `python edgar_pull.py` — for every mapped US-listed ticker: every 8-K / 6-K since `--since` (default 120 days), the
+   latest 10-K / 20-F / 40-F (only the company's CURRENT annual form — an old 20-F of a company that files 10-Ks now is
+   ignored), the latest 10-Q, and a recent listing's prospectus (see the coverage table below). Existing files are skipped. Do NOT use `--force` on files that
    were already enriched unless you follow rule 2 of the completeness contract.
 2. `python edgar_pull.py queue` — rebuilds `edgar/pending.json`. Each row carries `why` (which mapped counterparties
    or supply-chain terms it matched); `edgar/dropped.json` lists what was filtered out as noise (dividends, credit
@@ -40,6 +45,9 @@ asks for that specific filing.
 | 10-K | `<TICKER>_10-K_<date>_supplychain.txt` | EVERY paragraph of the full 10-K that names another mapped company or carries a supplier / foundry / OSAT / contract-manufacturer / sole-source / supply-agreement / capacity-reservation / prepayment / purchase-commitment / backlog / RPO / capex term (whole, document order, no cap) |
 | 10-Q | `<TICKER>_10-Q_<date>_segments.txt` | XBRL segment / product-line revenue with the year-ago comparison |
 | 10-Q | `<TICKER>_10-Q_<date>_supplychain.txt` | same paragraph rule as the 10-K supplychain file, on the full 10-Q |
+| 6-K (foreign issuer) | `<TICKER>_6-K_<date>.txt` (a 2nd / 3rd 6-K filed the same day: `_2`, `_3`; the EDGAR URL in the header says which filing a file holds) | `## 6-K report (<document>)` = the WHOLE report document (a 6-K has no Item numbers) + EVERY EX-99.x exhibit in full, exactly like an 8-K |
+| 20-F / 40-F (foreign issuer) | `<TICKER>_20-F_<date>_customers.txt` / `_supplychain.txt` (40-F alike) | the two 10-K files, built the same way from the full annual report (a 40-F's annual information form, MD&A and statements are its EX-99 exhibits and are read too); XBRL sections as below |
+| Prospectus (recent listing) | `<TICKER>_424B4_<date>_customers.txt` / `_supplychain.txt` (`_S-1A_` / `_F-1A_` when only an amendment exists) | the two 10-K files, built from the full prospectus; no XBRL section. A prospectus filed after the company's first annual report (a follow-on / resale) is never pulled |
 
 All text is built from the filing's own HTML (`document_text()` → `html_to_text()`), never from edgartools'
 `.text()`, whose renderer shortens some blocks with "..." (found 2026-09-10: Hut 8's "Right of First Offer for up to an
@@ -60,7 +68,16 @@ them — segment revenue, segment EBITDA, capex and backlog tables vanished from
 verify failure on old entries revealed it). Pages filed as pictures leave `[image: <src> — not text]` where they sit.
 XBRL percentages are printed with one decimal as filed (before 2026-09-10 they were rounded to whole numbers, so a
 filed 9.6% read "10%"); dollar facts are shown in $M / $B with the filed value rounded to two decimals.
+A 20-F reports in its own currency: non-USD facts are written with the currency code (`EUR 8.19B`, `TWD 3,272.55B`),
+never with "$", and a YoY is computed only between two values in the same currency. IFRS filers (TSMC, UMC, ASE, Nokia …)
+are read through the ifrs-full equivalents: `ifrs-full:PercentageOfEntitysRevenue` by `MajorCustomersAxis` (always a
+share of revenue) and `ifrs-full:Revenue` by `SegmentsAxis` / `ProductsAndServicesAxis`. A filer that tags its split only
+on its own custom axis gets no XBRL segment section — its prose and tables are still in the two files.
 All files of one filing share its label (`[Company] 10-K (MM-DD-YYYY)`), so verify_graph checks an entry against all of them.
+**6-K queue rule** (`relevance_6k`): a monthly revenue / sales report → queued (in scope: the freshest demand figure);
+a results-release headline ("… Reports Second Quarter 2026 Results", "Q2 2026 Financial Results", an interim report) →
+dropped like an Item 2.02-only 8-K (the call covers it); otherwise the 8-K test (a named mapped company, or enough
+supply-chain words); routine notices (buybacks, transactions in own shares, voting rights, AGM, director dealings) are noise.
 
 **2. Enriched files are immutable.** A better extraction idea becomes a NEW file kind (new suffix), which the queue
 picks up as new rows — never a rewrite of an enriched file. If an enriched file must be re-pulled (an extractor bug),
@@ -124,6 +141,15 @@ own patches; one verifier per batch starts when its enricher finishes; only the 
   only when both companies are players in that chain, otherwise `quarterly_data` on the filer naming the supplier.
   Named customers, named agreements, backlog / RPO and capex figures in these paragraphs are in scope too. Competitor
   lists, generic risk text, accounting prepayments and exhibit indexes are noise — skip them.
+- **6-K** — read like an 8-K (the report document stands in for the Items). A monthly revenue report → one
+  `quarterly_data` entry on the filer's company-wide placement with the month, the amount in the filed currency and the
+  filed MoM / YoY, no slot (the Taiwan monthly-revenue rule, user 2026-10-01); skip it when the company's IR release or
+  MOPS monthly revenue already put the same month on the node.
+- **20-F / 40-F** — read like a 10-K: `type` `20-F customer concentration` / `40-F customer concentration` and
+  `20-F supplier disclosure` / `40-F supplier disclosure`. Keep the filed currency (`NT$`, `EUR`) — never convert.
+- **Prospectus** — read like a 10-K: `type` `prospectus customer concentration` / `prospectus supplier disclosure`.
+  Use-of-proceeds, offering terms, underwriters and lock-ups are financing — skip. Named customers / suppliers, supply
+  agreements, capacity and backlog / RPO figures are in scope.
 - Never infer a relationship from a product mention alone; the filing must state it.
 
 ## Settled rulings (2026-09-10) — apply them, do not re-decide
@@ -157,8 +183,8 @@ own patches; one verifier per batch starts when its enricher finishes; only the 
 - **Unlabelled chart / deck values:** a figure whose period is not printed as text next to it (spreadsheet date
   serials, chart bars, a table cut mid-cell) is never used — not even when another figure "cross-checks" it. Use the
   same number from a filing section that prints the period, or leave it out.
-- **`slot`:** omit by default; only on an 8-K entry newer than every same-slot entry of that node; never on 10-K /
-  10-Q. Never create a second same-date entry with the same slot (derive.py `latest_only` keeps both — ambiguous).
+- **`slot`:** omit by default; only on an 8-K or 6-K entry newer than every same-slot entry of that node; never on 10-K /
+  10-Q / 20-F / 40-F / prospectus. Never create a second same-date entry with the same slot (derive.py `latest_only` keeps both — ambiguous).
 - **Renamed node** (the file's label prefix ≠ the node name) → `python edgar_pull.py --tickers <T> --force` before enriching.
 - **New nodes** only with the litmus test and an independent Claude verifier's approval (enrich skill JOB 3; the user
   handed approval to Claude on 2026-09-26). Decided earlier by the user: Fluidstack added; Core42, AES and Nanjing
@@ -167,9 +193,13 @@ own patches; one verifier per batch starts when its enricher finishes; only the 
 ## Labels
 
 Use the file's `# source label:` header verbatim: `[Company] 8-K (MM-DD-YYYY)`, `[Company] 10-K (MM-DD-YYYY)`,
-`[Company] 10-Q (MM-DD-YYYY)` (`Lumentum 8-K (08-11-2026)`). The date is the filing date. Same label on every node /
-edge touched by that filing; never mix it with the call label of the same quarter.
+`[Company] 10-Q (MM-DD-YYYY)` (`Lumentum 8-K (08-11-2026)`); foreign issuers `[Company] 6-K (MM-DD-YYYY)`,
+`[Company] 20-F (MM-DD-YYYY)`, `[Company] 40-F (MM-DD-YYYY)` (`TSMC 6-K (09-10-2026)`, `TSMC 20-F (04-16-2026)`); a
+recent listing's prospectus `[Company] prospectus (MM-DD-YYYY)` (`Cerebras prospectus (05-14-2026)`, whichever of
+424B4 / S-1/A / F-1/A it is). The date is the filing date. Same label on every node / edge touched by that filing (two
+6-Ks filed the same day share one label, like the two files of a 10-K); never mix it with the call label of the same quarter.
 
 File format `transcripts/edgar/<TICKER>_8-K_<YYYY-MM-DD>.txt`: header lines, then `## Item N.NN` sections and
-`## Exhibit EX-99.x (...)` sections (whitespace-collapsed, one line each). The 10-K / 10-Q files are described in the
-coverage table above.
+`## Exhibit EX-99.x (...)` sections (whitespace-collapsed, one line each). A 6-K file has one `## 6-K report (...)`
+section (the report document as text, line breaks kept) before its exhibits. The 10-K / 20-F / 40-F / prospectus / 10-Q
+files are described in the coverage table above.

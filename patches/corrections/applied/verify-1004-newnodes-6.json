@@ -1,0 +1,36 @@
+{
+  "reviewer": "verify-1004-newnodes-6",
+  "items": [
+    {
+      "kind": "contract",
+      "company": "Jones Tech",
+      "target": "Coherent",
+      "label": "Jones Tech half-year report: 2026 Half-Year Report (08-25-2026)",
+      "signal_prefix": "Jones Tech names Coherent among its digital-infrastructure customers",
+      "action": "delete",
+      "chains": ["components/optical_networking.json"],
+      "reason": "List-only edge: the report only names Coherent in a customer list (H customer, ZTE, Ericsson, Nokia, Cisco, Coherent, Source Photonics, TE) with no product, order or share for Coherent; JOB 4 excludes list-only mentions (open board question 'Customer lists in A-share reports'). The fact stays on Jones Tech's quarterly_data entry 'Named digital-infrastructure customers (half-year report)'. The now-empty Jones Tech -> Coherent edge object must be removed by the coordinator (apply_corrections cannot remove edges).",
+      "evidence": "公司服务客户覆盖 H 客户、中兴、爱立信、诺基亚、思科、高意（Coherent）、索尔思、泰科电子等全球头部通信设备及光通信器件厂商"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Jones Tech",
+      "label": "Jones Tech half-year report: 2026 Half-Year Report (08-25-2026)",
+      "signal_prefix": "Innolight shareholding (half-year report, post-period event)",
+      "action": "delete",
+      "chains": ["components/optical_networking.json"],
+      "reason": "Skill section 2: an agreed transfer of 10.47% of the shares from the controlling shareholder to Innolight is an ownership / governance transaction and its share count is a deal term; no supply relationship is stated. Its only operating content (develop thermal products for high-speed optical modules) restates the same report's 'Optical-module thermal business' entry.",
+      "evidence": "拟通过协议转让方式向中际旭创合计转让公司 31,372,504股无限售条件流通股，占公司总股本的 10.47%。截至本报告披露日，本次协议转让相关手续正在办理中。"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Jones Tech",
+      "label": "Jones Tech IR activity record: 2026-003 (09-04-2026)",
+      "signal_prefix": "Innolight stake and synergy (IR record): management said",
+      "action": "delete",
+      "chains": ["components/optical_networking.json"],
+      "reason": "Skill section 2: the share transfer to Innolight (31,372,504 shares, 10.47%, agreement of August 13, 2026; the record also gives the price, correctly left out) is a shareholder / governance transaction, not an operating fact. The remaining management view (focus on 1.6T and next-generation modules, NPO / CPO, TIM, one-piece VC, liquid cooling) restates the 08-25 half-year report entry for the same period (TIM, integrated VC modules, liquid cooling under CPO / NPO / XPO, 800G / 1.6T / 3.2T). The entry itself notes no supply contract or order is stated.",
+      "evidence": "拟通过协议转让方式向中际旭创合计转让公司31,372,504 股无限售条件流通股，占公司总股本的 10.47%，转让价格为 55.70 元/股"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+ "source": "Fermi Q2 FY2026 (08-13-2026)",
+ "new_nodes": {
+  "Fermi": {
+   "ticker": "FRMI",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "why": "Develops the Project Matador AI data-center campus with its own behind-the-meter power and leases turnkey data-center capacity to AI compute tenants; its first binding tenant agreement (TensorWave, up to 650 MW, about $6.5 billion over the initial 15-year phase) makes its revenue a direct function of AI data-center build-outs.",
+   "evidence": "Fermi Q2 FY2026 call (08-13-2026), Chief Commercial Officer Anna Bofa: 'We have signed a binding agreement with TensorWave, representing up to 650 MW of capacity ... The initial phase is a 15-year commitment for 222 MW of gross power through a turnkey data center solution, and represents approximately $6.5 billion of revenue to Fermi over the initial term.'",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Fermi",
+     "layer": "cloud_infra",
+     "sector": "Datacenter Colocation",
+     "product": "Hyperscale AI data-center campus with behind-the-meter power (Project Matador, Texas): powered land, powered shell and turnkey data centers leased to AI compute tenants (first tenant TensorWave, 222 MW initial phase)",
+     "quarterly_data": [
+      {
+       "quarter": "Fermi Q2 FY2026 (08-13-2026)",
+       "signal": "Chief Commercial Officer: Fermi signed a binding agreement with TensorWave representing up to 650 MW of capacity if all expansion options are exercised, in three phases on a 330-acre campus. The initial phase is a 15-year commitment for 222 MW of gross power through a turnkey data-center solution, representing approximately $6.5 billion of revenue to Fermi over the initial term. Structure: base rent plus a fixed power charge, with the variable energy charge a full pass-through to the customer (CFO: no commodity risk, no hedging). Fermi will deliver the data center with a data-center contractor partner to be announced shortly.",
+       "figure": "up to 650 MW; initial phase 222 MW for 15 years, approximately $6.5 billion of revenue",
+       "topics": [],
+       "slot": "backlog_or_b2b",
+       "counterparty": "TensorWave",
+       "counterparty_role": "customer",
+       "capex": {
+        "field": "backlog",
+        "busd": 6.5,
+        "display": "approximately $6.5 billion of revenue over the 15-year initial term (TensorWave, 222 MW)",
+        "metric": "contracted lease revenue, initial phase"
+       }
+      },
+      {
+       "quarter": "Fermi Q2 FY2026 (08-13-2026)",
+       "signal": "Power delivery plan (COO): Fermi plans to deliver 640 MW of nameplate capacity by the fourth quarter of 2027, with the first 210 MW available July 1st, 2027. With the Hillcore alliance the Project Matador campus doubles to 4.8 GW of total power (from 2.2 GW), and Fermi holds a 6 GW air permit. CFO: power-side capex typically runs $3 million/MW-$4 million/MW of gross power capacity and a turnkey data center about $10 million/MW-$12 million/MW, and this project is in that range; Fermi does not disclose a total project cost and has over $1.5 billion of assets already built into the ground.",
+       "figure": "640 MW by Q4 2027; first 210 MW July 1st, 2027; 4.8 GW total with Hillcore",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Fermi Q2 FY2026 (08-13-2026)",
+       "signal": "Chief Commercial Officer: TensorWave builds and revenue commencement will start in phases, anticipated around the end of Q3 / early Q4 of 2027, with rent rising until the full 220-megawatt build is complete; demand already exists for phases two and three, whose timing depends on the power delivery schedule.",
+       "figure": "revenue commencement around end of Q3 / early Q4 2027",
+       "topics": [],
+       "slot": "next_catalyst",
+       "counterparty": "TensorWave",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "Fermi Q2 FY2026 (08-13-2026)",
+       "signal": "Power equipment (COO): phase one includes six Siemens SGT-800 turbines (balance of plant led by Primoris), plus three GE 6B units and seven TM2500s led by Relevant Power Solutions, all in simple cycle, along with 200 MW of utility power from Xcel. Three Siemens Energy F-class turbines rated up to 728 MW in simple cycle (each more than 242 MW) arrived at the Port of Houston in July and cleared customs, for the 2028-2029 power objectives; TSK is delivering their fast-start engineering. Fermi's grid connection is through Xcel on SPS, not ERCOT, and the campus is islanded behind the meter, so management says the Texas governor's data-center directive does not affect it.",
+       "figure": "six SGT-800, three GE 6B, seven TM2500; 200 MW from Xcel; three F-class up to 728 MW",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status",
+       "counterparty": "Siemens Energy",
+       "counterparty_role": "supplier"
+      },
+      {
+       "quarter": "Fermi Q2 FY2026 (08-13-2026)",
+       "signal": "Hillcore alliance (COO): Hillcore Energy Partners brings approximately 2.6 GW of additional power to the site under a build, own, operate, transfer structure - Hillcore finances, builds, owns and operates its facility and pays rent, with no upfront capital from Fermi. Fermi is anchor off-taker only as tenant leases are signed, each power purchase agreement is matched to the lease term with fuel passed through, and Fermi holds an option to acquire the facility at fair market value after year 10. First power is targeted within 24 months of notice to proceed; Hillcore's GE equipment phase one could be 360 MW-720 MW in that window.",
+       "figure": "approximately 2.6 GW; phase one 360 MW-720 MW within 24 months",
+       "topics": [
+        "power_cooling"
+       ],
+       "counterparty": "Hillcore Energy Partners",
+       "counterparty_role": "partner"
+      },
+      {
+       "quarter": "Fermi Q2 FY2026 (08-13-2026)",
+       "signal": "Pipeline (Chief Commercial Officer): Fermi has been engaged with roughly a dozen prospective customers and strategic partners, remains engaged with the top hyperscalers (who could come directly or through TensorWave's phased buildings), and anticipates other deals to announce in the coming months. Chairman: the core question from virtually every tenant is how fast power can be delivered in 2027. Management will offer powered land, powered shell or turnkey; the first deal is full turnkey up to the chips, including switchgear, battery energy storage, and chilled water and liquid cooling systems.",
+       "figure": "roughly a dozen prospective customers",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

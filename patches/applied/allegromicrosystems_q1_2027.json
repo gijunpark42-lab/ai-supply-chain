@@ -1,0 +1,80 @@
+{
+ "source": "Allegro MicroSystems Q1 FY2027 (07-30-2026)",
+ "new_nodes": {
+  "Allegro MicroSystems": {
+   "ticker": "ALGM",
+   "exchange": "NASDAQ",
+   "country": "United States",
+   "why": "sells high-speed current sensors and fan motor driver ICs (isolated gate drivers next) into AI data-center power supplies; data center reached 17% of sales and is guided to more than double in FY2027",
+   "evidence": "Allegro MicroSystems Q1 FY2027 call (07-30-2026), CEO Mike Doogue: 'we secured design wins for multiple important programs using our market leading 5 MHz current sensors, including a high volume, high voltage DC power supply with a leading provider'; 'fiscal 2027 data center sales will more than double over fiscal 2026'",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/power_semiconductor.json": {
+   "players": [
+    {
+     "company": "Allegro MicroSystems",
+     "domain": "power",
+     "sector": "Power Semiconductors",
+     "product": "high-speed current sensors (5 MHz, TMR) for AI server power supplies, fan motor driver ICs and isolated gate drivers for data-center power",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Allegro MicroSystems Q1 FY2027 (07-30-2026)",
+       "signal": "Q1 FY2027: sales $259 million, above the high end of guidance, up 27% YoY and 7% QoQ (sixth consecutive quarter of sequential growth); non-GAAP EPS $0.23. Automotive sales $165 million, up 15% YoY; industrial and other $94 million, up 59% YoY and 18% QoQ, led by data center. Magnetic sensor sales $150 million (+16% YoY); power products $109 million (+47% YoY). Gross margin 51.1% (48.2% a year ago); operating margin 19.4%; adjusted EBITDA 23.9%. China was 25% of sales and grew 6% sequentially.",
+       "figure": "sales $259 million (+27% YoY); EPS $0.23; gross margin 51.1%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Allegro MicroSystems Q1 FY2027 (07-30-2026)",
+       "signal": "Data center: sales rose 32% sequentially to a record 17% of Q1 sales (14% in Q4, 10% in Q3 of fiscal 2026; CFO: 2% six quarters ago). Current sensors grew 66% sequentially to 22% of data center sales, lifting data center product gross margins to the mid-50s; motor drivers remain strong as fans are adopted more broadly in power supplies. CEO: 'fiscal 2027 data center sales will more than double over fiscal 2026'; CFO: data center is approaching a +$100 million a year run rate.",
+       "figure": "data center 17% of sales (+32% QoQ); current sensors 22% of data center sales (+66% QoQ); FY2027 data center sales to more than double",
+       "topics": ["power_cooling"]
+      },
+      {
+       "quarter": "Allegro MicroSystems Q1 FY2027 (07-30-2026)",
+       "signal": "Design wins (CEO): data center again led Q1 industrial design wins and current sensor wins surpassed motor drivers; Allegro won multiple programs with its 5 MHz current sensors, including a high-volume, high-voltage DC power supply with a leading provider, and multiple programs using its TMR current sensors in data center power supplies. Bookings increased for the seventh consecutive quarter and backlog continued to expand.",
+       "figure": "no specific figure",
+       "topics": ["power_cooling"],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Allegro MicroSystems Q1 FY2027 (07-30-2026)",
+       "signal": "Content per rack (CEO): from $150 of Allegro content in older data center racks to $425 of theoretical content in AI-forward racks, with 2/3 of the $425 from current sensors and fan drivers; 'hundreds of dollars more in content' could be added as isolated gate drivers and 800-volt topologies are layered in. 'Rising server power multiplies our content far beyond simple rack count growth.' CFO expects data center gross margins to remain in the mid-50s, with isolated gate drivers also above the average.",
+       "figure": "$150 to $425 content per rack",
+       "topics": ["power_cooling"]
+      },
+      {
+       "quarter": "Allegro MicroSystems Q1 FY2027 (07-30-2026)",
+       "signal": "Technology (management): as data center customers adopt silicon carbide and gallium nitride, power-converter switching speeds rise and need very fast current sensors; TMR current sensors are much faster than Hall-effect sensors, replacing transformers or isolated amplifiers, so Allegro is taking share in data center power supplies and believes it has 'the world's fastest magnetic current sensor in the data center space today'. Isolated gate drivers are expected to have a material data center impact in 18 months-24 months; Allegro will begin sampling a Generation 2 isolated gate driver ideal for the data center this fall. PMICs are not a big data center growth vector.",
+       "figure": "isolated gate driver material impact in 18 months-24 months",
+       "topics": ["power_cooling"]
+      },
+      {
+       "quarter": "Allegro MicroSystems Q1 FY2027 (07-30-2026)",
+       "signal": "Q2 FY2027 outlook (CFO Derek D'Antilio): sales $265 million-$275 million (26% YoY at the midpoint); non-GAAP gross margin 50.75%-51.75%; operating expenses $84.5 million; non-GAAP EPS $0.23-$0.26. Both automotive and industrial are expected to grow mid-single digits sequentially; data center to grow faster than mid-single digits 'but not in the 20s'. Target gross margin 55% and beyond over the next couple of years, helped by selective price actions (mainly distribution, more impact in Q3 and Q4) and gold-to-copper wire bonding.",
+       "figure": "Q2 FY2027 sales $265 million-$275 million; EPS $0.23-$0.26; gross margin 50.75%-51.75%",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Allegro MicroSystems Q1 FY2027 (07-30-2026)",
+       "signal": "Supply (management): Allegro keeps receiving within-lead-time orders in data center and auto that could not all ship in Q1, building delinquency to be shipped over the next couple of quarters as lead times extend; the constraint is back-end capacity, and Allegro has back-end equipment 'rolling on each and every quarter'. Auto bookings were up 30% YoY and up high single digits sequentially.",
+       "figure": "auto bookings +30% YoY",
+       "topics": ["supply_tightness"],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Allegro MicroSystems Q1 FY2027 (07-30-2026)",
+       "signal": "Automotive and robotics (CEO): auto design wins up 30% YoY; long-term auto growth target above 10%, outgrowing SAAR by 7%-10%; content from roughly $40 in ICE vehicles to upwards of $100 in battery electric vehicles. Wins included electronic power steering with two Korean OEMs, a hybrid traction inverter with a top Japanese OEM, electromechanical braking in China, and first TMR angle sensor ADAS steering programs with China OEMs. Robotics and automation expected at 3%-4% of fiscal 2027 sales, with current sensor wins at large Chinese humanoid OEMs and inductive position sensors at a North American humanoid OEM; addressable content estimated above $150 per humanoid by 2030.",
+       "figure": "auto design wins +30% YoY; robotics 3%-4% of FY2027 sales",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

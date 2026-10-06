@@ -1,0 +1,58 @@
+{
+  "source": "Babcock & Wilcox 8-K (08-10-2026)",
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Babcock & Wilcox",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "boiler + steam-turbine power plants (coal / natural gas, enhanced combined cycle) for AI data-center campuses (Base Electron project, North Dakota)",
+          "quarterly_data": [
+            {
+              "quarter": "Babcock & Wilcox 8-K (08-10-2026)",
+              "signal": "Q2 2026 earnings release (8-K): bookings were $151.0 million in Q2 2026, a 38% increase over Q2 2025; Q2 revenue was primarily driven by an increase in large project volume, including $100.7 million from Base Electron. The investor presentation gives revenue of ~$834.3M and adjusted EBITDA of $63.8 million for the trailing twelve months ended June 30, 2026.",
+              "figure": "Q2 bookings $151.0 million (+38%); Q2 Base Electron revenue $100.7 million; TTM revenue ~$834.3M",
+              "topics": []
+            },
+            {
+              "quarter": "Babcock & Wilcox 8-K (08-10-2026)",
+              "signal": "Investor presentation (August 2026): the $2.4B, 1.2 GW power project for Base Electron will be located near Center, North Dakota, and its Conditional Use Permit was submitted in August 2026; B&W provides four 300 MW natural-gas boilers, and the deck cites future expansion potential for another 1.2 GW. B&W also lists a strategic partnership with Denham Capital to convert existing coal plants to power data centers in the U.S. and Europe, and offers off-the-shelf 50 and 300 MW natural gas-fired boiler and steam turbine designs for AI factories and data centers.",
+              "figure": "1.2 GW Base Electron project ($2.4B); future expansion potential another 1.2 GW",
+              "topics": [
+                "power_cooling"
+              ]
+            }
+          ],
+          "connects_to": []
+        },
+        {
+          "company": "Siemens Energy",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "gas turbines & grid technology for data-center power",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Babcock & Wilcox",
+              "relationship": "steam turbines for B&W boiler + steam-turbine data-center power plants",
+              "contracts": [
+                {
+                  "source": "Babcock & Wilcox 8-K (08-10-2026)",
+                  "signal": "B&W's August 2026 investor presentation (8-K Exhibit 99.2): Siemens Energy is supplying the steam turbine generator sets for the $2.4B, 1.2 GW Base Electron project, paired with four B&W 300 MW natural-gas boilers; B&W says the combination enables years-faster deployment than traditional combined- or simple-cycle gas turbine projects. CEO Kenneth Young (release): B&W's natural gas-fired boilers are being provided alongside Siemens Energy steam turbine systems.",
+                  "units": "steam turbine generator sets for a 1.2 GW project",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "supply (steam turbine generator sets)",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

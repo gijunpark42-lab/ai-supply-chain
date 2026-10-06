@@ -1,0 +1,31 @@
+{
+  "reviewer": "coordinator-1004-lotes",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Lotes",
+      "target": null,
+      "label": "Lotes IR presentation: MOPS 353320260514E003 (06-05-2026)",
+      "signal_prefix": "Lotes Q1 2026 results (Citi Taiwan Tech Conference deck): qu",
+      "action": "set",
+      "set": {
+        "figure": "FY2025 revenue NT$33,783 million; FY2025 EPS NT$70.17"
+      },
+      "reason": "figure held numbers glued together in the PDF text (verify_graph cannot match them); values stay in the signal",
+      "evidence": "coordinator fix after verify_graph number_not_in_source"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Lotes",
+      "target": null,
+      "label": "Lotes IR presentation: MOPS 353320260812E001 (08-13-2026)",
+      "signal_prefix": "Lotes Q2 2026 results (KGI online investor conference deck):",
+      "action": "set",
+      "set": {
+        "figure": "Q2'26 gross margin 45.47%; operating margin 21.97%; EPS NT$17.68"
+      },
+      "reason": "figure held numbers glued together in the PDF text (verify_graph cannot match them); values stay in the signal",
+      "evidence": "coordinator fix after verify_graph number_not_in_source"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "reviewer": "edgar-verifier batch_03 (2026-10-02)",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Diodes",
+      "target": null,
+      "label": "Diodes Q2 FY2026 (08-05-2026)",
+      "signal_prefix": "Q2 2026 results (CFO Brett Whitmire, CEO Gary Yu): revenue was $445.5 million",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 results (CFO Brett Whitmire, CEO Gary Yu): revenue was $445.5 million, up 22% from $366.2 million a year earlier and up 10% from $405.5 million in Q1 2026, with growth across all regions and record global POS. Gross margin was 33.1% versus 31.5% a year ago and 31.8% last quarter (up 160 basis points year over year, credited to earlier cost and operating initiatives). GAAP net income was $46.6 million or $1.00 per diluted share; non-GAAP adjusted net income was $32.5 million or $0.70 per diluted share (versus $0.32 a year ago); EBITDA was $83.5 million or 18.7% of revenue. CEO: growth reflects strengthening overall demand plus expanding content across analog and power solutions in automotive, industrial and AI server-related applications."
+      },
+      "chains": [
+        "components/power_semiconductor.json"
+      ],
+      "reason": "The AV transcript reads 'fifth consecutive quarter'; the company's own documents for the same call - the Q2 release and results deck (Diodes 8-K 08-05-2026, Ex. 99.1 / 99.2) and the company-furnished call transcript (Diodes 8-K 08-12-2026, Ex. 99.1) - all say 'sixth consecutive quarter'. The disputed ordinal is removed rather than rewritten under the AV label.",
+      "evidence": "As the sixth consecutive quarter of double-digit year-over-year growth, this quarter serves as further confirmation of strengthening demand (Diodes 8-K 08-05-2026 Ex. 99.1)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Diodes",
+      "target": null,
+      "label": "Diodes Q2 FY2026 (08-05-2026)",
+      "signal_prefix": "Capacity plan (CEO Gary Yu): Diodes expects 'very strong demand this year",
+      "action": "set",
+      "set": {
+        "signal": "Capacity plan (CEO Gary Yu): Diodes expects 'very strong demand this year, and even more so next year' and says the company has more capacity it can bring online to support customers' future needs, through its hybrid internal / external model. Wafer fabs: utilization keeps improving at GFAB and SPFAB (key customers are starting to use wafers from SPFAB), with migration from 6-inch to 8-inch for more capacity and added capacity from external partners, including in Korea. About 75% of assembly and test is done internally, with capacity added selectively for advanced packages such as CSP. Production is 'about 50-50' internal versus outsourced. Q2 capital expenditures were $33.6 million or 7.5% of revenue, within the targeted 5% to 9% of revenue range."
+      },
+      "chains": [
+        "components/power_semiconductor.json"
+      ],
+      "reason": "The AV transcript has the CEO naming external partners 'in Korea and in Taiwan'; the company-furnished transcript of the same answer (Diodes 8-K 08-12-2026, Ex. 99.1) reads 'in Korea or in Thailand'. Only Korea is common to both, so the contested second location is removed.",
+      "evidence": "Also leverage our external partner right and no matter if that partner is in Korea or in Thailand to get more capacity from them. (Diodes 8-K 08-12-2026 Ex. 99.1)"
+    }
+  ]
+}

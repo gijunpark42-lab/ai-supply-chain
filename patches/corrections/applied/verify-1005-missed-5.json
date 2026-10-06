@@ -1,0 +1,19 @@
+{
+  "reviewer": "verify-1005-missed-5",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Fuso Chemical",
+      "target": null,
+      "label": "Fuso Chemical press release: FY03/2026 Financial Results Briefing (for Institutional (05-15-2026)",
+      "signal_prefix": "Capital investment plan: FY03/2027 capital investment planned at 299.0",
+      "action": "set",
+      "set": {
+        "signal": "Capital investment plan: FY03/2027 capital investment planned at 299.0 (unit: 100 millions of yen), against a FY03/2026 result of 107.8. Company investment schedule: Kashima Site QC building ~09/2027; the depreciation forecast slide lists the Quality Control Building in Kashima plant (Common) as a depreciation item from 2H FY03/27."
+      },
+      "chains": ["manufacturing/foundry.json"],
+      "reason": "The '(From 2H FY03/27)' note sits on the Depreciation-by-segment slide, not the capex schedule; the entry said only 'is listed from 2H FY03/27' without saying where, which reads as a conflicting completion date. Clarified, no figure changed.",
+      "evidence": "Depreciation by segment ... ◼Common : Quality Control Building in Kashima plant (From 2H FY03/27) ... Kashima Site: QC building ～09/2027"
+    }
+  ]
+}

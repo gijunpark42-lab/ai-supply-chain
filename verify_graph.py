@@ -267,7 +267,38 @@ KO_ALIASES = {
     "Zhen Ding": ["ZDT"],
     "onsemi": ["ON Semiconductor", "온세미"],
     "SpaceX": ["xAI", "X.AI", "SpaceXAI", "Grok"],
+    "Roche-Genentech": ["Roche", "Genentech"],
 }
+
+# Mainland-Chinese names (simplified script) that China A-share filings use for graph nodes
+# (cninfo annual / half-year reports, IR records): a report writes 台积电, never "TSMC", so
+# without these a correct edge looked like "counterparty_not_in_source". Added to KO_ALIASES
+# (which evidence.py reads too) instead of replacing what is already listed there.
+CN_ALIASES = {
+    "TSMC": ["台积电", "台湾积体电路"], "SMIC": ["中芯国际"], "UMC": ["联华电子", "联电"],
+    "Hua Hong Semiconductor": ["华虹半导体", "华虹宏力", "华虹"], "Foxconn": ["富士康", "鸿海"],
+    "Kingsemi": ["芯源微"], "Alibaba": ["阿里巴巴", "阿里云", "阿里"], "Baidu": ["百度"], "Tencent": ["腾讯"],
+    "Silicon Motion": ["慧荣科技", "慧荣"], "Maxio Technology": ["联芸科技", "联芸"],
+    "CXMT": ["长鑫存储", "长鑫科技", "长鑫"], "Shengyi Technology": ["生益科技"], "Fujikura": ["藤仓"], "YOFC": ["长飞光纤", "长飞"],
+    "Innolight": ["中际旭创"], "Eoptolink": ["新易盛"], "Hengtong Optic-Electric": ["亨通光电"],
+    "Accelink": ["光迅科技"], "Inspur Electronic Information": ["浪潮信息", "浪潮"], "Nokia": ["诺基亚"],
+    "FiberHome Telecommunication": ["烽火通信"], "Coherent": ["高意"], "Samsung": ["三星电子", "三星"],
+    "SK Hynix": ["SK海力士", "海力士"], "Micron": ["美光"], "Kioxia": ["铠侠"], "NVIDIA": ["英伟达"],
+    "Luxshare": ["立讯精密", "立讯"], "Amphenol": ["安费诺"], "TE Connectivity": ["泰科电子"],
+    "Lenovo": ["联想"], "Sugon": ["中科曙光", "曙光"], "Flex": ["伟创力"], "Zhen Ding": ["臻鼎"], "Unimicron": ["欣兴"], "AT&S": ["奥特斯"], "SemiFive": ["세미파이브"], "ZTE": ["中兴通讯", "中兴"],
+    "Hygon Information Technology": ["海光信息"], "Cambricon": ["寒武纪"], "Huaqin Technology": ["华勤技术", "华勤"],
+    "Unisplendour": ["紫光股份"], "Ruijie Networks": ["锐捷网络", "锐捷"], "Vertiv": ["维谛"],
+    "Delta Electronics": ["台达"], "Lite-On": ["光宝"], "STMicroelectronics": ["意法半导体"],
+    "Applied Materials": ["应用材料"], "Tokyo Electron": ["东京电子"], "Lam Research": ["泛林"],
+    "Google": ["谷歌"], "Microsoft": ["微软"], "Amazon": ["亚马逊"], "Cisco": ["思科"],
+    "Montage Technology": ["澜起科技"], "JCET": ["长电科技"], "TFME": ["通富微电"], "Huatian Technology": ["华天科技"],
+    "GigaDevice": ["兆易创新"], "Longsys": ["江波龙"], "Victory Giant Technology": ["胜宏科技"],
+    "WUS Printed Circuit": ["沪士电子", "沪电股份"], "Shennan Circuits": ["深南电路"], "Kinwong": ["景旺电子"],
+    "NAURA": ["北方华创"], "AMEC": ["中微公司"], "Piotech": ["拓荆科技"], "Ciena": ["Ciena"],
+}
+for _name, _aliases in CN_ALIASES.items():
+    KO_ALIASES.setdefault(_name, [])
+    KO_ALIASES[_name] += [a for a in _aliases if a not in KO_ALIASES[_name]]
 
 # Node names (or first words) that are also ordinary English words, or that several nodes
 # share. They never serve as a bare first-word fallback ("Together AI" must not be found by
@@ -414,6 +445,41 @@ def header_labels(block):
     return labels
 
 
+# A PDF table cell that wrapped onto the next line arrives cut in two: "61,871,61⏎7.63" (a thousands group
+# left short) or "3,161,050⏎,481.40" (the next line starts with the separator). normalize() turns the line
+# break into a space, so neither half is the number an enricher read off the page.
+WRAPPED_NUMBER = [
+    re.compile(r"(\d[\d,.]*\d) ([,.]\d[\d,]*(?:\.\d+)?)"),     # next piece starts with "," or "."
+    re.compile(r"(\d[\d,]*,\d{1,2}) (\d[\d,]*(?:\.\d+)?)"),    # first piece ends in a short group (",61")
+    re.compile(r"(\d[\d,]*,) (\d[\d,]*(?:\.\d+)?)"),           # first piece ends in the comma ("232,561,")
+    re.compile(r"(\d{1,3}(?:,\d{3})+\.) (\d+)"),               # a grouped amount ends in the point ("200,580.")
+    re.compile(r"(\d+\.\d+) (\d{1,3}%)"),                      # a percentage cut inside its decimals ("73.1" + "5%")
+    re.compile(r"(\d{1,3}(?:,\d{3})+\.\d) (\d)\b"),            # cut in three: "41,3" "10.5" "4" -> after one pass "41,310.5" + "4"
+]
+
+
+NUMBER_TOKEN = re.compile(r"\d[\d,]*(?:\.\d+)?")
+
+
+def rejoined_numbers(norm):
+    """The wrapped numbers above, joined back together ("61,871,617.63"), as extra text to ADD to the
+    document's searchable text. The original pieces stay, so nothing that matched before stops matching.
+    Joining repeats (up to 4 rounds) because a narrow table column can cut one amount into 3-4 pieces."""
+    text = norm
+    for _ in range(4):
+        joined = text
+        for pattern in WRAPPED_NUMBER:
+            joined = pattern.sub(lambda m: m.group(1) + m.group(2), joined)
+        if joined == text:
+            break
+        text = joined
+    if text == norm:
+        return ""
+    before = set(NUMBER_TOKEN.findall(norm))
+    extra = [n for n in NUMBER_TOKEN.findall(text) if n not in before]
+    return (" " + " ".join(dict.fromkeys(extra))) if extra else ""
+
+
 class Doc:
     """One source document (or one ==== block of a supply_contracts file)."""
 
@@ -423,6 +489,7 @@ class Doc:
         self.label = label                    # from the "# source label:" header, if present
         self.labels = [label] if label else []
         self.norm = normalize(text)           # for number matching
+        self.norm += rejoined_numbers(self.norm)   # + numbers a PDF line break cut in two, joined back
         self.norm_nocomma = self.norm.replace(",", "")
         self.compact = compact(text)          # for company-name matching
         self._mention_cache = {}

@@ -825,7 +825,15 @@ def take(company, item, state, force=False):
         seen[url] = "skip:already saved as " + dup
         print("skip     %-22s %s  [already saved: %s]" % (company, title[:70], dup))
         return "skip"
-    if is_pdf(url):
+    if item.get("local"):                              # `fetch --file`: a copy downloaded by hand
+        raw = Path(item["local"]).read_bytes()         # (the site blocks this script); URL stays the SOURCE
+        if raw[:5] == b"%PDF-":
+            from pypdf import PdfReader
+            text = "\n".join((p.extract_text() or "") for p in PdfReader(io.BytesIO(raw)).pages)
+            body = [l.strip() for l in text.splitlines() if l.strip()]
+        else:
+            body = release_body(raw.decode("utf-8", "replace"), title)
+    elif is_pdf(url):
         body = pdf_lines(url)                          # PDF release: the whole document
     else:
         page = get(url)
@@ -980,6 +988,8 @@ def main():
     s = sub.add_parser("sync"); s.add_argument("--since"); s.add_argument("--company")
     f = sub.add_parser("fetch"); f.add_argument("url"); f.add_argument("--company", required=True)
     f.add_argument("--title", help="headline, if the page title is not usable"); f.add_argument("--date", help="MM-DD-YYYY")
+    f.add_argument("--file", help="a copy downloaded by hand (PDF or HTML) when the site blocks this script; "
+                                  "the URL is still recorded as the SOURCE (needs --title and --date)")
     pn = sub.add_parser("pending")
     pn.add_argument("--market", choices=[m for m, _ in MARKETS], help="only companies from this home market")
     st = sub.add_parser("status"); st.add_argument("--company")
@@ -1014,11 +1024,13 @@ def main():
         since = datetime.strptime(args.since, "%Y-%m-%d").date() if args.since else None
         sync(since, args.company)
     elif args.cmd == "fetch":
-        page = get(args.url) or sys.exit("could not fetch " + args.url)
+        if args.file and not (args.title and args.date):
+            sys.exit("--file needs --title and --date")
+        page = None if args.file else (get(args.url) or sys.exit("could not fetch " + args.url))
         title = args.title or html.unescape(re.search(r"<title[^>]*>(.*?)</title>", page, re.S).group(1)).split("|")[0].split(" - ")[-1].strip()
         d = datetime.strptime(args.date, "%m-%d-%Y").date() if args.date else date.today()
         state = load(STATE, {"runs": [], "seen": {}})
-        take(args.company, {"link": args.url, "title": title, "date": d}, state, force=True)
+        take(args.company, {"link": args.url, "title": title, "date": d, "local": args.file}, state, force=True)
         save(STATE, state)
     elif args.cmd == "pending":
         rows = load(PENDING, [])

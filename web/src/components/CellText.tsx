@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { t } from "@/lib/i18n";
+import { SourceBadge } from "./SignalText";
 
 export interface CellDetail {
   /** Source label the value came from, e.g. "Analog Devices Q3 FY2026 (08-19-2026)". */
@@ -229,7 +230,11 @@ function CellDialog({
               {t("Full signal")}
               {/* The source label is a proper name ("NVIDIA Q1 FY2027 …"); the
                   heading is uppercased, so it rides in its own normal-case span. */}
-              {detail?.source && <span className="cell-modal-src">{detail.source}</span>}
+              {detail?.source && (
+                <span className="cell-modal-src">
+                  <SourceBadge label={detail.source} /> {detail.source}
+                </span>
+              )}
             </div>
             <p>{extra}</p>
           </div>
@@ -237,7 +242,9 @@ function CellDialog({
         {!extra && detail?.source && (
           <div className="cell-modal-detail-h" style={{ marginTop: "0.9rem" }}>
             {t("Source")}
-            <span className="cell-modal-src">{detail.source}</span>
+            <span className="cell-modal-src">
+              <SourceBadge label={detail.source} /> {detail.source}
+            </span>
           </div>
         )}
       </div>

@@ -1,0 +1,60 @@
+{
+ "source": "Gaolan IR activity record: 2026-004 (09-15-2026)",
+ "new_nodes": {
+  "Gaolan": {
+   "ticker": "300499.SZ",
+   "exchange": "SZSE",
+   "country": "CN",
+   "why": "Builds data-center liquid-cooling systems (cold-plate and immersion CDUs, piping / manifolds, cold plates, immersion tanks); AI computing liquid-cooling projects drove its H1 2026 growth, so AI data-center build-out directly lifts its revenue.",
+   "evidence": "Gaolan half-year report: 2026 Half-Year Report (08-22-2026): high-power-density device thermal management = data-center liquid-cooling products incl. cold-plate and immersion solutions (room CDUs, piping and manifolds); revenue rose as AI computing-center liquid-cooling projects landed in volume; segment revenue RMB 210,110,127.68, up 53.41%.",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Gaolan",
+     "domain": "thermal",
+     "sector": "Direct-to-Chip Liquid",
+     "product": "Data-center liquid-cooling systems on the facility side (cold-plate and immersion: CDUs, secondary-side piping and manifolds, server cold plates, fluid connectors, immersion tanks; pump-driven two-phase cold-plate system in development) for leading internet companies and IDC operators, alongside HVDC converter-valve and energy-storage liquid cooling",
+     "quarterly_data": [
+      {
+       "quarter": "Gaolan IR activity record: 2026-004 (09-15-2026)",
+       "signal": "Management (IR record, Guangdong collective investor day / half-year results briefing): in H1 2026 revenue from high-power-density device thermal management products, which include the data-center liquid-cooling products, was RMB 210,110,127.68, up 53.41% year on year, 42.57% of total revenue, a share 15.84 percentage points higher than in full-year 2025. H1 2026 overseas revenue was RMB 5,557.16 ten-thousand, up 1,641.46%.",
+       "figure": "High-power-density thermal (incl. data-center liquid cooling) H1 2026 revenue RMB 210,110,127.68 (+53.41%), 42.57% of revenue; overseas revenue RMB 5,557.16 ten-thousand (+1,641.46%)",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "Gaolan IR activity record: 2026-004 (09-15-2026)",
+       "signal": "Management (IR record): as of June 30, 2026 orders in hand were about RMB 16.28 hundred million and overall delivery was proceeding steadily. Management said gross margin is affected by market competition, raw-material prices and product mix, and that the company will use the scale effect of a larger business, keep expanding overseas, advance capacity expansion in an orderly way and improve operating efficiency to push gross margin up.",
+       "figure": "Orders in hand about RMB 16.28 hundred million (June 30, 2026)",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Gaolan IR activity record: 2026-004 (09-15-2026)",
+       "signal": "Management (IR record): the company is advancing data-center liquid-cooling capacity expansion in an orderly way, planning capacity dynamically against orders to ensure project delivery. Operating cash flow turned negative mainly because orders in hand increased and the company bought and stocked materials in advance; the credit period for data-center liquid-cooling products is about 30-60 days, subject to each contract.",
+       "figure": "Data-center liquid-cooling credit period about 30-60 days",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Gaolan IR activity record: 2026-004 (09-15-2026)",
+       "signal": "Management (IR record): Gaolan positions itself as a full-scenario thermal-management solutions provider; depending on the project it supplies a complete liquid-cooling system or individual products such as CDUs, piping networks and external (outdoor) cooling equipment, and the cooperation model differs by project. Data-center liquid cooling is one of the company's key business directions, but management said its future scale depends on computing-market demand and project timing and is uncertain.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

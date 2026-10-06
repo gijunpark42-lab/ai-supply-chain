@@ -1,0 +1,93 @@
+{
+  "source": "SharonAI 10-K (03-31-2026)",
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "NEXTDC",
+          "layer": "cloud_infra",
+          "sector": "Datacenter Colocation",
+          "product": "Tier III / Tier IV colocation data centers in Australia",
+          "connects_to": [
+            {
+              "company": "SharonAI",
+              "relationship": "Data-center colocation capacity for SharonAI's AI factories (primary supplier)",
+              "contracts": [
+                {
+                  "source": "SharonAI 10-K (03-31-2026)",
+                  "signal": "SharonAI 10-K: NEXTDC is SharonAI's primary and largest, non-exclusive co-location provider and hosts substantially all of its GPU infrastructure, under service orders pursuant to a Master Services Agreement dated 1 November 2022 (an additional 600kW of contracted power capacity was activated during 2025). SharonAI has secured access to up to 54MW within NEXTDC's facilities: 1.6MW already operational at NEXTDC M3 Melbourne hosting the Supercluster with more than 500 NVIDIA B200 GPUs; approximately 13MWs of distributed capacity across Sydney and Melbourne (S6, S3) for B200 and B300 deployments; and 40MWs of contiguous capacity at M2 Melbourne (4 x 10MW halls) designed for NVIDIA B300 and GB300 reference architecture with liquid to chip cooling. A December 2025 agreement added up to 50MW of capacity, enabling deployment of more than 20,000 NVIDIA B200, B300 or GB300 GPUs. SharonAI is in discussions with NEXTDC on potential future partnerships, including participation in NEXTDC's development pipeline.",
+                  "units": "up to 54MW (M2 40MW; approximately 13MW distributed; 1.6MW at M3)",
+                  "value": "no specific figure",
+                  "date_signed": "Master Services Agreement 1 November 2022; expansion December 2025",
+                  "type": "10-K supplier disclosure",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Lenovo",
+          "layer": "system_integration",
+          "sector": "Server / Rack OEM",
+          "product": "GPU servers and storage equipment",
+          "connects_to": [
+            {
+              "company": "SharonAI",
+              "relationship": "Compute and storage equipment supply to SharonAI (Lenovo TruScale program)",
+              "contracts": [
+                {
+                  "source": "SharonAI 10-K (03-31-2026)",
+                  "signal": "SharonAI 10-K: Lenovo has been a primary supplier of compute and storage equipment via SharonAI's subsidiary Distributed Storage Solutions since 2021. SharonAI participates in the Lenovo TruScale program (hardware procurement and lifecycle services) and, using a TruScale facility that funds GPU hardware acquisitions, has executed an agreement to acquire 125 servers comprising a total of 1,000 NVIDIA B200 GPUs for its next cluster deployment in NEXTDC's M3 facility in the first half of 2026. Certain Lenovo Statements of Work permit Lenovo to terminate services on a material adverse change in SharonAI's business.",
+                  "units": "125 servers comprising 1,000 NVIDIA B200 GPUs",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "10-K supplier disclosure",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "SharonAI",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "Neocloud GPU compute platform: sovereign AI factories in Australia and New Zealand running NVIDIA B300 / GB300 clusters (GPU-as-a-service, AI platform layers, high-performance storage); NVIDIA Cloud Partner",
+          "quarterly_data": [
+            {
+              "quarter": "SharonAI 10-K (03-31-2026)",
+              "signal": "10-K supplier disclosure - NVIDIA: SharonAI is substantially dependent on NVIDIA as a supplier of GPUs and sources a significant portion (in certain configurations substantially all) of its GPU computing capacity from NVIDIA; it does not have long-term supply agreements with NVIDIA that guarantee pricing, volume or delivery schedules. NVIDIA is described as the manufacturer of its GPUs, a key operational partner under the NVIDIA Cloud Partner (NCP) program, a strategic referral source through the NVIDIA consumption desk and a strategic shareholder; SharonAI is one of three NCPs operating in Australia (appointed December 2024).",
+              "figure": "no specific figure",
+              "topics": []
+            },
+            {
+              "quarter": "SharonAI 10-K (03-31-2026)",
+              "signal": "10-K fleet: at December 31, 2025 SharonAI had 411 GPUs deployed and generating revenue (43 NVIDIA A40, 192 L40, 160 H100, 16 H200 SXM), housed in 51 servers with over 59 petabytes of storage across co-location data centers in Australia (partners NEXTDC, GreenSquare and DigiCo). GPUs to be deployed: 1,000 NVIDIA B200 and 1,024 B300 (2,024 in total) with expected delivery in 1H 2026, taking the total to approximately 2,435 GPUs. The 1,016-GPU Supercluster at NEXTDC M3 currently features NVIDIA H200 GPUs on NVIDIA Quantum-2 InfiniBand, with the balance expected to be B200 GPUs coming online in the first half of 2026; a 1,024-unit B300 cluster at NEXTDC S3, built in partnership with Cisco, is expected to be Australia's first Cisco Secure AI Factory (company expectation).",
+              "figure": "411 GPUs at December 31, 2025; 1,000 B200 + 1,024 B300 expected 1H 2026 (~2,435 total)",
+              "topics": []
+            },
+            {
+              "quarter": "SharonAI 10-K (03-31-2026)",
+              "signal": "10-K results: FY2025 revenue $1,566,631 versus $438,292 in FY2024, of which provision of GPU infrastructure services $1,436,420 versus $205,043 (XBRL: $1.4M, +600.5% YoY) and digital asset mining $128,842 versus $232,510; gross profit $100,807 versus a gross loss of $281,701. Net cash used in investing activities was $13,806 thousand, primarily capital expenditures for servers and related infrastructure equipment to expand GPU cloud capacity.",
+              "figure": "FY2025 revenue $1,566,631; GPU infrastructure services $1,436,420 (+600.5% YoY)",
+              "topics": []
+            },
+            {
+              "quarter": "SharonAI 10-K (03-31-2026)",
+              "signal": "10-K contracting model: SharonAI has shifted its primary commercial framework from usage-based, on-demand workloads (including marketplace aggregators) to term-based take-or-pay offtake agreements; it targets 10% to 20% of contract value as a customer prepayment at signing, which allows it to submit purchase orders for the GPU and network infrastructure, with monthly revenue generated from about the fifth month for the contract term (e.g., 36 to 60 months) and an expected useful economic life of the hardware of approximately 6 years.",
+              "figure": "target customer prepayment 10% to 20% of contract value; terms e.g. 36 to 60 months",
+              "topics": []
+            },
+            {
+              "quarter": "SharonAI 10-K (03-31-2026)",
+              "signal": "10-K partners: in October 2025 SharonAI entered into a Memorandum of Understanding with Cisco for a strategic collaboration on managed enterprise cloud AI solutions (technical guidance, customer introductions and solution engineering, with Cisco's ANZ enterprise sales team intended to sell SharonAI-powered cloud services); Cisco provides AI-ready networking infrastructure, and SharonAI is a member of the Cisco 360 Partner Program. Network spine and leaf architecture is designed with NVIDIA, Cisco and Lenovo.",
+              "figure": "no specific figure",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

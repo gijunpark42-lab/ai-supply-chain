@@ -1,17 +1,29 @@
-"""Pull company-primary SEC documents for the mapped US tickers into transcripts/edgar/.
+"""Pull company-primary SEC documents for the mapped US-listed tickers into transcripts/edgar/.
+
+"US-listed" includes foreign companies whose ADRs trade in New York (TSMC, ASML, UMC, Nokia ...): they file
+6-K / 20-F (foreign private issuers) instead of 8-K / 10-K, and those are pulled the same way.
 
 Company documents only (the map's rule), saved WHOLE — see the completeness contract in
 .claude/skills/enrich/references/edgar.md (every filing is read once and never has to be reopened):
   * 8-K current reports: every relevant Item + EVERY EX-99 exhibit in full (400k safety cap, marked when hit)
+  * 6-K current reports (foreign issuers): the whole report document + EVERY EX-99 exhibit in full; a second 6-K
+                 filed the same day gets <T>_6-K_<date>_2.txt (the EDGAR URL in the header tells them apart)
   * latest 10-K: <T>_10-K_<date>_customers.txt  = every customer-concentration paragraph + XBRL concentration
                  (us-gaap:ConcentrationRiskPercentage1 by srt:MajorCustomersAxis) and segment revenue facts
                  <T>_10-K_<date>_supplychain.txt = every paragraph of the full text naming a mapped company or a
                  supplier / foundry / contract-manufacturer / supply-agreement / backlog / capex term
+  * latest 20-F / 40-F (foreign issuers' annual report): same two files as the 10-K (<T>_20-F_<date>_customers.txt,
+                 _supplychain.txt); IFRS filers' XBRL (ifrs-full) is read too. Only when it is the company's CURRENT
+                 annual form (Celestica, IREN, NXP still have an old 20-F on EDGAR but file 10-Ks now).
+  * registration prospectus of a recent listing (IPO within --since or the last 18 months): the final 424B4, else the
+                 latest S-1/A or F-1/A -> <T>_424B4_<date>_customers.txt + _supplychain.txt (<T>_S-1A_ / <T>_F-1A_ for an
+                 amendment), label "[Company] prospectus"; paragraphs only, no XBRL section
   * latest 10-Q: <T>_10-Q_<date>_segments.txt (XBRL segment revenue with YoY) + <T>_10-Q_<date>_supplychain.txt
 Nothing here touches chains/ or graph/; the saved text files are enrichment inputs, to be
 processed like transcripts (source label e.g. "Lumentum 8-K (08-11-2026)").
 
-    python edgar_pull.py                      # all mapped US tickers, EVERY 8-K since --since (default 120 days) + latest 10-K
+    python edgar_pull.py                      # all mapped US-listed tickers, EVERY 8-K / 6-K since --since (default 120 days)
+                                              #   + latest 10-K / 20-F / 40-F + latest 10-Q + a recent IPO's prospectus
     python edgar_pull.py --tickers LITE,SMCI  # a few names
     python edgar_pull.py --since 2026-06-01   # older window
     python edgar_pull.py queue                # build edgar/pending.json = the low-noise `enrich edgar` queue
@@ -19,7 +31,8 @@ processed like transcripts (source label e.g. "Lumentum 8-K (08-11-2026)").
     <TICKER>_10-Q_<date>_segments.txt         # XBRL segment / product revenue with YoY (+ customer % if the 10-Q tags it)
     edgar/STATUS.md                           # generated table: every file -> queued / enriched / dropped (why)
 
-Files carry a "# source label:" header (canonical: "Lumentum 8-K (08-11-2026)", "Lumentum 10-K (08-17-2026)")
+Files carry a "# source label:" header (canonical: "Lumentum 8-K (08-11-2026)", "Lumentum 10-K (08-17-2026)",
+"TSMC 6-K (09-10-2026)", "TSMC 20-F (04-16-2026)", "Cerebras prospectus (05-14-2026)")
 so verify_graph.py can resolve entries back to them.
 
 Needs EDGAR_USER_AGENT in .env (a contact e-mail; quote it if it contains spaces).
@@ -60,6 +73,36 @@ KEEP_WORDS = ("supply agreement", "purchase agreement", "master agreement", "man
 DROP_WORDS = ("credit agreement", "credit line", "credit facility", "loan agreement", "indenture", "notes due",
               "dividend", "repurchase program", "annual meeting", "employment agreement", "severance",
               "retirement", "resign", "appointed", "amended and restated bylaws", "stockholder rights")
+
+# 6-K (foreign issuers) — the same filter, plus the extra words foreign filers use. A 6-K has no Item numbers, so
+# the 8-K "Item 2.02 only = earnings release" rule becomes a headline test (RESULTS_6K_RE), and the routine UK-style
+# notices (buybacks, voting rights, director dealings) that Shell / AstraZeneca file almost daily count as noise.
+KEEP_WORDS_6K = KEEP_WORDS + ("capital appropriation", "capital expenditure", "joint venture")
+DROP_WORDS_6K = DROP_WORDS + ("transaction in own shares", "transactions in own shares", "total voting rights",
+                              "pdmr", "share buyback", "share buy-back", "buyback programme", "general meeting",
+                              "voting results", "block listing", "major holdings", "treasury shares")
+MONTHS = "january|february|march|april|may|june|july|august|september|october|november|december"
+# A monthly revenue / sales report (TSMC, UMC, ASE file one every month) is in scope: the freshest demand figure.
+# ("TSMC August 2026 Revenue Report", "UMC ... June Revenue", "ASE ... net revenues for August"; never the
+# "January-June 2026 net sales" of a half-year report.)
+MONTHLY_REVENUE_RE = re.compile(rf"(?i)\b(revenues?|sales)\s+(report\s+)?for\s+(the\s+month\s+of\s+)?({MONTHS})\b"
+                                rf"|(?<![-–])\b({MONTHS}),?\s+(20\d\d\s+)?(net\s+)?(revenues?|sales)\b")
+# The headline of a quarterly / half-year / annual results release: "UMC Reports Second Quarter 2026 Results",
+# "TSMC Reports Second Quarter EPS of NT$27.25", "Arm Holdings plc Reports Results for the First Quarter ...",
+# "Second Quarter 2026 Earnings Release", "Nokia Corporation Report for Q2 and Half Year 2026", "AstraZeneca results:
+# H1 and Q2 2026", "Q2 2026 Financial Results". Present tense only: a quarterly report's own text ("we reported second
+# quarter earnings of ...") is not a headline.
+RESULTS_6K_RE = re.compile(r"(?i)\b(reports|announces)\b[^.|\n]{0,80}?"
+                           r"\b(quarter|Q[1-4]|half[- ]year|first[- ]half|full[- ]year|fiscal year)\b[^.|\n]{0,80}?\b(results|EPS|earnings)\b"
+                           r"|\b(reports|announces)\b[^.|\n]{0,40}?\bresults for the\b[^.|\n]{0,20}?\b(quarter|quarterly|half|full|fiscal)"
+                           r"|\b(quarter|Q[1-4]|half[- ]year)\b[^.|\n]{0,20}?\bearnings release\b"
+                           r"|\bresults:\s*(H[12]|Q[1-4]|FY)\b|\b(Q[1-4]|H[12]|FY)\s+20\d\d\s+(financial\s+)?results\b"
+                           r"|\binterim report\b|\bhalf[- ]year financial report\b|\breport for Q[1-4]\b")
+
+# Long documents that are saved as a _customers + _supplychain pair (the 10-K rule).
+ANNUAL_FORMS = ("10-K", "20-F", "40-F")              # 20-F / 40-F = a foreign issuer's annual report
+PROSPECTUS_FORMS = ("424B4", "S-1/A", "F-1/A")       # the final prospectus first, else the latest pre-pricing amendment
+PROSPECTUS_DAYS = 548                                # "recent listing" = a registration in the last 18 months
 
 
 def mapped_us_tickers():
@@ -259,16 +302,26 @@ def label(company, form, d):
     return f"{company} {form} ({d.strftime('%m-%d-%Y')})"
 
 
+def doc_kind(name):
+    """The document kind from a file name: 'TSM_20-F_2026-04-16_customers.txt' -> '20-F', 'LITE_8-K_....txt' -> '8-K';
+    a prospectus file (424B4 / S-1A / F-1A) -> 'prospectus' (the word its label uses)."""
+    form = name.split("_")[1]
+    return "prospectus" if form in [f.replace("/", "") for f in PROSPECTUS_FORMS] else form
+
+
 def relevance(path, company, names):
     """('keep', why) / ('drop', why) for one saved file — the low-noise queue rule."""
     text = path.read_text(encoding="utf-8")
     low = text.lower()
+    kind = doc_kind(path.name)                 # 10-K / 10-Q / 20-F / 40-F / prospectus / 8-K / 6-K
     if path.name.endswith("_supplychain.txt"):
-        return "keep", ("10-Q" if "_10-Q_" in path.name else "10-K") + " supplier / manufacturing / backlog paragraphs"
-    if "_10-K_" in path.name:
-        return ("keep", "10-K customer concentration") if re.search(r"\d+(\.\d+)?\s*%", text) else ("drop", "10-K: no percentages")
+        return "keep", kind + " supplier / manufacturing / backlog paragraphs"
+    if path.name.endswith("_customers.txt"):    # 10-K / 20-F / 40-F / prospectus customer-concentration file
+        return ("keep", f"{kind} customer concentration") if re.search(r"\d+(\.\d+)?\s*%", text) else ("drop", f"{kind}: no percentages")
     if "_10-Q_" in path.name:
         return ("keep", "10-Q XBRL segment revenue") if "## XBRL segment revenue" in text else ("drop", "10-Q: no segment facts")
+    if kind == "6-K":
+        return relevance_6k(text, company, names)
     items = set(re.findall(r"^## Item (\d\.\d\d)", text, flags=re.M))
     if items <= {"2.02"}:
         return "drop", "earnings release only (call transcript covers it)"
@@ -278,6 +331,36 @@ def relevance(path, company, names):
     partners = sorted(n for n in names if n != company and len(n) >= 4 and re.search(r"\b" + re.escape(n) + r"\b", text))
     kept = [w for w in KEEP_WORDS if w in low]
     dropped = [w for w in DROP_WORDS if w in low]
+    if partners:
+        return "keep", "names mapped companies: " + ", ".join(partners[:5])
+    if len(kept) >= 2 and len(kept) > len(dropped):
+        return "keep", "supply-chain terms: " + ", ".join(kept[:5])
+    return "drop", "no supply-chain content (" + ", ".join((dropped or kept)[:3] or ["generic"]) + ")"
+
+
+def relevance_6k(text, company, names):
+    """The 8-K queue rule, adapted to a 6-K (which has no Item numbers):
+      1. a monthly revenue / sales report -> keep (in scope: TSMC, UMC, ASE ...);
+      2. a results-release headline -> drop, like an 8-K with only Item 2.02 (the call transcript covers it);
+      3. otherwise the 8-K test: names a mapped company, or enough supply-chain words -> keep; else noise
+         (dividends, buybacks, AGM notices, voting rights, director dealings ...)."""
+    low = text.lower()
+    # Headlines only: the start of every line of the report document (html_to_text puts every heading on its own
+    # line; a two-line heading is caught by joining neighbours) and the opening of each exhibit (an exhibit is one long
+    # line). Whole paragraphs are not searched: a half-year report's "January-June 2026 net sales" is not a monthly
+    # report, and a quarterly report (the 10-Q of a foreign issuer, in scope) is not a results release.
+    report, _, exhibits = text.partition("\n## Exhibit ")
+    lines = [line.strip() for line in report.splitlines() if line.strip()]
+    heads = [line[:300] for line in lines]
+    heads += [a + " " + b for a, b in zip(lines, lines[1:]) if len(a) <= 200 and len(b) <= 200]
+    heads += [chunk[:400] for chunk in exhibits.split("\n## Exhibit ")] if exhibits else []
+    if any(MONTHLY_REVENUE_RE.search(h) for h in heads):
+        return "keep", "6-K monthly revenue report"
+    if any(RESULTS_6K_RE.search(h) for h in heads):
+        return "drop", "results release (call transcript covers it)"
+    partners = sorted(n for n in names if n != company and len(n) >= 4 and re.search(r"\b" + re.escape(n) + r"\b", text))
+    kept = [w for w in KEEP_WORDS_6K if w in low]
+    dropped = [w for w in DROP_WORDS_6K if w in low]
     if partners:
         return "keep", "names mapped companies: " + ", ".join(partners[:5])
     if len(kept) >= 2 and len(kept) > len(dropped):
@@ -357,13 +440,24 @@ def mark_done(with_dropped=False):
           + (f" + {len(rows) - len(pending)} triaged from dropped" if with_dropped else "") + "); queue is empty")
 
 
-REV_RE = r"^us-gaap:(Revenues|RevenueFromContractWithCustomer(Excluding|Including)AssessedTax|SalesRevenueNet)$"
-SEG_AXES = ("dim_us-gaap_StatementBusinessSegmentsAxis", "dim_srt_ProductOrServiceAxis")
+# us-gaap concepts (10-K / 10-Q / US-GAAP 20-F such as ASML) + ifrs-full concepts (IFRS 20-F: TSMC, UMC, Nokia ...)
+REV_RE = (r"^us-gaap:(Revenues|RevenueFromContractWithCustomer(Excluding|Including)AssessedTax|SalesRevenueNet)$"
+          r"|^ifrs-full:(Revenue|RevenueFromContractsWithCustomers)$")
+# business segments first, product lines only as fallback — us-gaap axes, then the ifrs-full equivalents
+SEG_AXES = ("dim_us-gaap_StatementBusinessSegmentsAxis", "dim_srt_ProductOrServiceAxis",
+            "dim_ifrs-full_SegmentsAxis", "dim_ifrs-full_ProductsAndServicesAxis")
+BUSINESS_SEGMENT_AXES = ("dim_us-gaap_StatementBusinessSegmentsAxis", "dim_ifrs-full_SegmentsAxis")
+# us-gaap:ConcentrationRiskPercentage1 / IFRS ifrs-full:PercentageOfEntitysRevenue (always a share of revenue)
+CONCENTRATION_RE = r"ConcentrationRiskPercentage|PercentageOfEntitysRevenue"
 GENERIC_MEMBERS = ("reportable segment", "operating segment", "segments")
 
 
-def _money(v):
-    return f"${v / 1e6:,.1f}M" if abs(v) < 1e9 else f"${v / 1e9:,.2f}B"
+def _money(v, currency="USD"):
+    """$ for US dollars (as before); any other reporting currency is written out: 'EUR 8.19B', 'TWD 3,272.55B'
+    (a 20-F reports in its own currency — printing ASML's euros with a $ would be a wrong number)."""
+    cur = str(currency or "USD").upper()
+    sign = "$" if cur in ("USD", "NAN", "NONE") else cur + " "
+    return f"{sign}{v / 1e6:,.1f}M" if abs(v) < 1e9 else f"{sign}{v / 1e9:,.2f}B"
 
 
 def _pct(v):
@@ -388,10 +482,12 @@ def xbrl_sections(filing, form):
     # 1) customer concentration: percentage of revenue / receivables per (named or anonymous) customer
     cust_ax = [c for c in dim_cols if c.endswith("MajorCustomersAxis")]
     if cust_ax:
-        sub = df[df["concept"].str.contains("ConcentrationRiskPercentage", na=False) & df[cust_ax[0]].notna()]
+        sub = df[df["concept"].str.contains(CONCENTRATION_RE, na=False) & df[cust_ax[0]].notna()]
         rows = []
         for _, r in sub.iterrows():
             bench = str(r.get("dim_us-gaap_ConcentrationRiskByBenchmarkAxis", "") or "")
+            if "PercentageOfEntitysRevenue" in str(r["concept"]):
+                bench = "Revenue"                              # the IFRS concept is a share of revenue by definition
             kind = ("revenue" if ("Revenue" in bench or "Sales" in bench) else
                     "accounts receivable" if "Receivable" in bench else bench.split(":")[-1].replace("Member", "") or "?")
             try:
@@ -400,7 +496,9 @@ def xbrl_sections(filing, form):
                 continue
         rows = sorted(set(rows), key=lambda x: (x[0], x[1], x[3]))
         if rows:
-            out += [f"## XBRL customer concentration ({form}; us-gaap:ConcentrationRiskPercentage1 by srt:MajorCustomersAxis)"]
+            tagged = ("ifrs-full:PercentageOfEntitysRevenue by ifrs-full:MajorCustomersAxis" if cust_ax[0].startswith("dim_ifrs-full")
+                      else "us-gaap:ConcentrationRiskPercentage1 by srt:MajorCustomersAxis")
+            out += [f"## XBRL customer concentration ({form}; {tagged})"]
             lines = [f"- {who}: {_pct(v)} of {kind}, period {ps} to {pe}" for who, kind, ps, pe, v in rows]
             out += list(dict.fromkeys(lines))                  # same fact tagged under two axes -> one line
     # 2) segment / product-line revenue: latest period per member with the year-ago comparison
@@ -417,28 +515,95 @@ def xbrl_sections(filing, form):
         for _, r in sub.iterrows():
             try:
                 ps, pe = date.fromisoformat(str(r["period_start"])[:10]), date.fromisoformat(str(r["period_end"])[:10])
-                recs.append((str(r["dimension_member_label"]), ps, pe, float(r["numeric_value"])))
+                recs.append((str(r["dimension_member_label"]), ps, pe, float(r["numeric_value"]), str(r.get("currency") or "USD")))
             except (TypeError, ValueError):
                 continue
         recs = [x for x in recs if want_days[0] <= (x[2] - x[1]).days <= want_days[1]
                 and not any(g in x[0].lower() for g in GENERIC_MEMBERS)]
         by_member = {}
-        for m, ps, pe, v in recs:
-            by_member.setdefault(m, []).append((ps, pe, v))
-        for m, xs in by_member.items():
+        for m, ps, pe, v, cur in recs:
+            # one series per member AND currency: a YoY is only computed between two values in the same currency
+            by_member.setdefault((m, cur), []).append((ps, pe, v))
+        for (m, cur), xs in by_member.items():
             xs.sort(key=lambda x: x[1])
             ps, pe, v = xs[-1]
             prior = [x for x in xs if 350 <= (pe - x[1]).days <= 380]
-            line = f"- {m}: {_money(v)} ({'quarter' if form == '10-Q' else 'fiscal year'} {ps} to {pe})"
+            line = f"- {m}: {_money(v, cur)} ({'quarter' if form == '10-Q' else 'fiscal year'} {ps} to {pe})"
             if prior and prior[-1][2]:
                 pp, pv = prior[-1][1], prior[-1][2]
-                line += f", {(v / pv - 1) * 100:+.1f}% YoY vs {_money(pv)} (period ending {pp})"
+                line += f", {(v / pv - 1) * 100:+.1f}% YoY vs {_money(pv, cur)} (period ending {pp})"
             seg_lines.append(line)
         if seg_lines:
             break                                              # prefer business segments; product lines only as fallback
     if seg_lines:
-        out += ["", f"## XBRL segment revenue ({form}; revenue by {'business segment' if ax == SEG_AXES[0] else 'product line'}, as filed)"] + seg_lines
+        out += ["", f"## XBRL segment revenue ({form}; revenue by {'business segment' if ax in BUSINESS_SEGMENT_AXES else 'product line'}, as filed)"] + seg_lines
     return "\n".join(out).strip()
+
+
+def as_date(d):
+    """A filing date as a datetime.date (edgartools gives a date or an ISO string)."""
+    return d if isinstance(d, date) else date.fromisoformat(str(d))
+
+
+def exhibit_sections(f, who):
+    """Every EX-99.x exhibit of an 8-K / 6-K, WHOLE, as '## Exhibit ...' sections (one line each) — the press
+    releases, decks and reports live there. `who` names the filing in the error message."""
+    body = ""
+    try:
+        for a in [a for a in f.attachments if str(a.document_type).upper().startswith("EX-99")]:
+            ex_text = document_text(a)
+            if ex_text and ex_text.count("�") > len(ex_text) * 0.01:
+                # binary content (e.g. a PDF exhibit) — never save it as text; leave a visible note instead
+                body += f"\n\n## Exhibit {a.document_type} ({a.document})\n[binary exhibit — text not extractable; read it on EDGAR if needed]"
+                continue
+            if ex_text and len(ex_text) > 200:
+                flat = " ".join(ex_text.split())
+                cut = f" [exhibit truncated at {EXHIBIT_CAP:,} of {len(flat):,} chars]" if len(flat) > EXHIBIT_CAP else ""
+                body += f"\n\n## Exhibit {a.document_type} ({a.document})\n" + flat[:EXHIBIT_CAP] + cut
+    except Exception as exc:
+        print(f"  {who}: exhibit failed ({exc})")
+    return body
+
+
+def six_k_path(ticker, fd, accession):
+    """(path, already_saved) for one 6-K. Foreign issuers often file several 6-Ks on one day (TSMC 08-11-2026: the
+    board resolutions + the Sony joint-venture release), so the 1st of a day is <T>_6-K_<date>.txt and the next ones
+    _2, _3 ... The accession number in each file's header (its EDGAR URL) says which filing a file holds, so a
+    re-run finds the same file again whatever order EDGAR lists them in — saved files are never rewritten."""
+    n = 1
+    while True:
+        path = OUT / (f"{ticker}_6-K_{fd.isoformat()}.txt" if n == 1 else f"{ticker}_6-K_{fd.isoformat()}_{n}.txt")
+        if not path.exists():
+            return path, False
+        if accession in path.read_text(encoding="utf-8")[:1000]:
+            return path, True
+        n += 1
+
+
+def long_text(filing, form):
+    """Full text of an annual report or prospectus. A 40-F (Canadian issuer) is only a wrapper: its annual information
+    form, MD&A and financial statements are EX-99 exhibits, so they are appended. Every other form is one document."""
+    text = document_text(filing)
+    if form == "40-F":
+        for a in filing.attachments:
+            if str(a.document_type).upper().startswith("EX-99"):
+                text += "\n\n" + document_text(a)
+    return text
+
+
+def recent_listing_prospectus(c, cutoff):
+    """The registration prospectus of a RECENT listing, or None: the final 424B4 filed on/after `cutoff`, else the
+    latest S-1/A / F-1/A (an IPO still being registered). A prospectus filed AFTER the company's first annual report
+    belongs to a follow-on or resale offering of an already-listed company (Constellation 424B4 06-02-2026) — never
+    used; it is left out BEFORE the latest one is picked, so a later follow-on cannot hide the IPO prospectus."""
+    annual = [as_date(f.filing_date) for f in c.get_filings(form=list(ANNUAL_FORMS), amendments=False)]
+    first_annual = min(annual) if annual else None
+    for forms in (["424B4"], ["S-1/A", "F-1/A"]):
+        recent = [f for f in c.get_filings(form=forms)
+                  if as_date(f.filing_date) >= cutoff and (first_annual is None or as_date(f.filing_date) < first_annual)]
+        if recent:
+            return max(recent, key=lambda f: as_date(f.filing_date))
+    return None
 
 
 def pull(ticker, company, since, names=()):
@@ -465,50 +630,79 @@ def pull(ticker, company, since, names=()):
             continue
         body = "\n\n".join(f"## Item {k}\n{v}" for k, v in items.items())
         # The substance of Items 2.02 / 7.01 / 8.01 lives in the press-release exhibits (EX-99.x)
-        try:
-            for a in [a for a in f.attachments if str(a.document_type).upper().startswith("EX-99")]:
-                ex_text = document_text(a)
-                if ex_text and ex_text.count("�") > len(ex_text) * 0.01:
-                    # binary content (e.g. a PDF exhibit) — never save it as text; leave a visible note instead
-                    body += f"\n\n## Exhibit {a.document_type} ({a.document})\n[binary exhibit — text not extractable; read it on EDGAR if needed]"
-                    continue
-                if ex_text and len(ex_text) > 200:
-                    flat = " ".join(ex_text.split())
-                    cut = f" [exhibit truncated at {EXHIBIT_CAP:,} of {len(flat):,} chars]" if len(flat) > EXHIBIT_CAP else ""
-                    body += f"\n\n## Exhibit {a.document_type} ({a.document})\n" + flat[:EXHIBIT_CAP] + cut
-        except Exception as exc:
-            print(f"  {ticker} 8-K {fd}: exhibit failed ({exc})")
+        body += exhibit_sections(f, f"{ticker} 8-K {fd}")
         path.write_text(f"# {company} ({ticker}) 8-K filed {fd.isoformat()}\n# source label: {label(company, '8-K', fd)}\n"
                         f"# {f.homepage_url if hasattr(f, 'homepage_url') else ''}\n\n{body}", encoding="utf-8")
         saved.append(path.name)
+    # 6-K = a foreign issuer's current report (TSMC, ASML, UMC ...). It has no Item numbers, so the report document is
+    # kept WHOLE, followed by every EX-99 exhibit exactly like an 8-K's. Noise (dividends, buybacks, AGM notices) is
+    # saved too and filtered later by `queue` (relevance_6k) — the filter orders the work, it never replaces reading.
+    for f in c.get_filings(form="6-K"):
+        fd = as_date(f.filing_date)
+        if fd < since:
+            break
+        path, have = six_k_path(ticker, fd, f.accession_no)
+        if have and not FORCE:
+            continue
+        try:
+            report = document_text(f)
+        except Exception as exc:
+            print(f"  {ticker} 6-K {fd}: text failed ({exc})")
+            continue
+        report = re.sub(r"\n[ \t]*(?:\n[ \t]*)+", "\n\n", report).strip()      # runs of empty layout lines -> one blank line
+        if not report:                                  # e.g. a PDF report document: say so, never a silent empty section
+            report = "[report document has no extractable text — read it on EDGAR if needed]"
+        body = f"## 6-K report ({getattr(f, 'primary_document', '') or '?'})\n{report}"
+        body += exhibit_sections(f, f"{ticker} 6-K {fd}")
+        path.write_text(f"# {company} ({ticker}) 6-K filed {fd.isoformat()}\n# source label: {label(company, '6-K', fd)}\n"
+                        f"# {f.homepage_url if hasattr(f, 'homepage_url') else f.accession_no}\n\n{body}", encoding="utf-8")
+        saved.append(path.name)
+    # Long documents saved as a _customers + _supplychain pair: the annual report (10-K, or a foreign issuer's 20-F /
+    # 40-F) and, for a recent listing, its registration prospectus.
+    long_docs = []
     k = c.get_filings(form="10-K").latest(1)
     if k is not None:
-        kd = k.filing_date if isinstance(k.filing_date, date) else date.fromisoformat(str(k.filing_date))
-        path = OUT / f"{ticker}_10-K_{kd.isoformat()}_customers.txt"
-        sc_path = OUT / f"{ticker}_10-K_{kd.isoformat()}_supplychain.txt"
+        long_docs.append(("10-K", k))
+    for form in ANNUAL_FORMS[1:]:                                   # 20-F, 40-F
+        # amendments=False: a 20-F/A is usually exhibits only (Nebius 05-22-2026) and must not replace the report
+        fpi = c.get_filings(form=form, amendments=False).latest(1)
+        # only the CURRENT annual form: Celestica, IREN and NXP file 10-Ks now but still have an old 20-F on EDGAR
+        if fpi is not None and all(as_date(fpi.filing_date) > as_date(x.filing_date) for _, x in long_docs):
+            long_docs.append((form, fpi))
+    pros = recent_listing_prospectus(c, min(since, date.today() - timedelta(days=PROSPECTUS_DAYS)))
+    if pros is not None:
+        long_docs.append((pros.form, pros))
+    for form, k in long_docs:
+        kind = "prospectus" if form in PROSPECTUS_FORMS else form   # the label word: "Cerebras prospectus (05-14-2026)"
+        token = form.replace("/", "")                               # a file name cannot hold "/": S-1/A -> S-1A
+        use_xbrl = kind != "prospectus"                             # prospectus: paragraphs only (a 424B4 carries no XBRL)
+        kd = as_date(k.filing_date)
+        path = OUT / f"{ticker}_{token}_{kd.isoformat()}_customers.txt"
+        sc_path = OUT / f"{ticker}_{token}_{kd.isoformat()}_supplychain.txt"
         k_text = None
         if FORCE or not path.exists() or (names and not sc_path.exists()):
             try:
-                k_text = document_text(k)
+                k_text = long_text(k, form)
             except Exception as exc:
-                print(f"  {ticker} 10-K: text failed ({exc})")
-        # Supplier / manufacturing / named-counterparty paragraphs of the FULL 10-K, under the same label
+                print(f"  {ticker} {form}: text failed ({exc})")
+        # Supplier / manufacturing / named-counterparty paragraphs of the FULL document, under the same label
         if k_text and names and (FORCE or not sc_path.exists()):
             sc = supply_chain_paragraphs(k_text, company, names, skip=set(customer_paragraphs(k_text)))
             if sc:
-                sc_path.write_text(f"# {company} ({ticker}) 10-K filed {kd.isoformat()} — supplier / manufacturing / named-counterparty paragraphs\n"
-                                   f"# source label: {label(company, '10-K', kd)}\n\n" + "\n\n".join(sc), encoding="utf-8")
+                sc_path.write_text(f"# {company} ({ticker}) {form} filed {kd.isoformat()} — supplier / manufacturing / named-counterparty paragraphs\n"
+                                   f"# source label: {label(company, kind, kd)}\n\n" + "\n\n".join(sc), encoding="utf-8")
                 saved.append(sc_path.name)
         if not path.exists() or FORCE:
             paras = customer_paragraphs(k_text) if k_text else []
-            xb = xbrl_sections(k, "10-K")
+            xb = xbrl_sections(k, form) if use_xbrl else ""
             if paras or xb:
-                path.write_text(f"# {company} ({ticker}) 10-K filed {kd.isoformat()} — customer concentration paragraphs + XBRL facts\n"
-                                f"# source label: {label(company, '10-K', kd)}\n\n"
+                path.write_text(f"# {company} ({ticker}) {form} filed {kd.isoformat()} — customer concentration paragraphs"
+                                + (" + XBRL facts" if use_xbrl else "") + "\n"
+                                f"# source label: {label(company, kind, kd)}\n\n"
                                 + "\n\n".join(paras) + ("\n\n" + xb if xb else ""), encoding="utf-8")
                 saved.append(path.name)
-        elif "## XBRL" not in path.read_text(encoding="utf-8"):
-            xb = xbrl_sections(k, "10-K")                       # older file: add the XBRL sections once
+        elif use_xbrl and "## XBRL" not in path.read_text(encoding="utf-8"):
+            xb = xbrl_sections(k, form)                         # older file: add the XBRL sections once
             if xb:
                 with path.open("a", encoding="utf-8") as fh:
                     fh.write("\n\n" + xb)

@@ -16,6 +16,7 @@ import {
   LAYERS, DOMAINS, LAYER_ORDER, LAYER_NAMES, LAYER_COLORS, DOMAIN_NAMES, DOMAIN_COLORS,
 } from "./taxonomy";
 import { sigDate } from "./signals";
+import { SOURCE_HINT, sourceType } from "./sourceKind";
 // Aliased: this file uses `t`, `name` as local variable names.
 import { t as T, tr as TR, name as NM } from "./i18n";
 
@@ -650,13 +651,20 @@ export function renderChain2D(
       + `<div class="ep-rel">${esc(TR(e.rel)) || esc(T("supply relationship"))}</div>`;
     if (e.cn && e.cn.length) {
       h += `<div class="ep-n">${esc(T(e.cn.length === 1 ? "{n} contract on this link" : "{n} contracts on this link", { n: e.cn.length }))}</div>`;
+      // Same order as the node panel: source (with its source-type badge), the
+      // deal's short summary, then the signal clamped to 3 lines + More/Less.
       e.cn.forEach((c: any) => {
         const meta = [c.units, c.value, c.date_signed, c.type]
           .filter((x) => x && x !== "no specific figure" && x !== "not stated").map(TR).join("  ·  ");
+        const st = sourceType(c.source);
+        const badge = `<span class="sx-badge sx-k-${st.kind}" title="${esc(T(SOURCE_HINT[st.kind])).replace(/"/g, "&quot;")}">${esc(T(st.badge))}</span>`;
         h += `<div class="ep-c">`
-          + (c.source ? `<div class="ep-src">${esc(c.source)}</div>` : "")
-          + (c.signal ? `<div class="ep-sig">${esc(TR(c.signal))}</div>` : "")
+          + (c.source ? `<div class="ep-src">${badge} ${esc(c.source)}</div>` : "")
           + (meta ? `<div class="ep-meta">${esc(meta)}</div>` : "")
+          + (c.signal
+            ? `<div class="ep-sig ep-clamp">${esc(TR(c.signal))}</div>`
+              + `<button type="button" class="ep-more" aria-expanded="false" hidden>${esc(T("More"))} ▾</button>`
+            : "")
           + `</div>`;
       });
     } else {
@@ -666,6 +674,19 @@ export function renderChain2D(
     epanelEl.style.display = "block";
     const x = epanelEl.querySelector("#ep-x");
     if (x) x.addEventListener("click", (ev) => { ev.stopPropagation(); closePanel(); });
+    // The panel is visible now, so the clamp can be measured: un-hide the toggle
+    // only under a signal that is really cut off.
+    epanelEl.querySelectorAll<HTMLElement>(".ep-sig").forEach((sig) => {
+      const btn = sig.nextElementSibling as HTMLButtonElement | null;
+      if (!btn || !btn.classList.contains("ep-more") || sig.scrollHeight <= sig.clientHeight + 1) return;
+      btn.hidden = false;
+      btn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const open = sig.classList.toggle("ep-open");
+        btn.setAttribute("aria-expanded", String(open));
+        btn.textContent = open ? `${T("Less")} ▴` : `${T("More")} ▾`;
+      });
+    });
   }
   function showEdge(i: number) {
     clearSel();

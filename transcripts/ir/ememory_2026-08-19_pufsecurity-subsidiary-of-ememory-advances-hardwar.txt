@@ -1,0 +1,34 @@
+SOURCE: eMemory official press release -- https://www.ememory.com.tw/en-US/News/News?guid=26081913241913
+TITLE: PUFsecurity, subsidiary of eMemory, Advances Hardware-anchored Trust for AI Infrastructure at OCP APAC 2026
+DATE: 08-19-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-01.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: eMemory press release: PUFsecurity, subsidiary of eMemory, Advances (08-19-2026)
+
+---
+PUFsecurity, subsidiary of eMemory, Advances Hardware-anchored Trust for AI Infrastructure at OCP APAC 2026
+
+Taipei, Taiwan — August 13, 2026 — PUFsecurity participated in the 2026 Open Compute Project (OCP) APAC Summit, held August 11–12 at Taipei Nangang Exhibition Center, Hall 2 (TaiNEX 2), where the company presented its work on hardware security for next-generation AI and data-center infrastructure. Two key applications of PUFsecurity’s all-in-one physical security anchor were highlighted in separate technical sessions with Microsoft and Arm, respectively: bridging the gap between Caliptra’s open-source root-of-trust specifications and production silicon, and establishing hardware-anchored trust across multi-die chiplet platforms under OCP’s Foundational Chiplet System Architecture (FCSA).
+
+The rapid growth of AI is reshaping modern computing infrastructure. AI data centers increasingly combine CPUs, GPUs and accelerators, BMCs, networking and storage controllers, memory devices, and advanced multi-die packages to scale compute and memory performance. As these systems become more heterogeneous and multi-vendor, the security boundary extends beyond a single processor, board, or server. Each device and die increasingly needs its own identity, protected secrets, verified firmware, and a way to establish trust, driving the need for standardized silicon-level roots of trust across the platform.
+
+From Caliptra Specification to Silicon Implementation
+
+Caliptra, an open-source silicon root of trust, provides the industry with a transparent, open foundation for building standardized security architecture across cloud, AI, and data center infrastructure. As CSP-driven security requirements continue to expand from data center platforms to edge AI devices, Caliptra is becoming an important foundation for silicon-level trust, attestation, and lifecycle security.
+
+Production implementation, however, also depends on physical security functions that must be instantiated and protected within the chip. To translate Caliptra specifications into real-world SoC implementations, a hardware security anchor has to be carefully designed to contain key aspects of Unique Device Secret (UDS) generation, secure non-volatile memory storage, and entropy sourcing. PUFsecurity complements the Caliptra ecosystem by providing an integrated hardware security anchor and engineering support for silicon implementation. Specifically, PUF-based solution by PUFsecurity combines a physical unclonable function (PUF) for unique device secret, one-time programmable (OTP) memory for secure on-die storage, and a FIPS-certified noise source for hardware entropy.
+
+During the OCP Server session, “From Caliptra Specification to Silicon Reality,” PUFsecurity shared practical insights from silicon implementations, highlighting key design considerations and common integration challenges. It also explored approaches to align physical security primitives with Caliptra’s logical framework, enabling more reliable, scalable, and deployable root-of-trust solutions.
+
+Extending Hardware Trust Across Chiplet-Based Systems with FCSA
+
+As chiplet-based architectures expand across AI, data-center, and automotive systems, establishing trust across independently designed and sourced dies becomes increasingly important. Secure multi-die systems require both an architecture-level trust model and physical security functions that can establish identity and protect secrets within each chiplet.
+
+OCP’s Foundational Chiplet System Architecture (FCSA), a community-developed framework led by Arm, defines chiplet classes, interconnect models, and concepts of root of trust at the levels of chiplet and system. In multi-die platforms, traditional single-root assumptions become insufficient: each chiplet may come from a different vendor, process node, and lifecycle domain. The root of trust architectural components defined by FCSA are intended to support identity, measurement, and attestation across heterogeneous multi-die systems.
+
+In the Chiplets & Advanced Packaging session, “Chiplet Identity and Roots of Trust in FCSA Systems: An Architecture-Agnostic Security View” co-presented by Arm and PUFsecurity, PUFsecurity described an approach in which each chiplet derives its own hardware-anchored identity and supports attestation while reducing reliance on external secret-key injection during manufacturing. This approach can help extend trust across multi-vendor chiplet systems while preserving FCSA’s architecture-neutral framework.
+
+Building Distributed Trust for the AI Infrastructure Era
+
+With AI infrastructure becoming increasingly disaggregated, trust must also extend across individual dies, devices, and system components. At the 2026 OCP APAC Summit, PUFsecurity demonstrated how its hardware security IP and services can complement open frameworks such as Caliptra and FCSA, translating architectural security requirements into deployable silicon implementations. By combining PUF-based device identity with secure storage and physical security functions, PUFsecurity aims to help extend trust from the individual die to the package, device, server, and broader data-center infrastructure.

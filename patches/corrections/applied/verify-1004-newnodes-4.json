@@ -1,0 +1,109 @@
+{
+ "reviewer": "verify-1004-newnodes-4",
+ "items": [
+  {
+   "kind": "quarterly_data",
+   "company": "Range Intelligent Computing",
+   "target": null,
+   "label": "Range Intelligent Computing IR activity record: 2026-002 (08-30-2026)",
+   "signal_prefix": "Management (IR record): the domestic compute market will stay supply-tight",
+   "action": "set",
+   "set": {
+    "signal": "Management (IR record): the domestic compute market will stay supply-tight in the short term, with overall unit prices and profitability better than a year earlier; prices and gross margins of newly signed compute orders on the market are trending up. The two main industry constraints are irrational compute-equipment pricing this year (purchase prices keep deviating from a reasonable range) and supply shortages across the whole chain: not only high-performance servers but storage, optical modules, switches and related raw materials. CFO Dong Lei said that because of irrational competition in compute-equipment supply in H1 2026 the company strategically reduced purchases and focused on building its supply chain."
+   },
+   "reason": "The record says prices and margins of newly signed compute orders are rising across the market, not specifically the company's own new orders; wording made faithful.",
+   "evidence": "当前国内算力市场整体处于供不应求的蓝海市场，区位差异对算力价格影响有限，当前市场上新签算力订单的价格和毛利率都呈上升趋势。"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Range Intelligent Computing",
+   "target": null,
+   "label": "Range Intelligent Computing investor Q&A: SZSE Interactive Easy (09-23-2026)",
+   "signal_prefix": "The company said on SZSE Interactive Easy: its computing centers have a total planned scale",
+   "action": "set",
+   "set": {
+    "signal": "The company said on SZSE Interactive Easy: its computing centers have a total planned scale of about 6GW (about 5.4GW in China, about 600MW overseas); operating scale was about 750MW at the end of June 2026. Its strategy is AIDC compute business in China and IDC cabinet business overseas.",
+    "figure": "~6GW planned (~5.4GW China, ~600MW overseas); ~750MW operating (end-June 2026)",
+    "slot": null
+   },
+   "reason": "Depth rule: the 2026 delivery guidance (300MW+ China, 60MW overseas) and the no-fixed-capex-schedule sentence repeat the 08-30-2026 IR activity record word for word, and that record already holds the guidance slot; only the planned / operating scale is new, which is status, not guidance -> restated part and slot removed.",
+   "evidence": "2026年内预计将在国内交付300MW以上，海外交付60MW算力中心 ... 公司后续资本开支无固化排期 (same wording as IR record 2026-002)"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Range Intelligent Computing",
+   "target": null,
+   "label": "Range Intelligent Computing half-year report: 2026 Half-Year Report (08-28-2026)",
+   "signal_prefix": "Construction in progress and investment (half-year report): CIP was RMB 9,920,166,196.60",
+   "action": "set",
+   "set": {
+    "signal": "Construction in progress and investment (half-year report): CIP was RMB 9,920,166,196.60 at June 30, 2026 (RMB 7,054,173,284.96 at end-2025), mainly from computing-center investment; fixed assets RMB 23,783,456,018.20. CIP balances at June 30, 2026 by park included Langfang park RMB 3,167,699,247.48, Pinghu park RMB 2,320,237,923.47, Chongqing park RMB 1,286,342,730.87, Huizhou park RMB 899,965,516.68, Foshan park RMB 697,447,525.05, Indonesia Batam park RMB 162,434,406.58 and Hong Kong park RMB 17,148,748.19. Net investing cash outflow RMB 4,710,467,030.13 (capex lower than a year earlier); intangible assets rose to RMB 2,039,094,359.14 on new overseas land-use rights. R&D investment RMB 121,603,416.44, up 45.31%. The top five receivable debtors (not named) held 96.23% of receivables and contract assets at June 30, 2026, the largest 49.53% (a share of receivables, not of sales)."
+   },
+   "reason": "'Largest CIP balances' was wrong: the table also lists Hainan park RMB 506,298,271.50, Runyou park RMB 466,482,547.65 and Lanzhou park RMB 396,109,279.13, all larger than Batam and Hong Kong; reworded as a selection.",
+   "evidence": "海南园区 373,264,266.83 133,034,004.67 506,298,271.50 ... 润友园区 ... 466,482,547.65 ... 印尼巴淡岛园区 ... 162,434,406.58"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Sugon",
+   "target": null,
+   "label": "Sugon half-year report: 2026 Half-Year Report (08-26-2026)",
+   "signal_prefix": "Liquid cooling (half-year report): subsidiary Sugon Shuchuang launched the C8000 V3.0",
+   "action": "set",
+   "set": {
+    "signal": "Liquid cooling (half-year report): subsidiary Sugon Shuchuang launched the C8000 V3.0 phase-change immersion liquid-cooling infrastructure, with single-cabinet power above 900kW, PUE below 1.04 and MW-class whole-cabinet delivery capability, under a 'liquid cooling as a service' model. The company says it has delivered 1650MW of data-center liquid-cooling systems."
+   },
+   "reason": "Skill section 2: market-share rankings are not captured (same ruling as earlier verifier corrections on IDC / Prismark rankings); the 'first in domestic liquid-cooling share for five years' clause dropped, the delivered-capacity fact kept.",
+   "evidence": "完成1650MW数据中心液冷系统交付，连续五年位居国内液冷市场占有率第一"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Ruijie Networks",
+   "target": null,
+   "label": "Ruijie Networks half-year report: 2026 Half-Year Report (08-15-2026)",
+   "signal_prefix": "Market position (half-year report, the company citing IDC data for Q1 2026)",
+   "action": "delete",
+   "reason": "Skill section 2: IDC market-share rankings are third-party data / rankings and are not captured (precedent verify-mkt-1004-c).",
+   "evidence": "根据IDC数据统计，2026年第一季度，公司在中国以太光网络市场占有率排名第一，中国以太网交换机市场占有率排名第三"
+  },
+  {
+   "kind": "contract",
+   "company": "Ruijie Networks",
+   "target": "Alibaba",
+   "label": "Ruijie Networks half-year report: 2026 Half-Year Report (08-15-2026)",
+   "signal_prefix": "Ruijie's half-year report names Alibaba among the customers",
+   "action": "delete",
+   "reason": "List-only edge (open board question 'Customer lists in A-share reports'; JOB 4 as written): Alibaba appears only in a seven-name 'has served ... and others' list and a direct-sales customer list, no share, order or deal; the fact already sits on Ruijie's own quarterly_data ('Internet customers' entry).",
+   "evidence": "已服务于中国移动、阿里巴巴、字节跳动、百度、腾讯、快手、360等训练、推理大模型的应用"
+  },
+  {
+   "kind": "contract",
+   "company": "Ruijie Networks",
+   "target": "Baidu",
+   "label": "Ruijie Networks half-year report: 2026 Half-Year Report (08-15-2026)",
+   "signal_prefix": "Ruijie's half-year report names Baidu among the customers",
+   "action": "delete",
+   "reason": "List-only edge (open board question 'Customer lists in A-share reports'; JOB 4 as written): Baidu appears only in a seven-name 'has served ... and others' list; the fact already sits on Ruijie's own quarterly_data ('Internet customers' entry).",
+   "evidence": "已服务于中国移动、阿里巴巴、字节跳动、百度、腾讯、快手、360等训练、推理大模型的应用"
+  },
+  {
+   "kind": "contract",
+   "company": "Dingtong Technology",
+   "target": "Amphenol",
+   "label": "Dingtong Technology annual report: 2025 Annual Report (03-31-2026)",
+   "signal_prefix": "2025 annual report: the company's Malaysian plant works with the overseas manufacturing bases",
+   "action": "delete",
+   "reason": "List-only edge (open board question 'Customer lists in A-share reports'; JOB 4 as written): Amphenol is named only inside a 'Molex, Amphenol, TE and other existing core international customers' list, no share, order or deal; the same Malaysian-plant fact already sits on Dingtong's quarterly_data (output and sales volume entry).",
+   "evidence": "马来西亚工厂主要围绕莫仕（Molex）、安费诺（Amphenol）、泰科（TEConnectivity）等现有国际核心客户在其海外设立的制造基地开展深度协作"
+  },
+  {
+   "kind": "contract",
+   "company": "Dingtong Technology",
+   "target": "Amphenol",
+   "label": "Dingtong Technology half-year report: 2026 Half-Year Report (08-05-2026)",
+   "signal_prefix": "2026 half-year report: the company's main customers are well-known connector makers",
+   "action": "delete",
+   "reason": "List-only edge (open board question 'Customer lists in A-share reports'; JOB 4 as written): a 'main customers are Amphenol, Molex, TE, AVIC Jonhon, Luxshare and other' list, no share or deal; the same list is already on Dingtong's quarterly_data (2026 business plan entry of the annual report).",
+   "evidence": "公司主要客户为安费诺、莫仕、泰科电子、中航光电和立讯精密等行业内知名的连接器厂商"
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+  "reviewer": "verify-us-1006-v8",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Flex",
+      "target": null,
+      "label": "Flex press release: Flex Announces $2.0 Billion Convertible Preferred (10-05-2026)",
+      "signal_prefix": "Flex's Cloud and Power Infrastructure segment is Axiom Solutions International",
+      "action": "set",
+      "set": {
+        "signal": "Flex's Cloud and Power Infrastructure segment is Axiom Solutions International, Inc. (Axiom), which Flex intends to separate into an independent, publicly traded company in the first quarter of calendar 2027, subject to the satisfaction of customary conditions; the pending EPC Power acquisition is Axiom's (financing terms excluded)."
+      },
+      "reason": "Financing release: keep only the new structural fact (the segment's legal name Axiom and that EPC Power is its acquisition); the expected-CEO line is personnel (and already on the node from the Q4 FY2026 call), and the CEO's generic focus quote restates the Q4 FY2026 grid-to-chip SpinCo thesis.",
+      "evidence": "Axiom Solutions International, Inc. (Axiom), Flex's Cloud and Power Infrastructure segment ... Flex intends to separate Axiom into an independent, publicly traded company in the first quarter of calendar 2027"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Magnachip Semiconductor",
+      "target": null,
+      "label": "Magnachip Semiconductor press release: Magnachip Launches 15 New Gen6 E6 Super-Junction MOSFETs (10-05-2026)",
+      "signal_prefix": "Launched 15 new sixth-generation (Gen6) E6 super-junction MOSFETs",
+      "action": "delete",
+      "reason": "Out-of-chain launch: the node is placed for AI server / data-center power supplies; this release targets TV SMPS, notebook adapters, PC power supplies and consumer / industrial applications below 1 kW (skill section 2 item 3: a segment outside the node's chain yields nothing).",
+      "evidence": "The E6 portfolio targets TV SMPS, notebook adapters, PC power supplies, and consumer and industrial power applications below 1 kW."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Skyworks Solutions",
+      "target": null,
+      "label": "Skyworks Solutions press release: Skyworks Completes Combination with Qorvo (10-05-2026)",
+      "signal_prefix": "Company view (combination release): in Mobile the combination broadens",
+      "action": "delete",
+      "reason": "Not an acquisition operating fact: smartphone RF front-end marketing outlook (Mobile, outside the node's AI data-center chain) plus a generic CEO quote; the acquisition's operating facts are already in the sibling entry.",
+      "evidence": "In Mobile, the combination broadens its RF front-end portfolio, positioning the company to benefit from rising RF complexity."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Skyworks Solutions",
+      "target": null,
+      "label": "Skyworks Solutions press release: Skyworks Completes Combination with Qorvo (10-05-2026)",
+      "signal_prefix": "Skyworks will provide financial guidance on its fiscal fourth-quarter earnings call",
+      "action": "delete",
+      "reason": "An event / results-date notice plus deal-economics (EPS accretion, stated alongside capital structure), not an operating fact of the acquisition; section 2 drops event schedules and the brief allows acquisition operating facts only.",
+      "evidence": "The transaction is expected to be immediately accretive to non-GAAP EPS while maintaining a favorable capital structure. Skyworks will provide financial guidance on its fiscal fourth-quarter earnings call on Nov. 3."
+    }
+  ]
+}

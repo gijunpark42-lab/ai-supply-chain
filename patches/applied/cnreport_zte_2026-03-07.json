@@ -1,0 +1,102 @@
+{
+ "source": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+ "new_nodes": {
+  "ZTE": {
+   "ticker": "000063.SZ",
+   "exchange": "SZSE",
+   "country": "CN",
+   "why": "Makes AI servers, storage, OEX supernodes, data-center infrastructure and AI-computing data-center switches sold to Chinese internet companies, carriers, banks and enterprises; its computing-products revenue rises with AI data-center build-out.",
+   "evidence": "ZTE annual report: 2025 Annual Report (03-07-2026): government and enterprise revenue RMB 37,222.1 million, up 100.49%, mainly due to growth in server and storage revenue; it won China Mobile's CUDA-like ecosystem server procurement with the top share.",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "ZTE",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "AI servers and storage: OEX orthogonal-architecture supernodes (up to 128 GPUs per rack), AI-computing and general-purpose servers, high-performance storage, modular / AIDC data-center solutions",
+     "quarterly_data": [
+      {
+       "quarter": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+       "signal": "FY2025 (annual report, RMB million): revenue RMB 133,895.5 million, up 10.38%; net profit attributable RMB 5,617.7 million, down 33.32%; gross margin 30.25%, down 7.66 points. Quarterly revenue Q1 32,968.2, Q2 38,584.5, Q3 28,966.9, Q4 33,375.9; net profit Q3 264.4, Q4 295.7. By business: carrier networks RMB 62,857.0 million (-10.62%, gross margin 48.09%), government and enterprise RMB 37,222.1 million (+100.49%, gross margin 10.97%), consumer RMB 33,816.4 million (+4.35%).",
+       "figure": "FY2025 revenue RMB 133,895.5 million (+10.38%); net profit RMB 5,617.7 million (-33.32%)",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+       "signal": "Annual report: government and enterprise revenue rose 100.49% in 2025 mainly due to server and storage revenue growth (gross margin down 4.36 points on revenue mix), which the company says doubled the segment as server and other computing products kept breaking into leading customers. Servers and storage covered all leading domestic internet customers, operated at scale with large banks, securities firms and insurers, built a domestic thousand-card AI resource pool for a power company, and overseas formed scaled cooperation with leading Chinese internet companies' overseas businesses while gaining share in core countries in Asia, Europe, Africa and Latin America. Data center: won disaster-recovery center projects of the four big state-owned banks and made scale breakthroughs in all eight 'East Data West Computing' hub nodes.",
+       "figure": "Government and enterprise revenue +100.49% (RMB 37,222.1 million)",
+       "topics": []
+      },
+      {
+       "quarter": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+       "signal": "Annual report: in data-center infrastructure for AI-computing scenarios, its indirect evaporative cooling air-conditioners became a product series and its cold-plate and immersion liquid-cooling products reached the market at scale.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+       "signal": "Customer China Mobile (annual report): ZTE's AI-computing servers won China Mobile's CUDA-like ecosystem server centralized procurement project with the top share; its servers also joined domestic AI-computing regional node and resource-pool projects.",
+       "figure": "Top share in China Mobile's CUDA-like ecosystem server procurement",
+       "topics": [],
+       "counterparty": "China Mobile",
+       "counterparty_role": "customer"
+      },
+      {
+       "quarter": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+       "signal": "Annual report: its servers support mainstream CPUs and GPUs across high-performance training servers, cost-effective inference servers, AI all-in-one machines, general-purpose servers and high-performance file storage; its self-developed Dinghai DPU chip comes as RDMA standard cards, smart NICs and DPU cards; and with industry partners it promotes an open GPU high-speed interconnect standard and builds an orthogonal supernode AI server supporting both Scale-Up and Scale-Out.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+       "signal": "Annual report: top five customers were RMB 60,084.6 million, 44.87% of 2025 sales; the largest customer RMB 27,395.0 million, 20.46%; names not disclosed and none is a related party. Top five suppliers were RMB 19,087.9 million, 19.53% of 2025 purchases; the largest RMB 4,870.9 million, 4.98%. Raw materials were RMB 76,947.3 million, 82.39% of cost of sales.",
+       "figure": "Top five customers 44.87% of 2025 sales (largest 20.46%); top five suppliers 19.53% of purchases",
+       "topics": []
+      },
+      {
+       "quarter": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+       "signal": "Annual report: 2025 R&D investment RMB 24,475.1 million (-4.05%), 18.28% of revenue; capex RMB 4,272.5 million (equipment, capitalised R&D and own office buildings) versus RMB 5,021.8 million in 2024.",
+       "figure": "R&D RMB 24,475.1 million (18.28% of revenue); capex RMB 4,272.5 million",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "ZTE",
+     "layer": "interconnect",
+     "sector": "Scale-out",
+     "product": "data-center switches: 12.8T-460.8T box and chassis AI-computing switches for 400GE/800GE lossless RoCE networks",
+     "quarterly_data": [
+      {
+       "quarter": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+       "signal": "Annual report: it launched what it calls the highest-density 576-port 800GE chassis switch and the most compact 32-port 400GE box switch, with a portfolio of 2.4T~460.8T box and chassis switches for 400GE/800GE RoCE lossless AI networks. In 2025 it won a large state-owned bank's high-end switch project in first place, its switches entered scaled commercial use in power-industry AI-computing centers, and its white-box switches are in scaled commercial use at leading internet companies.",
+       "figure": "576-port 800GE chassis switch; 32-port 400GE box switch",
+       "topics": []
+      },
+      {
+       "quarter": "ZTE annual report: 2025 Annual Report (03-07-2026)",
+       "signal": "Customer China Mobile (annual report): ZTE's data-center switch share rose in China Mobile's centralized procurement in 2025.",
+       "figure": "no specific figure",
+       "topics": [],
+       "counterparty": "China Mobile",
+       "counterparty_role": "customer"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

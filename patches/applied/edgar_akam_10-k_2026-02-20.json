@@ -1,0 +1,66 @@
+{
+  "source": "Akamai Technologies 10-K (02-20-2026)",
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "Akamai Technologies",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "Akamai Inference Cloud / cloud infrastructure services (CIS): distributed GPU cloud for AI inference on NVIDIA GPUs, sold on multi-year take-or-pay commitments",
+          "quarterly_data": [
+            {
+              "quarter": "Akamai Technologies 10-K (02-20-2026)",
+              "signal": "Akamai's 10-K: cloud computing revenue (Cloud Infrastructure Services - compute and storage, the EdgeWorkers product and partner solutions running on Akamai's compute platform - plus other cloud applications) was $708,050 thousand in 2025 versus $630,376 thousand in 2024, up 12% (12% in constant currency), after 25% growth in 2024. Security revenue was $2,243,404 thousand (+10%), delivery $1,256,721 thousand (-5%); total revenue $4,208,175 thousand (+5%).",
+              "figure": "Cloud computing revenue $708,050 thousand in 2025 (+12%); total revenue $4,208,175 thousand (+5%)",
+              "topics": []
+            },
+            {
+              "quarter": "Akamai Technologies 10-K (02-20-2026)",
+              "signal": "Akamai's 10-K: remaining performance obligations from contracts with customers were $5.2 billion as of December 31, 2025; Akamai expects to recognize approximately 55% as revenue over the next 12 months and approximately 40% over the next two to three years, with the remainder thereafter (usage-based contracts with no committed contract and anticipated renewals excluded).",
+              "figure": "RPO $5.2 billion (about 55% within 12 months)",
+              "topics": []
+            },
+            {
+              "quarter": "Akamai Technologies 10-K (02-20-2026)",
+              "signal": "Akamai's 10-K: in 2025 Akamai expanded its compute platform with additional data centers in major metros and launched Akamai Inference Cloud (AIC), extending AI inference from core data centers to the edge. It plans to keep investing in Cloud Infrastructure Services, including support for a new enterprise cloud computing customer and AIC, and states it is 'experiencing a significant increase in server and memory costs due to market dynamics driven by hyperscalers', which will increase its future capital expenditures and depreciation. Purchases of property and equipment plus capitalized internal-use software were $819,500 thousand in 2025 (2024: $685,267 thousand); co-location costs rose 13% to $349,191 thousand.",
+              "figure": "2025 capex incl. capitalized software $819,500 thousand; co-location costs $349,191 thousand (+13%)",
+              "topics": ["supply_tightness"]
+            },
+            {
+              "quarter": "Akamai Technologies 10-K (02-20-2026)",
+              "signal": "Akamai's 10-K: no customer accounted for 10% or more of total revenue in 2025, 2024 or 2023; one customer held an accounts receivable balance greater than 10% of total accounts receivable at December 31, 2025.",
+              "figure": "no customer at 10% or more of revenue",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        },
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "GB200 / GB300 / Vera Rubin GPU systems",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Akamai Technologies",
+              "relationship": "GPU supply for Akamai's distributed GPU cloud (cloud infrastructure services)",
+              "contracts": [
+                {
+                  "source": "Akamai Technologies 10-K (02-20-2026)",
+                  "signal": "Akamai's 10-K: in 2025 Akamai introduced new NVIDIA graphics processing units (GPUs) on its compute platform, suited to video transcoding, training and inference with neural networks and high-performance computing; Akamai Inference Cloud leverages architectures such as those provided by NVIDIA to place AI inferencing capacity closer to where data is created.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "2025",
+                  "type": "10-K supplier disclosure",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

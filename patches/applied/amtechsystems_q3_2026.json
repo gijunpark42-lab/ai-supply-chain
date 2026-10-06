@@ -1,0 +1,74 @@
+{
+ "source": "Amtech Systems Q3 FY2026 (08-05-2026)",
+ "new_nodes": {
+  "Amtech Systems": {
+   "ticker": "ASYS",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "why": "its Thermal Processing Solutions segment sells thermal processing equipment for AI advanced packaging and AI server board assembly; AI-related segment revenue grew about 120% YoY",
+   "evidence": "Amtech Systems Q3 FY2026 call (08-05-2026), CEO Bob Daigle: 'Demand for our advanced packaging equipment and AI server board assembly solutions remains exceptionally strong'; 'AI-related revenue for our Thermal Processing Solutions segment was very strong, up by approximately 120%'",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "manufacturing/packaging_substrate.json": {
+   "players": [
+    {
+     "company": "Amtech Systems",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "thermal processing equipment for AI advanced packaging and AI server board assembly (Thermal Processing Solutions segment)",
+     "connects_to": [],
+     "quarterly_data": [
+      {
+       "quarter": "Amtech Systems Q3 FY2026 (08-05-2026)",
+       "signal": "Q3 FY2026 (quarter ended June 30, 2026): revenue $22.4 million, up 14% YoY and at the top end of guidance. Thermal Processing Solutions (TPS) revenue approximately $17.7 million, up nearly 25% YoY; AI-related TPS revenue up approximately 120% YoY and more than 40% of TPS revenue; TPS parts and services up approximately 30%, 20% of TPS revenue. Semiconductor Fabrication Solutions (SFS) revenue $4.6 million, down just over 13%. Gross margin 50% (46.7% a year ago); adjusted EBITDA $3.3 million, approaching 15% of sales; GAAP net income approximately $1.7 million ($0.10 per diluted share); no debt.",
+       "figure": "revenue $22.4 million (+14% YoY); AI-related TPS revenue up approximately 120%; gross margin 50%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Amtech Systems Q3 FY2026 (08-05-2026)",
+       "signal": "Orders: TPS book-to-bill approached 1.4 in the quarter, driven by AI-related equipment demand - the third consecutive quarter above one; company-wide bookings exceeded sales for the third consecutive quarter. Despite short lead times, bookings scheduled for shipment in future quarters increased significantly; CEO expects the TPS backlog to convert primarily in fiscal Q1 2027 and partly in Q2 2027. Inventory rose $1.7 million since the start of the fiscal year to support the backlog.",
+       "figure": "TPS book-to-bill approached 1.4",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Amtech Systems Q3 FY2026 (08-05-2026)",
+       "signal": "Outlook for fiscal Q4 2026 (quarter ending September 30, 2026; CFO Tom Sabol): revenue of $22.5 million-$24 million and adjusted EBITDA margins in the low to mid-teens; AI-related equipment for the TPS segment is expected to drive the majority of revenue growth and account for well over 40% of segment sales. R&D spending may increase in coming quarters as Amtech builds out platforms for next-generation opportunities.",
+       "figure": "Q4 FY2026 revenue $22.5 million-$24 million; adjusted EBITDA margin low to mid-teens",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Amtech Systems Q3 FY2026 (08-05-2026)",
+       "signal": "New products: to accelerate growth beyond 2027, Amtech is developing new equipment platforms and process capabilities for emerging semiconductor applications and higher-density packaging, and plans to introduce some of them at the SEMICON Taiwan trade show in early September; CEO expects lead times initially at or slightly above its typical six to eight weeks.",
+       "figure": "no specific figure",
+       "topics": ["product_launches"],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "Amtech Systems Q3 FY2026 (08-05-2026)",
+       "signal": "AI packaging demand (CEO Bob Daigle): 'Demand for our advanced packaging equipment and AI server board assembly solutions remains exceptionally strong' due to its true-flat technology and temperature uniformity. Amtech ships to OSATs and major OEMs; its equipment is agnostic to which hyperscaler it serves and is used across GPU and TPU applications - 'We're tied really to overall demand in these infrastructure build-outs, not necessarily specific to any one player or customer.'",
+       "figure": "no specific figure",
+       "topics": ["packaging_substrate"]
+      },
+      {
+       "quarter": "Amtech Systems Q3 FY2026 (08-05-2026)",
+       "signal": "First order for equipment used to produce cooling components for AI semiconductors (direct removal of heat from the chips), extending Amtech beyond advanced packaging and server board assembly; the customer is building its process around Amtech's equipment, similar to the heat-exchanger equipment it sold for EV batteries. CEO: 'It's too early to tell' how big the opportunity is.",
+       "figure": "no specific figure",
+       "topics": ["power_cooling"]
+      },
+      {
+       "quarter": "Amtech Systems Q3 FY2026 (08-05-2026)",
+       "signal": "SFS segment (CEO): the revenue decline was driven by a significant drop in demand for P.R. Hoffman templates used in silicon carbide substrate manufacturing; due to structural changes in the silicon carbide industry Amtech does not expect a meaningful recovery and has de-emphasized it. Entrepix parts and service revenue grew 19% YoY. Amtech would consider synergistic acquisitions that expand its capability in AI.",
+       "figure": "Entrepix parts and service revenue +19% YoY",
+       "topics": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

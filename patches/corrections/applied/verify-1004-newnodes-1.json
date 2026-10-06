@@ -1,0 +1,44 @@
+{
+  "reviewer": "verify-1004-newnodes-1",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Iluvatar CoreX",
+      "target": null,
+      "label": "Iluvatar CoreX press release: Interim Results Announcement for the Six Months Ended June (08-28-2026)",
+      "signal_prefix": "H1 2026 interim results (six months ended June 30, 2026): revenue RMB945.7 million",
+      "action": "set",
+      "set": {
+        "signal": "H1 2026 interim results (six months ended June 30, 2026): revenue RMB945.7 million vs RMB324.3 million, up 191.6%; gross profit flat at RMB162.6 million (RMB162.4 million a year earlier) as gross margin fell from 50.1% to 17.2%; gross profit included a RMB72.2 million impairment (write-down of certain work-in-progress inventories resulting from a new market and product strategy) and a gross loss on server components offered to certain customers at prices below procurement cost; profit for the period RMB106.3 million vs a loss of RMB609.3 million, a turnaround the company attributes primarily to unrealized net gain on its investment in the shares of a company listed on the Shanghai Stock Exchange (fair value gains on financial assets at fair value through profit or loss of approximately RMB760.2 million, mainly in relation to that investment; its significant investment is SJ Semiconductor Corporation, SSE 688820, with an accumulated unrealized fair value gain of RMB755.9 million in the period); adjusted net profit (non-HKFRS) RMB246.0 million vs an adjusted net loss of RMB299.8 million. R&D costs rose 23.8% to RMB558.9 million on higher material consumption and tape-out expenses and a larger R&D team."
+      },
+      "reason": "The RMB760.2 million is the total FVPL fair value gain 'mainly in relation to' the SSE-listed investment, not the gain on SJ Semiconductor itself (the SJSemi-specific accumulated unrealized gain is RMB755.9 million); the source also never states the margin fall was caused by the two items, only that they sit inside gross profit.",
+      "evidence": "recognition of fair value gains on financial assets at fair value through profit or loss of approximately RMB760.2 million, mainly in relation to our investment in the shares of a company listed on the Shanghai Stock Exchange"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Zhipu AI",
+      "target": null,
+      "label": "Zhipu AI press release: Interim Results Announcement for the Six Months Ended June (08-31-2026)",
+      "signal_prefix": "Revenue mix flipped to per-invocation API: open platform and API",
+      "action": "set",
+      "set": {
+        "signal": "Revenue mix flipped to per-invocation API: open platform and API (cloud-based deployment) revenue RMB825.2 million, up 2,735.7%, 86.5% of revenue vs 15.2% a year earlier; on-premise deployment revenue fell 20.5% to RMB128.7 million. By product line: enterprise-level general-purpose large models (primarily delivered through private on-premise deployment) RMB67.0 million, -54.6%; enterprise-level agents RMB55.6 million, +304.4%; technical services and others RMB6.1 million. Management: the API share rose from 26.3% of the previous full year to 86.5% while on-premises model deployment fell from 73.7% to 13.5%, 'essentially an inevitable consequence of a generational leap in model capability'; the coding direction became the primary revenue source; the company proactively scaled back on-premise licensing and some on-premise customers migrated to the API."
+      },
+      "reason": "The source reports on-premise deployment (segment) and the product lines separately; it never states that enterprise-level agents are part of on-premise deployment, so the parenthetical composition was inferred from the totals.",
+      "evidence": "Revenue from enterprise-level general-purpose large models, namely a matrix of pre-trained models independently developed by the Group primarily delivered through private on-premise deployment"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Lightelligence",
+      "target": null,
+      "label": "Lightelligence press release: Interim Results Announcement for the Six Months Ended June (08-21-2026)",
+      "signal_prefix": "Orders and design-ins (H1 2026): following the LightSphere X launch",
+      "action": "set",
+      "set": {
+        "slot": null
+      },
+      "reason": "IR-release slot rule: backlog_or_b2b needs a named order, contract or design win; here the OCS orders and the overseas design-ins are from unnamed customers with no amount, so the screener cell would only read 'no specific figure'. The fact stays, the slot goes.",
+      "evidence": "the Company has received orders for OCS products from other customers and the pricing of OCS products has also improved during the Reporting Period"
+    }
+  ]
+}

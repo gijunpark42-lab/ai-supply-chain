@@ -58,6 +58,7 @@ import json
 import os
 import shutil
 import sys
+import time
 
 from taxonomy import iter_players, LAYER_ORDER, LAYER_SLUGS, DOMAIN_SLUGS
 
@@ -82,8 +83,18 @@ def save_chain(path, chain, crlf):
     """Write the chain back in the same style the repo already uses (2-space indent,
     UTF-8 without escaping, trailing newline, original line-ending flavour)."""
     text = json.dumps(chain, indent=2, ensure_ascii=False) + "\n"
-    with open(path, "w", encoding="utf-8", newline="\r\n" if crlf else "\n") as f:
-        f.write(text)
+    # The repo sits in a OneDrive-synced folder: while OneDrive (or a virus scanner) holds the
+    # file for a moment, Windows refuses to open it ("[Errno 22] Invalid argument"). Opening
+    # fails BEFORE anything is truncated, so waiting a little and trying again is safe.
+    for attempt in range(6):
+        try:
+            with open(path, "w", encoding="utf-8", newline="\r\n" if crlf else "\n") as f:
+                f.write(text)
+            return
+        except OSError:
+            if attempt == 5:
+                raise
+            time.sleep(2 * (attempt + 1))
 
 
 def load_json(path):

@@ -1,0 +1,67 @@
+{
+ "reviewer": "opus-verify-1006-generate-eikon",
+ "items": [
+  {
+   "kind": "quarterly_data",
+   "company": "Generate Biomedicines",
+   "target": null,
+   "label": "Generate Biomedicines press release: Roswell Park, Generate Biomedicines Launch Exclusive (10-01-2026)",
+   "signal_prefix": "Roswell Park Comprehensive Cancer Center and Generate announced that the first patient",
+   "action": "delete",
+   "reason": "IR release whose news is a Phase 1 first-patient dosing: not on the skill 2.3 important-release list (ai_bio adds only regulatory approvals; trial items yield nothing, cf. nightly-v7 Novo ruling). Its one supply fact, Roswell Park manufacturing GB-5267, restates the prospectus entry. A first dosing is also not a next_catalyst launch/production start. Close the label as 'no material facts'.",
+   "evidence": "today announced that the first patient has been dosed in a first-in-human clinical trial evaluating GB-5267"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Eikon Therapeutics",
+   "target": null,
+   "label": "Eikon Therapeutics 8-K (08-13-2026)",
+   "signal_prefix": "Pipeline status in the Q2 2026 results release: EIK1001, a systemically",
+   "action": "set",
+   "set": {
+    "signal": "Pipeline status in the Q2 2026 results release: EIK1001, a systemically administered TLR 7/8 dual-agonist, is in two Phase 2/3 registrational trials with pembrolizumab - TeLuRide-006 in first-line advanced melanoma and TeLuRide-008 in first-line stage 4 NSCLC with histology-appropriate chemotherapy, whose first patient was dosed (announced July 27, 2026). For the selective PARP1 inhibitor EIK1003, Part 2 dose optimization is evaluating 20 mg and 60 mg monotherapy, with approximately 30 PARPi-naive, HER2-negative breast cancer patients expected per dose level, and a Cohort 1D combination with paclitaxel and platinum-based chemotherapy in ovarian cancer is enrolling. EIK1004 (CNS-penetrant PARP1 inhibitor) is in a Phase 1/2 trial, and EIK1005, a WRN helicase inhibitor that emerged from original research in Eikon's laboratories, dosed its first Phase 1/2 patient in January 2026."
+   },
+   "reason": "The DMC's first interim analysis outcome on TeLuRide-006 (dose selected, continue as planned) is a trial readout; ai_bio trial readouts yield nothing. The rest of the entry (trial status, plans) is verbatim and kept.",
+   "evidence": "The DMC selected, per protocol, a single dosing regimen for expansion of the trial, and recommended that the study continue as planned."
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Eikon Therapeutics",
+   "target": null,
+   "label": "Eikon Therapeutics 8-K (08-13-2026)",
+   "signal_prefix": "EIK1006, another internally-derived clinical candidate being investigated",
+   "action": "set",
+   "set": {
+    "slot": null
+   },
+   "reason": "8-K slot rule: an 8-K fills a slot only when newer than every same-slot entry; Eikon's 8-K (08-14-2026) deck entry carries a newer next_catalyst. The fact itself is accurate and stays.",
+   "evidence": "Eikon expects to submit an investigational new drug application (IND) for EIK1006 by the end of 2026."
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Eikon Therapeutics",
+   "target": null,
+   "label": "Eikon Therapeutics prospectus (02-05-2026)",
+   "signal_prefix": "IPO prospectus: Eikon's development programs are EIK1001, EIK1003",
+   "action": "set",
+   "set": {
+    "signal": "IPO prospectus: Eikon's development programs are EIK1001, EIK1003, EIK1004, EIK1005, EIK1006 and an ARv7 program. It relies on license, collaboration and similar agreements for the rights to the core intellectual property of most of its current product candidates, including its most advanced candidate EIK1001, and these agreements impose significant milestone payments and other obligations."
+   },
+   "reason": "The last sentence comes from the prospectus's future-capital-requirements list (financing context next to use of proceeds); financing text is out under skill 2. The programs list and the in-licensed core-IP fact stay.",
+   "evidence": "Our future capital requirements will depend on, and could increase significantly as a result of, many factors, including:"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "Generate Biomedicines",
+   "target": null,
+   "label": "Generate Biomedicines 8-K (08-06-2026)",
+   "signal_prefix": "Lead program GB-0895 (anti-TSLP monoclonal antibody; WHO-proposed name",
+   "action": "set",
+   "set": {
+    "figure": "SOLAIRIA Phase 3 studies have regulatory approvals in 33 countries of a planned 42-country development program; recruitment underway in all six global regions"
+   },
+   "reason": "Figure read as if GB-0895 had drug approvals in 33 countries; the release says the Phase 3 studies received approvals (to run) in 33 countries. Clarified, numbers unchanged.",
+   "evidence": "To date, the studies have received regulatory approvals in 33 countries as part of a planned 42-country development program."
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+  "source": "Lattice Semiconductor 10-K (02-13-2026)",
+  "chains": {
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "Lattice Semiconductor",
+          "layer": "compute_hardware",
+          "sector": "Server Management (BMC)",
+          "product": "MachXO5-NX control FPGAs and Mach-NX / MachXO3D hardware root-of-trust (PFR) FPGAs on server boards",
+          "quarterly_data": [
+            {
+              "quarter": "Lattice Semiconductor 10-K (02-13-2026)",
+              "signal": "10-K fiscal 2025 revenue by end market (year ended January 3, 2026): total revenue $523,262 thousand, +2.7% from $509,401 thousand; Communications and Computing (data center servers and networking equipment, client computing, wireless and wireline infrastructure; applications listed include server computing, cloud and hyperscalers) $292,716 thousand, 55.9% of revenue, +28.3% (44.8% of revenue in 2024); Industrial and Automotive $193,965 thousand (-18.1%); Consumer $36,581 thousand (-17.4%). Gross margin was 68.2% (66.8% in 2024); capital expenditures were $42,527 thousand versus $20,985 thousand in 2024.",
+              "figure": "FY2025 revenue $523,262 thousand (+2.7%); Communications and Computing $292,716 thousand, 55.9% of revenue (+28.3%); gross margin 68.2%; capex $42,527 thousand ($20,985 thousand in 2024)",
+              "topics": []
+            },
+            {
+              "quarter": "Lattice Semiconductor 10-K (02-13-2026)",
+              "signal": "10-K customer concentration (distributors not named): sales to distributors were 84% of fiscal 2025 revenue (89% in 2024, 87% in 2023) and two distributors accounted for approximately 69% of total revenue - Distributor A 30.9% (33.3% in 2024) and Distributor B 37.9% (31.2% in 2024); direct customers were 16.2%. Revenue from foreign sales was 83% of total; by ship-to location Greater China was 52% of 2025 revenue (40% in 2024). Backlog consists of orders from distributors and certain OEMs generally requiring delivery within the next year and has historically not been a predictor of future sales.",
+              "figure": "distributors 84% of revenue; Distributor A 30.9%, Distributor B 37.9% (two distributors approximately 69%); foreign sales 83%; Greater China 52% of revenue (40% in 2024)",
+              "topics": []
+            },
+            {
+              "quarter": "Lattice Semiconductor 10-K (02-13-2026)",
+              "signal": "10-K supplier disclosure - Suppliers UMC / USJC and Seiko Epson: Lattice, primarily fabless, partners with United Microelectronics Corporation and its subsidiary United Semiconductor Japan Corporation to manufacture its products on 130nm, 90nm, 65nm and 40nm CMOS process technologies (including embedded flash), and with Seiko Epson to manufacture its 500nm, 350nm, 250nm and 180nm products; wafers are sourced from its foundry partners UMC, USJC, Samsung, TSMC and Epson under agreements with each, with volumes and prices negotiated periodically, and certain products are sourced from a single foundry.",
+              "figure": "no specific figure",
+              "topics": ["foundry"]
+            }
+          ]
+        },
+        {
+          "company": "TSMC",
+          "layer": "foundry",
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "product": "N3/N4/N5 logic wafers (CPU compute dies)",
+          "connects_to": [
+            {
+              "company": "Lattice Semiconductor",
+              "relationship": "16nm and mature-node foundry wafers for Lattice FPGAs (Avant and Nexus 2 platforms)",
+              "contracts": [
+                {
+                  "source": "Lattice Semiconductor 10-K (02-13-2026)",
+                  "signal": "Lattice's 10-K: Lattice partners with TSMC to develop and manufacture on 16nm technology, which is used in its Avant and Nexus 2 platforms of FPGA products, and to manufacture its 350nm, 130nm, 55nm and 40nm products; wafers are sourced from TSMC under an agreement, with volumes and prices negotiated periodically.",
+                  "units": "16nm (Avant, Nexus 2) and 350nm / 130nm / 55nm / 40nm wafers",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "10-K supplier disclosure",
+                  "topics": ["foundry"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Samsung",
+          "layer": "foundry",
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "product": "advanced node logic wafers (select ARM SoCs)",
+          "connects_to": [
+            {
+              "company": "Lattice Semiconductor",
+              "relationship": "28nm FD-SOI foundry wafers for Lattice Nexus FPGAs",
+              "contracts": [
+                {
+                  "source": "Lattice Semiconductor 10-K (02-13-2026)",
+                  "signal": "Lattice's 10-K: Lattice partners with Samsung Semiconductor to develop and manufacture the first low-power FPGA on 28nm FD-SOI technology, which is used in its Nexus platform of FPGA products; wafers are sourced from Samsung under an agreement, with volumes and prices negotiated periodically.",
+                  "units": "28nm FD-SOI wafers (Nexus platform)",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "10-K supplier disclosure",
+                  "topics": ["foundry"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "ASE Group",
+          "layer": "foundry",
+          "sector": "OSAT (assembly & test)",
+          "product": "OSAT assembly and test for Arm server CPUs",
+          "connects_to": [
+            {
+              "company": "Lattice Semiconductor",
+              "relationship": "assembly and test of Lattice FPGAs",
+              "contracts": [
+                {
+                  "source": "Lattice Semiconductor 10-K (02-13-2026)",
+                  "signal": "Lattice's 10-K: Lattice has qualified two major assembly partners, ASE and Amkor Technology, second-sourced where volume and customer requirements make it necessary; all ASE and Amkor manufacturing of its products is in Asia, and assembly prices and volumes are negotiated periodically. Lattice relies on OSATs in Malaysia, Taiwan and Japan for packaging and test, including Advanced Semiconductor Engineering and Amkor Technology.",
+                  "units": "FPGA assembly and test",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "10-K supplier disclosure",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Amkor Technology",
+          "layer": "foundry",
+          "sector": "OSAT (assembly & test)",
+          "product": "OSAT flip-chip assembly and test",
+          "connects_to": [
+            {
+              "company": "Lattice Semiconductor",
+              "relationship": "assembly and test of Lattice FPGAs",
+              "contracts": [
+                {
+                  "source": "Lattice Semiconductor 10-K (02-13-2026)",
+                  "signal": "Lattice's 10-K names Amkor Technology as one of its two qualified major assembly partners (with ASE); all Amkor manufacturing of Lattice products is in Asia, and Lattice relies on its OSATs, including Amkor Technology, to support packaging and test.",
+                  "units": "FPGA assembly and test",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "10-K supplier disclosure",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

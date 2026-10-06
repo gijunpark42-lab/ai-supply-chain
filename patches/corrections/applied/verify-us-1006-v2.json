@@ -1,0 +1,71 @@
+{
+  "reviewer": "verify-us-1006-v2",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "DigitalOcean",
+      "target": null,
+      "label": "DigitalOcean Goldman Sachs conference 2026 (09-08-2026)",
+      "signal_prefix": "Agent platform (CEO): last week DigitalOcean announced a new product",
+      "action": "set",
+      "set": {
+        "signal": "Agent platform (CEO): last week DigitalOcean announced a new product called Agent Harness, Open Harness Runtime, which lets customers bring any agent harness (Hermes, Codex, OpenClaw) onto its platform while DigitalOcean runs the agent in a secure sandbox and handles observability and life-cycle management; sandboxes hydrate in hundreds of milliseconds and rehydrate in less than 100 milliseconds, versus typically multiple minutes for virtual machines, and customers typically pay only for the CPU cycles they consume. CEO: DigitalOcean now has 680,000 customers; the token business launched 'probably 120 days' ago and already has '6,000, 7,000 customers'. Go-to-market: on top of product-led growth it is increasing direct customer acquisition with the top '300, 500 AI-native companies' and has two forward-deployed engineering (FDE) organizations. CEO: the higher up the stack customers consume (agent runtimes, storage, databases), the more it looks like software economics rather than GPU economics."
+      },
+      "reason": "CEO hedged both statements with 'typically'; the hedge was dropped",
+      "evidence": "Virtual machines take typically multiple minutes to hydrate and dehydrate ... You typically only pay for what you're consuming from a CPU cycle perspective."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "DigitalOcean",
+      "target": null,
+      "label": "DigitalOcean Goldman Sachs conference 2026 (09-08-2026)",
+      "signal_prefix": "GPU pricing and mix (management): CFO: very little of DigitalOcean's",
+      "action": "set",
+      "set": {
+        "signal": "GPU pricing and mix (management): CFO: very little of DigitalOcean's revenue is under long-term contract, so it raises prices on renewal - including on some of its small bare-metal base - or migrates those customers onto its inference services. CEO: spot instances launched a few weeks ago and capacity placed on demand or spot 'is gone' within the minute; on an article over the weekend saying H100 prices are going up again, the CEO said DigitalOcean saw it 3 weeks ago because its fungible on-demand H100 fleet goes 'even before we have them available'. As the year end approaches it is doing fewer and fewer GPU-as-a-service deals, shifting to what it calls elastic compute (serverless inferencing, on-demand and spot) to maximize fleet utilization and yield per megawatt. CEO: surge or scarcity-based GPU pricing 'is a temporary spike', while token flow and agent flow are the durable value streams."
+      },
+      "reason": "'H100 prices are going up again' is what a weekend article said; the CEO's own statement is that DigitalOcean saw it 3 weeks earlier",
+      "evidence": "Even over the weekend, there was an article that was published that H100 prices are going up again. We saw it 3 weeks ago, because we have a fungible on-demand fleet of H100s"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "DigitalOcean",
+      "target": null,
+      "label": "DigitalOcean Goldman Sachs conference 2026 (09-08-2026)",
+      "signal_prefix": "Capacity sourcing (CFO): 'we do not play the gigawatt game, we play",
+      "action": "set",
+      "set": {
+        "figure": "3 data centers turned on this year, all ahead of time"
+      },
+      "reason": "the CFO said 'this year'; the year was inferred in the figure",
+      "evidence": "The 3 data centers we turned on this year, we turned all 3 of them on ahead of time"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "DigitalOcean",
+      "target": null,
+      "label": "DigitalOcean Goldman Sachs conference 2026 (09-08-2026)",
+      "signal_prefix": "Returns and capex per megawatt (CFO): DigitalOcean has not changed",
+      "action": "set",
+      "set": {
+        "signal": "Returns and capex per megawatt (CFO): DigitalOcean has not changed its view of acceptable return on investment or payback; it underwrites new data centers and GPU investments with very conservative revenue assumptions that assume price compression ('we have been wrong, right? Prices have been going up') and targets paybacks in 'the 3-ish year kind of a range'. CapEx per megawatt is increasing, partly because component costs are going up but mainly because newer generations of NVIDIA and AMD gear carry much more token capacity and cost more per megawatt, while the ARR per megawatt they generate also continues to go up. CFO: Core Cloud is the highest-margin part of the business; before the AI push the business ran at 70% gross margins ('You were talking about 70% gross margins, right?').",
+        "figure": "payback target 3-ish year range; 70% gross margins before the AI push"
+      },
+      "reason": "the CFO cited 70% gross margins for the pre-AI business, not a current Core Cloud margin, and did not say 'roughly'",
+      "evidence": "If you start from the highest margin, core cloud has been around for a long time. You knew what our margins were before we launched this AI endeavor. You were talking about 70% gross margins, right?"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "DigitalOcean",
+      "target": null,
+      "label": "DigitalOcean Citi’s Global TMT Conference 2026 (09-10-2026)",
+      "signal_prefix": "Data center and GPU suppliers (CFO): DigitalOcean works with tier 1",
+      "action": "set",
+      "set": {
+        "signal": "Data center and GPU suppliers (CFO): DigitalOcean works with tier 1 data center providers - Equinix, DataBank and QTS - which has let it turn up data centers on time and even ahead of schedule (all three data centers turned on in 2026 were on time or ahead of schedule), and it is sourcing incremental space effectively; the CFO said tier 1 providers see it as a customer with a massively diverse customer base that is 'not investment grade likely at this point, but we are not that far off', from which they can get a better yield. 'From a GPU standpoint, we have tremendous relationships with both NVIDIA and AMD.'"
+      },
+      "reason": "'profitable' is not in this source (it was said at the Goldman talk); the CFO spoke of credit profile and a diverse customer base",
+      "evidence": "We are not investment grade likely at this point, but we are not that far off. They see, \"I can get a better yield from these guys.\" They have got a massively diverse set of customers"
+    }
+  ]
+}

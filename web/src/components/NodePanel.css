@@ -244,6 +244,42 @@
   color: var(--ap-muted);
   margin: 0 0 0.5rem;
 }
+/* "SIGNALS" heading with the Expand all / Collapse all switch on its right. */
+.np-sig-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.np-expand {
+  margin-left: auto;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.np-expand[aria-pressed="true"] {
+  color: var(--ap-blue-hi);
+}
+/* Source-type chips (Earnings / Filings / Releases …): a dot in the same hue
+   as the entry badges (SignalText.css --sx-rgb), above the topic chips. */
+.np-kinds {
+  margin-bottom: 5px;
+}
+.np-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.np-kind i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(var(--sx-rgb, 154, 160, 168));
+}
+.np-kind.on {
+  border-color: rgba(var(--sx-rgb, 41, 151, 255), 0.75);
+  background: rgba(var(--sx-rgb, 41, 151, 255), 0.12);
+  color: var(--ap-text);
+}
 
 /* ── One signal row: source label · date chip · chain · tags ──────────── */
 .np-sig-head {
@@ -256,6 +292,27 @@
 .np-src {
   font-size: 0.74rem;
   color: var(--ap-muted);
+}
+/* The source text in an entry's head row: one line, cut with "…" (the full
+   label is the tooltip). flex-basis 0 lets it shrink beside the badge + date
+   instead of wrapping onto a line of its own. `contain: inline-size` stops the
+   unwrapped text from counting as the column's minimum width — without it a
+   long label widened the one-column phone grid past the screen edge. */
+.np-src-1 {
+  flex: 1 1 0;
+  min-width: 3.5em;
+  contain: inline-size;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Opened (SourceText): the full label wraps on a line of its own under the
+   badge / date / chain / source-button row. */
+.np-src-1.sx-src-open {
+  flex-basis: 100%;
+  order: 10;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .np-date {
   font-size: 0.68rem;
@@ -277,12 +334,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 45%;
-}
-.np-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 4px;
 }
 .np-tag {
   font-size: 0.64rem;

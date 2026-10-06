@@ -1,10 +1,11 @@
 "use client";
 
-import { memo, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { VizNode, Contract, QuarterlyData } from "@/lib/types";
+import { SOURCE_KINDS, sourceDetail, sourceType, type SourceKind } from "@/lib/sourceKind";
 import { buildBadges, buildTimeline, sigDate, FLAG } from "@/lib/signals";
 import { GROUP_COLORS, groupName, slugLabel } from "@/lib/taxonomy";
-import { t, tr, trJoined, name, useLang } from "@/lib/i18n";
+import { t, tr, trJoined, trWhen, name, useLang } from "@/lib/i18n";
 import { nodeExposure } from "@/lib/transitions";
 import { fetchJson } from "@/lib/data";
 import { yahooSymbol } from "@/lib/yahoo";
@@ -14,6 +15,7 @@ import LiveQuote from "./LiveQuote";
 import MarketCap from "./MarketCap";
 import Fundamentals from "./Fundamentals";
 import { EvidenceButton } from "./Evidence";
+import { ExpandAllContext, SignalBody, SourceBadge, SourceText } from "./SignalText";
 import "./NodePanel.css";
 
 const US = new Set(["NASDAQ", "NYSE"]);
@@ -191,34 +193,40 @@ function useCopy() {
 
 // ── Small presentational pieces ─────────────────────────────────────────────
 
-// "NVIDIA Q2 FY2027" + a date chip, from one source label.
-function SourceLabel({ label }: { label: string }) {
-  const { text, date } = splitLabel(label);
+// The head row of every entry: source-type badge · date chip · what the source
+// is ("Q2 FY2027", a release headline …). `viewer` is the panel's company — its
+// own name is dropped from its own labels; another company's label stays whole.
+// `children` (chain name, evidence button) follow on the same row.
+function SourceHead({ label, viewer, children }: { label: string; viewer: string; children?: ReactNode }) {
+  const { date } = splitLabel(label);
+  const detail = sourceDetail(label, viewer);
   return (
-    <>
-      <span className="np-src">{text}</span>
+    <div className="np-sig-head">
+      <SourceBadge label={label} />
       {date && <span className="np-date">{date}</span>}
-    </>
+      {/* Cut to one line; when it is cut, click / Enter shows the full label. */}
+      {detail && <SourceText label={label} short={detail} className="np-src np-src-1" />}
+      {children}
+    </div>
   );
 }
 
 // `company` → `target` is the edge's real direction (source → target), which is
-// what the evidence key is built from.
-function ContractLine({ c, company, target }: { c: Contract; company: string; target: string }) {
+// what the evidence key is built from; `viewer` is the panel's company.
+function ContractLine({ c, company, target, viewer }: { c: Contract; company: string; target: string; viewer: string }) {
   const meta = [c.units, c.value, c.date_signed, c.type]
     .filter((x) => x && x !== "no specific figure" && x !== "not stated")
     .map(tr)
     .join(" · ");
   return (
     <div className="deal-contract">
-      <div className="deal-sig">{tr(c.signal)}</div>
-      {meta && <div className="deal-meta">{meta}</div>}
       {c.source && (
-        <div className="deal-src np-sig-head">
-          <SourceLabel label={c.source} />
+        <SourceHead label={c.source} viewer={viewer}>
           <EvidenceButton kind="contract" company={company} target={target} label={c.source} signal={c.signal} />
-        </div>
+        </SourceHead>
       )}
+      {/* units · value · date · type is the deal's short summary → headline. */}
+      <SignalBody headline={meta || undefined} text={tr(c.signal)} />
     </div>
   );
 }
@@ -232,11 +240,13 @@ const EdgeGroupCard = memo(function EdgeGroupCard({
   onNavigate,
   company,
   target,
+  viewer,
 }: {
   g: Group;
   onNavigate: (id: string) => void;
   company: string; // edge source (for the evidence key)
   target: string; // edge target
+  viewer: string; // the panel's company
 }) {
   useLang(); // memo() rows still re-render on a language change
   const [all, setAll] = useState(false);
@@ -258,7 +268,7 @@ const EdgeGroupCard = memo(function EdgeGroupCard({
       </div>
       <div className="deal-rel">{tr(g.relationship)}</div>
       {shown.map((c, i) => (
-        <ContractLine c={c} key={i} company={company} target={target} />
+        <ContractLine c={c} key={i} company={company} target={target} viewer={viewer} />
       ))}
       {n > CONTRACTS_PREVIEW && (
         <button className="np-linkbtn" onClick={() => setAll((s) => !s)}>
@@ -269,40 +279,40 @@ const EdgeGroupCard = memo(function EdgeGroupCard({
   );
 });
 
-// One signal (quarterly_data entry).
+// One signal (quarterly_data entry): source head, the figure as the headline,
+// the signal clamped to two lines, tags on the More / Less row.
 const SigRow = memo(function SigRow({ q, company }: { q: QuarterlyData; company: string }) {
   useLang();
   const topics = q.topics || [];
+  const tags =
+    q.slot || topics.length > 0 ? (
+      <>
+        {q.slot && <span className="np-tag slot">{SLOT_LABEL[q.slot] ? t(SLOT_LABEL[q.slot]) : q.slot}</span>}
+        {topics.map((tp) => (
+          <span className="np-tag" key={tp}>
+            {slugLabel(tp)}
+          </span>
+        ))}
+      </>
+    ) : null;
   return (
     <div className="sig-item">
-      <div className="np-sig-head">
-        <SourceLabel label={q.quarter} />
+      <SourceHead label={q.quarter} viewer={company}>
         {q.chain && (
           <span className="np-chain" title={t("from chain: {chain}", { chain: slugLabel(q.chain) })}>
             {slugLabel(q.chain)}
           </span>
         )}
         <EvidenceButton kind="qd" company={company} label={q.quarter} signal={q.signal} />
-      </div>
-      <div className="sig-s">{tr(q.signal)}</div>
-      {hasFigure(q.figure) && <div className="sig-f">{tr(q.figure)}</div>}
-      {(q.slot || topics.length > 0) && (
-        <div className="np-tags">
-          {q.slot && <span className="np-tag slot">{SLOT_LABEL[q.slot] ? t(SLOT_LABEL[q.slot]) : q.slot}</span>}
-          {topics.map((t) => (
-            <span className="np-tag" key={t}>
-              {slugLabel(t)}
-            </span>
-          ))}
-        </div>
-      )}
+      </SourceHead>
+      <SignalBody headline={hasFigure(q.figure) ? tr(q.figure) : undefined} text={tr(q.signal)} footer={tags} />
     </div>
   );
 });
 
 // One counterparty row in "Customers & suppliers on file": collapsed = name,
 // entry count, latest date, latest figure; expanded = every entry.
-const OnFileRow = memo(function OnFileRow({ g }: { g: OnFile }) {
+const OnFileRow = memo(function OnFileRow({ g, company }: { g: OnFile; company: string }) {
   useLang();
   const [open, setOpen] = useState(false);
   const n = g.entries.length;
@@ -329,11 +339,8 @@ const OnFileRow = memo(function OnFileRow({ g }: { g: OnFile }) {
         <div className="np-of-list">
           {g.entries.map((q, i) => (
             <div className="np-of-entry" key={i}>
-              <div className="np-sig-head">
-                <SourceLabel label={q.quarter} />
-              </div>
-              <div className="sig-s">{body(q.signal)}</div>
-              {hasFigure(q.figure) && <div className="sig-f">{tr(q.figure)}</div>}
+              <SourceHead label={q.quarter} viewer={company} />
+              <SignalBody headline={hasFigure(q.figure) ? tr(q.figure) : undefined} text={body(q.signal)} />
             </div>
           ))}
         </div>
@@ -393,6 +400,7 @@ const GlanceSlot = memo(function GlanceSlot({
       <div className="np-gl-slot-body">
         <div className={"np-gl-slot-v" + (fig ? " fig" : "")}>{fig ? tr(q.figure) : snippet(signal, GLANCE_SNIPPET)}</div>
         <div className="np-gl-slot-d">
+          <SourceBadge label={q.quarter} />
           {lab.date && <span className="np-date">{lab.date}</span>}
           <span className="np-src">{lab.text}</span>
           <button className="np-linkbtn np-gl-more" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
@@ -551,6 +559,8 @@ export default function NodePanel({
   const [showReport, setShowReport] = useState(false);
   const [report, setReport] = useState<any>(null);
   const [topic, setTopic] = useState<string | null>(null); // active topic chip
+  const [srcKind, setSrcKind] = useState<SourceKind | null>(null); // active source-type chip
+  const [expandAll, setExpandAll] = useState(false); // every signal / deal in full
   const [filter, setFilter] = useState(""); // free-text signal filter
   const [sigLimit, setSigLimit] = useState(SIG_PAGE);
   const [allPlain, setAllPlain] = useState(false);
@@ -573,6 +583,8 @@ export default function NodePanel({
   useEffect(() => {
     setShowReport(false);
     setTopic(null);
+    setSrcKind(null);
+    setExpandAll(false);
     setFilter("");
     setSigLimit(SIG_PAGE);
     setAllPlain(false);
@@ -620,20 +632,30 @@ export default function NodePanel({
     for (const q of ownSigs) for (const t of q.topics || []) c.set(t, (c.get(t) || 0) + 1);
     return [...c.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   }, [ownSigs]);
+  // Source-type chips (Earnings / Filings / Releases / Decks / Q&A …): how many
+  // of the company's own signals come from each kind of document. Only kinds that
+  // occur get a chip, in the fixed SOURCE_KINDS order.
+  const sigKind = useMemo(() => new Map(ownSigs.map((q) => [q, sourceType(q.quarter).kind])), [ownSigs]);
+  const kindCounts = useMemo(() => {
+    const c = new Map<SourceKind, number>();
+    for (const k of sigKind.values()) c.set(k, (c.get(k) || 0) + 1);
+    return SOURCE_KINDS.filter((s) => c.has(s.kind)).map((s) => ({ ...s, n: c.get(s.kind) as number }));
+  }, [sigKind]);
   const filteredSigs = useMemo(() => {
     const f = filter.trim().toLowerCase();
     // Search the English text and what is on screen (the translation).
     return ownSigs.filter(
       (q) =>
         (!topic || (q.topics || []).includes(topic)) &&
+        (!srcKind || sigKind.get(q) === srcKind) &&
         (!f || `${q.quarter} ${q.signal} ${q.figure} ${tr(q.signal)} ${tr(q.figure)}`.toLowerCase().includes(f))
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ownSigs, topic, filter, rev]);
+  }, [ownSigs, sigKind, topic, srcKind, filter, rev]);
   // A new filter starts the list from the top again.
   useEffect(() => {
     setSigLimit(SIG_PAGE);
-  }, [topic, filter]);
+  }, [topic, srcKind, filter]);
 
   const customers = useMemo(
     () =>
@@ -665,6 +687,7 @@ export default function NodePanel({
   const onFileCount = onFile.customers.length + onFile.suppliers.length;
 
   return (
+    <ExpandAllContext.Provider value={expandAll}>
     <div className="panel-backdrop" onClick={onClose} ref={backdropRef}>
       <div
         className={"panel" + (glass ? " glass" : "")}
@@ -858,7 +881,7 @@ export default function NodePanel({
                 <div className="pcol-head">{t("Product / Capacity Timeline")}</div>
                 {preview("timeline", timeline).map((item, i) => (
                   <div className="tl-item" key={i}>
-                    <span className="tl-when">{item.when}</span>
+                    <span className="tl-when">{trWhen(item.when)}</span>
                     <span>{tr(item.text)}</span>
                   </div>
                 ))}
@@ -867,8 +890,19 @@ export default function NodePanel({
             )}
             {ownSigs.length > 0 && (
               <>
-                <div className="pcol-head" style={{ marginTop: timeline.length ? "1rem" : 0 }}>
-                  {t("Signals")}
+                <div className="pcol-head np-sig-title" style={{ marginTop: timeline.length ? "1rem" : 0 }}>
+                  <span>{t("Signals")}</span>
+                  {/* Long entries are clamped to two lines; this opens every
+                      signal and deal in the panel at once (and closes them). */}
+                  <button
+                    type="button"
+                    className="np-linkbtn np-expand"
+                    aria-pressed={expandAll}
+                    onClick={() => setExpandAll((v) => !v)}
+                    title={t("Show every signal and deal in this panel in full")}
+                  >
+                    {expandAll ? t("Collapse all") : t("Expand all")}
+                  </button>
                 </div>
                 <div className="np-sigtools">
                   <input
@@ -886,6 +920,25 @@ export default function NodePanel({
                       }
                     }}
                   />
+                  {/* Source-type chips: only when the signals come from 2+ kinds of
+                      document. Click one to keep only that kind; click again for all. */}
+                  {kindCounts.length > 1 && (
+                    <div className="np-chips np-kinds" role="group" aria-label={t("Filter signals by source type")}>
+                      {kindCounts.map((k) => (
+                        <button
+                          key={k.kind}
+                          type="button"
+                          className={"np-chip np-kind sx-k-" + k.kind + (srcKind === k.kind ? " on" : "")}
+                          aria-pressed={srcKind === k.kind}
+                          onClick={() => setSrcKind(srcKind === k.kind ? null : k.kind)}
+                        >
+                          <i aria-hidden="true" />
+                          {t(k.label)}
+                          <b>{k.n}</b>
+                        </button>
+                      ))}
+                    </div>
+                  )}
                   {topicCounts.length > 0 && (
                     <div className="np-chips">
                       <button
@@ -908,7 +961,7 @@ export default function NodePanel({
                     </div>
                   )}
                 </div>
-                {(topic || filter) && (
+                {(topic || srcKind || filter) && (
                   <div className="np-count">
                     {t("{n} of {total} signals match", { n: filteredSigs.length, total: ownSigs.length })}
                   </div>
@@ -945,7 +998,7 @@ export default function NodePanel({
               <>
                 <div className="pcol-head">{t("Customers")} →</div>
                 {preview("customers", customers).map((g) => (
-                  <EdgeGroupCard g={g} key={g.company} onNavigate={onNavigate} company={node.id} target={g.company} />
+                  <EdgeGroupCard g={g} key={g.company} onNavigate={onNavigate} company={node.id} target={g.company} viewer={node.id} />
                 ))}
                 <ShowAllToggle total={customers.length} open={isOpen("customers")} onToggle={() => toggleOpen("customers")} />
               </>
@@ -956,7 +1009,7 @@ export default function NodePanel({
                   ← {t("Suppliers")}
                 </div>
                 {preview("suppliers", dealSuppliers).map((g) => (
-                  <EdgeGroupCard g={g} key={g.company} onNavigate={onNavigate} company={g.company} target={node.id} />
+                  <EdgeGroupCard g={g} key={g.company} onNavigate={onNavigate} company={g.company} target={node.id} viewer={node.id} />
                 ))}
                 <ShowAllToggle total={dealSuppliers.length} open={isOpen("suppliers")} onToggle={() => toggleOpen("suppliers")} />
                 {plainAll.length > 0 && (
@@ -997,7 +1050,7 @@ export default function NodePanel({
                 <div className="np-of-sub">{t("Customers")} ({onFile.customers.length})</div>
                 {onFile.customers.length === 0 && <div className="np-empty">{t("none on file")}</div>}
                 {preview("onfile-c", onFile.customers).map((g) => (
-                  <OnFileRow g={g} key={g.name} />
+                  <OnFileRow g={g} key={g.name} company={node.id} />
                 ))}
                 <ShowAllToggle total={onFile.customers.length} open={isOpen("onfile-c")} onToggle={() => toggleOpen("onfile-c")} />
               </div>
@@ -1005,7 +1058,7 @@ export default function NodePanel({
                 <div className="np-of-sub">{t("Suppliers")} ({onFile.suppliers.length})</div>
                 {onFile.suppliers.length === 0 && <div className="np-empty">{t("none on file")}</div>}
                 {preview("onfile-s", onFile.suppliers).map((g) => (
-                  <OnFileRow g={g} key={g.name} />
+                  <OnFileRow g={g} key={g.name} company={node.id} />
                 ))}
                 <ShowAllToggle total={onFile.suppliers.length} open={isOpen("onfile-s")} onToggle={() => toggleOpen("onfile-s")} />
               </div>
@@ -1014,5 +1067,6 @@ export default function NodePanel({
         )}
       </div>
     </div>
+    </ExpandAllContext.Provider>
   );
 }

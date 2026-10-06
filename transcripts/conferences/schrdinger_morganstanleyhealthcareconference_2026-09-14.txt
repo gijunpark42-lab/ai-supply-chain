@@ -1,0 +1,228 @@
+SOURCE: Investing.com conference transcript -- https://www.investing.com/news/transcripts/schrodinger-at-morgan-stanley-healthcare-conference-cloud-push-gains-speed-93CH-4900212
+TITLE: Schrödinger at Morgan Stanley healthcare conference: cloud push gains speed
+EVENT: Morgan Stanley healthcare conference 2026
+DATE: 09-14-2026  (article publish date = event day)
+# source label: Schrödinger Morgan Stanley healthcare conference 2026 (09-14-2026)
+# speakers: Ramy Farid, CEO, Schrödinger; Pat Lorton, CTO of Software, Schrödinger; Karen Akinsanya, President of R&D, Schrödinger; Richie Jain, CFO, Schrödinger
+# paragraphs: 110   characters: 37,505
+
+---
+Moderator: Great. Well, welcome. Good afternoon, everyone. It’s the first day of the conference here. I’m Craig Hettenbach, I cover healthcare technology and providers with Morgan Stanley. Very pleased to have with us the full team of Schrödinger here today. We have CEO, Ramy Farid, CFO, Richie Jain, CTO of software, Pat Lorton, and then Karen Akinsanya, President of R&D. Thank you all for being here today.
+
+Ramy Farid, CEO, Schrödinger: Thanks for having us, Craig.
+
+Moderator: I thought I’d just kick it off just as a jumping point. If I think about Schrödinger, a very rich history of a company that’s been around for 35 years, I’d love to start with just the most important developments that lead you up to today in terms of where the business is at.
+
+Ramy Farid, CEO, Schrödinger: Sure. On the scientific side, right?
+
+Moderator: Right.
+
+Ramy Farid, CEO, Schrödinger: On the platform side. Yeah.
+
+Moderator: Yeah.
+
+Ramy Farid, CEO, Schrödinger: Well, as you said, we’ve been at this for 36 years, actually, since 1990, advancing a computational platform for design of molecules, for designing molecules and predicting the properties of molecules. One of the biggest advances is developing methods that allow us to actually accurately simulate what molecules are doing in the incredibly complex environment they’re in. Molecules, drug molecules, for example, exist in water. Water turns out to be pretty sophisticated, and the interactions of water with small molecules is complex, and then, of course, when small molecules bind to proteins, that’s a very complex and highly dynamic process.
+
+We’ve developed all sorts of technologies for understanding the structures of proteins, understanding the structure of proteins in water, understanding how molecules bind to proteins and what happens, and then the result of that is the ability to predict some incredibly complex properties, such as how tightly a molecule binds to a protein, how soluble a molecule is, how permeable it is. These are incredibly important properties for developing drugs. A drug molecule has to be potent and selective and soluble and permeable and so on. There’s a huge amount of technology that underlies the ability to use first principles physics to predict accurately the properties of molecules and essentially emulate experiment. It would probably not be a good use of time to get into the underlying physics that results in it, but I hope that gives you a general sense.
+
+Now, since then, once you have this core engine, this physics engine, how do you amplify it? How do you get that kind of technology out to customers? One is you have to be able to manage huge amounts of data. I mean, running these physics calculations on massive scales, approaching trillions of molecules, you need a very robust enterprise system for storing all of this data, being able to analyze it. We’ve done some really nice work on the engineering side to manage all of that data. The other thing is these physics-based calculations are computationally expensive. But I said earlier that you have to be able to explore maybe trillions of molecules, certainly on the order of hundreds of billions of trillions of molecules. You can’t do that using physics alone.
+
+We’ve put a significant effort into developing machine learning and AI methods that are trained on physics, that amplify the physics to a scale that allows us to explore huge amounts of chemical space. That’s another very important aspect of the platform. I think that’s, we’re touching on sort of the main
+
+Moderator: And-
+
+Ramy Farid, CEO, Schrödinger: sort of breakthroughs, and there’s a lot more to do. Go ahead, Pat.
+
+Pat Lorton, CTO of Software, Schrödinger: As I’d say, and then, of course, you’ve talked about where we are today and the next step. What we pride ourselves on is thinking what a computer is going to be able to do in five years, and how do we start working on it now. When we started working on our first, essentially, agent three or four years ago, it didn’t work, and we kept building it and improving it, and finally, as LLMs and agents reached the space they did, we built Bunsen, which is our new agent that can run all these workflows at a scale that was previously unfathomable. We got ahead of that.
+
+It took years of getting ready so that when the technology got there, we could do it, which we’d done with GPUs in the past with physics, the cloud at scale, we did with running physics at a larger scale. We really look forward to the next generation of technology with science.
+
+Moderator: Great. How do you think about that? It’s just that baseline of all the physics expertise.
+
+Ramy Farid, CEO, Schrödinger: Yeah.
+
+Moderator: Now you have this inflection in computation, just having those two pieces and what that means in terms of how you’re positioned for the future.
+
+Ramy Farid, CEO, Schrödinger: Yeah. So, a number of things. Of course, we’re licensing that platform to pharma companies, and they’re experiencing now, maybe for the first time, a significant impact on deploying computation to replace experiment on a large scale. That’s resulting in growth in our software business. I hope I’m answering your question, but you’ll stop me if I’m not. The other thing is we’re, and Karen can speak more to this, we’re using that platform at scale, at a really massive scale actually, to advance a number of our own programs, either on our own behalf or in collaboration with pharma companies or biotech companies. In some cases, those are biotech companies that we have co-founded. Now, the other thing that’s important to mention, and I know this is a healthcare conference, but I’m just going to mention it very briefly.
+
+The physics that underlies our platform is agnostic to the system. It works on small molecules, peptides, biologics, any class of proteins, but it also applies to design of materials. So that’s another pretty important part of our business, where we’re using the same physics to design things like the molecules that go into batteries to make batteries work better, or polymers that coat airplane wings, or in a design of electronics. I mean, there’s so many applications of that same physics, so I wanted to throw that in as well, even though the focus, of course, here is on drug discovery. Did I answer your-
+
+Moderator: You did. I think just to build on that, when you say licensing it to pharma, how synergistic is it having a therapeutics group as well, in terms of having both of these businesses together?
+
+Ramy Farid, CEO, Schrödinger: I will say something very quickly and hand it very quickly over to Karen. In order to be able to develop technology that actually works and that impacts real projects, this is a space where you have to be using the technology yourself. You learn so much from that, right? Not everything works. Software developers develop some technology and some of it works, some of it doesn’t, and if you do not have real-world experience with it where you are actually trying to develop a material or a drug, you can really fool yourself. The other thing is, this is by its nature, highly disruptive. There is a longstanding, traditional way of doing drug discovery in pharma companies, and pharma companies are big companies that do things in a certain way and are not going to change very easily.
+
+In order to convince them to change, to do something completely different, it is very important that they see proof points, and those proof points have come from the incredible work of Karen’s team in delivering development candidate, after development candidate, after development candidate, successful exits of the newcos that we have co-founded. I think that validation has transformed the industry. It has convinced pharma companies, many of which, by the way, were investors in these newcos, convinced pharma companies that, yeah, this is the real thing and we need to be investing in this and scaling it up. We may not know how to do it right now. Hopefully Bunsen, our agent, will help them with that. It is both ways. It is knowing what technology to develop and then validating it. But sorry, I-
+
+Karen Akinsanya, President of R&D, Schrödinger: No
+
+Ramy Farid, CEO, Schrödinger: went on a little too long. I wanted to-
+
+Karen Akinsanya, President of R&D, Schrödinger: No, that’s fine. I think you’ve covered it.
+
+Ramy Farid, CEO, Schrödinger: Yeah.
+
+Karen Akinsanya, President of R&D, Schrödinger: We don’t develop a platform in a vacuum. We actually develop it really working on real-world problems, and as Pat said, actually, we’re always thinking a few years ahead to what is it that pharma’s trying to solve for. We’re solving to that on our own behalf with some of our programs, but the majority of what we do is in collaboration with pharma companies, with biotechs, and it’s really about solving difficult drug design challenges. One great example of that was a collaboration with one pharma was going after a brain-penetrant version of a drug. We were working on Esol, which is one of the modules in our platform. It was first used in that collaboration, and now it’s broadly applicable and used by the whole industry.
+
+The drug discovery team is involved in, yes, working on development candidates, but really cracking these problems and working very closely with our platform R&D team on the things that we think need to be solved. Predictive Tox is a great example. That came out of one of the programs that we were working on, where we wanted a structure of one of the off targets, and then we found we could scale that up, and it’s now, again, a core part of our platform. Then separately, the therapeutics team, I guess, these assets are also generating some revenue for the company as we work with collaborators. Then there’s the long-term view of owning a slice of quite a number of assets in the industry at this time.
+
+Richie Jain, CFO, Schrödinger: Just to finally bring home the synergy of the business, Craig. It’s no surprise that our largest collaboration partners are also our largest software customers, and it’s that working together with us is what really unlocks both sides of the business.
+
+Moderator: Great. Well, I think this is a pretty good build-up to one of the bigger debates across software and healthcare IT is just AI disruption, right? Whether it’s competition from LLMs, whether it’s things like vibe coding. Maybe we can put a bow on it here, in terms of some of the things you said to lead up, like how you’re positioned at this kind of technology inflection. What are some of the things you’re insulated from?
+
+Ramy Farid, CEO, Schrödinger: Yeah. So I think there’s two aspects to that. One is using AI vibe coding to actually code up a physics platform. That’s one. Then the other is using AI in place of physics, not trying to use AI to write physics solutions, but somehow bypass it. So let’s take both of those. I think those are both things that are on people’s minds. With regard to the latter, it’s become very clear that the diversity and the scale of chemical space, which is essentially infinite. That is, the number of ways in which you can combine organic elements into a drug-like molecule or material is estimated to be more than the number of atoms in the universe. So let’s just call that infinite. So when you have a situation like that, the training set that’s required to capture all of that diversity doesn’t exist.
+
+It doesn’t matter if you collect every single bit of experimental data that humans have ever generated from every single company, if you can even do that, which of course you can’t, but even if you could, that’s still literally a drop of water in the ocean, where the drop of water is all the information we know from experiment, and the ocean is chemical space. So you can’t learn much about the ocean by analyzing a drop of water. You would come to the conclusion there are no fish in the ocean, for example. I mean, just to pick a silly example. So it’s necessary to generate way larger data sets, and that’s done through simulation physics. The ability to generate data using physics is enormous compared to experiment. I mean, we generate about 10 years’ worth of experimental data in one day. 10 years.
+
+The amount of time it takes to generate a certain amount of data using experiment, you can do that in one day using computation. So that, I think, addresses this idea that AI alone can predict the properties of arbitrary molecules. Now, it’s pretty good at predicting properties of molecules that look like what you’ve already predicted, but that’s not very interesting. That’s not drug discovery. Drug discovery is about finding novel molecules. Now, with regard to, maybe Pat, it may be great for you to address, I think, the other question, right, about vibe coding our entire platform. Do you want to comment on that?
+
+Pat Lorton, CTO of Software, Schrödinger: Yeah. One thing that’s really important when you talk about vibe coding is that. We use these coding tools heavily. We love them. They’re critically important in writing code at the speed we can today. But when you’re talking about bigger solutions, one thing that’s really an anchor there is you have to have a testable solution that can run pretty quickly because the agent has to be able to iterate on the testable solution. Just running one validation run of our software suite just to confirm that the results have stayed consistent takes a supercomputer days.
+
+So that’s not something where you’re going to send a vibe code off and say, "Hey, write an engine that’s as good as Schrödinger," because testing whether it’s as good as our scientific validation test, if they even had them, by the way, which they don’t, it took us years to build those tests, is enormous. It’s not something that’s actually very amenable to vibe coding. You can do bits of it vibe coding, which we’re doing. We’re accelerating our own development. We’re able to build products even faster than we have in the past. Also connecting back to the earlier question, how is it shifting funding allocation inside pharma, you were asking.
+
+We’ve actually been very pleasantly surprised to see it go the opposite of the way many people had feared, where money’s pouring into AI solutions, and people are able to grab that budget and use it for our solution. Bunsen, for instance, is a solution now that can compete for these AI budgets that are coming in. It’s not necessarily that those AI budgets are pulling away from their other spend and reducing spend in other places, but we’re pulling money out of AI budgets. That’s the pattern we’re seeing.
+
+Ramy Farid, CEO, Schrödinger: Yeah.
+
+Moderator: Great. I want to dig into the customer base, and Rich, you mentioned some of your largest pharma customers are also on the software side, too. Give us a feel in terms of your traction with top 20 large global pharma, also things that may be happening on the biotech side.
+
+Ramy Farid, CEO, Schrödinger: Sure, yeah. The top 20 pharma customers have been our customers for decades at this point, and we are embedded within all of those organizations. There does remain an adoption gap between our largest customers and smaller customers. Of course, we are looking to close that with the addition of new products. Biotech is a substantial contributor to our business. It has been one of the challenges over the past few years, not surprisingly, given where that market has been, but it is starting to open up, as you are all aware. As that flows through into capital recycle and forming new companies, we expect that to be a beneficiary to Schrödinger. In general, across all of life sciences, particular big cap pharma, but across biotech, we are well embedded within the customer base and focused on growing adoption. Bunsen for us is a big beneficiary and enabler of that change.
+
+Across material science, that is about 10% of our business today, across a variety of end markets. We continue to grow that business and have it become a more meaningful contributor to the overall business.
+
+Moderator: Got it. Any example of things you are doing to deepen the relationships with customers, and how do you think about just how retention is for your business?
+
+Ramy Farid, CEO, Schrödinger: Yeah. Retention has been a really strong point for us for a number of years, measured across gross dollar retention or net dollar retention. In addition to just increasing adoption, what we have done, in particular this year, is rolled out a bunch of new products. In addition to Bunsen, we have rolled out Predictive Tox, we have rolled out Crystal Structure Prediction. These are additional tools within the discovery workflow that are expanding our domain of expertise and also reaching additional budgets that we have not had access to in the past.
+
+Moderator: Got it. Pat, you mentioned some budget freeing up on the AI, which is great incremental. My question more broadly as you look at sales cycles in the marketplace, anything different that you’re seeing in the market? How’s your sense of just the demand backdrop today?
+
+Ramy Farid, CEO, Schrödinger: Yeah.
+
+Pat Lorton, CTO of Software, Schrödinger: Yeah. I’d say, I think everyone in this room is probably feeling XBI riding at highs. There’s a lot more money going to biotech right now. The headwinds of the last few years are definitely easing, and that helps on that side of things. We’re also seeing big pharma is really getting pressured to adopt new technology, and we are ultimately the most trusted partner in this space. To tie your two questions together, you’re asking about us expanding our relationship with big pharma. Something like Predictive Tox is something. We weren’t in there before. We weren’t with those groups. But because we’ve been a trusted partner, that’s a place for us to expand. The same is true for biologics. We are the premier solution for small molecule informatics with our LiveDesign product.
+
+In the last year, we’ve introduced LiveDesign for Biologics, which is catching on at several big pharma, and we expect it to penetrate just as much and get us more into the biologics space. So we both are trying to get them to embrace our technology to much greater scale, and we’re trying to broaden our relationship across more spaces we weren’t in historically.
+
+Moderator: Great. I do want to spend a couple of minutes just on the model transition, on-prem to the cloud. Maybe we can start with why you’re undertaking that, why that’s the right move, and we can build on from there.
+
+Ramy Farid, CEO, Schrödinger: Yeah. The transition that we announced is moving from on-prem to hosted over a three-year period.
+
+Richie Jain, CFO, Schrödinger: As a reminder, our starting point was about 25% hosted on our software revenue. Our goal is to get to 75% hosted over the three-year time period. I think the reason we announced this change is we’ve been slowly moving in this direction for a number of years. We’ve been able to support our largest customers with hosted solutions, and it felt like the time for us to really make this transition in a more accelerated fashion, given the acceptance of hosted solutions by our customers. Also from a reporting perspective, it creates a cleaner financial profile for Schrödinger, given that hosted revenues are recognized ratably over the term of the contract as opposed to on-prem revenues, which are mostly pulled up front. So a cleaner financial profile, customers are accepting it. It also helps us better understand how the customer is using the technology.
+
+We can support them better by seeing how they’re utilizing it, address support issues, and also be in a better position for renewals at renewal season.
+
+Moderator: Got it. How has customer feedback been to date? Any resistance or how are you working through customers as you go through this transition?
+
+Richie Jain, CFO, Schrödinger: Yeah, I’ll start and then ask Pat to comment as well. I think we are pleased with the progress we’ve been making on the transition to hosted. In Q2, hosted was 47% of revenue. I think that was ahead of where we expected to be at this point. We’ve been able to transition large customers ahead of renewal dates. I think overall, I’m pleased at how it’s representing itself into the financials. Pat, you should comment about how it’s-
+
+Ramy Farid, CEO, Schrödinger: Pat’s the person who has to talk to customers every day.
+
+Pat Lorton, CTO of Software, Schrödinger: working at the customer level.
+
+Yeah, we’ve gotten shockingly It shouldn’t be too shocking. We took it. We knew, we hoped going into it, but essentially no resistance whatsoever. Thankfully, this is now a paradigm that people are very used to. Windows is phoning home. Adobe’s phoning home. Everything’s doing this for licensing. It really is just about going through the process that companies have rather than convincing them to do something new and crazy.
+
+Moderator: Great. I wanted to touch on just some of the momentum in Q2. ACV was up 27% year-over-year. Some of the key drivers of that for you guys.
+
+Richie Jain, CFO, Schrödinger: Sure. Q2 was a great quarter. I think the first half of this year compared to last year we are up 19%, so it is evidencing itself through a couple of quarters. We have seen broad growth across pharma, biotech, and material sciences, and also contribution from our new products, including Bunsen and Predictive Tox. Overall, I think we are very pleased with the profile on the software side of the business. Drug discovery had a great quarter in Q2. We increased guidance for the year by $10 million as a result of that as well. From an OpEx perspective, we are in line with what we have said publicly, which is we expect this year OpEx to be lower than last year. Through the first half of the year, we are down about 6%.
+
+Overall, I think we are tracking towards our goals across growth in the business, transition to hosted, as well as a disciplined OpEx profile.
+
+Moderator: Got it. The point of OpEx down 6%, which sets you up also for some leverage going forward, any key drivers there that you would call out in terms of things you are doing with the business?
+
+Richie Jain, CFO, Schrödinger: Yeah. Those efficiencies have come from headcount reductions, as well as reduced professional services and CRO spending in the therapeutics team. As evidence of that, we just announced a transaction last week to form a new company called Tectora, which I’ll let Karen comment on in just a second. But that’s been the source of the OpEx efficiency. This is really the full-year annualization of a lot of the actions we took last year in setting forward the strategy that we did a few months ago. But do you want to comment on Tectora?
+
+Karen Akinsanya, President of R&D, Schrödinger: Yeah. I think last year we announced that we would not be taking programs into the clinic. What we are focused on is moving programs through discovery to a certain point and then either partnering them with pharma. In this case, we actually were able to move two of those programs and some of that CRO cost that Richie talked about is really our expense through to development candidate. That will now be transferred into the fundraise that came around Tectora. So last week we announced two of our immunology programs are moving into a spin-out called Tectora, which raised $55 million, which will take that program, fund that program through discovery, and we hope into early clinical development as well. That obviously takes the CRO cost off our balance sheet. We actually have a pretty significant equity stake in that company.
+
+So excited about the programs and also about the launch of what is now I think our eighth new co under the Schrödinger umbrella. So looking forward to seeing how that develops.
+
+Moderator: Great. I definitely want to come back to that in terms of on the biotech side. Before we do, and just building on some of the strength in the business first half of the year, Q4 is typically the seasonally strongest from a bookings activity. Anything you would call out like this year versus prior years of things you’re watching in the market that you want to make sure you’re executing on?
+
+Richie Jain, CFO, Schrödinger: I’ll start. I think Ramy and Pat, you should add again. Yes, as you noted, Q4 is generally more than 50% of our business for the year. I think the backdrop sitting here today on September 14 compared to a year ago is just incredibly stronger across all of our customer types, big pharma, biotech, and material sciences. So, in general, we’ve been feeling that through the first 8 months of the year. We expect that trend to continue. You should add any specific levels, anything further.
+
+Pat Lorton, CTO of Software, Schrödinger: Yeah, I think there’s just what we’ve been talking about. There’s a lot of excitement around
+
+Ramy Farid, CEO, Schrödinger: using computation at scale. There’s clear recognition that the technology actually works. It’s having an impact. There’s just all these success stories of molecules, some of which the pharma companies have had to purchase at very high prices that were designed using our platform. By the way, one of our least favorite comments that you keep hearing, AI designed molecules, that’s not a thing. Yeah, of course, we’ve been designing molecules using computation for a long time. They’re already successful. It’s not like that hasn’t happened yet. We’re not sitting around waiting for the first time that a so-called AI generated molecule is successful. That’s a silly sort of thing to track. So yeah, it’s just this very positive kind of atmosphere where there’s an appreciation for the technology working. Now there’s this sort of, how are we going to deploy it at scale?
+
+We kind of came out with Bunsen, this agent, at just the right time, where it seems to address sort of the last remaining barrier to using the technology at scale, which is sort of orchestrating these really complex workflows. To us, it doesn’t seem that complicated. We’ve been developing it and using it for a decade. When it turns out, when we release it to our customers, it’s a lot more complicated than we may have appreciated. So it’s really great that we found this way of agentifying it at just the right time when agents were being used in all sorts of other parts of our lives. I mean, now you hear about agents running companies, right? Just completely orchestrating the whole company. Well, now it’s time to start thinking about doing that on the drug discovery side. Yeah.
+
+Moderator: Great.
+
+Pat Lorton, CTO of Software, Schrödinger: Yeah, I mean, we’re just seeing tremendous interest in Bunsen.
+
+Moderator: Yeah.
+
+Pat Lorton, CTO of Software, Schrödinger: I would say of any product, we’ve been in Schrödinger at 20 years, more than any product we’ve ever released. We have lines at our booths. It’s pretty cool to see.
+
+Moderator: Yeah. Got it. I know one of your key partners, Bristol Myers, was kind of early on in Bunsen.
+
+Pat Lorton, CTO of Software, Schrödinger: Yeah.
+
+Moderator: Talk about that in terms of a large, high-profile customer kind of moving on and what that means to other opportunities.
+
+Ramy Farid, CEO, Schrödinger: Yeah. It’s a great sign. BMS has been a longstanding partner. They’ve had access to our technology at a large scale. They’re experiencing the same kind of things that a lot of other pharma companies are experiencing. In fact, other companies are experiencing even more, which is a sort of reduction in the number of people that can actually run these technologies. They recognize the need to amplify the experts they already have. Instead of hiring another 10 people that don’t even exist, now you can hire You have these core experts that now can have a co-scientist. I think that’s a great word to describe these agents, a co-scientist, a whole bunch of modelers that don’t sleep, that can work through the night and check on things and restart jobs if they don’t fail.
+
+Think about how much time you lose when something dies in the middle of the night, then you’ve wasted another day, this kind of stuff, just keeping up. It’s a game changer. As part of it, as we announced, this is a pretty important part of this, in order to take advantage of an agent, you need to have a lot more of the technology, otherwise it’s kind of, what’s the point, right? As part of the partnership, they got access to a significant amount of the technology, more throughput, so they can run, they can predict the properties of more molecules computationally, which makes it easier to solve the multi-parameter optimization problem. You’re more likely to find that special drug molecule that has all the properties if you’re testing more and more molecules. We’re very excited about it. They’re very excited.
+
+It involved the AI budgets. It involved the computational people, BD. I mean, this was a big strategic partnership because I think they see that this is the future. As Pat was basically saying, I think a lot of other companies are recognizing the same thing.
+
+Moderator: Great. Karen, you alluded to predictive toxicology before. There’s been developments at the FDA on animal testing. How are you thinking about this over a multi-year horizon in terms of the opportunity that might present itself?
+
+Karen Akinsanya, President of R&D, Schrödinger: Yeah, I think as you point out, the FDA has announced a couple of years ago now, the alternative models for Predictive Tox. Obviously, there’s a spectrum of those. You’ve got organoids. On the in silico end, we’ve now developed a structure-based model for predicting the tox really much earlier in drug discovery programs. The way it typically works is you get pretty far down the path to making your drug, then you do this toxicology testing. Unfortunately, sometimes you get a result that means you have to go all the way back to the beginning. What we’re doing now with Predictive Tox is moving that ability to de-risk your molecules higher up in the workflow. I think that there’s broad excitement and interest in this because you can imagine the cost when you have to kill a molecule late.
+
+That’s something we’re using in all of our collaborations and our internal programs. I think there’s been beta testing going on, and the results have come back significantly positive, so really it’s now people incorporating that into their typical workflows. I don’t know if, Pat, you want to speak about how that’s going along.
+
+Pat Lorton, CTO of Software, Schrödinger: Yeah, I mean, one thing I’m especially excited about is I think we actually do have a customer who’s planning on presenting that they had a program that failed because of tox liability. A lot of these assays you run, theoretically, they compete with our Predictive Tox, but they don’t tell you how it failed. It just comes back with a fuzzy red color or something like that, and you say, "Oh, this is bad." Then you don’t know how to design. They tested every computational model available. None of them gave them any signal, and then they finally used Predictive Tox, and it told them exactly what was wrong with the molecule, and they could design around it.
+
+This was the first time they’ve ever been able to design around a liability like this, instead of just literally throwing darts against the wall, is how it used to be. So we’re super excited.
+
+Richie Jain, CFO, Schrödinger: Because as we mentioned the multi-parameter optimization earlier, the more prediction you can get inside that multi-parameter optimization, the faster things can move.
+
+Moderator: Great. In the last few minutes that we have, I do want to hit on two more topics.
+
+Richie Jain, CFO, Schrödinger: Okay.
+
+Moderator: First is just collaboration and partnerships, and then the second last one is biotech monetization. On collaboration, can you just talk about some of the therapeutic partnerships that you have and some of the benefits that you bring to the table for these companies?
+
+Karen Akinsanya, President of R&D, Schrödinger: Yeah, I can quickly start. I think, Richie had pointed out that these collaborations are very synergistic in terms of them learning how we use the platform at full scale. We have partnerships with BMS, Lilly, Novartis, lots of other companies as well, too many to list, actually. One update that we do want to share is obviously a couple of years ago, we signed a pretty significant deal with Novartis. In the last couple of quarters, they’ve had some portfolio prioritization decisions, which means we’ll be reshuffling the deck there a little bit in terms of the targets that are in that partnership. I think Richie can comment on our view of that and how that changes the economics. We don’t think there’s a major impact, but that’s something I think we’ll be looking at in the third quarter.
+
+Generally speaking, collaboration demand continues to be really high, especially as people adopt all of our most recent technologies.
+
+Moderator: Great. On the monetization front, you guys have created $750 million in kind of exits. I would love to hear how you think about just longer term, the value creation opportunity, milestone payments, and just kind of framing the biotech side.
+
+Karen Akinsanya, President of R&D, Schrödinger: Yeah, maybe just on the, sorry, the $750, it’s a collection of events.
+
+Ramy Farid, CEO, Schrödinger: Yeah, I was just going to say. Yeah.
+
+Karen Akinsanya, President of R&D, Schrödinger: There’s upfront milestones, royalties, and also the distribution of cash from when the biotechs are sold or the assets in the biotechs are sold. It’s really a combination of all of those things. As you know, Nimbus sold several assets. Morphic was acquired. Petra, Ajax, those were all acquired as well. Those distributions of cash are part of that $750 million. Sorry.
+
+Ramy Farid, CEO, Schrödinger: Yeah, no, I was going to say the same thing, but now I lost track of the question. What was the question?
+
+Richie Jain, CFO, Schrödinger: I’ll just add just to wrap it up that BD, the monetization of a lot of our equity, and also upfronts around transactions, has funded the company since it went public. Morgan Stanley led the IPO in 2020. That’s been a funding source for Schrödinger. I think as we think about the path forward, we’re focused on getting to profitability on an operating basis, and continuing to develop more milestones, royalties, equity positions like Tectora that can provide further upside, beyond a profitable stand-alone enterprise.
+
+Moderator: Great. As we wrap up, Ram, I’m going to leave it to you. As we think about strategic priorities next 12 months, right? We talked a lot of momentum in the business.
+
+Ramy Farid, CEO, Schrödinger: Yeah.
+
+Moderator: What are you most focused on next 12 months to execute on?
+
+Ramy Farid, CEO, Schrödinger: Yeah. Always the first thing is, and I hope you can sense this, we are super excited about what we have accomplished in developing the platform. We are the leaders in this space. We are defining, in some sense, the science that is required for designing molecules. It is a huge priority, and we have a very significant effort at the company to continue to make that next breakthrough, and we are guided by the therapeutics group. We know what the challenges are, and we can always make things better. If it takes 2 years to get to a development candidate, that should be 1 year. If there is a 1% failure, I am exaggerating now slightly, it should be zero, right? We should constantly be trying to improve things.
+
+Through the synergies between the drug discovery group using the software and the very large group, that is the scientific developers and the computer scientists working on the platform, we keep advancing the platform. Bunsen is an extremely important part now of our strategy over the next 12 months because we saw that the bottleneck for getting this sophisticated technology in the hands of our customers was lack of expertise, and we really think we have solved that with Bunsen. Every time we release a new product, we do not do market research in the traditional sense. We do not go around asking our customers what do they want. We innovate, and then we go and try and convince customers that they should be doing things differently. We have done that with Predictive Tox and with other solutions around biologics, around Crystal Structure Prediction.
+
+A big part of this is going out and talking to our customers and saying, "You guys can do things more efficiently. Let us prove to you that it works, and then help you get this deployed." Again, I think Bunsen will help a little bit with that. That is another really important focus. The other thing, obviously, this goes without saying, but I will say it anyway, on Richie’s behalf, is that we are very serious about our goal of achieving breakeven profitability on an adjusted EBITDA basis by 2028. We think that is a really important part of the strategy, and we think we can accomplish that by continuing to grow. You hear about that. That is the primary focus is growing. But we can do it in this disciplined way, managing expenses, and achieving that goal in 2028.
+
+That is an important part of the strategy as well. Richie, was there anything that I missed?
+
+Richie Jain, CFO, Schrödinger: Nope. Perfect.
+
+Ramy Farid, CEO, Schrödinger: Yeah.
+
+Moderator: All right. Well, I think we will wrap it there.
+
+Ramy Farid, CEO, Schrödinger: We can hit the zero right at the
+
+Moderator: Thanks to the whole Schrödinger team here today. Appreciate your time.
+
+Ramy Farid, CEO, Schrödinger: Great. Thank you.
+
+Karen Akinsanya, President of R&D, Schrödinger: Thank you.
+
+Ramy Farid, CEO, Schrödinger: Thanks a lot. Thank you.

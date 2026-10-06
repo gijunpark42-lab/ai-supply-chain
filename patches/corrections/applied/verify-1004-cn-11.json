@@ -1,0 +1,27 @@
+{
+  "reviewer": "verify-1004-cn-11",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Victory Giant Technology",
+      "target": null,
+      "label": "Victory Giant Technology half-year report: 2026 Half-Year Report (08-28-2026)",
+      "signal_prefix": "2026 half-year report: H1 2026 revenue RMB 11,629,367,290.81, up 28.77%",
+      "action": "set",
+      "set": {"signal": "2026 half-year report: H1 2026 revenue RMB 11,629,367,290.81, up 28.77% year over year; cost of sales RMB 7,765,934,717.93, up 34.83% on higher product costs; net profit attributable to shareholders RMB 2,856,778,938.24, up 33.30%; excluding non-recurring items RMB 2,417,800,485.07, up 12.50%. Non-recurring items totalled RMB 438,978,453.17, including RMB 587,855,102.17 of fair-value changes and disposal gains on financial assets; the report attributes the period's RMB 594,820,131.07 fair-value gain mainly to placement shares held. Operating cash flow RMB 2,911,175,283.00, up 144.61% on higher sales collections. Inventory rose to RMB 5,889,639,980.56 from RMB 3,162,360,350.96 at end-2025 (raw materials RMB 2,501,790,222.00)."},
+      "reason": "The non-recurring fair-value line is RMB 587,855,102.17; RMB 594,820,131.07 is the total fair-value P&L from another table, and the report does not say non-recurring items were mainly that gain.",
+      "evidence": "p8 non-recurring items: fair-value changes and disposal gains on financial assets 587,855,102.17; total 438,978,453.17. p20: fair-value gain 594,820,131.07, mainly placement shares held"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Unisplendour",
+      "target": null,
+      "label": "Unisplendour annual report: 2025 Annual Report (04-15-2026)",
+      "signal_prefix": "Construction in progress RMB 573,184,168.51 at end-2025",
+      "action": "set",
+      "set": {"signal": "Construction in progress RMB 573,184,168.51 at end-2025 (RMB 239,607,050.20 a year earlier), mainly the Unisplendour Digital Economy Science Park phase 1 smart-factory project (budget RMB 448,134,197.40, 64.15% complete), its phase 1 headquarters base (budget RMB 638,949,597.27, 30.35%) and the new-generation ICT product smart-factory project (budget RMB 999,384,774.44, 50.02%)."},
+      "reason": "The 2025 annual report does not say the ICT smart-factory project belongs to a subsidiary (only the later H1 2026 report does); no ownership carried in from another source.",
+      "evidence": "p167 CIP table: new-generation ICT product smart factory construction project, budget 999,384,774.44, progress 50.02 (no subsidiary named)"
+    }
+  ]
+}

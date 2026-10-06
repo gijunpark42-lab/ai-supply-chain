@@ -1,0 +1,79 @@
+{
+ "source": "ZTE investor Q&A: SZSE Interactive Easy (09-30-2026)",
+ "new_nodes": {
+  "ZTE": {
+   "ticker": "000063.SZ",
+   "exchange": "SZSE",
+   "country": "CN",
+   "why": "Makes AI servers, storage, OEX supernodes, data-center infrastructure and AI-computing data-center switches sold to Chinese internet companies, carriers, banks and enterprises; its computing-products revenue rises with AI data-center build-out.",
+   "evidence": "ZTE investor Q&A: SZSE Interactive Easy (09-30-2026): in H1 2026 computing-products revenue grew more than 55% and rose to 35.1% of total revenue; server and storage revenue grew nearly 60% and data-center product revenue more than 90%.",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "ZTE",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "AI servers and storage: OEX orthogonal-architecture supernodes (up to 128 GPUs per rack), AI-computing and general-purpose servers, high-performance storage, modular / AIDC data-center solutions",
+     "quarterly_data": [
+      {
+       "quarter": "ZTE investor Q&A: SZSE Interactive Easy (09-30-2026)",
+       "signal": "The company said on SZSE Interactive Easy: in H1 2026 its revenue grew 9.0% YoY; network-product revenue fell as domestic 5G construction is mature and telecom-infrastructure investment keeps declining, while computing-products revenue grew more than 55% YoY and rose to 35.1% of total revenue. Within computing products, server and storage revenue grew nearly 60% and data-center product revenue grew more than 90%, becoming the company's new revenue-growth engine. The company added that computing products carry a lower gross margin than network products and the computing business is not yet the main source of profit, so overall profitability is under pressure amid the industry-cycle switch and business-mix adjustment.",
+       "figure": "H1 2026 computing-products revenue >55% YoY (35.1% of revenue); server and storage nearly 60%; data-center products >90%; total revenue +9.0%",
+       "topics": []
+      },
+      {
+       "quarter": "ZTE investor Q&A: SZSE Interactive Easy (09-30-2026)",
+       "signal": "The company said on SZSE Interactive Easy: industry players led by leading internet companies are increasing AI investment; its computing products have reached scaled operation and breakthroughs with key leading customers in internet, national AI training grounds, carriers and central / state-owned enterprises and have been validated by key customers, and it expects its computing products to keep growing. It will balance revenue and profitability through scale, and improve computing-product profitability through cost competitiveness, product / solution competitiveness and full-stack AI solutions.",
+       "figure": "no specific figure",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "ZTE investor Q&A: SZSE Interactive Easy (09-30-2026)",
+       "signal": "Management view on SZSE Interactive Easy: the company is in a mixed phase of a declining network-investment cycle and a rising AI-compute investment cycle; the 5G investment cycle that began in 2019 has run 7 years by 2026 and has gone from low to high, flat and now declining. It chose the computing track because 5G and compute infrastructure share technical traits (high-density compute, high-throughput bandwidth, ultra-low-latency forwarding, low power) and the compute market is large, fast-growing and technically complex; with its 'connection + computing' strategy it says it is confident of gradually replicating its network-connection success in computing.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "ZTE investor Q&A: SZSE Interactive Easy (09-30-2026)",
+       "signal": "The company said on SZSE Interactive Easy: it pioneered (its claim) the OEX orthogonal-architecture supernode, a backplane-less, zero-cable design that physically decouples GPUs, CPUs, switch chips and other core components so they can be replaced flexibly, supports mainstream high-speed interconnect protocols and shortens communication paths with lower signal loss. Through compute-storage-network and hardware-software co-design, non-blocking networking and global load balancing it supports efficient collaboration of thousand-card and ten-thousand-card AI clusters. Its core layer includes self-developed intra-node / inter-node high-speed interconnect chips, domain-specific processor chips and data / network acceleration chips, and it adapts and optimises multiple mainstream GPU chips.",
+       "figure": "no specific figure",
+       "topics": []
+      },
+      {
+       "quarter": "ZTE investor Q&A: SZSE Interactive Easy (09-30-2026)",
+       "signal": "The company said on SZSE Interactive Easy: its AIDC solution for intelligent computing centers integrates 800V high-voltage DC power supply, full-stack liquid cooling and intelligent bidirectional compute-power dynamic scheduling.",
+       "figure": "800V HVDC with full-stack liquid cooling",
+       "topics": [
+        "power_cooling"
+       ]
+      },
+      {
+       "quarter": "ZTE investor Q&A: SZSE Interactive Easy (09-30-2026)",
+       "signal": "The company said on SZSE Interactive Easy: the international compute market is in an explosive phase, with Chinese internet companies accelerating overseas expansion and countries speeding up compute infrastructure as sovereign-cloud demand rises. ZTE is going overseas together with internet companies, manufacturing leaders and large central / state-owned enterprises while serving local overseas customers' compute demand with standardised, modular, easy-to-deploy AI-computing solutions, local teams, logistics delivery centers and service centers in Asia-Pacific / CIS, Europe, Latin America, the Middle East and Africa, and a globally diversified supply chain with an optimised capacity layout.",
+       "figure": "no specific figure",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "ZTE",
+     "layer": "interconnect",
+     "sector": "Scale-out",
+     "product": "data-center switches: 12.8T-460.8T box and chassis AI-computing switches for 400GE/800GE lossless RoCE networks",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

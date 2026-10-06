@@ -1,0 +1,44 @@
+{
+  "reviewer": "verify-1005-cn-12",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Luxshare",
+      "target": null,
+      "label": "Luxshare annual report: 2025 Annual Report (04-15-2026)",
+      "signal_prefix": "AI data-center product pipeline (annual report R&D table): A",
+      "action": "set",
+      "set": {
+        "signal": "AI data-center product pipeline (annual report R&D table): APEX VH high-speed backplane connector and Intrepid apex vr cable backplane connector module (for customers' AI racks) are in small-batch trial production, targeting mass-production transfer and bulk customer delivery in Q3 2026; Nexus XH backplane connector module (224G AI racks) targets mass-production transfer and bulk delivery in Q2 2026; OminClip 224G chip-side NPC connector (128 GPU cards per rack) is at sample certification with mass production in Q3 & Q4 2026; Nearstack 2.0 Plug cable connector for an overseas customer's 18G project is at sample certification, mass production Q4 2026 & Q1 2027; OmniX to OSFP targets mass-production transfer in Q3 2026; OSFP224 2X1 high-speed external optical port (TH6 project) targets mass-production transfer in Q3 2026; the FP801 800G OSFP 2xFR4 optical module, developed for a well-known overseas cloud vendor's data center growth, is in small-batch trial, to move into production and generate sales in 2026; the DPA03 1.6T OSFP DR/FR optical module is at the R&D validation-test stage, targeting initial validation in Q4 2025 and product maturity in 2026 with revenue building gradually; a 33KW high-power-density rack power supply is at sample certification with revenue to build gradually in 2026."
+      },
+      "reason": "DPA03 'Q4 2025 initial validation' is in the R&D table's target column (拟达到的目标); its progress column says R&D validation-test stage, so 'completed' overstates it",
+      "evidence": "DPA03-1.6T OSFP DR/FR 光模块研究与开发 ... 研发验证测试阶段 2025 年 Q4 完成产品的初步验证，2026 年完成产品催熟，逐步产生营收"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Luxshare",
+      "target": null,
+      "label": "Luxshare half-year report: 2026 Half-Year Report (08-25-2026)",
+      "signal_prefix": "Thermal and power (half-year report): building on liquid-coo",
+      "action": "set",
+      "set": {
+        "figure": "liquid cooling at a core North American customer: supplier qualification, small-batch delivery and large-scale mass production expected in stages across H2 2026 and next year; DC-DC server module power in volume shipment"
+      },
+      "reason": "The report assigns the three stages to 'H2 and next year' together; it does not say qualification and small-batch delivery both come in H2 2026",
+      "evidence": "预计下半年和明年将分别实现取得供应商资格、小批量交付、大规模量产等不同阶段进展"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Maxio Technology",
+      "target": null,
+      "label": "Maxio Technology annual report: 2025 Annual Report (04-10-2026)",
+      "signal_prefix": "Top five suppliers were 93.26% of 2025 purchases; the larges",
+      "action": "set",
+      "set": {
+        "signal": "Top five suppliers were 93.26% of 2025 purchases; the largest, a wafer foundry, alone was 76.21%, then 6.73%, 4.97%, 3.20% and 2.14%; none is a related party; supplier names not disclosed. Wafers were 62.10% and packaging and test 30.37% of total cost of sales (fabless model)."
+      },
+      "reason": "62.10% / 30.37% are shares of total cost (本期占总成本比例), not of main-business cost (main-business cost is itself 99.48% of total)",
+      "evidence": "成本构成项目 本期金额 本期占总成本比例(%) ... 主营业务成本 64,126.41 99.48 ... 其中：晶圆 40,032.29 62.10 ... 封装测试 19,578.37 30.37"
+    }
+  ]
+}

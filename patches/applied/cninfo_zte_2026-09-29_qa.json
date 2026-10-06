@@ -1,0 +1,46 @@
+{
+ "source": "ZTE investor Q&A: SZSE Interactive Easy (09-29-2026)",
+ "new_nodes": {
+  "ZTE": {
+   "ticker": "000063.SZ",
+   "exchange": "SZSE",
+   "country": "CN",
+   "why": "Makes AI servers, storage, OEX supernodes, data-center infrastructure and AI-computing data-center switches sold to Chinese internet companies, carriers, banks and enterprises; its computing-products revenue rises with AI data-center build-out.",
+   "evidence": "ZTE investor Q&A: SZSE Interactive Easy (09-29-2026): the company offers supernodes, AI-computing servers, general-purpose servers, high-performance storage and AI all-in-one machines; its OEX supernode deploys up to 128 GPUs in a single cabinet.",
+   "approved": "user pre-approved 2026-10-04 (enrich_waitlist.json, group scan_2026_10_04)"
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "ZTE",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "AI servers and storage: OEX orthogonal-architecture supernodes (up to 128 GPUs per rack), AI-computing and general-purpose servers, high-performance storage, modular / AIDC data-center solutions",
+     "quarterly_data": [
+      {
+       "quarter": "ZTE investor Q&A: SZSE Interactive Easy (09-29-2026)",
+       "signal": "The company said on SZSE Interactive Easy: it offers full-stack solutions covering supernodes, a series of AI-computing servers, general-purpose servers, high-performance storage and AI all-in-one machines, from data center to edge. Its OEX supernode uses a multi-chip open collaborative architecture that supports flexible access and combination of heterogeneous CPU, GPU and DPU chips; a high-density design deploys up to 128 GPUs in a single cabinet; a zero-cable orthogonal interconnect architecture removes cabling fault points and signal attenuation; and it scales out smoothly to 1.6 ten-thousand (wan) cards for large-model training and mass inference.",
+       "figure": "Up to 128 GPUs per cabinet; scale-out to 1.6 ten-thousand cards",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "ZTE",
+     "layer": "interconnect",
+     "sector": "Scale-out",
+     "product": "data-center switches: 12.8T-460.8T box and chassis AI-computing switches for 400GE/800GE lossless RoCE networks",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

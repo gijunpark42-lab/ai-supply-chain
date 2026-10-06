@@ -1,0 +1,44 @@
+{
+  "reviewer": "verify-1005-call-2",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "AT&S",
+      "target": null,
+      "label": "AT&S Q1 FY2027 (08-04-2026)",
+      "signal_prefix": "Guidance colour from the call: CFO Gerrit Steen expects Q2",
+      "action": "set",
+      "set": {
+        "signal": "Guidance colour from the call: CFO Gerrit Steen expects Q2 to further accelerate, with growth and margin fully in line with the full-year guidance ranges; of the original guidance about one third, around 10%, was pricing-related and the rest volume, while the upgraded guidance mostly reflects new customer agreements and additional volumes. CEO Michael Mertin: the guidance includes every contract known to affect this fiscal year - contracts signed at short notice could be an add-on - and further inflationary pressure is not included. Customer agreements: the CEO describes a mixture of prepayment-type payments and investment contributions plus pricing agreements, structured so that profitability is not diluted, with effects running into fiscal 2028, 2029 including milestone bonus payments; the CFO adds that elements are partly tied to CapEx and partly to capacity reservation; asked when the prepayment contracts would be signed, the CEO said within this fiscal year. CFO: across the industry CapEx to revenue is roughly one to one per annum, which broadly applies to AT&S as well."
+      },
+      "reason": "Attribution fix: 'capacity reservation' / CapEx-tied elements were stated by the CFO, not the CEO; the CFO's hedge that the 1:1 industry CapEx/revenue ratio 'broadly applies to us as well' restored; 'remaining' contracts was a gloss.",
+      "evidence": "Gerrit Steen: They are partly tied to the CapEx and the CapEx spending. They are partly tied to capacity reservation. ... what we see in the industry and which broadly applies to us as well"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Hynix",
+      "target": null,
+      "label": "SK Hynix Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "Q2 2026 call, Q&A (President Song Hyeon-jong, via interpreter): SK Hynix views big tech",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 call, Q&A (management via interpreter; the medium-to-long-term outlook from President Song Hyeon-jong): SK Hynix views big tech data-center leasing and more efficient AI models not as an AI investment slowdown but as higher utilization and accelerated monetization of infrastructure already built; it expects CSPs' AI-related investment to continue over the medium to long term and to 'remain solid beyond next year', though the timing of individual projects may differ due to physical constraints such as power availability and data center construction; it expects memory demand to expand across HBM, server DRAM for agentic AI and high-performance, high-capacity NAND."
+      },
+      "reason": "Attribution fix: the transcript does not name the speaker of the first part of the answer (leasing / efficient models; Korean lines labelled Interpreter/Moderator); only the CSP-investment and memory-demand outlook is labelled Song Hyeon-jong.",
+      "evidence": "Song Hyeon-jong: ... We expect the CSP's AI-related investment to continue over the medium to long term ... AI infrastructure investment will remain solid beyond next year"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Hynix",
+      "target": null,
+      "label": "SK Hynix Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "Q2 2026 call, Q&A (Song Chang-seop, Head of NAND Marketing, via interpreter)",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 call, Q&A (via interpreter): President Song Hyeon-jong - as AI shifts from training to inference, NAND is becoming a core part of the AI memory hierarchy and eSSD-led NAND demand is expected to keep growing. Song Chang-seop, Head of NAND Marketing - SK Hynix's strategy is not a choice among SLC, TLC or QLC but a workload-optimized portfolio - high-capacity QLC eSSDs for AI data lakes and HDD replacement, high-performance TLC eSSDs and SLC-mode high-performance SSDs - and it is developing new-tier AI storage products for KV cache offloading and near-GPU storage."
+      },
+      "reason": "Attribution fix: the training-to-inference / eSSD demand view was spoken by President Song Hyeon-jong; the portfolio strategy by Song Chang-seop.",
+      "evidence": "Song Hyeon-jong (interpreted): the AI market is evolving from a training-centric to an inference-centric environment ... Song Chang-seop (interpreted): Our NAND strategy for the AI era ... is not about choosing out of SLC, TLC, or QLC"
+    }
+  ]
+}

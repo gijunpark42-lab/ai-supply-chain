@@ -16,6 +16,7 @@ import {
 } from "@/lib/table";
 import CompanyLink from "./CompanyLink";
 import CellText from "./CellText";
+import { SourceBadge } from "./SignalText";
 import { t, tr, useLang } from "@/lib/i18n";
 import "./Tables.css";
 
@@ -231,7 +232,14 @@ export default function Timelines({
         </div>
       );
     if (col === "Date") return <div className="cell tb-nowrap">{cell}</div>;
-    if (col === "Source") return <div className="cell tb-src">{cell}</div>;
+    // Source: the source-type badge, then the label — clamped like the prose
+    // cells, so a long press-release title no longer sets the row's height.
+    if (col === "Source")
+      return (
+        <CellText text={cell} label={tr(col)} subject={subject} className="tb-clamp tb-src" inline>
+          {cell && <SourceBadge label={cell} />} {cell}
+        </CellText>
+      );
     return <CellText text={tr(cell)} label={tr(col)} subject={subject} className="tb-clamp" inline />;
   };
 

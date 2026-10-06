@@ -1,0 +1,190 @@
+SOURCE: Investing.com conference transcript -- https://www.investing.com/news/transcripts/digitalocean-at-citis-2026-global-tmt-conference-ai-push-lifts-growth-93CH-4896001
+TITLE: DigitalOcean at Citi’s 2026 Global TMT Conference: ai push lifts growth
+EVENT: Citi’s Global TMT Conference 2026
+DATE: 09-10-2026  (article publish date = event day)
+# source label: DigitalOcean Citi’s Global TMT Conference 2026 (09-10-2026)
+# speakers: Paddy Srinivasan, CEO, DigitalOcean; Matt Steinfort, CFO, DigitalOcean
+# paragraphs: 91   characters: 32,445
+
+---
+Moderator: My name is Mark Zhang, and I am part of the Citi Software Equity Research team. Today, we have the pleasure of hosting DigitalOcean CEO, Paddy Srinivasan, and CFO, Matt Steinfort, both to my left. Welcome to the conference, and thank you so much for attending, gents.
+
+Paddy Srinivasan, CEO, DigitalOcean: Well, thank you for hosting us, Mark.
+
+Moderator: Yeah, absolutely. I think maybe let’s backtrack a little bit. Paddy, it has been 3 years and change since you have taken over the helm as CEO. At the time when you joined, DigitalOcean looked a lot different than what it was today. At the time, I think, Paperspace was the big AI acquisition and the way that DigitalOcean approached AI. But since then, a lot has changed. Maybe take us through the journey of, number 1, what you saw in DigitalOcean coming into the role day 1, and how you sort of saw this as, from a strategic standpoint, how you approach AI. Obviously, there are various ways to play AI and a company’s role in AI. So what made you take the bet of the path that you are taking on today?
+
+Paddy Srinivasan, CEO, DigitalOcean: Yeah. So thank you, Mark. It is a great question to get started with. I am coming up on 3 years, not quite there yet, but in the world of AI, that is almost an era. When I came in, the first thing that really attracted me to DigitalOcean was I have been working on and off on developer platforms, right from my early days at Microsoft, for close to 30 years now. That pedigree and the DNA of the company, which was relentlessly focused on catering to the needs of developers of all sizes and shapes and different sizes of companies, was really attractive. The second thing that was amazing about DigitalOcean, which still never ceases to surprise me, is the strength of the product to be the primary customer acquisition engine.
+
+Those were the two things that I knew were the strengths of the company coming in. One of the first things we had to do was to make a decision on what kind of company we want to be in AI. The big bet that we took, in retrospect, about two years ago was, do we want to focus on training or inference or both? We made a very strategic decision to say that training was more on the hardware side, and our hypothesis was inference needs a lot of software. At that time, it was not that evident, but now it is fairly common knowledge that inference is not only a lot heavier dependency on software, but inference is also a more durable workload. It is a workload that resembles cloud patterns.
+
+It is a production workload, and it is typically consumed when you have product market fit, and it is eventually billed right back to customer usage, for the most part. That is a bet that we made. Along the way, we had to make many other bets. For example, we had to make the bet that software needs to evolve to serve the needs of inference in a very different way than what training was. We also made a bet that we have to nail software first and then build scale. That is the inflection point we are in as a company. We feel very confident given that we have built our inference stack working hand in hand with customers.
+
+That’s one of the luxuries we have that many other neoclouds don’t have, is having a front row seat in co-development, co-innovation with leading edge AI natives that push the boundary of inference, gives us the ability and the confidence that we are building the right thing. We are catering to the needs of the most demanding AI native customers. We feel we are on a really good path to a great software platform. Now we are addressing the scale, or we are building scale to support the software. A lot of neoclouds, or most of the neoclouds, I would say, went after scale first because they were focused on training and are trying to cobble together a software platform. The other main major decision that we continue to make is, I fundamentally believe that technology platforms, especially developer-oriented infrastructure platforms, cannot be assembled.
+
+They have to be built from the ground up. Of course, you can have a couple of acquisitions here and there on small feature gaps, but fundamentally, it is really, really hard to cobble together. This is not an application stack like Salesforce.
+
+There’s a reason why you don’t see Azure, Amazon Web Services, or Google Cloud really going in an acquisition spree to build their platform. Developer platforms, especially in AI infrastructure, have to be built from the ground up, and that’s the platform we call as AI-Native Cloud. It has 5 layers, and it is beautifully integrated into a single pane of glass, provides all the control pane required to build and scale inference applications. A lot of small decisions that have put us in a very good position of strength, I would say, because we have some of the frontier inference workloads running on our platform.
+
+Moderator: Sure. That’s terrific. Thanks for that overview. Speaking of scale and where you are in the position you are today, and this opportunity to really inflect going forward. The inferencing engine has seen just incredible traction, reaching call it 6,000 plus logos within a matter of 6 months. I guess, obviously, there’s the tech advantage and the software that you provide on it, but can you maybe speak to what has been the driver of the success there?
+
+Paddy Srinivasan, CEO, DigitalOcean: Yeah.
+
+Moderator: Whether from a product market fit, the tech differentiation, product marketing. I understand there’s many use cases here for AI and inferencing. How are your AI natives basically properly using your product?
+
+Paddy Srinivasan, CEO, DigitalOcean: Yeah
+
+Moderator: today?
+
+Paddy Srinivasan, CEO, DigitalOcean: Yeah, it’s a good question. So it has been 4 months since we launched. We went into GA, it’s probably slightly less than 4 months, and we have a lot more than 6,000 customers at this point. It goes back to our strength in product-led growth. Of the 6,000 that we announced in August, maybe there are a handful that we acquired through our direct sales motion. A vast majority, like 99% of those customers, came to us by the virtue of our product lending itself to a try and then buy kind of model. So it is just organic word of mouth developer adoption. The reason why the product market fit was just jumping off the page is a couple of reasons. One, there’s just a lot of latent demand for inferencing.
+
+Like the whole world, anyone that is writing software now is building it as AI-native, agent-native. It needs tokens. It is very inference hungry. That is number 1. Number 2 is, there is a difference between when we say we have inference and when a neocloud says they have inference. It is like really apples and pineapples. They sound kind of similar, but they do not taste anything like each other.
+
+When we say inferencing, it is managed inferencing where we say we will give you an endpoint for an API, and you can define what kind of tokens you want, what is your SLA, what is your throughput, what is the quality of service you are expecting, and you leave the rest to us. How to manage the infrastructure, where to deploy it, how to load balance it, all of that stuff. What kind of hardware or accelerator it is running on, that is our headache. You do not worry about it. You want certain quality of service and certain type of tokens, we will deliver that to you 24/7. When you talk about running inferencing on a neocloud infrastructure, it is basically saying, "Okay, I will give you a certain class of accelerators, like MI355 or GB200, and then you take over from there.
+
+You install the drivers, you build the development pipeline, you install the models, and you manage the life cycle of the whole thing." Both will work, but for you to take a piece of hardware and run inferencing at scale, it takes a significant amount of heavy lifting that I believe only a handful of companies can do at this point, especially when you start talking about advanced reasoning models like Kimi K3, GLM-5.3. These are near frontier open-weight models. K3 has 2.8 trillion parameters, of which 200 billion are active nodes. You have to load up the model and keep 200 billion parameters in memory, and the KV cache, it is a 1 million context window.
+
+You need to be able to load the whole thing, have KV cache for a 1 million context window, and manage it and manage the throughput, and do the offloading of the cache from memory to disk and disk back to memory. It is not easy. That is why when you go to OpenRouter, you look at all the inference providers, you will see dozens and dozens of them. 90% of them are serving flash models.
+
+which are very, very small models, which are great for some use cases, but not great for near frontier tasks. When you start getting into the near frontier type of model performance, the general industry trend, you asked about use cases more, the use cases are becoming more and more sophisticated.
+
+To serve those, you need real frontier reasoning models, like Claude Fable and Project Astra and Kimi K3 and GLM-5.3. A vast majority of AI-Native workloads prefer to have managed inferencing rather than just raw metal infrastructure where they have to manage the whole thing. When we talk about the inference demand is unbounded, what we mean is the managed inference demand, like the demand for consuming tokens, not demand for consuming actual infrastructure.
+
+It is very different when we talk about our inference platform. It comprises of many, many different individual building blocks, not just a token delivery service, but there are a lot of other services that make up our inference engine.
+
+Moderator: Got you. I know you speak to the demand coming from more sophisticated workloads and more sophisticated tasks. I know obviously coding is a very top of mind task that we always think about when we think about AI. Anything cutting edge, emerging tasks that you see AI natives performing that could be basically getting to an inflection point or anything else that gives you conviction of long-term durable demand?
+
+Paddy Srinivasan, CEO, DigitalOcean: Oh, yeah.
+
+Moderator: within, yeah.
+
+Paddy Srinivasan, CEO, DigitalOcean: Yeah. Coding is the obvious one that we are seeing.
+
+Moderator: Yeah.
+
+Paddy Srinivasan, CEO, DigitalOcean: Like coding today versus coding 12 months ago, completely different trade it feels like, right, from a practitioner point of view. But we are starting to see a lot of different adoption in use cases like generative media.
+
+Very advanced use cases in real enterprise companies, where we have a lot of AI-Native customers that offer generative media technology to their customers, and the end customer is typically a large enterprise or digital agencies. The way you build digital campaigns, the way you build digital assets from ads to even full feature movies to anything in between, even Hollywood production support. All of these things are transforming, and we see a significant amount of demand and pull for generative media models. We are starting to see a lot of our customers build go-to-market applications, which are agent native. We are seeing a lot of companies starting to deliver contact center software that is agent first. Customer support software that is agent first. We are starting to see gaming companies that are becoming AI-centric or AI native.
+
+We are starting to see many of these other, I call them capital A agent software. When we talk about agents, it’s like according task has multiple sub-agents that are doing autonomous tasks. I call it small A agents. Then you have capital A agents, which are labor replacement workflows. Multi-day, multi-turn, advanced reasoning. You’re starting to see agents that are replacing significant amount of human labor in many walks of life. We are starting to see an emergence of multitude of use cases, personal productivity. It seems like earlier this week was Muse from Meta. A couple of weeks ago it was Grok Bot. Then in between, there’s another startup that is getting a lot of attention called Instinct. We’re starting to see personal productivity agents really exploding. There are at least half a dozen repeat workloads we are seeing.
+
+When I say repeat, I mean there are multiple customers running their workloads on us, on some of these micro verticals.
+
+Moderator: Interesting. Very compelling use cases that are emerging. I think, just given the call, there’s a various multitude of products and features on the inferencing engine. Can you maybe just walk through the life cycle from the beginning to as production, how are customers using the inferencing engine from a feature module standpoint?
+
+Paddy Srinivasan, CEO, DigitalOcean: Yeah. It is a great question. What we are observing, and obviously this is just a canonical example because this is what I am distilling from watching a lot of AI-native companies. When they start, almost everyone says, "Okay, I need to find out serious companies." They want to find out whether they have product market fit. The easiest way to do that is they pick either the latest Anthropic model or an OpenAI GPT model and go after finding product market fit. That is typically how companies started, because even six months ago, open-weight models were six to nine months behind the frontier models.
+
+Today, the open-weight models, the near frontier models, are barely two to three months behind the open-weight models. What I am observing is a lot of companies, as they get product market fit, a couple of things happen. One is they start observing the cost of goods sold line item.
+
+Which is the token consumption, just starts getting out of control.
+
+Moderator: Sure.
+
+Paddy Srinivasan, CEO, DigitalOcean: That is number one. Number two is there is a lot of awareness in the market now that if you have an open-weight model, it is a lot easier for you as an AI-native company and you as an enterprise that is adopting that product to have an opportunity to own your intelligence. Own your weight, leading to own your intelligence. For these two reasons, I see the equation flip in terms of token consumption from closed source models to open-weight models. I think we talked about the fact that we flipped literally from 25/75 to 75/25 in favor of open-weight models.
+
+It is only accelerating. This is not just us, industry trends. You can look at any of the AI aggregators, you will see similar statistics. In terms of a typical life cycle, they start moving to open-weight models, then one of the first things that happen is, they want to take the open-weight model like a Kimi K3. There are famous case studies like Cursor is famously on Kimi. DoorDash is on Kimi.
+
+What they typically do is they do fine-tuning to make the model more domain specific, then they do reinforcement learning, which is a fancy way of saying, "I can fine-tune the model to be more specific to, we are here in New York, very Wall Street specific." But then reinforcement learning makes it even more customer specific, so I can train it on the usage patterns of Citi every night. The next morning, the pipeline works in a way that after the reinforcement learning, they do real-time agent eval to make sure that the model passes the eval test. The performance for those use cases that it has been reinforced to learn becomes much better the next morning.
+
+Then deploy that. We are also starting to see, these are all modules, that they leverage from inference providers.
+
+Moderator: Sure.
+
+Paddy Srinivasan, CEO, DigitalOcean: The other thing they do is, we are starting to see many workflows use a mixture of models.
+
+For a certain speech-to-text, for example, a certain class of models may be best price for performance. Versus reserving a heavy duty model like K3 for expensive but high reasoning tasks, for example. They use model routing. We introduced another feature called model synthesis, which is for the same task, you can have multiple models work on it real-time, and in just a few milliseconds return back the answer, and our model synthesis module will stitch together the answer.
+
+The user will not even know whether some parts of it came from K3, other parts came from a Flash model. We do that to preserve the cost performance equation, and it is all controllable by the builder of the AI product, and then we serve the answer. Then comes, once you start serving it, then you need to have the ability to monitor and manage the whole life cycle of a model deployment. These are all different aspects of the token consumption through our inference agent.
+
+Moderator: Right.
+
+Paddy Srinivasan, CEO, DigitalOcean: Then comes the agent aspect of it. Last week we announced an agent platform which breaks down an agent is an autonomous piece of code that does work. Typically these agents are short-lived, but they perform tasks over multiple hours or even multiple days, but in short bursts of a few milliseconds at a time. We introduced a new cloud primitive called sandboxes, which are compute cycles that are switched on and off in a matter of a couple of hundred milliseconds. The agent performs a task, goes down, wakes up again, has all the memory, does a little bit more work, and then so on and so forth. Then the ability to have a swarm of agents all orchestrating and working together to accomplish a task. These are all the capabilities of our platform.
+
+Moderator: Yeah, that’s a very comprehensive platform from where you were 3 years ago. Can you maybe speak to the adoption rate and penetration of this sort of comprehensive platform, whether from model routing to agent management. What’s the penetration and what’s the sort of product adoption, and what’s the opportunity here going forward?
+
+Paddy Srinivasan, CEO, DigitalOcean: Yeah. As you go more and more away from the bare metal infrastructure, we see the adoption of the primary front door to the platform is now moving slowly, but very clearly moving away from, "Hey, can you just give me a GPU?" To, "Hey, I want tokens of this flavor," becomes the front door. But once they come to our platform for tokens, then they start expanding to all of the features that I talked about. They start building agents, deploying agents. Once you deploy agents, you have to monitor them. Agents are very data hungry, so you need storage, you need databases to persist. Then it starts proliferating. In the August earnings call, Matt and I talked about the fact that our 100K plus AI customers are attaching Core Cloud at a 70% clip.
+
+Pretty much everyone that comes for AI is attaching Core Cloud. In another way of saying it, AI is becoming a demand gen engine for our cloud services, and that is even before we announced our agent platform. That’s only going to become more and more acute. From a unit economics point of view, the higher up the stack you go-
+
+it ceases to be GPU economics, and it starts looking more like software economics.
+
+We feel like we are just starting to scratch the surface as these AI-Native Cloud applications become more and more sophisticated. What is the origin of tokens, or where does the token demand come from? It comes from agents. It comes from modern applications, and applications need to be executed somewhere. They need to orchestrate, they need to be fed data, they need to persist information. So you need storage and databases. We are starting to see that flywheel take effect, where companies come for tokens, expand into agents are data hungry, and agents need to be orchestrated, so you need CPUs. The more agents you have, the more token hungry they become, so they consume more tokens, and that’s the flywheel we described in the last earnings.
+
+Moderator: Yeah, no, absolutely. Also very encouraging to see the momentum of that flywheel. Maybe just a quick one on the flywheel aspect. How sticky does a customer become once they are on the flywheel? What is the maybe ARR or revenue uplift that you see from a customer that has bought into this flywheel of, hey, I came in for AI, now I am buying your Core Cloud? What is sort of the upsell opportunity here?
+
+Matt Steinfort, CFO, DigitalOcean: Well, if you just look at the ARR per megawatt that we generate today,
+
+it is a function of the blend of services we have. We have a small amount of bare metal, right? I think at the last earnings it was about 15% of our AI customer ARR. Most of our AI customer ARR is inference services and Core Cloud pull-through. When you think of, okay, what do you see in the industry? On a total ARR per total megawatt from the neoclouds, it is still in the high single digits and maybe it is getting to like 10 or 11.
+
+Moderator: Sure.
+
+Matt Steinfort, CFO, DigitalOcean: They may announce deals at higher rates, that is on newer technology. If you look at it on an embedded base, it is $9 million to $10 million. If you look at us, we are generating in Q2 is $22 million per megawatt, and on an incremental basis, it is 30%-40% higher than what you are seeing out of the neoclouds. That is all because of the higher value-added services, the inference services, the Core Cloud pull-through.
+
+that are both stickier and higher margin.
+
+Moderator: Sure
+
+Matt Steinfort, CFO, DigitalOcean: We think that there’s a tremendous amount of upside there.
+
+Particularly as the inference engine is really only a couple of months old, and we’re just starting to see the economics there. The big lever that I don’t think the market fully grasps yet is when you sell inference services, when you sell tokens, it becomes a price and yield optimization game. It’s not a, hey, did you get $4 per hour on a GPU versus $3, or did you sign a long-term contract or a short-term contract to take advantage of surge kind of capacity pricing? It’s all about how many tokens can you generate from the same amount of infrastructure, and the more you can generate, the better you can deliver those tokens, the higher you can drive that price.
+
+Without adding incremental megawatts, there’s still a price lever that enables you to drive up your ARR per megawatt quite a bit.
+
+Moderator: Got you. That is terrific. I think related to that question or to the thought, what do you see as the greatest torque here? Obviously, you mentioned a lot of just token consumption and pricing. Where do you see most the torque? Is it going up the inferencing stack or selling more compute, more Core Cloud compute? What is sort of the thoughts?
+
+Matt Steinfort, CFO, DigitalOcean: Yeah, there are three main drivers. One is, the technologies that are coming out, the latest generations of GPUs generate more tokens per megawatt. They are more expensive, so the CapEx per megawatt is higher, but the return that you can generate on that CapEx is very similar. So you are generating more tokens, potential for the same amount of megawatts. So that is kind of the first driver. The second driver, as you said, is the more you can get Core Cloud attached and you can get higher layer services and not sell bare metal, that has a lift in ARR per megawatt as well, which is material. We are still in very early stages of that. Then, the third is the token optimization that I was describing.
+
+Because if you think about it, if you sell a GPU on a long-term contract, bare metal or even GPU as a Service, someone is buying 100% of that GPU. So they are paying you some number of dollars per hour, that is what everybody quotes in the industry, but they are using 100% of that box. Whether they use it or not, they are paying for it. When you switch to selling by token, they are only paying for what they consume. So you would say, "Okay, well, I can charge them a lot more," which is good, so you get the price is materially higher, but you are only using the infrastructure to provide tokens when people are consuming them, which right now is largely kind of North American business hours, right?
+
+So you assume you are only getting 60%, something like that, utilization, but you are charging enough more that it is better than selling it directly as a GPU or
+
+a GPU as a service. The art is in, well, how do you drive that utilization up? How do you get that 60% to 70% to 80%? For that, you need to do things that are creative. You need to pull traffic in from other parts of the world to offset the time zone kind of differences.
+
+Moderator: Yep.
+
+Matt Steinfort, CFO, DigitalOcean: You can do things like batch inference, where people are running agents overnight to scrape all the news and to prepare summary packages for them. You can schedule that stuff in the off hours, so it becomes a It is like airline seating. It is a price and utilization optimization game.
+
+Moderator: Right.
+
+Matt Steinfort, CFO, DigitalOcean: Which is a very different muscle to have when you are in this space. If what your business is built on is, well, I sell long-term contracts to a handful of customers and they just use it, that is a very different muscle than having been a consumption-based cloud for over a decade, always constantly thinking about how do you maximize consumption based utilization on a fixed set of infrastructure.
+
+Moderator: Got you. No, that all makes sense. I think just to round out this topic, putting this all together, where can we see ARR per megawatt get to from this 22 that we are currently at today?
+
+Matt Steinfort, CFO, DigitalOcean: Yeah, we don’t guide to it. What I would say is, all of the things I just described are positive and should be incremental to the ARR per megawatt that we’ve been able to generate. So that 13 that we had said on an incremental basis was based on Q4 of 2025 numbers, and it was based on the mix of inference services and bare metal and Core Cloud at the time. Since then those percentages have improved. The services we’ve launched are giving us additional levers. Pricing has increased. With this, the older generations of either H100, H200 pricing is going up, not down. So we’re very optimistic about our ability to continually drive that yield higher.
+
+Moderator: Got you. Then I think, we obviously went through the software side of the growth story. Maybe we’ll move to the hardware side of the growth story. You guys are 4x in your capacity within a matter of, call it three years, with, call it 80 megawatts of incremental capacity coming on through 2028. Where does the greatest execution risk lie here, and how are you thinking of in terms of sourcing hardware, getting the rack space, getting yourself into data centers? Speak to us about the process and the risk of going forward.
+
+Matt Steinfort, CFO, DigitalOcean: Yes.
+
+Moderator: Can you just go there?
+
+Matt Steinfort, CFO, DigitalOcean: I think we’ve been able to successfully navigate. It’s a very competitive market, and there’s a lot of interest in data center space and GPU capacity. I think we’ve done a very good job focusing on working with tier 1 data center providers, which is a little bit different than some of the other approaches in the industry. We work with the Equinix and DataBank and QTS and tier 1 data center providers that have been building and operating high-quality data centers for a long period of time. That’s enabled us to turn up our data centers on time and even ahead of schedule. All three of the data centers we turned on in 2026 were on time or ahead of schedule, and that’s been going well. We’re also sourcing incremental space pretty effectively. Again, we’re a little bit unique from a customer standpoint for the data center providers.
+
+The top of the tier 1 data center providers can sell to hyperscalers or investment-grade customers all day long. There is tons of demand for that. They are not as interested in selling to the neoclouds. They have a very different credit profile and risk profile and customer concentration. When they look at us, they see someone that is like, "Okay, I could sell to a hyperscaler, but I know what yield I am going to get. I know what kind of terms I am going to get." They can sell to us. We are not investment grade likely at this point, but we are not that far off.
+
+They see, "I can get a better yield from these guys." They have got a massively diverse set of customers, and it is another way of playing the AI trade that does not carry the risk that they might carry with some other folks. We have been pretty successful about taking down incremental capacity. From a GPU standpoint, we have tremendous relationships with both NVIDIA and AMD, and that has been a great kind of tailwind for us as much as anything.
+
+Moderator: Got you. Matt, maybe can you just quickly run through some of the P&L impacts of the upcoming build-out from a gross margin standpoint, free cash flow standpoint? When should we see metrics begin to trough and reflect back up?
+
+Matt Steinfort, CFO, DigitalOcean: Yeah.
+
+Moderator: Speak to some of the timing and dynamics there.
+
+Matt Steinfort, CFO, DigitalOcean: Yeah. We put out a supplement at one point to try to explain this, I think it was earlier this year. When you add capacity, it adds pressure on gross margins and EBITDA margin to a lesser degree. Because when you bring on a new data center, you get hit with the lease expense right away. You take the equipment, particularly we tend to finance our equipment. We pay for it over time, take the depreciation as soon as it is shipped to you. There is a little bit of headwind on the front end. But the ramp is pretty good from a revenue and an EBITDA standpoint. The operating leverage that we are generating, because we are not adding people or OpEx at the same rate that we are growing revenue. Our operating margins or adjusted operating margins have been still really good.
+
+It was 24% adjusted operating margin in Q2, and we have guided to this year. We are generating cash. We feel pretty good about that. But to your question, when will that trough? Well, it depends on when you slow down growth. If you continue to grow, and we have guided to 35% plus by the end of this year and north of 50% plus next year, you are going to continue to bring on data centers, you are going to continue to scale, and you are going to continue to have some margin pressure. From our perspective, hey, it is our job to take capital and earn a good return on that. If we can continue to earn the kinds of returns that we are earning, then we should be investing, and that is the mode that we are in right now.
+
+Moderator: Got you. Last question to wrap up the session. As we reflect on the past six months, what are some of the important milestones that strengthened your confidence and conviction in the long-term opportunity? Maybe Matt will just start from the finance function, and Paddy, you wrap us up on the just strategic operations.
+
+Matt Steinfort, CFO, DigitalOcean: Yeah. This is a great question. We get this a lot. People ask us, "Why didn’t you raise your 50% plus guidance for 2027?" We will provide more update on our outlook probably at next earnings. But if you think of all the things that are better now than then, we have signed nine-figure deals. We have taken on more data center capacity. We have launched an inference engine that gives us pricing leverage. We have indicated we are going to exit this year at a higher growth rate than we were. So all of that gives us a ton of confidence in our long-term outlook. Yeah, from my perspective, Mark, I spend my time predominantly on only two things. Are we building the right thing? Are we getting the right customer, right? Are we building the right thing to build a durable mode, build a durable business?
+
+Paddy Srinivasan, CEO, DigitalOcean: I think we absolutely are. We have a lead in software. I would say you can put us up against anyone, including the hyperscalers, and I think our software platform on inferencing, on agentic execution is second to none. I feel really good about it. Obviously, we have a lot of work to do. We have a summit coming up on October 13th. We will be taking the covers off of even more innovation at that point in time. Second thing is, are we attracting durable customers that are expanding on us? I think the numbers are proving themselves out in terms of the growth of million-dollar customers, lack of churn in those cohorts. Those customers are attaching a lot of core services, and that flywheel is spinning really hard.
+
+If we are able to do both those things in a consistent, persistent manner, I think we are in the process of building a very valuable business.
+
+Moderator: Terrific. I think that is a great place to cap it off. Thank you so much, gents.
+
+Paddy Srinivasan, CEO, DigitalOcean: Thank you, Mark.
+
+for your time.
+
+Appreciate it. Thank you.
