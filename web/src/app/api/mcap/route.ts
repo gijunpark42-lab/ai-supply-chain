@@ -43,14 +43,29 @@ export async function GET(req: NextRequest) {
 
   // LSE prices are in pence (GBp), but Yahoo's market cap is already in pounds.
   const currency = q.currency === "GBp" ? "GBP" : q.currency;
-  const fx = currency === "USD" ? 1 : await perUsd(currency);
+  const adr = home !== listed ? listed : null;
+  const [fx, adrCap] = await Promise.all([
+    currency === "USD" ? 1 : perUsd(currency),
+    adr ? yahooMarketCap(adr) : null,
+  ]);
+  const capUsd = fx ? q.cap / fx : null;
+
+  // ADR premium = the US line's market cap over the home shares' cap, both in USD.
+  // Yahoo sizes an ADR's cap as ADR price x home shares / ratio, so this equals the
+  // price premium without keeping a ratio table (checked on all 17 pairs).
+  let adrPremium: number | null = null;
+  if (adrCap && capUsd) {
+    const adrFx = adrCap.currency === "USD" ? 1 : await perUsd(adrCap.currency);
+    if (adrFx) adrPremium = adrCap.cap / adrFx / capUsd - 1;
+  }
 
   return NextResponse.json({
     symbol, // the listing the cap is computed on
-    adr: home !== listed ? listed : null, // the US line we looked through, if any
+    adr, // the US line we looked through, if any
     currency,
     market_cap: q.cap,
-    market_cap_usd: fx ? q.cap / fx : null,
+    market_cap_usd: capUsd,
+    adr_premium: adrPremium, // 0.194 = the ADR trades 19.4% above the home shares
     fx, // units of `currency` per 1 USD
     as_of: new Date().toISOString().slice(0, 16).replace("T", " "),
   });

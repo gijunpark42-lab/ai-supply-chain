@@ -78,6 +78,18 @@ export interface LiveQuote {
   as_of: string;
 }
 
+// /api/mcap response — live market cap of the node's listing (home shares for ADRs).
+export interface MarketCap {
+  symbol: string; // the listing the cap is computed on (2330.TW for TSM)
+  adr: string | null; // the US line the node is filed under, when we looked through it
+  currency: string;
+  market_cap: number;
+  market_cap_usd: number | null;
+  adr_premium: number | null; // fraction: 0.194 = ADR 19.4% above the home shares
+  fx: number | null; // units of `currency` per 1 USD
+  as_of: string;
+}
+
 // /api/fundamentals response — valuation ratios (Naver / Yahoo Japan / TWSE / Yahoo Finance).
 // Ratios are plain multiples (27.6 = 27.6x); roe / margins / growth / yield are
 // fractions (0.39 = 39%). null = Yahoo has no value for that field.
