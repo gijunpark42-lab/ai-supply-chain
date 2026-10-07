@@ -1,6 +1,6 @@
 # Enrichment status board
 
-Generated 2026-10-06 09:00 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-06 17:09 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
@@ -23,7 +23,6 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 - **Question for the user — Vultr:** HPE's 09-30 release names Vultr (private, 'largest privately-held cloud infrastructure company') as buyer of HPE's first AMD Helios order ($1.2B, US data centers). Add Vultr as a neocloud node (neocloud.json, cloud_infra / Neocloud (GPU-specialized)) like the private Fluidstack / Lambda nodes, plus an HPE -> Vultr edge? Meanwhile the order sits on HPE's Helios node with counterparty Vultr. — source: HPE press release: HPE secures its first AMD Helios order in $1.2 billion deal (09-30-2026) (asked 2026-09-30; answer, then `enrich_status.py resolve "Vultr" --answer "…"`)
 - **Question for the user — Cognition:** CoreWeave's 09-30 release names Cognition (private, maker of Devin) as the first production customer of CoreWeave's Vera Rubin NVL72; it already appears as a customer in earlier entries. Add as a node (ai_models), or keep as counterparty only? Same question for Blackfuel (private inference platform, Digital Realty BCN1, 09-30 release). — source: CoreWeave press release: CoreWeave Delivers NVIDIA Vera Rubin NVL72 Performance at (09-30-2026) (asked 2026-09-30; answer, then `enrich_status.py resolve "Cognition" --answer "…"`)
 - **Question for the user — Toppan:** Broadcom's 09-29 release (AST JV, Singapore FC-BGA substrate plant) says Broadcom is TOPPAN Holdings' largest FC-BGA substrate customer. Toppan sits only in foundry.json (materials / Photomask), and its product text describes the photomask business now spun out as Tekscend. Add a Toppan placement in packaging_substrate.json (advanced_packaging / FC-BGA Substrate) with a Toppan -> Broadcom edge? And should the photomask node be renamed/split to Tekscend? Meanwhile the fact is on Broadcom's node with counterparty TOPPAN Holdings. — source: Broadcom press release: AST Completes Singapore's First High-End FC-BGA Substrate (09-29-2026) (asked 2026-09-30; answer, then `enrich_status.py resolve "Toppan" --answer "…"`)
-- **Question for the user — Pharma decision dates:** ai_bio pharma rule captures only FDA/EC approvals and CHMP positive opinions. Should a stated FDA decision date (PDUFA, e.g. Roche giredestrant 30 Nov / 18 Dec 2026; Novo CagriSema decision expected Q4 2026) or a commercial launch (Novo Wegovy pill launched in US/UAE/UK/Germany) count as next_catalyst on pharma nodes? Tonight they yielded nothing. — source: Roche-Genentech press release: Roche's giredestrant combination significantly improved (10-01-2026) (asked 2026-09-30; answer, then `enrich_status.py resolve "Pharma decision dates" --answer "…"`)
 - **Question for the user — 10x Genomics:** 10x Genomics' Sentira release (09-29) says it is 'collaborating with NVIDIA': NVIDIA accelerated computing runs Atera on-instrument processing and Sentira analysis, rapids-singlecell integrated. Make it an NVIDIA -> 10x Genomics edge in ai_bio (like NVIDIA -> Simulations Plus), or keep it as a counterparty entry on 10x (current)? — source: 10x Genomics press release: 10x Genomics Announces Sentira, a New Computational (09-29-2026) (asked 2026-09-30; answer, then `enrich_status.py resolve "10x Genomics" --answer "…"`)
 - **Question for the user — NetApp:** NetApp INSIGHT releases (09-29): (1) Novus' first, orderable release runs on 'qualified Supermicro servers' — collaboration wording, both are players in nand_flash.json: add a Supermicro -> NetApp edge? (2) Oracle OCI NetApp Storage Service — Oracle is not a player in nand_flash.json, so no NetApp -> Oracle edge (NetApp has edges to Amazon/Microsoft/Google for the same service type). Add Oracle there? Both facts are on NetApp's node with counterparty keys meanwhile. — source: NetApp press release: NetApp and Supermicro Collaborate to Power AI at Any Scale (09-29-2026) (asked 2026-10-01; answer, then `enrich_status.py resolve "NetApp" --answer "…"`)
 - **Question for the user — Trane Technologies:** Trane's 09-30 release: lab proof-of-concept of an 800-volt DC chiller with Eaton and Danfoss — skipped under 'demos never count'. It is a direct 800 V DC data-center transition signal. Record such power/thermal proof-of-concepts as attributed 'demonstration' entries with no slot, or keep excluding them? — source: Trane Technologies press release: Trane Technologies Demonstrates Industry-First 800-Volt (09-30-2026) (asked 2026-10-01; answer, then `enrich_status.py resolve "Trane Technologies" --answer "…"`)
@@ -93,11 +92,11 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 |---|---|---|---|---|---|---|---|---|
 | US — United States | 246 | 238 | 0 | 0 | 0 | 0 | 218 | us 2026-10-05, utility 2026-10-01 |
 | KR — Korea | 126 | 2 | 0 | 123 | 0 | 8 | 25 | dart 2026-10-04, kind 2026-10-04 |
-| TW — Taiwan | 135 | 24 | 0 | 106 | 3 | 9 | 49 | intl 2026-10-05, tw 2026-10-05, mops 2026-10-06 |
-| JP — Japan | 127 | 14 | 0 | 113 | 1 | 9 | 60 | intl 2026-10-05, tdnet 2026-10-04, edinet 2026-10-06 |
-| EU — Europe | 40 | 28 | 0 | 11 | 5 | 7 | 21 | intl 2026-10-05 |
-| CN — China / Hong Kong | 117 | 3 | 0 | 114 | 1 | 2 | 12 | intl 2026-10-05, cninfo 2026-10-05, cnreports 2026-10-05 |
-| other — Other listed | 15 | 4 | 0 | 11 | 4 | 0 | 2 | intl 2026-10-05 |
+| TW — Taiwan | 135 | 24 | 0 | 106 | 3 | 9 | 49 | intl 2026-10-06, tw 2026-10-06, mops 2026-10-06 |
+| JP — Japan | 127 | 14 | 0 | 113 | 1 | 9 | 60 | intl 2026-10-06, tdnet 2026-10-04, edinet 2026-10-06 |
+| EU — Europe | 40 | 28 | 0 | 11 | 5 | 7 | 21 | intl 2026-10-06 |
+| CN — China / Hong Kong | 117 | 3 | 0 | 114 | 1 | 2 | 12 | intl 2026-10-06, cninfo 2026-10-05, cnreports 2026-10-05 |
+| other — Other listed | 15 | 4 | 0 | 11 | 4 | 0 | 2 | intl 2026-10-06 |
 
 `Call current` = the latest own earnings call is within the company's usual gap + 3 weeks. `No own data` = not one entry from the company's own documents yet (new nodes land here). Marked companies (no source exists) are left out of Overdue / Never.
 
@@ -137,18 +136,18 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
 | US earnings calls | `enrich us calls` | 2026-10-05 | 2026-10-06 | 0 | 370 | 369 |
-| US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-06 | 0 | 2002 | 710 |
-| Korea DART filings | `enrich dart` | 2026-10-04 | 2026-10-05 | 0 | 154 | 162 |
-| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-05 | 2026-10-05 | 2 | 63 | 63 |
-| Taiwan Chinese 法說會 | `enrich tw` | 2026-10-05 | 2026-10-05 | 1 | 18 | 18 |
+| US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-06 | 0 | 2002 | 743 |
+| Korea DART filings | `enrich dart` | 2026-10-04 | 2026-10-06 | 0 | 154 | 162 |
+| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-06 | 2026-10-06 | 2 | 63 | 63 |
+| Taiwan Chinese 法說會 | `enrich tw` | 2026-10-06 | 2026-10-06 | 1 | 18 | 18 |
 | Investor conferences | `enrich conference` | 2026-10-05 | 2026-10-06 | 2 | 141 | 138 |
-| Company IR press releases | `enrich ir` | 2026-10-06 | 2026-10-06 | 30 | 1414 | 442 |
+| Company IR press releases | `enrich ir` | 2026-10-06 | 2026-10-06 | 30 | 1414 | 489 |
 | Korea IR decks (KIND) | `enrich korea` | 2026-10-04 | 2026-09-27 | 0 | 47 | 37 |
 | US utility regulatory filings | `enrich us` | 2026-10-01 | 2026-10-01 | 0 | 6 | 3 |
 | Korea earnings-call scripts | `enrich korea` | 2026-10-04 | 2026-09-27 | 0 | 1 | 1 |
 | China IR records + investor Q&A | `enrich china` | 2026-10-05 | 2026-10-06 | 0 | 207 | 133 |
 | China periodic reports | `enrich china` | 2026-10-05 | 2026-10-06 | 0 | 314 | 159 |
-| Japan TDnet disclosures | `enrich japan` | 2026-10-04 | 2026-10-04 | 0 | 25 | 9 |
+| Japan TDnet disclosures | `enrich japan` | 2026-10-04 | 2026-10-06 | 0 | 25 | 9 |
 | Japan EDINET statutory reports | `enrich japan` | 2026-10-06 | 2026-10-06 | 0 | 516 | 248 |
 | Taiwan MOPS filings | `enrich taiwan` | 2026-10-06 | 2026-10-06 | 0 | 395 | 330 |
 | Pasted transcripts | `Transcript:<company>` | 2026-10-06 | 2026-10-06 | 0 | 496 | 485 |
