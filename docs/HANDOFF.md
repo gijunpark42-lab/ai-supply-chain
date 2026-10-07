@@ -1039,3 +1039,8 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
     18 amino acids / HUPO data, BillionToOne study results (clin_*.json). Emerson: user "y" -> second placement power/
     Datacenter Power added BY HAND (DeltaV; the 08-03 release entry moved there; Generation keeps Ovation). Two background
     jobs were reaped for low memory mid-build (no corruption; the re-run build + verify_labels for the 18 labels finished it).
+  - AI-bio clinical BACKFILL (user "y", same day): the new §2 rule applied retroactively to the 25 existing AI-bio nodes
+    (pharma 9 + tools / AI-discovery 16) over their already-saved sources (381 files): workflow wf_bff661e0-0f1, 50 enricher
+    agents (per company in date order, each seeing the earlier patches) + independent verifiers -> 144 patches / 259 entries
+    + 3 contracts on existing Lilly edges (AstraZeneca 30, Sanofi 26, Novo 24, Lilly 21, BMS 18 …); verify_graph 417 pass /
+    130 unchecked / 0 fail. Labels recorded as verified. PR from branch enrich-2026-10-06-aibio-backfill.
