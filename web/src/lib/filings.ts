@@ -8,6 +8,7 @@
 // Server-only (API keys from process.env).
 
 import { createHash } from "node:crypto";
+import { getCache } from "@vercel/functions";
 import { toEnglish } from "./gemini";
 import { mapNodes, pool, tickerOf, type NewsFeed, type NewsItem } from "./news";
 
@@ -68,8 +69,97 @@ function item(
   return { id: hashId(url), time, title, source, url, summary: "", companies: [company], tickers: [], feed, ...extra };
 }
 
+// ── Filing times ──────────────────────────────────────────────────────────
+// DART's list API and EDGAR's search give dates only. DART's "today" RSS gives
+// its latest 50 filings with the minute they came in: the ingest job (every 5
+// minutes, lib/digests.ts) notes them here, receipt no. → time. EDGAR keeps each
+// filing's acceptance time in its index headers, read once per filing.
+const DART_TIMES_KEY = "dart-times-v1";
+const KEEP_MS = 3 * DAY_MS;
+
+async function loadDartTimes(): Promise<Record<string, number>> {
+  try {
+    return ((await getCache().get(DART_TIMES_KEY)) as Record<string, number> | undefined) ?? {};
+  } catch {
+    return {};
+  }
+}
+
+/** Ingest job: note when DART's latest 50 filings came in. */
+export async function recordDartTimes(): Promise<number> {
+  let xml = "";
+  try {
+    const res = await fetch("https://dart.fss.or.kr/api/todayRSS.xml", {
+      headers: { "User-Agent": "Mozilla/5.0" },
+      cache: "no-store",
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (res.ok) xml = await res.text();
+  } catch {
+    // DART unreachable: next run
+  }
+  const times = await loadDartTimes();
+  let added = 0;
+  for (const b of xml.split("<item>").slice(1)) {
+    const rcp = b.match(/rcpNo=(\d+)/)?.[1];
+    const t = Date.parse(b.match(/<pubDate>([^<]+)<\/pubDate>/)?.[1] || "");
+    if (rcp && Number.isFinite(t) && times[rcp] !== t) {
+      times[rcp] = t;
+      added++;
+    }
+  }
+  const cutoff = Date.now() - KEEP_MS;
+  for (const k of Object.keys(times)) if (times[k] < cutoff) delete times[k];
+  if (added) await getCache().set(DART_TIMES_KEY, times, { ttl: KEEP_MS / 1000, name: "dart filing times" });
+  return added;
+}
+
+const secTimes = new Map<string, number>(); // accession no. → acceptance time, kept while warm
+
+/** "20261009160849", New York time (EDGAR's clock) → epoch ms. */
+function newYorkToMs(s: string): number {
+  const [y, mo, d, h, mi, se] = [0, 4, 6, 8, 10, 12].map((i, k) => Number(s.slice(i, k ? i + 2 : 4)));
+  const guess = Date.UTC(y, mo - 1, d, h, mi, se);
+  // Read the guess back on New York's clock: the difference is its UTC offset that day.
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    hourCycle: "h23",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  }).formatToParts(guess);
+  const get = (type: string) => Number(parts.find((p) => p.type === type)?.value);
+  return guess + (guess - Date.UTC(get("year"), get("month") - 1, get("day"), get("hour"), get("minute"), get("second")));
+}
+
+async function secAcceptance(url: string): Promise<number | null> {
+  const m = url.match(/\/data\/(\d+)\/(\d{18})\//);
+  if (!m) return null;
+  const [, cik, acc] = m;
+  if (secTimes.has(acc)) return secTimes.get(acc)!;
+  const dashed = `${acc.slice(0, 10)}-${acc.slice(10, 12)}-${acc.slice(12)}`;
+  try {
+    const res = await fetch(`https://www.sec.gov/Archives/edgar/data/${cik}/${acc}/${dashed}-index-headers.html`, {
+      headers: { "User-Agent": SEC_UA },
+      cache: "no-store",
+      signal: AbortSignal.timeout(10_000),
+    });
+    const stamp = res.ok ? (await res.text()).match(/ACCEPTANCE-DATETIME>\s*(\d{14})/)?.[1] : undefined;
+    if (!stamp) return null;
+    const t = newYorkToMs(stamp);
+    secTimes.set(acc, t);
+    return t;
+  } catch {
+    return null;
+  }
+}
+
 // ── DART (Korea) ──────────────────────────────────────────────────────────
-// Dates only, so "the last day" = yesterday's and today's Korean dates.
+// The list API dates filings only, so it is asked for yesterday's and today's
+// Korean dates; filings whose minute the RSS gave are then kept to the last 24 h.
 async function dart(now: number): Promise<NewsItem[] | null> {
   const key = process.env.DART_API_KEY?.trim();
   if (!key) return [];
@@ -94,17 +184,21 @@ async function dart(now: number): Promise<NewsItem[] | null> {
     .flatMap((p) => p?.list || [])
     .filter((r: any) => byCode.has(r.stock_code) && !DART_SKIP.test(r.report_nm))
     .sort((a: any, b: any) => b.rcept_no.localeCompare(a.rcept_no)); // receipt order within a day
-  return rows.map((r: any, i: number) => {
+  const times = await loadDartTimes();
+  const items = rows.map((r: any, i: number) => {
     const day = `${r.rcept_dt.slice(0, 4)}-${r.rcept_dt.slice(4, 6)}-${r.rcept_dt.slice(6, 8)}`;
     const url = `https://dart.fss.or.kr/dsaf001/main.do?rcpNo=${r.rcept_no}`;
     const company = byCode.get(r.stock_code)!;
     const report = String(r.report_nm).replace(/\s+/g, " ").trim();
     // The map's English name; buildFeed translates the report name.
-    return item("dart", "DART", url, endOfDay(day, KST, now) - i, `${company} — ${report}`, company, {
-      day,
-      original: `${r.corp_name} — ${report}`,
-    });
+    const title = `${company} — ${report}`;
+    const original = `${r.corp_name} — ${report}`;
+    const time = times[r.rcept_no];
+    return time
+      ? item("dart", "DART", url, time, title, company, { original })
+      : item("dart", "DART", url, endOfDay(day, KST, now) - i, title, company, { day, original });
   });
+  return items.filter((it: NewsItem) => it.day || it.time >= now - DAY_MS);
 }
 
 // ── EDINET (Japan) ────────────────────────────────────────────────────────
@@ -139,7 +233,7 @@ async function edinet(now: number): Promise<NewsItem[] | null> {
 
 // ── SEC EDGAR (US) ────────────────────────────────────────────────────────
 // EDGAR full-text search takes every map company's CIK in one query; it dates
-// filings without a time, like DART.
+// filings only, so each one's acceptance time comes from its index headers.
 let cikMemo: Promise<Map<number, string>> | null = null;
 function mapCiks(): Promise<Map<number, string>> {
   cikMemo ??= getJson("https://www.sec.gov/files/company_tickers.json", { "User-Agent": SEC_UA }).then((j) => {
@@ -166,11 +260,22 @@ async function sec(now: number): Promise<NewsItem[] | null> {
   const hits: any[] = [];
   for (let from = 0; from < 500; from += 100) {
     const j = await getJson(`${base}&from=${from}`, { "User-Agent": SEC_UA });
-    if (!j?.hits) return from ? collect() : null;
+    if (!j?.hits) {
+      if (!from) return null;
+      break;
+    }
     hits.push(...j.hits.hits);
     if (hits.length >= j.hits.total.value || !j.hits.hits.length) break;
   }
-  return collect();
+  const filings = collect();
+  await pool(
+    filings.map((it) => async () => {
+      const t = await secAcceptance(it.url);
+      if (t) [it.time, it.day] = [t, undefined];
+    }),
+    4
+  );
+  return filings.filter((it) => it.day || it.time >= now - DAY_MS);
 
   function collect(): NewsItem[] {
     // A filing comes back once per document; keep one per filing, preferring the

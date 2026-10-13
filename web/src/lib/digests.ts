@@ -18,7 +18,7 @@
 // Display only, like the rest of the terminal. Server-only.
 
 import { getCache } from "@vercel/functions";
-import { getFilingsFeed } from "./filings";
+import { getFilingsFeed, recordDartTimes } from "./filings";
 import { getNewsFeed, tickerOf, type Digest, type NewsFeed, type NewsItem } from "./news";
 import { summarizeMany } from "./newsSummary";
 import { rateNewStories } from "./top";
@@ -57,12 +57,13 @@ export async function withDigests(feed: NewsFeed): Promise<NewsFeed> {
   return { ...feed, items, tickers };
 }
 
-/** One ingest run: rate the new Top News stories (lib/top.ts), then summarize
- *  the newest items that have no summary yet. */
+/** One ingest run: note DART filing times (lib/filings.ts), rate the new Top News
+ *  stories (lib/top.ts), then summarize the newest items that have no summary yet. */
 export async function ingest() {
+  const dartTimes = await recordDartTimes();
   const top = await rateNewStories();
   const digests = await summarizeNew();
-  return { top, digests };
+  return { dartTimes, top, digests };
 }
 
 async function summarizeNew(): Promise<{ added: number; waiting: number; stored: number }> {

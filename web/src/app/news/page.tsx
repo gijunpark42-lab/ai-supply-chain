@@ -34,10 +34,37 @@ const FEED_LABEL: Record<NewsItem["feed"], string> = {
 // Top News categories (lib/top.ts CATEGORIES), in the order the filter shows them.
 const CATEGORY_ORDER = ["Politics", "Economy", "Markets", "Companies", "Tech", "Energy", "Other"];
 
-const hhmm = (ms: number) => new Date(ms).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+// ── Time ── One clock for everything (user, 2026-10-13): the viewer's own time zone,
+// named ("PDT"); a browser that can't say its zone gets US Eastern.
+const TZ = (() => {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone || "America/New_York";
+  } catch {
+    return "America/New_York";
+  }
+})();
+const fmt = (opts: Intl.DateTimeFormatOptions, timeZone = TZ) =>
+  new Intl.DateTimeFormat("en-US", { timeZone, hourCycle: "h23", ...opts });
+const F_TIME = fmt({ hour: "2-digit", minute: "2-digit" });
+const F_DAY = fmt({ month: "short", day: "numeric" });
+const F_DATE_KEY = fmt({ year: "numeric", month: "2-digit", day: "2-digit" });
+const F_FULL = fmt({ year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", timeZoneName: "short" });
+const F_CLOCK = fmt({ hour: "2-digit", minute: "2-digit", second: "2-digit", timeZoneName: "short" });
+const F_ZONE = fmt({ timeZoneName: "short" });
+const zone = (ms: number) => F_ZONE.formatToParts(ms).find((p) => p.type === "timeZoneName")?.value ?? "";
+const hhmm = (ms: number) => `${F_TIME.format(ms)} ${zone(ms)}`;
+// A filing that only has a date keeps its own market's date ("Oct 13 KST"): it
+// can't be moved to another clock without a time.
+const F_MARKET_DAY = fmt({ month: "short", day: "numeric" }, "UTC");
+const MARKET_ZONE: Partial<Record<NewsItem["feed"], string>> = { dart: "KST", edinet: "JST", sec: "ET" };
+const marketDay = (it: NewsItem) => `${F_MARKET_DAY.format(Date.parse(`${it.day}T12:00:00Z`))} ${MARKET_ZONE[it.feed] ?? ""}`.trim();
 const firstPoint = (bullets: string) => (bullets.split("\n").find((l) => l.trim()) || "").replace(/^\s*[-*•]\s*/, "");
-// Date-only filings (DART, SEC) show their market date, "10/13", where others show a time.
-const when = (it: NewsItem) => (it.day ? it.day.slice(5).replace("-", "/") : hhmm(it.time));
+// Rows and cards: "14:05" today, "Oct 12 23:10" before that, on the viewer's clock.
+const when = (it: NewsItem) => {
+  if (it.day) return marketDay(it);
+  const today = F_DATE_KEY.format(Date.now()) === F_DATE_KEY.format(it.time);
+  return today ? F_TIME.format(it.time) : `${F_DAY.format(it.time)} ${F_TIME.format(it.time)}`;
+};
 
 /** One polled feed: its latest answer, the last error, and the ids that are new since the previous poll. */
 function useFeed(url: string, pollMs: number) {
@@ -280,7 +307,7 @@ function Clock() {
   }, []);
   return (
     <span className="news-clock">
-      {now ? new Date(now).toLocaleTimeString([], { hour12: false }) : ""}
+      {now ? F_CLOCK.format(now) : ""}
     </span>
   );
 }
@@ -362,7 +389,7 @@ function Detail({
       {item.original && <p className="news-orig">{item.original}</p>}
       <p className="news-art-meta">
         <span>{item.source}</span>
-        <span>{item.day || new Date(item.time).toLocaleString([], { hour12: false })}</span>
+        <span>{item.day ? `${marketDay(item)} (date only)` : F_FULL.format(item.time)}</span>
         <span>{FEED_LABEL[item.feed]}</span>
       </p>
       <a className="news-open" href={res?.url || item.url} target="_blank" rel="noopener noreferrer">
