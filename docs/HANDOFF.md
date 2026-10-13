@@ -1156,3 +1156,19 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   engine orders, capex plan, suppliers, R&D; contract on HD Hyundai Electric -> HD Construction Equipment (purchases
   KRW 82M + 480M, payables 308M). CleanSpark 10-K: 589.88 BTC sold in October 2025. MicroBT product text made neutral
   (was Riot-specific). Pre-apply Opus verifier: 5 wording fixes, all pass.
+- **2026-10-13 (Claude, user: "enrich everything" / "에이전트겁나늘려") — Taiwan, Japan, Europe, China, intl in one run** —
+  collectors: mops.py, tdnet.py, cninfo.py sync + reports, ir_pull.py; 225 queue rows in 12 company-grouped batches
+  (TW 6, JP 3, CN 2, EU 1) → 168 labels applied (MOPS revenue 81, IR releases 41, cninfo Q&A / records 16, MOPS material
+  information 14, TDnet 10, MOPS decks 5, 1 conference), the rest closed "no material facts" / restates. 20 post-apply Opus
+  verifiers: 7 fixes + 3 deletes (Osaka Organic equity-method share purchase, Foxconn's Zhen Ding share sale, a Cambricon
+  restatement) via patches/corrections/verify-1013-g*.json. New edges: Wacker Chemie / Fujimi -> Siltronic (Siltronic
+  Supplier Day), Tokyo Electron -> KYEC (122 sets, MOPS), Seikoh Giken -> Fujikura / Furukawa Electric (customers for
+  other products, Q&A); contracts on KYEC -> NVIDIA (US test-capacity prepayment) and Onto -> Rigaku. Japan Q&A hunt
+  under the 10-13 rule: 113 JP companies without a call checked by 14 agents → 52 companies used (54 company-published
+  docs in transcripts/non_transcript_sources/*_qa_*.txt; 9 are full company transcripts labelled as calls: Daikin,
+  Fujifilm, HOYA, Lasertec, Nippon Sanso, Rigaku, Sakai Chemical, Taiyo Holdings, Tocalo), 54 publish none (marked,
+  recheck 2027-01-20), Ebara (403) / Osaka Organic (unreachable) to retry; 11 pre-apply Opus verifiers fixed ~40 points
+  in place (analyst-only numbers, hedges, computed 億円 sums, stray unit digits) → 318 entries applied. Foxconn 10-05
+  release body transcribed from its report images. Cambricon 09-30 Q&A file restored after a same-day re-sync overwrote
+  it. Asked the user: logmi links, Toho Titanium (delisted), government subsidy amounts, equity-stake purchases / sales.
+  i18n 710 + 660 strings (ko / zh / ja). Board: Run next nothing due.
