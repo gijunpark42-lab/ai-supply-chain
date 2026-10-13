@@ -2,8 +2,9 @@
 // answer a question. (Step 2 is /api/ask, which hands those facts to Claude.)
 //
 // The whole graph is already in the browser (VizNode[] / VizLink[] built by
-// data.ts), so the search runs HERE, on the client. Only the ~15 best snippets
-// are sent to the server, and the server never touches the graph itself.
+// data.ts), so the first search runs HERE, on the client, and only the best
+// snippets are sent to the server. Since 2026-10-12 the server runs this same
+// file too (lib/askAgent.ts) when Claude decides to look deeper.
 // Nothing in this file talks to the network.
 //
 // Two ideas a first-time reader needs:
@@ -31,6 +32,7 @@
 //   retrieve(question, nodes, links, k?)          → Snippet[]
 //   retrieveWithMeta(question, nodes, links, k?)  → { snippets, companies, chains, topics, terms }
 //   suggestQuestions(nodes)                       → string[]   (6–8 example questions)
+//   allFacts(nodes, links)                        → Snippet[]  (every fact, unranked; server lookups)
 //   tokenize(text)                                → string[]   (exported for tests)
 
 import type { VizNode, VizLink, QuarterlyData, Contract } from "./types";
@@ -69,10 +71,11 @@ export interface RetrievalResult {
 
 // ── Tunables ───────────────────────────────────────────────────────────────
 
-const DEFAULT_K = 40; // at most this many snippets ...
-const MAX_CONTEXT_CHARS = 12_000; // ... and at most this many characters of snippet text
-const MAX_SIGNAL_CHARS = 900; // a single signal is cut here (the figure is kept separately)
-const MAX_CONTRACT_CHARS = 700;
+// Raised 2026-10-12 (owner: answer quality first — Claude Opus 5.5 reads it all).
+const DEFAULT_K = 60; // at most this many snippets ...
+const MAX_CONTEXT_CHARS = 30_000; // ... and at most this many characters of snippet text
+const MAX_SIGNAL_CHARS = 2_000; // a single signal is cut here (the figure is kept separately)
+const MAX_CONTRACT_CHARS = 1_500;
 
 const BM25_K1 = 1.2;
 const BM25_B = 0.75;
@@ -678,16 +681,7 @@ export function retrieveWithMeta(
   }
   picked.sort((a, b) => b.s - a.s);
 
-  const snippets: Snippet[] = picked.map(({ d }) => ({
-    kind: d.kind,
-    company: d.company,
-    target: d.target,
-    chain: d.chain,
-    label: d.label,
-    date: d.date,
-    text: d.text,
-    topics: d.topics,
-  }));
+  const snippets: Snippet[] = picked.map(({ d }) => toSnippet(d));
 
   return {
     snippets,
@@ -696,6 +690,28 @@ export function retrieveWithMeta(
     topics: [...topicSet],
     terms: [...qt.keys()].filter((t) => qt.get(t) === 1),
   };
+}
+
+/** A document without its search statistics — the shape the UI and /api/ask use. */
+function toSnippet(d: Doc): Snippet {
+  return {
+    kind: d.kind,
+    company: d.company,
+    target: d.target,
+    chain: d.chain,
+    label: d.label,
+    date: d.date,
+    text: d.text,
+    topics: d.topics,
+  };
+}
+
+/**
+ * EVERY stored fact in the graph, unranked — each signal, and each deal once.
+ * Used by the server's lookups (lib/askAgent.ts) — same snippet shape as retrieve().
+ */
+export function allFacts(nodes: VizNode[], links: VizLink[]): Snippet[] {
+  return getIndex(nodes, links).docs.map(toSnippet);
 }
 
 /** The plain version: just the snippets. */
@@ -799,9 +815,9 @@ export function suggestQuestions(nodes: VizNode[]): string[] {
 // phrasing is searched on its own with the ranking above, untouched, and the
 // results are merged here. Nothing in this section changes a score.
 
-const UNION_K = 15; // each REWRITTEN query contributes at most this many snippets ...
-const UNION_MAX_SNIPPETS = 50; // ... the merged list stops here (the route accepts 60) ...
-const UNION_MAX_CHARS = 18_000; // ... or here, in characters of snippet text (the route accepts 20,000)
+const UNION_K = 25; // each REWRITTEN query contributes at most this many snippets ...
+const UNION_MAX_SNIPPETS = 120; // ... the merged list stops here (the route accepts 150) ...
+const UNION_MAX_CHARS = 60_000; // ... or here, in characters of snippet text (the route accepts 80,000)
 
 /** Unique union of several string lists, keeping the first list's order first. */
 function unionOf(lists: string[][]): string[] {

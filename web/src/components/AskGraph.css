@@ -300,6 +300,27 @@ body.glass .ask-turn {
   overflow-wrap: anywhere;
 }
 
+/* ── Web pages Claude saw (web search / fetch); collapsible like "Context used" ── */
+.ask-web {
+  font-size: 0.78rem;
+  color: var(--ap-muted);
+}
+.ask-web ol {
+  margin: 0.25rem 0 0;
+  padding-left: 1.2rem;
+}
+.ask-web li {
+  margin: 2px 0;
+  overflow-wrap: anywhere;
+}
+.ask-web a {
+  color: var(--ap-blue-hi);
+  text-decoration: none;
+}
+.ask-web a:hover {
+  text-decoration: underline;
+}
+
 /* ── Footer + collapsible context list ──────────────────────────────────── */
 .ask-foot {
   display: flex;

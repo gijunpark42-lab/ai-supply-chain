@@ -12,9 +12,13 @@
 //
 // and receives newline-delimited JSON (NDJSON), one object per line:
 //   {"type":"text","text":"..."}      answer fragments in order
+//   {"type":"step","tool":"open_company"|"search_facts","target":"…","facts":n}
+//                                     Claude chose to look further (one line per lookup)
+//   {"type":"facts","snippets":[…]}   facts a lookup numbered after the snippets, in order
 //   {"type":"done","model":"claude-opus-5-5"|…,"effort":"xhigh"|"default",
 //                  "engine":"anthropic"|"groq"|"openai-compatible",
-//                  "latency_ms":n,"citations":[n,…],"usage":{…},"stop_reason":"…"}   once, last
+//                  "latency_ms":n,"citations":[n,…],"usage":{…},"stop_reason":"…",
+//                  "lookups":n}       once, last
 //   {"type":"error","error":"..."}    only if an upstream stream breaks mid-way
 // Before anything is streamed, problems come back as plain JSON with a real
 // HTTP status: 400 bad input, 413 too big, 429 rate limit (10 per minute per
@@ -25,7 +29,10 @@
 //   1. CLAUDE — the Claude API (ANTHROPIC_API_KEY): Claude Opus 5.5 with
 //      adaptive thinking at effort "xhigh", streamed. Since 2026-10-12 it
 //      replaces the owner's local runner (local-ask/), so the site no longer
-//      depends on the PC being on. The SDK retries 429 / 5xx / 529 by itself,
+//      depends on the PC being on. Claude also gets a map of every company,
+//      graph lookups (a company two hops out, one company, keyword search —
+//      lib/askAgent.ts) and web search, and decides by itself how far to look —
+//      at most MAX_LOOKUP_ROUNDS rounds. The SDK retries 429 / 5xx / 529 by itself,
 //      and a safety-classifier refusal is re-run server-side on the fallback
 //      model Anthropic recommends. If Claude fails BEFORE anything is streamed
 //      and engine 2 is configured, the question quietly goes there instead.
@@ -42,6 +49,13 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import type { BetaMessageStream } from "@anthropic-ai/sdk/lib/BetaMessageStream";
+import type {
+  BetaContentBlock,
+  BetaMessageParam,
+  BetaTextBlockParam,
+  BetaToolResultBlockParam,
+  BetaToolUseBlock,
+} from "@anthropic-ai/sdk/resources/beta/messages/messages";
 import { NextRequest, NextResponse } from "next/server";
 import {
   normalizeIntent,
@@ -50,7 +64,17 @@ import {
   buildSystemPrompt,
   buildUserMessage,
   extractCitations,
+  LOOKUP_RULES,
 } from "@/lib/askPrompt.mjs";
+import {
+  ASK_TOOLS,
+  WEB_TOOLS,
+  FactBook,
+  companyMapBlock,
+  runLookup,
+  webStepOf,
+  webSourcesOf,
+} from "@/lib/askAgent";
 import {
   CLAUDE_MODEL,
   CLAUDE_REFUSAL_FALLBACK,
@@ -85,10 +109,17 @@ const BUDGET_MS = (maxDuration - 10) * 1000; // leave 10 s of headroom before Ve
 // default is "xhigh" (2026-10-12) — one step below "max"; Opus 5.5's own
 // default is "medium".
 const CLAUDE_EFFORT = "xhigh";
-// Hidden thinking counts against this limit too. 32k leaves room for long
-// xhigh thinking plus a ~1,000-token answer, and caps the output cost of one
-// question at about $0.64 (Opus 5.5: $20 per million output tokens).
-const CLAUDE_MAX_TOKENS = 32_000;
+// Hidden thinking counts against this limit too. 64k leaves xhigh all the room
+// it wants to think over a large context plus a long answer (owner: quality
+// first); it caps the output cost of one round at about $1.28 (Opus 5.5: $20
+// per million output tokens) — real rounds use a fraction of it.
+const CLAUDE_MAX_TOKENS = 64_000;
+// Looking further (lib/askAgent.ts): Claude may spend at most this many rounds
+// on lookups; the round after that must answer (tool_choice "none"). The same
+// happens once less than ANSWER_RESERVE_MS of the budget is left — an xhigh
+// answer still needs time to think and write.
+const MAX_LOOKUP_ROUNDS = 3;
+const ANSWER_RESERVE_MS = 120_000;
 
 const API_FETCH_TIMEOUT_MS = 60_000; // one API call, including reading the stream
 const API_MAX_RETRIES = 3; // after the first attempt: waits of 1 s, 2 s, 4 s (+ jitter)
@@ -100,12 +131,12 @@ const API_MIN_ATTEMPT_MS = 8_000; // do not start an attempt with less than this
 // ranking question came back empty, cut at the limit before any visible text.
 const MAX_TOKENS = 4000;
 
-// ── Request limits (the browser sends ≤18k chars of snippets + ≤10k of history; these are ceilings) ──
-const MAX_BODY_BYTES = 128_000;
+// ── Request limits (the browser sends ≤60k chars of snippets + ≤16k of history; these are ceilings) ──
+const MAX_BODY_BYTES = 400_000;
 const MAX_QUESTION_CHARS = 500;
-const MAX_SNIPPETS = 60;
-const MAX_SNIPPET_TEXT = 2_000;
-const MAX_TOTAL_TEXT = 20_000;
+const MAX_SNIPPETS = 150;
+const MAX_SNIPPET_TEXT = 4_000; // a signal (≤2,000) plus its figure
+const MAX_TOTAL_TEXT = 80_000;
 const MAX_FIELD = 160; // company / target / chain / label / date
 
 // Rate limit: 10 questions per minute per IP (see askProvider.ts for the caveat).
@@ -204,6 +235,7 @@ function doneLine(o: {
   citations: number[];
   usage: Usage;
   stopReason: string | null;
+  lookups?: number; // Claude only: how many lookups it decided to make (0 = the snippets were enough)
 }) {
   return {
     type: "done",
@@ -214,6 +246,7 @@ function doneLine(o: {
     citations: o.citations,
     usage: o.usage,
     stop_reason: o.stopReason,
+    lookups: o.lookups ?? 0,
   };
 }
 
@@ -228,46 +261,94 @@ interface EngineError {
   upstream_status?: number;
 }
 
+/** Everything one Claude answer needs across its rounds (a round = one API call). */
+interface AgentRun {
+  client: Anthropic;
+  system: BetaTextBlockParam[];
+  /** The conversation so far — grows by one assistant + one tool-result message per lookup round. */
+  messages: BetaMessageParam[];
+  /** False when the graph could not be loaded: then no map, no tools — snippets only. */
+  lookups: boolean;
+  /** Web search on (turned off for the request if the API says it is not enabled). */
+  web: boolean;
+  book: FactBook;
+  deadline: Deadline;
+}
+
+/** One API call. Past the round / time limits the call gets tool_choice "none": answer now. */
+function startRound(run: AgentRun, round: number): BetaMessageStream {
+  const mustAnswer = round >= MAX_LOOKUP_ROUNDS || run.deadline.remaining() < ANSWER_RESERVE_MS;
+  return run.client.beta.messages.stream(
+    {
+      model: CLAUDE_MODEL,
+      max_tokens: CLAUDE_MAX_TOKENS,
+      thinking: { type: "adaptive" },
+      output_config: { effort: CLAUDE_EFFORT },
+      system: run.system,
+      ...(run.lookups
+        ? {
+            tools: run.web ? [...ASK_TOOLS, ...WEB_TOOLS] : ASK_TOOLS,
+            tool_choice: { type: mustAnswer ? "none" : "auto" } as const,
+          }
+        : {}),
+      messages: run.messages,
+      // Also cache the conversation so far, so the next round re-reads it cheaply.
+      cache_control: { type: "ephemeral" },
+      ...CLAUDE_REFUSAL_FALLBACK,
+    },
+    // Bounds the whole call: the SDK's retries and the streamed answer included.
+    { signal: AbortSignal.timeout(Math.max(1, run.deadline.remaining())) }
+  );
+}
+
 /**
  * Ask Claude. Returns the NDJSON answer stream once the API has ACCEPTED the
- * request — or, if it refused before anything was streamed (bad key, outage
+ * first call — or, if it refused before anything was streamed (bad key, outage
  * after the SDK's own retries, our deadline), the error to report instead.
  */
 async function askClaude(
   client: Anthropic,
   system: string,
   user: string,
-  snippetCount: number,
+  snippets: InSnippet[],
   deadline: Deadline
 ): Promise<{ ok: true; body: ReadableStream<Uint8Array> } | ({ ok: false } & EngineError)> {
-  const stream = client.beta.messages.stream(
-    {
-      model: CLAUDE_MODEL,
-      max_tokens: CLAUDE_MAX_TOKENS,
-      thinking: { type: "adaptive" },
-      output_config: { effort: CLAUDE_EFFORT },
-      system,
-      messages: [{ role: "user", content: user }],
-      ...CLAUDE_REFUSAL_FALLBACK,
-    },
-    // Bounds the whole exchange: the SDK's retries and the streamed answer included.
-    { signal: AbortSignal.timeout(Math.max(1, deadline.remaining())) }
-  );
-  // Build the NDJSON stream FIRST: it subscribes to the answer text at once,
-  // so no fragment can arrive before anyone is listening.
-  const body = claudeToNdjson(stream, {
-    engine: "anthropic",
-    effort: CLAUDE_EFFORT,
-    fallbackModel: CLAUDE_MODEL,
-    snippetCount,
-    startedAt: deadline.start,
-  });
+  // The company map comes from the graph file; if it cannot be read, answer
+  // from the snippets alone (the behaviour before lookups existed).
+  let map: BetaTextBlockParam | null = null;
   try {
-    await stream.withResponse(); // resolves when Claude accepts the request; throws on 4xx / 5xx
-    return { ok: true, body };
-  } catch (e) {
-    body.cancel().catch(() => {});
-    return { ok: false, ...claudeError(e) };
+    map = companyMapBlock();
+  } catch (e: any) {
+    console.warn(`[ask] company map unavailable, answering from the snippets only: ${e?.message || e}`);
+  }
+  const run: AgentRun = {
+    client,
+    system: map ? [map, { type: "text", text: `${system}\n\n${LOOKUP_RULES}` }] : [{ type: "text", text: system }],
+    messages: [{ role: "user", content: user }],
+    lookups: map !== null,
+    web: map !== null,
+    book: new FactBook(snippets),
+    deadline,
+  };
+  for (;;) {
+    const first = startRound(run, 0);
+    // Build the NDJSON stream FIRST: it subscribes to the answer text at once,
+    // so no fragment can arrive before anyone is listening.
+    const body = agentToNdjson(run, first);
+    try {
+      await first.withResponse(); // resolves when Claude accepts the request; throws on 4xx / 5xx
+      return { ok: true, body };
+    } catch (e) {
+      body.cancel().catch(() => {});
+      // Web search / fetch must be enabled for the organisation in the Claude
+      // Console; if they are not, answer without them rather than not at all.
+      if (run.web && e instanceof Anthropic.BadRequestError && /web.?(search|fetch)/i.test(e.message)) {
+        console.warn(`[ask] web tools unavailable, answering without them: ${e.message}`);
+        run.web = false;
+        continue;
+      }
+      return { ok: false, ...claudeError(e) };
+    }
   }
 }
 
@@ -291,19 +372,33 @@ function claudeError(e: unknown): EngineError {
   return { status: 502, error: `Could not reach the Claude API: ${(e as Error)?.message || String(e)}` };
 }
 
-// ── Claude stream → NDJSON ─────────────────────────────────────────────────
+/**
+ * What may be sent back after a turn. If a safety classifier declined mid-turn
+ * and the fallback model took over (a "fallback" block marks the switch), the
+ * blocks BEFORE the switch must not be echoed back except plain text.
+ */
+function echoable(content: BetaContentBlock[]): BetaContentBlock[] {
+  const cut = content.map((b) => b.type as string).lastIndexOf("fallback");
+  return cut < 0 ? content : content.filter((b, i) => i > cut || b.type === "text");
+}
+
+// ── Claude rounds → NDJSON ─────────────────────────────────────────────────
 // Only the answer text is forwarded; the thinking stays on the server (its text
-// is empty by default anyway). If a safety classifier declines mid-answer, the
+// is empty by default anyway, and Opus 5.5 puts any words between tool calls
+// into thinking, not into the answer). Between rounds the browser gets one
+// "step" line per lookup and a "facts" line with the facts it numbered, so the
+// [n] chips work for them too. If a safety classifier declines mid-answer, the
 // fallback model CONTINUES the same text on the same stream — nothing already
 // sent is taken back — so the fragments can go straight through.
 
-function claudeToNdjson(stream: BetaMessageStream, meta: StreamMeta): ReadableStream<Uint8Array> {
+function agentToNdjson(run: AgentRun, first: BetaMessageStream): ReadableStream<Uint8Array> {
   const enc = new TextEncoder();
   let text = "";
+  let current = first;
 
   return new ReadableStream<Uint8Array>({
-    // start() runs synchronously inside `new ReadableStream`, so the "text"
-    // listener is attached before the request can produce anything.
+    // start() runs synchronously inside `new ReadableStream`, so the first
+    // round's "text" listener is attached before the request can produce anything.
     async start(controller) {
       const send = (obj: unknown) => {
         try {
@@ -312,23 +407,89 @@ function claudeToNdjson(stream: BetaMessageStream, meta: StreamMeta): ReadableSt
           /* the browser already left */
         }
       };
-      stream.on("text", (delta) => {
+      const onText = (delta: string) => {
         text += delta;
         send({ type: "text", text: delta });
-      });
+      };
+      // Web search runs on Anthropic's side inside a round: report each search
+      // as a "step" and the web pages Claude saw as "web" lines.
+      let lookups = 0;
+      const webSent = new Set<string>();
+      const queriesSent = new Set<string>();
+      const onBlock = (block: BetaContentBlock) => {
+        const step = webStepOf(block);
+        if (step) {
+          lookups++;
+          // The same query can come back twice (e.g. re-run inside dynamic filtering) — show it once.
+          if (!queriesSent.has(step.target)) send({ type: "step", ...step, facts: 0 });
+          queriesSent.add(step.target);
+        }
+        // Every page Claude saw: read in full, returned by a search, or cited.
+        const fetched = step?.tool === "web_fetch" ? [{ url: step.target, title: step.target }] : [];
+        const pages = [...fetched, ...webSourcesOf(block)].filter((p) => !webSent.has(p.url));
+        for (const p of pages) webSent.add(p.url);
+        if (pages.length) send({ type: "web", sources: pages });
+      };
+      first.on("text", onText);
+      first.on("contentBlock", onBlock);
+
+      // Input counts everything the model read: new tokens + cache reads + cache writes.
+      const usage: Usage = { input_tokens: 0, output_tokens: 0 };
+      const read = { cached: 0, written: 0, fresh: 0 }; // the same input, split for the cost log
       try {
-        const msg = await stream.finalMessage();
-        send(
-          doneLine({
-            model: msg.model, // the model that actually answered (the fallback model after a refusal)
-            effort: meta.effort,
-            engine: meta.engine,
-            startedAt: meta.startedAt,
-            citations: extractCitations(text, meta.snippetCount),
-            usage: { input_tokens: msg.usage.input_tokens, output_tokens: msg.usage.output_tokens },
-            stopReason: msg.stop_reason,
-          })
-        );
+        for (let round = 0; ; round++) {
+          if (round > 0) {
+            current = startRound(run, round);
+            current.on("text", onText);
+            current.on("contentBlock", onBlock);
+          }
+          const msg = await current.finalMessage();
+          read.fresh += msg.usage.input_tokens;
+          read.cached += msg.usage.cache_read_input_tokens ?? 0;
+          read.written += msg.usage.cache_creation_input_tokens ?? 0;
+          usage.input_tokens = read.fresh + read.cached + read.written;
+          usage.output_tokens += msg.usage.output_tokens;
+
+          // A long server-side search turn can pause; send it back as-is and the API resumes it.
+          if (msg.stop_reason === "pause_turn") {
+            run.messages.push({ role: "assistant", content: echoable(msg.content) });
+            continue;
+          }
+
+          // Finished: an answer (end_turn), the token limit or a refusal. Lookups run
+          // only on a clean "tool_use" stop — a call cut off by max_tokens may be truncated.
+          const calls = msg.content.filter((b): b is BetaToolUseBlock => b.type === "tool_use");
+          if (msg.stop_reason !== "tool_use" || calls.length === 0) {
+            // One line per answer in the Vercel logs, to keep an eye on cost.
+            console.info(
+              `[ask] answered: ${round + 1} rounds, ${lookups} lookups, input ${read.fresh} new + ${read.written} cache-write + ${read.cached} cache-read, output ${usage.output_tokens}, ${Date.now() - run.deadline.start} ms`
+            );
+            send(
+              doneLine({
+                model: msg.model, // the model that actually answered (the fallback model after a refusal)
+                effort: CLAUDE_EFFORT,
+                engine: "anthropic",
+                startedAt: run.deadline.start,
+                citations: extractCitations(text, run.book.count),
+                usage,
+                stopReason: msg.stop_reason,
+                lookups,
+              })
+            );
+            break;
+          }
+
+          // Run every lookup of this round; all results go back in ONE user message.
+          run.messages.push({ role: "assistant", content: echoable(msg.content) });
+          const results: BetaToolResultBlockParam[] = calls.map((call) => {
+            const r = runLookup(call.name, call.input, run.book);
+            lookups++;
+            send({ type: "step", ...r.step });
+            if (r.newFacts.length) send({ type: "facts", snippets: r.newFacts });
+            return { type: "tool_result", tool_use_id: call.id, content: r.content, ...(r.isError ? { is_error: true } : {}) };
+          });
+          run.messages.push({ role: "user", content: results });
+        }
       } catch (e: any) {
         const why =
           e instanceof Anthropic.APIUserAbortError || isTimeout(e) ? "The model took too long to finish." : e?.message || String(e);
@@ -342,7 +503,7 @@ function claudeToNdjson(stream: BetaMessageStream, meta: StreamMeta): ReadableSt
       }
     },
     cancel() {
-      stream.abort(); // the browser left: stop generating (and paying for) tokens
+      current.abort(); // the browser left: stop generating (and paying for) tokens
     },
   });
 }
@@ -581,7 +742,7 @@ export async function POST(req: NextRequest) {
   // 4) Engine 1 — Claude, when ANTHROPIC_API_KEY is set.
   const client = claudeClient();
   if (client) {
-    const claude = await askClaude(client, system, user, parsed.snippets.length, deadline);
+    const claude = await askClaude(client, system, user, parsed.snippets, deadline);
     if (claude.ok) return new Response(claude.body, { status: 200, headers: NDJSON_HEADERS });
     console.warn(`[ask] Claude API unavailable (status ${claude.upstream_status ?? "none"}): ${claude.error}`);
     if (!provider) {
