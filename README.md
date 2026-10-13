@@ -87,6 +87,25 @@ numbers it was given, cite each as `[n]`, and say "the graph does not contain �
 matched. Every engine shares one prompt, `web/src/lib/askPrompt.mjs`. The badge under each answer shows
 the model id, effort and engine (`claude-opus-5-5 · effort xhigh · Claude API`).
 
+**Looking further (Claude only, `web/src/lib/askAgent.ts`).** The whole graph (~2.7M tokens of facts) does not
+fit in one request, so Claude also gets a **company map** — one line per company: layers, products, customers,
+suppliers, how many facts, newest source (~60k tokens, cached for an hour; a table of contents, never cited) — and
+lookups it can call as it sees fit:
+
+| Tool | What it returns |
+|---|---|
+| `company_network` | one company **two hops out**: its own facts, every fact naming it, what its customers / suppliers (hop 1) and closest competitors (same chain slot + same product words, top 12) said about its products, shortages, contracts, pricing, demand, capacity, and the most relevant facts of their partners (hop 2) — ~40k tokens, each fact tagged with who said it and how they connect |
+| `open_company` / `search_facts` | every fact of one company / the same keyword search across all companies |
+| `web_search` / `web_fetch` | Anthropic's server-side web search (`web_search_20260209`, 5 per call) and full-page reads (`web_fetch_20260209`, 3 per call) — the web is an equal source next to the graph; Claude mixes and weighs both itself |
+
+**Claude decides by itself** what a question needs (owner, 2026-10-12: no rigid playbook — the prompt describes the
+tools and what a good answer looks like, it does not prescribe steps); at most 3 lookup rounds, then it must
+answer. Graph facts found by lookups are numbered after the snippets and cited as `[n]`; web information is named
+by outlet / firm and date in the text, and every page Claude saw is listed under the answer ("Web sources"); the
+lookups show under the question as "looked deeper: …". The server logs one `[ask] answered:` line per answer with
+the token split (new / cache-write / cache-read / output). A company question with network + web runs ~1.5–3
+minutes and roughly $1–2.
+
 ## How data gets in (the enrichment loop)
 
 `Transcript: <company>` runs a fixed six-step pipeline:

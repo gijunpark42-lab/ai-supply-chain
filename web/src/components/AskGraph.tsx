@@ -27,7 +27,9 @@ import "./AskGraph.css";
 //   3. POST /api/ask streams the model's answer, which may only use those
 //      snippets and must cite them as [n]. Claude (Opus 5.5 through the Claude
 //      API) thinks before the first word arrives, which can take a minute —
-//      hence the phase line with a counter.
+//      hence the phase line with a counter. Claude also holds a map of every
+//      company and may decide to look further in the whole graph; its lookups
+//      show as "looked deeper: …" and the facts they found join the [n] list.
 // Each [n] renders as a chip that reveals the underlying snippet (company
 // clickable → NodePanel), and "Context used" lists everything that was sent.
 // The thread is a CONVERSATION: a follow-up question carries the last few
@@ -69,11 +71,15 @@ interface Turn {
   citations?: number[]; // the [n] numbers the route found in the answer (stored, not rendered yet)
   usage?: { input_tokens: number; output_tokens: number };
   stopReason?: string | null;
+  /** Lookups Claude chose to make beyond the snippets ([] / undefined = the snippets were enough). */
+  steps?: { tool: string; target: string }[];
+  /** Web pages the answer cites (Claude's web search), in the order first cited. */
+  web?: { url: string; title: string }[];
 }
 
 const MAX_TURNS = 8; // turns kept on screen; older ones scroll off the top of the thread
 const HISTORY_TURNS = 4; // completed turns sent along with a follow-up question …
-const HISTORY_ANSWER_CHARS = 2000; // … each answer trimmed to this many characters
+const HISTORY_ANSWER_CHARS = 4000; // … each answer trimmed to this many characters
 const REWRITE_TIMEOUT_MS = 8_000; // past this the rewrite step is skipped, not waited for
 const SLOW_HINT_AFTER_S = 15; // seconds of "Thinking…" before the "Opus thinks first" caption shows
 
@@ -181,7 +187,9 @@ export default function AskGraph({
       if (!res.body) throw new Error("The server sent an empty response.");
 
       // The route answers with one JSON object per line (NDJSON): many small
-      // "text" lines as the answer streams, then one "done" line.
+      // "text" lines as the answer streams, then one "done" line. When Claude
+      // decides to look further, "step" lines (one per lookup) and "facts" lines
+      // (the facts it numbered after our snippets, in order) come first.
       const handleLine = (line: string) => {
         let ev: any;
         try {
@@ -191,6 +199,16 @@ export default function AskGraph({
         }
         if (ev.type === "text") {
           patch(id, (t) => ({ ...t, status: "streaming", answer: t.answer + ev.text }));
+        } else if (ev.type === "step") {
+          patch(id, (t) => ({ ...t, steps: [...(t.steps || []), { tool: String(ev.tool), target: String(ev.target) }] }));
+        } else if (ev.type === "facts" && Array.isArray(ev.snippets)) {
+          // Appended in the server's order, so [n] in the answer points at the right fact.
+          patch(id, (t) => ({ ...t, meta: { ...t.meta, snippets: [...t.meta.snippets, ...ev.snippets] } }));
+        } else if (ev.type === "web" && Array.isArray(ev.sources)) {
+          const pages = (ev.sources as any[])
+            .filter((p) => typeof p?.url === "string" && /^https?:\/\//.test(p.url))
+            .map((p) => ({ url: String(p.url), title: String(p.title && p.title !== p.url ? p.title : hostOf(p.url)) }));
+          patch(id, (t) => ({ ...t, web: [...(t.web || []), ...pages] }));
         } else if (ev.type === "done") {
           patch(id, (t) => ({
             ...t,
@@ -347,6 +365,24 @@ function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }
             {t("intent:")} {t(turn.intent)} · {t("searched:")} {turn.queries.join(" · ")}
           </div>
         )}
+        {turn.steps && turn.steps.length > 0 && (
+          <div className="ask-queries">
+            {t("looked deeper:")}{" "}
+            {turn.steps
+              .map((s) =>
+                s.tool === "company_network"
+                  ? t("{name} network (2 hops)", { name: name(s.target) })
+                  : s.tool === "open_company"
+                    ? t("opened {name}", { name: name(s.target) })
+                    : s.tool === "web_search"
+                      ? t("web search “{q}”", { q: s.target })
+                      : s.tool === "web_fetch"
+                        ? t("read {site}", { site: hostOf(s.target) })
+                        : t("searched “{q}”", { q: s.target })
+              )
+              .join(" · ")}
+          </div>
+        )}
       </div>
 
       {turn.status === "loading" && (
@@ -374,6 +410,22 @@ function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }
             streaming={turn.status === "streaming"}
           />
         </div>
+      )}
+
+      {turn.web && turn.web.length > 0 && (
+        <details className="ask-context ask-web">
+          <summary>{t("Web sources — {n} pages Claude saw", { n: turn.web.length })}</summary>
+          <ol>
+            {turn.web.map((p) => (
+              <li key={p.url}>
+                <a href={p.url} target="_blank" rel="noopener noreferrer">
+                  {p.title}
+                </a>{" "}
+                · {hostOf(p.url)}
+              </li>
+            ))}
+          </ol>
+        </details>
       )}
 
       {turn.error && <div className="ask-err">⚠ {turn.error}</div>}
@@ -468,8 +520,9 @@ function SnippetView({
 
 // ── Answer rendering: paragraphs, "- " bullets, "1." lists, **bold**, [n] chips, sections ──
 
-// [3]  [2, 5]  [2-4]  — one or more snippet numbers inside square brackets.
-const INLINE_RE = /(\*\*[^*]+\*\*|\[\d{1,2}(?:\s*[,\-–]\s*\d{1,2})*\])/g;
+// [3]  [2, 5]  [2-4]  — one or more snippet numbers inside square brackets
+// (up to 3 digits: facts found by lookups are numbered past 99).
+const INLINE_RE = /(\*\*[^*]+\*\*|\[\d{1,3}(?:\s*[,\-–]\s*\d{1,3})*\])/g;
 // "1. text" / "2) text" — a numbered-list item.
 const NUMBERED_RE = /^(\d{1,2})[.)]\s+(.*)$/;
 // The three sections the answer prompt asks for, at the start of a paragraph or
@@ -482,7 +535,7 @@ const SECTION_RE = /^(?:\*\*)?(Best answer|Evidence|Gaps|답변|근거|빈틈|�
 function citeNumbers(inner: string, count: number): number[] {
   const out: number[] = [];
   for (const part of inner.split(",")) {
-    const range = /^\s*(\d{1,2})\s*[-–]\s*(\d{1,2})\s*$/.exec(part);
+    const range = /^\s*(\d{1,3})\s*[-–]\s*(\d{1,3})\s*$/.exec(part);
     if (range) {
       const a = +range[1];
       const b = +range[2];
@@ -689,6 +742,15 @@ function historyFrom(turns: Turn[]): HistoryTurn[] {
     question: t.question,
     answer: t.answer.slice(0, HISTORY_ANSWER_CHARS),
   }));
+}
+
+/** "https://www.reuters.com/…" → "reuters.com" (the outlet, shown next to the title). */
+function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
 }
 
 /** Bring a freshly added turn into view (it is rendered after this tick). */

@@ -6,6 +6,11 @@ const nextConfig = {
   // react-force-graph pulls in three.js; nothing special needed, but keep
   // transpilePackages ready in case a nested ESM dep needs it.
   eslint: { ignoreDuringBuilds: true },
+  experimental: {
+    // /api/ask reads the graph from disk for its lookups (lib/askAgent.ts);
+    // ship the file with that function on Vercel.
+    outputFileTracingIncludes: { "/api/ask": ["./public/data/merged_graph.json"] },
+  },
 };
 
 export default nextConfig;
