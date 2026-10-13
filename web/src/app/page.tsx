@@ -37,11 +37,13 @@ type Tab = (typeof TABS)[number];
 // TABS / VIEW_INFO and its view still renders when tab === "Generations", it is
 // just not in any group. To re-enable it, add "Generations" to a group's `tabs`
 // below (e.g. Map: ["Graph", "Chain 2D", "Generations"]).
+// "Exposure", "Status" and "Semi Bot" are HIDDEN the same way (user, 2026-10-13):
+// to bring one back, add it to its old group (Companies: Exposure; Tools: Semi Bot, Status).
 const TAB_GROUPS: { id: string; tabs: Tab[] }[] = [
   { id: "Map", tabs: ["Graph", "Chain 2D"] },
-  { id: "Companies", tabs: ["Screener", "Exposure", "Capex"] },
+  { id: "Companies", tabs: ["Screener", "Capex"] },
   { id: "Signals", tabs: ["Timelines", "Picks"] },
-  { id: "Tools", tabs: ["Ask", "Semi Bot", "Status"] },
+  { id: "Tools", tabs: ["Ask"] },
 ];
 // The group a tab belongs to (index into TAB_GROUPS), or -1 for a hidden tab.
 function groupIndexOf(tab: Tab): number {
@@ -342,16 +344,17 @@ function Workspace() {
             >
               ☰<span className="nav-toggle-text">{t("Filters")}</span>
             </button>
-            <h1 className="app-title">{t("AI Supply Chain")}</h1>
+            {/* Brand: the Nodus42 knot mark + "NODUS42" (a name, so never translated). */}
+            <h1 className="app-title brand-title">
+              <img className="brand-mark" src="/brand/nodus42-mark.svg" alt="" aria-hidden="true" />
+              <span>NODUS<span className="brand-42">42</span></span>
+            </h1>
             <p className="app-sub">
               {t("Research the companies behind AI.")}
             </p>
             <span className="workspace-source">{t("Transcript-grounded research")}</span>
-            {/* The Supply-chain Tower (/tower) is its own full-screen page, opened in a new window. */}
-            <a className="tower-link" href="/tower" target="_blank" rel="noopener noreferrer" title={t("Open the 3D Supply-chain Tower in a new window")}>
-              {t("3D Tower")} ↗
-            </a>
-            {/* The 24-hour news terminal (/news) also opens in its own window. */}
+            {/* The "3D Tower ↗" link is HIDDEN (user, 2026-10-13); /tower itself still opens by URL. */}
+            {/* The 24-hour news terminal (/news) opens in its own window. */}
             <a className="tower-link" href="/news" target="_blank" rel="noopener noreferrer" title={t("Open the 24-hour news terminal in a new window")}>
               {t("News")} ↗
             </a>

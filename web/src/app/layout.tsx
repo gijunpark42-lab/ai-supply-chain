@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI Supply Chain",
+  title: "Nodus42",
   description:
     "The global AI & semiconductor web — every supplier, customer, and deal, connected.",
 };
