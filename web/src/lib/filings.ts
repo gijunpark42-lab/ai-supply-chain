@@ -8,6 +8,7 @@
 // Server-only (API keys from process.env).
 
 import { createHash } from "node:crypto";
+import { toEnglish } from "./gemini";
 import { mapNodes, pool, tickerOf, type NewsFeed, type NewsItem } from "./news";
 
 const DAY_MS = 24 * 3600_000;
@@ -55,8 +56,16 @@ const dateIn = (ms: number, offsetH: number) => new Date(ms + offsetH * 3600_000
 const endOfDay = (day: string, offsetH: number, now: number) =>
   Math.min(now, Date.parse(`${day}T23:59:59Z`) - offsetH * 3600_000);
 
-function item(feed: NewsItem["feed"], source: string, url: string, time: number, title: string, company: string, day?: string): NewsItem {
-  return { id: hashId(url), time, day, title, source, url, summary: "", companies: [company], tickers: [], feed };
+function item(
+  feed: NewsItem["feed"],
+  source: string,
+  url: string,
+  time: number,
+  title: string,
+  company: string,
+  extra: Partial<NewsItem> = {}
+): NewsItem {
+  return { id: hashId(url), time, title, source, url, summary: "", companies: [company], tickers: [], feed, ...extra };
 }
 
 // ── DART (Korea) ──────────────────────────────────────────────────────────
@@ -88,8 +97,13 @@ async function dart(now: number): Promise<NewsItem[] | null> {
   return rows.map((r: any, i: number) => {
     const day = `${r.rcept_dt.slice(0, 4)}-${r.rcept_dt.slice(4, 6)}-${r.rcept_dt.slice(6, 8)}`;
     const url = `https://dart.fss.or.kr/dsaf001/main.do?rcpNo=${r.rcept_no}`;
-    const title = `${r.corp_name} — ${String(r.report_nm).replace(/\s+/g, " ").trim()}`;
-    return item("dart", "DART", url, endOfDay(day, KST, now) - i, title, byCode.get(r.stock_code)!, day);
+    const company = byCode.get(r.stock_code)!;
+    const report = String(r.report_nm).replace(/\s+/g, " ").trim();
+    // The map's English name; buildFeed translates the report name.
+    return item("dart", "DART", url, endOfDay(day, KST, now) - i, `${company} — ${report}`, company, {
+      day,
+      original: `${r.corp_name} — ${report}`,
+    });
   });
 }
 
@@ -114,7 +128,11 @@ async function edinet(now: number): Promise<NewsItem[] | null> {
     const time = Date.parse(`${String(r.submitDateTime).replace(" ", "T")}:00+09:00`); // "2026-10-13 09:02" JST
     if (!(time >= now - DAY_MS)) continue;
     const url = `https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?${r.docID}`;
-    out.push(item("edinet", "EDINET", url, time, `${r.filerName} — ${r.docDescription}`, company));
+    out.push(
+      item("edinet", "EDINET", url, time, `${company} — ${r.docDescription}`, company, {
+        original: `${r.filerName} — ${r.docDescription}`,
+      })
+    );
   }
   return out;
 }
@@ -175,7 +193,7 @@ async function sec(now: number): Promise<NewsItem[] | null> {
         const items = ((s.items as string[]) || []).map((x) => ITEMS_8K[x]).filter(Boolean);
         const title = `${byCik.get(cik)} — ${s.form}${items.length ? ` · ${items.join(", ")}` : ""}`;
         const url = `https://www.sec.gov/Archives/edgar/data/${cik}/${adsh.replace(/-/g, "")}/${file}`;
-        return item("sec", "SEC", url, endOfDay(s.file_date, ET, now) - i, title, byCik.get(cik)!, s.file_date);
+        return item("sec", "SEC", url, endOfDay(s.file_date, ET, now) - i, title, byCik.get(cik)!, { day: s.file_date });
       });
   }
 }
@@ -198,6 +216,10 @@ async function buildFeed(): Promise<NewsFeed> {
   const now = Date.now();
   const [d, e, s] = await Promise.all([dart(now), edinet(now), sec(now)]);
   const items = [...(d || []), ...(e || []), ...(s || [])].sort((a, b) => b.time - a.time);
+  // English titles (user, 2026-10-13): "LS Electric — 단일판매ㆍ공급계약체결" → "… — Single sales /
+  // supply contract". Report names repeat day to day, so most come from the warm cache.
+  const english = await toEnglish(items.map((it) => it.title));
+  for (const it of items) it.title = english.get(it.title) ?? it.title;
   const tickers: Record<string, string | null> = {};
   for (const it of items) for (const id of it.companies) tickers[id] = tickerOf(id);
   return {

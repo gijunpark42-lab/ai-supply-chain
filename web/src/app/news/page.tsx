@@ -1,11 +1,12 @@
 "use client";
 
 // /news — a 24-hour news terminal beside the main site, opened in its own window
-// from the header (like /tower). Two tabs, newest first:
-//   News     headlines from Polygon, Finnhub and Google News (lib/news.ts), every minute
-//   Filings  DART / EDINET / SEC filings by map companies (lib/filings.ts), every 5 minutes
+// from the header (like /tower). Three tabs, newest first:
+//   Top News  the day's important Reuters / FT stories as cards (lib/top.ts), every minute
+//   News      headlines from Polygon, Finnhub and Google News (lib/news.ts), every minute
+//   Filings   DART / EDINET / SEC filings by map companies (lib/filings.ts), every 5 minutes
 // Click a row for its summary and the companies / tickers it names (lib/newsSummary.ts).
-// Display only: neither tab feeds the graph or enrich.
+// Display only: no tab feeds the graph or enrich.
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { LangProvider, LangSwitch, useLang } from "@/lib/i18n";
@@ -13,8 +14,9 @@ import type { NewsFeed, NewsItem } from "@/lib/news";
 import type { NewsSummary } from "@/lib/newsSummary";
 import "./news.css";
 
-type Tab = "news" | "filings";
+type Tab = "top" | "news" | "filings";
 const TABS: { tab: Tab; label: string; url: string; pollMs: number }[] = [
+  { tab: "top", label: "Top News", url: "/api/top", pollMs: 60_000 },
   { tab: "news", label: "News", url: "/api/news", pollMs: 60_000 },
   { tab: "filings", label: "Filings", url: "/api/filings", pollMs: 5 * 60_000 },
 ];
@@ -23,10 +25,14 @@ const FEED_LABEL: Record<NewsItem["feed"], string> = {
   polygon: "Polygon",
   finnhub: "Finnhub",
   google: "Google News",
+  ft: "Financial Times",
   dart: "DART",
   edinet: "EDINET",
   sec: "SEC EDGAR",
 };
+
+// Top News categories (lib/top.ts CATEGORIES), in the order the filter shows them.
+const CATEGORY_ORDER = ["Politics", "Economy", "Markets", "Companies", "Tech", "Energy", "Other"];
 
 const hhmm = (ms: number) => new Date(ms).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
 // Date-only filings (DART, SEC) show their market date, "10/13", where others show a time.
@@ -78,11 +84,16 @@ export default function NewsPage() {
 
 function NewsTerminal() {
   const { t, name, lang, rev } = useLang();
-  const [tab, setTab] = useState<Tab>("news");
-  const feeds = { news: useFeed(TABS[0].url, TABS[0].pollMs), filings: useFeed(TABS[1].url, TABS[1].pollMs) };
+  const [tab, setTab] = useState<Tab>("top");
+  const feeds = {
+    top: useFeed(TABS[0].url, TABS[0].pollMs),
+    news: useFeed(TABS[1].url, TABS[1].pollMs),
+    filings: useFeed(TABS[2].url, TABS[2].pollMs),
+  };
   const { feed, err, fresh } = feeds[tab];
   const [sel, setSel] = useState<NewsItem | null>(null);
   const [mapOnly, setMapOnly] = useState(false); // News only: every filing is a map company's
+  const [cat, setCat] = useState(""); // Top News only: one category, "" = all
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -94,9 +105,11 @@ function NewsTerminal() {
     const q = query.trim().toLowerCase();
     return feed.items.filter((it) => {
       if (tab === "news" && mapOnly && !it.companies.length) return false;
+      if (tab === "top" && cat && it.category !== cat) return false;
       if (!q) return true;
       return (
         it.title.toLowerCase().includes(q) ||
+        (it.original || "").toLowerCase().includes(q) ||
         it.source.toLowerCase().includes(q) ||
         it.tickers.some((x) => x.toLowerCase().includes(q)) ||
         it.companies.some(
@@ -109,9 +122,15 @@ function NewsTerminal() {
     });
     // `rev` changes when company names finish loading (name()).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [feed, tab, mapOnly, query, rev]);
+  }, [feed, tab, mapOnly, cat, query, rev]);
 
+  // Top News: the categories today's stories fall under, in a fixed order.
+  const cats = useMemo(
+    () => CATEGORY_ORDER.filter((c) => feeds.top.feed?.items.some((it) => it.category === c)),
+    [feeds.top.feed]
+  );
   const count = items.length.toLocaleString();
+  const countLabel = { top: "{n} stories", news: "{n} headlines", filings: "{n} filings" }[tab];
   return (
     <div className={"news-term" + (sel ? " has-sel" : "")}>
       <header className="news-head">
@@ -135,8 +154,23 @@ function NewsTerminal() {
         <span className="news-sub">{t("Last 24 hours")}</span>
         <Clock />
         <span className="news-count">
-          {feed ? (tab === "news" ? t("{n} headlines", { n: count }) : t("{n} filings", { n: count })) : ""}
+          {feed ? t(countLabel, { n: count }) : ""}
         </span>
+        {tab === "top" && cats.length > 0 && (
+          <div className="news-cats" role="group" aria-label={t("Category")}>
+            {["", ...cats].map((c) => (
+              <button
+                key={c || "all"}
+                type="button"
+                className={"news-toggle" + (cat === c ? " on" : "")}
+                aria-pressed={cat === c}
+                onClick={() => setCat(c)}
+              >
+                {c || t("All")}
+              </button>
+            ))}
+          </div>
+        )}
         {tab === "news" && (
           <button
             type="button"
@@ -159,7 +193,7 @@ function NewsTerminal() {
       </header>
 
       <div className="news-body">
-        <ol className="news-list" aria-label={t("News")}>
+        <ol className={"news-list" + (tab === "top" ? " cards" : "")} aria-label={t("News")}>
           {!feed && !err && <li className="news-note">{t("Loading headlines")}</li>}
           {err && !feed && <li className="news-note">{t("Could not load the news: {error}", { error: err })}</li>}
           {feed && !items.length && (
@@ -177,12 +211,31 @@ function NewsTerminal() {
                 aria-pressed={sel?.id === it.id}
                 onClick={() => setSel(it)}
               >
-                <time className="news-time" dateTime={it.day || new Date(it.time).toISOString()}>
-                  {when(it)}
-                </time>
-                <span className="news-src">{it.source}</span>
-                <span className="news-title">{it.title}</span>
-                <Chips item={it} tickers={feed!.tickers} />
+                {tab === "top" ? (
+                  // A card, SAVE-style: when · who · what kind, the headline, its one-line standfirst.
+                  <>
+                    <span className="news-card-meta">
+                      <time className="news-time" dateTime={new Date(it.time).toISOString()}>
+                        {when(it)}
+                      </time>
+                      <span className="news-src">{it.source}</span>
+                      {it.category && <span className="news-cat">{it.category}</span>}
+                      {it.rank === 5 && <span className="news-major">{t("Major")}</span>}
+                    </span>
+                    <span className="news-card-title">{it.title}</span>
+                    {it.summary && <span className="news-card-dek">{it.summary}</span>}
+                    <Chips item={it} tickers={feed!.tickers} />
+                  </>
+                ) : (
+                  <>
+                    <time className="news-time" dateTime={it.day || new Date(it.time).toISOString()}>
+                      {when(it)}
+                    </time>
+                    <span className="news-src">{it.source}</span>
+                    <span className="news-title">{it.title}</span>
+                    <Chips item={it} tickers={feed!.tickers} />
+                  </>
+                )}
               </button>
             </li>
           ))}
@@ -200,7 +253,7 @@ function NewsTerminal() {
       <footer className="news-foot">
         {feed?.feeds.map((f) => (
           <span key={f.name} className={f.failed ? "bad" : ""}>
-            {FEED_LABEL[f.name]} {f.count.toLocaleString()}
+            {f.label ?? FEED_LABEL[f.name]} {f.count.toLocaleString()}
             {f.failed ? " !" : ""}
           </span>
         ))}
@@ -261,7 +314,7 @@ function Detail({
   tickers: Record<string, string | null>;
   onBack: () => void;
 }) {
-  const { t, name, lang } = useLang();
+  const { t, name } = useLang();
   const [res, setRes] = useState<NewsSummary | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -269,7 +322,8 @@ function Detail({
     let alive = true;
     setRes(null);
     setLoading(true);
-    const qs = new URLSearchParams({ u: item.url, t: item.title, s: item.summary.slice(0, 1500), lang });
+    // Summaries are always English, so one per article whatever the site language.
+    const qs = new URLSearchParams({ u: item.url, t: item.title, s: item.summary.slice(0, 1500) });
     fetch(`/api/news/summary?${qs}`)
       .then((r) => (r.ok ? r.json() : null))
       .then((j: NewsSummary | null) => alive && setRes(j))
@@ -278,7 +332,7 @@ function Detail({
     return () => {
       alive = false;
     };
-  }, [item.url, item.title, item.summary, lang]);
+  }, [item.url, item.title, item.summary]);
 
   const companies = [...new Set([...item.companies, ...(res?.companies || [])])];
   const ticker = { ...tickers, ...(res?.tickers || {}) };
@@ -292,6 +346,7 @@ function Detail({
         ← {t("Back")}
       </button>
       <h2 className="news-art-title">{item.title}</h2>
+      {item.original && <p className="news-orig">{item.original}</p>}
       <p className="news-art-meta">
         <span>{item.source}</span>
         <span>{item.day || new Date(item.time).toLocaleString([], { hour12: false })}</span>

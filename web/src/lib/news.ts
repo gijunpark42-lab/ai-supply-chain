@@ -10,29 +10,34 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
+import { toEnglish } from "./gemini";
 import type { GraphNode, MergedGraph } from "./types";
 
-// News feeds, then the filing registries (lib/filings.ts → /api/filings).
-export type NewsFeedName = "polygon" | "finnhub" | "google" | "dart" | "edinet" | "sec";
+// News feeds, FT's own RSS (lib/top.ts → /api/top), then the filing registries
+// (lib/filings.ts → /api/filings).
+export type NewsFeedName = "polygon" | "finnhub" | "google" | "ft" | "dart" | "edinet" | "sec";
 
 export interface NewsItem {
   id: string;
   time: number; // epoch ms
   day?: string; // set when the source gives a date, not a time (DART, SEC): "2026-10-13" in its market
-  title: string;
+  title: string; // always English: non-English headlines are translated (lib/gemini.ts)
+  original?: string; // the headline as published, when `title` is its translation
   source: string; // publisher
   url: string; // Google News items carry a news.google.com link (resolved on click)
   summary: string; // the feed's own blurb ("" when it has none)
   companies: string[]; // map node ids the headline / blurb / tickers point to
   tickers: string[]; // tickers the feed tagged that are NOT map companies
   feed: NewsFeedName;
+  rank?: number; // Top News only: Gemini's 1-5 importance (5 = market-moving)
+  category?: string; // Top News only: Politics, Economy, Markets, Companies, Tech, Energy, Other
 }
 
 export interface NewsFeed {
   at: number;
   items: NewsItem[];
   tickers: Record<string, string | null>; // map company id → its ticker (for the chips)
-  feeds: { name: NewsFeedName; count: number; failed: number }[];
+  feeds: { name: NewsFeedName; count: number; failed: number; label?: string }[]; // label overrides the feed's name
 }
 
 const DAY_MS = 24 * 3600_000;
@@ -70,7 +75,7 @@ interface MapIndex {
   byLower: Map<string, string>; // lowercased matched text → node id
   byTicker: Map<string, string>; // "NVDA" → "NVIDIA"
   tickerOf: Record<string, string | null>;
-  queries: { q: string; lang: GnLang }[]; // Google News searches built from the map
+  queries: string[]; // Google News searches built from the map
 }
 
 const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -167,7 +172,7 @@ function getMap(): MapIndex {
     byLower,
     byTicker,
     tickerOf,
-    queries: buildQueries(graph, degree, ko, local),
+    queries: buildQueries(graph, degree),
   };
   return mapIndex;
 }
@@ -221,48 +226,32 @@ export function mapNodes(): GraphNode[] {
 
 // ── Google News searches ──────────────────────────────────────────────────
 
-type GnLang = "en" | "ko" | "ja" | "zh";
-const GN_LOCALE: Record<GnLang, string> = {
-  en: "hl=en-US&gl=US&ceid=US:en",
-  ko: "hl=ko&gl=KR&ceid=KR:ko",
-  ja: "hl=ja&gl=JP&ceid=JP:ja",
-  zh: "hl=zh-TW&gl=TW&ceid=TW:zh-Hant",
-};
-// Industry-wide searches, one per market language.
-const TOPICS: { q: string; lang: GnLang }[] = [
-  { q: '(semiconductor OR chipmaker OR HBM OR "AI chip" OR "data center" OR foundry)', lang: "en" },
-  { q: '(반도체 OR HBM OR 파운드리 OR "AI 데이터센터")', lang: "ko" },
-  { q: "(半導体 OR データセンター OR 生成AI)", lang: "ja" },
-  { q: "(半導體 OR 晶圓 OR AI伺服器)", lang: "zh" },
+// The site is for US investors (user, 2026-10-13), so every search runs on the
+// US English edition — Asian suppliers too, by their English names: their
+// English-language coverage (Nikkei Asia, KED Global, DigiTimes…) is what a US
+// investor reads, and it needs no translating.
+const GN_LOCALE = "hl=en-US&gl=US&ceid=US:en";
+// Industry-wide searches.
+const TOPICS = [
+  '(semiconductor OR chipmaker OR HBM OR "AI chip" OR foundry)',
+  '("data center" OR hyperscaler OR "AI infrastructure")',
 ];
 const BATCH = 20; // names per OR-search
-const EN_TOP = 120; // most-connected companies searched by English name
+const TOP_COMPANIES = 240; // most-connected public companies searched by name
 
-function buildQueries(
-  graph: MergedGraph,
-  degree: Record<string, number>,
-  ko: Record<string, string[]>,
-  local: Record<string, Record<string, string>>
-): { q: string; lang: GnLang }[] {
-  const out = [...TOPICS];
-  const batches = (names: string[], lang: GnLang) => {
-    for (let i = 0; i < names.length; i += BATCH)
-      out.push({ q: names.slice(i, i + BATCH).map((n) => `"${n}"`).join(" OR "), lang });
-  };
+function buildQueries(graph: MergedGraph, degree: Record<string, number>): string[] {
   const ranked = [...graph.nodes].sort((a, b) => (degree[b.id] || 0) - (degree[a.id] || 0));
   const searchName = (id: string) => {
     if (id === "KLA") return "KLA Corp"; // bare "KLA" is mostly Kosovo news
     const base = id.replace(SUFFIX, "");
     return base.length >= 4 ? base : id;
   };
-  const usable = (n: string | undefined): n is string => !!n && !NAME_SKIP.has(n);
-  batches(
-    ranked.filter((n) => n.status !== "private" && usable(n.id)).slice(0, EN_TOP).map((n) => searchName(n.id)),
-    "en"
-  );
-  // Korean and Japanese companies by their local names (most of their news is local).
-  batches(ranked.filter((n) => n.country === "KR").map((n) => local[n.id]?.ko || ko[n.id]?.[0]).filter(usable), "ko");
-  batches(ranked.filter((n) => n.country === "JP").map((n) => local[n.id]?.ja).filter(usable), "ja");
+  const names = ranked
+    .filter((n) => n.status !== "private" && !NAME_SKIP.has(n.id))
+    .slice(0, TOP_COMPANIES)
+    .map((n) => searchName(n.id));
+  const out = [...TOPICS];
+  for (let i = 0; i < names.length; i += BATCH) out.push(names.slice(i, i + BATCH).map((n) => `"${n}"`).join(" OR "));
   return out;
 }
 
@@ -298,7 +287,7 @@ export function decodeEntities(s: string): string {
   });
 }
 
-function makeItem(
+export function makeItem(
   feed: NewsFeedName,
   url: string,
   time: number,
@@ -335,36 +324,45 @@ async function polygon(since: number): Promise<NewsItem[] | null> {
     .map((r: any) =>
       makeItem("polygon", r.article_url, Date.parse(r.published_utc), r.title || "", r.publisher?.name || "", r.description || "", r.tickers || [])
     )
-    .filter((x: NewsItem | null): x is NewsItem => x != null);
+    .filter((x: NewsItem | null): x is NewsItem => x != null)
+    .filter((x: NewsItem) => !STOCK_PICK_MILLS.test(x.source) || x.companies.length > 0);
 }
 
-async function finnhub(): Promise<NewsItem[] | null> {
+// "Is X a buy?" mills — most of Polygon's day (~500 of ~600 stories). Kept only
+// when they are about a map company.
+const STOCK_PICK_MILLS = /^(Zacks|The Motley Fool)/i;
+
+export async function finnhub(): Promise<NewsItem[] | null> {
   const key = process.env.FINNHUB_API_KEY?.trim();
   if (!key) return [];
   const j = await getJson(`https://finnhub.io/api/v1/news?category=general&token=${key}`);
   if (!Array.isArray(j)) return null;
   return j
-    .map((r: any) =>
-      makeItem("finnhub", r.url, (r.datetime || 0) * 1000, r.headline || "", r.source || "", r.summary || "", r.related ? String(r.related).split(",") : [])
-    )
+    .map((r: any) => {
+      // "… - Reuters": the same story from Google News comes without it.
+      const title = String(r.headline || "").replace(/\s+-\s+Reuters$/i, "");
+      const related = r.related ? String(r.related).split(",") : [];
+      return makeItem("finnhub", r.url, (r.datetime || 0) * 1000, title, r.source || "", r.summary || "", related);
+    })
     .filter((x: NewsItem | null): x is NewsItem => x != null);
 }
 
-const tag = (xml: string, name: string) => {
+/** One field of an RSS <item> block, entities decoded. */
+export const rssField = (xml: string, name: string) => {
   const m = xml.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`));
   return m ? decodeEntities(m[1].replace(/^<!\[CDATA\[|\]\]>$/g, "")).trim() : "";
 };
 
-async function googleNews(q: string, lang: GnLang): Promise<NewsItem[] | null> {
-  const xml = await getText(`https://news.google.com/rss/search?q=${encodeURIComponent(q + " when:1d")}&${GN_LOCALE[lang]}`);
+export async function googleNews(q: string): Promise<NewsItem[] | null> {
+  const xml = await getText(`https://news.google.com/rss/search?q=${encodeURIComponent(q + " when:1d")}&${GN_LOCALE}`);
   if (xml == null) return null;
   const items: NewsItem[] = [];
   for (const block of xml.split("<item>").slice(1)) {
-    const source = tag(block, "source");
-    let title = tag(block, "title");
+    const source = rssField(block, "source");
+    let title = rssField(block, "title");
     // Google appends " - Publisher" to every headline.
     if (source && title.endsWith(` - ${source}`)) title = title.slice(0, -(source.length + 3));
-    const it = makeItem("google", tag(block, "link"), Date.parse(tag(block, "pubDate")), title, source, "", []);
+    const it = makeItem("google", rssField(block, "link"), Date.parse(rssField(block, "pubDate")), title, source, "", []);
     if (it) items.push(it);
   }
   return items;
@@ -404,7 +402,7 @@ async function buildFeed(): Promise<NewsFeed> {
   const [poly, finn, google] = await Promise.all([
     polygon(since),
     finnhub(),
-    pool(queries.map((x) => () => googleNews(x.q, x.lang)), 6),
+    pool(queries.map((q) => () => googleNews(q)), 6),
   ]);
 
   const feeds: NewsFeed["feeds"] = [
@@ -431,6 +429,15 @@ async function buildFeed(): Promise<NewsFeed> {
     if (it.feed === "google") feeds[2].count++;
   }
   const items = [...byKey.values()].sort((a, b) => b.time - a.time);
+
+  // Every headline and publisher reads in English (user, 2026-10-13); companies were
+  // tagged on the original wording above, so Korean / Japanese names still count.
+  const english = await toEnglish(items.flatMap((it) => [it.title, it.source]));
+  for (const it of items) {
+    const en = english.get(it.title);
+    if (en) [it.original, it.title] = [it.title, en];
+    it.source = english.get(it.source) ?? it.source;
+  }
 
   const tickers: Record<string, string | null> = {};
   for (const it of items) for (const id of it.companies) tickers[id] = tickerOf(id);

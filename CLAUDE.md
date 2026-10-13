@@ -19,6 +19,10 @@ deals/figures connecting them. Search a company → drill deep into the web.
 its limit — real supply/customer relationships and material company facts are added even when they are not
 AI-related (enrich skill §2, JOB 3). The supply-chain basis and the source rules stay.
 
+**Audience (user, 2026-10-13):** US investors, not Korean investors. Website content defaults to English and
+US-investor relevance (US markets, the Fed, US-listed names); Asian suppliers stay on the map, read through
+English-language sources.
+
 The builder is a transfer student learning Python through this project. Code should be
 **explicit and beginner-friendly**, commented in English. Explain reasoning when introducing
 new concepts. Prefer clarity over cleverness.
@@ -256,10 +260,13 @@ the same queue.
   (`claude-opus-5-5`, `ANTHROPIC_API_KEY` on Vercel; `web/src/app/api/ask/`). Everything else — enrichment,
   skeletons, coding — stays local in Claude Code. Never add Claude API calls anywhere else.
 - **News terminal (user, 2026-10-13):** `/news` on the website (`web/src/app/news/`, `web/src/app/api/news/`,
-  `web/src/app/api/filings/`, `web/src/lib/news*.ts`, `web/src/lib/filings.ts`) shows the last 24 h of headlines
-  from Polygon, Finnhub and Google News plus a Filings tab (DART / EDINET / SEC filings by map companies), runs on
+  `web/src/app/api/filings/`, `web/src/app/api/top/`, `web/src/lib/news*.ts`, `web/src/lib/filings.ts`,
+  `web/src/lib/top.ts`, `web/src/lib/gemini.ts`) shows a Top News tab (the day's important Reuters / FT hard news,
+  rated by Gemini), the last 24 h of headlines from Polygon, Finnhub and Google News, and a Filings tab
+  (DART / EDINET / SEC filings by map companies), runs on
   Vercel (works with the PC off) and summarizes a clicked item with Google's free Gemini API
-  (`GEMINI_API_KEY`) — **never the Claude API**. It is **display only**: neither tab feeds enrich, patches,
+  (`GEMINI_API_KEY`) — **never the Claude API**. Titles and summaries are always English (non-English
+  ones translated by the same Gemini key; the original title shows under it). It is **display only**: neither tab feeds enrich, patches,
   chains or any graph file, and nothing in the pipeline reads it (`dart.py` / `edinet.py` / `edgar_pull.py`
   stay the enrich path).
 - **US transcripts:** `av.py` pulls the FULL call (prepared remarks + Q&A, speaker turns) from
