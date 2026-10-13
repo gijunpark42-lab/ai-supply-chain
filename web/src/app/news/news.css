@@ -31,13 +31,23 @@
   border-bottom: 1px solid var(--nt-line);
   background: var(--nt-panel);
 }
-.news-brand {
-  padding: 2px 8px;
-  background: var(--nt-amber);
-  color: #000;
+.news-tabs {
+  display: inline-flex;
+  border: 1px solid var(--nt-amber);
+}
+.news-tab {
+  padding: 2px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--nt-amber);
   font: 700 0.9rem/1.4 var(--nt-mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  cursor: pointer;
+}
+.news-tab.on {
+  background: var(--nt-amber);
+  color: #000;
 }
 .news-sub,
 .news-count {

@@ -24,6 +24,8 @@ export const UI: Record<string, Row> = {
   // /news terminal (app/news/page.tsx)
   "Last 24 hours": ["최근 24시간", "过去 24 小时", "過去24時間"],
   "{n} headlines": ["헤드라인 {n}건", "{n} 条新闻", "見出し {n} 件"],
+  "{n} filings": ["공시 {n}건", "{n} 条公告", "開示 {n} 件"],
+  "No filings by map companies in the last day.": ["최근 하루 동안 지도 기업의 공시가 없습니다.", "过去一天内地图公司没有公告。", "直近1日、マップ企業の開示はありません。"],
   "Map companies only": ["지도 기업만", "仅地图公司", "マップ企業のみ"],
   "Filter by company, ticker or word": ["기업·티커·단어로 필터", "按公司、代码或关键词筛选", "企業・ティッカー・語句で絞り込み"],
   "Loading headlines": ["헤드라인 불러오는 중", "正在加载新闻", "見出しを読み込み中"],

@@ -14,12 +14,13 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   experimental: {
     // /api/ask reads the graph from disk for its lookups (lib/askAgent.ts), and
-    // /api/news* read it + the local-name files to tag headlines (lib/news.ts);
+    // /api/news* and /api/filings read it + the local-name files (lib/news.ts);
     // ship the files with those functions on Vercel.
     outputFileTracingIncludes: {
       "/api/ask": ["./public/data/merged_graph.json"],
       "/api/news": NEWS_DATA,
       "/api/news/summary": NEWS_DATA,
+      "/api/filings": NEWS_DATA,
     },
   },
 };

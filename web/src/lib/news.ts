@@ -10,13 +10,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
-import type { MergedGraph } from "./types";
+import type { GraphNode, MergedGraph } from "./types";
 
-export type NewsFeedName = "polygon" | "finnhub" | "google";
+// News feeds, then the filing registries (lib/filings.ts → /api/filings).
+export type NewsFeedName = "polygon" | "finnhub" | "google" | "dart" | "edinet" | "sec";
 
 export interface NewsItem {
   id: string;
   time: number; // epoch ms
+  day?: string; // set when the source gives a date, not a time (DART, SEC): "2026-10-13" in its market
   title: string;
   source: string; // publisher
   url: string; // Google News items carry a news.google.com link (resolved on click)
@@ -61,6 +63,7 @@ const CJK = /[぀-ヿ㐀-鿿가-힯]/;
 const HANGUL = /[가-힯]/;
 
 interface MapIndex {
+  nodes: GraphNode[];
   exact: RegExp | null; // case-sensitive Latin names ("Oracle", "AMD")
   loose: RegExp[]; // case-insensitive: Latin ("SK hynix", "Nvidia"), Korean, Japanese / Chinese
   byExact: Map<string, string>; // matched text → node id
@@ -155,6 +158,7 @@ function getMap(): MapIndex {
   }
 
   mapIndex = {
+    nodes: graph.nodes,
     exact: alternation(exact, "latin", ""),
     loose: (["latin", "hangul", "cjk"] as const)
       .map((k) => alternation(loose[k], k, "i"))
@@ -208,6 +212,11 @@ export function tagCompanies(text: string, tickers: string[] = []): { companies:
 
 export function tickerOf(id: string): string | null {
   return getMap().tickerOf[id] ?? null;
+}
+
+/** Every map company (for lib/filings.ts, which looks filings up by code). */
+export function mapNodes(): GraphNode[] {
+  return getMap().nodes;
 }
 
 // ── Google News searches ──────────────────────────────────────────────────
@@ -362,7 +371,7 @@ async function googleNews(q: string, lang: GnLang): Promise<NewsItem[] | null> {
 }
 
 /** Run async jobs `limit` at a time (Google News throttles bursts). */
-async function pool<T>(jobs: (() => Promise<T>)[], limit: number): Promise<T[]> {
+export async function pool<T>(jobs: (() => Promise<T>)[], limit: number): Promise<T[]> {
   const out: T[] = new Array(jobs.length);
   let next = 0;
   const worker = async () => {

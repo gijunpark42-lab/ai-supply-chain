@@ -1,10 +1,11 @@
 "use client";
 
 // /news — a 24-hour news terminal beside the main site, opened in its own window
-// from the header (like /tower). Headlines from Polygon, Finnhub and Google News
-// (lib/news.ts), newest first, refreshed every minute; click one for its summary
-// and the companies / tickers it names (lib/newsSummary.ts).
-// Display only: news never feeds the graph or enrich.
+// from the header (like /tower). Two tabs, newest first:
+//   News     headlines from Polygon, Finnhub and Google News (lib/news.ts), every minute
+//   Filings  DART / EDINET / SEC filings by map companies (lib/filings.ts), every 5 minutes
+// Click a row for its summary and the companies / tickers it names (lib/newsSummary.ts).
+// Display only: neither tab feeds the graph or enrich.
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { LangProvider, LangSwitch, useLang } from "@/lib/i18n";
@@ -12,43 +13,37 @@ import type { NewsFeed, NewsItem } from "@/lib/news";
 import type { NewsSummary } from "@/lib/newsSummary";
 import "./news.css";
 
-const POLL_MS = 60_000;
+type Tab = "news" | "filings";
+const TABS: { tab: Tab; label: string; url: string; pollMs: number }[] = [
+  { tab: "news", label: "News", url: "/api/news", pollMs: 60_000 },
+  { tab: "filings", label: "Filings", url: "/api/filings", pollMs: 5 * 60_000 },
+];
 const CHIPS_SHOWN = 3; // per row; the rest is "+N"
 const FEED_LABEL: Record<NewsItem["feed"], string> = {
   polygon: "Polygon",
   finnhub: "Finnhub",
   google: "Google News",
+  dart: "DART",
+  edinet: "EDINET",
+  sec: "SEC EDGAR",
 };
 
 const hhmm = (ms: number) => new Date(ms).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+// Date-only filings (DART, SEC) show their market date, "10/13", where others show a time.
+const when = (it: NewsItem) => (it.day ? it.day.slice(5).replace("-", "/") : hhmm(it.time));
 
-export default function NewsPage() {
-  return (
-    <LangProvider>
-      <NewsTerminal />
-    </LangProvider>
-  );
-}
-
-function NewsTerminal() {
-  const { t, name, lang, rev } = useLang();
+/** One polled feed: its latest answer, the last error, and the ids that are new since the previous poll. */
+function useFeed(url: string, pollMs: number) {
   const [feed, setFeed] = useState<NewsFeed | null>(null);
   const [err, setErr] = useState<string | null>(null);
-  const [fresh, setFresh] = useState<Set<string>>(new Set()); // ids that arrived on the last refresh
-  const [sel, setSel] = useState<NewsItem | null>(null);
-  const [mapOnly, setMapOnly] = useState(false);
-  const [query, setQuery] = useState("");
+  const [fresh, setFresh] = useState<Set<string>>(new Set());
   const seen = useRef<Set<string> | null>(null);
-
-  useEffect(() => {
-    document.title = `${t("News")} — ${t("AI Supply Chain")}`;
-  }, [t, lang]);
 
   useEffect(() => {
     let alive = true;
     const load = () => {
       if (document.hidden) return;
-      fetch("/api/news")
+      fetch(url)
         .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
         .then((f: NewsFeed) => {
           if (!alive) return;
@@ -61,20 +56,44 @@ function NewsTerminal() {
         .catch((e) => alive && setErr(String(e?.message || e)));
     };
     load();
-    const timer = setInterval(load, POLL_MS);
+    const timer = setInterval(load, pollMs);
     document.addEventListener("visibilitychange", load);
     return () => {
       alive = false;
       clearInterval(timer);
       document.removeEventListener("visibilitychange", load);
     };
-  }, []);
+  }, [url, pollMs]);
+
+  return { feed, err, fresh };
+}
+
+export default function NewsPage() {
+  return (
+    <LangProvider>
+      <NewsTerminal />
+    </LangProvider>
+  );
+}
+
+function NewsTerminal() {
+  const { t, name, lang, rev } = useLang();
+  const [tab, setTab] = useState<Tab>("news");
+  const feeds = { news: useFeed(TABS[0].url, TABS[0].pollMs), filings: useFeed(TABS[1].url, TABS[1].pollMs) };
+  const { feed, err, fresh } = feeds[tab];
+  const [sel, setSel] = useState<NewsItem | null>(null);
+  const [mapOnly, setMapOnly] = useState(false); // News only: every filing is a map company's
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    document.title = `${t("News")} — ${t("AI Supply Chain")}`;
+  }, [t, lang]);
 
   const items = useMemo(() => {
     if (!feed) return [];
     const q = query.trim().toLowerCase();
     return feed.items.filter((it) => {
-      if (mapOnly && !it.companies.length) return false;
+      if (tab === "news" && mapOnly && !it.companies.length) return false;
       if (!q) return true;
       return (
         it.title.toLowerCase().includes(q) ||
@@ -90,23 +109,44 @@ function NewsTerminal() {
     });
     // `rev` changes when company names finish loading (name()).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [feed, mapOnly, query, rev]);
+  }, [feed, tab, mapOnly, query, rev]);
 
+  const count = items.length.toLocaleString();
   return (
     <div className={"news-term" + (sel ? " has-sel" : "")}>
       <header className="news-head">
-        <span className="news-brand">{t("News")}</span>
+        <div className="news-tabs" role="tablist" aria-label={t("News")}>
+          {TABS.map((x) => (
+            <button
+              key={x.tab}
+              type="button"
+              role="tab"
+              aria-selected={tab === x.tab}
+              className={"news-tab" + (tab === x.tab ? " on" : "")}
+              onClick={() => {
+                setTab(x.tab);
+                setSel(null);
+              }}
+            >
+              {t(x.label)}
+            </button>
+          ))}
+        </div>
         <span className="news-sub">{t("Last 24 hours")}</span>
         <Clock />
-        <span className="news-count">{feed ? t("{n} headlines", { n: items.length.toLocaleString() }) : ""}</span>
-        <button
-          type="button"
-          className={"news-toggle" + (mapOnly ? " on" : "")}
-          aria-pressed={mapOnly}
-          onClick={() => setMapOnly((v) => !v)}
-        >
-          {t("Map companies only")}
-        </button>
+        <span className="news-count">
+          {feed ? (tab === "news" ? t("{n} headlines", { n: count }) : t("{n} filings", { n: count })) : ""}
+        </span>
+        {tab === "news" && (
+          <button
+            type="button"
+            className={"news-toggle" + (mapOnly ? " on" : "")}
+            aria-pressed={mapOnly}
+            onClick={() => setMapOnly((v) => !v)}
+          >
+            {t("Map companies only")}
+          </button>
+        )}
         <input
           className="news-filter"
           type="search"
@@ -122,7 +162,13 @@ function NewsTerminal() {
         <ol className="news-list" aria-label={t("News")}>
           {!feed && !err && <li className="news-note">{t("Loading headlines")}</li>}
           {err && !feed && <li className="news-note">{t("Could not load the news: {error}", { error: err })}</li>}
-          {feed && !items.length && <li className="news-note">{t("No headlines match.")}</li>}
+          {feed && !items.length && (
+            <li className="news-note">
+              {tab === "filings" && !feed.items.length
+                ? t("No filings by map companies in the last day.")
+                : t("No headlines match.")}
+            </li>
+          )}
           {items.map((it) => (
             <li key={it.id}>
               <button
@@ -131,8 +177,8 @@ function NewsTerminal() {
                 aria-pressed={sel?.id === it.id}
                 onClick={() => setSel(it)}
               >
-                <time className="news-time" dateTime={new Date(it.time).toISOString()}>
-                  {hhmm(it.time)}
+                <time className="news-time" dateTime={it.day || new Date(it.time).toISOString()}>
+                  {when(it)}
                 </time>
                 <span className="news-src">{it.source}</span>
                 <span className="news-title">{it.title}</span>
@@ -248,7 +294,7 @@ function Detail({
       <h2 className="news-art-title">{item.title}</h2>
       <p className="news-art-meta">
         <span>{item.source}</span>
-        <span>{new Date(item.time).toLocaleString([], { hour12: false })}</span>
+        <span>{item.day || new Date(item.time).toLocaleString([], { hour12: false })}</span>
         <span>{FEED_LABEL[item.feed]}</span>
       </p>
       <a className="news-open" href={res?.url || item.url} target="_blank" rel="noopener noreferrer">
