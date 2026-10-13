@@ -1,16 +1,16 @@
 {
- "generated": "2026-10-13 01:50",
- "labels_total": 3503,
+ "generated": "2026-10-13 02:57",
+ "labels_total": 3505,
  "pipelines": [
   {
    "id": "us",
    "name": "US earnings calls",
    "command": "enrich us calls",
    "source": "Alpha Vantage / defeatbeta (av.py)",
-   "files": 374,
-   "labels_on_disk": 374,
-   "in_graph": 373,
-   "entries": 3685,
+   "files": 375,
+   "labels_on_disk": 375,
+   "in_graph": 374,
+   "entries": 3697,
    "pending": [],
    "no_data": [
     {
@@ -24,7 +24,7 @@
     "2025-11-05",
     "2026-10-07"
    ],
-   "last_fetch": "2026-10-12",
+   "last_fetch": "2026-10-13",
    "last_enriched": "2026-10-13",
    "enriched_days": [
     {
@@ -85,7 +85,7 @@
     },
     {
      "day": "2026-10-13",
-     "labels": 1
+     "labels": 2
     }
    ],
    "last_sync": "2026-10-12",
@@ -102,7 +102,7 @@
    "files": 2002,
    "labels_on_disk": 1542,
    "in_graph": 743,
-   "entries": 2203,
+   "entries": 2204,
    "pending": [],
    "no_data": [
     {
@@ -2096,10 +2096,10 @@
    "name": "Korea DART filings",
    "command": "enrich dart",
    "source": "DART 정기보고서 / 잠정실적 / 공급계약 (dart.py)",
-   "files": 161,
-   "labels_on_disk": 180,
-   "in_graph": 177,
-   "entries": 1172,
+   "files": 162,
+   "labels_on_disk": 181,
+   "in_graph": 178,
+   "entries": 1183,
    "pending": [],
    "no_data": [
     {
@@ -2123,7 +2123,7 @@
     "2026-08-04",
     "2026-10-12"
    ],
-   "last_fetch": "2026-10-12",
+   "last_fetch": "2026-10-13",
    "last_enriched": "2026-10-13",
    "enriched_days": [
     {
@@ -2152,7 +2152,7 @@
     },
     {
      "day": "2026-10-13",
-     "labels": 1
+     "labels": 2
     }
    ],
    "last_sync": "2026-10-12",
@@ -10484,13 +10484,25 @@
   {
    "day": "2026-10-13",
    "pipeline": "us",
-   "files": 374,
-   "in_graph": 373,
+   "files": 375,
+   "in_graph": 374,
    "pending": 0,
    "last_sync": "2026-10-12",
    "source_range": [
     "2025-11-05",
     "2026-10-07"
+   ]
+  },
+  {
+   "day": "2026-10-13",
+   "pipeline": "dart",
+   "files": 162,
+   "in_graph": 178,
+   "pending": 0,
+   "last_sync": "2026-10-12",
+   "source_range": [
+    "2026-08-04",
+    "2026-10-12"
    ]
   }
  ],
@@ -10502,14 +10514,10 @@
     "name": "United States",
     "command": "enrich us",
     "companies": 249,
-    "call_current": 240,
+    "call_current": 241,
     "overdue": [],
-    "never": [
-     "Canaan"
-    ],
-    "nothing": [
-     "Canaan"
-    ],
+    "never": [],
+    "nothing": [],
     "dart_never": [],
     "marked": [
      {
@@ -10701,12 +10709,8 @@
      "Yest",
      "Zeus"
     ],
-    "nothing": [
-     "HD Construction Equipment"
-    ],
-    "dart_never": [
-     "HD Construction Equipment"
-    ],
+    "nothing": [],
+    "dart_never": [],
     "marked": [
      {
       "company": "Auros Technology",
@@ -11260,18 +11264,6 @@
    }
   ],
   "next_actions": [
-   {
-    "command": "enrich us",
-    "reasons": [
-     "1 never had a call enriched (fetch with defeatbeta, mark the ones with none): Canaan"
-    ]
-   },
-   {
-    "command": "enrich korea",
-    "reasons": [
-     "1 have no DART filing enriched (backfill with `dart.py fetch`): HD Construction Equipment"
-    ]
-   },
    {
     "command": "enrich taiwan",
     "reasons": [
