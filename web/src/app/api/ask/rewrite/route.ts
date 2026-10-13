@@ -8,8 +8,11 @@
 // biggest cloud compute capacity" shares no words with the entries that answer
 // it ("capex guidance", "GW commitments", "data center backlog"), so the
 // snippets never surfaced and the model rightly said the graph had nothing.
-// A cheap model rewrites the question into the words the entries actually use;
+// A model rewrites the question into the words the entries actually use;
 // the browser then searches the union of those queries and the original.
+// With ANTHROPIC_API_KEY set that model is Claude Opus 5.5 at effort "low"
+// (a short JSON reply, so little thinking); otherwise the cheapest model of the
+// OpenAI-compatible service.
 //
 // This step must never block a question: on ANY problem (no key, timeout,
 // overload, malformed reply) it still answers 200 with no queries and an intent
@@ -20,6 +23,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { REWRITE_PROMPT, guessIntent, parseRewrite, buildRewriteUser } from "@/lib/askPrompt.mjs";
 import {
+  CLAUDE_MODEL,
+  CLAUDE_REFUSAL_FALLBACK,
+  claudeClient,
   resolveProvider,
   pickModels,
   buildChatRequest,
@@ -55,17 +61,46 @@ export async function POST(req: NextRequest) {
   if (question.length > MAX_QUESTION_CHARS)
     return NextResponse.json({ error: `Question is too long (max ${MAX_QUESTION_CHARS} characters).` }, { status: 400 });
 
-  const provider = resolveProvider();
-  if (!provider)
-    return NextResponse.json(
-      { error: "No model API key configured (ASK_API_KEY or GROQ_API_KEY)", code: "no_api_key" },
-      { status: 503 }
-    );
-
   // What the browser gets when the model cannot be used: no rewritten queries,
   // an intent from a few English cues. Never an error.
   const fallback = () =>
     NextResponse.json({ queries: [], intent: guessIntent(question), fallback: true }, { status: 200 });
+
+  // Claude first, when ANTHROPIC_API_KEY is set.
+  const client = claudeClient();
+  if (client) {
+    try {
+      const msg = await client.beta.messages.create(
+        {
+          model: CLAUDE_MODEL,
+          max_tokens: MAX_TOKENS,
+          thinking: { type: "adaptive" },
+          output_config: { effort: "low" },
+          system: REWRITE_PROMPT,
+          // Earlier questions of the thread go in too, so "what about Samsung?"
+          // becomes a standalone query.
+          messages: [{ role: "user", content: buildRewriteUser(question, body?.history) }],
+          ...CLAUDE_REFUSAL_FALLBACK,
+        },
+        { timeout: ATTEMPT_TIMEOUT_MS, maxRetries: 1 }
+      );
+      if (msg.stop_reason === "refusal") return fallback();
+      let text = "";
+      for (const block of msg.content) if (block.type === "text") text += block.text;
+      const { queries, intent } = parseRewrite(text, question);
+      return NextResponse.json({ queries, intent, model: msg.model }, { status: 200 });
+    } catch (e: any) {
+      console.warn(`[ask/rewrite] Claude API unavailable (${e?.status ?? e?.name ?? "error"}) — searching the original question only.`);
+      return fallback();
+    }
+  }
+
+  const provider = resolveProvider();
+  if (!provider)
+    return NextResponse.json(
+      { error: "No model API key configured (ANTHROPIC_API_KEY, ASK_API_KEY or GROQ_API_KEY)", code: "no_api_key" },
+      { status: 503 }
+    );
 
   const candidates = await pickModels(provider, "cheap");
   let jsonObject = true; // ask for a JSON object; dropped if the service rejects the parameter

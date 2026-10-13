@@ -1,18 +1,51 @@
 // askProvider.ts — SERVER-ONLY helpers shared by the two Ask routes:
-//   /api/ask          (the answer: local runner first, then the model API)
-//   /api/ask/rewrite  (the cheap query-rewrite step that runs before retrieval)
+//   /api/ask          (the answer: the Claude API first, then an OpenAI-compatible API)
+//   /api/ask/rewrite  (the query-rewrite step that runs before retrieval)
 // It reads API keys from process.env, so it must never be imported by a client
-// component. Everything is plain fetch — no SDK to install.
+// component.
 //
-// Every service supported here (Groq, OpenRouter…) speaks the OpenAI "chat
-// completions" protocol, so ONE request builder covers them all. Gemini and
-// the Anthropic API were removed on 2026-09-11: the owner's Claude answers
-// come only from the local runner (local-ask/, Opus through the Claude Code
-// CLI), never from the Anthropic API.
+// Two kinds of service:
+//   • the Claude API (ANTHROPIC_API_KEY), through the official SDK
+//     @anthropic-ai/sdk. Since 2026-10-12 it answers every question with
+//     Claude Opus 5.5 — it replaced the local runner (local-ask/). This Ask
+//     tab is the ONLY part of the project that pays for the Claude API;
+//     enrichment and coding stay in Claude Code on the owner's machine.
+//   • optional fallbacks that speak the OpenAI "chat completions" protocol
+//     (Groq, OpenRouter…) — plain fetch, ONE request builder covers them all.
 
+import Anthropic from "@anthropic-ai/sdk";
 import type { NextRequest } from "next/server";
 
-// ── Provider resolution ────────────────────────────────────────────────────
+// ── The Claude API ─────────────────────────────────────────────────────────
+
+/** The model for both Ask steps (the answer and the query rewrite). */
+export const CLAUDE_MODEL = "claude-opus-5-5";
+
+/**
+ * Opus 5.5's safety classifiers occasionally decline a harmless question. With
+ * these two request fields the API re-runs a declined request on the model
+ * Anthropic recommends for that case, inside the same call, instead of
+ * returning the refusal. Spread into every Claude request.
+ */
+export const CLAUDE_REFUSAL_FALLBACK: { betas: string[]; fallbacks: "default" } = {
+  betas: ["server-side-fallback-2026-07-01"],
+  fallbacks: "default",
+};
+
+let claude: Anthropic | null = null;
+
+/**
+ * The Claude API client, or null when ANTHROPIC_API_KEY is not set. Made once
+ * per warm instance. The SDK itself retries 429 / 5xx / "overloaded" (529)
+ * and network errors twice, with backoff.
+ */
+export function claudeClient(): Anthropic | null {
+  if (!process.env.ANTHROPIC_API_KEY?.trim()) return null;
+  claude ??= new Anthropic(); // reads ANTHROPIC_API_KEY from the environment
+  return claude;
+}
+
+// ── Provider resolution (the OpenAI-compatible fallbacks) ──────────────────
 
 export interface Provider {
   /** For error messages: "Groq", "the configured OpenAI-compatible". */
@@ -189,8 +222,8 @@ export function makeDeadline(budgetMs: number) {
 
 // ── Rate limit (per warm instance) ─────────────────────────────────────────
 // In-memory, so it is per serverless instance and resets on a cold start — a
-// speed bump against runaway scripts and against a burst spawning many local
-// `claude` processes, not a billing guarantee. Good enough for a personal tool.
+// speed bump against runaway scripts, not a billing guarantee (the real cap is
+// the spend limit set in the Claude Console). Good enough for a personal tool.
 
 const hits = new Map<string, number[]>();
 

@@ -5,6 +5,10 @@ description: Check or restart the local Opus engine behind the live Ask tab. Use
 
 ### Workflow 3 — `ask 실행` (make sure the local Opus engine is behind the live site)
 
+> **Since 2026-10-12 the live Ask tab answers through the Claude API** (`claude-opus-5-5`, `ANTHROPIC_API_KEY`
+> on Vercel — see `web/src/app/api/ask/route.ts`), not through this runner. The steps below only matter if the
+> owner runs the local runner for something else; tell the user that before running them.
+
 **Do NOT run `node local-ask/up.mjs`** (or `down.mjs`). Since 2026-09-13 the runner is reached through a FIXED Tailscale Funnel address (`https://gijun-pc.tail362ef7.ts.net`) that is already set as `LOCAL_ASK_URL` on Vercel; `up.mjs` would overwrite it with a throwaway trycloudflare address and break Ask. The runner autostarts at logon (scheduled task "local-ask runner"); the desktop `Ask Switch.cmd` (repo copy: `local-ask/switch/`) shows ON/OFF and flips the runner.
 
 **Trigger: the user says `ask 실행` or `ask up`.** Run these three checks (Git Bash) and report each line:

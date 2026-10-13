@@ -248,6 +248,9 @@ the same queue.
 - **LLM:** Claude Code terminal (no API calls). Skeleton building and transcript enrichment are
   done directly by Claude in this editor. Python functions in `main.py` are kept for reference
   but no longer invoked for LLM tasks.
+  **The ONE exception (user, 2026-10-12):** the website's Ask tab answers through the Claude API
+  (`claude-opus-5-5`, `ANTHROPIC_API_KEY` on Vercel; `web/src/app/api/ask/`). Everything else — enrichment,
+  skeletons, coding — stays local in Claude Code. Never add Claude API calls anywhere else.
 - **US transcripts:** `av.py` pulls the FULL call (prepared remarks + Q&A, speaker turns) from
   Alpha Vantage `EARNINGS_CALL_TRANSCRIPT` into `transcripts/av/*.txt` (needs `ALPHAVANTAGE_API_KEY`
   in `.env`, free key, 25 requests/day). See Workflow 2c. Motley Fool scraping (`main.py`) is the
@@ -399,7 +402,7 @@ and follow it — do not improvise the procedure from this table.**
 | `enrich ir` | `enrich` → `references/ir.md` | Workflow 2h — company IR press releases via each company's own RSS feed (`ir_pull.py discover / sync / pending / done`) → `transcripts/ir/`; company-issued only, never articles; facts only, demos ≠ shipping. |
 | `enrich waitlist` / `enrich waitlist <market>` | `enrich` → `references/waitlist.md` | Onboard the new companies queued in `enrich_waitlist.json` (user pre-approved 2026-09-28): identity check → `company_metadata.json` → that market's collectors → first patch adds the node; edges only from company documents; row status `added` / `dropped`. |
 | `enrich conference` | `enrich` → `references/conferences.md` | Workflow 2g — investor-conference fireside chats (all listed names, US too) via `investing.py conferences`; only what the call did not say; multi-agent enrich + verify, `graph_build.py --sync`, verification loop, memory update. |
-| `ask 실행` / `ask up` / `ask 종료` / `ask down` | `ask-server` | Workflow 3 — check/restart the local Opus engine behind the live Ask tab (fixed Tailscale address). **Never run `local-ask/up.mjs`** — it overwrites `LOCAL_ASK_URL` on Vercel with a throwaway Cloudflare address. |
+| `ask 실행` / `ask up` / `ask 종료` / `ask down` | `ask-server` | Workflow 3 — check/restart the local Opus runner (`local-ask/`). **Since 2026-10-12 the live Ask tab no longer uses it** (it answers through the Claude API), so `ask 종료` is safe at any time. **Never run `local-ask/up.mjs`** — it overwrites `LOCAL_ASK_URL` on Vercel with a throwaway Cloudflare address. |
 
 Nothing was dropped when these moved out of this file — each skill holds the original text verbatim.
 
