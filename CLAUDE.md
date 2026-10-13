@@ -15,6 +15,10 @@ The end goal is a **web app** where the user clicks any company/product node and
 web lights up — like a multidimensional scaling map — every supplier, customer, and the actual
 deals/figures connecting them. Search a company → drill deep into the web.
 
+**Goal since 2026-10-12 (user):** a supply-chain-based Bloomberg-style terminal. AI is where the map started, not
+its limit — real supply/customer relationships and material company facts are added even when they are not
+AI-related (enrich skill §2, JOB 3). The supply-chain basis and the source rules stay.
+
 The builder is a transfer student learning Python through this project. Code should be
 **explicit and beginner-friendly**, commented in English. Explain reasoning when introducing
 new concepts. Prefer clarity over cleverness.

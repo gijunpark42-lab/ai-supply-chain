@@ -73,7 +73,7 @@ The map records **facts** and **what the company itself says**.
    `transcripts/non_transcript_sources/` with a NOT-a-transcript NOTE and a `# source label:` header).
 3. **IR press releases: only the important ones** — a named supply / customer agreement or design win, capacity /
    capex / production facts, company guidance or targets, a product launch or availability with specs and dates,
-   the operating facts of an acquisition (never its price), a fab / facility start; for pharma / biotech / diagnostics nodes every clinical or regulatory fact that matters to the stock — trial authorisations, first patient dosed, interim / topline results and their numbers, designations (Fast Track, Breakthrough, priority review), filings and decision dates, approvals, the company's own validation-study results (user, 2026-10-06: "임상승인처럼 그 주식에 중요한것들은 당연히 넣어야함"; replaces the 2026-09-27 approvals-only rule). Facts from segments outside the node's chain ARE captured when material to the company (user, 2026-10-06: enrich covers the WHOLE company; the AI-relevance check applies only when a company enters the universe; replaces the 2026-09-27 out-of-chain-segment rule). Anything else yields no entry:
+   the operating facts of an acquisition (never its price), a fab / facility start; for pharma / biotech / diagnostics nodes every clinical or regulatory fact that matters to the stock — trial authorisations, first patient dosed, interim / topline results and their numbers, designations (Fast Track, Breakthrough, priority review), filings and decision dates, approvals, the company's own validation-study results (user, 2026-10-06: "임상승인처럼 그 주식에 중요한것들은 당연히 넣어야함"; replaces the 2026-09-27 approvals-only rule). Facts from segments outside the node's chain ARE captured when material to the company (user, 2026-10-06: enrich covers the WHOLE company; replaces the 2026-09-27 out-of-chain-segment rule). **No AI-relevance check at all since 2026-10-12** (user: "관련있으면 추가시켜 ai뿐만아니라 … 목표가 공급망기반 블룸버그같은거임" — the goal is a supply-chain-based Bloomberg-style terminal): a real supply / customer relationship or material company fact is never held, rejected or deleted for being non-AI or outside the node's chain; the source rules, the analyst / financing exclusions and the JOB 3 rejection list still apply. Anything else yields no entry:
    close the row with `python ir_pull.py done --label "<label>" --why "no material facts"`. (`ir_pull.py` already
    skips the clear notices by headline: dividends, buybacks, event and results-date notices, personnel, awards,
    CSR, trade-show exhibit notices, columns and surveys.)
@@ -138,7 +138,8 @@ share` (EDINET) or `annual report customer share` / `half-year report customer s
 
 **JOB 3 — New companies: added with an independent Claude approval** (user decision 2026-09-26: Claude
 approves, not the user). When a source names a company that is not in the chain and passes the litmus test
-("does its stock directly benefit from this product being built and sold?"):
+("does its stock directly benefit from this product being built and sold?" — any product of a universe company's
+supply chain, AI or not, since 2026-10-12):
 1. The enricher adds it to its patch as a player with a full locator (layer/domain + an existing sector +
    `product`) and describes it in the patch's top-level `new_nodes` block (apply_patches ignores this block):
    ```json

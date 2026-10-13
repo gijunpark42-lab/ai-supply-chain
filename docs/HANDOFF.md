@@ -1044,3 +1044,63 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
     agents (per company in date order, each seeing the earlier patches) + independent verifiers -> 144 patches / 259 entries
     + 3 contracts on existing Lilly edges (AstraZeneca 30, Sanofi 26, Novo 24, Lilly 21, BMS 18 …); verify_graph 417 pass /
     130 unchecked / 0 fail. Labels recorded as verified. PR from branch enrich-2026-10-06-aibio-backfill.
+- **2026-10-07 (Claude, nightly routine) — `enrich us`** — AV sync saved 0 (Simulations Plus / Eikon / Generate / POET /
+  Relay `waiting`, all marked known gaps). IR sync (all feeds): 43 saved, 119 feed failures (unchanged). Conference walk:
+  400 pages back to 2026-05-27 (~75 min), 8 new US talks. Enriched (enricher agents, Opus): 17 IR releases (Shell Q3
+  update note, Constellation–Google 890 MW uprate PPA + 2,700 MW supply = NEW EDGE Constellation Energy -> Google in
+  power_cooling, Applied Digital Finland 1 GW, Digital Realty KIX15, HPE / Mizuho, Dell AI Data Platform, Nokia / RNP,
+  AMAT–Intel EPIC partnership contract, Teradyne Titan HP, Qnity Kalrez 7080, Arteris, MaxLinear Topaz, PacBio / TychoBio,
+  MindWalk, Simulations Plus take-private completed, Uber / ezCater, Xcel) + 8 talks (Generate Biomedicines x4, Eikon,
+  BillionToOne, Rockwell, Cipher Digital). 6 IR rows closed "no material facts" (3M, GE Vernova, Gates, Trane, 2 DLR
+  financing). No new nodes. 5 independent Opus verifiers: 12 corrections applied (11 wording / hedge fixes, Xcel Michigan
+  divestiture deleted as not material); 25 labels verified. Board question added: Simulations Plus now private (keep node?).
+  i18n step run. Not committed (nightly rule).
+- **2026-10-08 (Claude, nightly routine) — `enrich us`** — AV sync saved 0 (5 known-gap `waiting`); Applied Digital reported
+  10-07 (not on AV yet) -> `utils/defeatbeta_fetch.py` had the full call (`Applied Digital Q1 FY2027 (10-07-2026)`). IR sync
+  (all feeds): 42 saved, 121 feed failures. Conference walk: 400 pages back to 2026-05-28, 0 new. Enriched (6 enricher
+  agents, Opus): APLD call (11 entries + 1 contract on APLD -> CoreWeave; $36B contracted, 600 MW next 12 months, 3.5-4 GW
+  by 2030) and 11 IR releases (CoreWeave India 240 MW, TSMC Sept revenue, Dell XPS RTX Spark, HPE ProLiant Gen13 / EPYC,
+  Arista SU-144 rack-scale, Aehr ~$6M Sonoma follow-on, 10x / Fred Hutch, BillionToOne Northstar study, Tempus / Moderna +
+  Merck, Duke NC large-load settlement, ERock / HD CE engine supply). 9 IR rows closed no material facts (Apple, Microsoft,
+  Onto, Wolfspeed loan, ADI / Moet Hennessy, HPE blog, Cisco Webex; Eli Lilly 10-02 already enriched). No new nodes, no new
+  edges. 2 independent Opus verifiers: 11 clean, 1 correction applied (10x Fred Hutch slot removed); 12 labels verified.
+  Board questions added: ChronoScale, HD Construction Equipment, Moderna / Merck & Co. Skyworks 10-07 release saved
+  nav-only (direct fetch 403) - row left pending. **graph_build.py --sync was stopped by the system for low memory** after
+  apply + merged graph + derive; evidence.json, verify_labels, npm sync and i18n build did not run -> run
+  `graph_build.py --sync`, then the i18n step. Not committed (nightly rule).
+- **2026-10-08 night (Claude, nightly routine) — `enrich us`** — AV sync: quota spent on the known-gap lookups (Simulations
+  Plus / Eikon / Generate), 0 saved. Penguin Solutions reported Q4 FY2026 on 10-06 (not flagged by AV before the quota stop)
+  -> `utils/defeatbeta_fetch.py` had the full call (`Penguin Solutions Q4 FY2026 (10-06-2026)`, 72 turns incl. Q&A).
+  Enriched by 1 enricher agent (Opus): 15 entries + 1 contract on Penguin -> NVIDIA (Q4 net sales $567M +68%, FY2026
+  $1.73B, Integrated Memory record $341M +158%, FY2027 outlook ~+40% / ~$2.43B / EPS ~$4.45, record backlog, 6 new AI infra
+  customers incl. 4 neoclouds, new memory + AI hardware supplier arrangements, CXL). Independent Opus verifier: 10 clean,
+  7 corrections applied via apply_corrections.py (Aaron Johnson = interim CFO x5, CXL entry reworded, NVIDIA contract
+  date_signed -> not stated); CXL entry re-added with topics [] and the missed Q4 gross sales fact ($1.57B / $1.42B, agent-
+  basis memory logistics) added via `patches/penguinsolutions_q4_2026_b.json`. verify_graph: 13 pass / 4 unchecked / 0 fail.
+  No new nodes, no new edges. IR / conference collectors not due (synced 10-07); Skyworks 10-07 release still nav-only
+  (IR site 403 / timeout) - row left pending. **The 2nd graph_build.py --sync was stopped by the system for low memory**
+  after apply + merged graph + derive; evidence.json, verify_labels, board rebuild, npm sync (web/public/data shows the
+  pre-correction Penguin text) and the i18n step did not run -> run `graph_build.py --sync`, then the i18n step. Not
+  committed (nightly rule).
+- **2026-10-09 (Claude, nightly routine) — `enrich us`** — AV sync saved 0 (5 known-gap `waiting`); IR / conference
+  collectors not due. Skyworks 10-07 Si829x release: body restored from the company's own GlobeNewswire distribution
+  (IR site still 403) -> 2 entries, row closed. graph_build.py --sync failed 3x at derive_exposure (errno 22 /
+  ERROR_USER_MAPPED_FILE on graph/exposure.json, likely OneDrive/Defender mapping the file right after the sibling writes);
+  finished via a retry-on-errno-22 wrapper (job tmp), which also completed the interrupted 10-07 / 10-08 builds (evidence,
+  board, npm sync, i18n build). Durable fix = a retry in derive.py's exposure write (user decision, not changed). Not committed.
+- **2026-10-10 (Claude, nightly routine) — `enrich us`** — AV sync saved 0 (only the 5 marked known gaps waiting; next US
+  call ASML 10-14); US call / conference / IR queues empty, 0 overdue / never; IR + conference collectors not due. No patches,
+  no graph_build. Finished the i18n step the 10-09 run left open: 123 strings x ko/zh/ja merged (ja by a Sonnet agent),
+  untranslated now 0. Verify queue 1 (Skyworks 10-07) < 5, left pending.
+- **2026-10-12 (Claude, user request) — commit** — committed the 10-07..10-10 nightly runs' work on
+  `enrich-2026-10-06-aibio-backfill` (chains, graph/, web/public/data, patches/applied, transcripts, queues, i18n, board).
+  Left untracked: `kardashev-scroll/` (its own git repo), `docs/research/`, `docs/memory/power_seed_game.md` (not enrich work).
+- **2026-10-12 (Claude, user request) — held patches merged + new goal** — user: "나머지 다 머지 시키자 … 관련있으면
+  추가시켜 ai뿐만아니라 … 목표가 공급망기반 블룸버그같은거임". New rule in SKILL.md §2 / JOB 3 and CLAUDE.md: the goal is a
+  supply-chain-based Bloomberg-style terminal — non-AI / out-of-chain is never a reason to hold, reject or delete a real
+  relationship, material fact or new company (source rules, analyst / financing exclusions, JOB 3 reject list unchanged).
+  Applied the held LS Electric patch (DART H1 2026 major-customer table: new edges LS Electric -> LG Energy Solution 8.5% and
+  -> Samsung SDI 7.6% of the power-infrastructure segment, type `customer share`; "parent" wording dropped). Removed
+  patches/held_1005: Yuanjie Customer A contracts = already on the node (duplicate); grace-h1 correction = obsolete (10-05
+  customer-list ruling). graph_build OK (retry wrapper); verify fail = the pre-existing LS Electric H1 entry's computed
+  growth % (32.7 / 55.7 / 64.4), one of the known pre-existing fails. i18n 7 strings, 0 untranslated. Verify queue 2.
