@@ -1,0 +1,50 @@
+{
+  "source": "Dell press release: Dell Technologies Introduces XPS Googlebook: The First XPS (09-21-2026)",
+  "chains": {
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "Dell",
+          "layer": "system_integration",
+          "sector": "Server / Rack OEM",
+          "product": "PowerEdge XE AI servers",
+          "quarterly_data": [
+            {
+              "quarter": "Dell press release: Dell Technologies Introduces XPS Googlebook: The First XPS (09-21-2026)",
+              "signal": "Dell announced the XPS Googlebook, a 13-inch premium laptop powered by the Snapdragon X Elite processor, which Dell calls the first XPS device designed for Gemini Intelligence (Google's Googlebook platform): up to 32GB of LPDDR5X memory and an NPU, a 2.5K InfinityEdge touch display (100% DCI-P3 color coverage, 500 nits, 30Hz to 120Hz variable refresh rate), an aluminum chassis at 2.2lbs and 12.7mm thin, and up to 16 hours of Netflix streaming on a single charge. US pricing starts at $999; it is available on Best Buy and Google Stores 'today' (release dated September 21, 2026) and on Dell.com in October.",
+              "figure": "starting at $999; up to 32GB LPDDR5X; up to 16 hours battery; Best Buy and Google Stores at launch, Dell.com in October",
+              "topics": ["product_launches"],
+              "counterparty": "Google",
+              "counterparty_role": "partner (Googlebook platform and Gemini Intelligence)"
+            }
+          ],
+          "connects_to": []
+        },
+        {
+          "company": "Qualcomm",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Dragonfly C1000 Arm-based AI data-center CPU",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Dell",
+              "relationship": "Snapdragon X Elite PC processors for Dell laptops",
+              "contracts": [
+                {
+                  "source": "Dell press release: Dell Technologies Introduces XPS Googlebook: The First XPS (09-21-2026)",
+                  "signal": "Dell's XPS Googlebook laptop is powered by the Snapdragon X Elite processor; Qualcomm's Kedar Kondap (SVP & GM, Compute & Gaming): 'We're proud to work with Google and Dell to bring users ... Googlebook laptops powered by Snapdragon.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "component supply (PC processor)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

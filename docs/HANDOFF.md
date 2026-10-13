@@ -1104,3 +1104,24 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   patches/held_1005: Yuanjie Customer A contracts = already on the node (duplicate); grace-h1 correction = obsolete (10-05
   customer-list ruling). graph_build OK (retry wrapper); verify fail = the pre-existing LS Electric H1 entry's computed
   growth % (32.7 / 55.7 / 64.4), one of the known pre-existing fails. i18n 7 strings, 0 untranslated. Verify queue 2.
+- **2026-10-12 night (Claude, user request) — `enrich us` + `enrich korea` + the 2026-10-12 scope rule** — user: "둘다 해줘"
+  (enrich us/korea, plus the board questions the new terminal-goal rule settles) and "끝나면 푸시랑 머지까지".
+  Collect: AV 0 new; IR sync 98 saved (123 feed failures); DART 18 filings; KIND 2 decks. Enriched (Opus enricher agents,
+  check_patch + check_edgar_patch clean, 3 builds via the errno-22 retry wrapper, 0 verify fails):
+  US IR 69 rows (49 enriched, 20 nothing; Dell 10-06/10-07 re-saved after an IR URL change = already enriched) — new edges
+  Cisco -> Microsoft (P200 in production), Qualcomm -> Dell (Snapdragon X Elite laptops), GlobalFoundries -> TSMC ($2B
+  interposer service), Onto Innovation -> SK Hynix; KR: 14 DART supply contracts, 3 prelims (Samsung / LG Electronics /
+  LGES), Auros amended H1 = restatement (marked), KIND Koh Young + ASICLand, KR IR 12 rows (6 enriched).
+  Scope rule work: 32 scope deletions rebuilt from patches/applied and re-checked (29 re-added as patches/readd_*;
+  Compal / Feirongda / HGTECH left out on their other reasons; Kurita held in patches/held_1012 - Q&A summary vs the
+  10-05 full-transcript rule, asked); never-added facts (TTM A&D capex + Epiq, Gates/Timken, Adeia/Spectrum, Montage CK01P,
+  Resonac + JX HDD media); bitcoin-mining facts CleanSpark / Keel / MARA / Riot (10-K / 10-Q); pharma filing lines Vertex /
+  Lilly / Jazz; Shell -> Google PPA edge + Shell 20-F company-wide facts; verifier-flagged missed facts (Rolls-Royce outlook,
+  Materion, Luxshare satellite terminal, Skyworks synergies, AstraZeneca OLE, Dell GB300, Riot suit, CleanSpark energy,
+  MARA H1). New nodes (independent Opus verifier approved): Moderna, Merck & Co. (ai_bio Biopharma End Customers,
+  Tempus AI edges; metadata + logos added; their first calls Q2 FY2026 enriched via defeatbeta). Held for the user
+  (do-not-add list): HD Construction Equipment, Xiaomi (patches/held_1012). 12 Opus verifiers over 116 labels: 10
+  corrections applied (verify-1012-v03/06/07/08/11). Board: 17 questions resolved under the new rule, 4 asked (do-not-add
+  vs rule, Kurita, bitcoin ASIC sector, bitcoin treasury / site-purchase cash); Kostek Systems marked (KONEX not in
+  dart.py). Doosan 10-01 IR file: TITLE header held the whole body (label beyond verify's 3,000-char header read) -
+  header shortened; ir_pull title capture bug for that site.
