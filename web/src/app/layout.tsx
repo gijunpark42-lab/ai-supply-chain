@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,15 +20,19 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // ClerkProvider: sign-in state for the Ask tab (components/AskGate.tsx). Keys come
+  // from the Clerk integration's NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY / CLERK_SECRET_KEY.
   return (
-    <html lang="en">
-      <body>
-        {children}
-        {/* Vercel Web Analytics: visitors + page views (cookieless). The project's
-            Analytics tab on vercel.com shows them; custom click events are sent
-            with track() in page.tsx and AskGraph.tsx. */}
-        <Analytics />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          {children}
+          {/* Vercel Web Analytics: visitors + page views (cookieless). The project's
+              Analytics tab on vercel.com shows them; custom click events are sent
+              with track() in page.tsx and AskGraph.tsx. */}
+          <Analytics />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

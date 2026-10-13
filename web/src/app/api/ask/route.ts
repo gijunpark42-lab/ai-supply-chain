@@ -57,6 +57,7 @@ import type {
   BetaToolUseBlock,
 } from "@anthropic-ai/sdk/resources/beta/messages/messages";
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 import {
   normalizeIntent,
   normalizeLang,
@@ -710,6 +711,12 @@ function openAiSseToNdjson(upstream: ReadableStream<Uint8Array>, meta: StreamMet
 
 export async function POST(req: NextRequest) {
   const deadline = makeDeadline(BUDGET_MS);
+
+  // 0) Signed-in users only (user, 2026-10-13). middleware.ts runs Clerk on this
+  //    route, so auth() knows the visitor's session; no session → 401.
+  const { userId } = await auth();
+  if (!userId)
+    return NextResponse.json({ error: "Sign in to use Ask.", code: "signin" }, { status: 401 });
 
   // 1) Cheap protections first: rate limit and body size.
   if (rateLimited("ask", clientIp(req), RATE_LIMIT, RATE_WINDOW_MS))

@@ -19,6 +19,7 @@ import CapexBacklog from "@/components/CapexBacklog";
 import SearchBox from "@/components/SearchBox";
 import Exposure from "@/components/Exposure";
 import AskGraph from "@/components/AskGraph";
+import AskGate from "@/components/AskGate";
 import Picks from "@/components/Picks";
 import "./workspace.css";
 
@@ -528,7 +529,9 @@ function Workspace() {
         )}
         {viz && tab === "Status" && <Coverage nodes={viz.nodes} onSelect={setSelected} />}
         {viz && tab === "Ask" && (
-          <AskGraph nodes={viz.nodes} links={viz.links} onOpen={openNode} />
+          <AskGate>
+            <AskGraph nodes={viz.nodes} links={viz.links} onOpen={openNode} />
+          </AskGate>
         )}
         {tab === "Semi Bot" && (
           <div className="embed">
