@@ -40,6 +40,8 @@ interface LogoObj {
   img: HTMLImageElement;
   rWorld: number;
   dead?: boolean;
+  requested?: boolean; // img.src has been set (the download has started)
+  loaded?: boolean; // the image finished loading, so the chip can be shown
 }
 
 interface LabelObj {
@@ -259,12 +261,17 @@ export default function Graph3D({
       if (!n.logo) continue;
       const chip = document.createElement("div");
       chip.className = "nlogo" + (n.logoBg === "dark" ? " dk" : "");
+      chip.style.display = "none"; // hidden until the loop below shows it
+      // No img.src here: the loop sets it the first time this logo is on screen,
+      // so the page does not download all ~880 logos up front.
       const img = document.createElement("img");
-      img.src = n.logo;
       img.alt = "";
       chip.appendChild(img);
       overlay.appendChild(chip);
       const o: LogoObj = { n, chip, img, rWorld: 4 * Math.cbrt(n.val) };
+      img.onload = () => {
+        o.loaded = true;
+      };
       img.onerror = () => {
         chip.remove();
         o.dead = true;
@@ -299,6 +306,16 @@ export default function Graph3D({
           const rPx = (o.rWorld * perPx) / d;
           const forced = n.id === hoverIdRef.current || n.id === focusRef.current;
           if (rPx < MIN_R && !forced) {
+            o.chip.style.display = "none";
+            continue;
+          }
+          // First time this logo would be shown: start its download now.
+          // Until it has loaded, keep the chip hidden rather than show an empty box.
+          if (!o.requested) {
+            o.requested = true;
+            o.img.src = n.logo;
+          }
+          if (!o.loaded) {
             o.chip.style.display = "none";
             continue;
           }

@@ -9,6 +9,8 @@ metadata:
 
 Node badges read `static/logos/manifest.json` ( `"<node id>": {"file","bg"}` ), key MUST equal the merged_graph node id; app.py URL-quotes the filename so spaces/parens are fine. SVG preferred (vector → satisfies "1080+" automatically). bg = "light" for dark/colored logos, "dark" for white logos.
 
+Browsers cache logo files for 7 days (`web/next.config.mjs`, 2026-10-13). To FIX a wrong logo, save it under a NEW file name (e.g. `<node id>-v2.<ext>`) and point the manifest `file` at it — overwriting the same file name leaves returning visitors on the old image for up to a week. `manifest.json` is not cached.
+
 Find missing: compare `graph/merged_graph.json` node ids vs manifest keys.
 
 Fetch method that worked (2026-06-14, batch of 30), in order of reliability:

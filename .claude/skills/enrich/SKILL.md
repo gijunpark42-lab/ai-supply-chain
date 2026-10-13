@@ -182,6 +182,10 @@ supply chain, AI or not, since 2026-10-12):
    `static/logos/<node id>.<ext>`; the coordinator alone appends `{"file","bg"}` to `static/logos/manifest.json`
    (append only, no key sorting) and then runs `graph_build.py --sync` (or `npm run sync`) so `web/public/logos`
    is refreshed. A node with no reliable logo is listed in the report instead of shipping a guessed one.
+   **Browser cache (2026-10-13):** visitors' browsers keep logo files for 7 days (`web/next.config.mjs`). A
+   new logo needs nothing extra (`manifest.json` itself is not cached), but NEVER fix a wrong logo by overwriting
+   its file under the same name — returning visitors would keep the old image for up to a week. Save the
+   corrected logo under a new file name (e.g. `<node id>-v2.<ext>`) and point that node's manifest `file` at it.
 
 **JOB 4 — New edges:** only when the source explicitly states a supply or customer relationship, the speaker is
 management (not an analyst), both companies are players in that chain, and it is not a joint demonstration.
