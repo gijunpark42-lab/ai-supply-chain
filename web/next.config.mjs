@@ -13,6 +13,10 @@ const nextConfig = {
   // transpilePackages ready in case a nested ESM dep needs it.
   eslint: { ignoreDuringBuilds: true },
   experimental: {
+    // One shared copy of @vercel/functions for every route, so the Runtime Cache the
+    // /news ingest job writes and /api/news reads is the same store in `next dev`
+    // too (its local stand-in lives in that module's memory).
+    serverComponentsExternalPackages: ["@vercel/functions"],
     // /api/ask reads the graph from disk for its lookups (lib/askAgent.ts), and
     // /api/news*, /api/filings and /api/top read it + the local-name files (lib/news.ts);
     // ship the files with those functions on Vercel.
@@ -22,6 +26,7 @@ const nextConfig = {
       "/api/news/summary": NEWS_DATA,
       "/api/filings": NEWS_DATA,
       "/api/top": NEWS_DATA,
+      "/api/news/ingest": NEWS_DATA,
     },
   },
 };

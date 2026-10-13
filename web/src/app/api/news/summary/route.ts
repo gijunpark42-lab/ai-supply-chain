@@ -7,6 +7,7 @@
 // 5 minutes so the next click tries again.
 
 import { NextRequest, NextResponse } from "next/server";
+import { cdnCache } from "@/lib/news";
 import { summarize } from "@/lib/newsSummary";
 
 export const runtime = "nodejs";
@@ -24,10 +25,6 @@ export async function GET(req: NextRequest) {
   });
   const retrySoon = out.kind !== "ai" && !!process.env.GEMINI_API_KEY?.trim();
   return NextResponse.json(out, {
-    headers: {
-      "Cache-Control": retrySoon
-        ? "public, s-maxage=300"
-        : "public, s-maxage=86400, stale-while-revalidate=86400",
-    },
+    headers: retrySoon ? cdnCache(300) : cdnCache(86400, 86400),
   });
 }

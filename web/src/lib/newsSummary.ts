@@ -12,7 +12,7 @@
 import { inflateRawSync } from "node:zlib";
 import { SEC_UA } from "./filings";
 import { generate, isEnglish } from "./gemini";
-import { decodeEntities, tagCompanies, tickerOf } from "./news";
+import { decodeEntities, tagCompanies, tickerOf, type Digest } from "./news";
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36";
 const MAX_ARTICLE_CHARS = 12_000;
@@ -202,19 +202,16 @@ function unzip(buf: Buffer, want: (name: string) => boolean): { name: string; da
 
 // ── Gemini ────────────────────────────────────────────────────────────────
 
+const SUMMARY_RULES =
+  `You summarize news articles and company filings for a US investor's news terminal. Use only the text given. ` +
+  `Always write in English, translating if the source is in another language. ` +
+  `Give 3-5 short bullet points, each starting with "- ", most important first: ` +
+  `what happened, the key numbers, and the companies involved. No intro line, no opinion, no investment advice. ` +
+  `Keep tickers as written and give companies their English names. ` +
+  `If the text is only a headline, write a single bullet that restates it and nothing more.`;
+
 async function gemini(req: SummaryRequest, source: string): Promise<string | null> {
-  const system =
-    `You summarize one news article or company filing for a US investor's news terminal. Use only the text given. ` +
-    `Always write in English, translating if the source is in another language. ` +
-    `Give 3-5 short bullet points, each starting with "- ", most important first: ` +
-    `what happened, the key numbers, and the companies involved. No intro line, no opinion, no investment advice. ` +
-    `Keep tickers as written and give companies their English names. ` +
-    `If the text is only a headline, write a single bullet that restates it and nothing more.`;
-  const text = await generate(system, `Headline: ${req.title}
-
-${source}
-
-Write the summary in English.`);
+  const text = await generate(SUMMARY_RULES, `Headline: ${req.title}\n\n${source}\n\nWrite the summary in English.`);
   if (!text || isEnglish(text)) return text;
   // The small model sometimes answers in the source's language (Japanese → Japanese)
   // anyway; translating its few lines is something it does reliably.
@@ -226,9 +223,17 @@ Write the summary in English.`);
   return translated || text;
 }
 
-// ── Putting it together ───────────────────────────────────────────────────
+// ── Reading a source ──────────────────────────────────────────────────────
 
-export async function summarize(req: SummaryRequest): Promise<NewsSummary> {
+interface Source {
+  url: string; // the article itself (Google News links resolved)
+  page: PageText | null;
+  body: string; // article text, capped
+  description: string;
+  text: string; // what Gemini reads: feed blurb + page description + article text
+}
+
+async function readSource(req: SummaryRequest, maxChars = MAX_ARTICLE_CHARS): Promise<Source> {
   const isGoogle = /^https:\/\/news\.google\.com\//.test(req.url);
   const url = (isGoogle && (await resolveGoogleNews(req.url))) || req.url;
   const page = url.startsWith("https://news.google.com/")
@@ -238,30 +243,65 @@ export async function summarize(req: SummaryRequest): Promise<NewsSummary> {
       : url.startsWith("https://disclosure2.edinet-fsa.go.jp/")
         ? await edinetText(url)
         : await fetchArticle(url);
-  const body = (page?.paragraphs || []).join("\n").slice(0, MAX_ARTICLE_CHARS);
+  const body = (page?.paragraphs || []).join("\n").slice(0, maxChars);
   const description = page?.description || "";
-
-  const source = [
+  const text = [
     req.blurb && `Feed summary: ${req.blurb}`,
     description && description !== req.blurb && `Page description: ${description}`,
     body && `Article text:\n${body}`,
   ]
     .filter(Boolean)
     .join("\n\n");
+  return { url, page, body, description, text };
+}
 
-  let summary = await gemini(req, source);
+const tagsOf = (req: SummaryRequest, src: Source) =>
+  tagCompanies([req.title, req.blurb, src.description, src.body].join("\n"));
+
+// ── Putting it together ───────────────────────────────────────────────────
+
+export async function summarize(req: SummaryRequest): Promise<NewsSummary> {
+  const src = await readSource(req);
+  let summary = await gemini(req, src.text);
   let kind: NewsSummary["kind"] = "ai";
   if (!summary) {
     // No AI: the feed's blurb if it says something, else the article's lead.
-    const lead = (page?.paragraphs || []).slice(0, 3).join("\n\n").slice(0, 900);
+    const lead = (src.page?.paragraphs || []).slice(0, 3).join("\n\n").slice(0, 900);
     if (req.blurb.length >= 80) [summary, kind] = [req.blurb, "feed"];
     else if (lead) [summary, kind] = [lead, "lead"];
-    else if (description || req.blurb) [summary, kind] = [description || req.blurb, "feed"];
+    else if (src.description || req.blurb) [summary, kind] = [src.description || req.blurb, "feed"];
     else [summary, kind] = ["", "none"];
   }
 
-  const { companies, others } = tagCompanies([req.title, req.blurb, description, body].join("\n"));
+  const { companies, others } = tagsOf(req, src);
   const tickers: Record<string, string | null> = {};
   for (const id of companies) tickers[id] = tickerOf(id);
-  return { url, summary, kind, companies, tickers, others };
+  return { url: src.url, summary, kind, companies, tickers, others };
+}
+
+const BATCH_CHARS = 4000; // article text per source when several share one Gemini call
+
+/** Summaries for several sources in ONE Gemini call (how the ingest job stays far
+ *  inside the free tier). A source Gemini skipped comes back null. */
+export async function summarizeMany(reqs: SummaryRequest[]): Promise<(Digest | null)[]> {
+  const sources = await Promise.all(reqs.map((r) => readSource(r, BATCH_CHARS)));
+  const out = await generate(
+    SUMMARY_RULES +
+      " The user sends a JSON object of numbered sources. Return a JSON object with the same keys, each value " +
+      "that source's bullet points as one string, one bullet per line.",
+    JSON.stringify(Object.fromEntries(sources.map((s, n) => [n, `Headline: ${reqs[n].title}\n\n${s.text}`]))),
+    { maxTokens: 4096, json: true }
+  );
+  let obj: any = null;
+  try {
+    obj = JSON.parse(out || "");
+  } catch {
+    if (out) console.warn(`[news] digest answer was not JSON: ${out.slice(0, 120)}`);
+  }
+  return reqs.map((req, n) => {
+    const summary = obj?.[n];
+    if (typeof summary !== "string" || !summary.trim()) return null;
+    const { companies, others } = tagsOf(req, sources[n]);
+    return { summary: summary.trim(), url: sources[n].url, companies, others };
+  });
 }

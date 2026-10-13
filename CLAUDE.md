@@ -266,7 +266,9 @@ the same queue.
   (DART / EDINET / SEC filings by map companies), runs on
   Vercel (works with the PC off) and summarizes a clicked item with Google's free Gemini API
   (`GEMINI_API_KEY`) — **never the Claude API**. Titles and summaries are always English (non-English
-  ones translated by the same Gemini key; the original title shows under it). It is **display only**: neither tab feeds enrich, patches,
+  ones translated by the same Gemini key; the original title shows under it). A Vercel Cron
+  (`/api/news/ingest`, every 5 min, `CRON_SECRET`) rates Top News and pre-writes summaries into the
+  Runtime Cache (`web/src/lib/digests.ts`); the UI follows the site's Liquid Glass look. It is **display only**: neither tab feeds enrich, patches,
   chains or any graph file, and nothing in the pipeline reads it (`dart.py` / `edinet.py` / `edgar_pull.py`
   stay the enrich path).
 - **US transcripts:** `av.py` pulls the FULL call (prepared remarks + Q&A, speaker turns) from

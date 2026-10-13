@@ -35,6 +35,7 @@ const FEED_LABEL: Record<NewsItem["feed"], string> = {
 const CATEGORY_ORDER = ["Politics", "Economy", "Markets", "Companies", "Tech", "Energy", "Other"];
 
 const hhmm = (ms: number) => new Date(ms).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+const firstPoint = (bullets: string) => (bullets.split("\n").find((l) => l.trim()) || "").replace(/^\s*[-*•]\s*/, "");
 // Date-only filings (DART, SEC) show their market date, "10/13", where others show a time.
 const when = (it: NewsItem) => (it.day ? it.day.slice(5).replace("-", "/") : hhmm(it.time));
 
@@ -134,14 +135,15 @@ function NewsTerminal() {
   return (
     <div className={"news-term" + (sel ? " has-sel" : "")}>
       <header className="news-head">
-        <div className="news-tabs" role="tablist" aria-label={t("News")}>
+        {/* The site's own segmented control (globals.css .tabs / .tab). */}
+        <div className="tabs news-tabs" role="tablist" aria-label={t("News")}>
           {TABS.map((x) => (
             <button
               key={x.tab}
               type="button"
               role="tab"
               aria-selected={tab === x.tab}
-              className={"news-tab" + (tab === x.tab ? " on" : "")}
+              className="tab"
               onClick={() => {
                 setTab(x.tab);
                 setSel(null);
@@ -232,7 +234,11 @@ function NewsTerminal() {
                       {when(it)}
                     </time>
                     <span className="news-src">{it.source}</span>
-                    <span className="news-title">{it.title}</span>
+                    <span className="news-title">
+                      {it.title}
+                      {/* The pre-written summary's first point, right in the list. */}
+                      {it.digest && <span className="news-row-dek">{firstPoint(it.digest.summary)}</span>}
+                    </span>
                     <Chips item={it} tickers={feed!.tickers} />
                   </>
                 )}
@@ -319,6 +325,13 @@ function Detail({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Written ahead of time by the ingest job (lib/digests.ts): nothing to wait for.
+    const d = item.digest;
+    if (d) {
+      setRes({ url: d.url, summary: d.summary, kind: "ai", companies: d.companies, tickers: {}, others: d.others });
+      setLoading(false);
+      return;
+    }
     let alive = true;
     setRes(null);
     setLoading(true);
@@ -332,7 +345,7 @@ function Detail({
     return () => {
       alive = false;
     };
-  }, [item.url, item.title, item.summary]);
+  }, [item.url, item.title, item.summary, item.digest]);
 
   const companies = [...new Set([...item.companies, ...(res?.companies || [])])];
   const ticker = { ...tickers, ...(res?.tickers || {}) };

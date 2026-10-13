@@ -31,6 +31,15 @@ export interface NewsItem {
   feed: NewsFeedName;
   rank?: number; // Top News only: Gemini's 1-5 importance (5 = market-moving)
   category?: string; // Top News only: Politics, Economy, Markets, Companies, Tech, Energy, Other
+  digest?: Digest; // the summary the ingest job wrote ahead of time (lib/digests.ts)
+}
+
+/** A summary written ahead of time by the ingest job (lib/digests.ts). */
+export interface Digest {
+  summary: string; // "- bullet" lines
+  url: string; // the article itself (Google News links resolved)
+  companies: string[]; // map companies named anywhere in the article
+  others: string[]; // tickers in the article that are not map companies
 }
 
 export interface NewsFeed {
@@ -217,6 +226,17 @@ export function tagCompanies(text: string, tickers: string[] = []): { companies:
 
 export function tickerOf(id: string): string | null {
   return getMap().tickerOf[id] ?? null;
+}
+
+/** Response headers for the /news API routes: Vercel's CDN keeps a copy `maxAge`
+ *  seconds and then serves it stale (for `swr` more) while refreshing behind it;
+ *  browsers always ask again, so a returning visitor never opens on yesterday's
+ *  copy from their own cache. */
+export function cdnCache(maxAge: number, swr = 0): Record<string, string> {
+  return {
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "Vercel-CDN-Cache-Control": `max-age=${maxAge}${swr ? `, stale-while-revalidate=${swr}` : ""}`,
+  };
 }
 
 /** Every map company (for lib/filings.ts, which looks filings up by code). */

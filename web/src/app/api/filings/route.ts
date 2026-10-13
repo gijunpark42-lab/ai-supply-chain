@@ -6,14 +6,17 @@
 // old copy at once while refreshing behind it.
 
 import { NextResponse } from "next/server";
+import { withDigests } from "@/lib/digests";
 import { getFilingsFeed } from "@/lib/filings";
+import { cdnCache } from "@/lib/news";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const feed = await getFilingsFeed();
+  // Items carry the summaries the ingest job wrote ahead of time (lib/digests.ts).
+  const feed = await withDigests(await getFilingsFeed());
   return NextResponse.json(feed, {
-    headers: { "Cache-Control": "public, s-maxage=600, stale-while-revalidate=86400" },
+    headers: cdnCache(600, 86400),
   });
 }
