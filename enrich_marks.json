@@ -137,6 +137,26 @@
    "at": "2026-10-01 00:10",
    "market": "US",
    "text": "09-30 nightly enrich us: 33 labels applied (AOS Q4 call, 7 conferences, 25 IR releases; 40 IR rows no material facts). Opus verifiers DONE over all 33 - 16 corrections in patches/corrections/verify-us-0930-a..f.json NOT APPLIED (permission classifier blocked apply_corrections.py in the unattended session). Next: apply_corrections.py --check -> apply_corrections.py -> graph_build.py --sync -> move the 33 verify_queue labels to verified -> i18n step. defeatbeta still 404; AV waiting Dell/SLP/IMOS/PDFS/POET/RLAY. IR sync: 119 feed failures (all markets)."
+  },
+  {
+   "at": "2026-10-08 00:32",
+   "market": "US",
+   "text": "10-07/08 nightly enrich us: 12 labels applied to chains/ (APLD Q1 FY2027 call via defeatbeta + 11 IR releases) and Opus-verified (1 correction applied). graph_build.py --sync was STOPPED for low memory after apply + merged graph + derive: evidence.json, verify_labels, npm sync (web/public/data) and i18n build did NOT run -> run graph_build.py --sync, then the i18n step (skill 9). Skyworks 10-07 Si829x release saved nav-only (direct fetch 403) - row left pending: paste the release text by hand or close it."
+  },
+  {
+   "at": "2026-10-08 23:35",
+   "market": "US",
+   "text": "10-08/09 nightly enrich us: AV quota spent on known-gap lookups (Simulations Plus / Eikon / Generate), 0 saved; Penguin Solutions Q4 FY2026 (10-06-2026) fetched via defeatbeta and enriched (16 entries + 1 contract on Penguin -> NVIDIA), Opus-verified, 7 corrections applied + penguinsolutions_q4_2026_b.json (CXL entry re-added with topics [], Q4 gross sales). The 2nd graph_build.py --sync was STOPPED by the system for low memory after apply + merged graph + derive (timelines/screener/capex/exposure): evidence.json, verify_labels, board rebuild, npm sync (web/public/data still shows the pre-correction Penguin text) and the i18n step did NOT run -> run graph_build.py --sync, then the i18n step (skill 9; ~117 strings/lang untranslated incl. 10-07/08 leftovers). Skyworks 10-07 Si829x release still nav-only (IR site 403 / timeout, PDF route 403) - row left pending: paste the release text or close it."
+  },
+  {
+   "at": "2026-10-09 23:38",
+   "market": "US",
+   "text": "10-09/10 nightly enrich us: AV sync 0 saved (5 known-gap waiting); IR / conference collectors not due. Skyworks 10-07 Si829x release: IR site still 403, body restored from the company's own GlobeNewswire distribution (curl_cffi chrome) -> 2 entries, row closed. graph_build.py --sync failed 3x at derive_exposure: open('graph/exposure.json','w') -> errno 22 / GetLastError 1224 (ERROR_USER_MAPPED_FILE: another process, likely OneDrive/Defender, maps the file for ~4 s right after the sibling derived files are written). Finished the build by running graph_build.py unchanged through a retry-on-errno-22 wrapper (job tmp). Durable fix needs a retry in derive.py's exposure write (user decision; not changed unattended). Full build OK: evidence.json, board, npm sync and i18n build ran - this also completes the two interrupted 10-07/10-08 builds."
+  },
+  {
+   "at": "2026-10-10 23:15",
+   "market": "US",
+   "text": "10-10/11 nightly enrich us: AV sync 0 saved (only the 5 marked known gaps waiting; next US call ASML 10-14); US call / conference / IR queues empty, 0 overdue, 0 never; IR + conference collectors not due (IR synced 10-07, 3-day rule is >3). No patches, nothing applied, no graph_build. Finished the i18n step the 10-09 run left open: 123 strings x ko/zh/ja merged, untranslated now 0. Verify queue 1 (Skyworks 10-07) < 5, left pending."
   }
  ],
  "questions": [
@@ -541,6 +561,30 @@
    "question": "At Supernova (08-19) the CEO said Cerebras uses AMD EPYC CPUs in its clusters and is 'buying a fair bit' of Arista networking. Both kept as counterparty entries on Cerebras. The existing AMD -> Cerebras edge is described as 'Helios rack systems', so an EPYC contract there would mix meanings; Arista is not a player in Cerebras' chain. Add the EPYC supply as a contract / second relationship, and an Arista -> Cerebras edge?",
    "label": "Cerebras Supernova 2026 (08-19-2026)",
    "at": "2026-10-06"
+  },
+  {
+   "subject": "Simulations Plus",
+   "question": "Simulations Plus completed its take-private by Altaris affiliates on 10-06-2026 (being combined with Chemical Computing Group); its stock no longer trades on Nasdaq. Keep the ai_bio node as a private company (status change in company_metadata.json), or remove it from the universe? The completion fact is on the node meanwhile.",
+   "label": "Simulations Plus press release: Simulations Plus Announces Completion of Acquisition by (10-06-2026)",
+   "at": "2026-10-07"
+  },
+  {
+   "subject": "ChronoScale",
+   "question": "Applied Digital's Q1 FY2027 call (10-07-2026) says its consolidated subsidiary ChronoScale (reported as Nasdaq CHRN, ~96% owned) runs a GPU cloud: Q1 revenue $41.5M, a 50 MW GB300 NVL72 deployment for Microsoft, target $1B ARR in 2027. Should ChronoScale become its own neocloud node (cloud_infra) with edges ChronoScale -> Microsoft, or stay as counterparty facts on Applied Digital's node (current handling, same as the Q4 FY2026 patch)?",
+   "label": "Applied Digital Q1 FY2027 (10-07-2026)",
+   "at": "2026-10-07"
+  },
+  {
+   "subject": "HD Construction Equipment",
+   "question": "ERock's 10-07-2026 release names 'HD Construction Equipment, a subsidiary of Hyundai' as its multi-year supplier of natural-gas engine long blocks for RockBlock data-center gensets (supply through 2028). Should HD Hyundai Construction Equipment (KRX-listed) become a supplier node in power / Generation with an edge to ERock, or stay as a counterparty fact on ERock's node (current handling)? Data-center engines are a small part of its business, so the litmus case is borderline.",
+   "label": "ERock press release: ERock, HD Construction Equipment Sign Multi-Year Engine (10-07-2026)",
+   "at": "2026-10-08"
+  },
+  {
+   "subject": "Moderna / Merck & Co.",
+   "question": "Tempus AI's 10-07-2026 release: expanded multi-year collaboration with Moderna and Merck & Co. - Tempus collects/transfers tumour tissue and blood samples for NGS and, subject to approval, provides NGS services for the design and manufacture of intismeran autogene (V940/mRNA-4157). Should Moderna and Merck & Co. be added to ai_bio.json 'Biopharma End Customers' (beside BMS, Lilly, AstraZeneca...) with Tempus AI -> Moderna / Merck edges, or stay as counterparty facts on Tempus AI (current handling)? Note: the existing Merck node is Merck KGaA, a different company.",
+   "label": "Tempus AI press release: Tempus Announces Multi-Year Collaboration with Moderna and (10-07-2026)",
+   "at": "2026-10-08"
   }
  ],
  "answered": [

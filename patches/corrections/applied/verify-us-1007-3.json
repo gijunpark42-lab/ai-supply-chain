@@ -1,0 +1,67 @@
+{
+  "reviewer": "verify-us-1007-3",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Constellation Energy",
+      "target": null,
+      "label": "Constellation Energy press release: Google and Constellation Announce Landmark Agreement to (10-06-2026)",
+      "signal_prefix": "Nuclear uprate program backed by the new Google agreement: t",
+      "action": "set",
+      "set": {
+        "signal": "Nuclear uprate program backed by the new Google agreement: the 20-year power purchase agreement will enable investments in new equipment and technology at 11 Constellation-owned nuclear units across six nuclear sites in Illinois, Pennsylvania and New Jersey, adding 890 MW of new nuclear capacity to the PJM grid, with the first uprate expected to be delivered by 2028. The release says the capacity is entirely new; the agreement represents more than $4.3 billion of new investment by Constellation (roughly 4,400 existing jobs sustained, approximately 7,200 new construction jobs). The agreement also incorporates operational load-shaping and demand-response capabilities to curtail non-critical power consumption during high-stress grid events. CEO Joe Dominguez: the collaboration 'can serve as a model for how technology companies and the energy industry can work together'."
+      },
+      "reason": "The turbine / steam-generator / digital-control list is the release's general description of uprates, not stated for these 11 units (inference removed); the $4.3 billion is what 'the agreement' represents, not the capacity.",
+      "evidence": "will enable investments in new equipment and technology at 11 Constellation-owned nuclear units ... The agreement helps sustain roughly 4,400 existing jobs ... and represents more than $4.3 billion of new investment by Constellation"
+    },
+    {
+      "kind": "contract",
+      "company": "Constellation Energy",
+      "target": "Google",
+      "label": "Constellation Energy press release: Google and Constellation Announce Landmark Agreement to (10-06-2026)",
+      "signal_prefix": "Google and Constellation announced a 20-year power purchase ",
+      "action": "set",
+      "set": {
+        "signal": "Google and Constellation announced a 20-year power purchase agreement to bring 890 MW of new nuclear capacity onto the PJM grid through uprates at 11 Constellation-owned nuclear units in Illinois, Pennsylvania and New Jersey (first uprate expected by 2028), and a 15-year energy supply agreement for an additional 2,700 MWs in PJM's fleet that ensures existing assets remain economically viable. The companies also agreed a strategic framework to evaluate new clean generation, storage and demand response opportunities across the United States to support Google's growth, prioritizing near-term efforts in PJM. Google (Amanda Peterson Corio, global head of energy and power): the agreement is to fund nuclear reactor uprates."
+      },
+      "reason": "Source wording is 'in PJM's fleet', not 'Constellation's PJM fleet' (no inferred ownership).",
+      "evidence": "the companies entered into a 15-year energy supply agreement for an additional 2,700 MWs in PJM's fleet"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Xcel Energy",
+      "target": null,
+      "label": "Xcel Energy press release: Xcel Energy, SEMCO ENERGY Gas Company and Upper Peninsula (10-06-2026)",
+      "signal_prefix": "Xcel Energy announced the sale of its Michigan operations: t",
+      "action": "delete",
+      "reason": "Not an important release under skill section 2: the sale of a small Michigan footprint (6,000 gas and 9,000 electric customers in two counties), no price, no capacity / load / capex / guidance fact; immaterial to the company even under the whole-company rule.",
+      "evidence": "If approved by regulators, Xcel Energy's 6,000 natural gas customers will be served by SEMCO, and 9,000 electric customers will be served by UPPCO."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Shell",
+      "target": null,
+      "label": "Shell press release: Shell third quarter 2026 update note (10-07-2026)",
+      "signal_prefix": "Q3 2026 update note (company outlook; may vary from actual r",
+      "action": "set",
+      "set": {
+        "signal": "Q3 2026 update note (company outlook; may vary from actual results, which are scheduled for 29 October, 2026; excludes identified items): Integrated Gas production updated outlook 740 - 780 kboe/d (Q2'26: 631; the earlier QPR outlook of 570 - 630 excluded volumes from ARC Resources and Qatar) and LNG liquefaction volumes 7.2 - 7.6 MT (Q2'26: 7.7; QPR outlook 7.1 - 7.7); the outlook includes the acquisition of ARC Resources, which completed on 2 September, 2026. Upstream production 1,735 - 1,835 kboe/d (Q2'26: 1,824; QPR outlook 1,680 - 1,880); Marketing sales volumes 2,550 - 2,650 kb/d (Q2'26: 2,570; QPR outlook 2,550 - 2,750)."
+      },
+      "reason": "The note does not say 'raised': it gives an updated outlook, and the QPR outlook it is compared with excluded ARC Resources and Qatar volumes, so 'raised' overstates a like-for-like increase.",
+      "evidence": "Production (kboe/d) 631 570 - 630* 740 - 780 ... *Q3'26 QPR production outlook excluded volumes from ARC Resources and Qatar."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Rockwell Automation",
+      "target": null,
+      "label": "Rockwell Automation Morgan Stanley laguna conference 2026 (09-16-2026)",
+      "signal_prefix": "End-market mix and growth framework (CEO Blake Moret): autom",
+      "action": "set",
+      "set": {
+        "signal": "End-market mix and growth framework (CEO Blake Moret): automotive is about 10% of Rockwell's total business (low double-digit growth last quarter); process is 'all in 40%' of total business, with discrete about 25%; home and personal care grew high single digits in the last quarter. The growth algorithm is an all-in 6%-9% top-line target CAGR through the cycle, with 3%-5% of that being market growth including price and 1%-2% from expanding markets (mobile robots, FactoryTalk Optix, digital twin creation) and share growth. Content per unit of customer capex is 'still too variable by individual industry' to give a percentage: a new automobile assembly line within an existing building carries significantly higher Rockwell content than a $10 billion wafer fab, where Rockwell's content is 'a fraction of 1%'. CEO: the underlying customer tone is 'distinctly positive' and North America is 'the best place to be investing now', but there is still no 'wholesale release of CapEx'; a reduction in trade uncertainty and volatility with Canada and Mexico, particularly in automotive, 'I think that would release more capital.'"
+      },
+      "reason": "Keep the CEO's hedge ('I think') on the capital-release view.",
+      "evidence": "A reduction in the volatility there, particularly in industries like automotive, where the supply chains are so integrated across those three countries, I think that would release more capital."
+    }
+  ]
+}
