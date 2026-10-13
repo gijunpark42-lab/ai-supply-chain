@@ -1125,3 +1125,25 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   vs rule, Kurita, bitcoin ASIC sector, bitcoin treasury / site-purchase cash); Kostek Systems marked (KONEX not in
   dart.py). Doosan 10-01 IR file: TITLE header held the whole body (label beyond verify's 3,000-char header read) -
   header shortened; ir_pull title capture bug for that site.
+- **2026-10-13 (Claude, user request) — HD Construction Equipment + Xiaomi added** — user: "HD건설기계랑 샤오미 둘 다 추가해"
+  (lifts the 2026-09-05 do-not-add listing for these two; utils/check_patch.py DO_NOT_ADD exception added). HD Construction
+  Equipment (KRX 267270, the merged HD Hyundai Construction Equipment / Infracore) in power_cooling.json power / Generation:
+  edges HD Construction Equipment -> ERock (natural-gas engine long blocks, 2027-2028, ERock release 10-07-2026) and
+  HD Hyundai Electric -> HD Construction Equipment (DART H1 2026 related-party sales KRW 1,530M + Ulsan CEMS contract 2026-03,
+  the fact folded away on 2026-09-05). Xiaomi (HKEX 1810) in neocloud.json application / AI-Native Vertical Apps (a sector
+  new to that file) with Kingsoft Cloud -> Xiaomi (20-F related-party cloud revenue RMB 1,853,124K + 382,438K, 2025).
+  SEMCO -> Xiaomi stays as text (SEMCO is not a player in neocloud.json). Metadata, logos (companieslogo 267270.KS PNG,
+  Wikidata P154 SVG), company_names (ko HD건설기계, zh 小米集团). Node patches applied first, edges second (check_patch cannot
+  see a node created in the same patch as an edge target).
+- **2026-10-13 (Claude, user rulings) — Japan Q&A summaries, bitcoin-miner makers, bitcoin holdings / site purchases** —
+  user: "일본같은경우 만약 녹취록없으면 Q&A 요약본사용 단 회사직접공개한거였어야함 / 비트코인채굴기 제조사 넣자 / 둘다 넣어야지".
+  (1) SKILL.md §2: a Japanese company with no full transcript is enriched from its OWN published results-briefing Q&A summary;
+  Kurita kept + held entry re-added (readd_12). Board JP note: next `enrich japan` should use these for no-call companies.
+  (2) New sector compute_hardware / "Bitcoin Mining ASICs" in neocloud.json: Bitmain, MicroBT (private), Canaan (NASDAQ CAN,
+  HQ Singapore per its 20-F); edges Bitmain / MicroBT -> CleanSpark (10-K), MicroBT -> Riot (Master Agreement 49.2 EH/s
+  ~$779.5M) and Bitmain -> Riot (10-K), Bitmain -> Keel (2024 order), Canaan -> Cipher Digital (Q4 FY2025 call).
+  "Canaan Crypt Solutions" (CleanSpark 10-K) not mapped to Canaan (identity unconfirmed); exhibit-index-only agreements
+  (IREN, Cipher -> Bitmain) and Hut 8's pledges not used. Logos: Bitmain (Wikidata P154), Canaan (companieslogo CAN);
+  MicroBT has none (site shows banners only).
+  (3) SKILL.md §2: bitcoin holdings / sales and land / site purchases are operating facts; restored Riot 10-K / 10-Q BTC
+  sales + holdings and CleanSpark custodian line + Texas site purchases (patches/corrections/user-1013-bitcoin.json + re-adds).

@@ -62,12 +62,19 @@ The map records **facts** and **what the company itself says**.
   find the company's own document and enrich from that, or leave the gap.
 - Financing terms (offerings, notes, convertibles, credit lines, conversion prices, use of proceeds), governance,
   executive pay, personnel changes, awards and rankings, CSR, event / webcast / trade-show schedules.
+  Not financing (user, 2026-10-13): a bitcoin miner's bitcoin production, holdings and sales (its inventory), and a
+  data-center developer's land / site purchases (capex) — keep them; a pledge of bitcoin as collateral for a credit
+  facility stays out with the facility.
   A financing release can still carry operating facts ("12-inch capacity fully loaded", "the Texas fab passed
   Tier-1 customer qualification"): keep those, drop the deal terms.
 
 **Where the facts may come from**
 1. Transcripts (earnings calls, investor-conference talks): read every line, prepared remarks and the full Q&A;
-   take everything management says that is material to the company — never filter by chain theme.
+   take everything management says that is material to the company — never filter by chain theme. A call counts only
+   as a full verbatim transcript (user, 2026-10-05). **Japan exception (user, 2026-10-13):** when a Japanese company's
+   call has no full transcript, the Q&A summary of the results briefing that the company itself publishes (its own IR
+   site / TDnet, never a third party's) is used instead — answers attributed as the summary words them; label it as
+   the company document it is (e.g. `[Company] results briefing Q&A: <title> (MM-DD-YYYY)`).
 2. No transcript: company-issued documents only — SEC / DART filings, IR press releases, company decks,
    fetched from the official source and saved verbatim (`transcripts/ir/` via `ir_pull.py`, or
    `transcripts/non_transcript_sources/` with a NOT-a-transcript NOTE and a `# source label:` header).

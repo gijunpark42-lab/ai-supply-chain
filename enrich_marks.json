@@ -183,6 +183,11 @@
    "at": "2026-10-12 23:22",
    "market": "KR",
    "text": "2026-10-12 enrich korea (user-run): DART 18 filings (14 supply contracts, 3 prelims, Auros amended H1 = restatement), KIND 2 decks (Koh Young, ASICLand), KR IR 12 rows (6 enriched). Kostek Systems marked (KONEX: dart.py covers KRX/KOSPI/KOSDAQ only; KONEX filers are exempt from half-year reports). SK Hynix 07-29 call row closed (already enriched 10-05). LS Electric -> LG Energy Solution / Samsung SDI customer-share edges applied."
+  },
+  {
+   "at": "2026-10-13 01:04",
+   "market": "JP",
+   "text": "2026-10-13 user rule: a Japanese company with no full call transcript is enriched from the results-briefing Q&A summary the company itself publishes (own IR site / TDnet) - next `enrich japan` should look for these for the companies with no call."
   }
  ],
  "questions": [
@@ -509,30 +514,6 @@
    "question": "ERock's 10-07-2026 release names 'HD Construction Equipment, a subsidiary of Hyundai' as its multi-year supplier of natural-gas engine long blocks for RockBlock data-center gensets (supply through 2028). Should HD Hyundai Construction Equipment (KRX-listed) become a supplier node in power / Generation with an edge to ERock, or stay as a counterparty fact on ERock's node (current handling)? Data-center engines are a small part of its business, so the litmus case is borderline.",
    "label": "ERock press release: ERock, HD Construction Equipment Sign Multi-Year Engine (10-07-2026)",
    "at": "2026-10-08"
-  },
-  {
-   "subject": "Do-not-add list vs the 2026-10-12 rule",
-   "question": "HD Construction Equipment (KOSPI 267270; ERock's multi-year natural-gas engine supplier, ERock release 10-07-2026) and Xiaomi (HKEX 1810; Kingsoft Cloud's related-party customer, 20-F public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand in 2025) are on the 2026-09-05 cleanup do-not-add list, so JOB 3 rejects them. Lift these two under the 2026-10-12 rule? Patches are ready in patches/held_1012/ (newnode_hdce_erock_2026-10-07.json, newnode_xiaomi_kc_20f_2026-04-23.json). Xiaomi also needs a sector: neocloud.json has no customer / application sector (proposed application / AI-Native Vertical Apps, which would open a new sector there).",
-   "label": null,
-   "at": "2026-10-12"
-  },
-  {
-   "subject": "Kurita Water Industries",
-   "question": "Kurita's 'results briefing Q&A: Summary of the Q&A Session for 1Q of FY ending March 2027 (08-07-2026)' is a company-written summary, not a verbatim transcript. Under the 2026-10-05 full-transcript-only rule, should the entries already in the graph from this label stay, and should the deleted General Industry fact be re-added (held in patches/held_1012/readd_12_kuritawaterindustries.json)?",
-   "label": "Kurita Water Industries results briefing Q&A: Summary of the Q&A Session for 1Q of FY ending March 2027 (08-07-2026)",
-   "at": "2026-10-12"
-  },
-  {
-   "subject": "Bitcoin ASIC miner makers",
-   "question": "CleanSpark, Keel and Riot filings name their ASIC miner suppliers: Canaan (NASDAQ: CAN), Bitmain and MicroBT (private), Sunnyside Digital. No sector fits a bitcoin-miner maker, so they stay as text on the filers' nodes. Create a supplier sector (e.g. compute_hardware / 'Bitcoin Mining ASICs') so Canaan - and, if wanted, the private makers - can become supplier nodes with edges?",
-   "label": null,
-   "at": "2026-10-12"
-  },
-  {
-   "subject": "Bitcoin treasury and site-purchase cash",
-   "question": "The 10-12 verifier removed bitcoin treasury items (Riot 10-K / 10-Q: BTC sold to fund capex, BTC held, BTC pledged as collateral) and CleanSpark's cash paid for Texas land / site acquisitions as financing / purchase price. But BTC holdings already sit on other nodes from calls and releases (MARA Q2 call 35,577 BTC, CleanSpark Sept 2026 release 13,530 BTC, Keel Q2 call 1,861 BTC). Should bitcoin holdings / sales count as operating facts (keep everywhere) or treasury (drop everywhere), and is a data-center developer's land purchase capex to keep or a price to drop?",
-   "label": null,
-   "at": "2026-10-12"
   }
  ],
  "answered": [
@@ -967,6 +948,38 @@
    "at": "2026-10-08",
    "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): Moderna and Merck & Co. added as Biopharma End Customers in ai_bio.json with Tempus AI -> Moderna / Merck & Co. edges (independent Opus verifier approved; logos added).",
    "answered": "2026-10-12"
+  },
+  {
+   "subject": "Do-not-add list vs the 2026-10-12 rule",
+   "question": "HD Construction Equipment (KOSPI 267270; ERock's multi-year natural-gas engine supplier, ERock release 10-07-2026) and Xiaomi (HKEX 1810; Kingsoft Cloud's related-party customer, 20-F public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand in 2025) are on the 2026-09-05 cleanup do-not-add list, so JOB 3 rejects them. Lift these two under the 2026-10-12 rule? Patches are ready in patches/held_1012/ (newnode_hdce_erock_2026-10-07.json, newnode_xiaomi_kc_20f_2026-04-23.json). Xiaomi also needs a sector: neocloud.json has no customer / application sector (proposed application / AI-Native Vertical Apps, which would open a new sector there).",
+   "label": null,
+   "at": "2026-10-12",
+   "answer": "User 2026-10-13: add both (HD건설기계랑 샤오미 둘 다 추가해). Lifted in utils/check_patch.py; HD Construction Equipment added in power_cooling.json power / Generation with HD Construction Equipment -> ERock (engine long blocks) and HD Hyundai Electric -> HD Construction Equipment (DART related-party customer, KRW 1,530M H1 2026); Xiaomi added in neocloud.json application / AI-Native Vertical Apps (new sector in that file) with Kingsoft Cloud -> Xiaomi (20-F customer concentration). Metadata, logos and local names added.",
+   "answered": "2026-10-13"
+  },
+  {
+   "subject": "Kurita Water Industries",
+   "question": "Kurita's 'results briefing Q&A: Summary of the Q&A Session for 1Q of FY ending March 2027 (08-07-2026)' is a company-written summary, not a verbatim transcript. Under the 2026-10-05 full-transcript-only rule, should the entries already in the graph from this label stay, and should the deleted General Industry fact be re-added (held in patches/held_1012/readd_12_kuritawaterindustries.json)?",
+   "label": "Kurita Water Industries results briefing Q&A: Summary of the Q&A Session for 1Q of FY ending March 2027 (08-07-2026)",
+   "at": "2026-10-12",
+   "answer": "User 2026-10-13: for a Japanese company with no full transcript, the company's OWN published results-briefing Q&A summary is used (never a third party's) - SKILL.md section 2. Kurita's entries stay and the held General Industry entry was re-added (readd_12).",
+   "answered": "2026-10-13"
+  },
+  {
+   "subject": "Bitcoin ASIC miner makers",
+   "question": "CleanSpark, Keel and Riot filings name their ASIC miner suppliers: Canaan (NASDAQ: CAN), Bitmain and MicroBT (private), Sunnyside Digital. No sector fits a bitcoin-miner maker, so they stay as text on the filers' nodes. Create a supplier sector (e.g. compute_hardware / 'Bitcoin Mining ASICs') so Canaan - and, if wanted, the private makers - can become supplier nodes with edges?",
+   "label": null,
+   "at": "2026-10-12",
+   "answer": "User 2026-10-13: add them. New sector compute_hardware / 'Bitcoin Mining ASICs' in neocloud.json with Bitmain, MicroBT (private) and Canaan (NASDAQ: CAN); edges Bitmain/MicroBT -> CleanSpark (10-K), MicroBT -> Riot (Master Agreement, 49.2 EH/s ~$779.5M) and Bitmain -> Riot (10-K), Bitmain -> Keel (2024 order), Canaan -> Cipher Digital (Q4 FY2025 call). 'Canaan Crypt Solutions' in CleanSpark's 10-K not mapped to Canaan (identity unconfirmed); exhibit-index-only agreements (IREN, Cipher) and Hut 8 not used.",
+   "answered": "2026-10-13"
+  },
+  {
+   "subject": "Bitcoin treasury and site-purchase cash",
+   "question": "The 10-12 verifier removed bitcoin treasury items (Riot 10-K / 10-Q: BTC sold to fund capex, BTC held, BTC pledged as collateral) and CleanSpark's cash paid for Texas land / site acquisitions as financing / purchase price. But BTC holdings already sit on other nodes from calls and releases (MARA Q2 call 35,577 BTC, CleanSpark Sept 2026 release 13,530 BTC, Keel Q2 call 1,861 BTC). Should bitcoin holdings / sales count as operating facts (keep everywhere) or treasury (drop everywhere), and is a data-center developer's land purchase capex to keep or a price to drop?",
+   "label": null,
+   "at": "2026-10-12",
+   "answer": "User 2026-10-13: both are operating facts - a miner's bitcoin production / holdings / sales and a developer's land / site purchases are kept (collateral pledges stay out with the credit facility); SKILL.md section 2. Restored: Riot 10-K / 10-Q bitcoin sales and holdings, CleanSpark custodian line and Texas site purchases.",
+   "answered": "2026-10-13"
   }
  ]
 }

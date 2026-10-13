@@ -69,6 +69,8 @@ if os.path.exists(_fold_log):
 # Folded away on 2026-09-05 but explicitly re-approved as nodes by the user on 2026-10-01 (enrich waitlist run:
 # "아니야 걍 추가해" — add them anyway).
 DO_NOT_ADD -= {"Samsung SDI", "LG Energy Solution", "Lotte Energy Materials"}  # AES stays out: added 10-01, removed by the user the same day (going private)
+# Lifted by the user on 2026-10-13 under the 2026-10-12 supply-chain-terminal rule ("HD건설기계랑 샤오미 둘 다 추가해").
+DO_NOT_ADD -= {"HD Construction Equipment", "Xiaomi"}
 DO_NOT_ADD_SQUASHED = {squash(n): n for n in DO_NOT_ADD}
 
 problems = 0
