@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,7 +21,13 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Vercel Web Analytics: visitors + page views (cookieless). The project's
+            Analytics tab on vercel.com shows them; custom click events are sent
+            with track() in page.tsx and AskGraph.tsx. */}
+        <Analytics />
+      </body>
     </html>
   );
 }

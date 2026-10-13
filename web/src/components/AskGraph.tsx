@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { track } from "@vercel/analytics";
 import type { VizNode, VizLink } from "@/lib/types";
 import {
   retrieveWithMeta,
@@ -170,6 +171,7 @@ export default function AskGraph({
 
       // 4) Ask the server route, which holds the API key, and stream the answer.
       patch(id, (t) => ({ ...t, phase: "thinking", thinkingSince: Date.now() }));
+      track("Ask question"); // Vercel Web Analytics click count (no question text sent)
       const res = await fetch("/api/ask", {
         method: "POST",
         headers: { "content-type": "application/json" },
