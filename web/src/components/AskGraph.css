@@ -11,6 +11,31 @@
   line-height: 1.5;
 }
 
+/* ── Sign-in gate (components/AskGate.tsx) ──────────────────────────────── */
+.ask-gate {
+  border: 1px solid var(--ap-border);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+}
+.ask-gate h3 {
+  margin: 0 0 0.4rem;
+}
+.ask-gate p {
+  margin: 0 0 0.9rem;
+  line-height: 1.5;
+}
+.ask-gate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.ask-account {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 980px;
+  margin: 0 0 0.5rem;
+}
+
 /* ── Missing-key notice (route answered 503 no_api_key) ─────────────────── */
 .ask-setup {
   border: 1px solid rgba(210, 153, 34, 0.5);

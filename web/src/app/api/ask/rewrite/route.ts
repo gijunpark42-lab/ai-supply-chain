@@ -17,10 +17,11 @@
 // This step must never block a question: on ANY problem (no key, timeout,
 // overload, malformed reply) it still answers 200 with no queries and an intent
 // guessed from a few English cues — the browser just searches the original.
-// Only bad input (400), the rate limit (429) and "no provider at all"
-// (503 {code:"no_api_key"}) are real errors.
+// Only no sign-in (401 {code:"signin"}), bad input (400), the rate limit (429) and
+// "no provider at all" (503 {code:"no_api_key"}) are real errors.
 
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 import { REWRITE_PROMPT, guessIntent, parseRewrite, buildRewriteUser } from "@/lib/askPrompt.mjs";
 import {
   CLAUDE_MODEL,
@@ -47,6 +48,11 @@ const RETRY_WAIT_MS = 800;
 const MAX_TOKENS = 1000; // the JSON reply is ~40 tokens, but a thinking model's hidden reasoning counts too
 
 export async function POST(req: NextRequest) {
+  // Signed-in users only, like /api/ask (middleware.ts runs Clerk on this route).
+  const { userId } = await auth();
+  if (!userId)
+    return NextResponse.json({ error: "Sign in to use Ask.", code: "signin" }, { status: 401 });
+
   if (rateLimited("rewrite", clientIp(req), RATE_LIMIT, RATE_WINDOW_MS))
     return NextResponse.json({ error: "Too many requests. Try again shortly." }, { status: 429 });
 
