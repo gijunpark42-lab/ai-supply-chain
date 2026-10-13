@@ -98,7 +98,7 @@ function NewsTerminal() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    document.title = `${t("News")} — ${t("AI Supply Chain")}`;
+    document.title = `${t("News")} — Nodus42`;
   }, [t, lang]);
 
   const items = useMemo(() => {

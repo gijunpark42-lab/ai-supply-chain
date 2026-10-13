@@ -13,12 +13,9 @@ export const UI: Record<string, Row> = {
   "Skip to research": ["리서치로 건너뛰기", "跳到研究内容", "リサーチへスキップ"],
   "Open filters": ["필터 열기", "打开筛选", "フィルターを開く"],
   "Filters": ["필터", "筛选", "フィルター"],
-  "AI Supply Chain": ["AI 공급망", "AI 供应链", "AIサプライチェーン"],
   "Research the companies behind AI.": ["AI를 움직이는 기업을 리서치하세요.", "研究 AI 背后的公司。", "AIを支える企業をリサーチ。"],
   "Transcript-grounded research": ["실적 발표 원문 기반 리서치", "基于电话会议原文的研究", "決算説明会の原文に基づくリサーチ"],
   "Research views": ["리서치 보기", "研究视图", "リサーチビュー"],
-  "3D Tower": ["3D 타워", "3D 塔", "3D タワー"],
-  "Open the 3D Supply-chain Tower in a new window": ["새 창에서 3D 공급망 타워 열기", "在新窗口中打开 3D 供应链塔", "新しいウィンドウで3Dサプライチェーンタワーを開く"],
   "News": ["뉴스", "新闻", "ニュース"],
   "Open the 24-hour news terminal in a new window": ["새 창에서 24시간 뉴스 터미널 열기", "在新窗口中打开 24 小时新闻终端", "新しいウィンドウで24時間ニュースターミナルを開く"],
   // /news terminal (app/news/page.tsx)

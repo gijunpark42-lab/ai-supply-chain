@@ -18,6 +18,28 @@
 }
 .workspace-panel:focus:not(:focus-visible) { outline: none; }
 .app-header-row { align-items: center; }
+/* Nodus42 brand in the header: the knot mark, then "NODUS" with "42" in the brand cyan. */
+.brand-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  letter-spacing: 0.04em;
+}
+.brand-mark {
+  height: 1.3em;
+  width: auto;
+  flex: 0 0 auto;
+}
+.brand-42 { color: #2ee6d6; }
+/* Phone header: the brand shares one row with the menu button, News and the language
+   switch (~78px left on a 390px phone), so it gets a smaller, tighter size there. */
+@media (max-width: 860px) {
+  .brand-title {
+    font-size: 0.74rem; /* measured: from 0.75rem down, all of "NODUS42" fits at 390px */
+    gap: 0.25em;
+    letter-spacing: 0;
+  }
+}
 .workspace-source {
   margin-left: auto;
   color: #a6b8c9;
@@ -27,7 +49,7 @@
   font-size: 0.66rem;
   letter-spacing: 0.02em;
 }
-/* "3D Tower ↗": opens the Supply-chain Tower page in a new window. Right after the source
+/* Header link button ("News ↗", opens its page in a new window). Right after the source
    badge; where the badge is hidden (narrow screens) it takes the badge's place at the right. */
 .tower-link {
   display: inline-flex;
