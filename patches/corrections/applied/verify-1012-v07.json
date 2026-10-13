@@ -1,0 +1,65 @@
+{
+  "reviewer": "verify-1012-v07",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "CleanSpark",
+      "target": null,
+      "label": "CleanSpark 10-K (11-25-2025)",
+      "signal_prefix": "CleanSpark's 10-K: its one mining pool operator, Foundry Digital",
+      "action": "set",
+      "set": {
+        "signal": "CleanSpark's 10-K: its one mining pool operator, Foundry Digital, represented 100% of the company's total revenues in fiscal years 2025, 2024 and 2023, as all bitcoin mining rewards are received through Foundry Digital's open access mining pool; rewards are distributed proportionally to CleanSpark's contribution to the pool's mining power, and the pool has sole discretion to modify the terms of the agreement at any time. Bitcoin mining revenues are recorded net of the pool fees charged by Foundry, approximately 0.17% of gross bitcoin mining revenues in fiscal 2025 (0.16% in fiscal 2024)."
+      },
+      "reason": "Treasury item removed: the custody of the company's bitcoin holdings (one custodian) is a treasury / balance-sheet fact, not an operating fact; the Foundry pool concentration and fees stay.",
+      "evidence": "revenue is concentrated with one mining pool operator and all bitcoin reside with one custodian"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "CleanSpark",
+      "target": null,
+      "label": "CleanSpark 10-Q (08-06-2026)",
+      "signal_prefix": "CleanSpark's 10-Q cash flow statement: in the nine months",
+      "action": "delete",
+      "reason": "Acquisition price: cash paid for the Austin County / Brazoria County / other site asset acquisitions is the purchase price of acquired sites (excluded like an acquisition price); the sites' operating facts (acres, MW) are already on the node from the 10-K and the 07-14 8-K.",
+      "evidence": "Asset acquisition - Austin County, TX Locations | (35,277) ... Asset acquisition - Brazoria County, TX Locations | (38,214)"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Keel Infrastructure",
+      "target": null,
+      "label": "Keel Infrastructure 10-Q (08-10-2026)",
+      "signal_prefix": "Keel's 10-Q: Keel maintains its legacy Bitcoin Mining operations",
+      "action": "set",
+      "set": {
+        "signal": "Keel's 10-Q: Keel maintains its legacy Bitcoin Mining operations in Canada while working to secure the legal and regulatory approvals to convert its energy purchase agreements in the United States and Canada from Bitcoin Mining to HPC and AI workloads; it sells hashrate to Mining Pool operators under Full Pay Per Share and is paid in Bitcoin daily. The Paso Pe Bitcoin data center in Paraguay was sold on April 21, 2026, and miners classified as held for sale were $13,013 thousand at June 30, 2026 ($166 thousand at December 31, 2025). Bitcoin Mining remained its only reportable segment; it expects to reassess, and may identify a separate HPC reportable segment, if HPC capacity is placed in service under executed customer contracts."
+      },
+      "reason": "Hedge kept: the filing says 'if HPC capacity is placed in service', the entry said 'once'.",
+      "evidence": "may identify a separate HPC reportable segment, if HPC capacity is placed in service under executed customer contracts"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Riot Platforms",
+      "target": null,
+      "label": "Riot Platforms 10-K (03-02-2026)",
+      "signal_prefix": "10-K: Riot states its business model is shifting toward data center",
+      "action": "set",
+      "set": {
+        "signal": "10-K: Riot states its business model is shifting toward data center development alongside bitcoin mining, and that it manages exposure to bitcoin price volatility by investing in energy-efficient miners and vertical integration and by diversifying its revenue through data center initiatives.",
+        "figure": "no specific figure"
+      },
+      "reason": "Treasury / financing removed: the Bitcoin Treasury Strategy (selling or leveraging bitcoin holdings to fund operations and capex), the 5,363 bitcoin sold for $535,486 thousand and the 18,005 bitcoin held (3,977 of them pledged as collateral for the credit facility) are funding / treasury items; the strategy statement stays.",
+      "evidence": "We selectively sell or leverage portions of our bitcoin holdings ... to fund operational needs, capital expenditures, and strategic initiatives"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Riot Platforms",
+      "target": null,
+      "label": "Riot Platforms 10-Q (08-10-2026)",
+      "signal_prefix": "10-Q: under its Bitcoin Treasury Strategy Riot sold 9,665 bitcoin",
+      "action": "delete",
+      "reason": "Treasury / financing item: bitcoin sold to fund operations and capex (9,665 bitcoin, $732,461 thousand) and bitcoin held (11,380, of which 5,821 pledged as collateral); the remaining diversification sentence restates the 10-K entry.",
+      "evidence": "We selectively sell or leverage portions of our bitcoin holdings, and may continue to do so in the future, to fund operational needs, capital expenditures"
+    }
+  ]
+}

@@ -120,6 +120,22 @@
    "why": "No Q2 2026 call held: IR page lists only the Q4 2025 call (02-26) plus broker forums with slides; MOPS Jun-Oct and irconference no replay; checked 2026-10-05",
    "at": "2026-10-05",
    "recheck": "2027-01-03"
+  },
+  {
+   "company": "Auros Technology",
+   "source": "dart",
+   "status": "no_source",
+   "why": "latest DART file is the amended H1 2026 report filed 10-08-2026, which restates the 08-14-2026 half-year report already enriched (only treasury-share disclosure and one unit fix changed) - checked 2026-10-12",
+   "at": "2026-10-12",
+   "recheck": "2026-11-10"
+  },
+  {
+   "company": "Kostek Systems",
+   "source": "dart",
+   "status": "no_source",
+   "why": "KONEX-listed: dart.py covers KRX/KOSPI/KOSDAQ only, and KONEX filers are exempt from half-year / quarterly reports; its latest periodic report (FY2025 business report, 03-31-2026) is already enriched from transcripts/non_transcript_sources (checked 2026-10-12)",
+   "at": "2026-10-12",
+   "recheck": "2027-04-15"
   }
  ],
  "notes": [
@@ -157,6 +173,16 @@
    "at": "2026-10-10 23:15",
    "market": "US",
    "text": "10-10/11 nightly enrich us: AV sync 0 saved (only the 5 marked known gaps waiting; next US call ASML 10-14); US call / conference / IR queues empty, 0 overdue, 0 never; IR + conference collectors not due (IR synced 10-07, 3-day rule is >3). No patches, nothing applied, no graph_build. Finished the i18n step the 10-09 run left open: 123 strings x ko/zh/ja merged, untranslated now 0. Verify queue 1 (Skyworks 10-07) < 5, left pending."
+  },
+  {
+   "at": "2026-10-12 23:22",
+   "market": "US",
+   "text": "2026-10-12 enrich us (user-run, session 'nightly enrich us 10-10'): AV 0 new; IR sync 98 saved (123 feed failures); 69 US IR rows -> 49 enriched / 20 nothing; new edges Cisco->Microsoft, Qualcomm->Dell (PC chips), GlobalFoundries->TSMC ($2B interposer), Onto->SK Hynix; new nodes Moderna, Merck & Co. (Tempus AI edges). New rule 2026-10-12 (supply-chain terminal, non-AI kept): 32 scope deletions re-checked (29 re-added), bitcoin-mining facts for CleanSpark/Keel/MARA/Riot, pharma filing lines (Vertex/Lilly/Jazz), Shell -> Google PPA edge. 12 Opus verifiers: 10 corrections. CleanSpark stops monthly operational updates (quarterly reporting from now on)."
+  },
+  {
+   "at": "2026-10-12 23:22",
+   "market": "KR",
+   "text": "2026-10-12 enrich korea (user-run): DART 18 filings (14 supply contracts, 3 prelims, Auros amended H1 = restatement), KIND 2 decks (Koh Young, ASICLand), KR IR 12 rows (6 enriched). Kostek Systems marked (KONEX: dart.py covers KRX/KOSPI/KOSDAQ only; KONEX filers are exempt from half-year reports). SK Hynix 07-29 call row closed (already enriched 10-05). LS Electric -> LG Energy Solution / Samsung SDI customer-share edges applied."
   }
  ],
  "questions": [
@@ -164,18 +190,6 @@
    "subject": "UMC",
    "question": "UMC's Q2 FY2026 call reports its own silicon photonics (12-inch photonics IC in mass production, TFLN modulators, CPO parts) and advanced packaging (interposers, hybrid bonding, DTC; 10+ customers). UMC sits only in foundry.json. Add placements in optical_networking.json (interconnect/Components, like GlobalFoundries) and packaging_substrate.json? All facts are on the foundry node meanwhile.",
    "label": "UMC Q2 FY2026 (07-29-2026)",
-   "at": "2026-09-29"
-  },
-  {
-   "subject": "TSMC",
-   "question": "TSMC-Sony Kumamoto JV release (08-11-2026, smartphone image-sensor fab, volume production 2029): the Opus verifier DELETED the entry under the out-of-chain-segment rule (2026-09-27). Keep it deleted, or should a TSMC fab/capex commitment count even when the product is outside the AI chain?",
-   "label": "TSMC press release: Sony Semiconductor Solutions and TSMC Agreed to Establish (08-11-2026)",
-   "at": "2026-09-29"
-  },
-  {
-   "subject": "TTM Technologies",
-   "question": "TTM Epiq release (08-17-2026): the Opus verifier REMOVED the A&D capex (>$130M Syracuse, >$400M US plants through 2029) under the out-of-chain rule and kept only the $50M Eau Claire center (serves commercial + defense). Should out-of-chain-segment capex be dropped like orders, and does Eau Claire count?",
-   "label": "TTM Technologies press release: TTM Technologies, Inc. Continues Global Growth Strategy (08-17-2026)",
    "at": "2026-09-29"
   },
   {
@@ -227,18 +241,6 @@
    "at": "2026-10-01"
   },
   {
-   "subject": "HDD media placement",
-   "question": "Resonac (hard-disk media capacity in Singapore 160M -> 230M disks/yr from 2029) and JX Advanced Metals (HDD magnetic sputtering targets 1.5x by mid-2029) only have foundry/packaging nodes, so both HDD releases yielded nothing. Give them a materials placement under nand_flash.json 'Nearline HDD'?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Granopt Faraday rotators",
-   "question": "Granopt (Sumitomo Metal Mining 51% / Mitsubishi Gas Chemical 49%) triples Faraday-rotator capacity for optical communications by FY2027. The Opus verifier deleted it from SMM's mlcc node as out of segment, so it is now not in the graph. Give SMM (or Granopt) an optical_networking placement so it can be recorded?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
    "subject": "Operating facts inside award releases",
    "question": "Award releases sometimes restate operating facts: Schneider WEF Lighthouse (El Paso on-time delivery 61% -> 97%, USD 43M backorders cleared amid data-center demand); Lenovo TIME/Fast Company (AI revenue 33-35% of group). Rule says awards yield nothing. Keep operating facts from award releases the way they are kept from financing releases?",
    "label": null,
@@ -263,20 +265,8 @@
    "at": "2026-10-01"
   },
   {
-   "subject": "Montage client-PC chips",
-   "question": "Montage CK01P client clock driver (9200 MT/s, mass production) was skipped as outside its cpu_datacenter node. Capture client-module chips on that node?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
    "subject": "Edge labels vs new contract types",
    "question": "Infineon -> Eaton edge is labelled 'power semiconductors for UPS' but the new contract is SiC for Eaton's MVSST solid-state transformer; Schneider's Equinix MV-switchgear pilot is a counterparty entry, not an edge. Widen the Infineon->Eaton label, and should named pilot deployments become edge contracts?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Out-of-segment items on single-node companies",
-   "question": "Verifiers deleted out-of-segment facts on companies with one node: Murata EMI-filter plant (MLCC node), Infineon NOR Flash sale (power node), LG Innotek robotics (substrate node; belongs on its edge_ai node), Sumitomo Metal Mining bonded SiC substrate (mlcc node, still present). Should such companies get extra placements, or keep dropping these facts?",
    "label": null,
    "at": "2026-10-01"
   },
@@ -299,12 +289,6 @@
    "at": "2026-10-04"
   },
   {
-   "subject": "ai_bio tool companies scope",
-   "question": "Illumina, Twist Bioscience, Pacific Biosciences, Ginkgo, Tempus filings: the agents gave them normal filing treatment (backlog, RPO, segment revenue, concentration) as tools/data suppliers, while pharma nodes get only AI/compute/platform facts and approvals. Is that the intended split, or should the narrow rule cover the tool companies too?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
    "subject": "NXP",
    "question": "NXP 10-K: NXP holds 10% of TSMC-majority ESMC (capacity entitlement, production 2028) and co-owns SSMC with TSMC. Recorded on NXP's node naming TSMC; no TSMC -> NXP edge created. Should JV capacity entitlements become foundry edges?",
    "label": null,
@@ -319,18 +303,6 @@
   {
    "subject": "Generac",
    "question": "Generac 8-K (09-16): $2.4B Amazon generator supply deal sits as a contract on the new Generac -> Amazon edge; contracts cannot carry a screener slot, so Generac's backlog column still shows its Q2 call. Should such deals also get a slotted node entry (backlog_or_b2b), accepting a duplicate fact?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Adeia",
-   "question": "Adeia 10-K: Disney / Amazon media licences explain the company-wide 2025 revenue change; Adeia's node role is hybrid-bonding IP (packaging_substrate). The node already holds media deals from its calls. Keep media-segment filing/IR facts on this node, or apply the out-of-segment rule?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Pharma filing scope",
-   "question": "In this run the EDGAR enricher prompt (coordinator wording, not a written rule) limited ai_bio pharma nodes to AI/compute/platform facts + approvals, so Vertex 10-K (McKesson 22%, Accredo 12%), Eli Lilly 10-K (McKesson/Cencora/Cardinal) and Jazz 10-Q (ESSDS 41%, McKesson 11%, ASD 10%) customer concentration and pharma revenue/capex lines were skipped, while the BMS verifier did add BMS concentration (McKesson 36%, Cencora 29%, Cardinal 22%), FY2025 revenue split and capex. Should pharma end-customer nodes get normal filing treatment (then the skipped facts get added) or the narrow scope (then the BMS additions come out)?",
    "label": null,
    "at": "2026-10-04"
   },
@@ -353,38 +325,8 @@
    "at": "2026-10-04"
   },
   {
-   "subject": "Iron Mountain",
-   "question": "Iron Mountain's node is its data-center business. The 09-29 RBC conference entries include the hyperscale decommissioning (ALM) TAM $3.5B->$7B, the company-wide AFFO growth view with a $175B all-products TAM, and Middle East / India JV history (the Q2 call entry on ALM revenue is the same kind). Keep them, or restrict the node to data-center facts only (falls under the open 'Out-of-segment items on single-node companies' question)?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Duke Energy",
-   "question": "Duke Energy 8-Ks (07-17, 08-05): NC rate-case settlements (9.8% ROE, rate base ~$25.7B / $17.8B, multi-year capital, large-load tariff proceeding) were added as one entry each on Duke's node (pending verifier). Are utility rate-case settlements in scope for utility nodes, or regulatory noise except the large-load tariff part?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "WEC Energy",
-   "question": "WEC 8-K deck lists WEC Infrastructure wind offtakes to Google Energy (Coyote Ridge, Tatanka Ridge, 12 yrs) and Meta (Jayhawk, 10 yrs), signed 2019-2021. Kept as new WEC -> Google / WEC -> Meta edges labelled 'Wind power offtake agreement(s)'. Should power-chain hyperscaler edges mean only AI data-center power supply (then these become WEC quarterly_data)?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
    "subject": "check_edgar_patch counterparty keys",
    "question": "utils/check_edgar_patch.py rejects counterparty / counterparty_role keys on quarterly_data, while SKILL.md JOB 3 and check_patch.py use them; EDGAR agents named counterparties only in the signal text. Allow the keys in the EDGAR checker (tool change)?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Williams",
-   "question": "Williams 10-K: new edges Williams -> Duke Energy (Transco's largest customer ~9%) and Williams -> Puget Sound Energy (NWP's largest ~31%) — the first gas-transport -> utility concentration edges in power_cooling.json (meet the written rules; a Dominion row was dropped for an unsaved footnote). Keep such edges, or keep pipeline customer concentration on Williams' quarterly_data?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Bitcoin-mining content on AI colocation nodes",
-   "question": "EDGAR verifiers treated bitcoin-mining facts (mining-pool revenue share, miner suppliers, hashrate, miner purchase/hosting obligations) as out of segment on AI-colocation nodes (CleanSpark, Keel, MARA, Riot) and removed them, keeping company-wide revenue and the mining-to-AI transition statements. Confirm this as the standard for all colocation miners (Core Scientific, TeraWulf, Cipher, Hut 8, Bitdeer ...)?",
    "label": null,
    "at": "2026-10-04"
   },
@@ -473,12 +415,6 @@
    "at": "2026-10-04"
   },
   {
-   "subject": "Shell",
-   "question": "Shell 20-F: Corporate PPA with Google (May 2025, extends NoordzeeWind life) and Google selected Shell Energy Europe as UK renewable supply manager (Sept 2025); not stated as data-center power. Shell's only node is thermal / Immersion (coolant fluids), so these were left out (out-of-segment). Capture hyperscaler power contracts on Shell (quarterly_data with counterparty Google) or give Shell a power-domain placement?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
    "subject": "SharonAI",
    "question": "NVIDIA supplies SharonAI's GPUs (10-K: 'substantially dependent on NVIDIA as a supplier of GPUs'), while SharonAI -> NVIDIA (the $4.88B capacity deal) already exists; check_edgar_patch rejects a new edge whose reverse exists, so the GPU-supply fact sits on SharonAI's quarterly_data. Allow a second, reverse-direction NVIDIA -> SharonAI 'GPU supply' edge? (Same question as the open Tempus AI <-> Recursion one.)",
    "label": null,
@@ -519,12 +455,6 @@
    "question": "Xiaomi is Kingsoft Cloud's largest named customer (an affiliate and shareholder): 20-F related-party revenue — Xiaomi Group public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand (2025). Xiaomi is not a node. Add it (e.g. as a cloud customer in neocloud.json) so a Kingsoft Cloud -> Xiaomi edge can carry this, or keep it as text on Kingsoft Cloud's node?",
    "label": null,
    "at": "2026-10-04"
-  },
-  {
-   "subject": "Out-of-chain segment facts (2026-10-06 run)",
-   "question": "Two IR releases were skipped under the out-of-chain-segment rule: Gates Industrial's 09-28 completion of its purchase of Timken's industrial / power-sports belts business (more North American belt capacity, a Mexico plant; Gates' only node is thermal / Direct-to-Chip Liquid) and Adeia's 10-05 renewal of its media IP licence with Charter / Spectrum (Adeia's node is DBI hybrid-bonding IP; media licensing is ~80% of its revenue). Should an acquisition's operating facts or licence deals outside the node's chain be recorded on the company-wide node, or keep skipping them (same family as the TTM question)?",
-   "label": "Gates Industrial press release: Gates Completes Acquisition of the Belts Business from The (09-28-2026)",
-   "at": "2026-10-06"
   },
   {
    "subject": "DigitalOcean",
@@ -581,10 +511,28 @@
    "at": "2026-10-08"
   },
   {
-   "subject": "Moderna / Merck & Co.",
-   "question": "Tempus AI's 10-07-2026 release: expanded multi-year collaboration with Moderna and Merck & Co. - Tempus collects/transfers tumour tissue and blood samples for NGS and, subject to approval, provides NGS services for the design and manufacture of intismeran autogene (V940/mRNA-4157). Should Moderna and Merck & Co. be added to ai_bio.json 'Biopharma End Customers' (beside BMS, Lilly, AstraZeneca...) with Tempus AI -> Moderna / Merck edges, or stay as counterparty facts on Tempus AI (current handling)? Note: the existing Merck node is Merck KGaA, a different company.",
-   "label": "Tempus AI press release: Tempus Announces Multi-Year Collaboration with Moderna and (10-07-2026)",
-   "at": "2026-10-08"
+   "subject": "Do-not-add list vs the 2026-10-12 rule",
+   "question": "HD Construction Equipment (KOSPI 267270; ERock's multi-year natural-gas engine supplier, ERock release 10-07-2026) and Xiaomi (HKEX 1810; Kingsoft Cloud's related-party customer, 20-F public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand in 2025) are on the 2026-09-05 cleanup do-not-add list, so JOB 3 rejects them. Lift these two under the 2026-10-12 rule? Patches are ready in patches/held_1012/ (newnode_hdce_erock_2026-10-07.json, newnode_xiaomi_kc_20f_2026-04-23.json). Xiaomi also needs a sector: neocloud.json has no customer / application sector (proposed application / AI-Native Vertical Apps, which would open a new sector there).",
+   "label": null,
+   "at": "2026-10-12"
+  },
+  {
+   "subject": "Kurita Water Industries",
+   "question": "Kurita's 'results briefing Q&A: Summary of the Q&A Session for 1Q of FY ending March 2027 (08-07-2026)' is a company-written summary, not a verbatim transcript. Under the 2026-10-05 full-transcript-only rule, should the entries already in the graph from this label stay, and should the deleted General Industry fact be re-added (held in patches/held_1012/readd_12_kuritawaterindustries.json)?",
+   "label": "Kurita Water Industries results briefing Q&A: Summary of the Q&A Session for 1Q of FY ending March 2027 (08-07-2026)",
+   "at": "2026-10-12"
+  },
+  {
+   "subject": "Bitcoin ASIC miner makers",
+   "question": "CleanSpark, Keel and Riot filings name their ASIC miner suppliers: Canaan (NASDAQ: CAN), Bitmain and MicroBT (private), Sunnyside Digital. No sector fits a bitcoin-miner maker, so they stay as text on the filers' nodes. Create a supplier sector (e.g. compute_hardware / 'Bitcoin Mining ASICs') so Canaan - and, if wanted, the private makers - can become supplier nodes with edges?",
+   "label": null,
+   "at": "2026-10-12"
+  },
+  {
+   "subject": "Bitcoin treasury and site-purchase cash",
+   "question": "The 10-12 verifier removed bitcoin treasury items (Riot 10-K / 10-Q: BTC sold to fund capex, BTC held, BTC pledged as collateral) and CleanSpark's cash paid for Texas land / site acquisitions as financing / purchase price. But BTC holdings already sit on other nodes from calls and releases (MARA Q2 call 35,577 BTC, CleanSpark Sept 2026 release 13,530 BTC, Keel Q2 call 1,861 BTC). Should bitcoin holdings / sales count as operating facts (keep everywhere) or treasury (drop everywhere), and is a data-center developer's land purchase capex to keep or a price to drop?",
+   "label": null,
+   "at": "2026-10-12"
   }
  ],
  "answered": [
@@ -883,6 +831,142 @@
    "at": "2026-09-30",
    "answer": "User 2026-10-06: every clinical / regulatory fact that matters to the stock is captured (incl. PDUFA / decision dates, priority reviews, filings, launches) — SKILL.md §2 updated; applied retroactively to the 25 existing AI-bio nodes the same day.",
    "answered": "2026-10-06"
+  },
+  {
+   "subject": "TSMC",
+   "question": "TSMC-Sony Kumamoto JV release (08-11-2026, smartphone image-sensor fab, volume production 2029): the Opus verifier DELETED the entry under the out-of-chain-segment rule (2026-09-27). Keep it deleted, or should a TSMC fab/capex commitment count even when the product is outside the AI chain?",
+   "label": "TSMC press release: Sony Semiconductor Solutions and TSMC Agreed to Establish (08-11-2026)",
+   "at": "2026-09-29",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): the Sony-TSMC Kumamoto JV operating facts were re-added (capital-contribution amounts left out as deal terms) - patches/applied/readd_29_tsmc.json.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "TTM Technologies",
+   "question": "TTM Epiq release (08-17-2026): the Opus verifier REMOVED the A&D capex (>$130M Syracuse, >$400M US plants through 2029) under the out-of-chain rule and kept only the $50M Eau Claire center (serves commercial + defense). Should out-of-chain-segment capex be dropped like orders, and does Eau Claire count?",
+   "label": "TTM Technologies press release: TTM Technologies, Inc. Continues Global Growth Strategy (08-17-2026)",
+   "at": "2026-09-29",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): the A&D capex (>$130M Syracuse, >$400M US plants through 2029) and the Epiq agreement's operating facts were added (ir_ttmtechnologies_2026-08-17_scope); out-of-segment capex counts, Eau Claire kept.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Granopt Faraday rotators",
+   "question": "Granopt (Sumitomo Metal Mining 51% / Mitsubishi Gas Chemical 49%) triples Faraday-rotator capacity for optical communications by FY2027. The Opus verifier deleted it from SMM's mlcc node as out of segment, so it is now not in the graph. Give SMM (or Granopt) an optical_networking placement so it can be recorded?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): re-added on Sumitomo Metal Mining's company-wide node without a screener slot (readd_27); no new placement.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Montage client-PC chips",
+   "question": "Montage CK01P client clock driver (9200 MT/s, mass production) was skipped as outside its cpu_datacenter node. Capture client-module chips on that node?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): CK01P captured on Montage's node, no slot (ir_montagetechnology_2026-09-29_scope).",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Out-of-segment items on single-node companies",
+   "question": "Verifiers deleted out-of-segment facts on companies with one node: Murata EMI-filter plant (MLCC node), Infineon NOR Flash sale (power node), LG Innotek robotics (substrate node; belongs on its edge_ai node), Sumitomo Metal Mining bonded SiC substrate (mlcc node, still present). Should such companies get extra placements, or keep dropping these facts?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): such facts stay on the company-wide placement (or a better-matching existing one, e.g. LG Innotek robotics on its edge_ai node) without a screener slot; the 32 scope deletions were re-checked against their sources and re-added where still valid (patches/applied/readd_*).",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Out-of-chain segment facts (2026-10-06 run)",
+   "question": "Two IR releases were skipped under the out-of-chain-segment rule: Gates Industrial's 09-28 completion of its purchase of Timken's industrial / power-sports belts business (more North American belt capacity, a Mexico plant; Gates' only node is thermal / Direct-to-Chip Liquid) and Adeia's 10-05 renewal of its media IP licence with Charter / Spectrum (Adeia's node is DBI hybrid-bonding IP; media licensing is ~80% of its revenue). Should an acquisition's operating facts or licence deals outside the node's chain be recorded on the company-wide node, or keep skipping them (same family as the TTM question)?",
+   "label": "Gates Industrial press release: Gates Completes Acquisition of the Belts Business from The (09-28-2026)",
+   "at": "2026-10-06",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): Gates' Timken belts acquisition operating facts and Adeia's Spectrum licence renewal were added (ir_*_scope).",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Adeia",
+   "question": "Adeia 10-K: Disney / Amazon media licences explain the company-wide 2025 revenue change; Adeia's node role is hybrid-bonding IP (packaging_substrate). The node already holds media deals from its calls. Keep media-segment filing/IR facts on this node, or apply the out-of-segment rule?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): keep media-segment facts on the node.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Iron Mountain",
+   "question": "Iron Mountain's node is its data-center business. The 09-29 RBC conference entries include the hyperscale decommissioning (ALM) TAM $3.5B->$7B, the company-wide AFFO growth view with a $175B all-products TAM, and Middle East / India JV history (the Q2 call entry on ALM revenue is the same kind). Keep them, or restrict the node to data-center facts only (falls under the open 'Out-of-segment items on single-node companies' question)?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): keep (whole company, not only data-center facts).",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Bitcoin-mining content on AI colocation nodes",
+   "question": "EDGAR verifiers treated bitcoin-mining facts (mining-pool revenue share, miner suppliers, hashrate, miner purchase/hosting obligations) as out of segment on AI-colocation nodes (CleanSpark, Keel, MARA, Riot) and removed them, keeping company-wide revenue and the mining-to-AI transition statements. Confirm this as the standard for all colocation miners (Core Scientific, TeraWulf, Cipher, Hut 8, Bitdeer ...)?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): capture bitcoin-mining facts; added from the CleanSpark, Keel, MARA and Riot 10-K / 10-Q filings (edgar_*_mining) and Bitdeer's August release - the standard for every colocation miner.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Pharma filing scope",
+   "question": "In this run the EDGAR enricher prompt (coordinator wording, not a written rule) limited ai_bio pharma nodes to AI/compute/platform facts + approvals, so Vertex 10-K (McKesson 22%, Accredo 12%), Eli Lilly 10-K (McKesson/Cencora/Cardinal) and Jazz 10-Q (ESSDS 41%, McKesson 11%, ASD 10%) customer concentration and pharma revenue/capex lines were skipped, while the BMS verifier did add BMS concentration (McKesson 36%, Cencora 29%, Cardinal 22%), FY2025 revenue split and capex. Should pharma end-customer nodes get normal filing treatment (then the skipped facts get added) or the narrow scope (then the BMS additions come out)?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): normal filing treatment for pharma nodes - the BMS additions stay; Vertex, Eli Lilly and Jazz revenue / cost / capex lines and Jazz's customer concentration were added (edgar_*_scope).",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "ai_bio tool companies scope",
+   "question": "Illumina, Twist Bioscience, Pacific Biosciences, Ginkgo, Tempus filings: the agents gave them normal filing treatment (backlog, RPO, segment revenue, concentration) as tools/data suppliers, while pharma nodes get only AI/compute/platform facts and approvals. Is that the intended split, or should the narrow rule cover the tool companies too?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): normal filing treatment for every company is intended.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Shell",
+   "question": "Shell 20-F: Corporate PPA with Google (May 2025, extends NoordzeeWind life) and Google selected Shell Energy Europe as UK renewable supply manager (Sept 2025); not stated as data-center power. Shell's only node is thermal / Immersion (coolant fluids), so these were left out (out-of-segment). Capture hyperscaler power contracts on Shell (quarterly_data with counterparty Google) or give Shell a power-domain placement?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): captured as a new Shell -> Google edge (corporate PPA, UK renewable supply manager) from the 20-F (edgar_SHEL_20-F_2026-03-12_scope); no new placement.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Duke Energy",
+   "question": "Duke Energy 8-Ks (07-17, 08-05): NC rate-case settlements (9.8% ROE, rate base ~$25.7B / $17.8B, multi-year capital, large-load tariff proceeding) were added as one entry each on Duke's node (pending verifier). Are utility rate-case settlements in scope for utility nodes, or regulatory noise except the large-load tariff part?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): rate-case settlements are in scope; keep.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "WEC Energy",
+   "question": "WEC 8-K deck lists WEC Infrastructure wind offtakes to Google Energy (Coyote Ridge, Tatanka Ridge, 12 yrs) and Meta (Jayhawk, 10 yrs), signed 2019-2021. Kept as new WEC -> Google / WEC -> Meta edges labelled 'Wind power offtake agreement(s)'. Should power-chain hyperscaler edges mean only AI data-center power supply (then these become WEC quarterly_data)?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): keep the wind-offtake edges (real supply relationships count beyond AI data-center power).",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Williams",
+   "question": "Williams 10-K: new edges Williams -> Duke Energy (Transco's largest customer ~9%) and Williams -> Puget Sound Energy (NWP's largest ~31%) — the first gas-transport -> utility concentration edges in power_cooling.json (meet the written rules; a Dominion row was dropped for an unsaved footnote). Keep such edges, or keep pipeline customer concentration on Williams' quarterly_data?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): keep the gas-transport customer-concentration edges.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "HDD media placement",
+   "question": "Resonac (hard-disk media capacity in Singapore 160M -> 230M disks/yr from 2029) and JX Advanced Metals (HDD magnetic sputtering targets 1.5x by mid-2029) only have foundry/packaging nodes, so both HDD releases yielded nothing. Give them a materials placement under nand_flash.json 'Nearline HDD'?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): captured on Resonac's and JX Advanced Metals' company-wide nodes without a slot (ir_*_scope); no new placement.",
+   "answered": "2026-10-12"
+  },
+  {
+   "subject": "Moderna / Merck & Co.",
+   "question": "Tempus AI's 10-07-2026 release: expanded multi-year collaboration with Moderna and Merck & Co. - Tempus collects/transfers tumour tissue and blood samples for NGS and, subject to approval, provides NGS services for the design and manufacture of intismeran autogene (V940/mRNA-4157). Should Moderna and Merck & Co. be added to ai_bio.json 'Biopharma End Customers' (beside BMS, Lilly, AstraZeneca...) with Tempus AI -> Moderna / Merck edges, or stay as counterparty facts on Tempus AI (current handling)? Note: the existing Merck node is Merck KGaA, a different company.",
+   "label": "Tempus AI press release: Tempus Announces Multi-Year Collaboration with Moderna and (10-07-2026)",
+   "at": "2026-10-08",
+   "answer": "User 2026-10-12 (goal = supply-chain-based Bloomberg-style terminal; non-AI / out-of-chain is never a reason to skip, hold or delete a real relationship or fact): Moderna and Merck & Co. added as Biopharma End Customers in ai_bio.json with Tempus AI -> Moderna / Merck & Co. edges (independent Opus verifier approved; logos added).",
+   "answered": "2026-10-12"
   }
  ]
 }

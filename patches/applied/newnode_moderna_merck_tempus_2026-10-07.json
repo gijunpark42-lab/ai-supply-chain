@@ -1,0 +1,43 @@
+{
+ "source": "Tempus AI press release: Tempus Announces Multi-Year Collaboration with Moderna and (10-07-2026)",
+ "new_nodes": {
+  "Moderna": {
+   "ticker": "MRNA",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "why": "Biopharma customer of Tempus AI: Tempus collects and transfers tumor tissue and blood samples for NGS and, subject to regulatory approvals, provides NGS services for the design and manufacture of intismeran autogene (V940/mRNA-4157), the individualized neoantigen therapy Moderna co-develops with Merck & Co. Same role as the existing 'Biopharma End Customers' (Bristol Myers Squibb, Eli Lilly, AstraZeneca). Identity: SEC company_tickers / submissions - 'Moderna, Inc.', CIK 1682852, Nasdaq MRNA. Not an existing node under another spelling.",
+   "evidence": "Tempus AI press release 10-07-2026: 'Tempus (NASDAQ: TEM) today announced an expanded, multi-year collaboration to support the potential commercialization of intismeran autogene (V940/mRNA-4157) ... Intismeran autogene is jointly developed by Moderna and Merck ... Tempus will manage the timely collection and transfer of tumor tissue and blood samples required for next-generation sequencing (NGS). Subject to applicable regulatory approvals, Tempus will also provide NGS services to support the intismeran autogene design and manufacturing process.'",
+   "approved": "opus verifier 2026-10-12: Tempus AI's own release names Moderna in an expanded multi-year collaboration (sample collection/transfer for NGS, NGS services for intismeran autogene design and manufacturing) - a stated customer of a universe company; same role as existing Biopharma End Customers; no existing node or removed name; Nasdaq MRNA, US"
+  },
+  "Merck & Co.": {
+   "ticker": "MRK",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Biopharma customer of Tempus AI in the same collaboration (Merck co-develops intismeran autogene with Moderna and markets KEYTRUDA, the anti-PD-1 therapy it is combined with). Identity: SEC company_tickers / submissions - 'Merck & Co., Inc.', CIK 310158, NYSE MRK, Rahway NJ; the release says Merck is 'known as MSD outside of the United States and Canada'. Canonical name 'Merck & Co.' so it cannot merge with the existing node 'Merck KGaA' (XETRA MRK.DE, EMD Electronics), a different company.",
+   "evidence": "Tempus AI press release 10-07-2026: 'Intismeran autogene is jointly developed by Moderna and Merck, known as MSD outside of the United States and Canada'; 'evaluated in combination with KEYTRUDA (pembrolizumab), Merck's anti-PD-1 therapy'; CEO Eric Lefkofsky: 'By combining our operational scale and deep clinical integration with Merck and Moderna's mRNA innovation, we are building the infrastructure needed to bring individualized cancer vaccines to patients.'",
+   "approved": "opus verifier 2026-10-12: named by Tempus AI as co-party (with Moderna) of the same collaboration, its executive quoted; existing sector Biopharma End Customers; canonical 'Merck & Co.' is distinct from the existing 'Merck KGaA' node (MRK.DE) and must stay so; not on the do-not-add list; NYSE MRK, US"
+  }
+ },
+ "chains": {
+  "applications/ai_bio.json": {
+   "players": [
+    {
+     "company": "Moderna",
+     "layer": "application",
+     "sector": "Biopharma End Customers",
+     "product": "intismeran autogene (V940/mRNA-4157) individualized neoantigen therapy, jointly developed with Merck",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "Merck & Co.",
+     "layer": "application",
+     "sector": "Biopharma End Customers",
+     "product": "KEYTRUDA (pembrolizumab) anti-PD-1 therapy; intismeran autogene (V940/mRNA-4157), jointly developed with Moderna",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

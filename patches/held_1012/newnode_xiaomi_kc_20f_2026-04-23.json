@@ -1,0 +1,51 @@
+{
+  "source": "Kingsoft Cloud 20-F (04-23-2026)",
+  "new_nodes": {
+    "Xiaomi": {
+      "ticker": "1810.HK",
+      "exchange": "HKEX",
+      "country": "CN",
+      "why": "Cloud customer (and shareholder / related party) of Kingsoft Cloud: the 20-F reports public cloud services provided to Xiaomi Group of RMB 1,853,124 thousand and enterprise cloud services of RMB 382,438 thousand in 2025; Kingsoft Cloud's Q2 FY2026 call says Xiaomi 'continues to expand AI across its human car home ecosystem' and the 2026-2027 connected-transaction caps with Xiaomi total RMB 10 billion. Identity: the 20-F defines 'Xiaomi Group' as 'Xiaomi Corporation (HKEx: 1810), one of our shareholders, and its subsidiaries and VIEs'. PLACEMENT IS A JUDGMENT: neocloud.json has no application-layer or end-customer sector, and the edge requires the player in the same chain; proposed application / 'AI-Native Vertical Apps' (an existing sector name in nvidia_vera_rubin.json / nvda_b200.json, new to neocloud.json). The only in-chain customer sector, ai_models / Foundation Models, would claim a model-developer role that no source here states. NOTE: 'Xiaomi' appears in utils/graph_cleanup_2026_09_05.fold_log.tsv (folded away 2026-09-05 as a customer of Samsung Electro-Mechanics), so check_patch's do-not-add rule refuses it until the coordinator / user lifts it.",
+      "evidence": "Kingsoft Cloud 20-F (04-23-2026), related party transactions: 'Public cloud services provided to Xiaomi Group | | 763,338 | 1,091,451 | | 1,853,124 | | 264,993'; 'Enterprise cloud services provided to Xiaomi Group | | 104,967 | 182,364 | | 382,438 | | 54,688'; risk factors: 'Kingsoft Group and Xiaomi Group are our existing customers, from which we received a portion of revenues and made borrowings.'",
+      "approved": ""
+    }
+  },
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "Xiaomi",
+          "layer": "application",
+          "sector": "AI-Native Vertical Apps",
+          "product": "Xiaomi Group consumer ecosystem (human / car / home) expanding AI; public and enterprise cloud services buyer from Kingsoft Cloud",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Kingsoft Cloud",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "AI cloud computing power (GPU clusters on long-term contracts) and the StarFlow Model-as-a-Service platform; the strategic cloud platform of the Xiaomi and Kingsoft ecosystem",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Xiaomi",
+              "relationship": "public cloud and enterprise cloud services",
+              "contracts": [
+                {
+                  "source": "Kingsoft Cloud 20-F (04-23-2026)",
+                  "signal": "Related-party revenue from Xiaomi Group (Xiaomi Corporation, HKEx: 1810, a shareholder; 20-F): public cloud services provided to Xiaomi Group RMB 1,853,124 thousand in 2025 (RMB 1,091,451 thousand in 2024; RMB 763,338 thousand in 2023) and enterprise cloud services provided to Xiaomi Group RMB 382,438 thousand in 2025 (RMB 182,364 thousand in 2024; RMB 104,967 thousand in 2023). The 20-F states that Kingsoft Group and Xiaomi Group are existing customers from which the company received a portion of revenues and made borrowings, and that failure to maintain the relationships would result in lower revenues.",
+                  "units": "public cloud RMB 1,853,124 thousand; enterprise cloud RMB 382,438 thousand (2025)",
+                  "value": "RMB 1,853,124 thousand public cloud + RMB 382,438 thousand enterprise cloud (fiscal 2025)",
+                  "date_signed": "FY2025",
+                  "type": "20-F customer concentration",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
