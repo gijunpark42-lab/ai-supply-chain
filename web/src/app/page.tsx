@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { track } from "@vercel/analytics";
 import type { MergedGraph, LogoManifest, VizNode } from "@/lib/types";
 import { fetchJson, buildViz } from "@/lib/data";
 import { CHAIN_COLORS, LAYERS, DOMAINS } from "@/lib/taxonomy";
@@ -97,6 +98,21 @@ function Workspace() {
 
   const [selected, setSelected] = useState<VizNode | null>(null);
   const [focusId, setFocusId] = useState<string | null>(null);
+
+  // Click counts for Vercel Web Analytics (Events tab). Everything happens on one
+  // URL, so page views alone can't show what people click. One event each time a
+  // company panel opens (from any view) and each time the visitor switches view.
+  useEffect(() => {
+    if (selected) track("Open company", { company: selected.id });
+  }, [selected]);
+  const firstTab = useRef(true);
+  useEffect(() => {
+    if (firstTab.current) {
+      firstTab.current = false; // the starting "Graph" view is not a click
+      return;
+    }
+    track("Switch view", { view: tab });
+  }, [tab]);
   // Korean company names for the search box (company_ko.json; {} until loaded or if missing).
   const [koNames, setKoNames] = useState<Record<string, string[]>>({});
   // Search aliases = Korean names + the localised company names (company_names.json),
