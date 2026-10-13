@@ -255,6 +255,11 @@ the same queue.
   **The ONE exception (user, 2026-10-12):** the website's Ask tab answers through the Claude API
   (`claude-opus-5-5`, `ANTHROPIC_API_KEY` on Vercel; `web/src/app/api/ask/`). Everything else — enrichment,
   skeletons, coding — stays local in Claude Code. Never add Claude API calls anywhere else.
+- **News terminal (user, 2026-10-13):** `/news` on the website (`web/src/app/news/`, `web/src/app/api/news/`,
+  `web/src/lib/news*.ts`) shows the last 24 h of headlines from Polygon, Finnhub and Google News, runs on
+  Vercel (works with the PC off) and summarizes a clicked article with Google's free Gemini API
+  (`GEMINI_API_KEY`) — **never the Claude API**. It is **display only**: news never feeds enrich, patches,
+  chains or any graph file, and nothing in the pipeline reads it.
 - **US transcripts:** `av.py` pulls the FULL call (prepared remarks + Q&A, speaker turns) from
   Alpha Vantage `EARNINGS_CALL_TRANSCRIPT` into `transcripts/av/*.txt` (needs `ALPHAVANTAGE_API_KEY`
   in `.env`, free key, 25 requests/day). See Workflow 2c. Motley Fool scraping (`main.py`) is the
