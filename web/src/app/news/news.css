@@ -1,0 +1,412 @@
+/* /news — the news terminal in the site's Liquid Glass look (user, 2026-10-13):
+   the glass-mode canvas, translucent blurred panels, the Apple segmented tabs
+   (globals.css .tabs / .tab), the site's blue accent and system type. Colors
+   come from globals.css (--ap-*). Everything is scoped under .news-term. */
+
+.news-term {
+  --nt-glass: rgba(30, 34, 42, 0.82); /* panels, as .panel.glass */
+  --nt-tile: rgba(20, 23, 28, 0.6); /* cards and boxes, as body.glass .cb-tile */
+  --nt-line: rgba(255, 255, 255, 0.07); /* row separators */
+  --nt-hover: rgba(255, 255, 255, 0.05);
+  --nt-pick: rgba(41, 151, 255, 0.14);
+  --nt-pill-on: rgba(120, 160, 255, 0.22); /* as .lang-btn.on */
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  height: 100vh;
+  height: 100dvh;
+  padding: 0 16px 12px;
+  background: #262b35; /* the glass-mode canvas (globals.css body.glass) */
+  color: var(--ap-text);
+  font-size: var(--fs-body);
+}
+
+/* ── Header: the sticky blurred bar of the main site ───────────────────── */
+.news-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin: 0 -16px;
+  padding: 10px 16px;
+  padding-top: max(10px, env(safe-area-inset-top));
+  background: rgba(38, 43, 53, 0.8);
+  backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--ap-border);
+}
+.news-head .news-tabs {
+  margin: 0;
+}
+.news-sub,
+.news-count {
+  color: var(--ap-muted);
+  font-size: var(--fs-sm);
+}
+.news-clock {
+  color: var(--ap-text);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+/* Pills: "Map companies only" and the Top News categories. */
+.news-toggle {
+  margin-left: auto;
+  padding: 5px 12px;
+  border: 1px solid var(--ap-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ap-muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.news-toggle:hover {
+  color: var(--ap-text);
+}
+.news-toggle.on {
+  border-color: rgba(120, 160, 255, 0.45);
+  background: var(--nt-pill-on);
+  color: var(--ap-text);
+}
+.news-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.news-cats .news-toggle {
+  margin-left: 0;
+}
+/* `.news-head` raises specificity over globals.css's input[type="search"] rule. */
+.news-head .news-filter {
+  width: 240px;
+  min-width: 0;
+  min-height: 0;
+  padding: 7px 12px;
+  border: 1px solid var(--ap-border);
+  border-radius: 10px;
+  background: var(--nt-tile);
+  color: var(--ap-text);
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+/* ── List + detail: two glass panels ───────────────────────────────────── */
+.news-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
+  gap: 12px;
+  min-height: 0;
+}
+.news-list,
+.news-detail {
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  background: var(--nt-glass);
+  backdrop-filter: saturate(160%) blur(22px);
+}
+.news-list {
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+}
+.news-row {
+  display: grid;
+  grid-template-columns: 48px 132px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: baseline;
+  width: 100%;
+  padding: 9px 18px;
+  border: 0;
+  border-bottom: 1px solid var(--nt-line);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.news-list > li:last-child .news-row {
+  border-bottom: 0;
+}
+.news-row:hover {
+  background: var(--nt-hover);
+}
+.news-row.on {
+  background: var(--nt-pick);
+  box-shadow: inset 3px 0 0 var(--ap-blue);
+}
+.news-row.fresh {
+  animation: news-flash 8s ease-out;
+}
+@keyframes news-flash {
+  from { background: rgba(41, 151, 255, 0.28); }
+  to { background: transparent; }
+}
+.news-time {
+  color: var(--ap-muted);
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+}
+.news-src {
+  overflow: hidden;
+  color: var(--ap-muted);
+  font-size: 0.76rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.news-title {
+  line-height: 1.4;
+}
+.news-row-dek {
+  display: block;
+  margin-top: 3px;
+  color: var(--ap-muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+.news-chips {
+  display: inline-flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+.news-chip,
+.news-more {
+  padding: 1px 7px;
+  border: 1px solid var(--ap-border);
+  border-radius: 999px;
+  color: var(--ap-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.news-chip.map {
+  border-color: rgba(41, 151, 255, 0.4);
+  background: rgba(41, 151, 255, 0.12);
+  color: #9cc9ff;
+}
+.news-more {
+  border-color: transparent;
+}
+
+/* Top News: each story a glass tile (SAVE-style card) instead of a row. */
+.news-list.cards {
+  padding: 10px;
+}
+.news-list.cards > li + li {
+  margin-top: 8px;
+}
+.news-list.cards .news-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid var(--ap-border);
+  border-radius: 14px;
+  background: var(--nt-tile);
+}
+.news-list.cards .news-row:hover {
+  background: rgba(30, 34, 42, 0.75);
+}
+.news-list.cards .news-row.on {
+  border-color: rgba(41, 151, 255, 0.5);
+  background: rgba(41, 151, 255, 0.12);
+  box-shadow: none;
+}
+.news-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  font-size: 0.76rem;
+}
+.news-card-title {
+  font-size: var(--fs-h);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+.news-card-dek {
+  color: var(--ap-muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+.news-list.cards .news-chips {
+  justify-content: flex-start;
+}
+.news-cat {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ap-text);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.news-major {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(255, 69, 58, 0.2);
+  color: #ff8a80;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* ── Detail ────────────────────────────────────────────────────────────── */
+.news-detail {
+  padding: 20px 22px 26px;
+}
+.news-note {
+  padding: 14px 18px;
+  color: var(--ap-muted);
+}
+.news-detail .news-note {
+  padding: 0;
+}
+.news-back {
+  display: none;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--ap-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ap-text);
+  font: inherit;
+  font-size: 0.82rem;
+}
+.news-art-title {
+  margin: 0 0 8px;
+  font-size: var(--fs-title);
+  line-height: 1.3;
+}
+.news-orig {
+  margin: -2px 0 10px;
+  color: var(--ap-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+.news-art-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 0 0 12px;
+  color: var(--ap-muted);
+  font-size: var(--fs-sm);
+}
+.news-open {
+  color: var(--ap-blue-hi);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.news-sum {
+  margin: 18px 0 22px;
+  padding: 14px 16px;
+  border: 1px solid var(--ap-border);
+  border-radius: 14px;
+  background: var(--nt-tile);
+  line-height: 1.6;
+}
+.news-sum ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.news-sum li + li {
+  margin-top: 6px;
+}
+.news-sum p {
+  margin: 0 0 8px;
+}
+.news-sum-kind {
+  margin: 0 0 8px !important;
+  color: #9cc9ff;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+.news-h3 {
+  margin: 0 0 6px;
+  font-size: var(--fs-body);
+}
+.news-sub-h {
+  margin: 10px 0 6px;
+  color: var(--ap-muted);
+  font-size: var(--fs-sm);
+}
+.news-rel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.news-co {
+  padding: 4px 10px;
+  border: 1px solid rgba(41, 151, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(41, 151, 255, 0.1);
+  font-size: 0.82rem;
+}
+.news-co b {
+  color: #9cc9ff;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.news-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  padding: 0 6px;
+  padding-bottom: env(safe-area-inset-bottom);
+  color: var(--ap-muted);
+  font-size: 0.74rem;
+}
+.news-foot .bad {
+  color: #ff8a80;
+}
+
+/* ── Narrow screens: one panel; a picked story covers the list ─────────── */
+@media (max-width: 900px) {
+  .news-term {
+    padding: 0 10px 10px;
+  }
+  .news-head {
+    margin: 0 -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .news-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .news-row {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 2px 10px;
+  }
+  .news-title,
+  .news-chips {
+    grid-column: 1 / -1;
+  }
+  .news-chips {
+    justify-content: flex-start;
+  }
+  .news-detail {
+    display: none;
+  }
+  .news-term.has-sel .news-list {
+    display: none;
+  }
+  .news-term.has-sel .news-detail {
+    display: block;
+  }
+  .news-back {
+    display: inline-block;
+  }
+  .news-toggle {
+    margin-left: 0;
+  }
+  .news-head .news-filter {
+    flex: 1 1 160px;
+    width: auto;
+  }
+}

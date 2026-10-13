@@ -351,6 +351,10 @@ function Workspace() {
             <a className="tower-link" href="/tower" target="_blank" rel="noopener noreferrer" title={t("Open the 3D Supply-chain Tower in a new window")}>
               {t("3D Tower")} ↗
             </a>
+            {/* The 24-hour news terminal (/news) also opens in its own window. */}
+            <a className="tower-link" href="/news" target="_blank" rel="noopener noreferrer" title={t("Open the 24-hour news terminal in a new window")}>
+              {t("News")} ↗
+            </a>
             <LangSwitch />
           </div>
           {/* Level 1: the groups. Each group "controls" the pill bar below it. */}
