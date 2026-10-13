@@ -1147,3 +1147,12 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   MicroBT has none (site shows banners only).
   (3) SKILL.md §2: bitcoin holdings / sales and land / site purchases are operating facts; restored Riot 10-K / 10-Q BTC
   sales + holdings and CleanSpark custodian line + Texas site purchases (patches/corrections/user-1013-bitcoin.json + re-adds).
+- **2026-10-13 (Claude, user: "지금바로해버려") — new nodes' own sources** — Canaan Q2 FY2026 call (09-08-2026, defeatbeta):
+  results (revenue ~$32M; CFO's $14M product / $18M mining used, CEO's "$40M / $80M" are transcription errors), Q3 guide
+  $11M-$15M, A15 / A16, self-mining 10.05 EH/s, BTC / ETH holdings and sales (10-13 ruling), Avalon Home, Nordic heat,
+  HPC power; the Project ABC partners line went on Canaan's own entries (counterparty Cipher Digital) because the existing
+  Canaan -> Cipher edge means rig supply. HD Construction Equipment H1 2026 DART report (all 10,568 lines): results,
+  segments, engine business incl. data-center power demand, capacity / utilisation, Hyundai Rotem K2 and Turkey BMC
+  engine orders, capex plan, suppliers, R&D; contract on HD Hyundai Electric -> HD Construction Equipment (purchases
+  KRW 82M + 480M, payables 308M). CleanSpark 10-K: 589.88 BTC sold in October 2025. MicroBT product text made neutral
+  (was Riot-specific). Pre-apply Opus verifier: 5 wording fixes, all pass.

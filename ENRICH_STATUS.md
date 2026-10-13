@@ -1,18 +1,16 @@
 # Enrichment status board
 
-Generated 2026-10-13 01:50 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-13 02:57 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
 ## Run next
 
-1. **`enrich us`** — 1 never had a call enriched (fetch with defeatbeta, mark the ones with none): Canaan
-2. **`enrich korea`** — 1 have no DART filing enriched (backfill with `dart.py fetch`): HD Construction Equipment
-3. **`enrich taiwan`** — 36 fetched file(s) waiting to be enriched (35 IR release, 1 call); MOPS sync (mops.py) last ran 7 days ago (2026-10-06)
-4. **`enrich japan`** — 37 fetched file(s) waiting to be enriched (37 IR release); TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 9 days ago (2026-10-04)
-5. **`enrich europe`** — 13 fetched file(s) waiting to be enriched (1 conference, 1 call, 11 IR release)
-6. **`enrich china`** — 4 fetched file(s) waiting to be enriched (1 conference, 3 IR release); China IR record / Q&A sync (cninfo.py) last ran 8 days ago (2026-10-05); China periodic-report sync (cninfo.py reports) last ran 8 days ago (2026-10-05)
-7. **`enrich intl`** — 1 fetched file(s) waiting to be enriched (1 IR release)
+1. **`enrich taiwan`** — 36 fetched file(s) waiting to be enriched (35 IR release, 1 call); MOPS sync (mops.py) last ran 7 days ago (2026-10-06)
+2. **`enrich japan`** — 37 fetched file(s) waiting to be enriched (37 IR release); TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 9 days ago (2026-10-04)
+3. **`enrich europe`** — 13 fetched file(s) waiting to be enriched (1 conference, 1 call, 11 IR release)
+4. **`enrich china`** — 4 fetched file(s) waiting to be enriched (1 conference, 3 IR release); China IR record / Q&A sync (cninfo.py) last ran 8 days ago (2026-10-05); China periodic-report sync (cninfo.py reports) last ran 8 days ago (2026-10-05)
+5. **`enrich intl`** — 1 fetched file(s) waiting to be enriched (1 IR release)
 
 Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-12 (387 feeds); conference listing walked 2026-10-07.
 Opus verification queue: 0 label(s) waiting (runs at 5+).
@@ -79,8 +77,8 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 | Market | Companies | Call current | Overdue | Never had a call | No own data | Waiting | IR feeds | Collector last ran |
 |---|---|---|---|---|---|---|---|---|
-| US — United States | 249 | 240 | 0 | 1 | 1 | 0 | 218 | us 2026-10-12, utility 2026-10-01 |
-| KR — Korea | 127 | 2 | 0 | 124 | 1 | 0 | 25 | dart 2026-10-12, kind 2026-10-12 |
+| US — United States | 249 | 241 | 0 | 0 | 0 | 0 | 218 | us 2026-10-12, utility 2026-10-01 |
+| KR — Korea | 127 | 2 | 0 | 124 | 0 | 0 | 25 | dart 2026-10-12, kind 2026-10-12 |
 | TW — Taiwan | 135 | 24 | 0 | 106 | 3 | 36 | 49 | intl 2026-10-06, tw 2026-10-06, mops 2026-10-06 |
 | JP — Japan | 127 | 14 | 0 | 113 | 1 | 37 | 60 | intl 2026-10-06, tdnet 2026-10-04, edinet 2026-10-06 |
 | EU — Europe | 40 | 28 | 0 | 11 | 5 | 13 | 21 | intl 2026-10-06 |
@@ -92,11 +90,9 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 ## Details by market
 
 ### US — United States (`enrich us`)
-- Never had a call enriched: Canaan
 - Known gaps, do not re-search: Bayer (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Eikon Therapeutics (call: no earnings calls held since their Feb 2026 IPOs (checked 2026-10-06: events pages list only investor conferences); quarterly results come as 8-K releases, enriched via edgar; recheck 2027-01-04), Generate Biomedicines (call: no earnings calls held since their Feb 2026 IPOs (checked 2026-10-06: events pages list only investor conferences); quarterly results come as 8-K releases, enriched via edgar; recheck 2027-01-04), Micron (call: Q4 FY2026 MAIN earnings call (09-30-2026, Sanjay Mehrotra; prepared remarks end 'We will now open for questions'): no full transcript anywhere - Alpha Vantage MU 2026Q4, defeatbeta MU 2026Q4 and Motley Fool (10-01 'q4-2026-earnings-call-transcript') all carry only the separate POST-EARNINGS ANALYST CALL (already enriched as 'Micron post-earnings analyst call 2026 (09-30-2026)'); Micron IR posts only the prepared-remarks PDF (a script, not used), deck and release; no official YouTube upload. Checked 2026-10-05; recheck 2026-10-20), POET Technologies (call: Q2 2026 (08-13-2026): POET did not host an earnings call - the Q2 results release and both 08-13 6-Ks announce no call/webcast; IR page lists no call since a 2022 business-update call; not on Alpha Vantage (2025Q4-2026Q3 empty), defeatbeta (no POET transcripts), Motley Fool (sitemaps Aug-Sep 2026); official YouTube has only a 09-30-2026 CEO 'Business Update' video (15 min, auto captions), not a call. Checked 2026-10-05; recheck 2026-11-20), Relay Therapeutics (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Roche-Genentech (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Simulations Plus (call: Q3 FY2026: no earnings call appears to have been held (pending acquisition by Altaris, signed 06-15-2026). Company conference-calls page lists the 07-09-2026 Q3 release + deck but NO webcast link (every earlier quarter has a viavid webcast); the 07-09 release (8-K) announces no call; not on Alpha Vantage (SLP 2026Q3 empty), defeatbeta (latest 04-09-2026) or Motley Fool (sitemaps Jul-Sep 2026). Checked 2026-10-05; recheck 2026-12-15)
 
 ### KR — Korea (`enrich korea`)
-- No DART filing enriched: HD Construction Equipment
 - Known gaps, do not re-search: Auros Technology (dart: latest DART file is the amended H1 2026 report filed 10-08-2026, which restates the 08-14-2026 half-year report already enriched (only treasury-share disclosure and one unit fix changed) - checked 2026-10-12; recheck 2026-11-10), Kostek Systems (dart: KONEX-listed: dart.py covers KRX/KOSPI/KOSDAQ only, and KONEX filers are exempt from half-year / quarterly reports; its latest periodic report (FY2025 business report, 03-31-2026) is already enriched from transcripts/non_transcript_sources (checked 2026-10-12); recheck 2027-04-15), Samsung Electro-Mechanics (call: Q2 2026 call (07-30-2026): no full transcript. Investing.com search + transcript listing walked 07-17..08-05 (no SEMCO article); SEMCO IR site (global + kr earnings-release / archive) has only the results PDF and a login-gated Teletogether audio replay; no official YouTube upload. Checked 2026-10-05; recheck 2027-01-03)
 
 ### TW — Taiwan (`enrich taiwan`)
@@ -125,9 +121,9 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
-| US earnings calls | `enrich us calls` | 2026-10-12 | 2026-10-13 | 0 | 374 | 373 |
+| US earnings calls | `enrich us calls` | 2026-10-12 | 2026-10-13 | 0 | 375 | 374 |
 | US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-13 | 0 | 2002 | 743 |
-| Korea DART filings | `enrich dart` | 2026-10-12 | 2026-10-13 | 0 | 161 | 177 |
+| Korea DART filings | `enrich dart` | 2026-10-12 | 2026-10-13 | 0 | 162 | 178 |
 | Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-06 | 2026-10-12 | 1 | 63 | 63 |
 | Taiwan Chinese 法說會 | `enrich tw` | 2026-10-06 | 2026-10-06 | 1 | 18 | 18 |
 | Investor conferences | `enrich conference` | 2026-10-07 | 2026-10-07 | 2 | 149 | 146 |
