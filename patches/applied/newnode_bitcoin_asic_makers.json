@@ -1,0 +1,59 @@
+{
+ "source": "CleanSpark 10-K (11-25-2025)",
+ "new_nodes": {
+  "Bitmain": {
+   "ticker": null,
+   "exchange": null,
+   "country": "CN",
+   "why": "Bitcoin-miner (ASIC mining machine) maker: its Antminer machines are the mining fleet of graph miners CleanSpark, Riot Platforms and Keel Infrastructure, so its sales rise with those miners' fleet purchases. Private company (Bitmain Technologies Limited). Country CN is the company's known headquarters, not stated in these filings.",
+   "evidence": "CleanSpark 10-K (11-25-2025): 'For example, we depend on Bitmain, MicroBT, Canaan Crypt Solutions and Sunnyside Digital for our miners and any change in their ability to manufacture or distribute and deliver these products could have a significant impact on our results of operations.' Also Riot Platforms 10-K (03-02-2026): 'We currently deploy Bitmain Technologies Limited (“Bitmain”) Antminer, and MicroBT WhatsMiner type miners.' Keel Infrastructure 10-K (03-31-2026): 'the Company ordered 19,369 Bitmain T21 Miners, 3,975 Bitmain S21 Miners and 762 Bitmain S21 Hydro Miners'.",
+   "approved": "user 2026-10-13: 'add the bitcoin-miner makers' (new sector Bitcoin Mining ASICs approved)"
+  },
+  "MicroBT": {
+   "ticker": null,
+   "exchange": null,
+   "country": "CN",
+   "why": "Bitcoin-miner (ASIC mining machine) maker: WhatsMiner machines supplied to graph miners Riot Platforms (long-term master purchase agreement, 49.2 EH/s, ~$779.5 million of purchase orders through 2025) and CleanSpark. Private company (MicroBT Electronics Technology Co., LTD, per Riot's 10-K). Country CN (Shenzhen) is from the coordinator's brief, not stated in these filings.",
+   "evidence": "CleanSpark 10-K (11-25-2025): 'we depend on Bitmain, MicroBT, Canaan Crypt Solutions and Sunnyside Digital for our miners'. Also Riot Platforms 10-K (03-02-2026): 'we entered into a long-term master purchase and sales agreement, dated as of June 23, 2023, as amended (the “Master Agreement”), with MicroBT Electronics Technology Co., LTD, through its manufacturing affiliate, SuperAcme Technology (Hong Kong) Limited (collectively, “MicroBT”) to secure the long-term supply of state-of-the-art immersion miners from MicroBT'.",
+   "approved": "user 2026-10-13: 'add the bitcoin-miner makers' (new sector Bitcoin Mining ASICs approved)"
+  },
+  "Canaan": {
+   "ticker": "CAN",
+   "exchange": "NASDAQ",
+   "country": "SG",
+   "why": "Bitcoin-miner (ASIC mining machine) maker, AvalonMiner brand. Identity from its own 20-F filed 2026-04-15 (SEC CIK 1780652): 'Canaan Inc. (Exact name of Registrant as specified in its charter)', Cayman Islands incorporation, principal executive offices 28 Ayer Rajah Crescent, Singapore; ADSs trade on Nasdaq as CAN. Named supplier of mining rigs to Cipher Digital's joint-venture sites (Cipher CEO, Q4 FY2025 call) and, as 'Canaan Crypt Solutions', among CleanSpark's miner suppliers. NOTE: 'Canaan Crypt Solutions' is not in Canaan Inc.'s Exhibit 8.1 list of principal subsidiaries; mapping it to Canaan is by name.",
+   "evidence": "CleanSpark 10-K (11-25-2025): 'we depend on Bitmain, MicroBT, Canaan Crypt Solutions and Sunnyside Digital for our miners'. Also Cipher Digital Q4 FY2025 (02-24-2026), CEO Tyler Page: 'Our interests in the sites were acquired in an all-stock transaction by Canaan, a highly reputable manufacturer of industry-leading Bitcoin miners. Given our desire for no further capital investment into Bitcoin mining, and given Canaan’s role as the supplier of mining rigs to the JV sites, Canaan is the most natural buyer to acquire our equity interests.'",
+   "approved": "user 2026-10-13: 'add the bitcoin-miner makers' (new sector Bitcoin Mining ASICs approved)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Bitmain",
+     "layer": "compute_hardware",
+     "sector": "Bitcoin Mining ASICs",
+     "product": "Antminer bitcoin mining machines (S21, S21 Pro, S21 Hydro, T21; U3S21EXPH direct-to-chip liquid-cooled servers)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "MicroBT",
+     "layer": "compute_hardware",
+     "sector": "Bitcoin Mining ASICs",
+     "product": "WhatsMiner bitcoin mining machines (immersion miners, manufactured in the United States for Riot)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "Canaan",
+     "layer": "compute_hardware",
+     "sector": "Bitcoin Mining ASICs",
+     "product": "AvalonMiner bitcoin mining machines (A15 / A16 series; Avalon A1566HA hydro-cooled)",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

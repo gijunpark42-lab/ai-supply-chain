@@ -1,16 +1,18 @@
 # Enrichment status board
 
-Generated 2026-10-13 00:01 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-13 01:50 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
 ## Run next
 
-1. **`enrich taiwan`** — 36 fetched file(s) waiting to be enriched (35 IR release, 1 call); MOPS sync (mops.py) last ran 7 days ago (2026-10-06)
-2. **`enrich japan`** — 37 fetched file(s) waiting to be enriched (37 IR release); TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 9 days ago (2026-10-04)
-3. **`enrich europe`** — 13 fetched file(s) waiting to be enriched (1 conference, 1 call, 11 IR release)
-4. **`enrich china`** — 4 fetched file(s) waiting to be enriched (1 conference, 3 IR release); China IR record / Q&A sync (cninfo.py) last ran 8 days ago (2026-10-05); China periodic-report sync (cninfo.py reports) last ran 8 days ago (2026-10-05)
-5. **`enrich intl`** — 1 fetched file(s) waiting to be enriched (1 IR release)
+1. **`enrich us`** — 1 never had a call enriched (fetch with defeatbeta, mark the ones with none): Canaan
+2. **`enrich korea`** — 1 have no DART filing enriched (backfill with `dart.py fetch`): HD Construction Equipment
+3. **`enrich taiwan`** — 36 fetched file(s) waiting to be enriched (35 IR release, 1 call); MOPS sync (mops.py) last ran 7 days ago (2026-10-06)
+4. **`enrich japan`** — 37 fetched file(s) waiting to be enriched (37 IR release); TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 9 days ago (2026-10-04)
+5. **`enrich europe`** — 13 fetched file(s) waiting to be enriched (1 conference, 1 call, 11 IR release)
+6. **`enrich china`** — 4 fetched file(s) waiting to be enriched (1 conference, 3 IR release); China IR record / Q&A sync (cninfo.py) last ran 8 days ago (2026-10-05); China periodic-report sync (cninfo.py reports) last ran 8 days ago (2026-10-05)
+7. **`enrich intl`** — 1 fetched file(s) waiting to be enriched (1 IR release)
 
 Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-12 (387 feeds); conference listing walked 2026-10-07.
 Opus verification queue: 0 label(s) waiting (runs at 5+).
@@ -71,22 +73,18 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 - **Question for the user — Simulations Plus:** Simulations Plus completed its take-private by Altaris affiliates on 10-06-2026 (being combined with Chemical Computing Group); its stock no longer trades on Nasdaq. Keep the ai_bio node as a private company (status change in company_metadata.json), or remove it from the universe? The completion fact is on the node meanwhile. — source: Simulations Plus press release: Simulations Plus Announces Completion of Acquisition by (10-06-2026) (asked 2026-10-07; answer, then `enrich_status.py resolve "Simulations Plus" --answer "…"`)
 - **Question for the user — ChronoScale:** Applied Digital's Q1 FY2027 call (10-07-2026) says its consolidated subsidiary ChronoScale (reported as Nasdaq CHRN, ~96% owned) runs a GPU cloud: Q1 revenue $41.5M, a 50 MW GB300 NVL72 deployment for Microsoft, target $1B ARR in 2027. Should ChronoScale become its own neocloud node (cloud_infra) with edges ChronoScale -> Microsoft, or stay as counterparty facts on Applied Digital's node (current handling, same as the Q4 FY2026 patch)? — source: Applied Digital Q1 FY2027 (10-07-2026) (asked 2026-10-07; answer, then `enrich_status.py resolve "ChronoScale" --answer "…"`)
 - **Question for the user — HD Construction Equipment:** ERock's 10-07-2026 release names 'HD Construction Equipment, a subsidiary of Hyundai' as its multi-year supplier of natural-gas engine long blocks for RockBlock data-center gensets (supply through 2028). Should HD Hyundai Construction Equipment (KRX-listed) become a supplier node in power / Generation with an edge to ERock, or stay as a counterparty fact on ERock's node (current handling)? Data-center engines are a small part of its business, so the litmus case is borderline. — source: ERock press release: ERock, HD Construction Equipment Sign Multi-Year Engine (10-07-2026) (asked 2026-10-08; answer, then `enrich_status.py resolve "HD Construction Equipment" --answer "…"`)
-- **Question for the user — Do-not-add list vs the 2026-10-12 rule:** HD Construction Equipment (KOSPI 267270; ERock's multi-year natural-gas engine supplier, ERock release 10-07-2026) and Xiaomi (HKEX 1810; Kingsoft Cloud's related-party customer, 20-F public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand in 2025) are on the 2026-09-05 cleanup do-not-add list, so JOB 3 rejects them. Lift these two under the 2026-10-12 rule? Patches are ready in patches/held_1012/ (newnode_hdce_erock_2026-10-07.json, newnode_xiaomi_kc_20f_2026-04-23.json). Xiaomi also needs a sector: neocloud.json has no customer / application sector (proposed application / AI-Native Vertical Apps, which would open a new sector there). (asked 2026-10-12; answer, then `enrich_status.py resolve "Do-not-add list vs the 2026-10-12 rule" --answer "…"`)
-- **Question for the user — Kurita Water Industries:** Kurita's 'results briefing Q&A: Summary of the Q&A Session for 1Q of FY ending March 2027 (08-07-2026)' is a company-written summary, not a verbatim transcript. Under the 2026-10-05 full-transcript-only rule, should the entries already in the graph from this label stay, and should the deleted General Industry fact be re-added (held in patches/held_1012/readd_12_kuritawaterindustries.json)? — source: Kurita Water Industries results briefing Q&A: Summary of the Q&A Session for 1Q of FY ending March 2027 (08-07-2026) (asked 2026-10-12; answer, then `enrich_status.py resolve "Kurita Water Industries" --answer "…"`)
-- **Question for the user — Bitcoin ASIC miner makers:** CleanSpark, Keel and Riot filings name their ASIC miner suppliers: Canaan (NASDAQ: CAN), Bitmain and MicroBT (private), Sunnyside Digital. No sector fits a bitcoin-miner maker, so they stay as text on the filers' nodes. Create a supplier sector (e.g. compute_hardware / 'Bitcoin Mining ASICs') so Canaan - and, if wanted, the private makers - can become supplier nodes with edges? (asked 2026-10-12; answer, then `enrich_status.py resolve "Bitcoin ASIC miner makers" --answer "…"`)
-- **Question for the user — Bitcoin treasury and site-purchase cash:** The 10-12 verifier removed bitcoin treasury items (Riot 10-K / 10-Q: BTC sold to fund capex, BTC held, BTC pledged as collateral) and CleanSpark's cash paid for Texas land / site acquisitions as financing / purchase price. But BTC holdings already sit on other nodes from calls and releases (MARA Q2 call 35,577 BTC, CleanSpark Sept 2026 release 13,530 BTC, Keel Q2 call 1,861 BTC). Should bitcoin holdings / sales count as operating facts (keep everywhere) or treasury (drop everywhere), and is a data-center developer's land purchase capex to keep or a price to drop? (asked 2026-10-12; answer, then `enrich_status.py resolve "Bitcoin treasury and site-purchase cash" --answer "…"`)
-- Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are Samsung Electro-Mechanics 2026-04-30, SK Hynix 2026-07-29, Samsung 2026-07-30; 123 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual.
+- Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are Samsung Electro-Mechanics 2026-04-30, SK Hynix 2026-07-29, Samsung 2026-07-30; 124 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual.
 
 ## Markets
 
 | Market | Companies | Call current | Overdue | Never had a call | No own data | Waiting | IR feeds | Collector last ran |
 |---|---|---|---|---|---|---|---|---|
-| US — United States | 248 | 240 | 0 | 0 | 0 | 0 | 218 | us 2026-10-12, utility 2026-10-01 |
-| KR — Korea | 126 | 2 | 0 | 123 | 0 | 0 | 25 | dart 2026-10-12, kind 2026-10-12 |
+| US — United States | 249 | 240 | 0 | 1 | 1 | 0 | 218 | us 2026-10-12, utility 2026-10-01 |
+| KR — Korea | 127 | 2 | 0 | 124 | 1 | 0 | 25 | dart 2026-10-12, kind 2026-10-12 |
 | TW — Taiwan | 135 | 24 | 0 | 106 | 3 | 36 | 49 | intl 2026-10-06, tw 2026-10-06, mops 2026-10-06 |
 | JP — Japan | 127 | 14 | 0 | 113 | 1 | 37 | 60 | intl 2026-10-06, tdnet 2026-10-04, edinet 2026-10-06 |
 | EU — Europe | 40 | 28 | 0 | 11 | 5 | 13 | 21 | intl 2026-10-06 |
-| CN — China / Hong Kong | 117 | 3 | 0 | 114 | 1 | 4 | 12 | intl 2026-10-06, cninfo 2026-10-05, cnreports 2026-10-05 |
+| CN — China / Hong Kong | 118 | 3 | 0 | 115 | 2 | 4 | 12 | intl 2026-10-06, cninfo 2026-10-05, cnreports 2026-10-05 |
 | other — Other listed | 15 | 4 | 0 | 11 | 4 | 1 | 2 | intl 2026-10-06 |
 
 `Call current` = the latest own earnings call is within the company's usual gap + 3 weeks. `No own data` = not one entry from the company's own documents yet (new nodes land here). Marked companies (no source exists) are left out of Overdue / Never.
@@ -94,9 +92,11 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 ## Details by market
 
 ### US — United States (`enrich us`)
+- Never had a call enriched: Canaan
 - Known gaps, do not re-search: Bayer (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Eikon Therapeutics (call: no earnings calls held since their Feb 2026 IPOs (checked 2026-10-06: events pages list only investor conferences); quarterly results come as 8-K releases, enriched via edgar; recheck 2027-01-04), Generate Biomedicines (call: no earnings calls held since their Feb 2026 IPOs (checked 2026-10-06: events pages list only investor conferences); quarterly results come as 8-K releases, enriched via edgar; recheck 2027-01-04), Micron (call: Q4 FY2026 MAIN earnings call (09-30-2026, Sanjay Mehrotra; prepared remarks end 'We will now open for questions'): no full transcript anywhere - Alpha Vantage MU 2026Q4, defeatbeta MU 2026Q4 and Motley Fool (10-01 'q4-2026-earnings-call-transcript') all carry only the separate POST-EARNINGS ANALYST CALL (already enriched as 'Micron post-earnings analyst call 2026 (09-30-2026)'); Micron IR posts only the prepared-remarks PDF (a script, not used), deck and release; no official YouTube upload. Checked 2026-10-05; recheck 2026-10-20), POET Technologies (call: Q2 2026 (08-13-2026): POET did not host an earnings call - the Q2 results release and both 08-13 6-Ks announce no call/webcast; IR page lists no call since a 2022 business-update call; not on Alpha Vantage (2025Q4-2026Q3 empty), defeatbeta (no POET transcripts), Motley Fool (sitemaps Aug-Sep 2026); official YouTube has only a 09-30-2026 CEO 'Business Update' video (15 min, auto captions), not a call. Checked 2026-10-05; recheck 2026-11-20), Relay Therapeutics (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Roche-Genentech (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Simulations Plus (call: Q3 FY2026: no earnings call appears to have been held (pending acquisition by Altaris, signed 06-15-2026). Company conference-calls page lists the 07-09-2026 Q3 release + deck but NO webcast link (every earlier quarter has a viavid webcast); the 07-09 release (8-K) announces no call; not on Alpha Vantage (SLP 2026Q3 empty), defeatbeta (latest 04-09-2026) or Motley Fool (sitemaps Jul-Sep 2026). Checked 2026-10-05; recheck 2026-12-15)
 
 ### KR — Korea (`enrich korea`)
+- No DART filing enriched: HD Construction Equipment
 - Known gaps, do not re-search: Auros Technology (dart: latest DART file is the amended H1 2026 report filed 10-08-2026, which restates the 08-14-2026 half-year report already enriched (only treasury-share disclosure and one unit fix changed) - checked 2026-10-12; recheck 2026-11-10), Kostek Systems (dart: KONEX-listed: dart.py covers KRX/KOSPI/KOSDAQ only, and KONEX filers are exempt from half-year / quarterly reports; its latest periodic report (FY2025 business report, 03-31-2026) is already enriched from transcripts/non_transcript_sources (checked 2026-10-12); recheck 2027-04-15), Samsung Electro-Mechanics (call: Q2 2026 call (07-30-2026): no full transcript. Investing.com search + transcript listing walked 07-17..08-05 (no SEMCO article); SEMCO IR site (global + kr earnings-release / archive) has only the results PDF and a login-gated Teletogether audio replay; no official YouTube upload. Checked 2026-10-05; recheck 2027-01-03)
 
 ### TW — Taiwan (`enrich taiwan`)
@@ -114,7 +114,7 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 - Known gaps, do not re-search: Legrand (call: H1 2026 call (07-29-2026): no Investing.com transcript (13 search variants); IR site has release, slides, half-year report and audio webcast only, no transcript; no YouTube results webcast; checked 2026-10-05; recheck 2027-01-03)
 
 ### CN — China / Hong Kong (`enrich china`)
-- Never had a call enriched: AMEC, Accelink, Advanced Fiber Resources, Anhui Tongguan Copper Foil, Anji Microelectronics, Biren Technology, Biwin Storage Technology, Boqian New Materials, Broadex Technologies, CASTECH, CIG Shanghai, CXMT … +102 more
+- Never had a call enriched: AMEC, Accelink, Advanced Fiber Resources, Anhui Tongguan Copper Foil, Anji Microelectronics, Biren Technology, Biwin Storage Technology, Boqian New Materials, Broadex Technologies, CASTECH, CIG Shanghai, CXMT … +103 more
 - Waiting to enrich: 1 conference, 3 IR release
 
 ### other — Other listed (`enrich intl`)
@@ -125,13 +125,13 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
-| US earnings calls | `enrich us calls` | 2026-10-12 | 2026-10-12 | 0 | 374 | 373 |
-| US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-12 | 0 | 2002 | 743 |
-| Korea DART filings | `enrich dart` | 2026-10-12 | 2026-10-12 | 0 | 161 | 177 |
+| US earnings calls | `enrich us calls` | 2026-10-12 | 2026-10-13 | 0 | 374 | 373 |
+| US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-13 | 0 | 2002 | 743 |
+| Korea DART filings | `enrich dart` | 2026-10-12 | 2026-10-13 | 0 | 161 | 177 |
 | Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-06 | 2026-10-12 | 1 | 63 | 63 |
 | Taiwan Chinese 法說會 | `enrich tw` | 2026-10-06 | 2026-10-06 | 1 | 18 | 18 |
 | Investor conferences | `enrich conference` | 2026-10-07 | 2026-10-07 | 2 | 149 | 146 |
-| Company IR press releases | `enrich ir` | 2026-10-12 | 2026-10-12 | 87 | 1589 | 575 |
+| Company IR press releases | `enrich ir` | 2026-10-12 | 2026-10-13 | 87 | 1589 | 575 |
 | Korea IR decks (KIND) | `enrich korea` | 2026-10-12 | 2026-10-12 | 0 | 49 | 39 |
 | US utility regulatory filings | `enrich us` | 2026-10-01 | 2026-10-01 | 0 | 6 | 3 |
 | Korea earnings-call scripts | `enrich korea` | 2026-10-12 | 2026-09-27 | 0 | 1 | 1 |
@@ -144,6 +144,7 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 ## Coordinator notes (newest first)
 
+- 2026-10-13 01:04 JP: 2026-10-13 user rule: a Japanese company with no full call transcript is enriched from the results-briefing Q&A summary the company itself publishes (own IR site / TDnet) - next `enrich japan` should look for these for the companies with no call.
 - 2026-10-12 23:22 US: 2026-10-12 enrich us (user-run, session 'nightly enrich us 10-10'): AV 0 new; IR sync 98 saved (123 feed failures); 69 US IR rows -> 49 enriched / 20 nothing; new edges Cisco->Microsoft, Qualcomm->Dell (PC chips), GlobalFoundries->TSMC ($2B interposer), Onto->SK Hynix; new nodes Moderna, Merck & Co. (Tempus AI edges). New rule 2026-10-12 (supply-chain terminal, non-AI kept): 32 scope deletions re-checked (29 re-added), bitcoin-mining facts for CleanSpark/Keel/MARA/Riot, pharma filing lines (Vertex/Lilly/Jazz), Shell -> Google PPA edge. 12 Opus verifiers: 10 corrections. CleanSpark stops monthly operational updates (quarterly reporting from now on).
 - 2026-10-12 23:22 KR: 2026-10-12 enrich korea (user-run): DART 18 filings (14 supply contracts, 3 prelims, Auros amended H1 = restatement), KIND 2 decks (Koh Young, ASICLand), KR IR 12 rows (6 enriched). Kostek Systems marked (KONEX: dart.py covers KRX/KOSPI/KOSDAQ only; KONEX filers are exempt from half-year reports). SK Hynix 07-29 call row closed (already enriched 10-05). LS Electric -> LG Energy Solution / Samsung SDI customer-share edges applied.
 - 2026-10-10 23:15 US: 10-10/11 nightly enrich us: AV sync 0 saved (only the 5 marked known gaps waiting; next US call ASML 10-14); US call / conference / IR queues empty, 0 overdue, 0 never; IR + conference collectors not due (IR synced 10-07, 3-day rule is >3). No patches, nothing applied, no graph_build. Finished the i18n step the 10-09 run left open: 123 strings x ko/zh/ja merged, untranslated now 0. Verify queue 1 (Skyworks 10-07) < 5, left pending.

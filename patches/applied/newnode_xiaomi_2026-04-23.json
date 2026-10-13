@@ -1,0 +1,27 @@
+{
+ "source": "Kingsoft Cloud 20-F (04-23-2026)",
+ "new_nodes": {
+  "Xiaomi": {
+   "ticker": "1810.HK",
+   "exchange": "HKEX",
+   "country": "CN",
+   "why": "Cloud customer (and shareholder / related party) of Kingsoft Cloud: the 20-F reports public cloud services provided to Xiaomi Group of RMB 1,853,124 thousand and enterprise cloud services of RMB 382,438 thousand in 2025; Kingsoft Cloud's Q2 FY2026 call says Xiaomi 'continues to expand AI across its human car home ecosystem' and the 2026-2027 connected-transaction caps with Xiaomi total RMB 10 billion. Identity: the 20-F defines 'Xiaomi Group' as 'Xiaomi Corporation (HKEx: 1810), one of our shareholders, and its subsidiaries and VIEs'. PLACEMENT IS A JUDGMENT: neocloud.json has no application-layer or end-customer sector, and the edge requires the player in the same chain; proposed application / 'AI-Native Vertical Apps' (an existing sector name in nvidia_vera_rubin.json / nvda_b200.json, new to neocloud.json). The only in-chain customer sector, ai_models / Foundation Models, would claim a model-developer role that no source here states. NOTE: 'Xiaomi' appears in utils/graph_cleanup_2026_09_05.fold_log.tsv (folded away 2026-09-05 as a customer of Samsung Electro-Mechanics), so check_patch's do-not-add rule refuses it until the coordinator / user lifts it.",
+   "evidence": "Kingsoft Cloud 20-F (04-23-2026), related party transactions: 'Public cloud services provided to Xiaomi Group | | 763,338 | 1,091,451 | | 1,853,124 | | 264,993'; 'Enterprise cloud services provided to Xiaomi Group | | 104,967 | 182,364 | | 382,438 | | 54,688'; risk factors: 'Kingsoft Group and Xiaomi Group are our existing customers, from which we received a portion of revenues and made borrowings.'",
+   "approved": "user 2026-10-13: lifted the 2026-09-05 do-not-add listing and asked to add this company (2026-10-12 supply-chain-terminal rule)"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Xiaomi",
+     "layer": "application",
+     "sector": "AI-Native Vertical Apps",
+     "product": "Xiaomi Group consumer ecosystem (human / car / home) expanding AI; public and enterprise cloud services buyer from Kingsoft Cloud",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}
