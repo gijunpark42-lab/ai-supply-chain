@@ -11,7 +11,7 @@ import {
 } from "@/lib/retrieval";
 // The prompt module is plain JavaScript shared with the server routes and the
 // local runner (tsconfig has allowJs); only its no-model helpers are used here.
-import { guessIntent, normalizeIntent, LOCAL_MODEL_ID } from "@/lib/askPrompt.mjs";
+import { guessIntent, normalizeIntent } from "@/lib/askPrompt.mjs";
 import { t, name, useLang, type Lang } from "@/lib/i18n";
 import { slugLabel } from "@/lib/taxonomy";
 import { SignalBody, SourceBadge } from "./SignalText";
@@ -25,9 +25,9 @@ import "./AskGraph.css";
 //   2. lib/retrieval.ts searches the graph IN THE BROWSER for the question and
 //      every rewritten query and merges the results (retrieveUnion).
 //   3. POST /api/ask streams the model's answer, which may only use those
-//      snippets and must cite them as [n]. The local engine (`claude -p` on the
-//      owner's machine, Opus at max effort) sends the whole answer in ONE line
-//      after up to a minute of silence — hence the phase line with a counter.
+//      snippets and must cite them as [n]. Claude (Opus 5.5 through the Claude
+//      API) thinks before the first word arrives, which can take a minute —
+//      hence the phase line with a counter.
 // Each [n] renders as a chip that reveals the underlying snippet (company
 // clickable → NodePanel), and "Context used" lists everything that was sent.
 // The thread is a CONVERSATION: a follow-up question carries the last few
@@ -43,7 +43,7 @@ type Phase = "rewriting" | "reading" | "thinking";
 // askPrompt.mjs declares Intent only as a JSDoc typedef, so TypeScript gets its own copy.
 type Intent = "lookup" | "compare" | "rank" | "timeline";
 /** Which back-end answered, as reported by the route's "done" line. */
-type Engine = "local" | "groq" | "openai-compatible";
+type Engine = "anthropic" | "groq" | "openai-compatible";
 /** One earlier Q&A pair, as sent to the server for a follow-up question. */
 interface HistoryTurn {
   question: string;
@@ -62,8 +62,8 @@ interface Turn {
   answer: string;
   status: Status;
   error?: string;
-  model?: string; // the real model id ("claude-opus-5")
-  effort?: string; // reasoning effort the engine ran at ("max", "low", …)
+  model?: string; // the real model id ("claude-opus-5-5")
+  effort?: string; // reasoning effort the engine ran at ("high", "low", …)
   engine?: Engine | string;
   latencyMs?: number; // the route's own measurement of how long the answer took
   citations?: number[]; // the [n] numbers the route found in the answer (stored, not rendered yet)
@@ -75,7 +75,7 @@ const MAX_TURNS = 8; // turns kept on screen; older ones scroll off the top of t
 const HISTORY_TURNS = 4; // completed turns sent along with a follow-up question …
 const HISTORY_ANSWER_CHARS = 2000; // … each answer trimmed to this many characters
 const REWRITE_TIMEOUT_MS = 8_000; // past this the rewrite step is skipped, not waited for
-const SLOW_HINT_AFTER_S = 15; // seconds of "Thinking…" before the local-engine caption shows
+const SLOW_HINT_AFTER_S = 15; // seconds of "Thinking…" before the "Opus thinks first" caption shows
 
 const PHASE_LABEL: Record<Phase, string> = {
   rewriting: "Rewriting the question…",
@@ -85,6 +85,7 @@ const PHASE_LABEL: Record<Phase, string> = {
 
 // Readable name for each engine the route can report (footer badge).
 const ENGINE_LABEL: Record<string, string> = {
+  anthropic: "Claude API",
   groq: "Groq",
   "openai-compatible": "OpenAI-compatible",
 };
@@ -161,8 +162,7 @@ export default function AskGraph({
         return;
       }
 
-      // 4) Ask the server route, which holds the API key (or forwards to the
-      //    local runner), and stream the answer.
+      // 4) Ask the server route, which holds the API key, and stream the answer.
       patch(id, (t) => ({ ...t, phase: "thinking", thinkingSince: Date.now() }));
       const res = await fetch("/api/ask", {
         method: "POST",
@@ -180,8 +180,8 @@ export default function AskGraph({
       }
       if (!res.body) throw new Error("The server sent an empty response.");
 
-      // The route answers with one JSON object per line (NDJSON). An API engine
-      // sends many small "text" lines; the local engine sends ONE with the whole answer.
+      // The route answers with one JSON object per line (NDJSON): many small
+      // "text" lines as the answer streams, then one "done" line.
       const handleLine = (line: string) => {
         let ev: any;
         try {
@@ -320,8 +320,8 @@ function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }
   const [active, setActive] = useState<number | null>(null); // which [n] chip is open
   const { snippets, companies, chains, topics } = turn.meta;
   const activeSnippet = active !== null ? snippets[active - 1] : undefined;
-  // "Thinking… 12 s" counts from the moment /api/ask was called (the local
-  // engine can take a minute) and stops when the turn finishes or the card unmounts.
+  // "Thinking… 12 s" counts from the moment /api/ask was called (Opus can
+  // think for a minute) and stops when the turn finishes or the card unmounts.
   const thinking = turn.status === "loading" && turn.phase === "thinking";
   const seconds = useElapsedSeconds(turn.thinkingSince, thinking);
 
@@ -358,7 +358,7 @@ function TurnView({ turn, onOpen }: { turn: Turn; onOpen: (id: string) => void }
           </span>
           {thinking && seconds >= SLOW_HINT_AFTER_S && (
             <div className="ask-hint">
-              {t("The local engine (Opus, max effort) takes 15–60 s for most questions and up to a few minutes for a ranking in Korean.")}
+              {t("Claude Opus 5.5 thinks before it answers: most questions take 15–60 s, a long ranking can take a few minutes.")}
             </div>
           )}
         </div>
@@ -668,14 +668,13 @@ function useElapsedSeconds(since: number | undefined, active: boolean): number {
 
 /**
  * Footer badge: "<model> · effort <effort> · <where it ran>", e.g.
- * "claude-opus-5 · effort max · your machine" or "llama-3.3-70b-versatile · effort default · Groq".
+ * "claude-opus-5-5 · effort xhigh · Claude API" or "llama-3.3-70b-versatile · Groq".
  * Kept generic on purpose: other models will be mixed in later.
  */
 function modelBadge(turn: Turn): string {
-  const parts: string[] = [turn.model || (turn.engine === "local" ? LOCAL_MODEL_ID : "model")];
+  const parts: string[] = [turn.model || "model"];
   if (turn.effort && turn.effort !== "default") parts.push(t("effort {e}", { e: turn.effort }));
-  if (turn.engine === "local") parts.push(t("your machine"));
-  else if (turn.engine) parts.push(ENGINE_LABEL[turn.engine] || turn.engine);
+  if (turn.engine) parts.push(ENGINE_LABEL[turn.engine] || turn.engine);
   return parts.join(" · ");
 }
 
@@ -716,12 +715,11 @@ function SetupNotice() {
       <b>{t("Ask the Graph has no answer engine configured yet.")}</b>
       <ol>
         <li>
-          <b>Default (Claude Opus on your own machine):</b> run the local runner (see{" "}
-          <code>local-ask/README.md</code>) and set <code>LOCAL_ASK_URL</code> +{" "}
-          <code>ASK_SHARED_SECRET</code> on Vercel.
+          <b>Default (Claude Opus 5.5 through the Claude API):</b> create an API key in the Claude
+          Console (<code>platform.claude.com</code>) and set <code>ANTHROPIC_API_KEY</code>.
         </li>
         <li>
-          <b>Optional fallback for when the PC is off:</b> any OpenAI-compatible service via{" "}
+          <b>Optional fallback:</b> any OpenAI-compatible service via{" "}
           <code>ASK_BASE_URL</code> + <code>ASK_API_KEY</code>, or Groq at <code>console.groq.com</code>{" "}
           → <code>GROQ_API_KEY</code> (free tier). <code>ASK_MODEL</code> pins a model name.
         </li>

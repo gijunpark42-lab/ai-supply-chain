@@ -65,31 +65,27 @@ An event study on the hand-labeled **"capacity sold out"** signal across 71 US-l
 Every signal in the node dossier has a **source** button that shows the verbatim passage of the transcript
 or filing it came from (`evidence.py` -> `graph/evidence.json`).
 
-**Ask the Graph answers with Claude Opus on the owner's own PC by default** (`local-ask/`, see below).
-An optional API fallback for when the PC is off is picked from these env vars (Vercel -> Settings ->
-Environment Variables, or `web/.env` locally), first match wins:
+**Ask the Graph answers with Claude Opus 5.5 through the Claude API** (since 2026-10-12, owner's decision;
+it replaced the local runner `local-ask/`, so the site no longer needs the PC to be on). The Ask tab is the
+**only** part of this project that pays for the Claude API — enrichment and coding stay in Claude Code on
+the owner's machine. Env vars (Vercel -> Settings -> Environment Variables, or `web/.env` locally):
 
 | Variable | Service | Cost |
 |---|---|---|
-| `ASK_BASE_URL` + `ASK_API_KEY` | any OpenAI-compatible endpoint (OpenRouter, Mistral, a local Ollama...) | depends |
-| `GROQ_API_KEY` | Groq (`llama-3.3-70b-versatile`), key from console.groq.com | free tier, no card (30 requests/min but only ~12K tokens/min, about one question a minute) |
+| `ANTHROPIC_API_KEY` | **the engine**: Claude API, `claude-opus-5-5` (answer at effort `xhigh`, query rewrite at `low`), key from the Claude Console | metered — $4 / $20 per million input / output tokens; set a spend limit in the Console |
+| `ASK_BASE_URL` + `ASK_API_KEY` | optional fallback: any OpenAI-compatible endpoint (OpenRouter, Mistral, a local Ollama...) | depends |
+| `GROQ_API_KEY` | optional fallback: Groq (`llama-3.3-70b-versatile`), key from console.groq.com | free tier, no card (30 requests/min but only ~12K tokens/min, about one question a minute) |
 
-`ASK_MODEL` overrides the default model name for whichever service is picked. Gemini and the Anthropic
-API were removed on 2026-09-11 (Gemini key revoked; Claude must not be billed through the API) — Claude
-answers come only from the local runner.
+The fallback is used only when no `ANTHROPIC_API_KEY` is set, or when Claude fails before streaming
+(after the SDK's own retries). `ASK_MODEL` overrides the fallback's model name. A Claude safety-classifier
+refusal is re-run server-side on Anthropic's recommended fallback model (`fallbacks: "default"`).
 
-How a question is answered (`web/src/app/api/ask/`): a cheap model first rewrites the question into 2–4
+How a question is answered (`web/src/app/api/ask/`): the model first rewrites the question into 2–4
 queries in the graph's vocabulary plus an intent (`lookup` / `compare` / `rank` / `timeline`), the browser
 searches the union of those queries, and the answer engine must synthesize — rank and compare the
 numbers it was given, cite each as `[n]`, and say "the graph does not contain …" only when nothing
-matched. Both engines share one prompt, `web/src/lib/askPrompt.mjs`.
-
-**The default engine: Claude Code on your own PC.** `local-ask/` is a tiny server that runs
-`claude -p` (Opus, max effort, no tools) for each question. Set `LOCAL_ASK_URL` (a Cloudflare Tunnel or
-Tailscale Funnel address) and `ASK_SHARED_SECRET` on Vercel and the route tries it first — `/health` in
-3 s, then `/answer` for up to 3 minutes — and falls back to the API key above (if any) whenever the PC is
-off. The badge under each answer shows which engine replied (`claude-code-local` vs the API model id).
-See `local-ask/README.md`.
+matched. Every engine shares one prompt, `web/src/lib/askPrompt.mjs`. The badge under each answer shows
+the model id, effort and engine (`claude-opus-5-5 · effort xhigh · Claude API`).
 
 ## How data gets in (the enrichment loop)
 

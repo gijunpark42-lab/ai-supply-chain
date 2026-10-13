@@ -11,9 +11,9 @@
 //    `lang` = the answer language the user picked)
 //
 // and receives newline-delimited JSON (NDJSON), one object per line:
-//   {"type":"text","text":"..."}      answer fragments in order (the local engine sends ONE)
-//   {"type":"done","model":"claude-opus-5"|…,"effort":"max"|"default",
-//                  "engine":"local"|"groq"|"openai-compatible",
+//   {"type":"text","text":"..."}      answer fragments in order
+//   {"type":"done","model":"claude-opus-5-5"|…,"effort":"xhigh"|"default",
+//                  "engine":"anthropic"|"groq"|"openai-compatible",
 //                  "latency_ms":n,"citations":[n,…],"usage":{…},"stop_reason":"…"}   once, last
 //   {"type":"error","error":"..."}    only if an upstream stream breaks mid-way
 // Before anything is streamed, problems come back as plain JSON with a real
@@ -22,31 +22,28 @@
 // engine failed after retries, 502 / 504 for API failures a retry cannot fix.
 //
 // Two answer engines, tried in order:
-//   1. LOCAL — the owner's own PC running local-ask/server.mjs (the Claude Code
-//      CLI: Opus at max effort), reached through a tunnel at LOCAL_ASK_URL with
-//      the shared header x-ask-secret = ASK_SHARED_SECRET. First GET /health
-//      (3 s — "is the PC on?"), then POST /answer (up to 3 min — Opus is slow).
-//      ANY failure — PC off, tunnel down, timeout, bad JSON — falls through
-//      silently; the user never sees a local error, only the fallback answer.
-//   2. API — any OpenAI-compatible service (ASK_BASE_URL + ASK_API_KEY) / Groq
-//      (GROQ_API_KEY); ASK_MODEL pins a model name. Gemini and the Anthropic
-//      API were removed on 2026-09-11 — Claude answers come only from the
-//      owner's local runner. Free tiers answer 429
+//   1. CLAUDE — the Claude API (ANTHROPIC_API_KEY): Claude Opus 5.5 with
+//      adaptive thinking at effort "xhigh", streamed. Since 2026-10-12 it
+//      replaces the owner's local runner (local-ask/), so the site no longer
+//      depends on the PC being on. The SDK retries 429 / 5xx / 529 by itself,
+//      and a safety-classifier refusal is re-run server-side on the fallback
+//      model Anthropic recommends. If Claude fails BEFORE anything is streamed
+//      and engine 2 is configured, the question quietly goes there instead.
+//   2. API — optional: any OpenAI-compatible service (ASK_BASE_URL + ASK_API_KEY)
+//      / Groq (GROQ_API_KEY); ASK_MODEL pins a model name. Free tiers answer 429
 //      and 503 often, so the call is retried with exponential backoff (1 s, 2 s,
 //      4 s + jitter), alternating between the best models the service lists.
 // Both engines get the SAME prompt from lib/askPrompt.mjs, so their answers
 // differ only by model, never by instructions.
 //
-// When LOCAL_ASK_URL is unset the local step is skipped entirely: the deployed
-// site never depends on the owner's machine being on.
-//
 // Why a server route at all? The model API key must never reach the browser.
 // It lives only in environment variables (Vercel → Settings → Environment
 // Variables, or web/.env — git-ignored — when running locally).
 
+import Anthropic from "@anthropic-ai/sdk";
+import type { BetaMessageStream } from "@anthropic-ai/sdk/lib/BetaMessageStream";
 import { NextRequest, NextResponse } from "next/server";
 import {
-  LOCAL_MODEL_ID,
   normalizeIntent,
   normalizeLang,
   normalizeHistory,
@@ -55,6 +52,9 @@ import {
   extractCitations,
 } from "@/lib/askPrompt.mjs";
 import {
+  CLAUDE_MODEL,
+  CLAUDE_REFUSAL_FALLBACK,
+  claudeClient,
   type Provider,
   resolveProvider,
   pickModels,
@@ -76,19 +76,20 @@ export const dynamic = "force-dynamic";
 // literal here). With Fluid compute — on by default — the Hobby plan allows up
 // to 300 s; without it only 60 s. If a deploy ever fails on this line, change
 // the number to 60: every timeout below is DERIVED from it, so the route keeps
-// working with a shorter local wait instead of breaking.
+// working with a shorter wait instead of breaking.
 export const maxDuration = 300;
 
 const BUDGET_MS = (maxDuration - 10) * 1000; // leave 10 s of headroom before Vercel's cut-off
-const LOCAL_HEALTH_TIMEOUT_MS = 3_000; // "is the PC on?"
-// Opus at max effort needs 15–60 s for an English question and 3–4+ minutes
-// for a Korean answer over 20+ snippets; the owner wants Opus at max, so wait
-// nearly the whole Vercel budget (300 s on Hobby) before giving up. The runner's
-// own ASK_TIMEOUT_MS is 300 s (local-ask/.env). The deadline math below caps the
-// real wait at the budget minus the reserve (~285 s): Vercel kills the function at 300 s.
-const LOCAL_ANSWER_TIMEOUT_MS = 300_000;
-const LOCAL_MIN_ANSWER_MS = 10_000; // below this the local engine is not worth trying
-const API_RESERVE_MS = 5_000; // headroom after the local wait (there is no API fallback in practice)
+
+// Claude: it thinks first (hidden), then the answer streams. The owner's
+// default is "xhigh" (2026-10-12) — one step below "max"; Opus 5.5's own
+// default is "medium".
+const CLAUDE_EFFORT = "xhigh";
+// Hidden thinking counts against this limit too. 32k leaves room for long
+// xhigh thinking plus a ~1,000-token answer, and caps the output cost of one
+// question at about $0.64 (Opus 5.5: $20 per million output tokens).
+const CLAUDE_MAX_TOKENS = 32_000;
+
 const API_FETCH_TIMEOUT_MS = 60_000; // one API call, including reading the stream
 const API_MAX_RETRIES = 3; // after the first attempt: waits of 1 s, 2 s, 4 s (+ jitter)
 const API_MIN_ATTEMPT_MS = 8_000; // do not start an attempt with less than this left
@@ -197,7 +198,7 @@ interface Usage {
 /** The last line of every answer stream, in one place so both engines agree on its shape. */
 function doneLine(o: {
   model: string;
-  effort: string; // "max" (local Opus), "default" (API)
+  effort: string; // "xhigh" (Claude), "default" (OpenAI-compatible API)
   engine: string;
   startedAt: number;
   citations: number[];
@@ -216,89 +217,134 @@ function doneLine(o: {
   };
 }
 
-// ── Engine 1: the local runner ─────────────────────────────────────────────
+// ── Engine 1: the Claude API ───────────────────────────────────────────────
 
 type Deadline = ReturnType<typeof makeDeadline>;
 
-interface LocalAnswer {
-  answer: string;
-  citations: number[];
-  model: string; // the real model id the CLI used ("claude-opus-5"), else "claude-code-local"
-  effort: string; // the CLI's --effort ("max")
-}
-
-let warnedNoSecret = false;
-
-/** True when LOCAL_ASK_URL is set — i.e. the owner wants the local engine tried. */
-function localConfigured(): boolean {
-  return Boolean(process.env.LOCAL_ASK_URL?.trim());
+/** Why an engine could not answer, in the route's error shape. Never echoes the key. */
+interface EngineError {
+  status: number;
+  error: string;
+  upstream_status?: number;
 }
 
 /**
- * Ask the owner's machine. Returns null on ANY problem — the caller then falls
- * through to the API engine, and the user never sees the local error.
+ * Ask Claude. Returns the NDJSON answer stream once the API has ACCEPTED the
+ * request — or, if it refused before anything was streamed (bad key, outage
+ * after the SDK's own retries, our deadline), the error to report instead.
  */
-async function askLocal(body: AskBody, deadline: Deadline): Promise<LocalAnswer | null> {
-  const base = process.env.LOCAL_ASK_URL?.trim().replace(/\/+$/, "");
-  if (!base) return null;
-  const secret = process.env.ASK_SHARED_SECRET;
-  if (!secret) {
-    if (!warnedNoSecret) console.warn("[ask] LOCAL_ASK_URL is set but ASK_SHARED_SECRET is missing — local engine skipped.");
-    warnedNoSecret = true;
-    return null;
-  }
-  // Give Opus up to 60 s, but always keep enough of the budget for the fallback.
-  const answerTimeout = Math.min(LOCAL_ANSWER_TIMEOUT_MS, deadline.remaining() - API_RESERVE_MS);
-  if (answerTimeout < LOCAL_MIN_ANSWER_MS) return null;
-
+async function askClaude(
+  client: Anthropic,
+  system: string,
+  user: string,
+  snippetCount: number,
+  deadline: Deadline
+): Promise<{ ok: true; body: ReadableStream<Uint8Array> } | ({ ok: false } & EngineError)> {
+  const stream = client.beta.messages.stream(
+    {
+      model: CLAUDE_MODEL,
+      max_tokens: CLAUDE_MAX_TOKENS,
+      thinking: { type: "adaptive" },
+      output_config: { effort: CLAUDE_EFFORT },
+      system,
+      messages: [{ role: "user", content: user }],
+      ...CLAUDE_REFUSAL_FALLBACK,
+    },
+    // Bounds the whole exchange: the SDK's retries and the streamed answer included.
+    { signal: AbortSignal.timeout(Math.max(1, deadline.remaining())) }
+  );
+  // Build the NDJSON stream FIRST: it subscribes to the answer text at once,
+  // so no fragment can arrive before anyone is listening.
+  const body = claudeToNdjson(stream, {
+    engine: "anthropic",
+    effort: CLAUDE_EFFORT,
+    fallbackModel: CLAUDE_MODEL,
+    snippetCount,
+    startedAt: deadline.start,
+  });
   try {
-    // Stage 1 — a quick probe. If the PC is off or the tunnel is down this fails in ≤3 s.
-    const health = await fetch(`${base}/health`, {
-      headers: { "x-ask-secret": secret },
-      cache: "no-store",
-      signal: AbortSignal.timeout(LOCAL_HEALTH_TIMEOUT_MS),
-    });
-    if (!health.ok) throw new Error(`health returned ${health.status}`);
-    const h: any = await health.json();
-    if (h?.ok !== true) throw new Error("health did not report ok");
-
-    // Stage 2 — the real question.
-    const res = await fetch(`${base}/answer`, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-ask-secret": secret },
-      body: JSON.stringify({
-        question: body.question,
-        snippets: body.snippets,
-        intent: body.intent,
-        lang: body.lang,
-        history: body.history,
-      }),
-      cache: "no-store",
-      signal: AbortSignal.timeout(answerTimeout),
-    });
-    if (!res.ok) throw new Error(`answer returned ${res.status}`);
-    const j: any = await res.json();
-    const answer = typeof j?.answer === "string" ? j.answer.trim() : "";
-    if (!answer) throw new Error("answer was empty");
-
-    const n = body.snippets.length;
-    const fromRunner: number[] = Array.isArray(j.citations)
-      ? (j.citations as unknown[]).filter((x): x is number => Number.isInteger(x) && (x as number) >= 1 && (x as number) <= n)
-      : [];
-    const str = (v: unknown) => (typeof v === "string" && v ? v : "");
-    return {
-      answer,
-      citations: fromRunner.length ? fromRunner : extractCitations(answer, n),
-      // The runner reports the model the CLI actually used (from its usage
-      // report) — that is what the badge should show, not the alias "opus".
-      model: str(j.model_id) || str(j.cli_model) || str(j.model) || LOCAL_MODEL_ID,
-      effort: str(j.effort) || "?",
-    };
-  } catch (e: any) {
-    const why = isTimeout(e) ? "timed out" : e?.message || String(e);
-    console.warn(`[ask] local runner unavailable: ${why}`);
-    return null;
+    await stream.withResponse(); // resolves when Claude accepts the request; throws on 4xx / 5xx
+    return { ok: true, body };
+  } catch (e) {
+    body.cancel().catch(() => {});
+    return { ok: false, ...claudeError(e) };
   }
+}
+
+/** A Claude API failure as the status + message the browser should see (most specific class first). */
+function claudeError(e: unknown): EngineError {
+  if (e instanceof Anthropic.AuthenticationError || e instanceof Anthropic.PermissionDeniedError)
+    return {
+      status: 502,
+      upstream_status: e.status,
+      error: `The Claude API rejected the server's API key (${e.status}). Check ANTHROPIC_API_KEY in Vercel → Settings → Environment Variables and redeploy.`,
+    };
+  // Rate limit, overload (529) or an outage: the SDK has already retried twice.
+  if (e instanceof Anthropic.RateLimitError || e instanceof Anthropic.InternalServerError)
+    return { status: 503, upstream_status: e.status, error: "Ask is busy, try again" };
+  // Our own deadline fired.
+  if (e instanceof Anthropic.APIUserAbortError || isTimeout(e))
+    return { status: 504, error: "The model took too long to answer." };
+  if (e instanceof Anthropic.APIConnectionError) return { status: 503, error: "Ask is busy, try again" };
+  if (e instanceof Anthropic.APIError)
+    return { status: 502, upstream_status: e.status, error: `The Claude API rejected the request (${e.status}): ${e.message}` };
+  return { status: 502, error: `Could not reach the Claude API: ${(e as Error)?.message || String(e)}` };
+}
+
+// ── Claude stream → NDJSON ─────────────────────────────────────────────────
+// Only the answer text is forwarded; the thinking stays on the server (its text
+// is empty by default anyway). If a safety classifier declines mid-answer, the
+// fallback model CONTINUES the same text on the same stream — nothing already
+// sent is taken back — so the fragments can go straight through.
+
+function claudeToNdjson(stream: BetaMessageStream, meta: StreamMeta): ReadableStream<Uint8Array> {
+  const enc = new TextEncoder();
+  let text = "";
+
+  return new ReadableStream<Uint8Array>({
+    // start() runs synchronously inside `new ReadableStream`, so the "text"
+    // listener is attached before the request can produce anything.
+    async start(controller) {
+      const send = (obj: unknown) => {
+        try {
+          controller.enqueue(enc.encode(JSON.stringify(obj) + "\n"));
+        } catch {
+          /* the browser already left */
+        }
+      };
+      stream.on("text", (delta) => {
+        text += delta;
+        send({ type: "text", text: delta });
+      });
+      try {
+        const msg = await stream.finalMessage();
+        send(
+          doneLine({
+            model: msg.model, // the model that actually answered (the fallback model after a refusal)
+            effort: meta.effort,
+            engine: meta.engine,
+            startedAt: meta.startedAt,
+            citations: extractCitations(text, meta.snippetCount),
+            usage: { input_tokens: msg.usage.input_tokens, output_tokens: msg.usage.output_tokens },
+            stopReason: msg.stop_reason,
+          })
+        );
+      } catch (e: any) {
+        const why =
+          e instanceof Anthropic.APIUserAbortError || isTimeout(e) ? "The model took too long to finish." : e?.message || String(e);
+        send({ type: "error", error: `Stream interrupted: ${why}` });
+      } finally {
+        try {
+          controller.close();
+        } catch {
+          /* already cancelled */
+        }
+      }
+    },
+    cancel() {
+      stream.abort(); // the browser left: stop generating (and paying for) tokens
+    },
+  });
 }
 
 // ── Engine 2: the model API, with backoff and model failover ───────────────
@@ -527,43 +573,32 @@ export async function POST(req: NextRequest) {
   const parsed = parseBody(parsedJson);
   if (typeof parsed === "string") return NextResponse.json({ error: parsed }, { status: 400 });
 
-  // 3) Engine 1 — the owner's machine, if configured and awake.
-  const local = await askLocal(parsed, deadline);
-  if (local) {
-    const lines = [
-      { type: "text", text: local.answer },
-      doneLine({
-        model: local.model,
-        effort: local.effort,
-        engine: "local",
-        startedAt: deadline.start,
-        citations: local.citations,
-        usage: { input_tokens: 0, output_tokens: 0 },
-        stopReason: "end_turn",
-      }),
-    ];
-    return new Response(lines.map((l) => JSON.stringify(l) + "\n").join(""), {
-      status: 200,
-      headers: NDJSON_HEADERS,
-    });
-  }
-
-  // 4) Engine 2 — the model API. No key at all → tell the UI how to set one up.
-  const provider = resolveProvider();
-  if (!provider) {
-    if (localConfigured())
-      return NextResponse.json(
-        { error: "Ask is busy, try again (the local runner is offline and no API key is configured)", code: "busy" },
-        { status: 503 }
-      );
-    return NextResponse.json(
-      { error: "No answer engine configured (LOCAL_ASK_URL, ASK_API_KEY or GROQ_API_KEY)", code: "no_api_key" },
-      { status: 503 }
-    );
-  }
-
+  // 3) The prompt — the same for every engine.
   const system = buildSystemPrompt(parsed.intent, parsed.lang);
   const user = buildUserMessage(parsed.question, parsed.snippets, parsed.intent, parsed.history);
+  const provider = resolveProvider(); // engine 2, or null when none is configured
+
+  // 4) Engine 1 — Claude, when ANTHROPIC_API_KEY is set.
+  const client = claudeClient();
+  if (client) {
+    const claude = await askClaude(client, system, user, parsed.snippets.length, deadline);
+    if (claude.ok) return new Response(claude.body, { status: 200, headers: NDJSON_HEADERS });
+    console.warn(`[ask] Claude API unavailable (status ${claude.upstream_status ?? "none"}): ${claude.error}`);
+    if (!provider) {
+      const body: Record<string, unknown> = { error: claude.error, upstream_status: claude.upstream_status };
+      if (claude.status === 503) body.code = "busy";
+      return NextResponse.json(body, { status: claude.status });
+    }
+    // Otherwise fall through: engine 2 answers this one.
+  }
+
+  // 5) Engine 2 — an OpenAI-compatible API. No key at all → tell the UI how to set one up.
+  if (!provider)
+    return NextResponse.json(
+      { error: "No answer engine configured (ANTHROPIC_API_KEY, ASK_API_KEY or GROQ_API_KEY)", code: "no_api_key" },
+      { status: 503 }
+    );
+
   const candidates = await pickModels(provider, "best");
   const outcome = await callApi(provider, candidates, system, user, deadline);
   if (!outcome.ok) {
