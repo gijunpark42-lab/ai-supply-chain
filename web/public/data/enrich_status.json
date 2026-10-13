@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 23:33",
+ "generated": "2026-10-12 20:54",
  "labels_total": 3425,
  "pipelines": [
   {
@@ -80,7 +80,7 @@
      "labels": 1
     }
    ],
-   "last_sync": "2026-10-09",
+   "last_sync": "2026-10-10",
    "extra": {
     "waiting": [],
     "saved_pairs": 234
@@ -2083,7 +2083,7 @@
    "files": 154,
    "labels_on_disk": 164,
    "in_graph": 162,
-   "entries": 1157,
+   "entries": 1159,
    "pending": [],
    "no_data": [
     {
@@ -2103,7 +2103,7 @@
     "2026-10-02"
    ],
    "last_fetch": "2026-10-06",
-   "last_enriched": "2026-10-06",
+   "last_enriched": "2026-10-12",
    "enriched_days": [
     {
      "day": "2026-09-07",
@@ -2124,6 +2124,10 @@
     {
      "day": "2026-10-06",
      "labels": 9
+    },
+    {
+     "day": "2026-10-12",
+     "labels": 1
     }
    ],
    "last_sync": "2026-10-04",
@@ -2702,11 +2706,6 @@
      "company": "Shibaura Mechatronics",
      "label": "Shibaura Mechatronics press release: Launch of the HSM-1000, Activation & Wet Cleaning System (09-24-2026)",
      "file": "transcripts/ir/shibauramechatronics_2026-09-24_launch-of-the-hsm-1000-activation-wet-cleaning-sys.txt"
-    },
-    {
-     "company": "Skyworks Solutions",
-     "label": "Skyworks Solutions press release: Skyworks Si829x Isolated Safety Gate Driver Qualified and (10-07-2026)",
-     "file": "transcripts/ir/skyworkssolutions_2026-10-07_skyworks-si829x-isolated-safety-gate-driver-qualif.txt"
     },
     {
      "company": "Tokyo Ohka Kogyo",
@@ -10142,10 +10141,34 @@
     "2026-05-15",
     "2026-10-08"
    ]
+  },
+  {
+   "day": "2026-10-10",
+   "pipeline": "ir",
+   "files": 1496,
+   "in_graph": 517,
+   "pending": 71,
+   "last_sync": "2026-10-07",
+   "source_range": [
+    "2026-05-15",
+    "2026-10-08"
+   ]
+  },
+  {
+   "day": "2026-10-10",
+   "pipeline": "us",
+   "files": 372,
+   "in_graph": 371,
+   "pending": 0,
+   "last_sync": "2026-10-10",
+   "source_range": [
+    "2025-11-05",
+    "2026-10-07"
+   ]
   }
  ],
  "board": {
-  "today": "2026-10-09",
+  "today": "2026-10-12",
   "markets": [
    {
     "id": "US",
@@ -10208,11 +10231,9 @@
      }
     ],
     "feeds": 218,
-    "waiting": {
-     "ir": 1
-    },
+    "waiting": {},
     "collectors": {
-     "us": "2026-10-09",
+     "us": "2026-10-10",
      "utility": "2026-10-01"
     }
    },
@@ -10897,29 +10918,30 @@
    {
     "command": "enrich us",
     "reasons": [
-     "1 fetched file(s) waiting to be enriched (1 IR release)"
+     "US call sync (av.py) last ran 2 days ago (2026-10-10)"
     ]
    },
    {
     "command": "enrich korea",
     "reasons": [
      "12 fetched file(s) waiting to be enriched (1 call, 11 IR release)",
-     "DART sync (dart.py) last ran 5 days ago (2026-10-04)",
-     "KIND IR deck sync (kind.py) last ran 5 days ago (2026-10-04)",
+     "DART sync (dart.py) last ran 8 days ago (2026-10-04)",
+     "KIND IR deck sync (kind.py) last ran 8 days ago (2026-10-04)",
      "1 have no DART filing enriched (backfill with `dart.py fetch`): Kostek Systems"
     ]
    },
    {
     "command": "enrich taiwan",
     "reasons": [
-     "23 fetched file(s) waiting to be enriched (22 IR release, 1 call)"
+     "23 fetched file(s) waiting to be enriched (22 IR release, 1 call)",
+     "MOPS sync (mops.py) last ran 6 days ago (2026-10-06)"
     ]
    },
    {
     "command": "enrich japan",
     "reasons": [
      "26 fetched file(s) waiting to be enriched (26 IR release)",
-     "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 5 days ago (2026-10-04)"
+     "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 8 days ago (2026-10-04)"
     ]
    },
    {
@@ -11375,18 +11397,28 @@
   "shared": {
    "ir": {
     "last_sync": "2026-10-07",
-    "days": 2,
-    "due": false,
+    "days": 5,
+    "due": true,
     "feeds": 387
    },
    "conference": {
     "last_sync": "2026-10-07",
-    "days": 2,
+    "days": 5,
     "due": false
    }
   },
-  "verify_pending": 0,
+  "verify_pending": 1,
   "notes": [
+   {
+    "at": "2026-10-10 23:15",
+    "market": "US",
+    "text": "10-10/11 nightly enrich us: AV sync 0 saved (only the 5 marked known gaps waiting; next US call ASML 10-14); US call / conference / IR queues empty, 0 overdue, 0 never; IR + conference collectors not due (IR synced 10-07, 3-day rule is >3). No patches, nothing applied, no graph_build. Finished the i18n step the 10-09 run left open: 123 strings x ko/zh/ja merged, untranslated now 0. Verify queue 1 (Skyworks 10-07) < 5, left pending."
+   },
+   {
+    "at": "2026-10-09 23:38",
+    "market": "US",
+    "text": "10-09/10 nightly enrich us: AV sync 0 saved (5 known-gap waiting); IR / conference collectors not due. Skyworks 10-07 Si829x release: IR site still 403, body restored from the company's own GlobeNewswire distribution (curl_cffi chrome) -> 2 entries, row closed. graph_build.py --sync failed 3x at derive_exposure: open('graph/exposure.json','w') -> errno 22 / GetLastError 1224 (ERROR_USER_MAPPED_FILE: another process, likely OneDrive/Defender, maps the file for ~4 s right after the sibling derived files are written). Finished the build by running graph_build.py unchanged through a retry-on-errno-22 wrapper (job tmp). Durable fix needs a retry in derive.py's exposure write (user decision; not changed unattended). Full build OK: evidence.json, board, npm sync and i18n build ran - this also completes the two interrupted 10-07/10-08 builds."
+   },
    {
     "at": "2026-10-08 23:35",
     "market": "US",

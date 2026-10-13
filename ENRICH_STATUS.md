@@ -1,19 +1,20 @@
 # Enrichment status board
 
-Generated 2026-10-10 23:26 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-12 20:54 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
 ## Run next
 
-1. **`enrich korea`** — 12 fetched file(s) waiting to be enriched (1 call, 11 IR release); DART sync (dart.py) last ran 6 days ago (2026-10-04); KIND IR deck sync (kind.py) last ran 6 days ago (2026-10-04); 1 have no DART filing enriched (backfill with `dart.py fetch`): Kostek Systems
-2. **`enrich taiwan`** — 23 fetched file(s) waiting to be enriched (22 IR release, 1 call); MOPS sync (mops.py) last ran 4 days ago (2026-10-06)
-3. **`enrich japan`** — 26 fetched file(s) waiting to be enriched (26 IR release); TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 6 days ago (2026-10-04)
-4. **`enrich europe`** — 10 fetched file(s) waiting to be enriched (1 conference, 1 call, 8 IR release)
-5. **`enrich china`** — 4 fetched file(s) waiting to be enriched (1 conference, 3 IR release)
-6. **`enrich intl`** — 1 fetched file(s) waiting to be enriched (1 IR release)
+1. **`enrich us`** — US call sync (av.py) last ran 2 days ago (2026-10-10)
+2. **`enrich korea`** — 12 fetched file(s) waiting to be enriched (1 call, 11 IR release); DART sync (dart.py) last ran 8 days ago (2026-10-04); KIND IR deck sync (kind.py) last ran 8 days ago (2026-10-04); 1 have no DART filing enriched (backfill with `dart.py fetch`): Kostek Systems
+3. **`enrich taiwan`** — 23 fetched file(s) waiting to be enriched (22 IR release, 1 call); MOPS sync (mops.py) last ran 6 days ago (2026-10-06)
+4. **`enrich japan`** — 26 fetched file(s) waiting to be enriched (26 IR release); TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 8 days ago (2026-10-04)
+5. **`enrich europe`** — 10 fetched file(s) waiting to be enriched (1 conference, 1 call, 8 IR release)
+6. **`enrich china`** — 4 fetched file(s) waiting to be enriched (1 conference, 3 IR release)
+7. **`enrich intl`** — 1 fetched file(s) waiting to be enriched (1 IR release)
 
-Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-07 (387 feeds); conference listing walked 2026-10-07.
+Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-07 (387 feeds) — due; conference listing walked 2026-10-07.
 Opus verification queue: 1 label(s) waiting (runs at 5+).
 
 ## Needs a decision or setup
@@ -143,7 +144,7 @@ Opus verification queue: 1 label(s) waiting (runs at 5+).
 |---|---|---|---|---|---|---|
 | US earnings calls | `enrich us calls` | 2026-10-10 | 2026-10-08 | 0 | 372 | 371 |
 | US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-06 | 0 | 2002 | 743 |
-| Korea DART filings | `enrich dart` | 2026-10-04 | 2026-10-06 | 0 | 154 | 162 |
+| Korea DART filings | `enrich dart` | 2026-10-04 | 2026-10-12 | 0 | 154 | 162 |
 | Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-06 | 2026-10-06 | 2 | 63 | 63 |
 | Taiwan Chinese 法說會 | `enrich tw` | 2026-10-06 | 2026-10-06 | 1 | 18 | 18 |
 | Investor conferences | `enrich conference` | 2026-10-07 | 2026-10-07 | 2 | 149 | 146 |

@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10 23:26",
+ "generated": "2026-10-12 20:54",
  "labels_total": 3425,
  "pipelines": [
   {
@@ -2083,7 +2083,7 @@
    "files": 154,
    "labels_on_disk": 164,
    "in_graph": 162,
-   "entries": 1157,
+   "entries": 1159,
    "pending": [],
    "no_data": [
     {
@@ -2103,7 +2103,7 @@
     "2026-10-02"
    ],
    "last_fetch": "2026-10-06",
-   "last_enriched": "2026-10-06",
+   "last_enriched": "2026-10-12",
    "enriched_days": [
     {
      "day": "2026-09-07",
@@ -2124,6 +2124,10 @@
     {
      "day": "2026-10-06",
      "labels": 9
+    },
+    {
+     "day": "2026-10-12",
+     "labels": 1
     }
    ],
    "last_sync": "2026-10-04",
@@ -10164,7 +10168,7 @@
   }
  ],
  "board": {
-  "today": "2026-10-10",
+  "today": "2026-10-12",
   "markets": [
    {
     "id": "US",
@@ -10912,11 +10916,17 @@
   ],
   "next_actions": [
    {
+    "command": "enrich us",
+    "reasons": [
+     "US call sync (av.py) last ran 2 days ago (2026-10-10)"
+    ]
+   },
+   {
     "command": "enrich korea",
     "reasons": [
      "12 fetched file(s) waiting to be enriched (1 call, 11 IR release)",
-     "DART sync (dart.py) last ran 6 days ago (2026-10-04)",
-     "KIND IR deck sync (kind.py) last ran 6 days ago (2026-10-04)",
+     "DART sync (dart.py) last ran 8 days ago (2026-10-04)",
+     "KIND IR deck sync (kind.py) last ran 8 days ago (2026-10-04)",
      "1 have no DART filing enriched (backfill with `dart.py fetch`): Kostek Systems"
     ]
    },
@@ -10924,14 +10934,14 @@
     "command": "enrich taiwan",
     "reasons": [
      "23 fetched file(s) waiting to be enriched (22 IR release, 1 call)",
-     "MOPS sync (mops.py) last ran 4 days ago (2026-10-06)"
+     "MOPS sync (mops.py) last ran 6 days ago (2026-10-06)"
     ]
    },
    {
     "command": "enrich japan",
     "reasons": [
      "26 fetched file(s) waiting to be enriched (26 IR release)",
-     "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 6 days ago (2026-10-04)"
+     "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 8 days ago (2026-10-04)"
     ]
    },
    {
@@ -11387,13 +11397,13 @@
   "shared": {
    "ir": {
     "last_sync": "2026-10-07",
-    "days": 3,
-    "due": false,
+    "days": 5,
+    "due": true,
     "feeds": 387
    },
    "conference": {
     "last_sync": "2026-10-07",
-    "days": 3,
+    "days": 5,
     "due": false
    }
   },

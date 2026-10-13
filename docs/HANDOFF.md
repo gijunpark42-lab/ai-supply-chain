@@ -1095,3 +1095,12 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
 - **2026-10-12 (Claude, user request) — commit** — committed the 10-07..10-10 nightly runs' work on
   `enrich-2026-10-06-aibio-backfill` (chains, graph/, web/public/data, patches/applied, transcripts, queues, i18n, board).
   Left untracked: `kardashev-scroll/` (its own git repo), `docs/research/`, `docs/memory/power_seed_game.md` (not enrich work).
+- **2026-10-12 (Claude, user request) — held patches merged + new goal** — user: "나머지 다 머지 시키자 … 관련있으면
+  추가시켜 ai뿐만아니라 … 목표가 공급망기반 블룸버그같은거임". New rule in SKILL.md §2 / JOB 3 and CLAUDE.md: the goal is a
+  supply-chain-based Bloomberg-style terminal — non-AI / out-of-chain is never a reason to hold, reject or delete a real
+  relationship, material fact or new company (source rules, analyst / financing exclusions, JOB 3 reject list unchanged).
+  Applied the held LS Electric patch (DART H1 2026 major-customer table: new edges LS Electric -> LG Energy Solution 8.5% and
+  -> Samsung SDI 7.6% of the power-infrastructure segment, type `customer share`; "parent" wording dropped). Removed
+  patches/held_1005: Yuanjie Customer A contracts = already on the node (duplicate); grace-h1 correction = obsolete (10-05
+  customer-list ruling). graph_build OK (retry wrapper); verify fail = the pre-existing LS Electric H1 entry's computed
+  growth % (32.7 / 55.7 / 64.4), one of the known pre-existing fails. i18n 7 strings, 0 untranslated. Verify queue 2.
