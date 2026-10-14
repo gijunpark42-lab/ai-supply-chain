@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-13 07:45",
+ "generated": "2026-10-13 23:23",
  "labels_total": 3727,
  "pipelines": [
   {
@@ -88,7 +88,7 @@
      "labels": 2
     }
    ],
-   "last_sync": "2026-10-12",
+   "last_sync": "2026-10-13",
    "extra": {
     "waiting": [],
     "saved_pairs": 234
@@ -10321,18 +10321,6 @@
   },
   {
    "day": "2026-10-13",
-   "pipeline": "us",
-   "files": 375,
-   "in_graph": 374,
-   "pending": 0,
-   "last_sync": "2026-10-12",
-   "source_range": [
-    "2025-11-05",
-    "2026-10-07"
-   ]
-  },
-  {
-   "day": "2026-10-13",
    "pipeline": "dart",
    "files": 162,
    "in_graph": 178,
@@ -10450,6 +10438,18 @@
     "2026-04-16",
     "2026-10-12"
    ]
+  },
+  {
+   "day": "2026-10-13",
+   "pipeline": "us",
+   "files": 375,
+   "in_graph": 374,
+   "pending": 0,
+   "last_sync": "2026-10-13",
+   "source_range": [
+    "2025-11-05",
+    "2026-10-07"
+   ]
   }
  ],
  "board": {
@@ -10518,7 +10518,7 @@
     "feeds": 218,
     "waiting": {},
     "collectors": {
-     "us": "2026-10-12",
+     "us": "2026-10-13",
      "utility": "2026-10-01"
     }
    },
@@ -12096,6 +12096,11 @@
   "verify_pending": 0,
   "notes": [
    {
+    "at": "2026-10-13 23:12",
+    "market": "US",
+    "text": "10-13/14 nightly enrich us: AV sync 0 saved (only the 5 marked known gaps waiting: Simulations Plus, Eikon, Generate Biomedicines, POET, Relay); US call / conference / IR queues empty, 0 overdue, 0 never; IR (synced 10-12, 3-day rule) and conference (walked 10-07, 7-day rule) collectors not due; utility filings not due (10-01). No patches, nothing applied, no graph_build. i18n 0 missing; verify queue 0. Board refresh took ~10 min of CPU (enrich_status.py, 1.5 GB) - slower than the usual seconds."
+   },
+   {
     "at": "2026-10-13 07:37",
     "market": "JP",
     "text": "10-13 enrich everything: company-published Q&A summaries / full transcripts applied for 52 JP companies (55 docs; 9 full company transcripts labelled as calls: Daikin, Fujifilm, HOYA, Lasertec, Nippon Sanso, Rigaku, Sakai Chemical, Taiyo Holdings, Tocalo). 54 companies publish none (marked, recheck 2027-01-20). Retry Ebara (site 403) and Osaka Organic Chemical (Q&A page unreachable)."
@@ -12139,11 +12144,6 @@
     "at": "2026-10-08 00:32",
     "market": "US",
     "text": "10-07/08 nightly enrich us: 12 labels applied to chains/ (APLD Q1 FY2027 call via defeatbeta + 11 IR releases) and Opus-verified (1 correction applied). graph_build.py --sync was STOPPED for low memory after apply + merged graph + derive: evidence.json, verify_labels, npm sync (web/public/data) and i18n build did NOT run -> run graph_build.py --sync, then the i18n step (skill 9). Skyworks 10-07 Si829x release saved nav-only (direct fetch 403) - row left pending: paste the release text by hand or close it."
-   },
-   {
-    "at": "2026-10-01 00:10",
-    "market": "US",
-    "text": "09-30 nightly enrich us: 33 labels applied (AOS Q4 call, 7 conferences, 25 IR releases; 40 IR rows no material facts). Opus verifiers DONE over all 33 - 16 corrections in patches/corrections/verify-us-0930-a..f.json NOT APPLIED (permission classifier blocked apply_corrections.py in the unattended session). Next: apply_corrections.py --check -> apply_corrections.py -> graph_build.py --sync -> move the 33 verify_queue labels to verified -> i18n step. defeatbeta still 404; AV waiting Dell/SLP/IMOS/PDFS/POET/RLAY. IR sync: 119 feed failures (all markets)."
    }
   ]
  }

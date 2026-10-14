@@ -1,6 +1,6 @@
 # Enrichment status board
 
-Generated 2026-10-13 07:45 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-13 23:23 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
@@ -77,7 +77,7 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 | Market | Companies | Call current | Overdue | Never had a call | No own data | Waiting | IR feeds | Collector last ran |
 |---|---|---|---|---|---|---|---|---|
-| US — United States | 249 | 241 | 0 | 0 | 0 | 0 | 218 | us 2026-10-12, utility 2026-10-01 |
+| US — United States | 249 | 241 | 0 | 0 | 0 | 0 | 218 | us 2026-10-13, utility 2026-10-01 |
 | KR — Korea | 127 | 2 | 0 | 124 | 0 | 0 | 25 | dart 2026-10-12, kind 2026-10-12 |
 | TW — Taiwan | 135 | 24 | 0 | 106 | 3 | 0 | 49 | intl 2026-10-06, tw 2026-10-06, mops 2026-10-13 |
 | JP — Japan | 127 | 14 | 0 | 7 | 1 | 0 | 60 | intl 2026-10-06, tdnet 2026-10-13, edinet 2026-10-06 |
@@ -117,7 +117,7 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
-| US earnings calls | `enrich us calls` | 2026-10-12 | 2026-10-13 | 0 | 375 | 374 |
+| US earnings calls | `enrich us calls` | 2026-10-13 | 2026-10-13 | 0 | 375 | 374 |
 | US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-13 | 0 | 2002 | 743 |
 | Korea DART filings | `enrich dart` | 2026-10-12 | 2026-10-13 | 0 | 162 | 178 |
 | Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-06 | 2026-10-12 | 0 | 63 | 63 |
@@ -136,6 +136,7 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 ## Coordinator notes (newest first)
 
+- 2026-10-13 23:12 US: 10-13/14 nightly enrich us: AV sync 0 saved (only the 5 marked known gaps waiting: Simulations Plus, Eikon, Generate Biomedicines, POET, Relay); US call / conference / IR queues empty, 0 overdue, 0 never; IR (synced 10-12, 3-day rule) and conference (walked 10-07, 7-day rule) collectors not due; utility filings not due (10-01). No patches, nothing applied, no graph_build. i18n 0 missing; verify queue 0. Board refresh took ~10 min of CPU (enrich_status.py, 1.5 GB) - slower than the usual seconds.
 - 2026-10-13 07:37 JP: 10-13 enrich everything: company-published Q&A summaries / full transcripts applied for 52 JP companies (55 docs; 9 full company transcripts labelled as calls: Daikin, Fujifilm, HOYA, Lasertec, Nippon Sanso, Rigaku, Sakai Chemical, Taiyo Holdings, Tocalo). 54 companies publish none (marked, recheck 2027-01-20). Retry Ebara (site 403) and Osaka Organic Chemical (Q&A page unreachable).
 - 2026-10-13 07:00 JP: 2026-10-13 Japan Q&A hunt (14 agents over the 112 no-call companies): 52 have the company's own Q&A summary or full transcript staged / saved (transcripts/non_transcript_sources/*_qa_*), 54 publish none for the latest briefing - both groups marked call until 2027-01-20. Retry by hand: Ebara (ebara.com answers 403 to every fetcher; Q&A at .../162_q2_QA_en.pdf) and Osaka Organic Chemical (www.ooc.co.jp unreachable). logmi-linked transcripts (Micronics Japan, Ferrotec, Sakura Internet, Sumitomo Osaka Cement) wait for the user's answer.
 - 2026-10-13 01:04 JP: 2026-10-13 user rule: a Japanese company with no full call transcript is enriched from the results-briefing Q&A summary the company itself publishes (own IR site / TDnet) - next `enrich japan` should look for these for the companies with no call.
@@ -145,7 +146,6 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 - 2026-10-09 23:38 US: 10-09/10 nightly enrich us: AV sync 0 saved (5 known-gap waiting); IR / conference collectors not due. Skyworks 10-07 Si829x release: IR site still 403, body restored from the company's own GlobeNewswire distribution (curl_cffi chrome) -> 2 entries, row closed. graph_build.py --sync failed 3x at derive_exposure: open('graph/exposure.json','w') -> errno 22 / GetLastError 1224 (ERROR_USER_MAPPED_FILE: another process, likely OneDrive/Defender, maps the file for ~4 s right after the sibling derived files are written). Finished the build by running graph_build.py unchanged through a retry-on-errno-22 wrapper (job tmp). Durable fix needs a retry in derive.py's exposure write (user decision; not changed unattended). Full build OK: evidence.json, board, npm sync and i18n build ran - this also completes the two interrupted 10-07/10-08 builds.
 - 2026-10-08 23:35 US: 10-08/09 nightly enrich us: AV quota spent on known-gap lookups (Simulations Plus / Eikon / Generate), 0 saved; Penguin Solutions Q4 FY2026 (10-06-2026) fetched via defeatbeta and enriched (16 entries + 1 contract on Penguin -> NVIDIA), Opus-verified, 7 corrections applied + penguinsolutions_q4_2026_b.json (CXL entry re-added with topics [], Q4 gross sales). The 2nd graph_build.py --sync was STOPPED by the system for low memory after apply + merged graph + derive (timelines/screener/capex/exposure): evidence.json, verify_labels, board rebuild, npm sync (web/public/data still shows the pre-correction Penguin text) and the i18n step did NOT run -> run graph_build.py --sync, then the i18n step (skill 9; ~117 strings/lang untranslated incl. 10-07/08 leftovers). Skyworks 10-07 Si829x release still nav-only (IR site 403 / timeout, PDF route 403) - row left pending: paste the release text or close it.
 - 2026-10-08 00:32 US: 10-07/08 nightly enrich us: 12 labels applied to chains/ (APLD Q1 FY2027 call via defeatbeta + 11 IR releases) and Opus-verified (1 correction applied). graph_build.py --sync was STOPPED for low memory after apply + merged graph + derive: evidence.json, verify_labels, npm sync (web/public/data) and i18n build did NOT run -> run graph_build.py --sync, then the i18n step (skill 9). Skyworks 10-07 Si829x release saved nav-only (direct fetch 403) - row left pending: paste the release text by hand or close it.
-- 2026-10-01 00:10 US: 09-30 nightly enrich us: 33 labels applied (AOS Q4 call, 7 conferences, 25 IR releases; 40 IR rows no material facts). Opus verifiers DONE over all 33 - 16 corrections in patches/corrections/verify-us-0930-a..f.json NOT APPLIED (permission classifier blocked apply_corrections.py in the unattended session). Next: apply_corrections.py --check -> apply_corrections.py -> graph_build.py --sync -> move the 33 verify_queue labels to verified -> i18n step. defeatbeta still 404; AV waiting Dell/SLP/IMOS/PDFS/POET/RLAY. IR sync: 119 feed failures (all markets).
 
 ## Recording what no script can know (coordinator only)
 
