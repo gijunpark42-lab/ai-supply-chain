@@ -78,6 +78,13 @@ The map records **facts** and **what the company itself says**.
 2. No transcript: company-issued documents only — SEC / DART filings, IR press releases, company decks,
    fetched from the official source and saved verbatim (`transcripts/ir/` via `ir_pull.py`, or
    `transcripts/non_transcript_sources/` with a NOT-a-transcript NOTE and a `# source label:` header).
+   **Blocked fetch (user, 2026-10-14):** when a company's own page or PDF answers 403 / a bot page (e.g. investor.asml.com),
+   read the same URL through Jina Reader, `curl -s -m 60 "https://r.jina.ai/<full URL>"`. It is still the company document:
+   save it verbatim with the original URL plus "via r.jina.ai" in the header. **Company video with no published transcript**
+   (the company's own channel or IR site: results interview, investor day, webcast): `yt-dlp --js-runtimes node "<URL>"
+   --skip-download --write-auto-subs --sub-langs "en.*" --sub-format vtt`, saved in `transcripts/non_transcript_sources/` with a
+   NOT-a-transcript NOTE "(YouTube auto-captions, may mishear)"; a number enters only if the company's release or filing
+   states it too. Never third-party channels' videos. **Exa search is fintweet-only and never used here** (user, 2026-10-14).
 3. **IR press releases: only the important ones** — a named supply / customer agreement or design win, capacity /
    capex / production facts, company guidance or targets, a product launch or availability with specs and dates,
    the operating facts of an acquisition (never its price), a fab / facility start; for pharma / biotech / diagnostics nodes every clinical or regulatory fact that matters to the stock — trial authorisations, first patient dosed, interim / topline results and their numbers, designations (Fast Track, Breakthrough, priority review), filings and decision dates, approvals, the company's own validation-study results (user, 2026-10-06: "임상승인처럼 그 주식에 중요한것들은 당연히 넣어야함"; replaces the 2026-09-27 approvals-only rule). Facts from segments outside the node's chain ARE captured when material to the company (user, 2026-10-06: enrich covers the WHOLE company; replaces the 2026-09-27 out-of-chain-segment rule). **No AI-relevance check at all since 2026-10-12** (user: "관련있으면 추가시켜 ai뿐만아니라 … 목표가 공급망기반 블룸버그같은거임" — the goal is a supply-chain-based Bloomberg-style terminal): a real supply / customer relationship or material company fact is never held, rejected or deleted for being non-AI or outside the node's chain; the source rules, the analyst / financing exclusions and the JOB 3 rejection list still apply. Anything else yields no entry:
