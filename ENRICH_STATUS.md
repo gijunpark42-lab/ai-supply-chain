@@ -1,14 +1,16 @@
 # Enrichment status board
 
-Generated 2026-10-13 23:23 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-14 02:45 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
 ## Run next
 
-Nothing is due. Every market is current and no queue holds work.
+1. **`enrich us`** — 5 fetched file(s) waiting to be enriched (5 IR release)
+2. **`enrich edgar`** — last pulled 8 days ago, 2026-10-06 (weekly)
+3. **`enrich japan`** — EDINET annual / semi-annual report sync (edinet.py) last ran 8 days ago (2026-10-06)
 
-Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-12 (387 feeds); conference listing walked 2026-10-07.
+Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-14 (388 feeds); conference listing walked 2026-10-14.
 Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 ## Needs a decision or setup
@@ -77,19 +79,20 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 | Market | Companies | Call current | Overdue | Never had a call | No own data | Waiting | IR feeds | Collector last ran |
 |---|---|---|---|---|---|---|---|---|
-| US — United States | 249 | 241 | 0 | 0 | 0 | 0 | 218 | us 2026-10-13, utility 2026-10-01 |
+| US — United States | 250 | 242 | 0 | 0 | 0 | 5 | 219 | us 2026-10-14, utility 2026-10-01 |
 | KR — Korea | 127 | 2 | 0 | 124 | 0 | 0 | 25 | dart 2026-10-12, kind 2026-10-12 |
-| TW — Taiwan | 135 | 24 | 0 | 106 | 3 | 0 | 49 | intl 2026-10-06, tw 2026-10-06, mops 2026-10-13 |
-| JP — Japan | 127 | 14 | 0 | 7 | 1 | 0 | 60 | intl 2026-10-06, tdnet 2026-10-13, edinet 2026-10-06 |
-| EU — Europe | 40 | 28 | 0 | 11 | 5 | 0 | 21 | intl 2026-10-06 |
-| CN — China / Hong Kong | 118 | 3 | 0 | 115 | 2 | 0 | 12 | intl 2026-10-06, cninfo 2026-10-13, cnreports 2026-10-13 |
-| other — Other listed | 15 | 4 | 0 | 11 | 4 | 0 | 2 | intl 2026-10-06 |
+| TW — Taiwan | 135 | 24 | 0 | 106 | 3 | 0 | 49 | intl 2026-10-14, tw 2026-10-14, mops 2026-10-13 |
+| JP — Japan | 127 | 14 | 0 | 7 | 1 | 0 | 60 | intl 2026-10-14, tdnet 2026-10-13, edinet 2026-10-06 |
+| EU — Europe | 40 | 28 | 0 | 11 | 5 | 0 | 21 | intl 2026-10-14 |
+| CN — China / Hong Kong | 118 | 3 | 0 | 115 | 2 | 0 | 12 | intl 2026-10-14, cninfo 2026-10-13, cnreports 2026-10-13 |
+| other — Other listed | 15 | 4 | 0 | 11 | 4 | 0 | 2 | intl 2026-10-14 |
 
 `Call current` = the latest own earnings call is within the company's usual gap + 3 weeks. `No own data` = not one entry from the company's own documents yet (new nodes land here). Marked companies (no source exists) are left out of Overdue / Never.
 
 ## Details by market
 
 ### US — United States (`enrich us`)
+- Waiting to enrich: 5 IR release
 - Known gaps, do not re-search: Bayer (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Eikon Therapeutics (call: no earnings calls held since their Feb 2026 IPOs (checked 2026-10-06: events pages list only investor conferences); quarterly results come as 8-K releases, enriched via edgar; recheck 2027-01-04), Generate Biomedicines (call: no earnings calls held since their Feb 2026 IPOs (checked 2026-10-06: events pages list only investor conferences); quarterly results come as 8-K releases, enriched via edgar; recheck 2027-01-04), Micron (call: Q4 FY2026 MAIN earnings call (09-30-2026, Sanjay Mehrotra; prepared remarks end 'We will now open for questions'): no full transcript anywhere - Alpha Vantage MU 2026Q4, defeatbeta MU 2026Q4 and Motley Fool (10-01 'q4-2026-earnings-call-transcript') all carry only the separate POST-EARNINGS ANALYST CALL (already enriched as 'Micron post-earnings analyst call 2026 (09-30-2026)'); Micron IR posts only the prepared-remarks PDF (a script, not used), deck and release; no official YouTube upload. Checked 2026-10-05; recheck 2026-10-20), POET Technologies (call: Q2 2026 (08-13-2026): POET did not host an earnings call - the Q2 results release and both 08-13 6-Ks announce no call/webcast; IR page lists no call since a 2022 business-update call; not on Alpha Vantage (2025Q4-2026Q3 empty), defeatbeta (no POET transcripts), Motley Fool (sitemaps Aug-Sep 2026); official YouTube has only a 09-30-2026 CEO 'Business Update' video (15 min, auto captions), not a call. Checked 2026-10-05; recheck 2026-11-20), Relay Therapeutics (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Roche-Genentech (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Simulations Plus (call: Q3 FY2026: no earnings call appears to have been held (pending acquisition by Altaris, signed 06-15-2026). Company conference-calls page lists the 07-09-2026 Q3 release + deck but NO webcast link (every earlier quarter has a viavid webcast); the 07-09 release (8-K) announces no call; not on Alpha Vantage (SLP 2026Q3 empty), defeatbeta (latest 04-09-2026) or Motley Fool (sitemaps Jul-Sep 2026). Checked 2026-10-05; recheck 2026-12-15)
 
 ### KR — Korea (`enrich korea`)
@@ -117,22 +120,22 @@ Opus verification queue: 0 label(s) waiting (runs at 5+).
 
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
-| US earnings calls | `enrich us calls` | 2026-10-13 | 2026-10-13 | 0 | 375 | 374 |
-| US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-13 | 0 | 2002 | 743 |
-| Korea DART filings | `enrich dart` | 2026-10-12 | 2026-10-13 | 0 | 162 | 178 |
-| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-06 | 2026-10-12 | 0 | 63 | 63 |
-| Taiwan Chinese 法說會 | `enrich tw` | 2026-10-06 | 2026-10-06 | 0 | 18 | 18 |
-| Investor conferences | `enrich conference` | 2026-10-07 | 2026-10-13 | 0 | 149 | 147 |
-| Company IR press releases | `enrich ir` | 2026-10-12 | 2026-10-13 | 0 | 1589 | 617 |
-| Korea IR decks (KIND) | `enrich korea` | 2026-10-12 | 2026-10-12 | 0 | 49 | 39 |
-| US utility regulatory filings | `enrich us` | 2026-10-01 | 2026-10-01 | 0 | 6 | 3 |
-| Korea earnings-call scripts | `enrich korea` | 2026-10-12 | 2026-09-27 | 0 | 1 | 1 |
-| China IR records + investor Q&A | `enrich china` | 2026-10-13 | 2026-10-13 | 0 | 227 | 149 |
-| China periodic reports | `enrich china` | 2026-10-13 | 2026-10-12 | 0 | 314 | 159 |
-| Japan TDnet disclosures | `enrich japan` | 2026-10-13 | 2026-10-13 | 0 | 40 | 19 |
-| Japan EDINET statutory reports | `enrich japan` | 2026-10-06 | 2026-10-06 | 0 | 516 | 248 |
-| Taiwan MOPS filings | `enrich taiwan` | 2026-10-13 | 2026-10-13 | 0 | 495 | 429 |
-| Pasted transcripts | `Transcript:<company>` | 2026-10-13 | 2026-10-13 | 0 | 550 | 540 |
+| US earnings calls | `enrich us calls` | 2026-10-14 | 2026-10-14 | 0 | 376 | 375 |
+| US SEC filings | `enrich edgar` | 2026-10-06 | 2026-10-14 | 0 | 2005 | 743 |
+| Korea DART filings | `enrich dart` | 2026-10-12 | 2026-10-14 | 0 | 162 | 178 |
+| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-14 | 2026-10-14 | 0 | 63 | 63 |
+| Taiwan Chinese 法說會 | `enrich tw` | 2026-10-14 | 2026-10-14 | 0 | 18 | 18 |
+| Investor conferences | `enrich conference` | 2026-10-14 | 2026-10-14 | 0 | 149 | 147 |
+| Company IR press releases | `enrich ir` | 2026-10-14 | 2026-10-14 | 5 | 1595 | 617 |
+| Korea IR decks (KIND) | `enrich korea` | 2026-10-12 | 2026-10-14 | 0 | 49 | 39 |
+| US utility regulatory filings | `enrich us` | 2026-10-01 | 2026-10-14 | 0 | 6 | 3 |
+| Korea earnings-call scripts | `enrich korea` | 2026-10-12 | 2026-10-14 | 0 | 1 | 1 |
+| China IR records + investor Q&A | `enrich china` | 2026-10-13 | 2026-10-14 | 0 | 227 | 149 |
+| China periodic reports | `enrich china` | 2026-10-13 | 2026-10-14 | 0 | 314 | 159 |
+| Japan TDnet disclosures | `enrich japan` | 2026-10-13 | 2026-10-14 | 0 | 40 | 19 |
+| Japan EDINET statutory reports | `enrich japan` | 2026-10-06 | 2026-10-14 | 0 | 516 | 248 |
+| Taiwan MOPS filings | `enrich taiwan` | 2026-10-13 | 2026-10-14 | 0 | 495 | 429 |
+| Pasted transcripts | `Transcript:<company>` | 2026-10-14 | 2026-10-14 | 0 | 550 | 540 |
 
 ## Coordinator notes (newest first)
 

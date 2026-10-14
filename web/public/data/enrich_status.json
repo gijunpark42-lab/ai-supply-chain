@@ -1,16 +1,16 @@
 {
- "generated": "2026-10-13 07:34",
- "labels_total": 3727,
+ "generated": "2026-10-14 02:45",
+ "labels_total": 3728,
  "pipelines": [
   {
    "id": "us",
    "name": "US earnings calls",
    "command": "enrich us calls",
    "source": "Alpha Vantage / defeatbeta (av.py)",
-   "files": 375,
-   "labels_on_disk": 375,
-   "in_graph": 374,
-   "entries": 3697,
+   "files": 376,
+   "labels_on_disk": 376,
+   "in_graph": 375,
+   "entries": 3710,
    "pending": [],
    "no_data": [
     {
@@ -24,74 +24,18 @@
     "2025-11-05",
     "2026-10-07"
    ],
-   "last_fetch": "2026-10-13",
-   "last_enriched": "2026-10-13",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-08-31",
-     "labels": 13
-    },
-    {
-     "day": "2026-09-07",
-     "labels": 16
-    },
-    {
-     "day": "2026-09-09",
-     "labels": 1
-    },
-    {
-     "day": "2026-09-10",
-     "labels": 35
-    },
-    {
-     "day": "2026-09-11",
-     "labels": 2
-    },
-    {
-     "day": "2026-09-16",
-     "labels": 198
-    },
-    {
-     "day": "2026-09-17",
-     "labels": 3
-    },
-    {
-     "day": "2026-09-18",
-     "labels": 4
-    },
-    {
-     "day": "2026-09-27",
-     "labels": 9
-    },
-    {
-     "day": "2026-10-01",
-     "labels": 30
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 53
-    },
-    {
-     "day": "2026-10-07",
-     "labels": 1
-    },
-    {
-     "day": "2026-10-08",
-     "labels": 1
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 3
-    },
-    {
-     "day": "2026-10-13",
-     "labels": 2
+     "day": "2026-10-14",
+     "labels": 372
     }
    ],
-   "last_sync": "2026-10-12",
+   "last_sync": "2026-10-14",
    "extra": {
     "waiting": [],
-    "saved_pairs": 234
+    "saved_pairs": 0
    }
   },
   {
@@ -99,8 +43,8 @@
    "name": "US SEC filings",
    "command": "enrich edgar",
    "source": "SEC EDGAR 8-K / 10-K / 10-Q + foreign issuers' 6-K / 20-F / 40-F + recent IPO prospectus (edgar_pull.py)",
-   "files": 2002,
-   "labels_on_disk": 1542,
+   "files": 2005,
+   "labels_on_disk": 1544,
    "in_graph": 743,
    "entries": 2204,
    "pending": [],
@@ -1008,6 +952,16 @@
     {
      "label": "HIVE Digital Technologies 8-K (08-17-2026)",
      "file": "transcripts/edgar/HIVE_8-K_2026-08-17.txt",
+     "why": null
+    },
+    {
+     "label": "INNIO 10-Q (07-28-2026)",
+     "file": "transcripts/edgar/INIO_10-Q_2026-07-28_segments.txt",
+     "why": null
+    },
+    {
+     "label": "INNIO prospectus (06-04-2026)",
+     "file": "transcripts/edgar/INIO_424B4_2026-06-04_customers.txt",
      "why": null
     },
     {
@@ -2031,32 +1985,12 @@
     "2025-05-30",
     "2026-10-02"
    ],
-   "last_fetch": "2026-10-06",
-   "last_enriched": "2026-10-13",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-09-10",
-     "labels": 427
-    },
-    {
-     "day": "2026-09-16",
-     "labels": 1
-    },
-    {
-     "day": "2026-10-01",
-     "labels": 1
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 298
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 7
-    },
-    {
-     "day": "2026-10-13",
-     "labels": 6
+     "day": "2026-10-14",
+     "labels": 740
     }
    ],
    "last_sync": "2026-10-06",
@@ -2123,36 +2057,12 @@
     "2026-08-04",
     "2026-10-12"
    ],
-   "last_fetch": "2026-10-13",
-   "last_enriched": "2026-10-13",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-09-07",
-     "labels": 9
-    },
-    {
-     "day": "2026-09-09",
-     "labels": 1
-    },
-    {
-     "day": "2026-09-27",
-     "labels": 53
-    },
-    {
-     "day": "2026-10-01",
-     "labels": 49
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 9
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 19
-    },
-    {
-     "day": "2026-10-13",
-     "labels": 2
+     "day": "2026-10-14",
+     "labels": 142
     }
    ],
    "last_sync": "2026-10-12",
@@ -2176,37 +2086,17 @@
     "2026-05-12",
     "2026-09-07"
    ],
-   "last_fetch": "2026-10-06",
-   "last_enriched": "2026-10-12",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-09-01",
-     "labels": 28
-    },
-    {
-     "day": "2026-09-09",
-     "labels": 1
-    },
-    {
-     "day": "2026-09-18",
-     "labels": 1
-    },
-    {
-     "day": "2026-10-01",
-     "labels": 24
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 8
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 1
+     "day": "2026-10-14",
+     "labels": 63
     }
    ],
-   "last_sync": "2026-10-06",
+   "last_sync": "2026-10-14",
    "extra": {
-    "articles_seen": 182
+    "articles_seen": 0
    }
   },
   {
@@ -2225,32 +2115,18 @@
     "2026-02-26",
     "2026-08-28"
    ],
-   "last_fetch": "2026-10-06",
-   "last_enriched": "2026-10-06",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-09-07",
-     "labels": 17
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 1
+     "day": "2026-10-14",
+     "labels": 18
     }
    ],
-   "last_sync": "2026-10-06",
+   "last_sync": "2026-10-14",
    "extra": {
-    "no_media": [
-     "2308|2026-07-08",
-     "2308|2026-07-30",
-     "2308|2026-09-22",
-     "2327|2026-07-29",
-     "2382|2026-08-13",
-     "3035|2026-07-28",
-     "3443|2026-07-31",
-     "6239|2026-07-28",
-     "8210|2026-08-07"
-    ],
-    "conferences_seen": 10
+    "no_media": [],
+    "conferences_seen": 0
    }
   },
   {
@@ -2280,86 +2156,17 @@
     "2026-07-20",
     "2026-10-06"
    ],
-   "last_fetch": "2026-10-07",
-   "last_enriched": "2026-10-13",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-09-16",
-     "labels": 87
-    },
-    {
-     "day": "2026-09-18",
-     "labels": 4
-    },
-    {
-     "day": "2026-09-25",
-     "labels": 1
-    },
-    {
-     "day": "2026-09-27",
-     "labels": 7
-    },
-    {
-     "day": "2026-10-01",
-     "labels": 8
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 31
-    },
-    {
-     "day": "2026-10-07",
-     "labels": 8
-    },
-    {
-     "day": "2026-10-13",
-     "labels": 1
+     "day": "2026-10-14",
+     "labels": 147
     }
    ],
-   "last_sync": "2026-10-07",
+   "last_sync": "2026-10-14",
    "extra": {
-    "runs": [
-     {
-      "at": "2026-10-01 23:07",
-      "since": "2026-04-04",
-      "pages": 19,
-      "oldest_seen": "2026-09-16",
-      "candidates": 3,
-      "saved": 2
-     },
-     {
-      "at": "2026-10-04 17:48",
-      "since": "2026-04-07",
-      "pages": 0,
-      "oldest_seen": null,
-      "candidates": 0,
-      "saved": 0
-     },
-     {
-      "at": "2026-10-05 23:52",
-      "since": "2026-04-08",
-      "pages": 400,
-      "oldest_seen": "2026-05-27",
-      "candidates": 28,
-      "saved": 25
-     },
-     {
-      "at": "2026-10-06 23:03",
-      "since": "2026-04-09",
-      "pages": 400,
-      "oldest_seen": "2026-05-27",
-      "candidates": 8,
-      "saved": 8
-     },
-     {
-      "at": "2026-10-07 23:11",
-      "since": "2026-04-10",
-      "pages": 400,
-      "oldest_seen": "2026-05-28",
-      "candidates": 0,
-      "saved": 0
-     }
-    ]
+    "runs": []
    }
   },
   {
@@ -2367,11 +2174,37 @@
    "name": "Company IR press releases",
    "command": "enrich ir",
    "source": "Company IR RSS feeds (ir_pull.py) — company-issued, not transcripts",
-   "files": 1589,
-   "labels_on_disk": 1588,
+   "files": 1595,
+   "labels_on_disk": 1594,
    "in_graph": 617,
    "entries": 853,
-   "pending": [],
+   "pending": [
+    {
+     "company": "INNIO",
+     "label": "INNIO press release: INNIO and Aggreko Extend Strategic Partnership Through (10-08-2026)",
+     "file": "transcripts/ir/innio_2026-10-08_innio-and-aggreko-extend-strategic-partnership-thr.txt"
+    },
+    {
+     "company": "INNIO",
+     "label": "INNIO press release: INNIO Completes Acquisition of Enerflex APAC Aftermarket (09-30-2026)",
+     "file": "transcripts/ir/innio_2026-09-30_innio-completes-acquisition-of-enerflex-apac-after.txt"
+    },
+    {
+     "company": "INNIO",
+     "label": "INNIO press release: INNIO Receives Credit Rating Upgrades and Reaffirms (09-22-2026)",
+     "file": "transcripts/ir/innio_2026-09-22_innio-receives-credit-rating-upgrades-and-reaffirm.txt"
+    },
+    {
+     "company": "INNIO",
+     "label": "INNIO press release: INNIO Secures 450 MW Order to Power Next-Generation Data (09-17-2026)",
+     "file": "transcripts/ir/innio_2026-09-17_innio-secures-450-mw-order-to-power-next-generatio.txt"
+    },
+    {
+     "company": "INNIO",
+     "label": "INNIO press release: INNIO Expands Waukesha Site to Meet Growing Demand for (08-19-2026)",
+     "file": "transcripts/ir/innio_2026-08-19_innio-expands-waukesha-site-to-meet-growing-demand.txt"
+    }
+   ],
    "no_data": [
     {
      "label": "10x Genomics press release: 10x Genomics Wins Patent Infringement Verdict Against Parse (08-28-2026)",
@@ -3926,6 +3759,11 @@
     {
      "label": "Horiba press release: HORIBA air quality monitor AP-380 series achieves key UK (09-15-2026)",
      "file": "transcripts/ir/horiba_2026-09-15_horiba-air-quality-monitor-ap-380-series-achieves-.txt",
+     "why": null
+    },
+    {
+     "label": "INNIO press release: INNIO Announces Pricing of Upsized Initial Public Offering (06-03-2026)",
+     "file": "transcripts/ir/innio_2026-06-03_innio-announces-pricing-of-upsized-initial-public-.txt",
      "why": null
     },
     {
@@ -7234,58 +7072,17 @@
     "2026-05-15",
     "2026-10-13"
    ],
-   "last_fetch": "2026-10-13",
-   "last_enriched": "2026-10-13",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-09-25",
-     "labels": 59
-    },
-    {
-     "day": "2026-09-27",
-     "labels": 130
-    },
-    {
-     "day": "2026-10-01",
-     "labels": 180
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 113
-    },
-    {
-     "day": "2026-10-07",
-     "labels": 16
-    },
-    {
-     "day": "2026-10-08",
-     "labels": 8
-    },
-    {
-     "day": "2026-10-09",
-     "labels": 1
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 64
-    },
-    {
-     "day": "2026-10-13",
-     "labels": 43
+     "day": "2026-10-14",
+     "labels": 614
     }
    ],
-   "last_sync": "2026-10-12",
+   "last_sync": "2026-10-14",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-06 02:01",
-      "since": "2026-08-13",
-      "feeds": 1,
-      "saved": 0,
-      "skip": 4,
-      "fail": 0,
-      "seen": 0
-     },
      {
       "at": "2026-10-06 05:45",
       "since": "2026-08-12",
@@ -7321,9 +7118,18 @@
       "skip": 32,
       "fail": 123,
       "seen": 1643
+     },
+     {
+      "at": "2026-10-14 01:57",
+      "since": "2026-06-01",
+      "feeds": 1,
+      "saved": 6,
+      "skip": 2,
+      "fail": 0,
+      "seen": 0
      }
     ],
-    "feeds": 387
+    "feeds": 388
    }
   },
   {
@@ -7393,16 +7199,12 @@
     "2026-04-23",
     "2026-10-12"
    ],
-   "last_fetch": "2026-10-12",
-   "last_enriched": "2026-10-12",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-09-27",
-     "labels": 37
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 2
+     "day": "2026-10-14",
+     "labels": 39
     }
    ],
    "last_sync": "2026-10-12",
@@ -7477,11 +7279,11 @@
     "2025-10-15",
     "2026-08-17"
    ],
-   "last_fetch": "2026-10-01",
-   "last_enriched": "2026-10-01",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-10-01",
+     "day": "2026-10-14",
      "labels": 3
     }
    ],
@@ -7525,11 +7327,11 @@
     "2026-07-30",
     "2026-07-30"
    ],
-   "last_fetch": "2026-09-26",
-   "last_enriched": "2026-09-27",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-09-27",
+     "day": "2026-10-14",
      "labels": 1
     }
    ],
@@ -7598,13 +7400,7 @@
    "labels_on_disk": 227,
    "in_graph": 149,
    "entries": 398,
-   "pending": [
-    {
-     "company": "Hubei Feilihua Quartz Glass",
-     "label": "Hubei Feilihua Quartz Glass IR activity record: 2026-10-08 (10-08-2026)",
-     "file": "transcripts/cninfo/hubeifeilihuaquartzglass_2026-10-08_record_1225596532.txt"
-    }
-   ],
+   "pending": [],
    "no_data": [
     {
      "label": "Biwin Storage Technology investor Q&A: SSE e-Interactive (09-09-2026)",
@@ -8002,24 +7798,12 @@
     "2026-04-16",
     "2026-10-12"
    ],
-   "last_fetch": "2026-10-13",
-   "last_enriched": "2026-10-13",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-10-01",
-     "labels": 95
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 35
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 3
-    },
-    {
-     "day": "2026-10-13",
-     "labels": 16
+     "day": "2026-10-14",
+     "labels": 149
     }
    ],
    "last_sync": "2026-10-13",
@@ -8094,16 +7878,12 @@
     "2026-02-28",
     "2026-08-29"
    ],
-   "last_fetch": "2026-10-06",
-   "last_enriched": "2026-10-12",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-10-06",
-     "labels": 158
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 1
+     "day": "2026-10-14",
+     "labels": 159
     }
    ],
    "last_sync": "2026-10-13",
@@ -8274,20 +8054,12 @@
     "2026-09-09",
     "2026-10-09"
    ],
-   "last_fetch": "2026-10-13",
-   "last_enriched": "2026-10-13",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-10-01",
-     "labels": 5
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 4
-    },
-    {
-     "day": "2026-10-13",
-     "labels": 10
+     "day": "2026-10-14",
+     "labels": 19
     }
    ],
    "last_sync": "2026-10-13",
@@ -8493,11 +8265,11 @@
     "2025-10-15",
     "2026-09-30"
    ],
-   "last_fetch": "2026-10-06",
-   "last_enriched": "2026-10-06",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-10-06",
+     "day": "2026-10-14",
      "labels": 248
     }
    ],
@@ -8864,24 +8636,12 @@
     "2026-05-05",
     "2026-10-13"
    ],
-   "last_fetch": "2026-10-13",
-   "last_enriched": "2026-10-13",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-10-01",
-     "labels": 172
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 157
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 1
-    },
-    {
-     "day": "2026-10-13",
-     "labels": 99
+     "day": "2026-10-14",
+     "labels": 429
     }
    ],
    "last_sync": "2026-10-13",
@@ -9007,51 +8767,15 @@
     "2024-11-07",
     "2026-10-06"
    ],
-   "last_fetch": "2026-10-13",
-   "last_enriched": "2026-10-13",
+   "last_fetch": "2026-10-14",
+   "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-08-27",
-     "labels": 1
-    },
-    {
-     "day": "2026-09-04",
-     "labels": 1
-    },
-    {
-     "day": "2026-09-07",
-     "labels": 5
-    },
-    {
-     "day": "2026-09-16",
-     "labels": 1
-    },
-    {
-     "day": "2026-09-25",
-     "labels": 3
-    },
-    {
-     "day": "2026-09-27",
-     "labels": 1
-    },
-    {
-     "day": "2026-10-01",
-     "labels": 218
-    },
-    {
-     "day": "2026-10-06",
-     "labels": 14
-    },
-    {
-     "day": "2026-10-12",
-     "labels": 12
-    },
-    {
-     "day": "2026-10-13",
-     "labels": 54
+     "day": "2026-10-14",
+     "labels": 310
     }
    ],
-   "last_sync": "2026-10-13",
+   "last_sync": "2026-10-14",
    "extra": {}
   }
  ],
@@ -10327,18 +10051,6 @@
   },
   {
    "day": "2026-10-13",
-   "pipeline": "us",
-   "files": 375,
-   "in_graph": 374,
-   "pending": 0,
-   "last_sync": "2026-10-12",
-   "source_range": [
-    "2025-11-05",
-    "2026-10-07"
-   ]
-  },
-  {
-   "day": "2026-10-13",
    "pipeline": "dart",
    "files": 162,
    "in_graph": 178,
@@ -10411,18 +10123,6 @@
   },
   {
    "day": "2026-10-13",
-   "pipeline": "cninfo",
-   "files": 227,
-   "in_graph": 149,
-   "pending": 1,
-   "last_sync": "2026-10-13",
-   "source_range": [
-    "2026-04-16",
-    "2026-10-12"
-   ]
-  },
-  {
-   "day": "2026-10-13",
    "pipeline": "tdnet",
    "files": 40,
    "in_graph": 19,
@@ -10456,17 +10156,125 @@
     "2024-11-07",
     "2026-10-06"
    ]
+  },
+  {
+   "day": "2026-10-13",
+   "pipeline": "cninfo",
+   "files": 227,
+   "in_graph": 149,
+   "pending": 0,
+   "last_sync": "2026-10-13",
+   "source_range": [
+    "2026-04-16",
+    "2026-10-12"
+   ]
+  },
+  {
+   "day": "2026-10-13",
+   "pipeline": "us",
+   "files": 375,
+   "in_graph": 374,
+   "pending": 0,
+   "last_sync": "2026-10-13",
+   "source_range": [
+    "2025-11-05",
+    "2026-10-07"
+   ]
+  },
+  {
+   "day": "2026-10-14",
+   "pipeline": "us",
+   "files": 376,
+   "in_graph": 375,
+   "pending": 0,
+   "last_sync": "2026-10-14",
+   "source_range": [
+    "2025-11-05",
+    "2026-10-07"
+   ]
+  },
+  {
+   "day": "2026-10-14",
+   "pipeline": "edgar",
+   "files": 2005,
+   "in_graph": 743,
+   "pending": 0,
+   "last_sync": "2026-10-06",
+   "source_range": [
+    "2025-05-30",
+    "2026-10-02"
+   ]
+  },
+  {
+   "day": "2026-10-14",
+   "pipeline": "intl",
+   "files": 63,
+   "in_graph": 63,
+   "pending": 0,
+   "last_sync": "2026-10-14",
+   "source_range": [
+    "2026-05-12",
+    "2026-09-07"
+   ]
+  },
+  {
+   "day": "2026-10-14",
+   "pipeline": "tw",
+   "files": 18,
+   "in_graph": 18,
+   "pending": 0,
+   "last_sync": "2026-10-14",
+   "source_range": [
+    "2026-02-26",
+    "2026-08-28"
+   ]
+  },
+  {
+   "day": "2026-10-14",
+   "pipeline": "conference",
+   "files": 149,
+   "in_graph": 147,
+   "pending": 0,
+   "last_sync": "2026-10-14",
+   "source_range": [
+    "2026-07-20",
+    "2026-10-06"
+   ]
+  },
+  {
+   "day": "2026-10-14",
+   "pipeline": "ir",
+   "files": 1595,
+   "in_graph": 617,
+   "pending": 5,
+   "last_sync": "2026-10-14",
+   "source_range": [
+    "2026-05-15",
+    "2026-10-13"
+   ]
+  },
+  {
+   "day": "2026-10-14",
+   "pipeline": "manual",
+   "files": 550,
+   "in_graph": 540,
+   "pending": 0,
+   "last_sync": "2026-10-14",
+   "source_range": [
+    "2024-11-07",
+    "2026-10-06"
+   ]
   }
  ],
  "board": {
-  "today": "2026-10-13",
+  "today": "2026-10-14",
   "markets": [
    {
     "id": "US",
     "name": "United States",
     "command": "enrich us",
-    "companies": 249,
-    "call_current": 241,
+    "companies": 250,
+    "call_current": 242,
     "overdue": [],
     "never": [],
     "nothing": [],
@@ -10521,10 +10329,12 @@
       "recheck": "2026-12-15"
      }
     ],
-    "feeds": 218,
-    "waiting": {},
+    "feeds": 219,
+    "waiting": {
+     "ir": 5
+    },
     "collectors": {
-     "us": "2026-10-12",
+     "us": "2026-10-14",
      "utility": "2026-10-01"
     }
    },
@@ -10846,8 +10656,8 @@
     "feeds": 49,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-06",
-     "tw": "2026-10-06",
+     "intl": "2026-10-14",
+     "tw": "2026-10-14",
      "mops": "2026-10-13"
     }
    },
@@ -11512,7 +11322,7 @@
     "feeds": 60,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-06",
+     "intl": "2026-10-14",
      "tdnet": "2026-10-13",
      "edinet": "2026-10-06"
     }
@@ -11556,7 +11366,7 @@
     "feeds": 21,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-06"
+     "intl": "2026-10-14"
     }
    },
    {
@@ -11690,11 +11500,9 @@
     "dart_never": [],
     "marked": [],
     "feeds": 12,
-    "waiting": {
-     "cninfo": 1
-    },
+    "waiting": {},
     "collectors": {
-     "intl": "2026-10-06",
+     "intl": "2026-10-14",
      "cninfo": "2026-10-13",
      "cnreports": "2026-10-13"
     }
@@ -11730,15 +11538,27 @@
     "feeds": 2,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-06"
+     "intl": "2026-10-14"
     }
    }
   ],
   "next_actions": [
    {
-    "command": "enrich china",
+    "command": "enrich us",
     "reasons": [
-     "1 fetched file(s) waiting to be enriched (1 IR record / investor Q&A)"
+     "5 fetched file(s) waiting to be enriched (5 IR release)"
+    ]
+   },
+   {
+    "command": "enrich edgar",
+    "reasons": [
+     "last pulled 8 days ago, 2026-10-06 (weekly)"
+    ]
+   },
+   {
+    "command": "enrich japan",
+    "reasons": [
+     "EDINET annual / semi-annual report sync (edinet.py) last ran 8 days ago (2026-10-06)"
     ]
    }
   ],
@@ -12081,23 +11901,45 @@
     "question": "Toho Titanium's own 05-08-2026 results release says it was delisted on 2026-05-28 (share exchange effective 2026-06-01), but company_metadata.json still lists it as public. Change it to private (keep the node) or remove it from the universe? (Same shape as the open Simulations Plus question.)",
     "label": null,
     "at": "2026-10-13"
+   },
+   {
+    "subject": "Government subsidy amounts",
+    "question": "X-Fab Erfurt cleanroom release (10-05-2026) names EUR 127.4 million of EU Chips Act funding. Left out as financing-like. Should a public subsidy / grant amount for a capacity project be captured as a capex fact (keep), or stay out with financing terms?",
+    "label": null,
+    "at": "2026-10-13"
+   },
+   {
+    "subject": "Equity-stake purchases and sales",
+    "question": "Verifiers deleted (a) Foxconn selling 5,544,000 Zhen Ding shares, an equity-method investee (gain NT$2.68B, 26.47% kept), MOPS 10-12-2026, and (b) Osaka Organic buying shares that made SANBO Chemical an equity-method affiliate, TDnet 10-09-2026, under the equity-investment exclusion. Keep ownership changes between supply-chain companies as company facts (no price), or keep excluding them?",
+    "label": "Foxconn MOPS material information: release 2317-20261012-1 (10-12-2026)",
+    "at": "2026-10-13"
    }
   ],
   "shared": {
    "ir": {
-    "last_sync": "2026-10-12",
-    "days": 1,
+    "last_sync": "2026-10-14",
+    "days": 0,
     "due": false,
-    "feeds": 387
+    "feeds": 388
    },
    "conference": {
-    "last_sync": "2026-10-07",
-    "days": 6,
+    "last_sync": "2026-10-14",
+    "days": 0,
     "due": false
    }
   },
   "verify_pending": 0,
   "notes": [
+   {
+    "at": "2026-10-13 23:12",
+    "market": "US",
+    "text": "10-13/14 nightly enrich us: AV sync 0 saved (only the 5 marked known gaps waiting: Simulations Plus, Eikon, Generate Biomedicines, POET, Relay); US call / conference / IR queues empty, 0 overdue, 0 never; IR (synced 10-12, 3-day rule) and conference (walked 10-07, 7-day rule) collectors not due; utility filings not due (10-01). No patches, nothing applied, no graph_build. i18n 0 missing; verify queue 0. Board refresh took ~10 min of CPU (enrich_status.py, 1.5 GB) - slower than the usual seconds."
+   },
+   {
+    "at": "2026-10-13 07:37",
+    "market": "JP",
+    "text": "10-13 enrich everything: company-published Q&A summaries / full transcripts applied for 52 JP companies (55 docs; 9 full company transcripts labelled as calls: Daikin, Fujifilm, HOYA, Lasertec, Nippon Sanso, Rigaku, Sakai Chemical, Taiyo Holdings, Tocalo). 54 companies publish none (marked, recheck 2027-01-20). Retry Ebara (site 403) and Osaka Organic Chemical (Q&A page unreachable)."
+   },
    {
     "at": "2026-10-13 07:00",
     "market": "JP",
@@ -12137,16 +11979,6 @@
     "at": "2026-10-08 00:32",
     "market": "US",
     "text": "10-07/08 nightly enrich us: 12 labels applied to chains/ (APLD Q1 FY2027 call via defeatbeta + 11 IR releases) and Opus-verified (1 correction applied). graph_build.py --sync was STOPPED for low memory after apply + merged graph + derive: evidence.json, verify_labels, npm sync (web/public/data) and i18n build did NOT run -> run graph_build.py --sync, then the i18n step (skill 9). Skyworks 10-07 Si829x release saved nav-only (direct fetch 403) - row left pending: paste the release text by hand or close it."
-   },
-   {
-    "at": "2026-10-01 00:10",
-    "market": "US",
-    "text": "09-30 nightly enrich us: 33 labels applied (AOS Q4 call, 7 conferences, 25 IR releases; 40 IR rows no material facts). Opus verifiers DONE over all 33 - 16 corrections in patches/corrections/verify-us-0930-a..f.json NOT APPLIED (permission classifier blocked apply_corrections.py in the unattended session). Next: apply_corrections.py --check -> apply_corrections.py -> graph_build.py --sync -> move the 33 verify_queue labels to verified -> i18n step. defeatbeta still 404; AV waiting Dell/SLP/IMOS/PDFS/POET/RLAY. IR sync: 119 feed failures (all markets)."
-   },
-   {
-    "at": "2026-09-29 23:22",
-    "market": "US",
-    "text": "09-29 nightly enrich us: AV saved AOS Q3 FY2026, MP Materials Q2, UMC Q2 (enriched). defeatbeta still HTTP 404 (HF parquet gone) for APLD/SLP/MMM/TXN/IMOS/PDFS/POET/SHEL/DELL - source outage, not marked. AV waiting: Dell, Simulations Plus, ChipMOS, PDF Solutions, POET, Relay. AOS Q4 FY2026 (Aug) call not yet on AV. All 116 US IR rows closed (41 patches from the blocked 09-28 run applied + 8 new). Skyworks IR files 07-28/09-01/09-11/09-25 saved nav-only (body check passed them) - ir_pull prose_ok gap. US results releases (Vertiv/Vicor/Xcel Q2) slipped past the results-headline skip."
    }
   ]
  }
