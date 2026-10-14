@@ -241,10 +241,12 @@ Re-build only on explicit "update" command, never automatically.
 runs even when the computer is off. Do NOT build the scheduler until the core loop is solid.
 
 **Nightly routine (user, 2026-09-26 — on this computer only, no API, no cloud):** Windows Task Scheduler task
-"earnings-ai nightly enrich" runs `routine/nightly.ps1` at 23:00. Monday–Saturday it runs `enrich us`, and Sunday it runs
-bare `enrich` (the whole board). Each run is one background Claude session named `nightly enrich … MM-DD`, visible in
-`claude agents`, on the user's own login. It never commits or pushes; the user reviews in the morning. A missed night runs when the
-computer is next on. Do not start an enrich by hand while a `nightly enrich` session is working — two runs would enrich
+"earnings-ai nightly enrich" runs `routine/nightly.ps1` at 23:00. Since 2026-10-14 it runs bare `enrich` (the whole board)
+every night (user: "야간 enrich들 앞으로 그냥 모든 enrich로"). Each run is one background Claude session named `nightly enrich MM-DD`,
+visible in `claude agents`, on the user's own login. The session itself never commits. When it finishes as done, the script
+publishes the run's data files only (transcripts, patches, chains, graph, web/public, collector state, status board) on a
+`nightly-enrich-<date>` branch, pushes, opens a PR and merges it into main (user: "푸시및머지까지"), then returns the checkout to
+main. Code and docs changes stay uncommitted for review; a blocked run is not published. A missed night runs when the computer is next on. Do not start an enrich by hand while a `nightly enrich` session is working — two runs would enrich
 the same queue.
 
 ---
