@@ -1,0 +1,48 @@
+{
+  "source": "BillionToOne 10-K (03-11-2026)",
+  "chains": {
+    "applications/ai_bio.json": {
+      "players": [
+        {
+          "company": "BillionToOne",
+          "layer": "application",
+          "sector": "Precision Medicine & Clinical AI",
+          "sub_sector": null,
+          "product": "QCT single-molecule NGS (smNGS) prenatal (UNITY) and oncology (Northstar) cell-free DNA tests with proprietary algorithms",
+          "quarterly_data": [
+            {
+              "quarter": "BillionToOne 10-K (03-11-2026)",
+              "signal": "10-K fiscal 2025 results (in thousands): revenue $305,112 versus $152,582 in 2024, up 100%; cost of revenue $96,654; gross profit $208,458 (gross margin 68% versus 53%); income from operations $16,023 versus a loss of $(47,146); net income $7,454 versus a net loss of $(41,570). Net cash provided by operating activities was $24,595 and purchases of property and equipment were $8,881 (2024: $5,402). Remaining performance obligations beyond one year were approximately $3.3 million as of December 31, 2025.",
+              "figure": "FY2025 revenue $305,112 thousand (+100%); gross margin 68%; income from operations $16,023 thousand; capex $8,881 thousand",
+              "topics": []
+            }
+          ]
+        },
+        {
+          "company": "Amazon",
+          "layer": "cloud_infra",
+          "sector": "Scientific AI Cloud",
+          "sub_sector": null,
+          "product": "Amazon Bio Discovery cloud application",
+          "connects_to": [
+            {
+              "company": "BillionToOne",
+              "relationship": "AWS cloud hosting of BillionToOne's QCT test algorithms, bioinformatics platform and data center",
+              "contracts": [
+                {
+                  "source": "BillionToOne 10-K (03-11-2026)",
+                  "signal": "10-K supplier disclosure: BillionToOne maintains a data center within Amazon Web Services (AWS); it hosts the significant majority of its proprietary QCT algorithms, a crucial component of its test processing, on a cloud-based software platform under an agreement with AWS, and its bioinformatics platform runs on third-party data center hosting facilities operated by AWS. It has no backup platform, server or other means to host the algorithms.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "10-K supplier disclosure",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

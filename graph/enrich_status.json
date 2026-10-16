@@ -1,16 +1,16 @@
 {
- "generated": "2026-10-14 02:45",
- "labels_total": 3728,
+ "generated": "2026-10-16 01:39",
+ "labels_total": 3874,
  "pipelines": [
   {
    "id": "us",
    "name": "US earnings calls",
    "command": "enrich us calls",
    "source": "Alpha Vantage / defeatbeta (av.py)",
-   "files": 376,
-   "labels_on_disk": 376,
-   "in_graph": 375,
-   "entries": 3710,
+   "files": 377,
+   "labels_on_disk": 377,
+   "in_graph": 376,
+   "entries": 3725,
    "pending": [],
    "no_data": [
     {
@@ -22,20 +22,64 @@
    "skipped": 0,
    "source_range": [
     "2025-11-05",
-    "2026-10-07"
+    "2026-10-14"
    ],
    "last_fetch": "2026-10-14",
    "last_enriched": "2026-10-14",
    "enriched_days": [
     {
+     "day": "2026-08-31",
+     "labels": 13
+    },
+    {
+     "day": "2026-09-07",
+     "labels": 16
+    },
+    {
+     "day": "2026-09-09",
+     "labels": 1
+    },
+    {
+     "day": "2026-09-10",
+     "labels": 35
+    },
+    {
+     "day": "2026-09-11",
+     "labels": 2
+    },
+    {
+     "day": "2026-09-16",
+     "labels": 198
+    },
+    {
+     "day": "2026-09-17",
+     "labels": 3
+    },
+    {
+     "day": "2026-09-18",
+     "labels": 4
+    },
+    {
+     "day": "2026-09-27",
+     "labels": 9
+    },
+    {
+     "day": "2026-10-01",
+     "labels": 30
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 35
+    },
+    {
      "day": "2026-10-14",
-     "labels": 372
+     "labels": 27
     }
    ],
-   "last_sync": "2026-10-14",
+   "last_sync": "2026-10-16",
    "extra": {
     "waiting": [],
-    "saved_pairs": 0
+    "saved_pairs": 234
    }
   },
   {
@@ -43,17 +87,12 @@
    "name": "US SEC filings",
    "command": "enrich edgar",
    "source": "SEC EDGAR 8-K / 10-K / 10-Q + foreign issuers' 6-K / 20-F / 40-F + recent IPO prospectus (edgar_pull.py)",
-   "files": 2005,
-   "labels_on_disk": 1544,
-   "in_graph": 743,
-   "entries": 2204,
+   "files": 2155,
+   "labels_on_disk": 1665,
+   "in_graph": 849,
+   "entries": 2458,
    "pending": [],
    "no_data": [
-    {
-     "label": "10x Genomics 8-K (08-06-2026)",
-     "file": "transcripts/edgar/TXG_8-K_2026-08-06.txt",
-     "why": null
-    },
     {
      "label": "3M 10-Q (07-21-2026)",
      "file": "transcripts/edgar/MMM_10-Q_2026-07-21_supplychain.txt",
@@ -125,174 +164,14 @@
      "why": null
     },
     {
-     "label": "ASE Group 6-K (07-30-2026)",
-     "file": "transcripts/edgar/ASX_6-K_2026-07-30.txt",
-     "why": null
-    },
-    {
-     "label": "ASML 6-K (07-15-2026)",
-     "file": "transcripts/edgar/ASML_6-K_2026-07-15.txt",
-     "why": null
-    },
-    {
-     "label": "AbCellera 8-K (06-05-2026)",
-     "file": "transcripts/edgar/ABCL_8-K_2026-06-05.txt",
-     "why": null
-    },
-    {
-     "label": "AbCellera 8-K (07-06-2026)",
-     "file": "transcripts/edgar/ABCL_8-K_2026-07-06.txt",
-     "why": null
-    },
-    {
-     "label": "AbCellera 8-K (08-07-2026)",
-     "file": "transcripts/edgar/ABCL_8-K_2026-08-07.txt",
-     "why": null
-    },
-    {
-     "label": "AbCellera 8-K (08-13-2026)",
-     "file": "transcripts/edgar/ABCL_8-K_2026-08-13.txt",
-     "why": null
-    },
-    {
      "label": "Absci 10-Q (08-11-2026)",
      "file": "transcripts/edgar/ABSI_10-Q_2026-08-11_supplychain.txt",
      "why": "10-Q supplier / manufacturing / backlog paragraphs"
     },
     {
-     "label": "Adeia 8-K (07-28-2026)",
-     "file": "transcripts/edgar/ADEA_8-K_2026-07-28.txt",
-     "why": null
-    },
-    {
-     "label": "Adeia 8-K (08-03-2026)",
-     "file": "transcripts/edgar/ADEA_8-K_2026-08-03.txt",
-     "why": null
-    },
-    {
      "label": "Advanced Energy 10-Q (08-03-2026)",
      "file": "transcripts/edgar/AEIS_10-Q_2026-08-03_segments.txt",
      "why": "10-Q XBRL segment revenue"
-    },
-    {
-     "label": "Akamai Technologies 8-K (08-06-2026)",
-     "file": "transcripts/edgar/AKAM_8-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (06-09-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-06-09.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (06-18-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-06-18.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (06-26-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-06-26.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (07-06-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-07-06.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (07-07-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-07-07.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (07-10-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-07-10.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (07-22-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-07-22.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (08-06-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (08-07-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-08-07.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (08-14-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-08-14.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (08-20-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-08-20.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (08-24-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-08-24.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (08-26-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-08-26_2.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (09-04-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-09-04.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (09-22-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-09-22.txt",
-     "why": null
-    },
-    {
-     "label": "Alibaba 6-K (09-29-2026)",
-     "file": "transcripts/edgar/BABA_6-K_2026-09-29.txt",
-     "why": null
-    },
-    {
-     "label": "Allegro MicroSystems 8-K (07-30-2026)",
-     "file": "transcripts/edgar/ALGM_8-K_2026-07-30.txt",
-     "why": null
-    },
-    {
-     "label": "Alpha and Omega Semiconductor 8-K (07-10-2026)",
-     "file": "transcripts/edgar/AOSL_8-K_2026-07-10.txt",
-     "why": null
-    },
-    {
-     "label": "Alpha and Omega Semiconductor 8-K (08-12-2026)",
-     "file": "transcripts/edgar/AOSL_8-K_2026-08-12.txt",
-     "why": null
-    },
-    {
-     "label": "Amazon 8-K (09-14-2026)",
-     "file": "transcripts/edgar/AMZN_8-K_2026-09-14.txt",
-     "why": null
-    },
-    {
-     "label": "American Electric Power 8-K (09-30-2026)",
-     "file": "transcripts/edgar/AEP_8-K_2026-09-30.txt",
-     "why": null
-    },
-    {
-     "label": "Amtech Systems 8-K (08-05-2026)",
-     "file": "transcripts/edgar/ASYS_8-K_2026-08-05.txt",
-     "why": null
-    },
-    {
-     "label": "Analog Devices 8-K (09-17-2026)",
-     "file": "transcripts/edgar/ADI_8-K_2026-09-17.txt",
-     "why": null
     },
     {
      "label": "Apple 10-K (10-31-2025)",
@@ -305,329 +184,9 @@
      "why": "10-Q XBRL segment revenue"
     },
     {
-     "label": "Applied Optoelectronics 8-K (09-15-2026)",
-     "file": "transcripts/edgar/AAOI_8-K_2026-09-15.txt",
-     "why": null
-    },
-    {
-     "label": "Arm Holdings 6-K (09-10-2026)",
-     "file": "transcripts/edgar/ARM_6-K_2026-09-10.txt",
-     "why": null
-    },
-    {
-     "label": "Arteris 8-K (08-06-2026)",
-     "file": "transcripts/edgar/AIP_8-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (07-01-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-07-01.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (07-31-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-07-31.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (08-03-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-08-03.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (08-17-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-08-17_2.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (08-19-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-08-19.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (08-25-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-08-25.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (09-01-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-09-01.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (09-08-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-09-08.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (09-14-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-09-14.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (09-15-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-09-15.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (09-18-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-09-18.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (09-21-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-09-21.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (09-23-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-09-23.txt",
-     "why": null
-    },
-    {
-     "label": "AstraZeneca 6-K (10-01-2026)",
-     "file": "transcripts/edgar/AZN_6-K_2026-10-01.txt",
-     "why": null
-    },
-    {
-     "label": "Babcock & Wilcox 8-K (06-08-2026)",
-     "file": "transcripts/edgar/BW_8-K_2026-06-08.txt",
-     "why": null
-    },
-    {
-     "label": "Babcock & Wilcox 8-K (07-13-2026)",
-     "file": "transcripts/edgar/BW_8-K_2026-07-13.txt",
-     "why": null
-    },
-    {
-     "label": "Babcock & Wilcox 8-K (09-08-2026)",
-     "file": "transcripts/edgar/BW_8-K_2026-09-08.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (06-09-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-06-09.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (07-02-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-07-02.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (07-22-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-07-22.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (07-27-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-07-27.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (07-28-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-07-28.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (07-31-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-07-31.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (08-18-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-08-18.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (08-26-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-08-26.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (08-27-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-08-27.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-01-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-01.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-04-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-04.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-08-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-08.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-09-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-09.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-10-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-10.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-11-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-11.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-14-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-14.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-15-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-15.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-16-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-16.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-17-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-17.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-18-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-18.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-21-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-21.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-22-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-22.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-23-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-23.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-24-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-24.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-25-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-25.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-28-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-28.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-29-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-29.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (09-30-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-09-30.txt",
-     "why": null
-    },
-    {
-     "label": "Baidu 6-K (10-01-2026)",
-     "file": "transcripts/edgar/BIDU_6-K_2026-10-01.txt",
-     "why": null
-    },
-    {
-     "label": "Bel Fuse 8-K (07-02-2026)",
-     "file": "transcripts/edgar/BELFB_8-K_2026-07-02.txt",
-     "why": null
-    },
-    {
-     "label": "Bel Fuse 8-K (07-29-2026)",
-     "file": "transcripts/edgar/BELFB_8-K_2026-07-29.txt",
-     "why": null
-    },
-    {
-     "label": "Bitdeer Technologies 6-K (06-08-2026)",
-     "file": "transcripts/edgar/BTDR_6-K_2026-06-08.txt",
-     "why": null
-    },
-    {
-     "label": "Bitdeer Technologies 6-K (07-06-2026)",
-     "file": "transcripts/edgar/BTDR_6-K_2026-07-06.txt",
-     "why": null
-    },
-    {
-     "label": "Bitdeer Technologies 6-K (08-03-2026)",
-     "file": "transcripts/edgar/BTDR_6-K_2026-08-03.txt",
-     "why": null
-    },
-    {
-     "label": "Bitdeer Technologies 6-K (10-02-2026)",
-     "file": "transcripts/edgar/BTDR_6-K_2026-10-02.txt",
-     "why": null
-    },
-    {
      "label": "Bristol Myers Squibb 10-Q (07-30-2026)",
      "file": "transcripts/edgar/BMY_10-Q_2026-07-30_segments.txt",
      "why": "10-Q XBRL segment revenue"
-    },
-    {
-     "label": "Brookfield Renewable 6-K (06-10-2026)",
-     "file": "transcripts/edgar/BEP_6-K_2026-06-10.txt",
-     "why": null
-    },
-    {
-     "label": "Brookfield Renewable 6-K (07-22-2026)",
-     "file": "transcripts/edgar/BEP_6-K_2026-07-22.txt",
-     "why": null
-    },
-    {
-     "label": "Brookfield Renewable 6-K (07-31-2026)",
-     "file": "transcripts/edgar/BEP_6-K_2026-07-31.txt",
-     "why": null
-    },
-    {
-     "label": "Brookfield Renewable 6-K (08-24-2026)",
-     "file": "transcripts/edgar/BEP_6-K_2026-08-24.txt",
-     "why": null
-    },
-    {
-     "label": "CEVA 8-K (07-13-2026)",
-     "file": "transcripts/edgar/CEVA_8-K_2026-07-13.txt",
-     "why": null
-    },
-    {
-     "label": "CEVA 8-K (08-10-2026)",
-     "file": "transcripts/edgar/CEVA_8-K_2026-08-10.txt",
-     "why": null
-    },
-    {
-     "label": "Camtek 6-K (06-24-2026)",
-     "file": "transcripts/edgar/CAMT_6-K_2026-06-24_2.txt",
-     "why": null
-    },
-    {
-     "label": "Camtek 6-K (07-29-2026)",
-     "file": "transcripts/edgar/CAMT_6-K_2026-07-29.txt",
-     "why": null
-    },
-    {
-     "label": "Camtek 6-K (08-10-2026)",
-     "file": "transcripts/edgar/CAMT_6-K_2026-08-10.txt",
-     "why": null
     },
     {
      "label": "Carrier Global 10-K (02-05-2026)",
@@ -640,184 +199,14 @@
      "why": "10-Q XBRL segment revenue"
     },
     {
-     "label": "Celestica 8-K (09-11-2026)",
-     "file": "transcripts/edgar/CLS_8-K_2026-09-11.txt",
-     "why": null
-    },
-    {
-     "label": "Cerebras 8-K (06-23-2026)",
-     "file": "transcripts/edgar/CBRS_8-K_2026-06-23.txt",
-     "why": null
-    },
-    {
-     "label": "Cerebras 8-K (08-12-2026)",
-     "file": "transcripts/edgar/CBRS_8-K_2026-08-12.txt",
-     "why": null
-    },
-    {
-     "label": "Certara 8-K (08-04-2026)",
-     "file": "transcripts/edgar/CERT_8-K_2026-08-04.txt",
-     "why": null
-    },
-    {
-     "label": "ChipMOS 6-K (07-20-2026)",
-     "file": "transcripts/edgar/IMOS_6-K_2026-07-20.txt",
-     "why": null
-    },
-    {
-     "label": "ChipMOS 6-K (07-23-2026)",
-     "file": "transcripts/edgar/IMOS_6-K_2026-07-23.txt",
-     "why": null
-    },
-    {
-     "label": "ChipMOS 6-K (07-30-2026)",
-     "file": "transcripts/edgar/IMOS_6-K_2026-07-30.txt",
-     "why": null
-    },
-    {
-     "label": "ChipMOS 6-K (08-03-2026)",
-     "file": "transcripts/edgar/IMOS_6-K_2026-08-03.txt",
-     "why": null
-    },
-    {
-     "label": "ChipMOS 6-K (08-11-2026)",
-     "file": "transcripts/edgar/IMOS_6-K_2026-08-11.txt",
-     "why": null
-    },
-    {
-     "label": "ChipMOS 6-K (09-10-2026)",
-     "file": "transcripts/edgar/IMOS_6-K_2026-09-10_2.txt",
-     "why": null
-    },
-    {
-     "label": "ChipMOS 6-K (09-29-2026)",
-     "file": "transcripts/edgar/IMOS_6-K_2026-09-29.txt",
-     "why": null
-    },
-    {
-     "label": "CleanSpark 8-K (08-06-2026)",
-     "file": "transcripts/edgar/CLSK_8-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "CleanSpark 8-K (09-18-2026)",
-     "file": "transcripts/edgar/CLSK_8-K_2026-09-18.txt",
-     "why": null
-    },
-    {
-     "label": "CleanSpark 8-K (09-25-2026)",
-     "file": "transcripts/edgar/CLSK_8-K_2026-09-25.txt",
-     "why": null
-    },
-    {
-     "label": "Corning 8-K (09-11-2026)",
-     "file": "transcripts/edgar/GLW_8-K_2026-09-11.txt",
-     "why": null
-    },
-    {
-     "label": "Dell 8-K (09-15-2026)",
-     "file": "transcripts/edgar/DELL_8-K_2026-09-15.txt",
-     "why": null
-    },
-    {
-     "label": "DigitalOcean 8-K (07-07-2026)",
-     "file": "transcripts/edgar/DOCN_8-K_2026-07-07.txt",
-     "why": null
-    },
-    {
-     "label": "DigitalOcean 8-K (07-23-2026)",
-     "file": "transcripts/edgar/DOCN_8-K_2026-07-23.txt",
-     "why": null
-    },
-    {
-     "label": "DigitalOcean 8-K (07-24-2026)",
-     "file": "transcripts/edgar/DOCN_8-K_2026-07-24.txt",
-     "why": null
-    },
-    {
-     "label": "DigitalOcean 8-K (08-04-2026)",
-     "file": "transcripts/edgar/DOCN_8-K_2026-08-04.txt",
-     "why": null
-    },
-    {
-     "label": "Diodes 8-K (07-15-2026)",
-     "file": "transcripts/edgar/DIOD_8-K_2026-07-15.txt",
-     "why": null
-    },
-    {
-     "label": "Diodes 8-K (08-18-2026)",
-     "file": "transcripts/edgar/DIOD_8-K_2026-08-18.txt",
-     "why": null
-    },
-    {
      "label": "Dominion Energy 10-Q (07-31-2026)",
      "file": "transcripts/edgar/D_10-Q_2026-07-31_segments.txt",
      "why": "10-Q XBRL segment revenue"
     },
     {
-     "label": "Duke Energy 8-K (08-04-2026)",
-     "file": "transcripts/edgar/DUK_8-K_2026-08-04.txt",
-     "why": null
-    },
-    {
-     "label": "Duke Energy 8-K (08-13-2026)",
-     "file": "transcripts/edgar/DUK_8-K_2026-08-13.txt",
-     "why": null
-    },
-    {
-     "label": "ERock 8-K (06-15-2026)",
-     "file": "transcripts/edgar/EROC_8-K_2026-06-15.txt",
-     "why": null
-    },
-    {
-     "label": "ERock 8-K (08-11-2026)",
-     "file": "transcripts/edgar/EROC_8-K_2026-08-11.txt",
-     "why": null
-    },
-    {
      "label": "Evaxion Biotech 20-F (03-05-2026)",
      "file": "transcripts/edgar/EVAX_20-F_2026-03-05_customers.txt",
-     "why": null
-    },
-    {
-     "label": "Evaxion Biotech 6-K (06-12-2026)",
-     "file": "transcripts/edgar/EVAX_6-K_2026-06-12.txt",
-     "why": null
-    },
-    {
-     "label": "Evaxion Biotech 6-K (07-01-2026)",
-     "file": "transcripts/edgar/EVAX_6-K_2026-07-01.txt",
-     "why": null
-    },
-    {
-     "label": "Evaxion Biotech 6-K (07-13-2026)",
-     "file": "transcripts/edgar/EVAX_6-K_2026-07-13.txt",
-     "why": null
-    },
-    {
-     "label": "Evaxion Biotech 6-K (08-14-2026)",
-     "file": "transcripts/edgar/EVAX_6-K_2026-08-14.txt",
-     "why": null
-    },
-    {
-     "label": "Evaxion Biotech 6-K (08-20-2026)",
-     "file": "transcripts/edgar/EVAX_6-K_2026-08-20.txt",
-     "why": null
-    },
-    {
-     "label": "Evaxion Biotech 6-K (09-04-2026)",
-     "file": "transcripts/edgar/EVAX_6-K_2026-09-04.txt",
-     "why": null
-    },
-    {
-     "label": "Evaxion Biotech 6-K (09-14-2026)",
-     "file": "transcripts/edgar/EVAX_6-K_2026-09-14.txt",
-     "why": null
-    },
-    {
-     "label": "Evaxion Biotech 6-K (10-02-2026)",
-     "file": "transcripts/edgar/EVAX_6-K_2026-10-02.txt",
-     "why": null
+     "why": "20-F: no percentages"
     },
     {
      "label": "Fermi 10-K (04-30-2026)",
@@ -825,119 +214,9 @@
      "why": "10-K supplier / manufacturing / backlog paragraphs"
     },
     {
-     "label": "Fermi 8-K (07-13-2026)",
-     "file": "transcripts/edgar/FRMI_8-K_2026-07-13.txt",
-     "why": null
-    },
-    {
-     "label": "Fermi 8-K (07-21-2026)",
-     "file": "transcripts/edgar/FRMI_8-K_2026-07-21.txt",
-     "why": null
-    },
-    {
-     "label": "Fermi 8-K (07-23-2026)",
-     "file": "transcripts/edgar/FRMI_8-K_2026-07-23.txt",
-     "why": null
-    },
-    {
-     "label": "Fermi 8-K (08-13-2026)",
-     "file": "transcripts/edgar/FRMI_8-K_2026-08-13.txt",
-     "why": null
-    },
-    {
-     "label": "Fermi 8-K (08-14-2026)",
-     "file": "transcripts/edgar/FRMI_8-K_2026-08-14.txt",
-     "why": null
-    },
-    {
-     "label": "Fermi 8-K (08-31-2026)",
-     "file": "transcripts/edgar/FRMI_8-K_2026-08-31.txt",
-     "why": null
-    },
-    {
-     "label": "Fervo Energy 8-K (06-10-2026)",
-     "file": "transcripts/edgar/FRVO_8-K_2026-06-10.txt",
-     "why": null
-    },
-    {
-     "label": "Flex 8-K (10-02-2026)",
-     "file": "transcripts/edgar/FLEX_8-K_2026-10-02.txt",
-     "why": null
-    },
-    {
-     "label": "Forgent Power Solutions 8-K (06-26-2026)",
-     "file": "transcripts/edgar/FPS_8-K_2026-06-26.txt",
-     "why": null
-    },
-    {
-     "label": "Forgent Power Solutions 8-K (09-15-2026)",
-     "file": "transcripts/edgar/FPS_8-K_2026-09-15.txt",
-     "why": null
-    },
-    {
-     "label": "FuelCell Energy 8-K (07-21-2026)",
-     "file": "transcripts/edgar/FCEL_8-K_2026-07-21.txt",
-     "why": null
-    },
-    {
-     "label": "GDS Holdings 6-K (08-13-2026)",
-     "file": "transcripts/edgar/GDS_6-K_2026-08-13.txt",
-     "why": null
-    },
-    {
-     "label": "GDS Holdings 6-K (09-04-2026)",
-     "file": "transcripts/edgar/GDS_6-K_2026-09-04.txt",
-     "why": null
-    },
-    {
-     "label": "Galaxy Digital 8-K (09-23-2026)",
-     "file": "transcripts/edgar/GLXY_8-K_2026-09-23.txt",
-     "why": null
-    },
-    {
      "label": "Gates Industrial 10-Q (07-31-2026)",
      "file": "transcripts/edgar/GTES_10-Q_2026-07-31_segments.txt",
      "why": "10-Q XBRL segment revenue"
-    },
-    {
-     "label": "Gates Industrial 8-K (06-25-2026)",
-     "file": "transcripts/edgar/GTES_8-K_2026-06-25.txt",
-     "why": null
-    },
-    {
-     "label": "Gates Industrial 8-K (07-16-2026)",
-     "file": "transcripts/edgar/GTES_8-K_2026-07-16.txt",
-     "why": null
-    },
-    {
-     "label": "Gates Industrial 8-K (07-31-2026)",
-     "file": "transcripts/edgar/GTES_8-K_2026-07-31.txt",
-     "why": null
-    },
-    {
-     "label": "Ginkgo Bioworks 8-K (07-30-2026)",
-     "file": "transcripts/edgar/DNA_8-K_2026-07-30.txt",
-     "why": null
-    },
-    {
-     "label": "Ginkgo Bioworks 8-K (08-05-2026)",
-     "file": "transcripts/edgar/DNA_8-K_2026-08-05.txt",
-     "why": null
-    },
-    {
-     "label": "GlobalFoundries 6-K (07-29-2026)",
-     "file": "transcripts/edgar/GFS_6-K_2026-07-29.txt",
-     "why": null
-    },
-    {
-     "label": "GlobalFoundries 6-K (08-27-2026)",
-     "file": "transcripts/edgar/GFS_6-K_2026-08-27.txt",
-     "why": null
-    },
-    {
-     "label": "GlobalFoundries 6-K (09-08-2026)",
-     "file": "transcripts/edgar/GFS_6-K_2026-09-08.txt",
-     "why": null
     },
     {
      "label": "HIVE Digital Technologies 10-K (07-29-2026)",
@@ -945,269 +224,9 @@
      "why": "10-K supplier / manufacturing / backlog paragraphs"
     },
     {
-     "label": "HIVE Digital Technologies 8-K (07-01-2026)",
-     "file": "transcripts/edgar/HIVE_8-K_2026-07-01.txt",
-     "why": null
-    },
-    {
-     "label": "HIVE Digital Technologies 8-K (08-17-2026)",
-     "file": "transcripts/edgar/HIVE_8-K_2026-08-17.txt",
-     "why": null
-    },
-    {
-     "label": "INNIO 10-Q (07-28-2026)",
-     "file": "transcripts/edgar/INIO_10-Q_2026-07-28_segments.txt",
-     "why": null
-    },
-    {
-     "label": "INNIO prospectus (06-04-2026)",
-     "file": "transcripts/edgar/INIO_424B4_2026-06-04_customers.txt",
-     "why": null
-    },
-    {
-     "label": "Illumina 8-K (06-23-2026)",
-     "file": "transcripts/edgar/ILMN_8-K_2026-06-23.txt",
-     "why": null
-    },
-    {
-     "label": "Illumina 8-K (07-30-2026)",
-     "file": "transcripts/edgar/ILMN_8-K_2026-07-30.txt",
-     "why": null
-    },
-    {
-     "label": "Illumina 8-K (08-07-2026)",
-     "file": "transcripts/edgar/ILMN_8-K_2026-08-07.txt",
-     "why": null
-    },
-    {
-     "label": "Illumina 8-K (08-12-2026)",
-     "file": "transcripts/edgar/ILMN_8-K_2026-08-12.txt",
-     "why": null
-    },
-    {
-     "label": "Illumina 8-K (08-13-2026)",
-     "file": "transcripts/edgar/ILMN_8-K_2026-08-13.txt",
-     "why": null
-    },
-    {
-     "label": "Illumina 8-K (08-17-2026)",
-     "file": "transcripts/edgar/ILMN_8-K_2026-08-17.txt",
-     "why": null
-    },
-    {
-     "label": "Iron Mountain 8-K (06-26-2026)",
-     "file": "transcripts/edgar/IRM_8-K_2026-06-26.txt",
-     "why": null
-    },
-    {
-     "label": "Iron Mountain 8-K (08-05-2026)",
-     "file": "transcripts/edgar/IRM_8-K_2026-08-05.txt",
-     "why": null
-    },
-    {
-     "label": "Jabil 8-K (09-30-2026)",
-     "file": "transcripts/edgar/JBL_8-K_2026-09-30.txt",
-     "why": null
-    },
-    {
      "label": "Jazz Pharmaceuticals 10-K (04-24-2026)",
      "file": "transcripts/edgar/JAZZ_10-K_2026-04-24_supplychain.txt",
      "why": "10-K supplier / manufacturing / backlog paragraphs"
-    },
-    {
-     "label": "Jazz Pharmaceuticals 8-K (08-10-2026)",
-     "file": "transcripts/edgar/JAZZ_8-K_2026-08-10.txt",
-     "why": null
-    },
-    {
-     "label": "Jazz Pharmaceuticals 8-K (08-31-2026)",
-     "file": "transcripts/edgar/JAZZ_8-K_2026-08-31.txt",
-     "why": null
-    },
-    {
-     "label": "Jazz Pharmaceuticals 8-K (09-23-2026)",
-     "file": "transcripts/edgar/JAZZ_8-K_2026-09-23.txt",
-     "why": null
-    },
-    {
-     "label": "Johnson Controls 8-K (09-30-2026)",
-     "file": "transcripts/edgar/JCI_8-K_2026-09-30.txt",
-     "why": null
-    },
-    {
-     "label": "Keel Infrastructure 8-K (08-10-2026)",
-     "file": "transcripts/edgar/KEEL_8-K_2026-08-10.txt",
-     "why": null
-    },
-    {
-     "label": "Kingsoft Cloud 6-K (06-30-2026)",
-     "file": "transcripts/edgar/KC_6-K_2026-06-30.txt",
-     "why": null
-    },
-    {
-     "label": "Kingsoft Cloud 6-K (07-07-2026)",
-     "file": "transcripts/edgar/KC_6-K_2026-07-07.txt",
-     "why": null
-    },
-    {
-     "label": "Kingsoft Cloud 6-K (07-17-2026)",
-     "file": "transcripts/edgar/KC_6-K_2026-07-17.txt",
-     "why": null
-    },
-    {
-     "label": "Kingsoft Cloud 6-K (08-06-2026)",
-     "file": "transcripts/edgar/KC_6-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "Kingsoft Cloud 6-K (09-04-2026)",
-     "file": "transcripts/edgar/KC_6-K_2026-09-04.txt",
-     "why": null
-    },
-    {
-     "label": "Kingsoft Cloud 6-K (09-21-2026)",
-     "file": "transcripts/edgar/KC_6-K_2026-09-21.txt",
-     "why": null
-    },
-    {
-     "label": "Lattice Semiconductor 8-K (06-30-2026)",
-     "file": "transcripts/edgar/LSCC_8-K_2026-06-30.txt",
-     "why": null
-    },
-    {
-     "label": "Lattice Semiconductor 8-K (08-04-2026)",
-     "file": "transcripts/edgar/LSCC_8-K_2026-08-04.txt",
-     "why": null
-    },
-    {
-     "label": "Liberty Energy 8-K (06-25-2026)",
-     "file": "transcripts/edgar/LBRT_8-K_2026-06-25.txt",
-     "why": null
-    },
-    {
-     "label": "Liberty Energy 8-K (07-23-2026)",
-     "file": "transcripts/edgar/LBRT_8-K_2026-07-23.txt",
-     "why": null
-    },
-    {
-     "label": "Liberty Energy 8-K (09-18-2026)",
-     "file": "transcripts/edgar/LBRT_8-K_2026-09-18.txt",
-     "why": null
-    },
-    {
-     "label": "Lightwave Logic 8-K (07-20-2026)",
-     "file": "transcripts/edgar/LWLG_8-K_2026-07-20.txt",
-     "why": null
-    },
-    {
-     "label": "Littelfuse 8-K (08-11-2026)",
-     "file": "transcripts/edgar/LFUS_8-K_2026-08-11.txt",
-     "why": null
-    },
-    {
-     "label": "Littelfuse 8-K (09-16-2026)",
-     "file": "transcripts/edgar/LFUS_8-K_2026-09-16.txt",
-     "why": null
-    },
-    {
-     "label": "Lumen Technologies 8-K (09-25-2026)",
-     "file": "transcripts/edgar/LUMN_8-K_2026-09-25.txt",
-     "why": null
-    },
-    {
-     "label": "MARA Holdings 8-K (06-22-2026)",
-     "file": "transcripts/edgar/MARA_8-K_2026-06-22.txt",
-     "why": null
-    },
-    {
-     "label": "MARA Holdings 8-K (08-04-2026)",
-     "file": "transcripts/edgar/MARA_8-K_2026-08-04.txt",
-     "why": null
-    },
-    {
-     "label": "MARA Holdings 8-K (08-06-2026)",
-     "file": "transcripts/edgar/MARA_8-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "MP Materials 8-K (08-06-2026)",
-     "file": "transcripts/edgar/MP_8-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "Magnachip Semiconductor 8-K (06-17-2026)",
-     "file": "transcripts/edgar/MX_8-K_2026-06-17.txt",
-     "why": null
-    },
-    {
-     "label": "Magnachip Semiconductor 8-K (07-29-2026)",
-     "file": "transcripts/edgar/MX_8-K_2026-07-29.txt",
-     "why": null
-    },
-    {
-     "label": "Marvell 8-K (09-25-2026)",
-     "file": "transcripts/edgar/MRVL_8-K_2026-09-25.txt",
-     "why": null
-    },
-    {
-     "label": "Materion 8-K (08-05-2026)",
-     "file": "transcripts/edgar/MTRN_8-K_2026-08-05.txt",
-     "why": null
-    },
-    {
-     "label": "Microchip Technology 8-K (07-24-2026)",
-     "file": "transcripts/edgar/MCHP_8-K_2026-07-24.txt",
-     "why": null
-    },
-    {
-     "label": "Microchip Technology 8-K (08-06-2026)",
-     "file": "transcripts/edgar/MCHP_8-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "Microchip Technology 8-K (08-19-2026)",
-     "file": "transcripts/edgar/MCHP_8-K_2026-08-19.txt",
-     "why": null
-    },
-    {
-     "label": "MindWalk 6-K (07-06-2026)",
-     "file": "transcripts/edgar/HYFT_6-K_2026-07-06.txt",
-     "why": null
-    },
-    {
-     "label": "MindWalk 6-K (07-13-2026)",
-     "file": "transcripts/edgar/HYFT_6-K_2026-07-13.txt",
-     "why": null
-    },
-    {
-     "label": "MindWalk 6-K (09-08-2026)",
-     "file": "transcripts/edgar/HYFT_6-K_2026-09-08.txt",
-     "why": null
-    },
-    {
-     "label": "MindWalk 6-K (09-21-2026)",
-     "file": "transcripts/edgar/HYFT_6-K_2026-09-21.txt",
-     "why": null
-    },
-    {
-     "label": "Modine 8-K (09-17-2026)",
-     "file": "transcripts/edgar/MOD_8-K_2026-09-17.txt",
-     "why": null
-    },
-    {
-     "label": "Modine 8-K (10-01-2026)",
-     "file": "transcripts/edgar/MOD_8-K_2026-10-01.txt",
-     "why": null
-    },
-    {
-     "label": "NXP Semiconductors 8-K (07-28-2026)",
-     "file": "transcripts/edgar/NXPI_8-K_2026-07-28.txt",
-     "why": null
-    },
-    {
-     "label": "NXP Semiconductors 8-K (09-02-2026)",
-     "file": "transcripts/edgar/NXPI_8-K_2026-09-02.txt",
-     "why": null
     },
     {
      "label": "Nautilus Biotechnology 10-K (02-26-2026)",
@@ -1220,179 +239,9 @@
      "why": "10-Q XBRL segment revenue"
     },
     {
-     "label": "Nautilus Biotechnology 8-K (09-11-2026)",
-     "file": "transcripts/edgar/NAUT_8-K_2026-09-11.txt",
-     "why": null
-    },
-    {
      "label": "Navitas 10-K (04-30-2026)",
      "file": "transcripts/edgar/NVTS_10-K_2026-04-30_supplychain.txt",
      "why": "10-K supplier / manufacturing / backlog paragraphs"
-    },
-    {
-     "label": "Nebius 6-K (06-16-2026)",
-     "file": "transcripts/edgar/NBIS_6-K_2026-06-16.txt",
-     "why": null
-    },
-    {
-     "label": "Nebius 6-K (07-27-2026)",
-     "file": "transcripts/edgar/NBIS_6-K_2026-07-27.txt",
-     "why": null
-    },
-    {
-     "label": "Nebius 6-K (08-26-2026)",
-     "file": "transcripts/edgar/NBIS_6-K_2026-08-26.txt",
-     "why": null
-    },
-    {
-     "label": "NiSource 8-K (08-05-2026)",
-     "file": "transcripts/edgar/NI_8-K_2026-08-05.txt",
-     "why": null
-    },
-    {
-     "label": "NiSource 8-K (08-18-2026)",
-     "file": "transcripts/edgar/NI_8-K_2026-08-18.txt",
-     "why": null
-    },
-    {
-     "label": "Nokia 6-K (06-09-2026)",
-     "file": "transcripts/edgar/NOK_6-K_2026-06-09.txt",
-     "why": null
-    },
-    {
-     "label": "Nokia 6-K (06-30-2026)",
-     "file": "transcripts/edgar/NOK_6-K_2026-06-30.txt",
-     "why": null
-    },
-    {
-     "label": "Nokia 6-K (07-09-2026)",
-     "file": "transcripts/edgar/NOK_6-K_2026-07-09.txt",
-     "why": null
-    },
-    {
-     "label": "Nokia 6-K (07-10-2026)",
-     "file": "transcripts/edgar/NOK_6-K_2026-07-10.txt",
-     "why": null
-    },
-    {
-     "label": "Nokia 6-K (07-23-2026)",
-     "file": "transcripts/edgar/NOK_6-K_2026-07-23.txt",
-     "why": null
-    },
-    {
-     "label": "Nokia 6-K (07-27-2026)",
-     "file": "transcripts/edgar/NOK_6-K_2026-07-27.txt",
-     "why": null
-    },
-    {
-     "label": "Nokia 6-K (07-29-2026)",
-     "file": "transcripts/edgar/NOK_6-K_2026-07-29.txt",
-     "why": null
-    },
-    {
-     "label": "Nokia 6-K (08-07-2026)",
-     "file": "transcripts/edgar/NOK_6-K_2026-08-07.txt",
-     "why": null
-    },
-    {
-     "label": "Nokia 6-K (08-14-2026)",
-     "file": "transcripts/edgar/NOK_6-K_2026-08-14.txt",
-     "why": null
-    },
-    {
-     "label": "Nova 6-K (06-22-2026)",
-     "file": "transcripts/edgar/NVMI_6-K_2026-06-22.txt",
-     "why": null
-    },
-    {
-     "label": "Nova 6-K (08-06-2026)",
-     "file": "transcripts/edgar/NVMI_6-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (06-08-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-06-08.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (06-15-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-06-15.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (06-24-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-06-24.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (06-29-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-06-29.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (07-06-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-07-06.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (07-13-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-07-13.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (07-21-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-07-21.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (07-27-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-07-27.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (08-10-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-08-10.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (08-18-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-08-18.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (08-24-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-08-24.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (08-31-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-08-31.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (09-09-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-09-09.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (09-15-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-09-15.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (09-17-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-09-17.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (09-21-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-09-21.txt",
-     "why": null
-    },
-    {
-     "label": "Novo Nordisk 6-K (09-28-2026)",
-     "file": "transcripts/edgar/NVO_6-K_2026-09-28.txt",
-     "why": null
     },
     {
      "label": "Oklo 10-Q (08-07-2026)",
@@ -1400,174 +249,9 @@
      "why": "10-Q supplier / manufacturing / backlog paragraphs"
     },
     {
-     "label": "Oklo 8-K (09-11-2026)",
-     "file": "transcripts/edgar/OKLO_8-K_2026-09-11.txt",
-     "why": null
-    },
-    {
-     "label": "Oracle 8-K (09-14-2026)",
-     "file": "transcripts/edgar/ORCL_8-K_2026-09-14.txt",
-     "why": null
-    },
-    {
-     "label": "PDF Solutions 8-K (08-06-2026)",
-     "file": "transcripts/edgar/PDFS_8-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "Pacific Biosciences 8-K (06-04-2026)",
-     "file": "transcripts/edgar/PACB_8-K_2026-06-04.txt",
-     "why": null
-    },
-    {
-     "label": "Pacific Biosciences 8-K (07-09-2026)",
-     "file": "transcripts/edgar/PACB_8-K_2026-07-09.txt",
-     "why": null
-    },
-    {
      "label": "Power Solutions International 10-K (04-30-2026)",
      "file": "transcripts/edgar/PSIX_10-K_2026-04-30_customers.txt",
-     "why": null
-    },
-    {
-     "label": "Power Solutions International 8-K (07-27-2026)",
-     "file": "transcripts/edgar/PSIX_8-K_2026-07-27.txt",
-     "why": null
-    },
-    {
-     "label": "QumulusAI 8-K (07-16-2026)",
-     "file": "transcripts/edgar/QMLS_8-K_2026-07-16.txt",
-     "why": null
-    },
-    {
-     "label": "QumulusAI 8-K (08-25-2026)",
-     "file": "transcripts/edgar/QMLS_8-K_2026-08-25.txt",
-     "why": null
-    },
-    {
-     "label": "QumulusAI 8-K (09-22-2026)",
-     "file": "transcripts/edgar/QMLS_8-K_2026-09-22.txt",
-     "why": null
-    },
-    {
-     "label": "Regal Rexnord 8-K (08-05-2026)",
-     "file": "transcripts/edgar/RRX_8-K_2026-08-05.txt",
-     "why": null
-    },
-    {
-     "label": "Riot Platforms 8-K (06-15-2026)",
-     "file": "transcripts/edgar/RIOT_8-K_2026-06-15.txt",
-     "why": null
-    },
-    {
-     "label": "Riot Platforms 8-K (08-14-2026)",
-     "file": "transcripts/edgar/RIOT_8-K_2026-08-14.txt",
-     "why": null
-    },
-    {
-     "label": "Riot Platforms 8-K (09-25-2026)",
-     "file": "transcripts/edgar/RIOT_8-K_2026-09-25.txt",
-     "why": null
-    },
-    {
-     "label": "SOPHiA GENETICS 6-K (06-22-2026)",
-     "file": "transcripts/edgar/SOPH_6-K_2026-06-22.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (06-16-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-06-16.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (07-06-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-07-06.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (07-13-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-07-13.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (07-20-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-07-20.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (07-23-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-07-23.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (07-27-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-07-27.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (08-04-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-08-04.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (08-10-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-08-10.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (08-17-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-08-17.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (08-19-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-08-19.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (08-25-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-08-25.txt",
-     "why": null
-    },
-    {
-     "label": "STMicroelectronics 6-K (08-31-2026)",
-     "file": "transcripts/edgar/STM_6-K_2026-08-31.txt",
-     "why": null
-    },
-    {
-     "label": "Sandisk 8-K (09-11-2026)",
-     "file": "transcripts/edgar/SNDK_8-K_2026-09-11.txt",
-     "why": null
-    },
-    {
-     "label": "Sandisk 8-K (09-16-2026)",
-     "file": "transcripts/edgar/SNDK_8-K_2026-09-16.txt",
-     "why": null
-    },
-    {
-     "label": "Sanmina 8-K (09-15-2026)",
-     "file": "transcripts/edgar/SANM_8-K_2026-09-15.txt",
-     "why": null
-    },
-    {
-     "label": "Sanofi 6-K (08-06-2026)",
-     "file": "transcripts/edgar/SNY_6-K_2026-08-06.txt",
-     "why": null
-    },
-    {
-     "label": "Sanofi 6-K (09-17-2026)",
-     "file": "transcripts/edgar/SNY_6-K_2026-09-17.txt",
-     "why": null
-    },
-    {
-     "label": "Schrödinger 8-K (06-08-2026)",
-     "file": "transcripts/edgar/SDGR_8-K_2026-06-08.txt",
-     "why": null
-    },
-    {
-     "label": "Schrödinger 8-K (06-23-2026)",
-     "file": "transcripts/edgar/SDGR_8-K_2026-06-23.txt",
-     "why": null
+     "why": "10-K: no percentages"
     },
     {
      "label": "SharonAI 10-Q (08-11-2026)",
@@ -1575,169 +259,9 @@
      "why": "10-Q supplier / manufacturing / backlog paragraphs"
     },
     {
-     "label": "SharonAI 8-K (06-25-2026)",
-     "file": "transcripts/edgar/SHAZ_8-K_2026-06-25.txt",
-     "why": null
-    },
-    {
-     "label": "SharonAI 8-K (08-07-2026)",
-     "file": "transcripts/edgar/SHAZ_8-K_2026-08-07.txt",
-     "why": null
-    },
-    {
-     "label": "SharonAI 8-K (08-26-2026)",
-     "file": "transcripts/edgar/SHAZ_8-K_2026-08-26.txt",
-     "why": null
-    },
-    {
-     "label": "SharonAI 8-K (08-28-2026)",
-     "file": "transcripts/edgar/SHAZ_8-K_2026-08-28.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (06-08-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-06-08.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (06-15-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-06-15.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (07-01-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-07-01.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (07-07-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-07-07_2.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (07-09-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-07-09.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (07-30-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-07-30.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (07-31-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-07-31.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (08-03-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-08-03.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (08-05-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-08-05.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (09-01-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-09-01.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (09-03-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-09-03.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (09-28-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-09-28.txt",
-     "why": null
-    },
-    {
-     "label": "Shell 6-K (10-02-2026)",
-     "file": "transcripts/edgar/SHEL_6-K_2026-10-02.txt",
-     "why": null
-    },
-    {
-     "label": "Silicon Motion 6-K (07-08-2026)",
-     "file": "transcripts/edgar/SIMO_6-K_2026-07-08.txt",
-     "why": null
-    },
-    {
-     "label": "Silicon Motion 6-K (07-30-2026)",
-     "file": "transcripts/edgar/SIMO_6-K_2026-07-30.txt",
-     "why": null
-    },
-    {
-     "label": "Silicon Motion 6-K (08-11-2026)",
-     "file": "transcripts/edgar/SIMO_6-K_2026-08-11.txt",
-     "why": null
-    },
-    {
-     "label": "Silicon Motion 6-K (08-14-2026)",
-     "file": "transcripts/edgar/SIMO_6-K_2026-08-14.txt",
-     "why": null
-    },
-    {
-     "label": "Silicon Motion 6-K (09-22-2026)",
-     "file": "transcripts/edgar/SIMO_6-K_2026-09-22.txt",
-     "why": null
-    },
-    {
-     "label": "Simulations Plus 8-K (06-16-2026)",
-     "file": "transcripts/edgar/SLP_8-K_2026-06-16.txt",
-     "why": null
-    },
-    {
-     "label": "Simulations Plus 8-K (06-17-2026)",
-     "file": "transcripts/edgar/SLP_8-K_2026-06-17.txt",
-     "why": null
-    },
-    {
-     "label": "Simulations Plus 8-K (08-13-2026)",
-     "file": "transcripts/edgar/SLP_8-K_2026-08-13.txt",
-     "why": null
-    },
-    {
-     "label": "Simulations Plus 8-K (08-28-2026)",
-     "file": "transcripts/edgar/SLP_8-K_2026-08-28.txt",
-     "why": null
-    },
-    {
      "label": "Skyworks Solutions 10-K (01-30-2026)",
      "file": "transcripts/edgar/SWKS_10-K_2026-01-30_customers.txt",
      "why": "10-K customer concentration"
-    },
-    {
-     "label": "Skyworks Solutions 8-K (08-03-2026)",
-     "file": "transcripts/edgar/SWKS_8-K_2026-08-03.txt",
-     "why": null
-    },
-    {
-     "label": "Skyworks Solutions 8-K (08-10-2026)",
-     "file": "transcripts/edgar/SWKS_8-K_2026-08-10.txt",
-     "why": null
-    },
-    {
-     "label": "Skyworks Solutions 8-K (09-30-2026)",
-     "file": "transcripts/edgar/SWKS_8-K_2026-09-30.txt",
-     "why": null
-    },
-    {
-     "label": "Solaris Energy Infrastructure 8-K (08-05-2026)",
-     "file": "transcripts/edgar/SEI_8-K_2026-08-05.txt",
-     "why": null
-    },
-    {
-     "label": "Solaris Energy Infrastructure 8-K (09-23-2026)",
-     "file": "transcripts/edgar/SEI_8-K_2026-09-23.txt",
-     "why": null
-    },
-    {
-     "label": "Solaris Energy Infrastructure 8-K (10-01-2026)",
-     "file": "transcripts/edgar/SEI_8-K_2026-10-01.txt",
-     "why": null
     },
     {
      "label": "TE Connectivity 10-Q (07-24-2026)",
@@ -1745,139 +269,9 @@
      "why": "10-Q XBRL segment revenue"
     },
     {
-     "label": "TSMC 6-K (07-02-2026)",
-     "file": "transcripts/edgar/TSM_6-K_2026-07-02.txt",
-     "why": null
-    },
-    {
-     "label": "TSMC 6-K (07-16-2026)",
-     "file": "transcripts/edgar/TSM_6-K_2026-07-16.txt",
-     "why": null
-    },
-    {
-     "label": "TSMC 6-K (07-24-2026)",
-     "file": "transcripts/edgar/TSM_6-K_2026-07-24.txt",
-     "why": null
-    },
-    {
-     "label": "TSMC 6-K (08-25-2026)",
-     "file": "transcripts/edgar/TSM_6-K_2026-08-25.txt",
-     "why": null
-    },
-    {
-     "label": "TSMC 6-K (09-01-2026)",
-     "file": "transcripts/edgar/TSM_6-K_2026-09-01.txt",
-     "why": null
-    },
-    {
-     "label": "TTM Technologies 8-K (09-24-2026)",
-     "file": "transcripts/edgar/TTMI_8-K_2026-09-24.txt",
-     "why": null
-    },
-    {
-     "label": "Tecogen 8-K (07-01-2026)",
-     "file": "transcripts/edgar/TGEN_8-K_2026-07-01.txt",
-     "why": null
-    },
-    {
-     "label": "Tecogen 8-K (08-31-2026)",
-     "file": "transcripts/edgar/TGEN_8-K_2026-08-31.txt",
-     "why": null
-    },
-    {
      "label": "Tesla 10-K (04-30-2026)",
      "file": "transcripts/edgar/TSLA_10-K_2026-04-30_supplychain.txt",
      "why": "10-K supplier / manufacturing / backlog paragraphs"
-    },
-    {
-     "label": "Tesla 8-K (09-29-2026)",
-     "file": "transcripts/edgar/TSLA_8-K_2026-09-29.txt",
-     "why": null
-    },
-    {
-     "label": "Tesla 8-K (10-02-2026)",
-     "file": "transcripts/edgar/TSLA_8-K_2026-10-02.txt",
-     "why": null
-    },
-    {
-     "label": "Tower Semiconductor 6-K (07-06-2026)",
-     "file": "transcripts/edgar/TSEM_6-K_2026-07-06.txt",
-     "why": null
-    },
-    {
-     "label": "Tower Semiconductor 6-K (07-07-2026)",
-     "file": "transcripts/edgar/TSEM_6-K_2026-07-07.txt",
-     "why": null
-    },
-    {
-     "label": "Twist Bioscience 8-K (08-19-2026)",
-     "file": "transcripts/edgar/TWST_8-K_2026-08-19.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (06-16-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-06-16.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (06-18-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-06-18.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (06-23-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-06-23.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (06-29-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-06-29.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (07-14-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-07-14.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (07-15-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-07-15.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (07-21-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-07-21.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (07-30-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-07-30.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (08-05-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-08-05.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (08-14-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-08-14.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (08-26-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-08-26.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (09-02-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-09-02.txt",
-     "why": null
-    },
-    {
-     "label": "UMC 6-K (09-29-2026)",
-     "file": "transcripts/edgar/UMC_6-K_2026-09-29.txt",
-     "why": null
     },
     {
      "label": "Uber 10-K (02-13-2026)",
@@ -1890,137 +284,72 @@
      "why": "10-Q supplier / manufacturing / backlog paragraphs"
     },
     {
-     "label": "Uber 8-K (09-15-2026)",
-     "file": "transcripts/edgar/UBER_8-K_2026-09-15.txt",
-     "why": null
-    },
-    {
-     "label": "Ultra Clean 8-K (09-30-2026)",
-     "file": "transcripts/edgar/UCTT_8-K_2026-09-30.txt",
-     "why": null
-    },
-    {
-     "label": "VNET Group 6-K (08-18-2026)",
-     "file": "transcripts/edgar/VNET_6-K_2026-08-18.txt",
-     "why": null
-    },
-    {
-     "label": "VNET Group 6-K (09-21-2026)",
-     "file": "transcripts/edgar/VNET_6-K_2026-09-21.txt",
-     "why": null
-    },
-    {
-     "label": "Vertex 8-K (09-01-2026)",
-     "file": "transcripts/edgar/VRTX_8-K_2026-09-01.txt",
-     "why": null
-    },
-    {
-     "label": "Vistra 8-K (09-24-2026)",
-     "file": "transcripts/edgar/VST_8-K_2026-09-24.txt",
-     "why": null
-    },
-    {
-     "label": "WEC Energy Group 8-K (07-29-2026)",
-     "file": "transcripts/edgar/WEC_8-K_2026-07-29.txt",
-     "why": null
-    },
-    {
-     "label": "WEC Energy Group 8-K (08-11-2026)",
-     "file": "transcripts/edgar/WEC_8-K_2026-08-11.txt",
-     "why": null
-    },
-    {
-     "label": "Wesco 8-K (09-21-2026)",
-     "file": "transcripts/edgar/WCC_8-K_2026-09-21.txt",
-     "why": null
-    },
-    {
-     "label": "Western Digital 8-K (09-14-2026)",
-     "file": "transcripts/edgar/WDC_8-K_2026-09-14.txt",
-     "why": null
-    },
-    {
-     "label": "Williams Companies 8-K (07-01-2026)",
-     "file": "transcripts/edgar/WMB_8-K_2026-07-01.txt",
-     "why": null
-    },
-    {
-     "label": "Williams Companies 8-K (08-03-2026)",
-     "file": "transcripts/edgar/WMB_8-K_2026-08-03.txt",
-     "why": null
-    },
-    {
-     "label": "Williams Companies 8-K (08-21-2026)",
-     "file": "transcripts/edgar/WMB_8-K_2026-08-21.txt",
-     "why": null
-    },
-    {
-     "label": "Williams Companies 8-K (09-03-2026)",
-     "file": "transcripts/edgar/WMB_8-K_2026-09-03.txt",
-     "why": null
-    },
-    {
-     "label": "Williams Companies 8-K (09-10-2026)",
-     "file": "transcripts/edgar/WMB_8-K_2026-09-10.txt",
-     "why": null
-    },
-    {
      "label": "nVent 10-Q (07-31-2026)",
      "file": "transcripts/edgar/NVT_10-Q_2026-07-31_segments.txt",
      "why": "10-Q XBRL segment revenue"
-    },
-    {
-     "label": "nVent 8-K (09-16-2026)",
-     "file": "transcripts/edgar/NVT_8-K_2026-09-16.txt",
-     "why": null
-    },
-    {
-     "label": "nVent 8-K (09-29-2026)",
-     "file": "transcripts/edgar/NVT_8-K_2026-09-29.txt",
-     "why": null
     }
    ],
-   "skipped": 421,
+   "skipped": 812,
    "source_range": [
     "2025-05-30",
-    "2026-10-02"
+    "2026-10-14"
    ],
    "last_fetch": "2026-10-14",
-   "last_enriched": "2026-10-14",
+   "last_enriched": "2026-10-15",
    "enriched_days": [
     {
+     "day": "2026-09-10",
+     "labels": 427
+    },
+    {
+     "day": "2026-09-16",
+     "labels": 1
+    },
+    {
+     "day": "2026-10-01",
+     "labels": 1
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 232
+    },
+    {
      "day": "2026-10-14",
-     "labels": 740
+     "labels": 105
+    },
+    {
+     "day": "2026-10-15",
+     "labels": 80
     }
    ],
-   "last_sync": "2026-10-06",
+   "last_sync": "2026-10-15",
    "extra": {
-    "done": 1570,
-    "dropped": 417,
+    "done": 2141,
+    "dropped": 0,
     "why": [
      [
+      "no supply-chain content",
+      476
+     ],
+     [
       "10-Q supplier / manufacturing / backlog paragraphs",
-      206
+      221
      ],
      [
       "10-K supplier / manufacturing / backlog paragraphs",
-      199
+      210
      ],
      [
       "10-K customer concentration",
-      188
-     ],
-     [
-      "10-Q XBRL segment revenue",
-      161
-     ],
-     [
-      "no supply-chain content",
-      146
+      195
      ],
      [
       "earnings release only",
-      121
+      185
+     ],
+     [
+      "10-Q XBRL segment revenue",
+      168
      ]
     ]
    }
@@ -2030,10 +359,10 @@
    "name": "Korea DART filings",
    "command": "enrich dart",
    "source": "DART 정기보고서 / 잠정실적 / 공급계약 (dart.py)",
-   "files": 162,
-   "labels_on_disk": 181,
-   "in_graph": 178,
-   "entries": 1183,
+   "files": 167,
+   "labels_on_disk": 189,
+   "in_graph": 186,
+   "entries": 1184,
    "pending": [],
    "no_data": [
     {
@@ -2055,19 +384,43 @@
    "skipped": 0,
    "source_range": [
     "2026-08-04",
-    "2026-10-12"
+    "2026-10-15"
    ],
-   "last_fetch": "2026-10-14",
-   "last_enriched": "2026-10-14",
+   "last_fetch": "2026-10-15",
+   "last_enriched": "2026-10-15",
    "enriched_days": [
     {
+     "day": "2026-09-07",
+     "labels": 8
+    },
+    {
+     "day": "2026-09-09",
+     "labels": 1
+    },
+    {
+     "day": "2026-09-27",
+     "labels": 53
+    },
+    {
+     "day": "2026-10-01",
+     "labels": 49
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 9
+    },
+    {
      "day": "2026-10-14",
-     "labels": 142
+     "labels": 21
+    },
+    {
+     "day": "2026-10-15",
+     "labels": 9
     }
    ],
-   "last_sync": "2026-10-12",
+   "last_sync": "2026-10-15",
    "extra": {
-    "filings_seen": 85
+    "filings_seen": 94
    }
   },
   {
@@ -2075,28 +428,52 @@
    "name": "Taiwan / Japan / Europe calls",
    "command": "enrich intl",
    "source": "Investing.com call transcripts (investing.py)",
-   "files": 63,
-   "labels_on_disk": 63,
-   "in_graph": 63,
-   "entries": 504,
+   "files": 67,
+   "labels_on_disk": 67,
+   "in_graph": 67,
+   "entries": 549,
    "pending": [],
    "no_data": [],
    "skipped": 0,
    "source_range": [
     "2026-05-12",
-    "2026-09-07"
+    "2026-10-15"
    ],
-   "last_fetch": "2026-10-14",
-   "last_enriched": "2026-10-14",
+   "last_fetch": "2026-10-15",
+   "last_enriched": "2026-10-16",
    "enriched_days": [
     {
+     "day": "2026-09-01",
+     "labels": 28
+    },
+    {
+     "day": "2026-09-09",
+     "labels": 1
+    },
+    {
+     "day": "2026-09-18",
+     "labels": 1
+    },
+    {
+     "day": "2026-10-01",
+     "labels": 24
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 7
+    },
+    {
      "day": "2026-10-14",
-     "labels": 63
+     "labels": 5
+    },
+    {
+     "day": "2026-10-16",
+     "labels": 1
     }
    ],
-   "last_sync": "2026-10-14",
+   "last_sync": "2026-10-15",
    "extra": {
-    "articles_seen": 0
+    "articles_seen": 191
    }
   },
   {
@@ -2115,18 +492,33 @@
     "2026-02-26",
     "2026-08-28"
    ],
-   "last_fetch": "2026-10-14",
-   "last_enriched": "2026-10-14",
+   "last_fetch": "2026-10-06",
+   "last_enriched": "2026-10-06",
    "enriched_days": [
     {
-     "day": "2026-10-14",
-     "labels": 18
+     "day": "2026-09-07",
+     "labels": 17
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 1
     }
    ],
-   "last_sync": "2026-10-14",
+   "last_sync": "2026-10-15",
    "extra": {
-    "no_media": [],
-    "conferences_seen": 0
+    "no_media": [
+     "2308|2026-07-08",
+     "2308|2026-07-30",
+     "2308|2026-09-22",
+     "2308|2026-10-05",
+     "2327|2026-07-29",
+     "2382|2026-08-13",
+     "3035|2026-07-28",
+     "3443|2026-07-31",
+     "6239|2026-07-28",
+     "8210|2026-08-07"
+    ],
+    "conferences_seen": 11
    }
   },
   {
@@ -2134,10 +526,10 @@
    "name": "Investor conferences",
    "command": "enrich conference",
    "source": "Investing.com fireside chats (investing.py conferences)",
-   "files": 149,
-   "labels_on_disk": 149,
-   "in_graph": 147,
-   "entries": 830,
+   "files": 153,
+   "labels_on_disk": 153,
+   "in_graph": 151,
+   "entries": 858,
    "pending": [],
    "no_data": [
     {
@@ -2154,19 +546,92 @@
    "skipped": 0,
    "source_range": [
     "2026-07-20",
-    "2026-10-06"
+    "2026-10-13"
    ],
-   "last_fetch": "2026-10-14",
-   "last_enriched": "2026-10-14",
+   "last_fetch": "2026-10-15",
+   "last_enriched": "2026-10-16",
    "enriched_days": [
     {
+     "day": "2026-09-16",
+     "labels": 87
+    },
+    {
+     "day": "2026-09-18",
+     "labels": 4
+    },
+    {
+     "day": "2026-09-25",
+     "labels": 1
+    },
+    {
+     "day": "2026-09-27",
+     "labels": 7
+    },
+    {
+     "day": "2026-10-01",
+     "labels": 8
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 24
+    },
+    {
      "day": "2026-10-14",
-     "labels": 147
+     "labels": 16
+    },
+    {
+     "day": "2026-10-15",
+     "labels": 3
+    },
+    {
+     "day": "2026-10-16",
+     "labels": 1
     }
    ],
-   "last_sync": "2026-10-14",
+   "last_sync": "2026-10-15",
    "extra": {
-    "runs": []
+    "runs": [
+     {
+      "at": "2026-10-04 17:48",
+      "since": "2026-04-07",
+      "pages": 0,
+      "oldest_seen": null,
+      "candidates": 0,
+      "saved": 0
+     },
+     {
+      "at": "2026-10-05 23:52",
+      "since": "2026-04-08",
+      "pages": 400,
+      "oldest_seen": "2026-05-27",
+      "candidates": 28,
+      "saved": 25
+     },
+     {
+      "at": "2026-10-06 23:03",
+      "since": "2026-04-09",
+      "pages": 400,
+      "oldest_seen": "2026-05-27",
+      "candidates": 8,
+      "saved": 8
+     },
+     {
+      "at": "2026-10-07 23:11",
+      "since": "2026-04-10",
+      "pages": 400,
+      "oldest_seen": "2026-05-28",
+      "candidates": 0,
+      "saved": 0
+     },
+     {
+      "at": "2026-10-15 23:04",
+      "since": "2026-04-18",
+      "pages": 400,
+      "oldest_seen": "2026-06-08",
+      "candidates": 4,
+      "saved": 4
+     }
+    ]
    }
   },
   {
@@ -2176,35 +641,9 @@
    "source": "Company IR RSS feeds (ir_pull.py) — company-issued, not transcripts",
    "files": 1595,
    "labels_on_disk": 1594,
-   "in_graph": 617,
-   "entries": 853,
-   "pending": [
-    {
-     "company": "INNIO",
-     "label": "INNIO press release: INNIO and Aggreko Extend Strategic Partnership Through (10-08-2026)",
-     "file": "transcripts/ir/innio_2026-10-08_innio-and-aggreko-extend-strategic-partnership-thr.txt"
-    },
-    {
-     "company": "INNIO",
-     "label": "INNIO press release: INNIO Completes Acquisition of Enerflex APAC Aftermarket (09-30-2026)",
-     "file": "transcripts/ir/innio_2026-09-30_innio-completes-acquisition-of-enerflex-apac-after.txt"
-    },
-    {
-     "company": "INNIO",
-     "label": "INNIO press release: INNIO Receives Credit Rating Upgrades and Reaffirms (09-22-2026)",
-     "file": "transcripts/ir/innio_2026-09-22_innio-receives-credit-rating-upgrades-and-reaffirm.txt"
-    },
-    {
-     "company": "INNIO",
-     "label": "INNIO press release: INNIO Secures 450 MW Order to Power Next-Generation Data (09-17-2026)",
-     "file": "transcripts/ir/innio_2026-09-17_innio-secures-450-mw-order-to-power-next-generatio.txt"
-    },
-    {
-     "company": "INNIO",
-     "label": "INNIO press release: INNIO Expands Waukesha Site to Meet Growing Demand for (08-19-2026)",
-     "file": "transcripts/ir/innio_2026-08-19_innio-expands-waukesha-site-to-meet-growing-demand.txt"
-    }
-   ],
+   "in_graph": 621,
+   "entries": 857,
+   "pending": [],
    "no_data": [
     {
      "label": "10x Genomics press release: 10x Genomics Wins Patent Infringement Verdict Against Parse (08-28-2026)",
@@ -3764,6 +2203,11 @@
     {
      "label": "INNIO press release: INNIO Announces Pricing of Upsized Initial Public Offering (06-03-2026)",
      "file": "transcripts/ir/innio_2026-06-03_innio-announces-pricing-of-upsized-initial-public-.txt",
+     "why": null
+    },
+    {
+     "label": "INNIO press release: INNIO Receives Credit Rating Upgrades and Reaffirms (09-22-2026)",
+     "file": "transcripts/ir/innio_2026-09-22_innio-receives-credit-rating-upgrades-and-reaffirm.txt",
      "why": null
     },
     {
@@ -7076,8 +5520,24 @@
    "last_enriched": "2026-10-14",
    "enriched_days": [
     {
+     "day": "2026-09-25",
+     "labels": 59
+    },
+    {
+     "day": "2026-09-27",
+     "labels": 130
+    },
+    {
+     "day": "2026-10-01",
+     "labels": 180
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 61
+    },
+    {
      "day": "2026-10-14",
-     "labels": 614
+     "labels": 188
     }
    ],
    "last_sync": "2026-10-14",
@@ -7137,10 +5597,10 @@
    "name": "Korea IR decks (KIND)",
    "command": "enrich korea",
    "source": "KRX KIND IR library + large-cap IR sites (kind.py) — company IR presentations, not transcripts",
-   "files": 49,
-   "labels_on_disk": 49,
-   "in_graph": 39,
-   "entries": 101,
+   "files": 51,
+   "labels_on_disk": 51,
+   "in_graph": 40,
+   "entries": 105,
    "pending": [],
    "no_data": [
     {
@@ -7179,6 +5639,11 @@
      "why": null
     },
     {
+     "label": "MK Electron IR presentation: KIND 19448 (10-15-2026)",
+     "file": "transcripts/kind/mkelectron_2026-10-15_19448.txt",
+     "why": null
+    },
+    {
      "label": "Park Systems IR presentation: KIND 19225 (09-02-2026)",
      "file": "transcripts/kind/parksystems_2026-09-02_19225.txt",
      "why": null
@@ -7197,29 +5662,27 @@
    "skipped": 0,
    "source_range": [
     "2026-04-23",
-    "2026-10-12"
+    "2026-10-16"
    ],
-   "last_fetch": "2026-10-14",
-   "last_enriched": "2026-10-14",
+   "last_fetch": "2026-10-15",
+   "last_enriched": "2026-10-15",
    "enriched_days": [
     {
+     "day": "2026-09-27",
+     "labels": 37
+    },
+    {
      "day": "2026-10-14",
-     "labels": 39
+     "labels": 2
+    },
+    {
+     "day": "2026-10-15",
+     "labels": 1
     }
    ],
-   "last_sync": "2026-10-12",
+   "last_sync": "2026-10-15",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-01 01:01",
-      "since": "2026-09-19",
-      "listed": 23,
-      "ours": 0,
-      "saved": 0,
-      "skipped": 0,
-      "site_saved": 0,
-      "site_skipped": 0
-     },
      {
       "at": "2026-10-01 03:08",
       "since": "2026-09-24",
@@ -7259,6 +5722,16 @@
       "skipped": 1,
       "site_saved": 0,
       "site_skipped": 0
+     },
+     {
+      "at": "2026-10-15 23:12",
+      "since": "2026-10-05",
+      "listed": 71,
+      "ours": 5,
+      "saved": 2,
+      "skipped": 0,
+      "site_saved": 0,
+      "site_skipped": 0
      }
     ]
    }
@@ -7279,11 +5752,11 @@
     "2025-10-15",
     "2026-08-17"
    ],
-   "last_fetch": "2026-10-14",
-   "last_enriched": "2026-10-14",
+   "last_fetch": "2026-10-01",
+   "last_enriched": "2026-10-01",
    "enriched_days": [
     {
-     "day": "2026-10-14",
+     "day": "2026-10-01",
      "labels": 3
     }
    ],
@@ -7327,27 +5800,17 @@
     "2026-07-30",
     "2026-07-30"
    ],
-   "last_fetch": "2026-10-14",
-   "last_enriched": "2026-10-14",
+   "last_fetch": "2026-09-26",
+   "last_enriched": "2026-09-27",
    "enriched_days": [
     {
-     "day": "2026-10-14",
+     "day": "2026-09-27",
      "labels": 1
     }
    ],
-   "last_sync": "2026-10-12",
+   "last_sync": "2026-10-15",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-01 01:01",
-      "since": "2026-09-19",
-      "listed": 23,
-      "ours": 0,
-      "saved": 0,
-      "skipped": 0,
-      "site_saved": 0,
-      "site_skipped": 0
-     },
      {
       "at": "2026-10-01 03:08",
       "since": "2026-09-24",
@@ -7385,6 +5848,16 @@
       "ours": 3,
       "saved": 2,
       "skipped": 1,
+      "site_saved": 0,
+      "site_skipped": 0
+     },
+     {
+      "at": "2026-10-15 23:12",
+      "since": "2026-10-05",
+      "listed": 71,
+      "ours": 5,
+      "saved": 2,
+      "skipped": 0,
       "site_saved": 0,
       "site_skipped": 0
      }
@@ -7802,8 +6275,16 @@
    "last_enriched": "2026-10-14",
    "enriched_days": [
     {
+     "day": "2026-10-01",
+     "labels": 95
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 35
+    },
+    {
      "day": "2026-10-14",
-     "labels": 149
+     "labels": 19
     }
    ],
    "last_sync": "2026-10-13",
@@ -7878,12 +6359,16 @@
     "2026-02-28",
     "2026-08-29"
    ],
-   "last_fetch": "2026-10-14",
+   "last_fetch": "2026-10-06",
    "last_enriched": "2026-10-14",
    "enriched_days": [
     {
+     "day": "2026-10-06",
+     "labels": 158
+    },
+    {
      "day": "2026-10-14",
-     "labels": 159
+     "labels": 1
     }
    ],
    "last_sync": "2026-10-13",
@@ -8058,8 +6543,16 @@
    "last_enriched": "2026-10-14",
    "enriched_days": [
     {
+     "day": "2026-10-01",
+     "labels": 5
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 4
+    },
+    {
      "day": "2026-10-14",
-     "labels": 19
+     "labels": 10
     }
    ],
    "last_sync": "2026-10-13",
@@ -8148,10 +6641,10 @@
    "name": "Japan EDINET statutory reports",
    "command": "enrich japan",
    "source": "FSA EDINET 有価証券報告書 / 半期報告書 (edinet.py) — major customers, capex, R&D, MD&A; company filings, not transcripts",
-   "files": 516,
-   "labels_on_disk": 269,
-   "in_graph": 248,
-   "entries": 1395,
+   "files": 518,
+   "labels_on_disk": 270,
+   "in_graph": 249,
+   "entries": 1399,
    "pending": [],
    "no_data": [
     {
@@ -8263,17 +6756,21 @@
    "skipped": 0,
    "source_range": [
     "2025-10-15",
-    "2026-09-30"
+    "2026-10-14"
    ],
    "last_fetch": "2026-10-14",
    "last_enriched": "2026-10-14",
    "enriched_days": [
     {
-     "day": "2026-10-14",
+     "day": "2026-10-06",
      "labels": 248
+    },
+    {
+     "day": "2026-10-14",
+     "labels": 1
     }
    ],
-   "last_sync": "2026-10-06",
+   "last_sync": "2026-10-15",
    "extra": {
     "runs": [
      {
@@ -8285,6 +6782,16 @@
       "skipped": 2,
       "later": 0,
       "already": 8
+     },
+     {
+      "at": "2026-10-14 23:05",
+      "days": "2026-10-03..2026-10-15",
+      "companies": null,
+      "reports": 1,
+      "saved": 1,
+      "skipped": 0,
+      "later": 0,
+      "already": 0
      }
     ]
    }
@@ -8294,10 +6801,10 @@
    "name": "Taiwan MOPS filings",
    "command": "enrich taiwan",
    "source": "MOPS 法說會 decks, important 重大訊息 and monthly revenue (mops.py) — company filings, not transcripts",
-   "files": 495,
-   "labels_on_disk": 495,
-   "in_graph": 429,
-   "entries": 609,
+   "files": 512,
+   "labels_on_disk": 512,
+   "in_graph": 445,
+   "entries": 625,
    "pending": [],
    "no_data": [
     {
@@ -8629,73 +7136,91 @@
      "label": "eMemory IR presentation: MOPS 352920260827E003 (09-10-2026)",
      "file": "transcripts/mops/ememory_2026-09-10_deck_352920260827E003.txt",
      "why": null
+    },
+    {
+     "label": "eMemory IR presentation: MOPS 352920261016E001 (10-29-2026)",
+     "file": "transcripts/mops/ememory_2026-10-29_deck_352920261016E001.txt",
+     "why": null
     }
    ],
    "skipped": 0,
    "source_range": [
     "2026-05-05",
-    "2026-10-13"
+    "2026-10-29"
    ],
-   "last_fetch": "2026-10-14",
-   "last_enriched": "2026-10-14",
+   "last_fetch": "2026-10-15",
+   "last_enriched": "2026-10-15",
    "enriched_days": [
     {
+     "day": "2026-10-01",
+     "labels": 172
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 157
+    },
+    {
      "day": "2026-10-14",
-     "labels": 429
+     "labels": 100
+    },
+    {
+     "day": "2026-10-15",
+     "labels": 16
     }
    ],
-   "last_sync": "2026-10-13",
+   "last_sync": "2026-10-15",
    "extra": {
     "runs": [
      {
-      "at": "2026-10-06 02:26",
-      "since": "2026-05-01",
+      "at": "2026-10-15 23:29",
+      "since": "2026-09-01",
       "companies": 1,
       "deck_saved": 0,
       "deck_skipped": 0,
       "material_saved": 0,
-      "material_skipped": 14,
-      "revenue_saved": 6
+      "material_skipped": 0,
+      "revenue_saved": 1
      },
      {
-      "at": "2026-10-06 02:29",
-      "since": "2026-05-01",
+      "at": "2026-10-15 23:32",
+      "since": "2026-09-01",
       "companies": 1,
       "deck_saved": 0,
       "deck_skipped": 0,
       "material_saved": 0,
-      "material_skipped": 13,
-      "revenue_saved": 5
+      "material_skipped": 0,
+      "revenue_saved": 1,
+      "deck_list_failed": 1
      },
      {
-      "at": "2026-10-06 02:32",
-      "since": "2026-05-01",
+      "at": "2026-10-15 23:33",
+      "since": "2026-09-01",
       "companies": 1,
       "deck_saved": 0,
       "deck_skipped": 0,
       "material_saved": 0,
-      "material_skipped": 16,
-      "revenue_saved": 5
+      "material_skipped": 0,
+      "revenue_saved": 1
      },
      {
-      "at": "2026-10-06 02:39",
-      "since": "2026-05-01",
+      "at": "2026-10-15 23:34",
+      "since": "2026-09-01",
       "companies": 1,
-      "deck_saved": 1,
+      "deck_saved": 0,
       "deck_skipped": 0,
       "material_saved": 0,
-      "material_skipped": 13,
-      "revenue_saved": 5
+      "material_skipped": 0,
+      "revenue_saved": 1
      },
      {
-      "at": "2026-10-13 06:00",
-      "since": "per company",
-      "companies": 135,
-      "deck_saved": 5,
+      "at": "2026-10-15 23:35",
+      "since": "2026-09-01",
+      "companies": 1,
+      "deck_saved": 0,
       "deck_skipped": 0,
-      "material_saved": 14,
-      "material_skipped": 88,
-      "revenue_saved": 81
+      "material_saved": 0,
+      "material_skipped": 0,
+      "revenue_saved": 1
      }
     ]
    }
@@ -8707,8 +7232,8 @@
    "source": "URL / pasted text enriched directly in Claude Code",
    "files": 550,
    "labels_on_disk": 343,
-   "in_graph": 540,
-   "entries": 3062,
+   "in_graph": 541,
+   "entries": 3073,
    "pending": [],
    "no_data": [
     {
@@ -8771,8 +7296,40 @@
    "last_enriched": "2026-10-14",
    "enriched_days": [
     {
+     "day": "2026-08-27",
+     "labels": 1
+    },
+    {
+     "day": "2026-09-04",
+     "labels": 1
+    },
+    {
+     "day": "2026-09-07",
+     "labels": 6
+    },
+    {
+     "day": "2026-09-16",
+     "labels": 1
+    },
+    {
+     "day": "2026-09-25",
+     "labels": 3
+    },
+    {
+     "day": "2026-09-27",
+     "labels": 1
+    },
+    {
+     "day": "2026-10-01",
+     "labels": 218
+    },
+    {
+     "day": "2026-10-06",
+     "labels": 14
+    },
+    {
      "day": "2026-10-14",
-     "labels": 310
+     "labels": 66
     }
    ],
    "last_sync": "2026-10-14",
@@ -10195,11 +8752,23 @@
   },
   {
    "day": "2026-10-14",
+   "pipeline": "manual",
+   "files": 550,
+   "in_graph": 540,
+   "pending": 0,
+   "last_sync": "2026-10-14",
+   "source_range": [
+    "2024-11-07",
+    "2026-10-06"
+   ]
+  },
+  {
+   "day": "2026-10-14",
    "pipeline": "edgar",
    "files": 2005,
-   "in_graph": 743,
-   "pending": 0,
-   "last_sync": "2026-10-06",
+   "in_graph": 744,
+   "pending": 37,
+   "last_sync": "2026-10-14",
    "source_range": [
     "2025-05-30",
     "2026-10-02"
@@ -10211,7 +8780,7 @@
    "files": 63,
    "in_graph": 63,
    "pending": 0,
-   "last_sync": "2026-10-14",
+   "last_sync": "2026-10-06",
    "source_range": [
     "2026-05-12",
     "2026-09-07"
@@ -10223,7 +8792,7 @@
    "files": 18,
    "in_graph": 18,
    "pending": 0,
-   "last_sync": "2026-10-14",
+   "last_sync": "2026-10-06",
    "source_range": [
     "2026-02-26",
     "2026-08-28"
@@ -10235,7 +8804,7 @@
    "files": 149,
    "in_graph": 147,
    "pending": 0,
-   "last_sync": "2026-10-14",
+   "last_sync": "2026-10-07",
    "source_range": [
     "2026-07-20",
     "2026-10-06"
@@ -10245,8 +8814,8 @@
    "day": "2026-10-14",
    "pipeline": "ir",
    "files": 1595,
-   "in_graph": 617,
-   "pending": 5,
+   "in_graph": 621,
+   "pending": 0,
    "last_sync": "2026-10-14",
    "source_range": [
     "2026-05-15",
@@ -10255,19 +8824,187 @@
   },
   {
    "day": "2026-10-14",
+   "pipeline": "edinet",
+   "files": 516,
+   "in_graph": 248,
+   "pending": 1,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2025-10-15",
+    "2026-09-30"
+   ]
+  },
+  {
+   "day": "2026-10-15",
+   "pipeline": "us",
+   "files": 377,
+   "in_graph": 376,
+   "pending": 0,
+   "last_sync": "2026-10-14",
+   "source_range": [
+    "2025-11-05",
+    "2026-10-14"
+   ]
+  },
+  {
+   "day": "2026-10-15",
+   "pipeline": "edgar",
+   "files": 2155,
+   "in_graph": 849,
+   "pending": 0,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2025-05-30",
+    "2026-10-14"
+   ]
+  },
+  {
+   "day": "2026-10-15",
+   "pipeline": "intl",
+   "files": 66,
+   "in_graph": 66,
+   "pending": 0,
+   "last_sync": "2026-10-14",
+   "source_range": [
+    "2026-05-12",
+    "2026-10-12"
+   ]
+  },
+  {
+   "day": "2026-10-15",
+   "pipeline": "edinet",
+   "files": 518,
+   "in_graph": 249,
+   "pending": 0,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2025-10-15",
+    "2026-10-14"
+   ]
+  },
+  {
+   "day": "2026-10-15",
+   "pipeline": "dart",
+   "files": 162,
+   "in_graph": 178,
+   "pending": 9,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2026-08-04",
+    "2026-10-12"
+   ]
+  },
+  {
+   "day": "2026-10-16",
+   "pipeline": "dart",
+   "files": 167,
+   "in_graph": 186,
+   "pending": 0,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2026-08-04",
+    "2026-10-15"
+   ]
+  },
+  {
+   "day": "2026-10-16",
+   "pipeline": "conference",
+   "files": 153,
+   "in_graph": 151,
+   "pending": 0,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2026-07-20",
+    "2026-10-13"
+   ]
+  },
+  {
+   "day": "2026-10-16",
+   "pipeline": "kind",
+   "files": 51,
+   "in_graph": 40,
+   "pending": 0,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2026-04-23",
+    "2026-10-16"
+   ]
+  },
+  {
+   "day": "2026-10-16",
+   "pipeline": "krcalls",
+   "files": 1,
+   "in_graph": 1,
+   "pending": 0,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2026-07-30",
+    "2026-07-30"
+   ]
+  },
+  {
+   "day": "2026-10-16",
+   "pipeline": "mops",
+   "files": 512,
+   "in_graph": 445,
+   "pending": 0,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2026-05-05",
+    "2026-10-29"
+   ]
+  },
+  {
+   "day": "2026-10-16",
    "pipeline": "manual",
    "files": 550,
-   "in_graph": 540,
+   "in_graph": 541,
    "pending": 0,
    "last_sync": "2026-10-14",
    "source_range": [
     "2024-11-07",
     "2026-10-06"
    ]
+  },
+  {
+   "day": "2026-10-16",
+   "pipeline": "us",
+   "files": 377,
+   "in_graph": 376,
+   "pending": 0,
+   "last_sync": "2026-10-16",
+   "source_range": [
+    "2025-11-05",
+    "2026-10-14"
+   ]
+  },
+  {
+   "day": "2026-10-16",
+   "pipeline": "tw",
+   "files": 18,
+   "in_graph": 18,
+   "pending": 0,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2026-02-26",
+    "2026-08-28"
+   ]
+  },
+  {
+   "day": "2026-10-16",
+   "pipeline": "intl",
+   "files": 67,
+   "in_graph": 67,
+   "pending": 0,
+   "last_sync": "2026-10-15",
+   "source_range": [
+    "2026-05-12",
+    "2026-10-15"
+   ]
   }
  ],
  "board": {
-  "today": "2026-10-14",
+  "today": "2026-10-16",
   "markets": [
    {
     "id": "US",
@@ -10330,11 +9067,9 @@
      }
     ],
     "feeds": 219,
-    "waiting": {
-     "ir": 5
-    },
+    "waiting": {},
     "collectors": {
-     "us": "2026-10-14",
+     "us": "2026-10-16",
      "utility": "2026-10-01"
     }
    },
@@ -10496,8 +9231,8 @@
     "feeds": 25,
     "waiting": {},
     "collectors": {
-     "dart": "2026-10-12",
-     "kind": "2026-10-12"
+     "dart": "2026-10-15",
+     "kind": "2026-10-15"
     }
    },
    {
@@ -10656,9 +9391,9 @@
     "feeds": 49,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-14",
-     "tw": "2026-10-14",
-     "mops": "2026-10-13"
+     "intl": "2026-10-15",
+     "tw": "2026-10-15",
+     "mops": "2026-10-15"
     }
    },
    {
@@ -11322,9 +10057,9 @@
     "feeds": 60,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-14",
+     "intl": "2026-10-15",
      "tdnet": "2026-10-13",
-     "edinet": "2026-10-06"
+     "edinet": "2026-10-15"
     }
    },
    {
@@ -11332,7 +10067,7 @@
     "name": "Europe",
     "command": "enrich europe",
     "companies": 40,
-    "call_current": 28,
+    "call_current": 30,
     "overdue": [],
     "never": [
      "ASM International",
@@ -11343,16 +10078,13 @@
      "Prysmian",
      "Rolls-Royce",
      "SUSS MicroTec",
-     "Siemens Energy",
-     "VAT Group",
-     "Volex"
+     "Siemens Energy"
     ],
     "nothing": [
      "Comet Holding",
      "Inficon",
      "Prysmian",
-     "Siemens Energy",
-     "VAT Group"
+     "Siemens Energy"
     ],
     "dart_never": [],
     "marked": [
@@ -11366,7 +10098,7 @@
     "feeds": 21,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-14"
+     "intl": "2026-10-15"
     }
    },
    {
@@ -11374,7 +10106,7 @@
     "name": "China / Hong Kong",
     "command": "enrich china",
     "companies": 118,
-    "call_current": 3,
+    "call_current": 4,
     "overdue": [],
     "never": [
      "AMEC",
@@ -11482,7 +10214,6 @@
      "WUS Printed Circuit",
      "Woer Heat-Shrinkable Material",
      "Wuxi Taclink Optoelectronics",
-     "Xiaomi",
      "YOFC",
      "Yoke Technology",
      "Yuanjie",
@@ -11494,15 +10225,14 @@
      "Zhongtian Technology"
     ],
     "nothing": [
-     "Innoscience",
-     "Xiaomi"
+     "Innoscience"
     ],
     "dart_never": [],
     "marked": [],
     "feeds": 12,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-14",
+     "intl": "2026-10-15",
      "cninfo": "2026-10-13",
      "cnreports": "2026-10-13"
     }
@@ -11538,30 +10268,11 @@
     "feeds": 2,
     "waiting": {},
     "collectors": {
-     "intl": "2026-10-14"
+     "intl": "2026-10-15"
     }
    }
   ],
-  "next_actions": [
-   {
-    "command": "enrich us",
-    "reasons": [
-     "5 fetched file(s) waiting to be enriched (5 IR release)"
-    ]
-   },
-   {
-    "command": "enrich edgar",
-    "reasons": [
-     "last pulled 8 days ago, 2026-10-06 (weekly)"
-    ]
-   },
-   {
-    "command": "enrich japan",
-    "reasons": [
-     "EDINET annual / semi-annual report sync (edinet.py) last ran 8 days ago (2026-10-06)"
-    ]
-   }
-  ],
+  "next_actions": [],
   "setup": [
    "Korean earnings calls: only Samsung publishes an official call script (kind.py fetches it). SK Hynix's calls exist only at third-party transcript services, SEMCO / SK Telecom have an audio replay, NAVER a gated replay, LG Innotek none; most KOSDAQ names hold no public call (their decks come through kind.py). The last calls in the graph are Samsung Electro-Mechanics 2026-04-30, SK Hynix 2026-07-29, Samsung 2026-07-30; 124 Korean companies never had one. A call pasted by the user (Transcript:<company>) is enriched as usual."
   ],
@@ -11913,23 +10624,137 @@
     "question": "Verifiers deleted (a) Foxconn selling 5,544,000 Zhen Ding shares, an equity-method investee (gain NT$2.68B, 26.47% kept), MOPS 10-12-2026, and (b) Osaka Organic buying shares that made SANBO Chemical an equity-method affiliate, TDnet 10-09-2026, under the equity-investment exclusion. Keep ownership changes between supply-chain companies as company facts (no price), or keep excluding them?",
     "label": "Foxconn MOPS material information: release 2317-20261012-1 (10-12-2026)",
     "at": "2026-10-13"
+   },
+   {
+    "subject": "Material litigation",
+    "question": "Capture material legal proceedings or not? Tonight: Micron 10-K (10-09-2026) DRAM price-fixing class action (06-25-2026, vs Micron / Samsung / SK hynix) was skipped; Moderna 10-K / 10-Q patent suits (Bayer/Monsanto; Sanofi subsidiaries) were captured; Rorze's semi-annual report patent-settlement payment (JPY 9,587 million) was captured. The rules list litigation neither way.",
+    "label": "Micron 10-K (10-09-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "DoD Chinese Military Company designations",
+    "question": "Alibaba 6-K (06-09-2026): the DoD added Alibaba to its 1260H Chinese Military Companies list; captured with the company's own response (data kept safe). Baidu's 6-K the same day (same designation) was skipped. Capture such designations (then add Baidu next run) or remove Alibaba's entry?",
+    "label": "Alibaba 6-K (06-09-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "Strategic equity investments by partners",
+    "question": "Teradyne's $300 million strategic equity investment in FormFactor (8-K 10-13-2026, tied by Teradyne's CEO to the collaboration) was kept on FormFactor's node by the verifier, citing the NVIDIA -> Coherent / Marvell and MACOM -> IQE precedents. Keep such partner investments as relationship facts, or drop them as financing?",
+    "label": "FormFactor 8-K (10-13-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "Strategic ownership changes",
+    "question": "A CATL-affiliated vehicle (Lochpine Capital via PJ Millennium) closed a ~38.1% stake in VNET (6-K 09-21-2026) with a 'computing-power-electricity coordination' support clause; Westinghouse confidentially filed a draft IPO registration (Brookfield Renewable 6-K 07-31-2026). Both were left out as governance / financing. Record large strategic ownership changes or subsidiary IPO filings?",
+    "label": "VNET Group 6-K (09-21-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "Licence and disposal values",
+    "question": "(1) In-licence upfront / milestone values (AstraZeneca H1 2026: Dizal $600m + up to $900m, CTTQ $200m + up to $1.9bn, CSPC $1.2bn + up to $3.5bn) were left out as deal price, while partner milestones (Daiichi Sankyo $25M / $100M) are captured - capture licence values? (2) Capacity SOLD (MW only, no proceeds; e.g. Brookfield Renewable Q2 2026: ~570 MW Europe, ~2,100 MW to Northview, 25% of 403 MW Maine hydro, Colombian 218 / 39 MW): the rules keep acquisitions' operating facts but say nothing on disposals - capture?",
+    "label": "AstraZeneca 6-K (07-27-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "Bitcoin lending",
+    "question": "MARA 8-K (08-06-2026): '4,742 BTC loaned, ~$4.3M interest income' was removed by the verifier as treasury / financial-yield activity (the 2026-10-13 rule keeps a miner's production, holdings and sales; pledges are financing). Count lent BTC as holdings and keep it, or exclude?",
+    "label": "MARA Holdings 8-K (08-06-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "Wolfspeed",
+    "question": "Wolfspeed 8-K (10-07-2026), a conditional US Department of War loan commitment: deal terms dropped, one entry kept on the operating program the commitment would require (domestic SiC wafer / power-device and GaN production, GaN-on-SiC RF epi, rad-hardening), hedged as conditional. Does a program described in a financing filing count as an operating fact?",
+    "label": "Wolfspeed 8-K (10-07-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "TeraWulf",
+    "question": "TeraWulf's Muskie site is supplied by Kentucky Power (an AEP company), now 1 GW. AEP is only in power_cooling.json and TeraWulf only in neocloud.json, so no AEP -> TeraWulf edge can exist (the fact sits on TeraWulf's node). Add a TeraWulf placement in power_cooling.json for that edge?",
+    "label": "TeraWulf 8-K (10-05-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "Rehlko",
+    "question": "INNIO 8-K (07-28-2026): multi-year framework with Rehlko (private) securing ~1.25 GW of gas-engine capacity over three years, expanding Rehlko's 700 MW firm reservation. Add Rehlko as a node with an INNIO -> Rehlko edge, or keep it as counterparty text on INNIO (current)? Also: the applied INNIO Q2 FY2026 call entry has 'Greco [as transcribed]' for this customer - correct it to Rehlko via patches/corrections?",
+    "label": "INNIO 8-K (07-28-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "Kingsoft Cloud",
+    "question": "The applied call entry 'Kingsoft Cloud Q2 FY2026' says adjusted net loss 'RMB 6 million'; the Q2 release (6-K 08-19-2026) prints non-GAAP net loss RMB59.8 million (likely a transcript error). Correct the call entry to the filed figure, or keep it as its own source states? (same shape as the open Recursion / Power Solutions International questions)",
+    "label": "Kingsoft Cloud 6-K (08-19-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "ASE Group",
+    "question": "The applied call entries 'ASE Group Q2 FY2026 (07-30-2026)' (cpu_datacenter.json and packaging_substrate.json) say the general segment grows ~30% YoY (was 13%); the company's filed deck (6-K 07-30-2026) says 20% vs the previous 13%, and the pasted transcript's 30% looks like a transcription error. Correct the call entries to 20%, or keep them as the transcript states?",
+    "label": "ASE Group 6-K (07-30-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "Moderna -> Merck & Co. edge",
+    "question": "Created tonight from Moderna's 10-K (02-20-2026) and confirmed by the verifier: Moderna designs and manufactures intismeran and provides manufacturing capacity under the PCV collaboration ($200M upfront, ASC 606). Merck co-develops the product and the 10-K words the duties partly in the past tense. Keep collaboration-partner edges between two Biopharma End Customers like this one (also Moderna -> Vertex, CF mRNA manufacturing)?",
+    "label": "Moderna 10-K (02-20-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "EDGAR pipeline gaps",
+    "question": "Tonight's SEC pull found: (1) edgartools Filing.html() fails for many recent filings (primary-document lookup None), so edgar_pull saved nothing for them (Micron 10-K 10-09, ~57 recent 8-Ks); recovered with utils/edgar_pull_fallback.py (new, uncommitted). Fold that fallback into edgar_pull.document_text()? (2) Exhibits not saved (PDF / separate documents): Baidu 6-K 09-17 and Kingsoft Cloud 6-K 09-21 '2026 Interim Report', GDS 6-K 09-04 HK Interim Report, Alibaba 6-K 06-18 HK annual / ESG reports, SharonAI 8-K 08-07 EX-99.1 Q2 release; QumulusAI 8-K 09-22 deck is images only. Fetch these? (3) The XBRL segment reader mis-assigns Medpace therapeutic-area names (10-K 02-10, 10-Q 07-23; printed tables used). (4) Canaan's monthly production updates come only via 6-K - add an IR feed for Canaan?",
+    "label": "Micron 10-K (10-09-2026)",
+    "at": "2026-10-15"
+   },
+   {
+    "subject": "power_cooling topic scope",
+    "question": "The power_cooling timeline is described as 'AI datacenter power delivery & cooling', but in practice the tag sits on every grid / generation equipment contract (21 of 25 DART supply-contract entries in power_cooling.json, e.g. Taihan Cable's North America HV cable order and BHI's LNG power-plant equipment, which never mention data centers). Should power_cooling cover the whole power domain (keep tagging all power equipment) or only data-center power and cooling (then new grid / generation entries get topics [] and a verifier pass trims the old tags)?",
+    "label": "Taihan Cable DART supply contract (10-15-2026)",
+    "at": "2026-10-16"
    }
   ],
   "shared": {
    "ir": {
     "last_sync": "2026-10-14",
-    "days": 0,
+    "days": 2,
     "due": false,
     "feeds": 388
    },
    "conference": {
-    "last_sync": "2026-10-14",
-    "days": 0,
+    "last_sync": "2026-10-15",
+    "days": 1,
     "due": false
    }
   },
   "verify_pending": 0,
   "notes": [
+   {
+    "at": "2026-10-16 00:35",
+    "market": "TW",
+    "text": "2026-10-15/16 nightly enrich: MOPS 7 rows (Nanya x2, Winbond, Unimicron x2, Zhen Ding material; eMemory 10-29 deck = restates 08-25 deck). mops.py fix (uncommitted): -KY companies file two revenue columns (NT$ + functional currency) and every revenue fetch for them failed ('too many values to unpack') - now parsed; Aug + Sep 2026 revenue of Silergy, ShunSin, PCL, GCS and Advanced Energy Solution backfilled and enriched (their first MOPS revenue rows). tw.py now records last_sync (uncommitted; enrich_status.py reads it) - before, a sync with nothing new left the board saying 'tw.py sync due'. tw.py sync 10-15: only Delta broker events (no media); Faraday / Powertech 10-27, Delta 10-29 upcoming. mopsov.twse.com.tw timed out at ~01:30 10-16 (deck list) - next sync retries. Winbond's capex-budget 重大訊息 (board 10-27-2025, 02-10-2026, 08-06-2026) never reached the graph - check mops.py coverage for 2344 (verifier note)."
+   },
+   {
+    "at": "2026-10-16 00:25",
+    "market": "KR",
+    "text": "2026-10-15/16 nightly enrich: DART 9 filings (7 supply contracts, Techwing Q3 prelim, SFA Semiconductor amended H1 report 10-13) + KIND 2 decks (Nepes enriched; MK Electron 19448 deck has no text layer - closed 'no material facts', would need OCR). dart.py saves an amended periodic report ([기재정정]) over the original file name, so the original label (e.g. SFA Semiconductor Q2 FY2026 (08-12-2026), Auros 08-14) no longer appears in any file header; verify/evidence resolve it by file name. The SFA amendment added only treasury-share text; facts the 08-12 pass missed (ASP per package, EMC / solder-ball prices, Q2 three-month P&L, R&D items) were enriched under the 10-13 label."
+   },
+   {
+    "at": "2026-10-15 01:05",
+    "market": "all",
+    "text": "2026-10-15 01:10 follow-up: the post-apply Opus verifier over the 5 call/report labels (ASML, Rorze, Nanya, Volex, Xiaomi) finished - 4 wording corrections applied with apply_corrections.py (patches/corrections/applied/verify-1015-calls.json); verify_queue.json is empty. Still owed: graph_build.py --sync, then verify_graph on edgar/verify_labels_2026-10-15.json, then i18n. Not started tonight because the build is blocked: enrich korea (DART sync now due) and the conference listing walk (last 10-07). tw.py sync ran 10-14 23:2x: nothing new (Faraday / Powertech calls 10-27)."
+   },
+   {
+    "at": "2026-10-15 00:56",
+    "market": "all",
+    "text": "2026-10-14/15 nightly enrich (session 'nightly enrich 10-14'): 142 patches / 127 labels APPLIED to chains/ (ASML Q3 call, Rorze EDINET H1, Nanya Q3 / Volex Q4 / Xiaomi Q2 calls, 122 SEC filing labels). graph_build.py --sync was then STOPPED by the system for low memory (cause: an orphaned 4.4 GB grep left by a subagent, now killed) after apply + merged graph + derive: evidence, verify_graph, board, npm sync and i18n did NOT run. Next: python graph_build.py --sync; then verify the applied labels listed in edgar/verify_labels_2026-10-15.json (command in its _note; a rerun of graph_build verifies nothing because nothing is left to apply); then i18n (skill section 9); verify_queue.json has 5 pending call/report labels (an Opus verifier was started; its corrections, if any, are in patches/corrections/verify-1015-calls.json)."
+   },
+   {
+    "at": "2026-10-15 00:56",
+    "market": "US",
+    "text": "2026-10-14 enrich edgar: edgar_pull saved nothing for many recent filings because edgartools Filing.html() fails (primary-document lookup None); re-pulled every ticker with utils/edgar_pull_fallback.py (new, uncommitted; +57 files). Queue 85 + 486 never-triaged dropped files (10-01 / 10-06 pulls) read in 16 enricher + 16 independent verifier batches -> 137 patches; edgar_pull.py done --with-dropped (571 files). New edges: Tower Semiconductor -> Semtech, Applied Materials -> UMC, Moderna -> Merck & Co., Moderna -> Vertex, Caris Life Sciences -> Moderna (Caris -> Roche-Genentech and Amazon -> Generate removed by verifiers / the 10-06 ruling). GlobalFoundries 6-K (10-14) holds supply_status for the Malta fabs: GF's own 10-14 release, when ir_pull saves it, restates it -> no entry."
+   },
+   {
+    "at": "2026-10-15 00:56",
+    "market": "JP",
+    "text": "2026-10-14: EDINET sync -> Rorze semi-annual report H1 FY2027 (10-14) enriched (4 entries; restated TDnet 10-08 skipped)."
+   },
    {
     "at": "2026-10-13 23:12",
     "market": "US",
@@ -11949,36 +10774,6 @@
     "at": "2026-10-13 01:04",
     "market": "JP",
     "text": "2026-10-13 user rule: a Japanese company with no full call transcript is enriched from the results-briefing Q&A summary the company itself publishes (own IR site / TDnet) - next `enrich japan` should look for these for the companies with no call."
-   },
-   {
-    "at": "2026-10-12 23:22",
-    "market": "US",
-    "text": "2026-10-12 enrich us (user-run, session 'nightly enrich us 10-10'): AV 0 new; IR sync 98 saved (123 feed failures); 69 US IR rows -> 49 enriched / 20 nothing; new edges Cisco->Microsoft, Qualcomm->Dell (PC chips), GlobalFoundries->TSMC ($2B interposer), Onto->SK Hynix; new nodes Moderna, Merck & Co. (Tempus AI edges). New rule 2026-10-12 (supply-chain terminal, non-AI kept): 32 scope deletions re-checked (29 re-added), bitcoin-mining facts for CleanSpark/Keel/MARA/Riot, pharma filing lines (Vertex/Lilly/Jazz), Shell -> Google PPA edge. 12 Opus verifiers: 10 corrections. CleanSpark stops monthly operational updates (quarterly reporting from now on)."
-   },
-   {
-    "at": "2026-10-12 23:22",
-    "market": "KR",
-    "text": "2026-10-12 enrich korea (user-run): DART 18 filings (14 supply contracts, 3 prelims, Auros amended H1 = restatement), KIND 2 decks (Koh Young, ASICLand), KR IR 12 rows (6 enriched). Kostek Systems marked (KONEX: dart.py covers KRX/KOSPI/KOSDAQ only; KONEX filers are exempt from half-year reports). SK Hynix 07-29 call row closed (already enriched 10-05). LS Electric -> LG Energy Solution / Samsung SDI customer-share edges applied."
-   },
-   {
-    "at": "2026-10-10 23:15",
-    "market": "US",
-    "text": "10-10/11 nightly enrich us: AV sync 0 saved (only the 5 marked known gaps waiting; next US call ASML 10-14); US call / conference / IR queues empty, 0 overdue, 0 never; IR + conference collectors not due (IR synced 10-07, 3-day rule is >3). No patches, nothing applied, no graph_build. Finished the i18n step the 10-09 run left open: 123 strings x ko/zh/ja merged, untranslated now 0. Verify queue 1 (Skyworks 10-07) < 5, left pending."
-   },
-   {
-    "at": "2026-10-09 23:38",
-    "market": "US",
-    "text": "10-09/10 nightly enrich us: AV sync 0 saved (5 known-gap waiting); IR / conference collectors not due. Skyworks 10-07 Si829x release: IR site still 403, body restored from the company's own GlobeNewswire distribution (curl_cffi chrome) -> 2 entries, row closed. graph_build.py --sync failed 3x at derive_exposure: open('graph/exposure.json','w') -> errno 22 / GetLastError 1224 (ERROR_USER_MAPPED_FILE: another process, likely OneDrive/Defender, maps the file for ~4 s right after the sibling derived files are written). Finished the build by running graph_build.py unchanged through a retry-on-errno-22 wrapper (job tmp). Durable fix needs a retry in derive.py's exposure write (user decision; not changed unattended). Full build OK: evidence.json, board, npm sync and i18n build ran - this also completes the two interrupted 10-07/10-08 builds."
-   },
-   {
-    "at": "2026-10-08 23:35",
-    "market": "US",
-    "text": "10-08/09 nightly enrich us: AV quota spent on known-gap lookups (Simulations Plus / Eikon / Generate), 0 saved; Penguin Solutions Q4 FY2026 (10-06-2026) fetched via defeatbeta and enriched (16 entries + 1 contract on Penguin -> NVIDIA), Opus-verified, 7 corrections applied + penguinsolutions_q4_2026_b.json (CXL entry re-added with topics [], Q4 gross sales). The 2nd graph_build.py --sync was STOPPED by the system for low memory after apply + merged graph + derive (timelines/screener/capex/exposure): evidence.json, verify_labels, board rebuild, npm sync (web/public/data still shows the pre-correction Penguin text) and the i18n step did NOT run -> run graph_build.py --sync, then the i18n step (skill 9; ~117 strings/lang untranslated incl. 10-07/08 leftovers). Skyworks 10-07 Si829x release still nav-only (IR site 403 / timeout, PDF route 403) - row left pending: paste the release text or close it."
-   },
-   {
-    "at": "2026-10-08 00:32",
-    "market": "US",
-    "text": "10-07/08 nightly enrich us: 12 labels applied to chains/ (APLD Q1 FY2027 call via defeatbeta + 11 IR releases) and Opus-verified (1 correction applied). graph_build.py --sync was STOPPED for low memory after apply + merged graph + derive: evidence.json, verify_labels, npm sync (web/public/data) and i18n build did NOT run -> run graph_build.py --sync, then the i18n step (skill 9). Skyworks 10-07 Si829x release saved nav-only (direct fetch 403) - row left pending: paste the release text by hand or close it."
    }
   ]
  }
