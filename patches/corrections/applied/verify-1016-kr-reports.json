@@ -1,0 +1,45 @@
+{
+  "reviewer": "verify-1016-kr-reports",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Nepes",
+      "target": null,
+      "label": "Nepes IR presentation: KIND 19470 (10-16-2026)",
+      "signal_prefix": "Panel-level packaging and materials strategy (IR deck 10-16-2026)",
+      "action": "set",
+      "set": {
+        "signal": "Panel-level packaging and materials strategy (IR deck 10-16-2026): for a 50mm x 50mm package the company shows 100 units per 600x600mm PLP panel vs 16 units per 300mm wafer (the deck marks the step from a 300mm round wafer to a 600mm square panel as X6.25), claims world-first mass production on the 600x600mm panel, calls PLP the ultimate solution for AI (heterogeneous integration of multiple chiplets in one package) and says a sharp increase in reticle size is accelerating adoption of large-panel FOPLP; it names three barriers to entry - technology (warpage, die drift, large-area process uniformity), capex for PLP mass-production lines, and limited ecosystem readiness in equipment and materials. In electronic materials it plans to improve margins by in-sourcing copper plating solution raw materials, alongside a higher share of high-margin products and manufacturing efficiency."
+      },
+      "reason": "The deck's X6.25 is the unit-count step (100 vs 16 units, '300mmRd -> 600mmSq'), not an area ratio; 'the area' was an inference the deck does not print (a 600mm square is about 5x a 300mm wafer's area).",
+      "evidence": "16 units Production / 100 units Production / X6.25 / 300mmRd -> 600mmSq / * Package size: 50mm*50mm"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Nepes",
+      "target": null,
+      "label": "Nepes IR presentation: KIND 19470 (10-16-2026)",
+      "signal_prefix": "Supply view (IR deck 10-16-2026, wafer-level packaging outlook)",
+      "action": "set",
+      "set": {
+        "signal": "Supply view (IR deck 10-16-2026, wafer-level packaging outlook): the company expects the supply shortage to persist because of a shortage of legacy (8-inch) production facilities.",
+        "slot": null
+      },
+      "reason": "The line sits under the deck's [Outlook] heading, so it is the company's expectation (hedge restored); it is an industry outlook, not the company's own capacity / utilisation / sold-out status, so it cannot fill supply_status (it would displace the DART half-year utilisation entry in the screener).",
+      "evidence": "[전망] ... 레거시(8\") 생산시설 부족으로 공급부족 현상 지속"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SFA Semiconductor",
+      "target": null,
+      "label": "SFA Semiconductor Q2 FY2026 (10-13-2026)",
+      "signal_prefix": "R&D items not covered earlier (amended half-year report)",
+      "action": "set",
+      "set": {
+        "signal": "R&D items not covered earlier (amended half-year report). Completed: small-package technology (LGA, QFN packages) to strengthen the package line-up for new business; a flip-chip RF module package (stated effect: packaging technology with RF characteristics optimised, mass production and revenue contribution); back-end process technology for bare-type (exposed chip) flip-chip products, with that product in mass production and contributing to revenue growth. Planned, self-funded: EMI shielding infrastructure and technology; laser ablation infrastructure for advanced SiP; wide-substrate infrastructure and technology; mass-production operating capability for high-thermal-performance bare / exposed-type flip-chip products; film-assist mould mass-production technology for exposed-chip packages."
+      },
+      "reason": "The R&D results table states the RF module item's expected effect ('mass production and revenue contribution') - it does not say the package is now in mass production and contributing; 'now contributing' overstated it.",
+      "evidence": "플립칩 적용 RF모듈 PKG 개발 | 당사 | RF특성 최적화 Packaging 기술확보/양산 및 매출 기여 (column: 연구결과 기대 효과)"
+    }
+  ]
+}

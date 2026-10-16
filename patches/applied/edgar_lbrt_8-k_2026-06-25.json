@@ -1,0 +1,43 @@
+{
+  "source": "Liberty Energy 8-K (06-25-2026)",
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Liberty Energy",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "On-site power generation for AI data centers and large loads (Liberty Power Innovations: multi-OEM engine generation stacks with BESS, energy management and ERCOT/PJM market participation)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "Wärtsilä",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "gas-engine power plants (Wärtsilä 50SG / 34SG reciprocating engines) for off-grid, on-site AI data-center power and grid balancing",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Liberty Energy",
+              "relationship": "power generation equipment (engines and balance of plant) for Liberty's data-center distributed power projects",
+              "contracts": [
+                {
+                  "source": "Liberty Energy 8-K (06-25-2026)",
+                  "signal": "Liberty's 8-K: on June 22, 2026 Liberty Advanced Equipment Technologies LLC, a wholly owned subsidiary of Liberty Energy, entered into an equipment supply contract with Wärtsilä North America, Inc. for power generation equipment, including engines and certain balance of plant equipment, and related services for Liberty's prospective data center and other distributed power projects. The purchase price is approximately $332.6 million, excluding import taxes, duties and tariffs; delivery milestones, performance testing and takeover of the equipment are expected beginning in 2029 through 2030. Wärtsilä is subject to liquidated damages under certain conditions for failure to achieve delivery milestones and performance guarantees, and Liberty may terminate for individual engines for continued failure to achieve delivery milestones.",
+                  "units": "engines and certain balance of plant equipment, and related services",
+                  "value": "approximately $332.6 million",
+                  "date_signed": "June 22, 2026",
+                  "type": "supply agreement",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1051,6 +1051,36 @@
    "at": "2026-10-13 23:12",
    "market": "US",
    "text": "10-13/14 nightly enrich us: AV sync 0 saved (only the 5 marked known gaps waiting: Simulations Plus, Eikon, Generate Biomedicines, POET, Relay); US call / conference / IR queues empty, 0 overdue, 0 never; IR (synced 10-12, 3-day rule) and conference (walked 10-07, 7-day rule) collectors not due; utility filings not due (10-01). No patches, nothing applied, no graph_build. i18n 0 missing; verify queue 0. Board refresh took ~10 min of CPU (enrich_status.py, 1.5 GB) - slower than the usual seconds."
+  },
+  {
+   "at": "2026-10-15 00:56",
+   "market": "all",
+   "text": "2026-10-14/15 nightly enrich (session 'nightly enrich 10-14'): 142 patches / 127 labels APPLIED to chains/ (ASML Q3 call, Rorze EDINET H1, Nanya Q3 / Volex Q4 / Xiaomi Q2 calls, 122 SEC filing labels). graph_build.py --sync was then STOPPED by the system for low memory (cause: an orphaned 4.4 GB grep left by a subagent, now killed) after apply + merged graph + derive: evidence, verify_graph, board, npm sync and i18n did NOT run. Next: python graph_build.py --sync; then verify the applied labels listed in edgar/verify_labels_2026-10-15.json (command in its _note; a rerun of graph_build verifies nothing because nothing is left to apply); then i18n (skill section 9); verify_queue.json has 5 pending call/report labels (an Opus verifier was started; its corrections, if any, are in patches/corrections/verify-1015-calls.json)."
+  },
+  {
+   "at": "2026-10-15 00:56",
+   "market": "US",
+   "text": "2026-10-14 enrich edgar: edgar_pull saved nothing for many recent filings because edgartools Filing.html() fails (primary-document lookup None); re-pulled every ticker with utils/edgar_pull_fallback.py (new, uncommitted; +57 files). Queue 85 + 486 never-triaged dropped files (10-01 / 10-06 pulls) read in 16 enricher + 16 independent verifier batches -> 137 patches; edgar_pull.py done --with-dropped (571 files). New edges: Tower Semiconductor -> Semtech, Applied Materials -> UMC, Moderna -> Merck & Co., Moderna -> Vertex, Caris Life Sciences -> Moderna (Caris -> Roche-Genentech and Amazon -> Generate removed by verifiers / the 10-06 ruling). GlobalFoundries 6-K (10-14) holds supply_status for the Malta fabs: GF's own 10-14 release, when ir_pull saves it, restates it -> no entry."
+  },
+  {
+   "at": "2026-10-15 00:56",
+   "market": "JP",
+   "text": "2026-10-14: EDINET sync -> Rorze semi-annual report H1 FY2027 (10-14) enriched (4 entries; restated TDnet 10-08 skipped)."
+  },
+  {
+   "at": "2026-10-15 01:05",
+   "market": "all",
+   "text": "2026-10-15 01:10 follow-up: the post-apply Opus verifier over the 5 call/report labels (ASML, Rorze, Nanya, Volex, Xiaomi) finished - 4 wording corrections applied with apply_corrections.py (patches/corrections/applied/verify-1015-calls.json); verify_queue.json is empty. Still owed: graph_build.py --sync, then verify_graph on edgar/verify_labels_2026-10-15.json, then i18n. Not started tonight because the build is blocked: enrich korea (DART sync now due) and the conference listing walk (last 10-07). tw.py sync ran 10-14 23:2x: nothing new (Faraday / Powertech calls 10-27)."
+  },
+  {
+   "at": "2026-10-16 00:25",
+   "market": "KR",
+   "text": "2026-10-15/16 nightly enrich: DART 9 filings (7 supply contracts, Techwing Q3 prelim, SFA Semiconductor amended H1 report 10-13) + KIND 2 decks (Nepes enriched; MK Electron 19448 deck has no text layer - closed 'no material facts', would need OCR). dart.py saves an amended periodic report ([기재정정]) over the original file name, so the original label (e.g. SFA Semiconductor Q2 FY2026 (08-12-2026), Auros 08-14) no longer appears in any file header; verify/evidence resolve it by file name. The SFA amendment added only treasury-share text; facts the 08-12 pass missed (ASP per package, EMC / solder-ball prices, Q2 three-month P&L, R&D items) were enriched under the 10-13 label."
+  },
+  {
+   "at": "2026-10-16 00:35",
+   "market": "TW",
+   "text": "2026-10-15/16 nightly enrich: MOPS 7 rows (Nanya x2, Winbond, Unimicron x2, Zhen Ding material; eMemory 10-29 deck = restates 08-25 deck). mops.py fix (uncommitted): -KY companies file two revenue columns (NT$ + functional currency) and every revenue fetch for them failed ('too many values to unpack') - now parsed; Aug + Sep 2026 revenue of Silergy, ShunSin, PCL, GCS and Advanced Energy Solution backfilled and enriched (their first MOPS revenue rows). tw.py now records last_sync (uncommitted; enrich_status.py reads it) - before, a sync with nothing new left the board saying 'tw.py sync due'. tw.py sync 10-15: only Delta broker events (no media); Faraday / Powertech 10-27, Delta 10-29 upcoming. mopsov.twse.com.tw timed out at ~01:30 10-16 (deck list) - next sync retries. Winbond's capex-budget 重大訊息 (board 10-27-2025, 02-10-2026, 08-06-2026) never reached the graph - check mops.py coverage for 2344 (verifier note)."
   }
  ],
  "questions": [
@@ -1401,6 +1431,90 @@
    "question": "Verifiers deleted (a) Foxconn selling 5,544,000 Zhen Ding shares, an equity-method investee (gain NT$2.68B, 26.47% kept), MOPS 10-12-2026, and (b) Osaka Organic buying shares that made SANBO Chemical an equity-method affiliate, TDnet 10-09-2026, under the equity-investment exclusion. Keep ownership changes between supply-chain companies as company facts (no price), or keep excluding them?",
    "label": "Foxconn MOPS material information: release 2317-20261012-1 (10-12-2026)",
    "at": "2026-10-13"
+  },
+  {
+   "subject": "Material litigation",
+   "question": "Capture material legal proceedings or not? Tonight: Micron 10-K (10-09-2026) DRAM price-fixing class action (06-25-2026, vs Micron / Samsung / SK hynix) was skipped; Moderna 10-K / 10-Q patent suits (Bayer/Monsanto; Sanofi subsidiaries) were captured; Rorze's semi-annual report patent-settlement payment (JPY 9,587 million) was captured. The rules list litigation neither way.",
+   "label": "Micron 10-K (10-09-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "DoD Chinese Military Company designations",
+   "question": "Alibaba 6-K (06-09-2026): the DoD added Alibaba to its 1260H Chinese Military Companies list; captured with the company's own response (data kept safe). Baidu's 6-K the same day (same designation) was skipped. Capture such designations (then add Baidu next run) or remove Alibaba's entry?",
+   "label": "Alibaba 6-K (06-09-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "Strategic equity investments by partners",
+   "question": "Teradyne's $300 million strategic equity investment in FormFactor (8-K 10-13-2026, tied by Teradyne's CEO to the collaboration) was kept on FormFactor's node by the verifier, citing the NVIDIA -> Coherent / Marvell and MACOM -> IQE precedents. Keep such partner investments as relationship facts, or drop them as financing?",
+   "label": "FormFactor 8-K (10-13-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "Strategic ownership changes",
+   "question": "A CATL-affiliated vehicle (Lochpine Capital via PJ Millennium) closed a ~38.1% stake in VNET (6-K 09-21-2026) with a 'computing-power-electricity coordination' support clause; Westinghouse confidentially filed a draft IPO registration (Brookfield Renewable 6-K 07-31-2026). Both were left out as governance / financing. Record large strategic ownership changes or subsidiary IPO filings?",
+   "label": "VNET Group 6-K (09-21-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "Licence and disposal values",
+   "question": "(1) In-licence upfront / milestone values (AstraZeneca H1 2026: Dizal $600m + up to $900m, CTTQ $200m + up to $1.9bn, CSPC $1.2bn + up to $3.5bn) were left out as deal price, while partner milestones (Daiichi Sankyo $25M / $100M) are captured - capture licence values? (2) Capacity SOLD (MW only, no proceeds; e.g. Brookfield Renewable Q2 2026: ~570 MW Europe, ~2,100 MW to Northview, 25% of 403 MW Maine hydro, Colombian 218 / 39 MW): the rules keep acquisitions' operating facts but say nothing on disposals - capture?",
+   "label": "AstraZeneca 6-K (07-27-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "Bitcoin lending",
+   "question": "MARA 8-K (08-06-2026): '4,742 BTC loaned, ~$4.3M interest income' was removed by the verifier as treasury / financial-yield activity (the 2026-10-13 rule keeps a miner's production, holdings and sales; pledges are financing). Count lent BTC as holdings and keep it, or exclude?",
+   "label": "MARA Holdings 8-K (08-06-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "Wolfspeed",
+   "question": "Wolfspeed 8-K (10-07-2026), a conditional US Department of War loan commitment: deal terms dropped, one entry kept on the operating program the commitment would require (domestic SiC wafer / power-device and GaN production, GaN-on-SiC RF epi, rad-hardening), hedged as conditional. Does a program described in a financing filing count as an operating fact?",
+   "label": "Wolfspeed 8-K (10-07-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "TeraWulf",
+   "question": "TeraWulf's Muskie site is supplied by Kentucky Power (an AEP company), now 1 GW. AEP is only in power_cooling.json and TeraWulf only in neocloud.json, so no AEP -> TeraWulf edge can exist (the fact sits on TeraWulf's node). Add a TeraWulf placement in power_cooling.json for that edge?",
+   "label": "TeraWulf 8-K (10-05-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "Rehlko",
+   "question": "INNIO 8-K (07-28-2026): multi-year framework with Rehlko (private) securing ~1.25 GW of gas-engine capacity over three years, expanding Rehlko's 700 MW firm reservation. Add Rehlko as a node with an INNIO -> Rehlko edge, or keep it as counterparty text on INNIO (current)? Also: the applied INNIO Q2 FY2026 call entry has 'Greco [as transcribed]' for this customer - correct it to Rehlko via patches/corrections?",
+   "label": "INNIO 8-K (07-28-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "Kingsoft Cloud",
+   "question": "The applied call entry 'Kingsoft Cloud Q2 FY2026' says adjusted net loss 'RMB 6 million'; the Q2 release (6-K 08-19-2026) prints non-GAAP net loss RMB59.8 million (likely a transcript error). Correct the call entry to the filed figure, or keep it as its own source states? (same shape as the open Recursion / Power Solutions International questions)",
+   "label": "Kingsoft Cloud 6-K (08-19-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "ASE Group",
+   "question": "The applied call entries 'ASE Group Q2 FY2026 (07-30-2026)' (cpu_datacenter.json and packaging_substrate.json) say the general segment grows ~30% YoY (was 13%); the company's filed deck (6-K 07-30-2026) says 20% vs the previous 13%, and the pasted transcript's 30% looks like a transcription error. Correct the call entries to 20%, or keep them as the transcript states?",
+   "label": "ASE Group 6-K (07-30-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "Moderna -> Merck & Co. edge",
+   "question": "Created tonight from Moderna's 10-K (02-20-2026) and confirmed by the verifier: Moderna designs and manufactures intismeran and provides manufacturing capacity under the PCV collaboration ($200M upfront, ASC 606). Merck co-develops the product and the 10-K words the duties partly in the past tense. Keep collaboration-partner edges between two Biopharma End Customers like this one (also Moderna -> Vertex, CF mRNA manufacturing)?",
+   "label": "Moderna 10-K (02-20-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "EDGAR pipeline gaps",
+   "question": "Tonight's SEC pull found: (1) edgartools Filing.html() fails for many recent filings (primary-document lookup None), so edgar_pull saved nothing for them (Micron 10-K 10-09, ~57 recent 8-Ks); recovered with utils/edgar_pull_fallback.py (new, uncommitted). Fold that fallback into edgar_pull.document_text()? (2) Exhibits not saved (PDF / separate documents): Baidu 6-K 09-17 and Kingsoft Cloud 6-K 09-21 '2026 Interim Report', GDS 6-K 09-04 HK Interim Report, Alibaba 6-K 06-18 HK annual / ESG reports, SharonAI 8-K 08-07 EX-99.1 Q2 release; QumulusAI 8-K 09-22 deck is images only. Fetch these? (3) The XBRL segment reader mis-assigns Medpace therapeutic-area names (10-K 02-10, 10-Q 07-23; printed tables used). (4) Canaan's monthly production updates come only via 6-K - add an IR feed for Canaan?",
+   "label": "Micron 10-K (10-09-2026)",
+   "at": "2026-10-15"
+  },
+  {
+   "subject": "power_cooling topic scope",
+   "question": "The power_cooling timeline is described as 'AI datacenter power delivery & cooling', but in practice the tag sits on every grid / generation equipment contract (21 of 25 DART supply-contract entries in power_cooling.json, e.g. Taihan Cable's North America HV cable order and BHI's LNG power-plant equipment, which never mention data centers). Should power_cooling cover the whole power domain (keep tagging all power equipment) or only data-center power and cooling (then new grid / generation entries get topics [] and a verifier pass trims the old tags)?",
+   "label": "Taihan Cable DART supply contract (10-15-2026)",
+   "at": "2026-10-16"
   }
  ],
  "answered": [
