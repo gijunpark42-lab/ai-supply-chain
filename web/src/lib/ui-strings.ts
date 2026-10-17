@@ -889,8 +889,6 @@ export const UI: Record<string, Row> = {
   // cash-flow table in CapexBacklog.tsx. Literals that already have a row above
   // ("Markets", "Sources", "Model", "Quarter", the cash-flow columns …) are reused.
   "Tab group: Markets": ["시장", "市场", "マーケット"],
-  "Read the market.": ["시장을 읽으세요.", "读懂市场。", "市場を読む。"],
-  "Memory and GPU rental prices, upcoming earnings dates and AI lab numbers, recorded daily from public sources.": ["메모리·GPU 임대 가격, 다가오는 실적 발표일, AI 연구소 지표를 공개 출처에서 매일 기록합니다.", "内存与 GPU 租赁价格、即将到来的财报日期和 AI 实验室数据，每天从公开来源记录。", "メモリとGPUのレンタル価格、今後の決算発表日、AIラボの数値を公開情報から毎日記録します。"],
   "Loading market data…": ["시장 데이터 불러오는 중…", "正在加载市场数据…", "市場データを読み込み中…"],
   "No market data has been published yet. The nightly collectors fill this view.": ["아직 게시된 시장 데이터가 없습니다. 야간 수집 작업이 이 화면을 채웁니다.", "尚未发布市场数据。每晚的采集任务会填充此视图。", "市場データはまだ公開されていません。夜間の収集処理がこのビューを埋めます。"],
   "Memory prices": ["메모리 가격", "内存价格", "メモリ価格"],
@@ -915,7 +913,6 @@ export const UI: Record<string, Row> = {
   "Tomorrow": ["내일", "明天", "明日"],
   "in {n} days": ["{n}일 후", "{n} 天后", "{n}日後"],
   "AI labs": ["AI 연구소", "AI 实验室", "AIラボ"],
-  "Revenue run-rates, funding rounds, compute deals and benchmark scores of the AI labs, from public reports.": ["AI 연구소의 연환산 매출, 투자 유치, 컴퓨팅 계약, 벤치마크 점수를 공개 보도에서 모았습니다.", "AI 实验室的年化收入、融资轮次、算力交易和基准测试得分，来自公开报道。", "AIラボの年換算売上高、資金調達、計算資源の契約、ベンチマークスコアを公開報道から集めています。"],
   "Labs": ["연구소", "实验室", "ラボ"],
   "Lab": ["연구소", "实验室", "ラボ"],
   "Revenue as of": ["매출 기준일", "收入截至", "売上高の基準日"],
@@ -927,6 +924,21 @@ export const UI: Record<string, Row> = {
   "Deal value": ["계약 규모", "交易金额", "契約規模"],
   "Model benchmarks": ["모델 벤치마크", "模型基准测试", "モデルのベンチマーク"],
   "Click a column to sort. ▲ / ▼ shows the direction; the first click puts the best score on top.": ["열을 클릭해 정렬하세요. ▲ / ▼는 방향을 나타내며, 처음 클릭하면 최고 점수가 맨 위에 옵니다.", "点击列标题排序。▲ / ▼ 表示方向；首次点击会把最佳得分排在最上面。", "列をクリックして並べ替えます。▲ / ▼ は方向を示し、最初のクリックで最高スコアが一番上に来ます。"],
+  // Markets sub-tabs (page.tsx tab names + intros, MarketsView.tsx captions)
+  "GPU": ["GPU", "GPU", "GPU"],
+  "AI Labs": ["AI 연구소", "AI 实验室", "AIラボ"],
+  "Track memory prices.": ["메모리 가격을 추적하세요.", "追踪内存价格。", "メモリ価格を追跡する。"],
+  "Follow DRAM, NAND and module spot prices and memory price releases, recorded daily from public sources.": ["공개 출처에서 매일 기록한 DRAM·NAND·모듈 현물 가격과 메모리 가격 발표를 확인하세요.", "查看每天从公开来源记录的 DRAM、NAND 和模组现货价格以及内存价格发布。", "公開情報から毎日記録したDRAM・NAND・モジュールのスポット価格とメモリ価格の発表を追跡します。"],
+  "Price the compute.": ["컴퓨팅 가격을 확인하세요.", "看清算力价格。", "計算資源の価格を知る。"],
+  "Compare GPU rental prices across marketplaces and cloud providers, recorded daily from public sources.": ["공개 출처에서 매일 기록한 마켓플레이스·클라우드 업체별 GPU 임대 가격을 비교하세요.", "对比各交易平台和云服务商的 GPU 租赁价格，每天从公开来源记录。", "公開情報から毎日記録した、マーケットプレイスとクラウド事業者のGPUレンタル価格を比較します。"],
+  "Know who reports next.": ["다음 실적 발표를 확인하세요.", "了解接下来谁发布财报。", "次の決算発表を知る。"],
+  "See upcoming earnings dates and times, with confirmed and estimated dates marked.": ["다가오는 실적 발표 날짜와 시간을 확정일·추정일로 구분해 확인하세요.", "查看即将到来的财报日期和时间，并标明已确认和估计的日期。", "今後の決算発表の日付と時間を、確定日と推定日を区別して確認します。"],
+  "Follow the AI labs.": ["AI 연구소를 따라가 보세요.", "追踪 AI 实验室。", "AIラボを追う。"],
+  "Compare revenue run-rates, funding rounds, and compute deals across the AI labs.": ["AI 연구소별 연환산 매출, 투자 라운드, 컴퓨팅 계약을 비교하세요.", "对比各 AI 实验室的年化收入、融资轮次和算力交易。", "AIラボの年換算売上高、資金調達ラウンド、計算資源の契約を比較します。"],
+  "Compare the models.": ["모델을 비교하세요.", "对比各个模型。", "モデルを比較する。"],
+  "Rank recent AI models by their scores on public benchmarks.": ["최근 AI 모델을 공개 벤치마크 점수로 비교해 순위를 확인하세요.", "按公开基准测试得分为近期 AI 模型排名。", "最近のAIモデルを公開ベンチマークのスコアで順位付けします。"],
+  "Revenue run-rates, funding rounds and compute deals of the AI labs, from public reports.": ["AI 연구소의 연환산 매출, 투자 유치, 컴퓨팅 계약을 공개 보도에서 모았습니다.", "AI 实验室的年化收入、融资轮次和算力交易，来自公开报道。", "AIラボの年換算売上高、資金調達、計算資源の契約を公開報道から集めています。"],
+  "Benchmark scores of recent models from the AI labs.": ["AI 연구소 최근 모델의 벤치마크 점수입니다.", "AI 实验室近期模型的基准测试得分。", "AIラボの最近のモデルのベンチマークスコアです。"],
   "Capex, operating cash flow and free cash flow (SEC filings)": ["설비투자, 영업현금흐름, 잉여현금흐름 (SEC 공시)", "资本开支、经营现金流和自由现金流（SEC 文件）", "設備投資、営業キャッシュフロー、フリーキャッシュフロー（SEC提出書類）"],
   "Last four quarters per company, in US$ billions. Updated {date}.": ["기업별 최근 4개 분기, 단위 10억 달러. {date} 업데이트.", "每家公司最近四个季度，单位：十亿美元。{date} 更新。", "企業ごとの直近4四半期、単位は10億米ドル。{date} 更新。"],
   // @@END
