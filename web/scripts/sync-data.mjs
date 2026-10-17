@@ -75,7 +75,7 @@ async function main() {
     [["graph/memory_prices.json"], "memory_prices.json"],
     [["graph/gpu_prices.json"], "gpu_prices.json"],
     [["graph/insiders_index.json"], "insiders_index.json"],
-    [["graph/financing.json"], "financing.json"],
+    [["graph/financing_index.json"], "financing_index.json"],
     [["graph/hyperscaler_cash.json"], "hyperscaler_cash.json"],
     [["graph/ai_labs.json"], "ai_labs.json"],
   ];
@@ -89,18 +89,19 @@ async function main() {
     console.log(`  ✓ ${picked}`);
   }
 
-  // 1b) graph/insiders/<company>.json -> public/data/insiders/ (split per company on 2026-10-17, so a company
-  //     panel downloads only its own insider trades). The folder is generated, so it is mirrored exactly:
-  //     stale company files and the old single public/data/insiders.json are removed.
-  const insidersDir = path.join(ROOT, "graph", "insiders");
-  if (await exists(insidersDir)) {
-    const outDir = path.join(OUT_DATA, "insiders");
+  // 1b) Per-company feeds, graph/<feed>/<company>.json -> public/data/<feed>/ (split on 2026-10-17, so a company
+  //     panel downloads only its own rows; the panel finds the file through <feed>_index.json above). The folders
+  //     are generated, so they are mirrored exactly: stale company files and the old single <feed>.json go.
+  for (const feed of ["insiders", "financing"]) {
+    const srcDir = path.join(ROOT, "graph", feed);
+    if (!(await exists(srcDir))) continue;
+    const outDir = path.join(OUT_DATA, feed);
     await fs.rm(outDir, { recursive: true, force: true });
     await ensureDir(outDir);
-    const files = (await fs.readdir(insidersDir)).filter((f) => f.endsWith(".json"));
-    for (const f of files) await fs.copyFile(path.join(insidersDir, f), path.join(outDir, f));
-    await fs.rm(path.join(OUT_DATA, "insiders.json"), { force: true });
-    console.log(`  ✓ graph/insiders/ (${files.length} company files)`);
+    const files = (await fs.readdir(srcDir)).filter((f) => f.endsWith(".json"));
+    for (const f of files) await fs.copyFile(path.join(srcDir, f), path.join(outDir, f));
+    await fs.rm(path.join(OUT_DATA, `${feed}.json`), { force: true });
+    console.log(`  ✓ graph/${feed}/ (${files.length} company files)`);
   }
 
   // 2) reports/*.json -> one bundle keyed by node_name (skip files starting with "_").

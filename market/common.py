@@ -8,8 +8,10 @@ insider trades, financing events, hyperscaler capex / cash flow and AI-lab metri
 Re-running on the same day is safe: the history dedupes by key.
 """
 import datetime as dt
+import hashlib
 import json
 import os
+import re
 import time
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -131,3 +133,60 @@ def universe():
 def config():
     """market/config.json switches, e.g. {"show": {"dramexchange_spot": true}}. Missing file = everything on."""
     return read_json(ROOT / "market" / "config.json", {}) or {}
+
+
+def company_file_names(node_ids):
+    """node id -> a stable, URL-safe file name ("SK Hynix" -> "sk-hynix.json"). A name that is empty after
+    cleaning (non-Latin node id) or shared by two ids gets a short hash of the id, so files never collide."""
+    groups = {}
+    for node_id in node_ids:
+        groups.setdefault(re.sub(r"[^a-z0-9]+", "-", node_id.lower()).strip("-"), []).append(node_id)
+    names = {}
+    for base, ids in groups.items():
+        for node_id in ids:
+            if base and len(ids) == 1:
+                names[node_id] = base + ".json"
+            else:
+                tag = hashlib.sha1(node_id.encode("utf-8")).hexdigest()[:8]
+                names[node_id] = (base + "-" if base else "") + tag + ".json"
+    return names
+
+
+def _write_company_rows(path, node_id, rows):
+    """{"company", "rows"} with one row per line; an unchanged file is not rewritten, so a nightly commit touches
+    only the companies whose rows changed (that is also why there is no date inside: it lives in the index)."""
+    parts = ["{", f' "company": {json.dumps(node_id, ensure_ascii=False)},', ' "rows": [']
+    for j, r in enumerate(rows):
+        parts.append("  " + json.dumps(r, ensure_ascii=False, separators=(",", ":")) + ("," if j < len(rows) - 1 else ""))
+    parts += [" ]", "}"]
+    text = "\n".join(parts) + "\n"
+    if path.exists() and path.read_text(encoding="utf-8") == text:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, path)
+
+
+def write_company_split(name, updated, sources, companies):
+    """Write a per-company web feed (user, 2026-10-17: split so a company panel downloads only its own rows):
+      graph/<name>_index.json   {"updated", "sources", "companies": {node id: {"file", "count", "latest"}}}
+      graph/<name>/<file>       {"company", "rows": [...]}   (rows as given, e.g. newest first)
+    graph/<name>/ is generated: files of companies no longer present are deleted, and so is the old single
+    graph/<name>.json. Returns the index's "companies"."""
+    out_dir = GRAPH / name
+    names = company_file_names(companies)
+    index = {}
+    for node_id, rows in companies.items():
+        _write_company_rows(out_dir / names[node_id], node_id, rows)
+        index[node_id] = {"file": names[node_id], "count": len(rows),
+                          "latest": max((r.get("date") or "" for r in rows), default="") or None}
+    keep = set(names.values())
+    for old in out_dir.glob("*.json"):
+        if old.name not in keep:
+            old.unlink()
+    legacy = GRAPH / f"{name}.json"
+    if legacy.exists():
+        legacy.unlink()
+    write_json(GRAPH / f"{name}_index.json", {"updated": updated, "sources": sources, "companies": index})
+    return index

@@ -3,7 +3,7 @@
 What it records
 ---------------
 Debt, convertible and equity raises, loan / credit-facility deals and credit-rating actions, one row per event,
-in the row shape of graph/financing.json (contract 3) plus "company" (the graph node id, so the builder can group):
+in the row shape of the financing feed (contract 3) plus "company" (the graph node id, so the builder can group):
     {"company", "date", "type", "title", "amount", "currency", "amount_usd", "detail", "form", "market", "source", "url"}
     type in debt | convertible | equity | credit_facility | abs | lease_financing | rating | other
 
@@ -11,7 +11,7 @@ These are NOT signals: nothing here is written into quarterly_data, chains/, pat
     market/history/financing_kr.jsonl   Korea   — OpenDART (FSS) major-issues reports + debt registration statements
     market/history/financing_tw.jsonl   Taiwan  — MOPS material information (重大訊息) about bonds / CBs / capital increases / loans
     market/history/financing_jp.jsonl   Japan   — TDnet timely disclosures about bonds / loans / ratings / share offerings
-and market/financing.py (another collector) builds graph/financing.json from all financing histories.
+and market/financing.py (another collector) builds graph/financing/ (one file per company) from all financing histories.
 ADD-only: a row whose url is already in the history is never written again (one url = one filing).
 
 Where each market comes from
@@ -48,7 +48,7 @@ A repayment, redemption or buyback is typed "other" (money going out, not a rais
 Usage (from the repo root):
     python -X utf8 -m market.financing_asia               today's run (days since the last run, at least 7)
     python -X utf8 -m market.financing_asia --backfill    the last 365 days (TDnet: the ~31 days it keeps online)
-    python -X utf8 -m market.financing_asia --build-only  rebuild graph/financing.json from history (market.financing)
+    python -X utf8 -m market.financing_asia --build-only  rebuild graph/financing/ (one file per company) from history (market.financing)
     add --market KR|TW|JP to run one market only
 """
 import argparse
@@ -1054,9 +1054,9 @@ RUNNERS = {"KR": run_kr, "TW": run_tw, "JP": run_jp}
 
 
 def build():
-    """graph/financing.json is built by market/financing.py from every financing history; call it when present."""
+    """graph/financing/ (one file per company) is built by market/financing.py from every financing history; call it when present."""
     if importlib.util.find_spec("market.financing") is None:
-        log("market/financing.py not present yet; history kept, graph/financing.json not rebuilt")
+        log("market/financing.py not present yet; history kept, graph/financing/ (one file per company) not rebuilt")
         return False
     importlib.import_module("market.financing").build()
     return True
@@ -1085,7 +1085,7 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--backfill", action="store_true", help="read the last 365 days")
-    ap.add_argument("--build-only", action="store_true", help="rebuild graph/financing.json from history only")
+    ap.add_argument("--build-only", action="store_true", help="rebuild graph/financing/ (one file per company) from history only")
     ap.add_argument("--market", choices=sorted(RUNNERS), action="append", help="KR, TW or JP (repeatable)")
     args = ap.parse_args()
     if args.build_only:

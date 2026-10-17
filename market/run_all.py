@@ -240,7 +240,7 @@ def run_one(name, module_name, func_name, judge, backfill):
     print(f"\n[run_all] ===== {name} =====", flush=True)
     entry = {"date": today(), "collector": name}
     warnings = []
-    if name in ("financing_us", "financing_asia", "financing"):   # each of these rebuilds graph/financing.json
+    if name in ("financing_us", "financing_asia", "financing"):   # each of these rebuilds graph/financing/ (one file per company)
         try:
             warnings.append(check_manual_financing())
         except Exception as e:      # the check must never block the build itself
