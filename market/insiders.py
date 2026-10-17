@@ -11,8 +11,8 @@ time any company panel opened; now the panel fetches only the company it shows):
     "sources": [{"name", "url"}],
     "companies": { "<node id>": {"file": "<slug>.json", "count": N, "latest": "YYYY-MM-DD"} } }
 
-  graph/insiders/<slug>.json
-  { "updated": "YYYY-MM-DD", "company": "<node id>",
+  graph/insiders/<slug>.json      (no date inside, and an unchanged file is not rewritten: a nightly commit
+  { "company": "<node id>",        touches only the companies with new trades; the date lives in the index)
     "rows": [ {date, filed, insider, role, code, type, shares, price, value, currency,
                owned_after, plan_10b5_1, market, source, url}, ... newest first ] }
 
@@ -238,20 +238,22 @@ def file_names(node_ids):
     return names
 
 
-def write_company_json(path, updated, node_id, rows):
-    """Like common.write_json (atomic), but one trade per line: a nightly git diff shows only the new trades
-    instead of re-indenting the whole file."""
+def write_company_json(path, node_id, rows):
+    """Like common.write_json (atomic), but one trade per line, and the file is left alone when nothing in it
+    changed: a nightly commit then touches only the companies that have new trades."""
     parts = ["{",
-             f' "updated": {json.dumps(updated)},',
              f' "company": {json.dumps(node_id, ensure_ascii=False)},',
              ' "rows": [']
     for j, r in enumerate(rows):
         comma = "," if j < len(rows) - 1 else ""
         parts.append("  " + json.dumps(r, ensure_ascii=False, separators=(",", ":")) + comma)
     parts += [" ]", "}"]
+    text = "\n".join(parts) + "\n"
+    if path.exists() and path.read_text(encoding="utf-8") == text:
+        return                                   # unchanged: leave the file (and the nightly diff) alone
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text("\n".join(parts) + "\n", encoding="utf-8")
+    tmp.write_text(text, encoding="utf-8")
     os.replace(tmp, path)
 
 
@@ -293,7 +295,7 @@ def build():
     names = file_names(data["companies"])
     index = {}
     for node_id, rows in data["companies"].items():
-        write_company_json(OUT_DIR / names[node_id], data["updated"], node_id, rows)
+        write_company_json(OUT_DIR / names[node_id], node_id, rows)
         index[node_id] = {"file": names[node_id], "count": len(rows),
                           "latest": max((r.get("date") or "" for r in rows), default="") or None}
     # graph/insiders/ is generated: drop files of companies that left the 365-day window, and the old single file
