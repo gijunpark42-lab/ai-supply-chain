@@ -2,20 +2,22 @@
 
 // MarketsView — the market-level "Markets" tab group (2026-10-17).
 //
-// Five sections, each shown on its own sub-tab (page.tsx picks one with the
-// `section` prop) and drawn from one daily file the nightly collectors write
-// (market/*.py → graph/*.json → /data/*.json). No model tokens are involved and
-// none of this is a "signal": it never touches quarterly_data or the chains.
+// Six sections, each shown on its own sub-tab (page.tsx picks one with the
+// `section` prop). The first five are drawn from one daily file the nightly
+// collectors write (market/*.py → graph/*.json → /data/*.json). No model tokens
+// are involved and none of this is a "signal": it never touches quarterly_data or the chains.
 //   memory    Memory prices      /data/memory_prices.json
 //   gpu       GPU rental prices  /data/gpu_prices.json
 //   earnings  Earnings calendar  /data/hyperscaler_cash.json → "calendar"
 //   labs      AI labs            /data/ai_labs.json → labs (revenue, funding, deals)
 //   models    Model benchmarks   /data/ai_labs.json → models
+//   weekend   Weekend perps      live: /api/hl + /api/quotes (WeekendPerps.tsx, no daily file)
 // Any file may be missing (collector not run yet, source down): that sub-tab
 // then shows a one-line "no data yet" note. Every row links back to its source.
 
 import { useEffect, useMemo, useState } from "react";
 import type { Resolver } from "@/lib/company";
+import type { GraphNode } from "@/lib/types";
 import {
   loadMarketJson,
   type AiLab,
@@ -33,6 +35,7 @@ import { fmtDay, isRunRate } from "@/lib/companyFeeds";
 import CompanyLink from "./CompanyLink";
 import CellText from "./CellText";
 import SeriesChart, { MAX_LINES, fmtValue, type ChartLine } from "./SeriesChart";
+import WeekendPerps from "./WeekendPerps";
 import "./Tables.css";
 import "./Markets.css";
 
@@ -146,7 +149,7 @@ const hasModels = (f: AiLabsFile | null): f is AiLabsFile => !!f && (f.models ||
 // ── The tab ─────────────────────────────────────────────────────────────────
 
 /** Which section a Markets sub-tab shows (page.tsx maps each sub-tab to one). */
-export type MarketSection = "memory" | "gpu" | "earnings" | "labs" | "models";
+export type MarketSection = "memory" | "gpu" | "earnings" | "labs" | "models" | "weekend";
 
 interface Files {
   memory: SeriesFile | null;
@@ -160,10 +163,12 @@ interface Files {
 // sub-tabs redraws at once. loadMarketJson caches each request for the page load too.
 export default function MarketsView({
   section,
+  nodes,
   resolve,
   onOpen,
 }: {
   section: MarketSection;
+  nodes: GraphNode[]; // the graph's companies (the Weekend table looks up their perps)
   resolve: Resolver;
   onOpen: (id: string) => void;
 }) {
@@ -184,6 +189,15 @@ export default function MarketsView({
       alive = false;
     };
   }, []);
+
+  // The Weekend table reads live prices, not the daily files, so it never waits for them.
+  // It is only mounted while its sub-tab is open, so its 60 s polling stops when you leave.
+  if (section === "weekend")
+    return (
+      <div className="mk">
+        <WeekendPerps nodes={nodes} resolve={resolve} onOpen={onOpen} />
+      </div>
+    );
 
   if (!files) return <div className="spinner">{t("Loading market data…")}</div>;
 

@@ -22,6 +22,45 @@ export const UI: Record<string, Row> = {
   "Funding {rate}/hr": ["펀딩비 {rate}/시간", "资金费率 {rate}/小时", "資金調達率 {rate}/時間"],
   "Converted at 1 USD = {rate} {cur}": ["1 USD = {rate} {cur} 기준 환산", "按 1 USD = {rate} {cur} 换算", "1 USD = {rate} {cur} で換算"],
   "Last regular close {close}": ["직전 정규장 종가 {close}", "上一常规交易日收盘价 {close}", "直近の通常取引終値 {close}"],
+  // Markets → Weekend sub-tab (page.tsx tab + intro, components/WeekendPerps.tsx). Reuses
+  // "Company", "Change", "Sort by {col}", "Updated {time}" and the chip rows above.
+  "Weekend": ["주말", "周末", "週末"],
+  "See the weekend tape.": ["주말 시세를 확인하세요.", "查看周末行情。", "週末の値動きを見る。"],
+  "Compare Hyperliquid's 24/7 perpetuals for the stocks in the graph with their last regular close.": [
+    "그래프에 있는 종목의 Hyperliquid 24시간 무기한 선물 가격을 직전 정규장 종가와 비교하세요.",
+    "将图谱中股票在 Hyperliquid 上全天候交易的永续合约与其上一常规交易日收盘价进行对比。",
+    "グラフ内の銘柄について、Hyperliquidで24時間取引される無期限先物を直近の通常取引終値と比較します。",
+  ],
+  "Weekend perp prices": ["주말 무기한 선물 가격", "周末永续合约价格", "週末の無期限先物価格"],
+  "Exchanges are open: official prices are live; this table compares the perp with the previous close.": [
+    "거래소가 열려 있습니다. 공식 주가가 실시간으로 반영되며, 이 표는 무기한 선물을 직전 종가와 비교합니다.",
+    "交易所正在开市：官方股价为实时价格；本表将永续合约与上一收盘价进行对比。",
+    "取引所は開いています。公式の株価はリアルタイムで、この表は無期限先物を前回の終値と比較しています。",
+  ],
+  "{n} companies in the graph have a live Hyperliquid perp. Biggest moves first; click a column to sort.": [
+    "그래프의 기업 {n}곳에 거래 중인 Hyperliquid 무기한 선물이 있습니다. 변동 폭이 큰 순서로 보여 주며, 열을 클릭하면 정렬이 바뀝니다.",
+    "图谱中有 {n} 家公司在 Hyperliquid 上有正在交易的永续合约。默认按变动幅度从大到小排列；点击列标题可排序。",
+    "グラフ内の {n} 社にHyperliquidで取引中の無期限先物があります。値動きの大きい順に表示し、列をクリックすると並べ替えます。",
+  ],
+  "Perp": ["무기한 선물", "永续合约", "無期限先物"],
+  "Perp price": ["선물 가격", "合约价格", "先物価格"],
+  "Last close": ["직전 종가", "上一收盘价", "直近終値"],
+  "24h volume": ["24시간 거래대금", "24小时成交额", "24時間売買代金"],
+  "Home exchange": ["상장 거래소", "上市交易所", "上場取引所"],
+  "Closed today": ["오늘 휴장", "今日休市", "本日休場"],
+  "Open": ["개장", "开市", "開場"],
+  "previous session": ["직전 거래일", "上一交易日", "前営業日"],
+  "{n} more perps hidden: under $50k traded in 24 h, or more than 30% from the last close.": [
+    "무기한 선물 {n}개 숨김: 24시간 거래대금이 5만 달러 미만이거나 직전 종가와 30% 넘게 차이 납니다.",
+    "另有 {n} 个永续合约已隐藏：24 小时成交额低于 5 万美元，或与上一收盘价相差超过 30%。",
+    "無期限先物 {n} 件を非表示：24時間の売買代金が5万ドル未満、または直近終値から30%超乖離しています。",
+  ],
+  "Loading Hyperliquid prices…": ["Hyperliquid 가격 불러오는 중…", "正在加载 Hyperliquid 价格…", "Hyperliquidの価格を読み込み中…"],
+  "Hyperliquid prices are unavailable right now. The table retries every minute.": [
+    "지금은 Hyperliquid 가격을 불러올 수 없습니다. 1분마다 다시 시도합니다.",
+    "目前无法获取 Hyperliquid 价格。表格每分钟重试一次。",
+    "現在Hyperliquidの価格を取得できません。1分ごとに再試行します。",
+  ],
 
   // ── Language switch / app shell (page.tsx) ──────────────────────────────
   "Language": ["언어", "语言", "言語"],
