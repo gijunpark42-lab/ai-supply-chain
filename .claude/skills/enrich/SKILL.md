@@ -346,6 +346,31 @@ A new company node gets its official local-script name in `i18n/company_names.js
 its home market (KR → ko from DART `corp_name`; JP → ja; CN / HK / TW → zh in Simplified characters); otherwise
 the English name is shown.
 
+## 10. Daily market data (2026-10-17)
+
+`routine/nightly.ps1` runs `market/run_all.py` (prices, insider trades, financing, capex, AI-lab metrics; scripts
+only) and `utils/transcript_quality.py` before the session starts. What they write is NOT a signal: never copy it
+into `quarterly_data`, chains/ or patches/. Every enrich run (nightly or by hand) also does these three things:
+
+a. **Transcript quality.** Read `graph/transcript_quality.json` (`flagged`: path, label, problem, suggestion). For
+   each flagged file fetch a verbatim, speaker-labelled replacement (US: `utils/defeatbeta_fetch.py "<Name>" <TICKER>
+   --fy <FY> --q <Q>`; otherwise the market's own transcript source), save it under the same source label, and
+   re-enrich that label ADD-only. If no better copy exists yet, leave the file as it is and say so in the report.
+b. **AI-lab deals.** Newly reported AI-lab compute deals, GW commitments and contract terms in the day's sources
+   (calls, filings, company releases) → append a row to `market/ai_lab_deals.json` `rows` (fields in its `_about`:
+   date, lab, counterparty, what, gw, value_usd, source, url, url_or_path, quotes, added, added_by). `url` is the
+   PUBLIC link the site shows (the SEC filing, or the company's investor-relations events page for a call), also
+   when the quote is checked in a local transcript (`url_or_path`). ADD-only: never edit or delete a row; each quote
+   must be verbatim in the cited URL or transcript path (`grep -F`). Keep the file valid JSON.
+   Then `python -X utf8 market/run_all.py --only ai_labs` (same-day cache, no new download) before `graph_build.py --sync`.
+c. **Financing the scripts miss.** Credit-rating actions and financing events (offerings, notes, loans, facilities)
+   read in news or filings that `market/financing_*.py` did not record → append one JSON line per event to
+   `market/history/financing_manual.jsonl`: `{"company": "<graph node id>", "date", "type"
+   (debt|convertible|equity|credit_facility|abs|lease_financing|rating|other), "title", "amount", "currency",
+   "amount_usd", "detail", "form", "market", "source", "url"}`. ADD-only, English, every row with its source URL.
+   This file is the only place financing goes (§2 keeps it out of the map). Then rebuild the web file with
+   `python -X utf8 market/run_all.py --only financing` (no network) before `graph_build.py --sync`.
+
 ---
 
 ## Source-specific pipelines — read the matching reference file

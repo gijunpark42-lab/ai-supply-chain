@@ -71,6 +71,13 @@ async function main() {
     [["graph/enrich_status.json"], "enrich_status.json"],
     // Added 2026-09-27: Korean company names for the graph search box (graph_build.py).
     [["graph/company_ko.json"], "company_ko.json"],
+    // Added 2026-10-17: daily market-data collectors (market/*.py, run by routine/nightly.ps1).
+    [["graph/memory_prices.json"], "memory_prices.json"],
+    [["graph/gpu_prices.json"], "gpu_prices.json"],
+    [["graph/insiders.json"], "insiders.json"],
+    [["graph/financing.json"], "financing.json"],
+    [["graph/hyperscaler_cash.json"], "hyperscaler_cash.json"],
+    [["graph/ai_labs.json"], "ai_labs.json"],
   ];
   for (const [candidates, out] of singles) {
     let picked = null;

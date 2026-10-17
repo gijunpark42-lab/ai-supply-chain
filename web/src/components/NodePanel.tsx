@@ -15,6 +15,10 @@ import LiveQuote from "./LiveQuote";
 import Fundamentals from "./Fundamentals";
 import { EvidenceButton } from "./Evidence";
 import { ExpandAllContext, SignalBody, SourceBadge, SourceText } from "./SignalText";
+import CashFlowSection from "./CashFlowSection";
+import LabMetricsSection from "./LabMetricsSection";
+import FinancingSection from "./FinancingSection";
+import InsiderTrades from "./InsiderTrades";
 import "./NodePanel.css";
 
 const US = new Set(["NASDAQ", "NYSE"]);
@@ -1034,6 +1038,13 @@ export default function NodePanel({
             )}
           </div>
         </div>
+
+        {/* Daily market data (2026-10-17): own files, NOT signals. Each section
+            renders nothing when this company has no rows in its file. */}
+        <CashFlowSection companyId={node.id} />
+        <LabMetricsSection companyId={node.id} />
+        <FinancingSection companyId={node.id} />
+        <InsiderTrades companyId={node.id} />
 
         {onFileCount > 0 && (
           <div className="np-onfile">

@@ -1,0 +1,115 @@
+/* Markets.css — the Markets tab (MarketsView.tsx) and the SEC cash-flow table
+   on the Capex tab. Every class starts with `.mk-`. Colours come from the
+   --ap-* tokens in globals.css; up / down reuse the live-quote green / red. */
+
+.mk-section {
+  margin-bottom: 2.2rem;
+}
+.mk-section > h3 {
+  margin-bottom: 0.2rem;
+}
+.mk-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 1.2rem 1.6rem;
+  margin: 0.9rem 0 0.4rem;
+}
+.mk-chart {
+  min-width: 0;
+  border: 1px solid var(--ap-border);
+  border-radius: 14px;
+  padding: 12px 14px 10px;
+  background: var(--ap-surface);
+}
+body.glass .mk-chart {
+  background: rgba(20, 23, 28, 0.6);
+  backdrop-filter: blur(10px);
+}
+.mk-chart-title,
+.mk-sub-title {
+  color: #7dd3fc;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+.mk-sub-title {
+  margin: 1.1rem 0 0.4rem;
+}
+.mk-unit,
+.mk-muted {
+  color: var(--ap-muted);
+  font-weight: 400;
+  font-size: 0.78rem;
+}
+.mk-sources {
+  color: var(--ap-muted);
+  font-size: 0.76rem;
+  margin-top: 0.35rem;
+}
+.mk-src {
+  color: var(--ap-muted);
+  font-size: 0.76rem;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(154, 160, 168, 0.5);
+  /* wrap between words only: "anywhere" let narrow table columns split a host or a date mid-value */
+  overflow-wrap: break-word;
+}
+/* dates, hosts and filing links stay on one line */
+.mk-nowrap,
+.mk-nowrap .mk-src {
+  white-space: nowrap;
+}
+a.mk-src:hover,
+a.mk-src:focus-visible {
+  color: var(--ap-blue-hi);
+  border-bottom-color: var(--ap-blue-hi);
+}
+.mk-attribution {
+  margin: 0.3rem 0 0.8rem;
+}
+.mk-tbl {
+  margin-top: 0.6rem;
+}
+.mk-subtable {
+  margin-top: 1rem;
+}
+table.data.mk-table td.mk-num {
+  font-variant-numeric: tabular-nums;
+}
+.mk-up {
+  color: #3fb950;
+}
+.mk-down,
+table.data td.mk-down {
+  color: #f85149;
+}
+.mk-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid var(--ap-border);
+}
+.mk-badge.mk-ok {
+  color: #3fb950;
+  border-color: rgba(63, 185, 80, 0.45);
+}
+.mk-badge.mk-est {
+  color: var(--ap-muted);
+}
+.mk-notes {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+}
+/* Model benchmarks: one column per benchmark, so it scrolls sideways on a phone
+   instead of stacking into cards. */
+table.data.mk-bench th,
+table.data.mk-bench td {
+  white-space: nowrap;
+}
+table.data.mk-bench td.mk-sorted {
+  color: var(--ap-text);
+  font-weight: 650;
+}
