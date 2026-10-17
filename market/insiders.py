@@ -36,21 +36,14 @@ Clean-ups for the web file only (user, 2026-10-17 verification; the history file
 CLI:  python -m market.insiders     (rebuild graph/insiders_index.json + graph/insiders/)
 """
 import datetime as dt
-import hashlib
 import importlib
-import json
-import os
-import re
 import statistics
 import sys
 from urllib.parse import urlparse
 
 from market import corrections
-from market.common import GRAPH, HISTORY, today, read_history, write_json
+from market.common import HISTORY, today, read_history, write_company_split
 
-OUT_DIR = GRAPH / "insiders"                  # one file per company
-INDEX_FILE = GRAPH / "insiders_index.json"    # node id -> file name, row count, latest trade date
-LEGACY_FILE = GRAPH / "insiders.json"         # the old single file (before 2026-10-17's split); removed on build
 WINDOW_DAYS = 365
 FIELDS = ("date", "filed", "insider", "role", "code", "type", "shares", "price", "value", "currency",
           "owned_after", "plan_10b5_1", "market", "source", "url")
@@ -221,42 +214,6 @@ def collapse_joint_filers(rows):
     return kept
 
 
-def file_names(node_ids):
-    """node id -> a stable, URL-safe file name ("SK Hynix" -> "sk-hynix.json"). A name that is empty after
-    cleaning (non-Latin node id) or shared by two ids gets a short hash of the id, so files never collide."""
-    names, taken = {}, {}
-    for node_id in node_ids:
-        base = re.sub(r"[^a-z0-9]+", "-", node_id.lower()).strip("-")
-        taken.setdefault(base, []).append(node_id)
-    for base, ids in taken.items():
-        for node_id in ids:
-            if base and len(ids) == 1:
-                names[node_id] = base + ".json"
-            else:
-                tag = hashlib.sha1(node_id.encode("utf-8")).hexdigest()[:8]
-                names[node_id] = (base + "-" if base else "") + tag + ".json"
-    return names
-
-
-def write_company_json(path, node_id, rows):
-    """Like common.write_json (atomic), but one trade per line, and the file is left alone when nothing in it
-    changed: a nightly commit then touches only the companies that have new trades."""
-    parts = ["{",
-             f' "company": {json.dumps(node_id, ensure_ascii=False)},',
-             ' "rows": [']
-    for j, r in enumerate(rows):
-        comma = "," if j < len(rows) - 1 else ""
-        parts.append("  " + json.dumps(r, ensure_ascii=False, separators=(",", ":")) + comma)
-    parts += [" ]", "}"]
-    text = "\n".join(parts) + "\n"
-    if path.exists() and path.read_text(encoding="utf-8") == text:
-        return                                   # unchanged: leave the file (and the nightly diff) alone
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(text, encoding="utf-8")
-    os.replace(tmp, path)
-
-
 def build():
     """Rebuild graph/insiders_index.json and graph/insiders/<company>.json from market/history/insiders_*.jsonl."""
     cutoff = (dt.date.fromisoformat(today()) - dt.timedelta(days=WINDOW_DAYS)).isoformat()
@@ -292,21 +249,9 @@ def build():
         rows_out += len(rows)
 
     data = {"updated": today(), "sources": sources, "companies": dict(sorted(companies.items()))}
-    names = file_names(data["companies"])
-    index = {}
-    for node_id, rows in data["companies"].items():
-        write_company_json(OUT_DIR / names[node_id], node_id, rows)
-        index[node_id] = {"file": names[node_id], "count": len(rows),
-                          "latest": max((r.get("date") or "" for r in rows), default="") or None}
-    # graph/insiders/ is generated: drop files of companies that left the 365-day window, and the old single file
-    for old in OUT_DIR.glob("*.json"):
-        if old.name not in names.values():
-            old.unlink()
-    if LEGACY_FILE.exists():
-        LEGACY_FILE.unlink()
-    write_json(INDEX_FILE, {"updated": data["updated"], "sources": sources, "companies": index})
-    log(f"wrote {INDEX_FILE.relative_to(GRAPH.parent)} + {len(index)} files in "
-        f"{OUT_DIR.relative_to(GRAPH.parent)}/: {rows_out} trades ({lines_in} filing lines) since {cutoff}")
+    index = write_company_split("insiders", data["updated"], sources, data["companies"])
+    log(f"wrote graph/insiders_index.json + {len(index)} files in graph/insiders/: "
+        f"{rows_out} trades ({lines_in} filing lines) since {cutoff}")
     return data
 
 

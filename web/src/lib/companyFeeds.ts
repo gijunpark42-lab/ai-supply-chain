@@ -1,9 +1,10 @@
 // companyFeeds.ts — the daily market-data files shown in the company panel (2026-10-17).
 //
 // The nightly routine runs script-only collectors (market/*.py, no model tokens) that
-// write four files into graph/, copied to /data/ by web/scripts/sync-data.mjs:
+// write these into graph/, copied to /data/ by web/scripts/sync-data.mjs:
 //
-//   /data/financing.json          debt / equity / credit-facility / rating events per company
+//   /data/financing_index.json    node id → /data/financing/<company>.json (debt / equity /
+//                                 credit-facility / rating events), split per company
 //   /data/insiders_index.json     node id → /data/insiders/<company>.json (insider buys, sells,
 //                                 option exercises …), split per company so a panel loads only its own
 //   /data/hyperscaler_cash.json   capex, operating cash flow, FCF per quarter + earnings dates
@@ -43,7 +44,7 @@ export interface FeedSource {
   url: string;
 }
 
-// ── /data/insiders_index.json + /data/insiders/<company>.json ───────────────
+// ── /data/insiders_index.json + /data/insiders/<company>.json (see FeedIndex below) ──
 
 export type InsiderType = "buy" | "sell" | "option_exercise" | "tax_withholding" | "grant" | "gift" | "other";
 
@@ -65,23 +66,25 @@ export interface InsiderTrade {
   url: string; // the filing
 }
 
-// Split per company on 2026-10-17 (one 10 MB file was downloaded the first time any panel opened):
-// /data/insiders_index.json maps node id → file, and /data/insiders/<file> holds that company's rows.
-export interface InsidersIndex {
+// ── Per-company feeds: /data/<feed>_index.json + /data/<feed>/<company>.json ──
+// Split per company on 2026-10-17 (insiders.json was 10 MB and downloaded the first time any panel
+// opened): the small index maps node id → file, and each company file holds only that company's rows.
+
+export interface FeedIndex {
   updated: string;
   sources: FeedSource[];
   companies: Record<string, { file: string; count: number; latest: string | null }>;
 }
 
-/** One company's insider trades, as the panel uses them. */
-export interface CompanyInsiders {
+/** One company's rows of a feed, as the panel uses them. */
+export interface CompanyFeed<T> {
   company: string; // node id these rows belong to
   updated: string;
   sources: FeedSource[];
-  rows: InsiderTrade[]; // newest first, last 365 days
+  rows: T[]; // newest first, last 365 days
 }
 
-// ── /data/financing.json ────────────────────────────────────────────────────
+// ── /data/financing_index.json + /data/financing/<company>.json ─────────────
 
 export type FinancingType =
   | "debt"
@@ -105,12 +108,6 @@ export interface FinancingItem {
   market: string | null;
   source: string;
   url: string;
-}
-
-export interface FinancingFile {
-  updated: string;
-  sources: FeedSource[];
-  companies: Record<string, FinancingItem[]>; // node id → newest first, last 365 days
 }
 
 // ── /data/hyperscaler_cash.json and /data/ai_labs.json (shapes in lib/marketTypes.ts) ──
@@ -142,23 +139,19 @@ function loadOnce<T extends object>(file: string, empty: T): Promise<T> {
   return p;
 }
 
-export const loadInsidersIndex = () =>
-  loadOnce<InsidersIndex>("insiders_index.json", { updated: "", sources: [], companies: {} });
-
-/** The small index first, then only this company's file (each fetched once per page load). */
-export function loadCompanyInsiders(companyId: string): Promise<CompanyInsiders> {
-  return loadInsidersIndex().then((idx) => {
+/** A per-company feed: the small index first, then only this company's file (each fetched once per page load). */
+function loadCompanyFeed<T>(feed: "insiders" | "financing", companyId: string): Promise<CompanyFeed<T>> {
+  return loadOnce<FeedIndex>(`${feed}_index.json`, { updated: "", sources: [], companies: {} }).then((idx) => {
     const entry = idx.companies?.[companyId];
-    const empty: CompanyInsiders = { company: companyId, updated: idx.updated, sources: idx.sources || [], rows: [] };
+    const empty: CompanyFeed<T> = { company: companyId, updated: idx.updated, sources: idx.sources || [], rows: [] };
     if (!entry?.file) return empty;
-    return loadMarketJson<{ updated?: string; rows?: InsiderTrade[] }>(`insiders/${entry.file}`).then((f) =>
-      f ? { ...empty, updated: f.updated || idx.updated, rows: f.rows || [] } : empty,
-    );
+    return loadMarketJson<{ rows?: T[] }>(`${feed}/${entry.file}`).then((f) => (f ? { ...empty, rows: f.rows || [] } : empty));
   });
 }
 
-export const loadFinancing = () =>
-  loadOnce<FinancingFile>("financing.json", { updated: "", sources: [], companies: {} });
+export const loadCompanyInsiders = (companyId: string) => loadCompanyFeed<InsiderTrade>("insiders", companyId);
+
+export const loadCompanyFinancing = (companyId: string) => loadCompanyFeed<FinancingItem>("financing", companyId);
 
 export const loadHyperscalerCash = () =>
   loadOnce<HyperscalerCashFile>("hyperscaler_cash.json", { updated: "", note: "", companies: [], calendar: [] });

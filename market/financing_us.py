@@ -18,7 +18,7 @@ How it works:
      User-Agent from market.common.sec_headers()) and read with plain regular expressions (no model tokens):
      a short title, type, amount + currency, and coupon / maturity / conversion price into "detail".
   4. Rows go to market/history/financing_us.jsonl (ADD-only, key = accession + type + currency + company), and
-     market/financing.py rebuilds graph/financing.json from every market/history/financing_*.jsonl.
+     market/financing.py rebuilds graph/financing/ (one file per company) from every market/history/financing_*.jsonl.
 
 Daily mode only looks at filings since the last run (a few days of overlap; already-processed accession
 numbers are remembered in market/cache/financing_us_state.json, so nothing is fetched twice). A filing can give
@@ -926,7 +926,7 @@ def make_rows(node_ids, cik, filing, record, url):
 # Run
 # ---------------------------------------------------------------------------------------------------------
 def build():
-    """Rebuild graph/financing.json from all financing histories (market/financing.py does the work)."""
+    """Rebuild graph/financing/ (one file per company) from all financing histories (market/financing.py does the work)."""
     return financing.build()
 
 
@@ -1010,7 +1010,7 @@ def run(backfill=False):
 def main():
     parser = argparse.ArgumentParser(description="US financing events from SEC EDGAR (8-K, 424B, 6-K).")
     parser.add_argument("--backfill", action="store_true", help="re-check the whole 365-day window")
-    parser.add_argument("--build-only", action="store_true", help="rebuild graph/financing.json from history only")
+    parser.add_argument("--build-only", action="store_true", help="rebuild graph/financing/ (one file per company) from history only")
     args = parser.parse_args()
     try:
         sys.stdout.reconfigure(line_buffering=True)  # progress lines show up live in the nightly log

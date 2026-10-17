@@ -40,9 +40,9 @@ from `.env` (`DART_API_KEY`, `EDINET_API_KEY`, `ALPHAVANTAGE_API_KEY`, `EDGAR_US
 | `insiders_us.py` | `insiders_index.json` + `insiders/<company>.json` | `insiders_us.jsonl` | SEC Form 4: quarterly insider-transaction data sets (backfill) plus the EDGAR daily index (daily) |
 | `insiders_asia.py` | `insiders_index.json` + `insiders/<company>.json` | `insiders_kr.jsonl`, `insiders_tw.jsonl`, `insiders_jp.jsonl` | Korea: OpenDART executive / 10% holder and 5% holder reports. Taiwan: TWSE and TPEx OpenAPI insider pre-sale declarations. Japan: EDINET large-shareholding reports (350 / 360) |
 | `insiders.py` | `insiders_index.json` + `insiders/<company>.json` | reads every `insiders_*.jsonl` | builder only, no network |
-| `financing_us.py` | `financing.json` | `financing_us.jsonl` | SEC EDGAR 8-K (items 1.01 / 2.03 / 3.02), 424B2 / 424B3 / 424B5, 6-K |
-| `financing_asia.py` | `financing.json` | `financing_kr.jsonl`, `financing_tw.jsonl`, `financing_jp.jsonl` | Korea: OpenDART major-issues reports and debt registrations. Taiwan: MOPS material information. Japan: TDnet timely disclosures |
-| `financing.py` | `financing.json` | reads every `financing_*.jsonl`, including `financing_manual.jsonl` | builder only, no network |
+| `financing_us.py` | `financing_index.json` + `financing/<company>.json` | `financing_us.jsonl` | SEC EDGAR 8-K (items 1.01 / 2.03 / 3.02), 424B2 / 424B3 / 424B5, 6-K |
+| `financing_asia.py` | `financing_index.json` + `financing/<company>.json` | `financing_kr.jsonl`, `financing_tw.jsonl`, `financing_jp.jsonl` | Korea: OpenDART major-issues reports and debt registrations. Taiwan: MOPS material information. Japan: TDnet timely disclosures |
+| `financing.py` | `financing_index.json` + `financing/<company>.json` | reads every `financing_*.jsonl`, including `financing_manual.jsonl` | builder only, no network |
 | `hyperscaler_cash.py` | `hyperscaler_cash.json` | `hyperscaler_cash.jsonl`, `earnings_calendar.jsonl` | SEC XBRL companyconcept API (capex, operating cash flow, finance-lease principal); Alpha Vantage EARNINGS_CALENDAR (1 call a day); Yahoo Finance via yfinance; the companies' own IR event pages |
 | `ai_labs.py` | `ai_labs.json` | `ai_lab_revenue.jsonl`, `ai_lab_funding.jsonl`, `ai_lab_compute.jsonl`, `ai_model_scores.jsonl` | Epoch AI "Data on AI companies" and "Benchmarking Hub" downloads; the curated deals log `market/ai_lab_deals.json` |
 
@@ -63,7 +63,8 @@ What each web file holds:
   report of the same line) replaces the trade it restates; one block trade filed by two related persons (same day,
   shares, price and holding after) is one row with both names; grants and gifts have no value. The 10b5-1 flag is
   per line: when a footnote names the plan, only the lines that point at it are plan trades.
-- **financing.json** (contract 3): debt, convertible, equity, credit-facility, ABS, lease-financing and rating
+- **financing_index.json + financing/<company>.json** (contract 3, split per company on 2026-10-17 like the
+  insider feed: index {updated, sources, companies: {node id: {file, count, latest}}}, company file {company, rows}): debt, convertible, equity, credit-facility, ABS, lease-financing and rating
   events of the last 365 days, newest first. The same deal filed twice (a prospectus and its closing 8-K) is shown
   once; two prospectuses, two series / issue numbers, or an ATM program next to another deal are never merged. A
   repayment, redemption or buyback (money going out) is type `other` with no `amount_usd`, and a board approval of a

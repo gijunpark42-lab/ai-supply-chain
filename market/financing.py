@@ -1,4 +1,6 @@
-"""Build graph/financing.json (the company panel's "Financing" section) from every financing history.
+"""Build the company panel's "Financing" feed from every financing history: graph/financing_index.json plus one
+file per company in graph/financing/ (split on 2026-10-17 so a panel downloads only its own company; see
+market.common.write_company_split).
 
 Inputs (all ADD-only JSONL, one row per financing event, same schema):
   market/history/financing_us.jsonl      SEC EDGAR 8-K / 424B / 6-K       (market/financing_us.py)
@@ -9,9 +11,10 @@ Row schema: {"company": <graph node id>, "date", "type", "title", "amount", "cur
              "detail", "form", "market", "source", "url", ...extra fields are ignored}
 
 Output contract (web code reads this exactly):
-  {"updated", "sources": [{"name", "url"}],
-   "companies": {"<node id>": [{"date","type","title","amount","currency","amount_usd","detail","form",
-                                "market","source","url"}]}}
+  graph/financing_index.json  {"updated", "sources": [{"name", "url"}],
+                               "companies": {"<node id>": {"file", "count", "latest"}}}
+  graph/financing/<file>      {"company": "<node id>", "rows": [{"date","type","title","amount","currency",
+                               "amount_usd","detail","form","market","source","url"}]}
   type in debt|convertible|equity|credit_facility|abs|lease_financing|rating|other; newest first; last 365 days.
 
 The same deal is often filed twice (a 424B5 at pricing and the 8-K at closing; a pricing and a closing 6-K).
@@ -42,9 +45,8 @@ import sys
 from urllib.parse import urlparse
 
 from market import corrections
-from market.common import GRAPH, HISTORY, read_history, today, write_json
+from market.common import HISTORY, read_history, today, write_company_split
 
-OUT = GRAPH / "financing.json"
 WINDOW_DAYS = 365
 WINDOW_TWINS = 10                                    # days between two reports of one deal (pricing -> closing)
 TYPES = {"debt", "convertible", "equity", "credit_facility", "abs", "lease_financing", "rating", "other"}
@@ -232,8 +234,8 @@ def build():
         "sources": [{"name": n, "url": u} for n, u in sorted(sources.items())],
         "companies": dict(sorted(companies.items(), key=lambda kv: kv[0].lower())),
     }
-    write_json(OUT, out)
-    print(f"  graph/financing.json: {total} events for {len(companies)} companies "
+    write_company_split("financing", out["updated"], out["sources"], out["companies"])
+    print(f"  graph/financing_index.json + graph/financing/: {total} events for {len(companies)} companies "
           f"from {', '.join(history_files()) or 'no history yet'}")
     return out
 
@@ -245,7 +247,8 @@ def run(backfill=False):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Rebuild graph/financing.json from market/history/financing_*.jsonl")
+    parser = argparse.ArgumentParser(description="Rebuild graph/financing_index.json + graph/financing/ from "
+                                                 "market/history/financing_*.jsonl")
     parser.add_argument("--backfill", action="store_true", help="accepted for symmetry; nothing is fetched here")
     parser.add_argument("--build-only", action="store_true", help="accepted for symmetry; this is always a rebuild")
     parser.parse_args()

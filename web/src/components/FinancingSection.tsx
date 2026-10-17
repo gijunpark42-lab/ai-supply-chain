@@ -4,14 +4,15 @@
 //
 // Bond / note issues, convertibles, equity raises, credit facilities, ABS, lease
 // financing and rating actions from the last 365 days, collected every night by a
-// script (market/*.py → graph/financing.json → /data/financing.json). Not a signal:
+// script (market/*.py → graph/financing/<company>.json → /data/financing/; only this
+// company's file is fetched, found through /data/financing_index.json). Not a signal:
 // it lives in its own file and its own section, never in quarterly_data.
 // Renders nothing when the company has no rows (or the file does not exist yet).
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { t, useLang } from "@/lib/i18n";
 import { sourceType } from "@/lib/sourceKind";
-import { fmtMoney, loadFinancing, useFeed, type FinancingItem, type FinancingType } from "@/lib/companyFeeds";
+import { fmtMoney, loadCompanyFinancing, useFeed, type FinancingItem, type FinancingType } from "@/lib/companyFeeds";
 import { SignalBody, SourceBadge } from "./SignalText";
 import { DayChip, FeedHead, ShowAllToggle, SourceLink, SourcesLine, previewRows } from "./FeedParts";
 
@@ -72,14 +73,16 @@ function FinancingRow({ r }: { r: FinancingItem }) {
 
 export default function FinancingSection({ companyId }: { companyId: string }) {
   useLang(); // re-render on a language change
-  const file = useFeed(loadFinancing);
+  const load = useCallback(() => loadCompanyFinancing(companyId), [companyId]);
+  const loaded = useFeed(load);
+  const file = loaded && loaded.company === companyId ? loaded : null; // never show the previous company's rows
   const [open, setOpen] = useState(false);
   useEffect(() => setOpen(false), [companyId]);
 
   // Newest first (the file is already sorted; sorting again costs nothing).
   const rows = useMemo(
-    () => [...(file?.companies?.[companyId] || [])].sort((a, b) => (b.date || "").localeCompare(a.date || "")),
-    [file, companyId]
+    () => [...(file?.rows || [])].sort((a, b) => (b.date || "").localeCompare(a.date || "")),
+    [file]
   );
   if (!file || rows.length === 0) return null;
 
