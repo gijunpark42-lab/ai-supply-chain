@@ -946,6 +946,14 @@
    "recheck": "2027-01-03"
   },
   {
+   "company": "Volex",
+   "source": "call",
+   "status": "no_source",
+   "why": "half-yearly reporter: the latest call is the FY2026 results call (06-26-2026, enriched 10-14); the board's quarterly default flags it overdue, but the next call is the half-year results in November; investing.py sync 10-16 found no newer Volex call (checked 2026-10-17)",
+   "at": "2026-10-17",
+   "recheck": "2026-11-25"
+  },
+  {
    "company": "Wiwynn",
    "source": "call",
    "status": "no_source",
@@ -1081,6 +1089,11 @@
    "at": "2026-10-16 00:35",
    "market": "TW",
    "text": "2026-10-15/16 nightly enrich: MOPS 7 rows (Nanya x2, Winbond, Unimicron x2, Zhen Ding material; eMemory 10-29 deck = restates 08-25 deck). mops.py fix (uncommitted): -KY companies file two revenue columns (NT$ + functional currency) and every revenue fetch for them failed ('too many values to unpack') - now parsed; Aug + Sep 2026 revenue of Silergy, ShunSin, PCL, GCS and Advanced Energy Solution backfilled and enriched (their first MOPS revenue rows). tw.py now records last_sync (uncommitted; enrich_status.py reads it) - before, a sync with nothing new left the board saying 'tw.py sync due'. tw.py sync 10-15: only Delta broker events (no media); Faraday / Powertech 10-27, Delta 10-29 upcoming. mopsov.twse.com.tw timed out at ~01:30 10-16 (deck list) - next sync retries. Winbond's capex-budget 重大訊息 (board 10-27-2025, 02-10-2026, 08-06-2026) never reached the graph - check mops.py coverage for 2344 (verifier note)."
+  },
+  {
+   "at": "2026-10-17 00:00",
+   "market": "US",
+   "text": "2026-10-16/17 nightly enrich: board said nothing due; av.py sync saved 0 (only the 5 marked known gaps). Alpha Vantage's earnings calendar does not list TSM, so TSMC's Q3 call (10-15) was fetched from defeatbeta (utils/defeatbeta_fetch.py \"TSMC\" TSM --fy 2026 --q 3) and enriched: 10 entries, Opus verifier 3 wording fixes (patches/corrections/applied/verify-1017-tsmc.json). A defeatbeta scan of every US-market ticker for calls dated 10-06..10-16 found nothing else missing. Next quarters: TSMC must be fetched by hand (defeatbeta) each mid-Jan/Apr/Jul/Oct. Also: the 'us' sync cadence compares dates, so a nightly that finishes after midnight counts as today's sync; the board's refresh took ~18 min (enrich_status.py, ~1.5 GB)."
   }
  ],
  "questions": [
@@ -1515,6 +1528,12 @@
    "question": "The power_cooling timeline is described as 'AI datacenter power delivery & cooling', but in practice the tag sits on every grid / generation equipment contract (21 of 25 DART supply-contract entries in power_cooling.json, e.g. Taihan Cable's North America HV cable order and BHI's LNG power-plant equipment, which never mention data centers). Should power_cooling cover the whole power domain (keep tagging all power equipment) or only data-center power and cooling (then new grid / generation entries get topics [] and a verifier pass trims the old tags)?",
    "label": "Taihan Cable DART supply contract (10-15-2026)",
    "at": "2026-10-16"
+  },
+  {
+   "subject": "GlobalFoundries -> TSMC (back-end)",
+   "question": "TSMC's Q3 call (10-15): IR head Jeff Su cited 'the recent announcement with GlobalFoundries on interposers'; CEO C.C. Wei: the GlobalFoundries deal 'is part of our overall strategy in the back-end supply', 'we have a little bit shortage on the back end', and TSMC will work with 'our so-called partner' GlobalFoundries to support TSMC's customers. GlobalFoundries is a node but not a player in packaging_substrate.json (TSMC's CoWoS placement). Add a GlobalFoundries placement there (advanced_packaging, interposers) with a GlobalFoundries -> TSMC edge? Meanwhile the fact is on TSMC's packaging node with counterparty GlobalFoundries, counterparty_role 'supplier' (management's own word was 'partner'; change the role to 'partner' if you prefer).",
+   "label": "TSMC Q3 FY2026 (10-15-2026)",
+   "at": "2026-10-17"
   }
  ],
  "answered": [

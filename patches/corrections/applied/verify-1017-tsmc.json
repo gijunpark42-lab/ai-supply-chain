@@ -1,0 +1,53 @@
+{
+  "reviewer": "verify-1017-tsmc",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "TSMC",
+      "target": null,
+      "label": "TSMC Q3 FY2026 (10-15-2026)",
+      "signal_prefix": "AI demand (CEO C.C. Wei): the AI market 'continues",
+      "action": "set",
+      "set": {
+        "signal": "AI demand (CEO C.C. Wei): the AI market 'continues to be very strong'; increasing AI demand is fueled by rising adoption of agentic AI as the industry moves from chatbots to AI assistance, and greater adoption of open source AI models should lower the barrier to AI usage and drive more demand for leading-edge silicon. The emergence of agentic AI CPUs and continued demand for networking chips drive further silicon demand, and 'all the AI players are working with TSMC'. On the AI accelerator CAGR (a narrow definition) that TSMC had guided at mid to high 50s percentage for 2024 to 2029 (IR head Jeff Su), the CEO said 'We did not see any sign of slowdown. Whether it is a high 50 CAGR, it does not matter. It probably will be higher.' Demand from agentic AI CPUs continues to increase, but CPUs stay outside the narrow AI accelerator definition because TSMC cannot identify conventional versus AI server CPU use (Jeff Su: 'it is certainly part of our business'). In TSMC's judgment AI demand 'is still far above our capability today to supply'."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Management (Jeff Su) said 'AI accelerator CAGR, which is a narrow definition'; the word 'revenue' came only from the analyst's question (Laura Chen: 'AI revenue CAGR').",
+      "evidence": "we had previously guided our AI accelerator CAGR, which is a narrow definition to- ... grow mid to high 50s percentage from 2024 to 2029."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "TSMC",
+      "target": null,
+      "label": "TSMC Q3 FY2026 (10-15-2026)",
+      "signal_prefix": "Capex (CFO): Q3 2026 capital expenditures totaled ",
+      "action": "set",
+      "set": {
+        "signal": "Capex (CFO): Q3 2026 capital expenditures totaled $13.8 billion (TWD 443 billion). Given continued robust multi-year customer demand, including the emerging agentic AI market, TSMC reiterated its full year 2026 capital budget at between $60 billion and $64 billion, and still expects 2026 to 2028 capex to be significantly higher than the past three years. Tool supply is tight, so TSMC collaborates with its tool suppliers well in advance to prepare capacity; 'the tool price inflation is real' (tool price, material, labor cost), but the majority of capex relates to long-term demand. It is too early to give a capex number beyond this year; on capital intensity, 'the increase in revenue will outpace the increase in CapEx, and that is still the case'. CEO C.C. Wei on High NA EUV: 'So far, I think our plan is to use it in 2030', when it is mature and its cost reasonable, and TSMC is working closely with ASML to establish a 12 in photomask by 2031; using it later than competitors is not a disadvantage, he said, because TSMC remains 'the best company to offer the most advanced technology'."
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "Keep the CEO's hedge on the High NA timing (skill section 2: hedges kept).",
+      "evidence": "High NA definitely is a very good tool. So far, I think our plan is to use it in 2030."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "TSMC",
+      "target": null,
+      "label": "TSMC Q3 FY2026 (10-15-2026)",
+      "signal_prefix": "Advanced packaging (CEO C.C. Wei): TSMC is in real",
+      "action": "set",
+      "set": {
+        "signal": "Advanced packaging (CEO C.C. Wei): TSMC is in real-world production of 5x reticle size packaging - 'I don't believe that anybody can do that today except at TSMC, and the yield is excellent' - and is working on 9x reticle size and moving into 14x reticle size, while working on CoWoS to offer a reasonable cost reduction. 'The CoWoS is still the number one choice for our customer', though a competitor offers 'a very competitive solution'. Asked whether TSMC would back up customers if a competitor's packaging (EMIB-T) cannot deliver, he said he tried to avoid answering directly, but 'yes, we will be', since the number one priority is that customers' products are introduced into the market smoothly."
+      },
+      "chains": [
+        "manufacturing/packaging_substrate.json"
+      ],
+      "reason": "Keep the CEO's hedge on the backup-supplier answer (skill section 2: hedges kept).",
+      "evidence": "I try to avoid to answer it directly, but let me say that, yes, we will be."
+    }
+  ]
+}
