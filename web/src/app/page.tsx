@@ -16,7 +16,7 @@ import Chain2D from "@/components/Chain2D";
 import Generations from "@/components/Generations";
 import Coverage from "@/components/Coverage";
 import CapexBacklog from "@/components/CapexBacklog";
-import MarketsView from "@/components/MarketsView";
+import MarketsView, { type MarketSection } from "@/components/MarketsView";
 import SearchBox from "@/components/SearchBox";
 import Exposure from "@/components/Exposure";
 import AskGraph from "@/components/AskGraph";
@@ -24,7 +24,8 @@ import AskGate from "@/components/AskGate";
 import Picks from "@/components/Picks";
 import "./workspace.css";
 
-const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Screener", "Picks", "Capex", "Markets", "Status", "Ask", "Semi Bot"] as const;
+const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Screener", "Picks", "Capex",
+  "Memory", "GPU", "Earnings", "AI Labs", "AI Models", "Status", "Ask", "Semi Bot"] as const;
 // External dashboard embedded in the "Semi Bot" tab (its own Vercel project; sends no
 // X-Frame-Options / CSP frame-ancestors header, so it can be shown inline in an iframe).
 const SEMI_BOT_URL = "https://semiband-dashboard.vercel.app";
@@ -46,7 +47,9 @@ const TAB_GROUPS: { id: string; tabs: Tab[] }[] = [
   { id: "Map", tabs: ["Graph", "Chain 2D"] },
   { id: "Companies", tabs: ["Screener", "Capex"] },
   // Market-level data recorded daily by the nightly collectors (2026-10-17).
-  { id: "Markets", tabs: ["Markets"] },
+  // One sub-tab per section of MarketsView (it used to be one long "Markets" page);
+  // the first one, Memory, opens when the group is picked.
+  { id: "Markets", tabs: ["Memory", "GPU", "Earnings", "AI Labs", "AI Models"] },
   { id: "Signals", tabs: ["Timelines", "Picks"] },
   { id: "Tools", tabs: ["Ask"] },
 ];
@@ -69,10 +72,22 @@ const VIEW_INFO: Record<Tab, { title: string; description: string }> = {
   Screener: { title: "Compare the companies.", description: "Review the latest reported results, guidance, supply status, and catalysts." },
   Picks: { title: "Track the picks.", description: "Two ranked one-quarter baskets, priced live against their 2026-09-18 entry." },
   Capex: { title: "Follow the investment.", description: "Compare capital spending and contracted demand across cloud infrastructure." },
-  Markets: { title: "Read the market.", description: "Memory and GPU rental prices, upcoming earnings dates and AI lab numbers, recorded daily from public sources." },
+  Memory: { title: "Track memory prices.", description: "Follow DRAM, NAND and module spot prices and memory price releases, recorded daily from public sources." },
+  GPU: { title: "Price the compute.", description: "Compare GPU rental prices across marketplaces and cloud providers, recorded daily from public sources." },
+  Earnings: { title: "Know who reports next.", description: "See upcoming earnings dates and times, with confirmed and estimated dates marked." },
+  "AI Labs": { title: "Follow the AI labs.", description: "Compare revenue run-rates, funding rounds, and compute deals across the AI labs." },
+  "AI Models": { title: "Compare the models.", description: "Rank recent AI models by their scores on public benchmarks." },
   Status: { title: "Know what to enrich next.", description: "See what is waiting, what is overdue, and which enrich command to run next." },
   Ask: { title: "Start with a question.", description: "Explore the stored signals and contracts with source-linked answers." },
   "Semi Bot": { title: "Your Semi Bot workspace.", description: "Open the trading dashboard alongside your supply-chain research." },
+};
+// The section of MarketsView each Markets sub-tab shows.
+const MARKET_SECTION: Partial<Record<Tab, MarketSection>> = {
+  Memory: "memory",
+  GPU: "gpu",
+  Earnings: "earnings",
+  "AI Labs": "labs",
+  "AI Models": "models",
 };
 
 // The language provider wraps the whole workspace so every view can translate.
@@ -528,7 +543,10 @@ function Workspace() {
         {viz && tab === "Capex" && (
           <CapexBacklog resolve={resolveCompany} onOpen={openNode} />
         )}
-        {viz && tab === "Markets" && <MarketsView resolve={resolveCompany} onOpen={openNode} />}
+        {/* One element for all five Markets sub-tabs, so MarketsView stays mounted (its files stay loaded) while only `section` changes. */}
+        {viz && MARKET_SECTION[tab] && (
+          <MarketsView section={MARKET_SECTION[tab]!} resolve={resolveCompany} onOpen={openNode} />
+        )}
         {viz && tab === "Exposure" && (
           <Exposure nodes={viz.nodes} byId={viz.byId} onOpen={openNode} />
         )}
