@@ -12,12 +12,17 @@ session) commits the run's data files only (the $publishPaths list below: transc
 web/public, collector state, status board) on a branch nightly-enrich-<date>, pushes it, opens a PR and merges it into
 main, then returns the checkout to an up-to-date main. Code, docs and anything else changed stay uncommitted for the
 user to review (logged). A run that ends blocked is not published; the next night's run rebuilds and publishes it.
+Only the listed paths are committed: a file the user staged by hand stays staged and out of the PR. Nothing is
+published from a branch other than main (that branch's unmerged commits would be merged too).
 Publish the current data by hand:  powershell -NoProfile -ExecutionPolicy Bypass -File routine\nightly.ps1 -PublishOnly
+Publish only the daily market data (what routine/market_data.ps1 runs at 22:00; never switches branches):
+    powershell -NoProfile -ExecutionPolicy Bypass -File routine\nightly.ps1 -PublishOnly -MarketOnly
 
 If the computer is off or asleep at 23:00, the task runs as soon as the computer is on again.
 While the session works, this script keeps the laptop from idle-sleeping, and it writes one line per event
 to .claude/nightly.log (gitignored). If last night's session is still working, tonight is skipped, so two
-runs never enrich the same queue.
+runs never enrich the same queue. The daily market data does not depend on this: routine/market_data.ps1 collects it
+at 22:00 (its own task), and this script runs those steps only when that task did not run today.
 
 Test the plumbing (a tiny session that only writes .claude/nightly_test.txt, no enrich):
     powershell -NoProfile -ExecutionPolicy Bypass -File routine\nightly.ps1 -Test
@@ -31,8 +36,10 @@ Stop the routine:       Unregister-ScheduledTask -TaskName "earnings-ai nightly 
 #>
 param(
     [switch]$Test,          # -Test: start a tiny plumbing-check session instead of an enrich run
-    [switch]$PublishOnly    # -PublishOnly: commit + push + PR + merge the current enrich data, start no session
+    [switch]$PublishOnly,   # -PublishOnly: commit + push + PR + merge the current enrich data, start no session
+    [switch]$MarketOnly     # -MarketOnly: like -PublishOnly, but only the $marketPaths below (routine/market_data.ps1)
 )
+if ($MarketOnly) { $PublishOnly = $true }    # -MarketOnly alone must never start an enrich session
 
 $scriptStart = Get-Date     # the 8-hour session limit below counts from here, data steps included
 $repo = Split-Path -Parent $PSScriptRoot
@@ -52,6 +59,29 @@ $publishPaths = @(
     # "graph") and their copies in web/public/data (covered by "web/public"); market/cache/ is gitignored, never published.
     "market/history", "market/run_log.jsonl", "market/ai_lab_deals.json"
 )
+# The daily market data alone (-MarketOnly, the 22:00 publish of routine/market_data.ps1): the collectors' history,
+# run log and web files. It leaves out everything an enrich session writes (transcripts, patches, chains, the rest of
+# graph), so the 22:00 publish never carries what a blocked session left; that waits for a night that finishes as done.
+# web/public/data needs no entry: the site's build copies graph/ into it (web/package.json "prebuild").
+$marketPaths = @(
+    "market/history", "market/run_log.jsonl", "market/ai_lab_deals.json",
+    "graph/memory_prices.json", "graph/gpu_prices.json", "graph/insiders_index.json", "graph/insiders",
+    "graph/financing_index.json", "graph/financing", "graph/hyperscaler_cash.json", "graph/ai_labs.json",
+    "graph/transcript_quality.json"
+)
+
+# One git job at a time in this checkout: switching to main, pulling and publishing must never overlap.
+# routine/market_data.ps1 pulls at 22:00 and publishes through `nightly.ps1 -PublishOnly -MarketOnly`, and a late
+# night of this script (a catch-up start, a session that ends around 22:00) can switch, pull or publish at the same
+# time. A named Windows mutex has one holder at a time across processes, and Windows frees it when its holder dies.
+# Returns the mutex when it is ours (give it back with .ReleaseMutex()), or $null after $minutes of waiting.
+function Enter-GitLock([int]$minutes) {
+    $gitLock = New-Object System.Threading.Mutex($false, "Global\earnings-ai-git")
+    try { $mine = $gitLock.WaitOne([TimeSpan]::FromMinutes($minutes)) }
+    catch { $mine = $true }      # the only error here: the last holder died without releasing it; it is ours now
+    if ($mine) { return $gitLock }
+    return $null
+}
 
 # Run git / gh, log the output when it fails, and return $true on success.
 function Invoke-Step($what, [scriptblock]$cmd) {
@@ -61,18 +91,35 @@ function Invoke-Step($what, [scriptblock]$cmd) {
 }
 
 # Commit the enrich data on a new branch, push it, open a PR and merge it into main, then come back to main.
+# The caller holds the git lock (Enter-GitLock). With -MarketOnly, only $marketPaths are published.
 function Publish-Run($label) {
-    $paths = $publishPaths | Where-Object { Test-Path (Join-Path $repo $_) }
+    # Never from another branch: its unmerged commits would go into the PR and be merged into main.
+    $current = git branch --show-current
+    if ($current -ne "main") { Write-Log ("publish skipped: the checkout is on {0}, not main" -f $current); return }
+    if ($MarketOnly) { $kind = "market data"; $list = $marketPaths } else { $kind = "enrich data"; $list = $publishPaths }
+    $paths = $list | Where-Object { Test-Path (Join-Path $repo $_) }
     git add -A -- $paths 2>&1 | Out-Null
-    $staged = @(git diff --cached --name-only)
-    if ($staged.Count -eq 0) { Write-Log "publish: no enrich data changed, nothing to commit"; return }
-    $branch = "nightly-enrich-" + (Get-Date -Format "yyyy-MM-dd-HHmm")
-    $title = "Nightly enrich {0} (auto-published, {1} files)" -f $label, $staged.Count
+    # Count and commit ONLY these paths, so a file the user staged by hand stays staged and out of the PR. A path is
+    # given to `git commit` only when it has staged changes: git commit stops on a path git does not track at all
+    # (the gitignored av/, investing/ and tw/ folders exist on disk).
+    $commitPaths = @($paths | Where-Object { @(git diff --cached --name-only -- $_).Count -gt 0 })
+    if ($commitPaths.Count -eq 0) { Write-Log ("publish: no {0} changed, nothing to commit" -f $kind); return }
+    $staged = @(git diff --cached --name-only -- $commitPaths)
+    if ($MarketOnly) {
+        $branch = "market-data-" + (Get-Date -Format "yyyy-MM-dd-HHmm")
+        $title = "Market data {0} (auto-published, {1} files)" -f $label, $staged.Count
+        $why = "Daily market-data files written by routine/market_data.ps1; published by routine/nightly.ps1 -PublishOnly -MarketOnly (user, 2026-10-17)."
+        $body = "Auto-published by routine/market_data.ps1 after the daily market-data run. Market data files only; the run's log is .claude/market_data_task.log."
+    } else {
+        $branch = "nightly-enrich-" + (Get-Date -Format "yyyy-MM-dd-HHmm")
+        $title = "Nightly enrich {0} (auto-published, {1} files)" -f $label, $staged.Count
+        $why = "Data files written by the nightly enrich session; published by routine/nightly.ps1 (user, 2026-10-14: push and merge every night)."
+        $body = "Auto-published by routine/nightly.ps1 after the nightly enrich session finished as done. Data files only; the session's report is in claude agents and .claude/nightly.log."
+    }
     if (-not (Invoke-Step "switch -c" { git switch -c $branch })) { return }
-    if (-not (Invoke-Step "commit" { git commit -q -m $title -m "Data files written by the nightly enrich session; published by routine/nightly.ps1 (user, 2026-10-14: push and merge every night)." -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" })) { return }
+    if (-not (Invoke-Step "commit" { git commit -q -m $title -m $why -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -- $commitPaths })) { return }
     if (-not (Invoke-Step "push" { git push -q -u origin $branch })) { return }
-    $body = "Auto-published by routine/nightly.ps1 after the nightly enrich session finished as done. Data files only; the session's report is in claude agents and .claude/nightly.log."
-    $pr = (gh pr create --base main --head $branch --title $title --body $body 2>&1 | Out-String).Trim()
+    $pr =(gh pr create --base main --head $branch --title $title --body $body 2>&1 | Out-String).Trim()
     if ($LASTEXITCODE -ne 0) { Write-Log ("publish FAILED at pr create: {0}" -f $pr); return }
     if (-not (Invoke-Step "merge" { gh pr merge $branch --merge --delete-branch })) { Write-Log ("PR left open: {0}" -f $pr); return }
     git switch main 2>&1 | Out-Null
@@ -104,18 +151,33 @@ if ($running -and -not $Test) {
     exit 0
 }
 
-# Start from an up-to-date main (uncommitted data is carried along when nothing conflicts).
+# Start from an up-to-date main (uncommitted data is carried along when nothing conflicts), holding the git lock.
+# With -MarketOnly (the 22:00 publish of routine/market_data.ps1) the branch is never switched: on another branch
+# nothing is pulled, and Publish-Run stops.
 if (-not $Test) {
-    if ((git branch --show-current) -ne "main") {
+    if ($PublishOnly) { $waitMinutes = 5 } else { $waitMinutes = 20 }
+    $gitLock = Enter-GitLock $waitMinutes
+    if (-not $gitLock) {
+        # The checkout may be on the other job's publish branch right now: no session and no publish on top of it.
+        Write-Log ("skipped: another git job (a publish) still held the git lock after {0} min" -f $waitMinutes)
+        exit 0
+    }
+    $onMain = (git branch --show-current) -eq "main"
+    if (-not $onMain -and -not $MarketOnly) {
         if (-not (Invoke-Step "switch main" { git switch main })) { Write-Log "staying on $(git branch --show-current)" }
     }
-    Invoke-Step "pull main" { git pull --ff-only -q } | Out-Null
+    if ($onMain -or -not $MarketOnly) { Invoke-Step "pull main" { git pull --ff-only -q } | Out-Null }
+    if ($PublishOnly) {
+        if ($MarketOnly) { Publish-Run $runDate } else { Publish-Run ("manual " + $runDate) }
+    }
+    $gitLock.ReleaseMutex()
 }
-if ($PublishOnly) { Publish-Run ("manual " + $runDate); exit 0 }
+if ($PublishOnly) { exit 0 }
 
 # 1b. Daily market data (user, 2026-10-17), BEFORE the enrich session: free sources fetched by scripts only (no model
 #     tokens), then the transcript quality scan the session reads (graph/transcript_quality.json). Each step is
 #     time-boxed; a failure or timeout is logged and the night goes on to enrich. Full output: .claude\<step>.log.
+#     Normally skipped: the 22:00 task routine/market_data.ps1 already ran them (see below).
 $python = Join-Path $env:LOCALAPPDATA "Python\bin\python.exe"     # the same Python the session is told to use
 if (-not (Test-Path $python)) { $found = Get-Command python -ErrorAction SilentlyContinue; if ($found) { $python = $found.Source } }
 function Invoke-DataStep($step, [string[]]$arguments, [int]$minutes) {
@@ -137,9 +199,53 @@ function Invoke-DataStep($step, [string[]]$arguments, [int]$minutes) {
     if (-not $last) { $last = "(no output; see " + $err + ")" }
     Write-Log ("{0} exit {1}: {2}" -f $step, $p.ExitCode, $last)
 }
+# Since 2026-10-17 the 22:00 task (routine/market_data.ps1) runs these steps an hour earlier, even on a night this
+# script skips. So they run here only as a fallback: when market/run_log.jsonl lacks today's line for some collector
+# (the 22:00 task did not run today). The Python check below prints the missing collector names (empty = all ran);
+# it uses run_all.py's own collector list and Pacific date, so it never drifts from the log. The fallback runs the
+# 22:00 task's steps a) to d): the tests, the missing collectors, the transcript scan and the phone-alert check.
+$runLogCheck = @'
+import json
+from market.run_all import NAMES, RUN_LOG
+from market.common import today
+seen = set()
+if RUN_LOG.exists():
+    for line in RUN_LOG.read_text(encoding='utf-8').splitlines():
+        try:
+            entry = json.loads(line)
+        except ValueError:
+            continue
+        if entry.get('date') == today():
+            seen.add(entry.get('collector'))
+print(' '.join(name for name in NAMES if name not in seen))
+'@
 if (-not $Test) {
-    Invoke-DataStep "market_data" @("-X", "utf8", "market/run_all.py") 45
-    Invoke-DataStep "transcript_quality" @("-X", "utf8", "utils/transcript_quality.py") 10
+    # Both scripts take this lock (a named Windows mutex: one holder at a time, freed by Windows when its holder dies)
+    # around their market-data steps, so they never collect at the same time. The 22:00 task stops itself within 2 hours.
+    $lock = New-Object System.Threading.Mutex($false, "Global\earnings-ai-market-data")
+    try { $haveLock = $lock.WaitOne([TimeSpan]::FromMinutes(125)) }
+    catch { $haveLock = $true }      # the only error here: the last holder died without releasing it; it is ours now
+    if (-not $haveLock) {
+        Write-Log "market data skipped: the 22:00 market-data task still held its lock after 125 min"
+    } else {
+        $missing = (& $python -X utf8 -c $runLogCheck | Out-String).Trim()     # stdout only: a warning on stderr is not a name
+        if ($LASTEXITCODE -ne 0) { $missing = "unknown, the run_log check failed" }
+        if (-not $missing) {
+            Write-Log "market data: the 22:00 task already ran every collector today, data steps skipped"
+        } else {
+            Write-Log ("market data fallback, today's run_log lacks: {0}" -f $missing)
+            # Only the missing collectors (run_all.py keeps its fixed order); all of them when the check itself failed.
+            $runAll = @("-X", "utf8", "market/run_all.py")
+            if ($missing -notlike "unknown*") { $runAll += @("--only", ($missing -replace ' ', ',')) }
+            Invoke-DataStep "selftest" @("-X", "utf8", "market/selftest.py") 10
+            Invoke-DataStep "market_data" $runAll 45
+            Invoke-DataStep "transcript_quality" @("-X", "utf8", "utils/transcript_quality.py") 10
+            # Without this, a night on which the 22:00 task did not run would stay silent. health.py pushes each
+            # alert at most once a day, so running it here too is harmless.
+            Invoke-DataStep "market_health" @("-X", "utf8", "market/health.py") 5
+        }
+        $lock.ReleaseMutex()
+    }
 }
 
 # 2. Tonight's command and the prompt that carries the unattended rules.
@@ -163,7 +269,7 @@ $id = $match.Value
 Write-Log ("started {0} as {1}" -f $command, $id)
 
 # 4. Keep the laptop from idle-sleeping until the session stops working (at most 8 hours after this script started:
-#    the data steps of 1b can take up to 55 minutes, and Task Scheduler stops the script at 9 hours, so counting from
+#    the data steps of 1b can take up to 70 minutes, and Task Scheduler stops the script at 9 hours, so counting from
 #    the script start leaves Publish-Run about an hour instead of a few minutes).
 Add-Type -Namespace Win32 -Name Power -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint flags);'
 [Win32.Power]::SetThreadExecutionState([uint32]2147483649) | Out-Null   # 0x80000001 = ES_CONTINUOUS | ES_SYSTEM_REQUIRED
@@ -184,6 +290,10 @@ Write-Log ("{0} stopped working: {1}" -f $id, $state)
 
 # 5. Publish the run (user, 2026-10-14). Only a run that finished as done; a blocked run is rebuilt and published next night.
 if (-not $Test) {
-    if ($state -like "done*") { Publish-Run $runDate }
+    if ($state -like "done*") {
+        $gitLock = Enter-GitLock 20                   # the 22:00 market-data publish may be running right now
+        if ($gitLock) { Publish-Run $runDate; $gitLock.ReleaseMutex() }
+        else { Write-Log "not published: another git job (a publish) still held the git lock after 20 min; the next done night publishes this data" }
+    }
     else { Write-Log "not published: the session did not finish as done" }
 }

@@ -1,6 +1,7 @@
 """Run every daily market-data collector once, in a fixed order (user, 2026-10-17).
 
-routine/nightly.ps1 calls this BEFORE the nightly enrich session starts:
+routine/market_data.ps1 calls this every day at 22:00 (routine/nightly.ps1 as fallback, before the nightly enrich
+session, for the collectors that have no line in today's run log):
     python -X utf8 market/run_all.py
 It is script-only (no model tokens). Each collector fetches its free source once, appends what it saw to
 market/history/<dataset>.jsonl (ADD-only, deduplicated by key) and rebuilds its web file in graph/.
@@ -316,7 +317,7 @@ def main(argv=None):
     entries = run_all(backfill=args.backfill, only=only)
     failed = [e["collector"] for e in entries if not e["ok"]]
     total_rows = sum(e["new_rows"] for e in entries)
-    # The LAST line is what routine/nightly.ps1 copies into .claude/nightly.log.
+    # The LAST line is what routine/market_data.ps1 (or nightly.ps1's fallback) copies into its log in .claude/.
     print(f"run_all {today()} {'backfill' if args.backfill else 'daily'}: "
           f"{len(entries) - len(failed)}/{len(entries)} collectors ok, {total_rows} new history rows, "
           f"{round(time.monotonic() - start)}s" + (f"; FAILED: {', '.join(failed)}" if failed else ""))

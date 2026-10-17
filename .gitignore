@@ -23,6 +23,11 @@ i18n/pending/
 
 # market/*.py download caches (SEC data-set zips, Epoch zips, same-day responses): re-made on demand, never published
 market/cache/
+# market/health.py and market/selftest.py output, re-made every night (local only, never published):
+# which phone alerts were already pushed today, the latest health check, the latest regression-test result
+market/health_state.json
+market/health.json
+market/selftest_result.json
 
 # scratch output of local verification runs (screenshots, build logs)
 /tmp/

@@ -8,19 +8,77 @@ sections). Every row carries its source name and a link.
 
 ## Schedule
 
-`routine/nightly.ps1` (Windows Task Scheduler, every night at 23:00 Pacific) does this in order:
+Two Windows Task Scheduler tasks (Pacific time, the laptop's clock). Both wake the laptop and catch up as soon as
+it is on again after a missed run.
 
-1. `python -X utf8 market/run_all.py`: every collector below, in a fixed order, at most 45 minutes. One line per
-   collector per day goes to `market/run_log.jsonl`, and the summary line goes to `.claude/nightly.log`. The full
-   output is in `.claude/market_data.log` and `.claude/market_data.err.log`. `financing_us` runs last but one (only
-   the financing build follows), and it stops after 5 SEC filers fail in a row, so a slow or blocking SEC cannot use
-   up the 45 minutes of the other collectors. Before the first collector, a history file whose last line was cut
-   off by a killed run gets that line moved to `<dataset>.rejected.txt` (kept), so every later night still reads it.
-2. `python -X utf8 utils/transcript_quality.py` writes `graph/transcript_quality.json` (see the end of this page).
-3. The nightly enrich session. It also appends hand-found AI-lab deals and financing events (enrich skill §10).
-4. Publishing. When the session finishes as done, the script commits the data paths (`market/history`,
-   `market/run_log.jsonl`, `market/ai_lab_deals.json`, `graph`, `web/public`) on a branch, opens a PR and merges it.
-   Vercel then deploys the site.
+**`earnings-ai market data`, every day at 22:00: `routine/market_data.ps1`** (since 2026-10-17). Scripts only, no
+Claude session, so it runs even when last night's enrich session is still working (the night `nightly.ps1` skips).
+One line per event goes to `.claude/market_data_task.log`; each step's full output goes to `.claude/<step>.log` and
+`.claude/<step>.err.log`. It first logs the branch and commit that will run the collectors. On `main`, when no
+`nightly enrich*` session is working in the checkout, it runs `git pull --ff-only`, so a collector fix merged on
+GitHub runs the same day; on another branch it logs a warning, and nothing is pulled or published. Steps, in order,
+each time-boxed (a failure or timeout is logged and the next step runs):
+
+1. `python -X utf8 market/selftest.py` (10 min): the offline regression tests, result in `market/selftest_result.json`.
+2. `python -X utf8 market/run_all.py` (45 min): every collector below, in a fixed order. One line per collector per
+   day goes to `market/run_log.jsonl`; the full output is in `.claude/market_data.log` and
+   `.claude/market_data.err.log`. `financing_us` runs last but one (only the financing build follows), and it stops
+   after 5 SEC filers fail in a row, so a slow or blocking SEC cannot use up the 45 minutes of the other collectors.
+   Before the first collector, a history file whose last line was cut off by a killed run gets that line moved to
+   `<dataset>.rejected.txt` (kept), so every later night still reads it.
+3. `python -X utf8 utils/transcript_quality.py` (10 min) writes `graph/transcript_quality.json` (see the end of this
+   page).
+4. `python -X utf8 market/health.py` (5 min): reads the run log and the test result and sends the phone alert.
+5. Publishing (15 min), only when the checkout is on `main`, no `nightly enrich*` Claude session is working and the
+   collectors added rows to `market/history` (or `market/ai_lab_deals.json` changed):
+   `routine/nightly.ps1 -PublishOnly -MarketOnly` commits only the market-data files (`market/history`,
+   `market/run_log.jsonl`, `market/ai_lab_deals.json` and the market web files in `graph/`: `memory_prices.json`,
+   `gpu_prices.json`, `insiders_index.json` + `insiders/`, `financing_index.json` + `financing/`,
+   `hyperscaler_cash.json`, `ai_labs.json`, `transcript_quality.json`) on a branch, opens a PR and merges it. Vercel
+   then deploys the site (its build copies `graph/` into `web/public/data`). What an enrich session writes
+   (transcripts, patches, chains, the rest of `graph/`) is never part of it, so a blocked session's leftovers wait
+   for a night that finishes as done. While an enrich session works, nothing is published: `nightly.ps1` publishes
+   everything when the session ends.
+
+Steps 1 and 4 run even when the market-data lock (below) is busy; steps 2, 3 and 5 need it. A step whose script does
+not exist is skipped (logged). Test it in a worktree, without publishing and without a phone alert (the collectors
+really run there):
+`powershell -NoProfile -ExecutionPolicy Bypass -File routine\market_data.ps1 -RepoRoot <worktree> -NoPublish -NoAlert`.
+
+**`earnings-ai nightly enrich`, every night at 23:00: `routine/nightly.ps1`.** It skips the whole night when last
+night's session is still working. Otherwise, before the enrich session, it runs steps 1 to 4 above only as a
+fallback: when `market/run_log.jsonl` lacks today's line for some collector (the 22:00 task did not run today), and
+step 2 then runs only the missing collectors (all of them when the log cannot be read). The log line in
+`.claude/nightly.log` says which. Then the nightly enrich session (it also appends hand-found AI-lab deals and
+financing events, enrich skill §10), and publishing when the session finishes as done.
+
+The two scripts never collect at the same time: both take one lock (a named Windows mutex,
+`Global\earnings-ai-market-data`) around their market-data steps, and the one that comes second waits
+(`market_data.ps1` at most 30 minutes, then it skips its steps 2, 3 and 5 because `nightly.ps1` is collecting;
+`nightly.ps1` at most 125 minutes, then it skips its data steps). Windows frees the lock when its holder dies.
+Switching to `main`, pulling and publishing take a second lock, `Global\earnings-ai-git`, so the two scripts never run
+those git steps at the same time in one checkout. Every publish commits only its own path list (a file staged by
+hand stays staged and out of the PR), and nothing is published from a branch other than `main`.
+
+## Phone alerts
+
+`market/health.py` (step 4) reads `market/run_log.jsonl` and `market/selftest_result.json` and pushes one phone
+notification (a tiny background Claude Code session with Remote Control, on the user's own login, never the API)
+when:
+
+1. a collector did not succeed on its last 2 run days (a run day with no line for it counts too: `run_all.py` was
+   stopped before it);
+2. a collector's latest run failed and its last success is 2 or more days older (days without any run in between,
+   e.g. the laptop was off, do not hide a broken source);
+3. `market/run_log.jsonl` has no line from the last 2 days at all;
+4. the regression tests failed on their latest run, or have no result for 2 or more days.
+
+Each problem is pushed at most once a day (`market/health_state.json`), however often the check runs; a crash of
+the check itself is pushed too, once a day. The full result goes to `market/health.json`. These two files and
+`market/selftest_result.json` are local only (gitignored). `python -X utf8 market/health.py --dry-run` prints the
+alerts and writes and sends nothing. `python -X utf8 market/health.py --test-alert` sends one harmless test
+notification: run it once from the main checkout after setting up the 22:00 task, and check that it reaches the
+phone.
 
 A collector whose source is down logs a warning, keeps its earlier history and rebuilds its web file from it, so the
 site keeps showing the last good data with its date. `run_all.py` exits 0 unless every collector failed, and a
@@ -134,7 +192,7 @@ What each web file holds:
 From the repo root, with the project's Python:
 
 ```
-python -X utf8 market/run_all.py                          # today's run (what the nightly routine does)
+python -X utf8 market/run_all.py                          # today's run (what the 22:00 routine does)
 python -X utf8 market/run_all.py --only gpu_prices,ai_labs
 python -X utf8 market/run_all.py --backfill                # every collector's backfill (slow: an hour or more)
 python -X utf8 -m market.gpu_prices                       # one collector
