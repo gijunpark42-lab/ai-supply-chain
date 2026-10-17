@@ -8,6 +8,21 @@
 type Row = [ko: string, zh: string, ja: string];
 
 export const UI: Record<string, Row> = {
+  // ── Weekend perp prices (2026-10-17) ─────────────────────────────────────
+  // components/WeekendPerpPrice.tsx: the 24/7 Hyperliquid perp chip under the price
+  // chart on weekends / exchange holidays. {day} is already localised (금요일 / 周五 / 金曜日).
+  "24/7 · Hyperliquid perp": ["24/7 · Hyperliquid 무기한 선물", "24/7 · Hyperliquid 永续合约", "24/7 · Hyperliquid 無期限先物"],
+  "{pct} vs {day} close": ["{day} 종가 대비 {pct}", "较{day}收盘 {pct}", "{day}終値比 {pct}"],
+  "24h vol {v}": ["24시간 거래대금 {v}", "24小时成交额 {v}", "24時間売買代金 {v}"],
+  "Perpetual futures on Hyperliquid ({venue}), trading 24/7 — not the official stock price; can diverge (funding, liquidity)": [
+    "Hyperliquid({venue})에서 24시간 거래되는 무기한 선물 — 공식 주가가 아니며, 펀딩비·유동성 때문에 괴리가 생길 수 있습니다",
+    "Hyperliquid（{venue}）上全天候交易的永续合约——并非官方股价，可能因资金费率、流动性而出现偏离",
+    "Hyperliquid（{venue}）で24時間取引される無期限先物 — 公式の株価ではなく、資金調達率や流動性により乖離することがあります",
+  ],
+  "Funding {rate}/hr": ["펀딩비 {rate}/시간", "资金费率 {rate}/小时", "資金調達率 {rate}/時間"],
+  "Converted at 1 USD = {rate} {cur}": ["1 USD = {rate} {cur} 기준 환산", "按 1 USD = {rate} {cur} 换算", "1 USD = {rate} {cur} で換算"],
+  "Last regular close {close}": ["직전 정규장 종가 {close}", "上一常规交易日收盘价 {close}", "直近の通常取引終値 {close}"],
+
   // ── Language switch / app shell (page.tsx) ──────────────────────────────
   "Language": ["언어", "语言", "言語"],
   "Skip to research": ["리서치로 건너뛰기", "跳到研究内容", "リサーチへスキップ"],
