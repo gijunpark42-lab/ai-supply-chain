@@ -53,7 +53,8 @@ What each web file holds:
   updated; the site shows each series' own latest date.
 - **insiders_index.json + insiders/<company>.json** (contract 2, split per company on 2026-10-17 so a company panel
   downloads only its own trades instead of one 10 MB file): the index maps each node id to its file name, row count
-  and latest trade date, plus the sources list; each company file is {updated, company, rows}. graph/insiders/ is
+  and latest trade date, plus the sources list; each company file is {company, rows} (no date inside, and an unchanged file is not rewritten, so a nightly commit
+  touches only companies with new trades). graph/insiders/ is
   generated and stale files are deleted on every build. Rows: insider trades of the last 365 days, newest first; type is buy,
   sell, option_exercise, tax_withholding, grant, gift or other. Lines of one filing that are one trade split by
   fill price are merged per holder (an indirect holder is named in brackets, e.g. "(By Trust for Child 1)"); the
