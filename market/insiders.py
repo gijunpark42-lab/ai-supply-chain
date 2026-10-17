@@ -1,13 +1,22 @@
-"""Builds graph/insiders.json (insider trades for the company panel) from every market's history.
+"""Builds the insider-trade web files (company panel) from every market's history.
 
 Each market has its own collector that appends rows to market/history/insiders_<market>.jsonl
 (insiders_us = SEC Form 4, and insiders_kr / insiders_tw / insiders_jp from their own collectors), all with
-the same row fields. This module only reads those files (no network) and writes the web file:
+the same row fields. This module only reads those files (no network) and writes ONE FILE PER COMPANY plus a
+small index (user, 2026-10-17: "insiders 파일 회사별로 나눠줘" — the single 10 MB file was downloaded the first
+time any company panel opened; now the panel fetches only the company it shows):
 
+  graph/insiders_index.json
   { "updated": "YYYY-MM-DD",
     "sources": [{"name", "url"}],
-    "companies": { "<node id>": [ {date, filed, insider, role, code, type, shares, price, value, currency,
-                                   owned_after, plan_10b5_1, market, source, url}, ... newest first ] } }
+    "companies": { "<node id>": {"file": "<slug>.json", "count": N, "latest": "YYYY-MM-DD"} } }
+
+  graph/insiders/<slug>.json
+  { "updated": "YYYY-MM-DD", "company": "<node id>",
+    "rows": [ {date, filed, insider, role, code, type, shares, price, value, currency,
+               owned_after, plan_10b5_1, market, source, url}, ... newest first ] }
+
+graph/insiders/ is generated: files of companies that dropped out of the window are deleted on every build.
 
 Only the last 365 days (by transaction date) are written; the history files keep everything, line by line.
 For the website, the lines of ONE filing that are really one trade split by fill price (a sale reported as
@@ -24,20 +33,24 @@ Clean-ups for the web file only (user, 2026-10-17 verification; the history file
   - one block trade reported by two related filers (same day, shares, price and holding after) is shown once;
   - grants and gifts get no value (shares x price is not money that changed hands there).
 
-CLI:  python -m market.insiders     (rebuild graph/insiders.json)
+CLI:  python -m market.insiders     (rebuild graph/insiders_index.json + graph/insiders/)
 """
 import datetime as dt
+import hashlib
 import importlib
 import json
 import os
+import re
 import statistics
 import sys
 from urllib.parse import urlparse
 
 from market import corrections
-from market.common import GRAPH, HISTORY, today, read_history
+from market.common import GRAPH, HISTORY, today, read_history, write_json
 
-OUT_FILE = GRAPH / "insiders.json"
+OUT_DIR = GRAPH / "insiders"                  # one file per company
+INDEX_FILE = GRAPH / "insiders_index.json"    # node id -> file name, row count, latest trade date
+LEGACY_FILE = GRAPH / "insiders.json"         # the old single file (before 2026-10-17's split); removed on build
 WINDOW_DAYS = 365
 FIELDS = ("date", "filed", "insider", "role", "code", "type", "shares", "price", "value", "currency",
           "owned_after", "plan_10b5_1", "market", "source", "url")
@@ -208,21 +221,34 @@ def collapse_joint_filers(rows):
     return kept
 
 
-def write_rows_json(path, data):
-    """Like common.write_json (atomic), but one trade per line: the file stays small for the website and a
-    nightly git diff shows only the new trades instead of re-indenting thousands of lines."""
+def file_names(node_ids):
+    """node id -> a stable, URL-safe file name ("SK Hynix" -> "sk-hynix.json"). A name that is empty after
+    cleaning (non-Latin node id) or shared by two ids gets a short hash of the id, so files never collide."""
+    names, taken = {}, {}
+    for node_id in node_ids:
+        base = re.sub(r"[^a-z0-9]+", "-", node_id.lower()).strip("-")
+        taken.setdefault(base, []).append(node_id)
+    for base, ids in taken.items():
+        for node_id in ids:
+            if base and len(ids) == 1:
+                names[node_id] = base + ".json"
+            else:
+                tag = hashlib.sha1(node_id.encode("utf-8")).hexdigest()[:8]
+                names[node_id] = (base + "-" if base else "") + tag + ".json"
+    return names
+
+
+def write_company_json(path, updated, node_id, rows):
+    """Like common.write_json (atomic), but one trade per line: a nightly git diff shows only the new trades
+    instead of re-indenting the whole file."""
     parts = ["{",
-             f' "updated": {json.dumps(data["updated"])},',
-             f' "sources": {json.dumps(data["sources"], ensure_ascii=False)},',
-             ' "companies": {']
-    companies = list(data["companies"].items())
-    for i, (node_id, rows) in enumerate(companies):
-        parts.append(f"  {json.dumps(node_id, ensure_ascii=False)}: [")
-        for j, r in enumerate(rows):
-            comma = "," if j < len(rows) - 1 else ""
-            parts.append("   " + json.dumps(r, ensure_ascii=False, separators=(",", ":")) + comma)
-        parts.append("  ]" + ("," if i < len(companies) - 1 else ""))
-    parts += [" }", "}"]
+             f' "updated": {json.dumps(updated)},',
+             f' "company": {json.dumps(node_id, ensure_ascii=False)},',
+             ' "rows": [']
+    for j, r in enumerate(rows):
+        comma = "," if j < len(rows) - 1 else ""
+        parts.append("  " + json.dumps(r, ensure_ascii=False, separators=(",", ":")) + comma)
+    parts += [" ]", "}"]
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
     tmp.write_text("\n".join(parts) + "\n", encoding="utf-8")
@@ -230,7 +256,7 @@ def write_rows_json(path, data):
 
 
 def build():
-    """Rebuild graph/insiders.json from market/history/insiders_*.jsonl."""
+    """Rebuild graph/insiders_index.json and graph/insiders/<company>.json from market/history/insiders_*.jsonl."""
     cutoff = (dt.date.fromisoformat(today()) - dt.timedelta(days=WINDOW_DAYS)).isoformat()
     companies, sources = {}, []
     lines_in, rows_out = 0, 0
@@ -264,9 +290,21 @@ def build():
         rows_out += len(rows)
 
     data = {"updated": today(), "sources": sources, "companies": dict(sorted(companies.items()))}
-    write_rows_json(OUT_FILE, data)
-    log(f"wrote {OUT_FILE.relative_to(GRAPH.parent)}: {rows_out} trades ({lines_in} filing lines) "
-        f"for {len(companies)} companies since {cutoff}")
+    names = file_names(data["companies"])
+    index = {}
+    for node_id, rows in data["companies"].items():
+        write_company_json(OUT_DIR / names[node_id], data["updated"], node_id, rows)
+        index[node_id] = {"file": names[node_id], "count": len(rows),
+                          "latest": max((r.get("date") or "" for r in rows), default="") or None}
+    # graph/insiders/ is generated: drop files of companies that left the 365-day window, and the old single file
+    for old in OUT_DIR.glob("*.json"):
+        if old.name not in names.values():
+            old.unlink()
+    if LEGACY_FILE.exists():
+        LEGACY_FILE.unlink()
+    write_json(INDEX_FILE, {"updated": data["updated"], "sources": sources, "companies": index})
+    log(f"wrote {INDEX_FILE.relative_to(GRAPH.parent)} + {len(index)} files in "
+        f"{OUT_DIR.relative_to(GRAPH.parent)}/: {rows_out} trades ({lines_in} filing lines) since {cutoff}")
     return data
 
 

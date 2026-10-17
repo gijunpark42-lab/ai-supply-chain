@@ -4,20 +4,21 @@
 //
 // Trades by officers, directors and large holders from the last 365 days, collected
 // every night by a script from insider filings (SEC Form 4, DART …) into
-// graph/insiders.json → /data/insiders.json. Not a signal: own file, own section.
+// graph/insiders/<company>.json → /data/insiders/ (only this company's file is fetched, found
+// through /data/insiders_index.json). Not a signal: own file, own section.
 //
 // Open-market buys and sells are what readers look for, so they are listed first.
 // Option exercises, tax withholding, grants, gifts and other codes are mostly
 // mechanical; they sit under a toggle. Renders nothing when the company has no rows.
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { t, useLang } from "@/lib/i18n";
 import {
   fmtCount,
   fmtDay,
   fmtMoney,
   fmtPrice,
-  loadInsiders,
+  loadCompanyInsiders,
   useFeed,
   type InsiderTrade,
   type InsiderType,
@@ -85,7 +86,9 @@ function side(rows: InsiderTrade[], type: "buy" | "sell", currency: string) {
 
 export default function InsiderTrades({ companyId }: { companyId: string }) {
   useLang(); // re-render on a language change
-  const file = useFeed(loadInsiders);
+  const load = useCallback(() => loadCompanyInsiders(companyId), [companyId]);
+  const loaded = useFeed(load);
+  const file = loaded && loaded.company === companyId ? loaded : null; // never show the previous company's rows
   const [openMain, setOpenMain] = useState(false); // "Show all" on buys / sells
   const [showOther, setShowOther] = useState(false); // the collapsed non-market group
   const [openOther, setOpenOther] = useState(false); // "Show all" inside that group
@@ -96,8 +99,8 @@ export default function InsiderTrades({ companyId }: { companyId: string }) {
   }, [companyId]);
 
   const rows = useMemo(
-    () => [...(file?.companies?.[companyId] || [])].sort((a, b) => (b.date || "").localeCompare(a.date || "")),
-    [file, companyId]
+    () => [...(file?.rows || [])].sort((a, b) => (b.date || "").localeCompare(a.date || "")),
+    [file]
   );
   const market = useMemo(() => rows.filter(isMarketTrade), [rows]);
   const other = useMemo(() => rows.filter((r) => !isMarketTrade(r)), [rows]);

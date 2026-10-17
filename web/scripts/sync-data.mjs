@@ -74,7 +74,7 @@ async function main() {
     // Added 2026-10-17: daily market-data collectors (market/*.py, run by routine/nightly.ps1).
     [["graph/memory_prices.json"], "memory_prices.json"],
     [["graph/gpu_prices.json"], "gpu_prices.json"],
-    [["graph/insiders.json"], "insiders.json"],
+    [["graph/insiders_index.json"], "insiders_index.json"],
     [["graph/financing.json"], "financing.json"],
     [["graph/hyperscaler_cash.json"], "hyperscaler_cash.json"],
     [["graph/ai_labs.json"], "ai_labs.json"],
@@ -87,6 +87,20 @@ async function main() {
     if (!picked) { console.warn(`  (skip, missing) ${candidates.join(" | ")}`); continue; }
     await copyFileIfExists(path.join(ROOT, picked), path.join(OUT_DATA, out));
     console.log(`  ✓ ${picked}`);
+  }
+
+  // 1b) graph/insiders/<company>.json -> public/data/insiders/ (split per company on 2026-10-17, so a company
+  //     panel downloads only its own insider trades). The folder is generated, so it is mirrored exactly:
+  //     stale company files and the old single public/data/insiders.json are removed.
+  const insidersDir = path.join(ROOT, "graph", "insiders");
+  if (await exists(insidersDir)) {
+    const outDir = path.join(OUT_DATA, "insiders");
+    await fs.rm(outDir, { recursive: true, force: true });
+    await ensureDir(outDir);
+    const files = (await fs.readdir(insidersDir)).filter((f) => f.endsWith(".json"));
+    for (const f of files) await fs.copyFile(path.join(insidersDir, f), path.join(outDir, f));
+    await fs.rm(path.join(OUT_DATA, "insiders.json"), { force: true });
+    console.log(`  ✓ graph/insiders/ (${files.length} company files)`);
   }
 
   // 2) reports/*.json -> one bundle keyed by node_name (skip files starting with "_").

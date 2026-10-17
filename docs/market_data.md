@@ -37,9 +37,9 @@ from `.env` (`DART_API_KEY`, `EDINET_API_KEY`, `ALPHAVANTAGE_API_KEY`, `EDGAR_US
 |---|---|---|---|
 | `memory_prices.py` | `memory_prices.json` | `memory_spot.jsonl`, `memory_press.jsonl` | DRAMeXchange home page (DRAM, GDDR, module and NAND wafer spot prices); TrendForce press-center RSS (memory price releases) |
 | `gpu_prices.py` | `gpu_prices.json` | `gpu_shadeform.jsonl`, `gpu_getdeploying.jsonl`, `gpu_list.jsonl` | Shadeform public marketplace API; GetDeploying weekly GPU price dataset; list prices from the CoreWeave, Nebius, Lambda, Together AI and Crusoe pricing pages |
-| `insiders_us.py` | `insiders.json` | `insiders_us.jsonl` | SEC Form 4: quarterly insider-transaction data sets (backfill) plus the EDGAR daily index (daily) |
-| `insiders_asia.py` | `insiders.json` | `insiders_kr.jsonl`, `insiders_tw.jsonl`, `insiders_jp.jsonl` | Korea: OpenDART executive / 10% holder and 5% holder reports. Taiwan: TWSE and TPEx OpenAPI insider pre-sale declarations. Japan: EDINET large-shareholding reports (350 / 360) |
-| `insiders.py` | `insiders.json` | reads every `insiders_*.jsonl` | builder only, no network |
+| `insiders_us.py` | `insiders_index.json` + `insiders/<company>.json` | `insiders_us.jsonl` | SEC Form 4: quarterly insider-transaction data sets (backfill) plus the EDGAR daily index (daily) |
+| `insiders_asia.py` | `insiders_index.json` + `insiders/<company>.json` | `insiders_kr.jsonl`, `insiders_tw.jsonl`, `insiders_jp.jsonl` | Korea: OpenDART executive / 10% holder and 5% holder reports. Taiwan: TWSE and TPEx OpenAPI insider pre-sale declarations. Japan: EDINET large-shareholding reports (350 / 360) |
+| `insiders.py` | `insiders_index.json` + `insiders/<company>.json` | reads every `insiders_*.jsonl` | builder only, no network |
 | `financing_us.py` | `financing.json` | `financing_us.jsonl` | SEC EDGAR 8-K (items 1.01 / 2.03 / 3.02), 424B2 / 424B3 / 424B5, 6-K |
 | `financing_asia.py` | `financing.json` | `financing_kr.jsonl`, `financing_tw.jsonl`, `financing_jp.jsonl` | Korea: OpenDART major-issues reports and debt registrations. Taiwan: MOPS material information. Japan: TDnet timely disclosures |
 | `financing.py` | `financing.json` | reads every `financing_*.jsonl`, including `financing_manual.jsonl` | builder only, no network |
@@ -51,7 +51,10 @@ What each web file holds:
 - **memory_prices.json / gpu_prices.json** (contract 1): daily price series, the latest value and its change, and
   tables (latest session, provider list prices, TrendForce releases). Spot boxes say when the page itself was last
   updated; the site shows each series' own latest date.
-- **insiders.json** (contract 2): insider trades of the last 365 days per company, newest first; type is buy,
+- **insiders_index.json + insiders/<company>.json** (contract 2, split per company on 2026-10-17 so a company panel
+  downloads only its own trades instead of one 10 MB file): the index maps each node id to its file name, row count
+  and latest trade date, plus the sources list; each company file is {updated, company, rows}. graph/insiders/ is
+  generated and stale files are deleted on every build. Rows: insider trades of the last 365 days, newest first; type is buy,
   sell, option_exercise, tax_withholding, grant, gift or other. Lines of one filing that are one trade split by
   fill price are merged per holder (an indirect holder is named in brackets, e.g. "(By Trust for Child 1)"); the
   history keeps every raw line. For the site only: a price more than 20x away from the company's other trades of
