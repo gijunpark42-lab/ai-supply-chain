@@ -2,7 +2,8 @@
 
 The user asked on 2026-10-17 for daily, free, script-only records next to the graph: memory prices, GPU $/hour,
 insider trades, financing events, hyperscaler capex / cash flow and AI-lab metrics. Each collector:
-  - fetches its source once a day (run by routine/nightly.ps1 through market/run_all.py, no model tokens),
+  - fetches its source once a day (run through market/run_all.py by routine/market_data.ps1 at 22:00, with
+    routine/nightly.ps1 as fallback; no model tokens),
   - appends what it saw to market/history/<dataset>.jsonl (ADD-only: a row whose key is already there is skipped),
   - rebuilds its web file graph/<dataset>.json from that history (generated, never hand-edited).
 Re-running on the same day is safe: the history dedupes by key.
