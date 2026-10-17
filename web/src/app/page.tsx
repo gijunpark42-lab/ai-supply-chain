@@ -25,7 +25,7 @@ import Picks from "@/components/Picks";
 import "./workspace.css";
 
 const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Screener", "Picks", "Capex",
-  "Memory", "GPU", "Earnings", "AI Labs", "AI Models", "Status", "Ask", "Semi Bot"] as const;
+  "Memory", "GPU", "Earnings", "AI Labs", "AI Models", "Weekend", "Status", "Ask", "Semi Bot"] as const;
 // External dashboard embedded in the "Semi Bot" tab (its own Vercel project; sends no
 // X-Frame-Options / CSP frame-ancestors header, so it can be shown inline in an iframe).
 const SEMI_BOT_URL = "https://semiband-dashboard.vercel.app";
@@ -48,8 +48,9 @@ const TAB_GROUPS: { id: string; tabs: Tab[] }[] = [
   { id: "Companies", tabs: ["Screener", "Capex"] },
   // Market-level data recorded daily by the nightly collectors (2026-10-17).
   // One sub-tab per section of MarketsView (it used to be one long "Markets" page);
-  // the first one, Memory, opens when the group is picked.
-  { id: "Markets", tabs: ["Memory", "GPU", "Earnings", "AI Labs", "AI Models"] },
+  // the first one, Memory, opens when the group is picked. Weekend = live
+  // Hyperliquid 24/7 perp prices of the graph's stocks (WeekendPerps.tsx).
+  { id: "Markets", tabs: ["Memory", "GPU", "Earnings", "AI Labs", "AI Models", "Weekend"] },
   { id: "Signals", tabs: ["Timelines", "Picks"] },
   { id: "Tools", tabs: ["Ask"] },
 ];
@@ -77,6 +78,7 @@ const VIEW_INFO: Record<Tab, { title: string; description: string }> = {
   Earnings: { title: "Know who reports next.", description: "See upcoming earnings dates and times, with confirmed and estimated dates marked." },
   "AI Labs": { title: "Follow the AI labs.", description: "Compare revenue run-rates, funding rounds, and compute deals across the AI labs." },
   "AI Models": { title: "Compare the models.", description: "Rank recent AI models by their scores on public benchmarks." },
+  Weekend: { title: "See the weekend tape.", description: "Compare Hyperliquid's 24/7 perpetuals for the stocks in the graph with their last regular close." },
   Status: { title: "Know what to enrich next.", description: "See what is waiting, what is overdue, and which enrich command to run next." },
   Ask: { title: "Start with a question.", description: "Explore the stored signals and contracts with source-linked answers." },
   "Semi Bot": { title: "Your Semi Bot workspace.", description: "Open the trading dashboard alongside your supply-chain research." },
@@ -88,6 +90,7 @@ const MARKET_SECTION: Partial<Record<Tab, MarketSection>> = {
   Earnings: "earnings",
   "AI Labs": "labs",
   "AI Models": "models",
+  Weekend: "weekend",
 };
 
 // The language provider wraps the whole workspace so every view can translate.
@@ -543,9 +546,9 @@ function Workspace() {
         {viz && tab === "Capex" && (
           <CapexBacklog resolve={resolveCompany} onOpen={openNode} />
         )}
-        {/* One element for all five Markets sub-tabs, so MarketsView stays mounted (its files stay loaded) while only `section` changes. */}
+        {/* One element for all six Markets sub-tabs, so MarketsView stays mounted (its files stay loaded) while only `section` changes. */}
         {viz && MARKET_SECTION[tab] && (
-          <MarketsView section={MARKET_SECTION[tab]!} resolve={resolveCompany} onOpen={openNode} />
+          <MarketsView section={MARKET_SECTION[tab]!} nodes={viz.nodes} resolve={resolveCompany} onOpen={openNode} />
         )}
         {viz && tab === "Exposure" && (
           <Exposure nodes={viz.nodes} byId={viz.byId} onOpen={openNode} />

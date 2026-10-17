@@ -76,8 +76,9 @@ a.mk-src:focus-visible {
 table.data.mk-table td.mk-num {
   font-variant-numeric: tabular-nums;
 }
-.mk-up {
-  color: #3fb950;
+.mk-up,
+table.data td.mk-up {
+  color: #3fb950; /* like .mk-down: `table.data td` would otherwise win over the bare class */
 }
 .mk-down,
 table.data td.mk-down {
@@ -112,4 +113,75 @@ table.data.mk-bench td {
 table.data.mk-bench td.mk-sorted {
   color: var(--ap-text);
   font-weight: 650;
+}
+
+/* Weekend: Hyperliquid 24/7 perps (WeekendPerps.tsx). Seven short columns that
+   stay on one line; on a phone the table scrolls sideways with the company
+   column pinned. Amber = "not the official price", as on the panel chip. */
+table.data.mk-perps th,
+table.data.mk-perps td {
+  white-space: nowrap;
+}
+table.data.mk-perps td.mk-chg {
+  font-weight: 650;
+}
+table.data.mk-perps td.mk-up {
+  color: #3fb950; /* `table.data td` would otherwise win over the bare .mk-up */
+}
+table.data.mk-perps td.mk-perp {
+  color: var(--ap-muted);
+  font-size: 0.8rem;
+}
+table.data.mk-perps th:first-child,
+table.data.mk-perps td:first-child {
+  position: sticky;
+  left: 0;
+}
+table.data.mk-perps th:first-child {
+  z-index: 4; /* above the sticky header row and the pinned cells */
+}
+table.data.mk-perps td:first-child {
+  z-index: 1;
+  background: var(--ap-bg); /* opaque, so the scrolled columns pass under it */
+  box-shadow: inset -1px 0 0 var(--ap-border);
+}
+body.glass table.data.mk-perps td:first-child {
+  background: #262b35; /* the glass-mode page colour (globals.css) */
+}
+.mk-badge.mk-closed {
+  color: #d29922;
+  border-color: rgba(210, 153, 34, 0.45);
+}
+.mk-note {
+  margin: 0.5rem 0;
+  padding: 7px 10px;
+  border: 1px dashed rgba(210, 153, 34, 0.55);
+  border-radius: 10px;
+  background: var(--ap-surface2);
+  color: var(--ap-text);
+  font-size: 0.82rem;
+}
+.mk-hidden-note {
+  margin: 0.4rem 0 0;
+}
+.mk-perp-sub {
+  display: none;
+}
+/* Phones: the perp symbol moves under the company name (its own column is
+   dropped) and the ≈ local price / close date take a second line, so the
+   Change column is on screen without scrolling sideways. */
+@media (max-width: 700px) {
+  table.data.mk-perps th:nth-child(2),
+  table.data.mk-perps td.mk-perp {
+    display: none;
+  }
+  table.data.mk-perps td.co {
+    white-space: normal;
+    max-width: 128px;
+  }
+  .mk-perp-sub,
+  table.data.mk-perps .mk-sub {
+    display: block;
+    font-size: 0.72rem;
+  }
 }
