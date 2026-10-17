@@ -1,0 +1,286 @@
+{
+ "_about": "Curated ADD-only log of AI-lab deals (compute, chips, leases, power, financing tied to a deployment). One row per deal fact. Never edit or delete a row; add a new row when a deal is updated. Fields: date = date of the cited source document (call or filing date, YYYY-MM-DD), not necessarily the signing date; lab = lab id as used in graph/ai_labs.json (OpenAI, Anthropic, xAI, Google DeepMind, Meta, Mistral AI, ...); counterparty = the other side; what = one English sentence with the concrete terms; gw = gigawatts (number or null); value_usd = dollar value (number or null); source = source name; url = the public link of the source (the SEC filing, or the company's investor-relations events page for a call), shown on nodus42.com; url_or_path = the same public URL or the Nodus42 transcript path (transcripts/...) where each quote can be found; quotes = verbatim sentence(s) from that source (grep -F must find each one); added / added_by = when and by whom the row was appended. The nightly enrich session appends rows from news. market/ai_labs.py reads this file and never writes it.",
+ "rows": [
+  {
+   "date": "2026-07-31",
+   "lab": "Anthropic",
+   "counterparty": "Amazon (AWS)",
+   "what": "Expanded strategic collaboration and multi-year commitment by more than $100B over 10 years (announced Q2 2026); includes obligations tied to the performance of AWS chips",
+   "gw": null,
+   "value_usd": 100000000000,
+   "source": "Amazon 10-Q (filed 2026-07-31)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
+   "url_or_path": "transcripts/edgar/AMZN_10-Q_2026-07-31_supplychain.txt",
+   "quotes": [
+    "In Q2 2026, AWS and Anthropic announced an expansion of the strategic collaboration and existing multi-year commitment by more than $100.0 billion over 10.0 years, which includes contractual obligations related to the performance of AWS chips."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-07-31",
+   "lab": "OpenAI",
+   "counterparty": "Amazon (AWS)",
+   "what": "Expanded the existing $38B multi-year commitment and commercial arrangement by $100B over 8 years (announced Q1 2026); includes obligations tied to the performance of AWS chips",
+   "gw": null,
+   "value_usd": 100000000000,
+   "source": "Amazon 10-Q (filed 2026-07-31)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
+   "url_or_path": "transcripts/edgar/AMZN_10-Q_2026-07-31_supplychain.txt",
+   "quotes": [
+    "In Q1 2026, AWS and OpenAI Group PBC (“OpenAI”) announced an expansion of the existing $38.0 billion multi-year commitment and commercial arrangement with OpenAI by $100.0 billion over 8.0 years, which includes contractual obligations related to the performance of AWS chips."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-09-02",
+   "lab": "Anthropic",
+   "counterparty": "Broadcom / Google (TPU)",
+   "what": "1 GW of Ironwood TPU compute being deployed in 2026",
+   "gw": 1,
+   "value_usd": null,
+   "source": "Broadcom Q3 FY2026 earnings call (2026-09-02)",
+   "url": "https://investors.broadcom.com/news-and-events/events",
+   "url_or_path": "transcripts/av/broadcom_q3_2026.txt",
+   "quotes": [
+    "Starting with the 1 GW of Ironwood we are deploying in 2026, we expect Anthropic to deploy another 5 GW of TPU v8i in 2027."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-09-02",
+   "lab": "Anthropic",
+   "counterparty": "Broadcom / Google (TPU)",
+   "what": "Another 5 GW of TPU v8i expected to be deployed in 2027",
+   "gw": 5,
+   "value_usd": null,
+   "source": "Broadcom Q3 FY2026 earnings call (2026-09-02)",
+   "url": "https://investors.broadcom.com/news-and-events/events",
+   "url_or_path": "transcripts/av/broadcom_q3_2026.txt",
+   "quotes": [
+    "Starting with the 1 GW of Ironwood we are deploying in 2026, we expect Anthropic to deploy another 5 GW of TPU v8i in 2027."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-09-02",
+   "lab": "OpenAI",
+   "counterparty": "Broadcom (custom XPU)",
+   "what": "Planned deployment of 1.3 GW of the Jalapeño custom XPU in 2027",
+   "gw": 1.3,
+   "value_usd": null,
+   "source": "Broadcom Q3 FY2026 earnings call (2026-09-02)",
+   "url": "https://investors.broadcom.com/news-and-events/events",
+   "url_or_path": "transcripts/av/broadcom_q3_2026.txt",
+   "quotes": [
+    "For OpenAI, Jalapeño is on track for the planned deployment of 1.3 GW in 2027."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-09-02",
+   "lab": "OpenAI",
+   "counterparty": "Broadcom (custom XPU)",
+   "what": "Line of sight to over 5 GW of Jalapeño and its successor XPU deployed in 2028",
+   "gw": 5,
+   "value_usd": null,
+   "source": "Broadcom Q3 FY2026 earnings call (2026-09-02)",
+   "url": "https://investors.broadcom.com/news-and-events/events",
+   "url_or_path": "transcripts/av/broadcom_q3_2026.txt",
+   "quotes": [
+    "In 2028, we have line of sight for OpenAI to deploy over 5 GW of Jalapeño and its successor generation of XPU, which would make OpenAI our second-largest XPU customer."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-09-02",
+   "lab": "Anthropic",
+   "counterparty": "Broadcom AI XPV Platform (with Apollo and Blackstone)",
+   "what": "First $35B financing tranche closed in June 2026 for Anthropic's 1 GW deployment (probably the same 1 GW as the Ironwood TPU deployment, so gw is left empty to avoid double counting); the platform targets more than 20 GW of compute for OpenAI and Anthropic by end-2028",
+   "gw": null,
+   "value_usd": 35000000000,
+   "source": "Broadcom Q3 FY2026 earnings call (2026-09-02)",
+   "url": "https://investors.broadcom.com/news-and-events/events",
+   "url_or_path": "transcripts/av/broadcom_q3_2026.txt",
+   "quotes": [
+    "In June, we established the AI XPV Platform in partnership with Apollo and Blackstone to enable more than 20 GW of compute infrastructure for OpenAI and Anthropic by the end of 2028.",
+    "We closed the first $35 billion tranche in June for Anthropic's 1 GW deployment, which is already underway."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-08-04",
+   "lab": "Anthropic",
+   "counterparty": "AMD",
+   "what": "Up to 2 GW of Instinct MI450 series GPUs in Helios racks; the first gigawatt begins deploying in 1H 2027",
+   "gw": 2,
+   "value_usd": null,
+   "source": "AMD Q2 2026 earnings call (2026-08-04)",
+   "url": "https://ir.amd.com/news-events/ir-calendar",
+   "url_or_path": "transcripts/accelerators/amd_q2_2026.txt",
+   "quotes": [
+    "Anthropic will deploy up to 2 GW of MI450 series GPUs in Helios, with deployment of the first gigawatt beginning in the first half of 2027."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-02-04",
+   "lab": "OpenAI",
+   "counterparty": "AMD",
+   "what": "Product purchase agreement (October 2025) to deploy 6 GW of AMD GPUs, the first gigawatt on Instinct MI450; AMD issued OpenAI a warrant for up to 160M AMD shares at $0.01",
+   "gw": 6,
+   "value_usd": null,
+   "source": "AMD 10-K (filed 2026-02-04)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+   "url_or_path": "transcripts/edgar/AMD_10-K_2026-02-04_supplychain.txt",
+   "quotes": [
+    "In October 2025, we entered into a product purchase agreement with OpenAI OpCo, LLC, (OpenAI) to deploy 6 gigawatts of AMD GPUs, with the deployment of the first gigawatt of capacity powered by our AMD Instinct MI450 series products.",
+    "Concurrent with the agreement, we issued to OpenAI a warrant to purchase up to an aggregate of 160 million shares of AMD’s common stock at an exercise price of $0.01 per share."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-06-23",
+   "lab": "OpenAI",
+   "counterparty": "Cerebras",
+   "what": "Multi-year deal for 750 MW of Cerebras compute valued at more than $20B",
+   "gw": 0.75,
+   "value_usd": 20000000000,
+   "source": "Cerebras 8-K (2026-06-23)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2021728/0001628280-26-044941-index.html",
+   "url_or_path": "transcripts/edgar/CBRS_8-K_2026-06-23.txt",
+   "quotes": [
+    "Announced a multi-year deal with OpenAI for 750MW valued at more than $20 billion"
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-08-26",
+   "lab": "OpenAI",
+   "counterparty": "NVIDIA / SB Energy",
+   "what": "NVIDIA guarantees (August 2026) for SB Energy's PORTS campus in Pike County, Ohio: about 4.25 GW of IT load hosting NVIDIA compute under 20-year leases to OpenAI; NVIDIA's obligation capped at $105B",
+   "gw": 4.25,
+   "value_usd": 105000000000,
+   "source": "NVIDIA 10-Q (filed 2026-08-26)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+   "url_or_path": "transcripts/edgar/NVDA_10-Q_2026-08-26_supplychain.txt",
+   "quotes": [
+    "In August 2026, we entered into guarantees with SB Energy Corp. to provide credit support on the land, power, and shell buildout at SB Energy’s PORTS Technology Campus in Pike County, Ohio, covering leases for approximately 4.25 gigawatts of IT load.",
+    "The campus will exclusively host our compute under 20-year leases to OpenAI, subject to limited exceptions, with our obligation capped at $105 billion in the aggregate, subject to certain conditions including SB Energy, the lessor, satisfying applicable ready-for-service conditions."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-02-25",
+   "lab": "Anthropic",
+   "counterparty": "NVIDIA",
+   "what": "Partnership plus a $10B NVIDIA investment in Anthropic; Anthropic to train and run inference on Grace Blackwell and Vera Rubin systems",
+   "gw": null,
+   "value_usd": 10000000000,
+   "source": "NVIDIA Q4 FY2026 earnings call (2026-02-25)",
+   "url": "https://investor.nvidia.com/events-and-presentations/events-and-presentations/default.aspx",
+   "url_or_path": "transcripts/av/nvidia_q4_2026.txt",
+   "quotes": [
+    "This quarter, we announced a partnership with Anthropic, and a $10 billion investment in their company.",
+    "Anthropic will train an inference on Grace Blackwell and Vera Rubin system."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-08-26",
+   "lab": "OpenAI",
+   "counterparty": "NVIDIA",
+   "what": "Existing and planned commitments of approximately 12 GW of NVIDIA compute",
+   "gw": 12,
+   "value_usd": null,
+   "source": "NVIDIA Q2 FY2027 earnings call (2026-08-26)",
+   "url": "https://investor.nvidia.com/events-and-presentations/events-and-presentations/default.aspx",
+   "url_or_path": "transcripts/accelerators/nvda_q2_2027.txt",
+   "quotes": [
+    "OpenAI's existing and planned commitments represent approximately 12 GW of NVIDIA Compute."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-08-05",
+   "lab": "Anthropic",
+   "counterparty": "TeraWulf",
+   "what": "20-year data center lease for about 401 MW of critical IT capacity at the Justified Data Campus: about $19B contracted revenue over the initial term, up to about $33B with both five-year extensions",
+   "gw": 0.401,
+   "value_usd": 19000000000,
+   "source": "TeraWulf 8-K (2026-08-05)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1083301/0001083301-26-000162-index.html",
+   "url_or_path": "transcripts/edgar/WULF_8-K_2026-08-05.txt",
+   "quotes": [
+    "Entered into a 20-year data center lease with Anthropic for approximately 401 MW of critical IT capacity at the Justified Data Campus.",
+    "The lease represents approximately $19 billion of contracted revenue over the initial term and up to approximately $33 billion if Anthropic exercises both five-year extension options."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-09-24",
+   "lab": "Anthropic",
+   "counterparty": "Akamai",
+   "what": "$11.6B multi-year agreement for Akamai Cloud distributed infrastructure (CPU workloads); possible expansion by up to $9B more (about $20B total); Akamai issued Anthropic a warrant for up to about 5% of its stock",
+   "gw": null,
+   "value_usd": 11600000000,
+   "source": "Akamai 8-K (2026-09-24)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1086222/0001193125-26-401048-index.html",
+   "url_or_path": "transcripts/edgar/AKAM_8-K_2026-09-24.txt",
+   "quotes": [
+    "Akamai Announces $11.6 Billion Multi-year Agreement with Anthropic to Support Growing Demand",
+    "The transaction provides for the potential expansion of the relationship by up to an additional $9 billion, which represents a total potential commitment of approximately $20 billion",
+    "Akamai has issued a warrant to Anthropic, the continued vesting of which is tied to the successful expansion of the relationship, for up to approximately 5% of Akamai’s common stock outstanding."
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-08-11",
+   "lab": "Anthropic",
+   "counterparty": "ERock",
+   "what": "470 MW order for utility-grade onsite power, extending ERock's production commitments into 2028",
+   "gw": 0.47,
+   "value_usd": null,
+   "source": "ERock 8-K (2026-08-11)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2110029/0001193125-26-344714-index.html",
+   "url_or_path": "transcripts/edgar/EROC_8-K_2026-08-11.txt",
+   "quotes": [
+    "470 MW Anthropic Order Extends Production Commitments Into 2028",
+    "a leading provider of utility-grade onsite power solutions"
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  },
+  {
+   "date": "2026-08-04",
+   "lab": "xAI",
+   "counterparty": "Cloud customers (not named)",
+   "what": "SpaceX AI segment (Grok, Colossus II) signed several Cloud Services Agreements totaling $14.1B in contracted sales for access to its compute capacity (Q2 2026)",
+   "gw": null,
+   "value_usd": 14100000000,
+   "source": "SpaceX 8-K (2026-08-04)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1181412/0001628280-26-052515-index.html",
+   "url_or_path": "transcripts/edgar/SPCX_8-K_2026-08-04.txt",
+   "quotes": [
+    "Entered into several Cloud Services Agreements totaling $14.1 billion in contracted sales to provide customers with access to compute capacity",
+    "with the continued build-out of Colossus II"
+   ],
+   "added": "2026-10-17",
+   "added_by": "seed 2026-10-17 from Nodus42 transcripts"
+  }
+ ]
+}

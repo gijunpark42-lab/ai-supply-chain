@@ -16,7 +16,10 @@ import CompanyLink from "./CompanyLink";
 import CellText from "./CellText";
 import { SourceBadge } from "./SignalText";
 import { t, tr, name, useLang } from "@/lib/i18n";
+import { loadMarketJson, type HyperscalerCash } from "@/lib/marketTypes";
+import { fmtDay } from "@/lib/companyFeeds";
 import "./Tables.css";
+import "./Markets.css";
 
 // Capex & Backlog — the money view of the AI buildout. One side of the tab is
 // what the buyers SPEND (capex, the top-of-funnel demand signal for every
@@ -213,6 +216,97 @@ function BarChart({
   );
 }
 
+// ── SEC cash-flow table (2026-10-17) ──────────────────────────────────────
+// From /data/hyperscaler_cash.json, which market/ writes every night from SEC
+// XBRL filings (no model tokens). Optional: when the file is missing the table
+// simply does not render, and nothing above it changes.
+
+/** US dollars → "$12.3B" (one decimal); "—" when the filing had no figure. */
+const fmtB = (n: number | null | undefined) =>
+  n === null || n === undefined || !Number.isFinite(n)
+    ? "—"
+    : `${n < 0 ? "-" : ""}$${(Math.abs(n) / 1e9).toFixed(1)}B`;
+
+const CASH_COLS = ["Company", "Quarter", "Capex", "Operating cash flow", "Free cash flow", "Lease principal", "FCF after leases", "Filing"];
+
+function CashFlowTable({
+  cash,
+  resolve,
+  onOpen,
+}: {
+  cash: HyperscalerCash;
+  resolve: Resolver;
+  onOpen: (id: string) => void;
+}) {
+  useLang();
+  // The last four quarters of each company, newest first.
+  const rows = (cash.companies || []).flatMap((c) =>
+    [...(c.quarters || [])]
+      .sort((a, b) => (a.end < b.end ? 1 : a.end > b.end ? -1 : 0))
+      .slice(0, 4)
+      .map((q) => ({ c, q }))
+  );
+  if (rows.length === 0) return null;
+  // Negative free cash flow is shown in red.
+  const fcfClass = (n: number | null) => "mk-num" + (n !== null && n < 0 ? " mk-down" : "");
+  return (
+    <div style={{ marginTop: "1.5rem" }}>
+      <div className="cb-group-title">{t("Capex, operating cash flow and free cash flow (SEC filings)")}</div>
+      <p className="caption">
+        {t("Last four quarters per company, in US$ billions. Updated {date}.", { date: fmtDay(cash.updated) })}
+      </p>
+      <div className="tbl-wrap">
+        <table className="data screener capexbacklog mk-table">
+          <thead>
+            <tr>
+              {CASH_COLS.map((c) => (
+                <th key={c} className="tb-static">
+                  {t(c)}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(({ c, q }) => (
+              <tr key={`${c.id}-${q.end}`}>
+                <td data-label={t("Company")} className="co">
+                  <CompanyLink text={c.id} resolve={resolve} onOpen={onOpen} />{" "}
+                  <span className="mk-muted">{c.ticker}</span>
+                </td>
+                <td data-label={t("Quarter")} className="mk-num">
+                  {q.period} {q.fiscal && <span className="mk-muted">{q.fiscal}</span>}
+                </td>
+                <td data-label={t("Capex")} className="mk-num">{fmtB(q.capex_usd)}</td>
+                <td data-label={t("Operating cash flow")} className="mk-num">{fmtB(q.ocf_usd)}</td>
+                <td data-label={t("Free cash flow")} className={fcfClass(q.fcf_usd)}>{fmtB(q.fcf_usd)}</td>
+                <td data-label={t("Lease principal")} className="mk-num">{fmtB(q.lease_principal_usd)}</td>
+                <td data-label={t("FCF after leases")} className={fcfClass(q.fcf_after_leases_usd)}>
+                  {fmtB(q.fcf_after_leases_usd)}
+                </td>
+                <td data-label={t("Filing")} className="mk-nowrap">
+                  {q.url ? (
+                    <a className="mk-src" href={q.url} target="_blank" rel="noopener noreferrer">
+                      SEC {q.form} {fmtDay(q.filed)} ↗
+                    </a>
+                  ) : (
+                    <span className="mk-src">SEC {q.form} {fmtDay(q.filed)}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {/* the methodology note is a footnote under the table, like the curated tables' footnote above */}
+      {cash.note && (
+        <p className="caption" style={{ marginTop: "0.8rem", fontSize: "0.76rem" }}>
+          {cash.note}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function CapexBacklog({
   resolve,
   onOpen,
@@ -229,6 +323,18 @@ export default function CapexBacklog({
     fetchJson<CapexBacklogData>("/data/capex_backlog.json")
       .then(setData)
       .catch((e) => setErr(e?.message || String(e)));
+  }, []);
+
+  // SEC cash-flow figures (optional file; null when it does not exist yet).
+  const [cash, setCash] = useState<HyperscalerCash | null>(null);
+  useEffect(() => {
+    let alive = true;
+    loadMarketJson<HyperscalerCash>("hyperscaler_cash.json").then((c) => {
+      if (alive) setCash(c);
+    });
+    return () => {
+      alive = false;
+    };
   }, []);
 
   // Every group table's rows in one list, for the CSV export. (Hooks must run
@@ -369,6 +475,8 @@ export default function CapexBacklog({
           {tr(data.footnote)}
         </p>
       )}
+
+      {cash && <CashFlowTable cash={cash} resolve={resolve} onOpen={onOpen} />}
     </div>
   );
 }

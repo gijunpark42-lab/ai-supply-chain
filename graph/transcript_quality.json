@@ -1,0 +1,366 @@
+{
+ "updated": "2026-10-17",
+ "scanned": 818,
+ "flagged": [
+  {
+   "path": "transcripts/accelerators/amd_q2_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 39,200 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/accelerators/arm_q1_2027.txt",
+   "label": "Arm Q1 FY2027 (07-29-2026)",
+   "problem": "no speaker labels: 39,697 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/accelerators/intel_q2_2026.txt",
+   "label": "Intel Q2 FY2026 (07-23-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 35% bullet lines; 8,836 chars vs a median 50,092 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/accelerators/nvda_q2_2027.txt",
+   "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+   "problem": "no speaker labels: 46,201 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/av/chipmos_q2_2026.txt",
+   "label": "ChipMOS Q2 FY2026 (08-11-2026)",
+   "problem": "no speaker labels: 18,098 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/av/magnachipsemiconductor_q2_2026.txt",
+   "label": "Magnachip Semiconductor Q2 FY2026 (07-29-2026)",
+   "problem": "no speaker labels: 16,713 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/bigtech/alphabet_q2_2026.txt",
+   "label": "Google Q2 FY2026 (07-22-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (3 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 39% bullet lines; 8,185 chars vs a median 51,052 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/bigtech/amazon_q2_2026.txt",
+   "label": "Amazon Web Services Q2 FY2026 (07-30-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 38% bullet lines; 7,088 chars vs a median 51,670 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/bigtech/meta_q2_2026.txt",
+   "label": "Meta Q2 FY2026 (07-29-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 33% bullet lines; 9,081 chars vs a median 51,544 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/bigtech/microsoft_q4_fy2026.txt",
+   "label": "Microsoft Q4 FY2026 (07-29-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 33% bullet lines; 8,396 chars vs a median 52,482 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/bigtech/nebius_q2_2026.txt",
+   "label": "Nebius Q2 FY2026 (08-12-2026)",
+   "problem": "no speaker labels: 42,010 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/bigtech/oracle_q4_fy2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 79% bullet lines; 3,854 chars vs a median 45,971 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/equipment/applied_materials_q3_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 54,879 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/equipment/formfactor_q2_2026.txt",
+   "label": "FormFactor Q2 FY2026 (07-29-2026)",
+   "problem": "no speaker labels: 42,542 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/equipment/kla_q4_2026.txt",
+   "label": "KLA Q4 FY2026 (07-28-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 61% bullet lines; 5,894 chars vs a median 56,669 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/equipment/lam_research_q4_2026_call.txt",
+   "label": "Lam Research Q4 FY2026 (07-29-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 42% bullet lines; 9,119 chars vs a median 52,894 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/equipment/onto_q2_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 38,820 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/equipment/teradyne_q2_2026.txt",
+   "label": "Teradyne Q2 FY2026 (07-29-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 41% bullet lines; 5,560 chars vs a median 50,285 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/foundry/nova_q1_2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 44% bullet lines; 5,145 chars vs a median 27,305 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/foundry/tower_q2_2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 31% bullet lines; only 6,344 chars)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/investing/fujitsu_q1_2027.txt",
+   "label": "Fujitsu Q1 FY2027 (07-30-2026)",
+   "problem": "no speaker labels: 24,123 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (company IR transcript, Investing.com or LSEG), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/memory/rambus_q2_2026.txt",
+   "label": "Rambus Q2 FY2026 (07-27-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 50% bullet lines; 6,372 chars vs a median 41,276 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/memory/sandisk_q4_2026.txt",
+   "label": "Sandisk Q4 FY2026 (08-05-2026)",
+   "problem": "no speaker labels: 50,815 chars of call text with 1 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/memory/western_digital_q4_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 41,640 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/optical/aaoi_q2_2026.txt",
+   "label": "Applied Optoelectronics Q2 FY2026 (08-06-2026)",
+   "problem": "no speaker labels: 46,476 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/optical/amphenol_q2_2026.txt",
+   "label": "Amphenol Q2 FY2026 (07-29-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 62% bullet lines; 5,773 chars vs a median 61,574 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/optical/coherent_q4_2026.txt",
+   "label": "Coherent Q4 FY2026 (08-12-2026)",
+   "problem": "no speaker labels: 50,640 chars of call text with 1 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/optical/corning_q2_2026.txt",
+   "label": "Corning Q2 FY2026 (07-28-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 50% bullet lines; 6,180 chars vs a median 45,661 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/optical/fabrinet_q4_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 48,405 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/optical/iqe_q4_2025.txt",
+   "label": "IQE FY2025 (05-28-2026)",
+   "problem": "no speaker labels: 31,715 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/optical/keysight_q3_2026.txt",
+   "label": "Keysight Q3 FY2026 (08-18-2026)",
+   "problem": "no speaker labels in the Q&A: 33,740 chars after the Q&A heading with 0 speaker turns marked (only the prepared remarks are labelled)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/optical/lumen_q2_2026.txt",
+   "label": "Lumen Technologies Q2 FY2026 (08-04-2026)",
+   "problem": "no speaker labels: 37,858 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/optical/lumentum_q4_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 48,085 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/optical/semtech_q2_2027.txt",
+   "label": null,
+   "problem": "no speaker labels: 48,885 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/optical/viavi_q4_2026.txt",
+   "label": "Viavi Q4 FY2026 (08-05-2026)",
+   "problem": "no speaker labels: 29,855 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/packaging/amkor_q2_2026.txt",
+   "label": "Amkor Technology Q2 FY2026 (07-27-2026)",
+   "problem": "no speaker labels: 30,265 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/packaging/ase_q1_2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 74% bullet lines; 3,292 chars vs a median 51,117 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/packaging/ase_q2_2026.txt",
+   "label": "ASE Group Q2 FY2026 (07-30-2026)",
+   "problem": "no speaker labels: 51,117 chars of call text with 1 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/packaging/asmpt_q1_2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 7,344 chars vs a median 48,108 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/packaging/camtek_q1_2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 53% bullet lines; 4,408 chars vs a median 31,261 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/power/abb_q1_2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 70% bullet lines; 5,468 chars vs a median 58,512 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/power/constellation_q2_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 48,408 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/power/eaton_q2_2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 50% bullet lines; 5,531 chars vs a median 50,531 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/power/fluence_q3_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 44,939 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/power/keycorp_q2_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 59,410 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/power/navitas_q2_2026.txt",
+   "label": "Navitas Q2 FY2026 (07-27-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 48% bullet lines; 6,635 chars vs a median 48,596 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/power/onsemi_q2_2026.txt",
+   "label": "onsemi Q2 FY2026 (08-03-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 65% bullet lines; 5,849 chars vs a median 50,680 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/power/schneider_q1_2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 65% bullet lines; only 4,463 chars)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/power/stm_q1_2026.txt",
+   "label": null,
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 66% bullet lines; 7,566 chars vs a median 43,497 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/power/vistra_q2_2026.txt",
+   "label": "Vistra Q2 FY2026 (08-06-2026)",
+   "problem": "no speaker labels: 54,277 chars of call text with 1 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/power/wolfspeed_q4_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 23,391 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/systems/apple_q3_fy2026.txt",
+   "label": "Apple Q3 FY2026 (07-30-2026)",
+   "problem": "no speaker labels: 48,504 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/systems/arista_q2_2026.txt",
+   "label": "Arista Q2 FY2026 (08-04-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (4 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 58% bullet lines; 6,456 chars vs a median 54,519 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/systems/astera_labs_q2_2026.txt",
+   "label": "Astera Labs Q2 FY2026 (08-04-2026)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (3 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 41% bullet lines; 10,110 chars vs a median 45,267 for its other calls)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
+  },
+  {
+   "path": "transcripts/systems/celestica_q2_2026.txt",
+   "label": "Celestica Q2 FY2026 (07-27-2026)",
+   "problem": "no speaker labels: 40,352 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/systems/cisco_q4_2026.txt",
+   "label": "Cisco Q4 FY2026 (08-12-2026)",
+   "problem": "no speaker labels: 51,391 chars of call text with 1 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/systems/jabil_q3_2026.txt",
+   "label": "Jabil Q3 FY2026 (06-17-2026)",
+   "problem": "no speaker labels: 45,354 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/systems/qualcomm_q3_fy2026.txt",
+   "label": "Qualcomm Q3 FY2026 (07-29-2026)",
+   "problem": "no speaker labels: 35,582 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/systems/supermicro_q4_2026.txt",
+   "label": "Supermicro Q4 FY2026 (08-11-2026)",
+   "problem": "no speaker labels in the Q&A: 22,121 chars after the Q&A heading with 0 speaker turns marked (only the prepared remarks are labelled)",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  },
+  {
+   "path": "transcripts/systems/synopsys_q3_2026.txt",
+   "label": null,
+   "problem": "no speaker labels: 42,632 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label"
+  }
+ ]
+}

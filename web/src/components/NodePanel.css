@@ -469,6 +469,265 @@
   border-top: 1px dashed var(--ap-border);
 }
 
+/* ── Daily market data: cash flow · AI lab metrics · financing · insiders ──
+   (2026-10-17; FinancingSection / InsiderTrades / CashFlowSection /
+   LabMetricsSection, shared bits in FeedParts.tsx). Full-width blocks under
+   the signals / customers grid, same divider as "Customers & suppliers on file". */
+.np-feed {
+  margin-top: 1.6rem;
+  border-top: 1px solid var(--ap-border);
+  padding-top: 1rem;
+}
+.np-fd-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 6px;
+}
+.np-fd-upd {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.np-fd-row {
+  border-left: 2px solid var(--ap-border);
+  padding: 2px 0 2px 10px;
+  margin-bottom: 0.6rem;
+}
+/* Type chip: one hue per type, kept as "r, g, b" like the source badges. */
+.np-fd-type {
+  --fd-rgb: 154, 160, 168;
+  flex: 0 0 auto;
+  font-size: 0.64rem;
+  font-weight: 700;
+  line-height: 1.6;
+  padding: 0 6px;
+  border-radius: 5px;
+  white-space: nowrap;
+  color: rgb(var(--fd-rgb));
+  background: rgba(var(--fd-rgb), 0.1);
+  border: 1px solid rgba(var(--fd-rgb), 0.4);
+}
+.np-fx-debt,
+.np-fx-credit_facility,
+.np-fx-abs,
+.np-fx-lease_financing { --fd-rgb: 108, 182, 255; }
+.np-fx-convertible { --fd-rgb: 57, 197, 207; }
+.np-fx-equity { --fd-rgb: 195, 155, 255; }
+.np-fx-rating { --fd-rgb: 227, 179, 65; }
+.np-it-buy { --fd-rgb: 63, 185, 80; }
+.np-it-sell { --fd-rgb: 248, 81, 73; }
+.np-fd-src {
+  font-size: 0.72rem;
+  color: var(--ap-blue);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+a.np-fd-src:hover {
+  color: var(--ap-blue-hi);
+  text-decoration: underline;
+}
+.np-sig-head .np-fd-src {
+  margin-left: auto;
+}
+.np-fd-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin-top: 2px;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+.np-fd-title {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.np-fd-amt {
+  font-weight: 700;
+  color: var(--ap-blue-hi);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.np-fd-detail {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(245, 245, 247, 0.84);
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+}
+.np-fd-note {
+  font-size: 0.7rem;
+  line-height: 1.45;
+  color: var(--ap-muted);
+  margin-top: 0.5rem;
+}
+
+/* Insider trades */
+.np-it-who {
+  font-weight: 600;
+  font-size: 0.84rem;
+  overflow-wrap: anywhere;
+}
+.np-it-role {
+  font-size: 0.72rem;
+  color: var(--ap-muted);
+}
+.np-it-plan {
+  color: #d29922;
+  border-color: rgba(210, 153, 34, 0.45);
+  white-space: nowrap;
+}
+.np-it-fig {
+  color: var(--ap-text);
+  font-variant-numeric: tabular-nums;
+}
+.np-it-after {
+  font-size: 0.74rem;
+  color: var(--ap-muted);
+}
+.np-it-sum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 0.8rem;
+  color: var(--ap-muted);
+  margin-bottom: 0.6rem;
+}
+.np-it-sum b {
+  color: var(--ap-text);
+}
+.np-it-buy-n b {
+  color: #3fb950;
+}
+.np-it-sell-n b {
+  color: #f85149;
+}
+.np-it-other {
+  margin-top: 0.2rem;
+}
+.np-it-other-list {
+  margin-top: 0.5rem;
+}
+
+/* Cash flow: next earnings line + the quarter table */
+.np-cf-next {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 0.7rem;
+}
+.np-cf-next-k {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--ap-text);
+}
+.np-cf-ok {
+  color: #3fb950;
+  border-color: rgba(63, 185, 80, 0.45);
+}
+.np-cf-neg {
+  color: #f85149;
+}
+.np-cf-na {
+  color: var(--ap-muted);
+}
+/* Tables scroll sideways inside the panel instead of widening it on phones. */
+.np-tbl-wrap {
+  overflow-x: auto;
+  margin-bottom: 4px;
+}
+.np-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.np-tbl th {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ap-muted);
+  text-align: left;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--ap-border);
+  white-space: nowrap;
+}
+.np-tbl td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--ap-border);
+  vertical-align: top;
+  white-space: nowrap;
+}
+.np-tbl th:first-child,
+.np-tbl td:first-child {
+  padding-left: 0;
+}
+.np-tbl .num {
+  text-align: right;
+}
+.np-tbl-main {
+  font-weight: 600;
+}
+.np-tbl-sub {
+  font-size: 0.68rem;
+  color: var(--ap-muted);
+}
+.np-tbl-best {
+  font-weight: 700;
+  color: var(--ap-blue-hi);
+}
+
+/* AI lab metrics */
+.np-lab + .np-lab {
+  margin-top: 1rem;
+}
+.np-lab-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 0.8rem;
+}
+.np-lab-stat {
+  border: 1px solid var(--ap-border);
+  border-radius: 10px;
+  background: var(--ap-surface2);
+  padding: 8px 11px;
+  min-width: 0;
+}
+.np-lab-stat-k {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ap-muted);
+}
+.np-lab-stat-v {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin: 2px 0 3px;
+}
+.np-lab-stat-d {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.np-lab-stat-d .np-fd-src {
+  margin-left: 0;
+}
+.np-lab-list {
+  margin-bottom: 0.8rem;
+}
+
 /* ── Phones: full-width buttons, no right-aligned meta ─────────────────── */
 @media (max-width: 860px) {
   .np-actions .copy-btn {

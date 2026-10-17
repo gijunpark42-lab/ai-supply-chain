@@ -16,6 +16,7 @@ import Chain2D from "@/components/Chain2D";
 import Generations from "@/components/Generations";
 import Coverage from "@/components/Coverage";
 import CapexBacklog from "@/components/CapexBacklog";
+import MarketsView from "@/components/MarketsView";
 import SearchBox from "@/components/SearchBox";
 import Exposure from "@/components/Exposure";
 import AskGraph from "@/components/AskGraph";
@@ -23,7 +24,7 @@ import AskGate from "@/components/AskGate";
 import Picks from "@/components/Picks";
 import "./workspace.css";
 
-const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Screener", "Picks", "Capex", "Status", "Ask", "Semi Bot"] as const;
+const TABS = ["Graph", "Chain 2D", "Generations", "Exposure", "Timelines", "Screener", "Picks", "Capex", "Markets", "Status", "Ask", "Semi Bot"] as const;
 // External dashboard embedded in the "Semi Bot" tab (its own Vercel project; sends no
 // X-Frame-Options / CSP frame-ancestors header, so it can be shown inline in an iframe).
 const SEMI_BOT_URL = "https://semiband-dashboard.vercel.app";
@@ -44,6 +45,8 @@ type Tab = (typeof TABS)[number];
 const TAB_GROUPS: { id: string; tabs: Tab[] }[] = [
   { id: "Map", tabs: ["Graph", "Chain 2D"] },
   { id: "Companies", tabs: ["Screener", "Capex"] },
+  // Market-level data recorded daily by the nightly collectors (2026-10-17).
+  { id: "Markets", tabs: ["Markets"] },
   { id: "Signals", tabs: ["Timelines", "Picks"] },
   { id: "Tools", tabs: ["Ask"] },
 ];
@@ -66,6 +69,7 @@ const VIEW_INFO: Record<Tab, { title: string; description: string }> = {
   Screener: { title: "Compare the companies.", description: "Review the latest reported results, guidance, supply status, and catalysts." },
   Picks: { title: "Track the picks.", description: "Two ranked one-quarter baskets, priced live against their 2026-09-18 entry." },
   Capex: { title: "Follow the investment.", description: "Compare capital spending and contracted demand across cloud infrastructure." },
+  Markets: { title: "Read the market.", description: "Memory and GPU rental prices, upcoming earnings dates and AI lab numbers, recorded daily from public sources." },
   Status: { title: "Know what to enrich next.", description: "See what is waiting, what is overdue, and which enrich command to run next." },
   Ask: { title: "Start with a question.", description: "Explore the stored signals and contracts with source-linked answers." },
   "Semi Bot": { title: "Your Semi Bot workspace.", description: "Open the trading dashboard alongside your supply-chain research." },
@@ -524,6 +528,7 @@ function Workspace() {
         {viz && tab === "Capex" && (
           <CapexBacklog resolve={resolveCompany} onOpen={openNode} />
         )}
+        {viz && tab === "Markets" && <MarketsView resolve={resolveCompany} onOpen={openNode} />}
         {viz && tab === "Exposure" && (
           <Exposure nodes={viz.nodes} byId={viz.byId} onOpen={openNode} />
         )}

@@ -34,6 +34,7 @@ param(
     [switch]$PublishOnly    # -PublishOnly: commit + push + PR + merge the current enrich data, start no session
 )
 
+$scriptStart = Get-Date     # the 8-hour session limit below counts from here, data steps included
 $repo = Split-Path -Parent $PSScriptRoot
 Set-Location $repo
 $log = Join-Path $repo ".claude\nightly.log"
@@ -46,7 +47,10 @@ function Write-Log($text) {
 $publishPaths = @(
     "transcripts", "patches", "chains", "graph", "web/public", "static", "i18n", "supply_contracts",
     "av", "investing", "tw", "dart", "edgar", "ir", "kind", "tdnet", "edinet", "mops", "cninfo", "utility_filings",
-    "ENRICH_STATUS.md", "enrich_log.json", "enrich_marks.json", "verify_queue.json", "company_metadata.json", "enrich_waitlist.json"
+    "ENRICH_STATUS.md", "enrich_log.json", "enrich_marks.json", "verify_queue.json", "company_metadata.json", "enrich_waitlist.json",
+    # Daily market data (user, 2026-10-17; market/run_all.py below). Its web files are graph/*.json (covered by
+    # "graph") and their copies in web/public/data (covered by "web/public"); market/cache/ is gitignored, never published.
+    "market/history", "market/run_log.jsonl", "market/ai_lab_deals.json"
 )
 
 # Run git / gh, log the output when it fails, and return $true on success.
@@ -109,6 +113,35 @@ if (-not $Test) {
 }
 if ($PublishOnly) { Publish-Run ("manual " + $runDate); exit 0 }
 
+# 1b. Daily market data (user, 2026-10-17), BEFORE the enrich session: free sources fetched by scripts only (no model
+#     tokens), then the transcript quality scan the session reads (graph/transcript_quality.json). Each step is
+#     time-boxed; a failure or timeout is logged and the night goes on to enrich. Full output: .claude\<step>.log.
+$python = Join-Path $env:LOCALAPPDATA "Python\bin\python.exe"     # the same Python the session is told to use
+if (-not (Test-Path $python)) { $found = Get-Command python -ErrorAction SilentlyContinue; if ($found) { $python = $found.Source } }
+function Invoke-DataStep($step, [string[]]$arguments, [int]$minutes) {
+    $out = Join-Path $repo (".claude\" + $step + ".log")
+    $err = Join-Path $repo (".claude\" + $step + ".err.log")     # Start-Process needs a separate file for stderr
+    try {
+        $p = Start-Process -FilePath $python -ArgumentList $arguments -WorkingDirectory $repo -NoNewWindow -PassThru -RedirectStandardOutput $out -RedirectStandardError $err
+    } catch {
+        Write-Log ("{0} FAILED to start: {1}" -f $step, $_.Exception.Message)
+        return
+    }
+    $null = $p.Handle                                            # keeps ExitCode readable after the process ends
+    if (-not $p.WaitForExit($minutes * 60 * 1000)) {
+        try { $p.Kill() } catch { }
+        Write-Log ("{0} TIMED OUT after {1} min and was stopped (steps that finished are kept)" -f $step, $minutes)
+        return
+    }
+    $last = Get-Content $out -Tail 1 -Encoding UTF8 -ErrorAction SilentlyContinue
+    if (-not $last) { $last = "(no output; see " + $err + ")" }
+    Write-Log ("{0} exit {1}: {2}" -f $step, $p.ExitCode, $last)
+}
+if (-not $Test) {
+    Invoke-DataStep "market_data" @("-X", "utf8", "market/run_all.py") 45
+    Invoke-DataStep "transcript_quality" @("-X", "utf8", "utils/transcript_quality.py") 10
+}
+
 # 2. Tonight's command and the prompt that carries the unattended rules.
 if ($Test) { $command = "test" } else { $command = "enrich" }
 
@@ -129,10 +162,12 @@ if (-not $match.Success) {
 $id = $match.Value
 Write-Log ("started {0} as {1}" -f $command, $id)
 
-# 4. Keep the laptop from idle-sleeping until the session stops working (at most 8 hours).
+# 4. Keep the laptop from idle-sleeping until the session stops working (at most 8 hours after this script started:
+#    the data steps of 1b can take up to 55 minutes, and Task Scheduler stops the script at 9 hours, so counting from
+#    the script start leaves Publish-Run about an hour instead of a few minutes).
 Add-Type -Namespace Win32 -Name Power -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint flags);'
 [Win32.Power]::SetThreadExecutionState([uint32]2147483649) | Out-Null   # 0x80000001 = ES_CONTINUOUS | ES_SYSTEM_REQUIRED
-$deadline = (Get-Date).AddHours(8)
+$deadline = $scriptStart.AddHours(8)
 do {
     Start-Sleep -Seconds 60
     $job = Get-Sessions | Where-Object { $_.id -eq $id }

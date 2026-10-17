@@ -1,0 +1,75 @@
+/* SeriesChart.css — the multi-line SVG chart (SeriesChart.tsx). Every class
+   starts with `.sc-`. Ink comes from the --ap-* tokens in globals.css; only
+   the line colours themselves are series colours. */
+
+.sc {
+  width: 100%;
+  min-width: 0;
+}
+.sc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  margin: 0.35rem 0 0.4rem;
+  font-size: 0.78rem;
+  color: var(--ap-muted);
+  min-height: 1.3em;
+}
+.sc-legend-date {
+  color: var(--ap-text);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.sc-legend-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+}
+.sc-swatch {
+  width: 10px;
+  height: 3px;
+  border-radius: 2px;
+  align-self: center;
+  flex: 0 0 auto;
+}
+.sc-legend-label {
+  color: var(--ap-muted);
+}
+.sc-legend-value {
+  color: var(--ap-text);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.sc-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: pan-y; /* a sideways drag scrubs the chart, a vertical one scrolls the page */
+  cursor: crosshair;
+}
+.sc-svg:focus-visible {
+  outline: 2px solid var(--ap-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.sc-grid {
+  stroke: var(--ap-border);
+  stroke-width: 1;
+}
+.sc-axt {
+  fill: var(--ap-muted);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.sc-cross {
+  stroke: rgba(255, 255, 255, 0.28);
+  stroke-width: 1;
+}
+.sc-dot {
+  stroke: var(--ap-bg);
+  stroke-width: 2;
+}
+.sc-empty {
+  margin: 0.2rem 0 0.6rem;
+}
