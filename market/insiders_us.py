@@ -2,7 +2,7 @@
 
 The user asked on 2026-10-17 for insider trades recorded every day by the nightly routine (no model tokens).
 Insider trades are NOT "signals": they never go into quarterly_data / chains / patches; they live in
-market/history/insiders_us.jsonl and are shown in their own section of the company panel (graph/insiders.json,
+market/history/insiders_us.jsonl and are shown in their own section of the company panel (graph/insiders/, one file per company,
 built by market/insiders.py from every market's insiders_*.jsonl).
 
 Where the data comes from (all free, all SEC):
@@ -26,7 +26,7 @@ their accession is already in history, so the backfill and the daily walk never 
 
 CLI:  python -m market.insiders_us              (daily: new filings since the last run, then rebuild)
       python -m market.insiders_us --backfill   (re-scan the data sets for ALL US companies, then daily)
-      python -m market.insiders_us --build-only (rebuild graph/insiders.json from history only)
+      python -m market.insiders_us --build-only (rebuild graph/insiders/ (one file per company) from history only)
 """
 import argparse
 import csv
@@ -58,7 +58,7 @@ DATASETS_PAGE = "https://www.sec.gov/data-research/sec-markets-data/insider-tran
 DAILY_INDEX = "https://www.sec.gov/Archives/edgar/daily-index"
 
 SOURCE_NAME = "SEC Form 4"
-# Read by market/insiders.py for the "sources" list of graph/insiders.json.
+# Read by market/insiders.py for the "sources" list of graph/insiders/ (one file per company).
 SOURCES = [
     {"name": "SEC Form 4 (EDGAR daily index)", "url": "https://www.sec.gov/Archives/edgar/daily-index/"},
     {"name": "SEC Insider Transactions Data Sets", "url": DATASETS_PAGE},
@@ -494,13 +494,13 @@ def prune_idx_cache(before_day):
 # ---------------------------------------------------------------- run / build
 
 def build():
-    """graph/insiders.json is shared by every market (US, KR, TW, JP), so the builder lives in market/insiders.py."""
+    """graph/insiders/ (one file per company) is shared by every market (US, KR, TW, JP), so the builder lives in market/insiders.py."""
     from market import insiders
     return insiders.build()
 
 
 def run(backfill=False):
-    """Fetch new Form 4s, append them to history, rebuild graph/insiders.json.
+    """Fetch new Form 4s, append them to history, rebuild graph/insiders/ (one file per company).
     Returns False only when every source we tried failed (the CLI then exits with code 1)."""
     load_env()
     CACHE.mkdir(parents=True, exist_ok=True)
@@ -648,7 +648,7 @@ def recheck_history():
 def main():
     ap = argparse.ArgumentParser(description="US insider trades from SEC Form 4 (data sets + daily index)")
     ap.add_argument("--backfill", action="store_true", help="re-scan the quarterly data sets for every US company")
-    ap.add_argument("--build-only", action="store_true", help="rebuild graph/insiders.json from history only")
+    ap.add_argument("--build-only", action="store_true", help="rebuild graph/insiders/ (one file per company) from history only")
     ap.add_argument("--recheck", action="store_true",
                     help="one-off: re-derive the 10b5-1 flag and holder of rows already in history, then rebuild")
     args = ap.parse_args()

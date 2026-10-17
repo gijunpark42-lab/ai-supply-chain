@@ -4,7 +4,8 @@
 // write four files into graph/, copied to /data/ by web/scripts/sync-data.mjs:
 //
 //   /data/financing.json          debt / equity / credit-facility / rating events per company
-//   /data/insiders.json           insider buys, sells, option exercises … per company
+//   /data/insiders_index.json     node id → /data/insiders/<company>.json (insider buys, sells,
+//                                 option exercises …), split per company so a panel loads only its own
 //   /data/hyperscaler_cash.json   capex, operating cash flow, FCF per quarter + earnings dates
 //   /data/ai_labs.json            AI-lab revenue run-rate, funding, deals, model benchmarks
 //
@@ -42,7 +43,7 @@ export interface FeedSource {
   url: string;
 }
 
-// ── /data/insiders.json ─────────────────────────────────────────────────────
+// ── /data/insiders_index.json + /data/insiders/<company>.json ───────────────
 
 export type InsiderType = "buy" | "sell" | "option_exercise" | "tax_withholding" | "grant" | "gift" | "other";
 
@@ -64,10 +65,20 @@ export interface InsiderTrade {
   url: string; // the filing
 }
 
-export interface InsidersFile {
+// Split per company on 2026-10-17 (one 10 MB file was downloaded the first time any panel opened):
+// /data/insiders_index.json maps node id → file, and /data/insiders/<file> holds that company's rows.
+export interface InsidersIndex {
   updated: string;
   sources: FeedSource[];
-  companies: Record<string, InsiderTrade[]>; // node id → newest first, last 365 days
+  companies: Record<string, { file: string; count: number; latest: string | null }>;
+}
+
+/** One company's insider trades, as the panel uses them. */
+export interface CompanyInsiders {
+  company: string; // node id these rows belong to
+  updated: string;
+  sources: FeedSource[];
+  rows: InsiderTrade[]; // newest first, last 365 days
 }
 
 // ── /data/financing.json ────────────────────────────────────────────────────
@@ -131,8 +142,20 @@ function loadOnce<T extends object>(file: string, empty: T): Promise<T> {
   return p;
 }
 
-export const loadInsiders = () =>
-  loadOnce<InsidersFile>("insiders.json", { updated: "", sources: [], companies: {} });
+export const loadInsidersIndex = () =>
+  loadOnce<InsidersIndex>("insiders_index.json", { updated: "", sources: [], companies: {} });
+
+/** The small index first, then only this company's file (each fetched once per page load). */
+export function loadCompanyInsiders(companyId: string): Promise<CompanyInsiders> {
+  return loadInsidersIndex().then((idx) => {
+    const entry = idx.companies?.[companyId];
+    const empty: CompanyInsiders = { company: companyId, updated: idx.updated, sources: idx.sources || [], rows: [] };
+    if (!entry?.file) return empty;
+    return loadMarketJson<{ updated?: string; rows?: InsiderTrade[] }>(`insiders/${entry.file}`).then((f) =>
+      f ? { ...empty, updated: f.updated || idx.updated, rows: f.rows || [] } : empty,
+    );
+  });
+}
 
 export const loadFinancing = () =>
   loadOnce<FinancingFile>("financing.json", { updated: "", sources: [], companies: {} });

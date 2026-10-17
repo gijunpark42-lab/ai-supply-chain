@@ -3,7 +3,7 @@
 The user asked on 2026-10-17 for insider trades recorded every day by the nightly routine (no model tokens).
 Insider trades are NOT "signals": they never go into quarterly_data / chains / patches; they live in
 market/history/insiders_kr.jsonl, insiders_tw.jsonl and insiders_jp.jsonl and are shown in their own section of
-the company panel (graph/insiders.json, built by market/insiders.py from every market's insiders_*.jsonl).
+the company panel (graph/insiders/, one file per company, built by market/insiders.py from every market's insiders_*.jsonl).
 
 Where the data comes from (all free, all official):
   Korea   OpenDART (needs DART_API_KEY)
@@ -37,7 +37,7 @@ URL, so its key also holds the date, the insider, the shares and the transfer me
 
 CLI:  python -m market.insiders_asia              (daily: new filings since the last run, then rebuild)
       python -m market.insiders_asia --backfill   (Korea: every company; Japan: walk the last 365 days)
-      python -m market.insiders_asia --build-only (rebuild graph/insiders.json from history only)
+      python -m market.insiders_asia --build-only (rebuild graph/insiders/ (one file per company) from history only)
 """
 import argparse
 import csv
@@ -84,7 +84,7 @@ EDINET_CODE_LIST = "https://disclosure2dl.edinet-fsa.go.jp/searchdocument/codeli
 EDINET_VIEWER = "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?{},,2"   # the public page of one document
 JST = dt.timezone(dt.timedelta(hours=9))                # EDINET's file dates are Japan time
 
-# (graph/insiders.json's "sources" list is made by market/insiders.py from each row's source name + URL.)
+# (graph/insiders_index.json's "sources" list is made by market/insiders.py from each row's source name + URL.)
 
 # Taiwanese companies that the graph lists by their US ADR ticker: their Taiwan stock code.
 TW_LOCAL_CODES = {"TSMC": "2330", "UMC": "2303", "ASE Group": "3711", "ChipMOS": "8150"}
@@ -948,10 +948,10 @@ def run_jp(backfill, state):
 # ================================================================ run / build
 
 def build():
-    """graph/insiders.json is shared by every market (US, KR, TW, JP), so the builder lives in market/insiders.py.
+    """graph/insiders/ (one file per company) is shared by every market (US, KR, TW, JP), so the builder lives in market/insiders.py.
     Until that module exists there is nothing to rebuild."""
     if importlib.util.find_spec("market.insiders") is None:
-        log("market/insiders.py not found; graph/insiders.json not rebuilt")
+        log("market/insiders.py not found; graph/insiders/ (one file per company) not rebuilt")
         return None
     from market import insiders
     return insiders.build()
@@ -961,7 +961,7 @@ MARKETS = {"KR": run_kr, "TW": run_tw, "JP": run_jp}
 
 
 def run(backfill=False, markets=("KR", "TW", "JP")):
-    """Fetch new filings, append them to history, rebuild graph/insiders.json.
+    """Fetch new filings, append them to history, rebuild graph/insiders/ (one file per company).
     Returns {market: new rows, or None when that market failed}."""
     load_env()
     CACHE.mkdir(parents=True, exist_ok=True)
@@ -984,7 +984,7 @@ def run(backfill=False, markets=("KR", "TW", "JP")):
 def main():
     ap = argparse.ArgumentParser(description="Korean / Taiwanese / Japanese insider and major-holder changes")
     ap.add_argument("--backfill", action="store_true", help="Korea: every company; Japan: walk the last 365 days")
-    ap.add_argument("--build-only", action="store_true", help="rebuild graph/insiders.json from history only")
+    ap.add_argument("--build-only", action="store_true", help="rebuild graph/insiders/ (one file per company) from history only")
     ap.add_argument("--recheck-kr-prices", action="store_true",
                     help="one-off: re-read Korean reports whose unit price looks joined, record corrections, rebuild")
     args = ap.parse_args()
