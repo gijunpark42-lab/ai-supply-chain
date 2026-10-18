@@ -1172,3 +1172,103 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   release body transcribed from its report images. Cambricon 09-30 Q&A file restored after a same-day re-sync overwrote
   it. Asked the user: logmi links, Toho Titanium (delisted), government subsidy amounts, equity-stake purchases / sales.
   i18n 710 + 660 strings (ko / zh / ja). Board: Run next nothing due.
+- **2026-10-14/15 (Claude, nightly routine `enrich`, session "nightly enrich 10-14") — BLOCKED at graph_build** — board Run
+  next: `enrich edgar`, `enrich taiwan` (Investing.com + tw.py sync), `enrich japan` (EDINET). Collected: ASML Q3 FY2026 call
+  (10-14, defeatbeta; AV had not posted it), Rorze EDINET semi-annual H1 FY2027, Investing.com Nanya Q3 FY2026 (10-12), Volex
+  Q4 FY2026 (06-26, its first call), Xiaomi Q2 FY2026 (08-18, its first data); tw.py nothing new. **EDGAR bug:** edgartools
+  `Filing.html()` raises for many recent filings (primary-document lookup None), so `edgar_pull.py` silently saved nothing
+  for them (Micron 10-K 10-09, ~57 recent 8-Ks, new nodes' 10-Ks); re-pulled every ticker through a fallback to the
+  attachment whose type equals the form (`utils/edgar_pull_fallback.py`, NEW, uncommitted - fold into
+  `edgar_pull.document_text()`?). Queue 85 + the 486 noise-filtered files never triaged since the 10-01 / 10-06 pulls (rule
+  4b) → 16 company batches, enricher + independent verifier each (verifiers trimmed restatements in ~30 patches, removed
+  Caris -> Roche-Genentech (partner list) and Amazon -> Generate (10-06 ruling), added CEVA / FormFactor / Nebius / Merck
+  items) → 137 SEC patches + 5 call/report patches, all check_patch clean, applied. New edges: Tower Semiconductor -> Semtech,
+  Applied Materials -> UMC, Moderna -> Merck & Co., Moderna -> Vertex, Caris Life Sciences -> Moderna. No new nodes.
+  `edgar_pull.py done --with-dropped` (571), `investing.py done --kind transcript`, `edinet.py done` run. **graph_build.py
+  --sync was stopped by the system for low memory** right after apply + merged graph + derive (an orphaned 4.4 GB `grep -o
+  "Section VI.\{0,30000\}"` from a subagent; killed): evidence, verify_graph, npm sync and i18n did not run. To finish: run
+  `graph_build.py --sync`, then verify the 127 labels in `edgar/verify_labels_2026-10-15.json` (command in its `_note`), then
+  i18n. Post-apply Opus verifier over the 5 call/report labels: 4 corrections (Nanya fab-capex hedge,
+  Volex CEO attribution, Xiaomi attribution + hedges) applied with apply_corrections.py; verify_queue.json empty; 122
+  SEC labels recorded as verified pre-apply. 13 board questions
+  (litigation, DoD CMC list, partner equity stakes, ownership changes / subsidiary IPOs, licence + disposal values, BTC
+  lending, Wolfspeed program, TeraWulf placement, Rehlko, Kingsoft Cloud / ASE call-vs-filing figures, Moderna -> Merck edge,
+  EDGAR pipeline gaps). Note: agents must not run open-ended `grep -o` with huge `{0,N}` ranges on single-line files.
+- **2026-10-15/16 (Claude, nightly routine `enrich`, session "nightly enrich 10-15")** — first finished the blocked 10-14 run:
+  verify_graph over its 127 labels (`edgar/verify_labels_2026-10-15.json`) = 298 pass / 41 unchecked / 0 fail (file deleted);
+  the later graph_build ran its evidence / board / npm sync / i18n steps. Board Run next: `enrich korea`, `enrich taiwan`
+  (+ conference listing due). Collected: DART 9 (7 supply contracts, Techwing Q3 prelim, SFA Semiconductor amended H1),
+  KIND 2 decks, MOPS 7 + 10 backfilled revenue rows, conference walk 400 pages back to 06-08 (4 talks), Investing.com
+  VAT Group Q3 FY2026 (10-15, its first call), av.py 0 (known gaps only), tw.py nothing new. 11 enricher agents → 32
+  patches / 31 labels applied: KR contracts (LS Electric -> Bloom Energy US switchgear KRW 185.3B, Taihan, BHI amended,
+  Wooriro 53.6% of revenue, ASICLand amended, FADU, ISTE), Techwing Q3 prelim, SFA facts the 08-12 pass missed (under the
+  10-13 amended label), Nepes deck, MOPS capex (Nanya x2, Unimicron x2, Zhen Ding, Winbond), 10 KY revenue reports,
+  AMAT SEMICON West 10-13, Moderna MS 09-14 / Bernstein 09-23, AstraZeneca ASBMR 10-12, VAT Group Q3 call (16 entries).
+  New edges: ISTE -> Amkor Technology (FOUP cleaner), Applied Materials -> Winbond Electronics (equipment, NT$1.67B). No new
+  nodes. 6 post-apply Opus verifiers + 1 pre-apply (VAT): 11 corrections + 1 delete (patches/corrections/applied/verify-1016-*),
+  AMAT's AIX line moved off the AMAT -> Micron edge to AMAT quarterly_data (counterparty Micron); verify_graph 76 entries:
+  0 fail, 1 warn (Merck vs Merck & Co.). MK Electron KIND 19448 = image-only deck (no text) → closed; eMemory 10-29 deck =
+  restates 08-25. **Code fixes (uncommitted, for review):** `mops.py` parses the two-column revenue of -KY companies
+  (Silergy, ShunSin, PCL, GCS, Advanced Energy Solution had never had MOPS revenue); `tw.py` records `last_sync` and
+  `enrich_status.py` reads it (the board kept saying "tw.py sync due" after empty syncs); `derive.py` retries the
+  exposure.json write — graph_build failed 4x with "[Errno 22] Invalid argument" on graph/exposure.json (no process held
+  it per Restart Manager; the build's Python peaks ~6.8 GB and free RAM fell to ~270 MB right before one failure, so
+  memory pressure is the likely cause — CreateFile errors the CRT cannot map become EINVAL). `npm run sync` failed once
+  inside graph_build and passed when re-run by hand. Open for the next run: mopsov.twse.com.tw timed out ~01:30 (deck list);
+  Winbond's capex-budget 重大訊息 never reached the graph (check mops.py coverage for 2344); investing.py's `# speakers:`
+  line misses some speakers (Moderna Bernstein: Bancel); dart.py saves an amended report over the original file name.
+- **2026-10-16/17 (Claude, nightly routine `enrich`, session "nightly enrich 10-16")** — board (refreshed 23:18; the
+  refresh itself took ~18 min / 1.5 GB) said nothing due. av.py sync saved 0 (only the 5 marked known gaps). Alpha
+  Vantage's calendar does not list TSM, so TSMC's Q3 call (10-15) came from defeatbeta (`utils/defeatbeta_fetch.py
+  "TSMC" TSM --fy 2026 --q 3`); a defeatbeta scan of every US-market ticker for calls dated 10-06..10-16 found nothing
+  else missing. 1 enricher → `TSMC Q3 FY2026 (10-15-2026)`: 10 entries (7 foundry.json incl. revenue_growth / guidance /
+  supply_status / next_catalyst — same company-wide placement as the Q4 FY2025 and Q1 FY2026 calls; 1 nvidia_vera_rubin AI
+  demand; 2 packaging_substrate incl. the GlobalFoundries back-end deal as counterparty). Post-apply Opus verifier: 3
+  wording fixes (patches/corrections/applied/verify-1017-tsmc.json). verify_graph 6 pass / 4 unchecked / 0 fail. No new
+  nodes or edges. New question: GlobalFoundries -> TSMC (back-end) placement / edge. Build ran with ~3 GB commit
+  headroom (user's WSL + Jupyter held the rest); the 2nd build's `npm run sync` failed once (UNKNOWN open error on
+  web/public/data/chains/nvidia_vera_rubin.json) and passed when re-run by hand. After midnight the board listed
+  `enrich japan` (TDnet 4 days old) and `enrich europe` (Volex "overdue"): tdnet.py sync saved 2 → Union Tool (Mitsuke
+  No. 4 Factory + Nagaoka land plan, supply_status) and Mitsubishi Electric (automotive business into Mitsubishi
+  Electric Mobility, 50% to Hon Hai's Lin Yin, closing 10-2027; ~JPY 100.0B impairment, forecast 10-30, guidance); pre-apply
+  Opus verifier trimmed the transferred assets / liabilities. Volex marked call no_source until 2026-11-25 (half-yearly
+  reporter; its only call is the 06-26 FY results call, next is the November half-year).
+- **2026-10-17 01:30-03:00 (same nightly session, verbatim re-pass)** — another session relayed the user's request:
+  the big-tech Q2 calls in transcripts/bigtech/ (Microsoft Q4 FY2026, Alphabet, Amazon, Meta) are ~8-9 KB condensed
+  notes whose headers say "FULL transcript"; Nebius Q2 (bigtech/) and Apple Q3 FY2026 (systems/) lack reliable speaker
+  labels; SK Hynix's Investing.com Q2 call swaps speaker labels. Fetched verbatim calls from defeatbeta into
+  transcripts/av/ under the SAME labels (`--date` pinned; verify_graph checks every file that declares a label), so
+  nothing was relabelled except one Amazon release-built entry → `Amazon 8-K (07-30-2026)`. 6 enrichers + 1 SK Hynix
+  attribution checker, then 3 independent pre-apply Opus verifiers: 6 delta patches `patches/*_verbatim.json` (57 entries;
+  new edges Google -> World Labs, Google -> Roche-Genentech from the CEO's AI-infrastructure customer list) and 7
+  correction files `patches/corrections/applied/verbatim-1017-*.json` (36 set + 1 relabel: arithmetic, analyst figures,
+  financing terms and old-enricher commentary removed; quotes / hedges / speakers restored; SK Hynix attributions made
+  neutral). New questions on the board: Ineffable Intelligence, EssilorLuxottica, Microsoft -> Arm reverse edge, curated
+  capex_backlog.json big-tech rows, condensed "FULL" files' headers, Google Q2 entry on NVIDIA's node, Amazon duplicate
+  player in aws_trainium3. Not done (verifiers' missed-facts lists): Amazon $220B 2026 cash capex and Microsoft RPO $678B
+  capex tags (corrections cannot set `capex`), a few minor metrics.
+- **2026-10-17/18 (Claude, nightly routine `enrich`, session "nightly enrich 10-17", b62dfa03)** — board (refreshed 23:00)
+  said nothing due; media_status.py listed 10 news interviews; relations_backfill night 1. Work: (1) **transcript-quality
+  pass (skill §10a)**: graph/transcript_quality.json flagged 60 files; 6 were already replaced last night. defeatbeta
+  verbatim speaker-labelled copies saved to transcripts/av/ under the SAME labels for 46 labels (Intel, Arista, KLA, Lam,
+  Teradyne, Rambus, Amphenol, Corning, Navitas, onsemi, Astera Labs, Eaton, Tower, Oracle Q4, Cisco, Coherent, Supermicro,
+  Lumentum, Sandisk, WD, Viavi, AOI, Constellation, Vistra, Fabrinet, Semtech, NVIDIA Q2 FY2027, AMD, Synopsys, AMAT, Fluence,
+  Onto, Keysight, Wolfspeed, Qualcomm, Arm Holdings, Celestica, Jabil, Amkor, FormFactor, Lumen, ASE Q1+Q2, Nova Q1, Camtek
+  Q1, STM Q1); per label a delta patch `patches/<slug>_verbatim.json` + a correction file
+  `patches/corrections/applied/verbatim-1017b-*.json` (266 set + 10 delete: analyst numbers, arithmetic, financing terms,
+  lost hedges, wrong speakers, demo contracts). Not re-fetched: Fujitsu Q1, IQE FY2025, ASMPT / ABB / Schneider Q1 (non-US),
+  Magnachip + ChipMOS (defeatbeta also unlabelled), KeyCorp (not a graph company). (2) 10 news interviews (§11): 16 entries
+  (OpenAI 11, CoreWeave 1, Dell 2, Generac 2); AMAT, Cohere, NVIDIA, Synopsys gave 0; media/enriched.jsonl created.
+  (3) relations backfill: TSMC, NVIDIA, Samsung, SK Hynix, Microsoft done (relations/ created; plus call-sourced rows for
+  Oracle, Intel, onsemi, Corning, Constellation Energy, AOI, Wolfspeed, AMD, Qualcomm whose backfill rows stay pending);
+  DART FY2025 사업보고서 saved for Samsung / SK Hynix; 2 wrong-column SK Hynix related-party contracts deleted
+  (relations-1017-skhynix). (4) After midnight the board listed enrich us / enrich korea: av.py 0 new; DART 3 supply
+  contracts (Mirae Industry x2 corrections, JT -> Micron India). New edges: Navitas -> Magnachip, Rambus -> CXMT, AMD ->
+  Oracle, Samsung -> NVIDIA, NVIDIA -> Apple, NVIDIA -> NEXTDC. No new nodes. 9 enricher + 16 pre-apply Opus verifier
+  batches + 1 DART verifier. Build 1 (51 patches) completed: verify_graph 821 entries 580 pass / 236 unchecked / 4 warn /
+  1 fail (KLA +56% arithmetic → verify-1018-kla correction). **Build 2 (2 DART patches + KLA fix) was stopped by Claude
+  Code for low memory after merge/derive** (evidence, board, npm sync, i18n build not run); a full `graph_build.py --sync` started 01:40 by another session
+  then finished cleanly at 01:58 (DART + KLA fix on web/public), and the last 15 strings were translated (0 untranslated). 7 new board questions (Eaton label date, release facts under call labels, NVIDIA memory
+  suppliers by inference, OpenAI -> Microsoft, government / free-software relations rows, Synopsys -> Microsoft empty edge,
+  superseded call files). Stray untracked file to delete by hand: transcripts/av/arm_q1_2027.txt (wrong label "Arm Q1
+  FY2027"; the agent's rm was blocked; the correct copy is armholdings_q1_2027.txt).

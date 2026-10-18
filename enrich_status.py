@@ -647,6 +647,7 @@ def build_enrich_status(graph=None):
         elif pid == "intl":
             row["extra"]["articles_seen"] = len(state.get("saved", []))
         elif pid == "tw":
+            row["last_sync"] = state.get("last_sync")      # None (older state files) -> newest file date below
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)

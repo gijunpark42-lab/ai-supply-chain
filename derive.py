@@ -47,6 +47,7 @@ import json
 import os
 import re
 import sys
+import time
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -833,8 +834,18 @@ def derive_exposure(graph, today=None):
     }
     # Compact JSON (no indent): the browser downloads this file, so size matters.
     os.makedirs(OUT_DIR, exist_ok=True)
-    with open(EXPOSURE_PATH, "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+    # Windows sometimes refuses to open this file for a moment ("[Errno 22] Invalid argument" —
+    # another process still holds it); the open fails before anything is truncated, so wait and
+    # retry, as apply_patches.save_chain does.
+    for attempt in range(6):
+        try:
+            with open(EXPOSURE_PATH, "w", encoding="utf-8") as f:
+                json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+            break
+        except OSError:
+            if attempt == 5:
+                raise
+            time.sleep(2 * (attempt + 1))
 
     with_facts = sum(1 for c in companies.values() if c["concentration"])
     print("\nExposure -> %s" % EXPOSURE_PATH.replace(os.sep, "/"))
