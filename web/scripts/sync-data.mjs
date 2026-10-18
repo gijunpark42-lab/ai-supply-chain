@@ -78,6 +78,8 @@ async function main() {
     [["graph/financing_index.json"], "financing_index.json"],
     [["graph/hyperscaler_cash.json"], "hyperscaler_cash.json"],
     [["graph/ai_labs.json"], "ai_labs.json"],
+    // Added 2026-10-17: per-company financial statements (Yahoo Finance), the index of graph/financials/.
+    [["graph/financials_index.json"], "financials_index.json"],
   ];
   for (const [candidates, out] of singles) {
     let picked = null;
@@ -92,7 +94,8 @@ async function main() {
   // 1b) Per-company feeds, graph/<feed>/<company>.json -> public/data/<feed>/ (split on 2026-10-17, so a company
   //     panel downloads only its own rows; the panel finds the file through <feed>_index.json above). The folders
   //     are generated, so they are mirrored exactly: stale company files and the old single <feed>.json go.
-  for (const feed of ["insiders", "financing"]) {
+  //     "financials" (2026-10-17) is mirrored the same way; its company files have their own shape.
+  for (const feed of ["insiders", "financing", "financials"]) {
     const srcDir = path.join(ROOT, "graph", feed);
     if (!(await exists(srcDir))) continue;
     const outDir = path.join(OUT_DATA, feed);

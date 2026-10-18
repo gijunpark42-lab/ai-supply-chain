@@ -74,7 +74,7 @@ $marketPaths = @(
     "market/history", "market/run_log.jsonl", "market/ai_lab_deals.json",
     "graph/memory_prices.json", "graph/gpu_prices.json", "graph/insiders_index.json", "graph/insiders",
     "graph/financing_index.json", "graph/financing", "graph/hyperscaler_cash.json", "graph/ai_labs.json",
-    "graph/transcript_quality.json",
+    "graph/transcript_quality.json", "graph/financials_index.json", "graph/financials",
     "media/sync_state.json", "media/executives.json", "media/channels.json"
 )
 

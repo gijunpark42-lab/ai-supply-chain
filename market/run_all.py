@@ -7,7 +7,10 @@ It is script-only (no model tokens). Each collector fetches its free source once
 market/history/<dataset>.jsonl (ADD-only, deduplicated by key) and rebuilds its web file in graph/.
 
 Order (fixed): memory_prices, gpu_prices, insiders_us, insiders_asia, insiders (build), financing_asia,
-hyperscaler_cash, ai_labs, financing_us, financing (build). financing_us runs late because it is the slowest
+hyperscaler_cash, financials, ai_labs, financing_us, financing (build). financials (Yahoo Finance statements) runs
+after hyperscaler_cash, whose earnings calendar tells it which companies report soon; it stops fetching Yahoo after
+15 minutes (the rest of its weekly rotation waits for the next day) and then spends at most 5 minutes on the same
+companies' SEC / DART filings. financing_us runs late because it is the slowest
 step when SEC is slow or blocking us (it stops itself after 5 filers fail in a row, see its circuit breaker), so
 it cannot starve the other collectors of the nightly time box.
 
@@ -65,7 +68,8 @@ MANUAL_REQUIRED = ("company", "date", "type", "title", "source", "url")
 # value into (ok, warning).
 
 def judge_bool(result):
-    """memory_prices / gpu_prices / insiders_us / hyperscaler_cash / ai_labs: True when any source worked."""
+    """memory_prices / gpu_prices / insiders_us / hyperscaler_cash / financials / ai_labs: True when any source
+    worked."""
     return bool(result), None
 
 
@@ -101,6 +105,7 @@ COLLECTORS = [
     ("insiders", "market.insiders", "build", judge_build),
     ("financing_asia", "market.financing_asia", "run", judge_ok_failed),
     ("hyperscaler_cash", "market.hyperscaler_cash", "run", judge_bool),
+    ("financials", "market.financials", "run", judge_bool),             # after the calendar it reads
     ("ai_labs", "market.ai_labs", "run", judge_bool),
     ("financing_us", "market.financing_us", "run", judge_exit_code),     # slowest when SEC is down: late
     ("financing", "market.financing", "build", judge_build),

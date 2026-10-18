@@ -7,7 +7,10 @@
 //                                 credit-facility / rating events), split per company
 //   /data/insiders_index.json     node id → /data/insiders/<company>.json (insider buys, sells,
 //                                 option exercises …), split per company so a panel loads only its own
-//   /data/hyperscaler_cash.json   capex, operating cash flow, FCF per quarter + earnings dates
+//   /data/financials_index.json   node id → /data/financials/<company>.json (income statement and cash flow
+//                                 per fiscal quarter / year + street estimates; its own shape, see FinancialsFile)
+//   /data/hyperscaler_cash.json   capex, operating cash flow, FCF per quarter + earnings dates (the panel
+//                                 reads only the earnings dates, in the Financials header)
 //   /data/ai_labs.json            AI-lab revenue run-rate, funding, deals, model benchmarks
 //
 // These are NOT signals: they never enter quarterly_data, badges, freshness or timelines.
@@ -28,7 +31,6 @@ import {
   type AiLabsFile,
   type Benchmark,
   type CashCompany,
-  type CashQuarter,
   type EarningsDate,
   type HyperscalerCash,
   type LabDeal,
@@ -110,9 +112,109 @@ export interface FinancingItem {
   url: string;
 }
 
+// ── /data/financials_index.json + /data/financials/<company>.json (2026-10-17) ──
+// A basic income-statement and cash-flow table per company (like Naver Finance's 재무제표), from Yahoo
+// Finance plus the companies' own filings (SEC XBRL for US filers, DART for Korea), written
+// by the market/ collector. Unlike insiders / financing, the company file is NOT
+// {company, rows}: it holds the quarters, the fiscal years, the street estimates and (Korea)
+// a quarter's preliminary results.
+
+export interface FinancialsIndex {
+  updated: string;
+  source: FeedSource | null;
+  companies: Record<string, { file: string; latest_end: string | null; currency: string | null }>;
+}
+
+/** Growth in % vs the previous fiscal quarter (qoq) or the same quarter / FY a year earlier (yoy). */
+export interface FinGrowth {
+  revenue: number | null;
+  ebit: number | null;
+  net_income: number | null;
+  eps_diluted: number | null;
+  fcf: number | null; // only between two positive free cash flows, else null
+}
+
+/** One reported fiscal quarter or fiscal year. Money in `unit`s of the file's currency; EPS in full units. */
+export interface FinPeriod {
+  end: string; // the company's own period end date, YYYY-MM-DD (52/53-week years end on a weekday)
+  label: string; // the company's OWN fiscal label: "Q3 26" or "FY26"
+  fiscal_year: number;
+  fiscal_quarter: number | null; // null for a fiscal year
+  revenue: number | null;
+  gross_profit: number | null;
+  ebitda: number | null;
+  ebit: number | null;
+  operating_income: number | null;
+  pretax_income: number | null;
+  net_income_after_tax: number | null; // income after tax, incl. minority interests (세후손익)
+  net_income: number | null; // attributable to shareholders (당기순이익)
+  eps_diluted: number | null; // reported (GAAP) diluted EPS
+  eps_adjusted?: number | null; // Yahoo's EPS on the analysts' basis (US: usually adjusted / non-GAAP)
+  per: number | null; // price at period end / trailing-4Q diluted EPS (annual: that year's)
+  pbr: number | null; // price / book value per share at period end
+  dividend_yield_pct: number | null;
+  roa_pct: number | null;
+  // Cash flow (2026-10-17): the SEC 10-K / 10-Q filings, else DART, else Yahoo (one source per company)
+  ocf?: number | null; // operating cash flow
+  capex?: number | null; // capital expenditure, a positive number
+  fcf?: number | null; // ocf − capex
+  fcf_after_leases?: number | null; // fcf − finance-lease principal payments (SEC filers that report them)
+  qoq?: Partial<FinGrowth> | null; // quarterly only
+  yoy?: Partial<FinGrowth> | null;
+  derived?: string[]; // fields that were computed, e.g. a fiscal Q4 = FY − (Q1 + Q2 + Q3)
+}
+
+/** Analyst consensus for a period not yet reported. Revenue in `unit`s, EPS in full units. */
+export interface FinEstimate {
+  label: string; // "Q1 27" | "FY27"
+  end: string | null;
+  revenue_avg: number | null;
+  revenue_low: number | null;
+  revenue_high: number | null;
+  revenue_analysts: number | null;
+  eps_avg: number | null;
+  eps_low: number | null;
+  eps_high: number | null;
+  eps_analysts: number | null;
+  revenue_growth_pct: number | null;
+  eps_growth_pct: number | null;
+}
+
+/** A quarter's preliminary results (Korea: DART 잠정실적), filed before its statements. Money in `unit`s. */
+export interface FinPreliminary {
+  label: string; // "Q3 26"
+  end: string;
+  filed: string | null; // YYYY-MM-DD
+  consolidated: boolean | null;
+  revenue: number | null;
+  operating_income: number | null;
+  pretax_income: number | null;
+  net_income_after_tax: number | null;
+  net_income: number | null;
+  qoq?: { revenue: number | null; operating_income: number | null } | null;
+  yoy?: { revenue: number | null; operating_income: number | null } | null;
+  url: string | null;
+}
+
+export interface FinancialsFile {
+  company: string; // node id
+  ticker: string; // Yahoo symbol
+  currency: string; // reporting currency: "USD", "KRW" …
+  unit: number; // money values are in units of this (1000000 = millions)
+  fiscal_year_end: string | null; // "MM-DD" of the most recent fiscal year end
+  updated: string;
+  quarterly: FinPeriod[]; // oldest → newest, up to 8
+  annual: FinPeriod[]; // oldest → newest, up to 4
+  estimates: { quarter: FinEstimate | null; fy: FinEstimate | null; next_fy: FinEstimate | null } | null;
+  preliminary: FinPreliminary | null;
+  source: FeedSource | null;
+  sources: FeedSource[]; // Yahoo Finance, plus SEC EDGAR / DART when the filings filled figures
+  notes: string[];
+}
+
 // ── /data/hyperscaler_cash.json and /data/ai_labs.json (shapes in lib/marketTypes.ts) ──
 
-export type { AiLabsFile, Benchmark, CashCompany, CashQuarter, EarningsDate, LabDeal, LabFunding, LabRevenue };
+export type { AiLabsFile, Benchmark, CashCompany, EarningsDate, LabDeal, LabFunding, LabRevenue };
 export type HyperscalerCashFile = HyperscalerCash;
 export type Lab = AiLab;
 export type LabModel = ModelScores;
@@ -153,6 +255,36 @@ export const loadCompanyInsiders = (companyId: string) => loadCompanyFeed<Inside
 
 export const loadCompanyFinancing = (companyId: string) => loadCompanyFeed<FinancingItem>("financing", companyId);
 
+/**
+ * One company's financial statements: the small index first, then only this company's file
+ * (each fetched once per page load). Null when the company has no file, so the section hides.
+ */
+export function loadCompanyFinancials(companyId: string): Promise<FinancialsFile | null> {
+  return loadOnce<FinancialsIndex>("financials_index.json", { updated: "", source: null, companies: {} }).then((idx) => {
+    const entry = idx.companies?.[companyId];
+    if (!entry?.file) return null;
+    return loadMarketJson<Partial<FinancialsFile>>(`financials/${entry.file}`).then((f) =>
+      f
+        ? {
+            company: companyId,
+            ticker: f.ticker || "",
+            currency: f.currency || entry.currency || "USD",
+            unit: f.unit || 1_000_000,
+            fiscal_year_end: f.fiscal_year_end ?? null,
+            updated: f.updated || idx.updated,
+            quarterly: f.quarterly || [],
+            annual: f.annual || [],
+            estimates: f.estimates ?? null,
+            preliminary: f.preliminary ?? null,
+            source: f.source || idx.source || null,
+            sources: f.sources?.length ? f.sources : [f.source || idx.source].filter((x): x is FeedSource => !!x),
+            notes: f.notes || [],
+          }
+        : null
+    );
+  });
+}
+
 export const loadHyperscalerCash = () =>
   loadOnce<HyperscalerCashFile>("hyperscaler_cash.json", { updated: "", note: "", companies: [], calendar: [] });
 
@@ -187,12 +319,6 @@ const CURRENCY_SYMBOL: Record<string, string> = {
 export function fmtDay(iso: string | null | undefined): string {
   const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || "");
   return m ? `${m[2]}-${m[3]}-${m[1]}` : iso || "";
-}
-
-/** "2026Q2" → "Q2 2026" (left as it is when it has another shape). */
-export function fmtPeriod(period: string): string {
-  const m = /^(\d{4})Q([1-4])$/.exec(period || "");
-  return m ? `Q${m[2]} ${m[1]}` : period;
 }
 
 /** A compact money amount: 2.4e9 USD → "$2.4B", 1.25e9 → "$1.25B", −3.1e8 → "−$310M", 5.5e12 KRW → "₩5.5T". */
