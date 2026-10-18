@@ -615,29 +615,6 @@ a.np-fd-src:hover {
   margin-top: 0.5rem;
 }
 
-/* Cash flow: next earnings line + the quarter table */
-.np-cf-next {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 0.7rem;
-}
-.np-cf-next-k {
-  font-size: 0.74rem;
-  font-weight: 700;
-  color: var(--ap-text);
-}
-.np-cf-ok {
-  color: #3fb950;
-  border-color: rgba(63, 185, 80, 0.45);
-}
-.np-cf-neg {
-  color: #f85149;
-}
-.np-cf-na {
-  color: var(--ap-muted);
-}
 /* Tables scroll sideways inside the panel instead of widening it on phones. */
 .np-tbl-wrap {
   overflow-x: auto;
@@ -726,6 +703,238 @@ a.np-fd-src:hover {
 }
 .np-lab-list {
   margin-bottom: 0.8rem;
+}
+
+/* ── Financials: income-statement table, Naver 재무제표 style (2026-10-17;
+   FinancialsSection.tsx). Sits between the Fundamentals strip and "At a glance",
+   so it is spaced closer than the feeds at the bottom of the panel. */
+.np-feed.np-fin {
+  margin-top: 0.8rem;
+  margin-bottom: 1.1rem;
+}
+.np-fin-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-bottom: 0.6rem;
+}
+/* Quarterly | Annual: a segmented pill like the tables' .tb-seg. */
+.np-fin-seg {
+  display: inline-flex;
+  border: 1px solid var(--ap-border);
+  border-radius: 980px;
+  overflow: hidden;
+}
+.np-fin-seg button {
+  min-height: 30px;
+  padding: 0 12px;
+  border: none;
+  background: var(--ap-surface2);
+  color: var(--ap-muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.np-fin-seg button + button {
+  border-left: 1px solid var(--ap-border);
+}
+.np-fin-seg button:hover:not(:disabled) {
+  color: var(--ap-blue-hi);
+}
+.np-fin-seg button[aria-pressed="true"] {
+  background: rgba(41, 151, 255, 0.14);
+  color: var(--ap-blue-hi);
+}
+.np-fin-seg button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.np-fin-seg button:focus-visible {
+  outline: 2px solid var(--ap-blue);
+  outline-offset: -2px;
+}
+.np-fin-krw {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--ap-text);
+  cursor: pointer;
+}
+.np-fin-krw input {
+  margin: 0;
+  accent-color: var(--ap-blue);
+}
+.np-fin-fx {
+  font-size: 0.7rem;
+  color: var(--ap-muted);
+}
+/* Scrolls sideways on narrow screens; the row labels stay put (sticky first column). */
+.np-fin-wrap {
+  overflow-x: auto;
+  margin-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+.np-fin-tbl {
+  min-width: 100%;
+  border-collapse: separate; /* `collapse` drops the sticky column's borders while scrolling */
+  border-spacing: 0;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.np-fin-tbl th,
+.np-fin-tbl td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--ap-border);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+}
+.np-fin-tbl thead th {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ap-text);
+  vertical-align: bottom;
+}
+.np-fin-tbl tbody td {
+  font-weight: 600;
+}
+.np-fin-tbl .np-fin-k {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 12px;
+  font-weight: 600;
+  color: var(--ap-text);
+  background: var(--ap-surface); /* opaque, so scrolled cells pass under it */
+  box-shadow: inset -1px 0 0 var(--ap-border); /* a hairline between the labels and the numbers */
+}
+.panel.glass .np-fin-tbl .np-fin-k {
+  background: rgb(30, 34, 42);
+}
+.np-fin-h-sub {
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--ap-muted);
+}
+/* Growth rows: smaller and indented under the row they belong to. */
+.np-fin-subrow th.np-fin-k {
+  padding-left: 12px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--ap-muted);
+}
+.np-fin-subrow td {
+  font-size: 0.74rem;
+  font-weight: 500;
+}
+.np-fin-up {
+  color: #3fb950;
+}
+.np-fin-down {
+  color: #f85149;
+}
+.np-fin-na {
+  color: var(--ap-muted);
+  font-weight: 400;
+}
+/* "(E)" columns: shaded blue, the low–high range in small text under the average. */
+.np-fin-tbl .np-fin-est {
+  background: rgba(41, 151, 255, 0.07);
+}
+.np-fin-tbl thead .np-fin-est {
+  color: var(--ap-blue-hi);
+}
+/* "(P)" column: a quarter's preliminary results (Korea, DART 잠정실적), shaded amber. */
+.np-fin-tbl .np-fin-pre {
+  background: rgba(210, 153, 34, 0.08);
+}
+.np-fin-tbl thead .np-fin-pre {
+  color: #d29922;
+}
+.np-fin-est-r {
+  font-size: 0.64rem;
+  font-weight: 500;
+  color: var(--ap-muted);
+}
+/* Raised without growing the line (a plain <sup> made those rows taller and shifted their numbers). */
+.np-fin-star {
+  position: relative;
+  top: -0.35em;
+  margin-left: 1px;
+  font-size: 0.8em;
+  line-height: 0;
+  vertical-align: baseline;
+  color: #d29922;
+  cursor: help;
+}
+.np-fin-notes {
+  margin: 4px 0 0;
+  padding-left: 1.1rem;
+}
+/* "Cash flow" group under the income statement (2026-10-17, merged in from the old Cash flow
+   section): a heading row with space above it; its label sits in the sticky first column. */
+.np-fin-tbl .np-fin-grouprow > * {
+  padding-top: 14px;
+}
+.np-fin-tbl .np-fin-grouprow th.np-fin-k {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ap-muted);
+}
+/* Next earnings line in the header ("Next earnings 10-28-2026 · AMC · confirmed"). */
+.np-fin-next {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 0.6rem;
+  font-size: 0.74rem;
+  color: var(--ap-text);
+}
+.np-fin-next-k {
+  font-weight: 700;
+}
+.np-fin-next-sep {
+  color: var(--ap-muted);
+}
+.np-fin-ok {
+  color: #3fb950;
+  border-color: rgba(63, 185, 80, 0.45);
+}
+/* A company with an earnings date but no statements: only that line. */
+.np-feed.np-fin.np-fin-only .np-fin-next {
+  margin-bottom: 0;
+}
+@media (max-width: 860px) {
+  /* the phone sheet is opaque even in glass mode */
+  .panel.glass .np-fin-tbl .np-fin-k {
+    background: var(--ap-surface);
+  }
+  /* At 390 px a Korean label ("매출총이익률 %") took ~210 of 358 px, leaving room for about two numbers: cap the
+     label column and let long labels wrap. The shadow marks the edge the numbers scroll under, so a cut-off
+     column reads as "scrolled under", not as stray digits. */
+  .np-fin-tbl .np-fin-k {
+    width: 112px;
+    min-width: 112px;
+    max-width: 112px;
+    box-sizing: border-box;
+    white-space: normal;
+    font-size: 0.72rem;
+    line-height: 1.25;
+    box-shadow: inset -1px 0 0 var(--ap-border), 6px 0 8px -6px rgba(0, 0, 0, 0.45);
+  }
+  .np-fin-subrow th.np-fin-k {
+    padding-left: 8px;
+    font-size: 0.68rem;
+  }
 }
 
 /* ── Phones: full-width buttons, no right-aligned meta ─────────────────── */

@@ -3,8 +3,9 @@
 Free data that scripts record every day, with no model tokens, shown on nodus42.com next to the supply-chain map.
 It is **not** a supply-chain signal: nothing here is written to `quarterly_data`, `chains/`, `patches/` or
 `derive.py`. Each dataset has its own history files, its own web file and its own section on the site (the
-**Markets** tab, the **Capex** tab table, and the company panel's Cash flow / AI lab / Financing / Insider trades
-sections). Every row carries its source name and a link.
+**Markets** tab, the **Capex** tab table, and the company panel's Financials (with the quarterly cash flow and
+the next earnings date) / AI lab / Financing / Insider trades sections). Every row carries its source name and a
+link.
 
 ## Schedule
 
@@ -34,7 +35,7 @@ each time-boxed (a failure or timeout is logged and the next step runs):
    `routine/nightly.ps1 -PublishOnly -MarketOnly` commits only the market-data files (`market/history`,
    `market/run_log.jsonl`, `market/ai_lab_deals.json` and the market web files in `graph/`: `memory_prices.json`,
    `gpu_prices.json`, `insiders_index.json` + `insiders/`, `financing_index.json` + `financing/`,
-   `hyperscaler_cash.json`, `ai_labs.json`, `transcript_quality.json`) on a branch, opens a PR and merges it. Vercel
+   `hyperscaler_cash.json`, `financials_index.json` + `financials/`, `ai_labs.json`, `transcript_quality.json`) on a branch, opens a PR and merges it. Vercel
    then deploys the site (its build copies `graph/` into `web/public/data`). What an enrich session writes
    (transcripts, patches, chains, the rest of `graph/`) is never part of it, so a blocked session's leftovers wait
    for a night that finishes as done. While an enrich session works, nothing is published: `nightly.ps1` publishes
@@ -102,6 +103,7 @@ from `.env` (`DART_API_KEY`, `EDINET_API_KEY`, `ALPHAVANTAGE_API_KEY`, `EDGAR_US
 | `financing_asia.py` | `financing_index.json` + `financing/<company>.json` | `financing_kr.jsonl`, `financing_tw.jsonl`, `financing_jp.jsonl` | Korea: OpenDART major-issues reports and debt registrations. Taiwan: MOPS material information. Japan: TDnet timely disclosures |
 | `financing.py` | `financing_index.json` + `financing/<company>.json` | reads every `financing_*.jsonl`, including `financing_manual.jsonl` | builder only, no network |
 | `hyperscaler_cash.py` | `hyperscaler_cash.json` | `hyperscaler_cash.jsonl`, `earnings_calendar.jsonl` | SEC XBRL companyconcept API (capex, operating cash flow, finance-lease principal); Alpha Vantage EARNINGS_CALENDAR (1 call a day); Yahoo Finance via yfinance; the companies' own IR event pages |
+| `financials.py` (+ `financials_sec.py`, `financials_dart.py`) | `financials_index.json` + `financials/<company>.json` | `financials_snapshots.jsonl` (+ `financials_state.json`) | Yahoo Finance via yfinance's session: fundamentals timeseries (quarterly / annual income statement, balance sheet and cash flow), quoteSummary (earnings summary, estimates, key statistics, calendar), monthly price chart with dividends and splits; Yahoo FX for currency conversion. The companies' own filings: SEC XBRL company facts (US filers: 10-K / 10-Q, cash flow included; 20-F filers for per-share checks and dates) and OpenDART (Korea: quarterly / annual statements with the cash-flow statement, share counts, preliminary-results disclosures) |
 | `ai_labs.py` | `ai_labs.json` | `ai_lab_revenue.jsonl`, `ai_lab_funding.jsonl`, `ai_lab_compute.jsonl`, `ai_model_scores.jsonl` | Epoch AI "Data on AI companies" and "Benchmarking Hub" downloads; the curated deals log `market/ai_lab_deals.json` |
 
 What each web file holds:
@@ -131,9 +133,86 @@ What each web file holds:
 - **hyperscaler_cash.json** (contract 4): the last quarters of capex, operating cash flow, free cash flow and FCF
   after finance-lease principal for Microsoft, Google, Amazon, Meta, Oracle, CoreWeave, Nebius and IREN, plus the
   next 60 days of earnings dates for every public company in the graph (confirmed = the company's IR page, or
-  Alpha Vantage and Yahoo agree).
+  Alpha Vantage and Yahoo agree). The Capex tab shows its cash-flow table; the company panel reads only the
+  earnings dates (in the Financials header) since 2026-10-17, when its separate Cash flow section was merged into
+  the Financials table (whose collector draws the same SEC quarters for these 8 companies).
 - **ai_labs.json** (contract 5): AI-lab revenue run rates, funding rounds, compute deals, and frontier models'
   benchmark scores.
+- **financials_index.json + financials/<company>.json** (contract 6, added 2026-10-17 for the company panel's
+  financial-statement table, like Naver Finance's 재무제표): index {updated, source, companies: {node id: {file,
+  latest_end, currency}}}; company file {company, ticker (Yahoo symbol), currency, unit (1000000), fiscal_year_end
+  ("MM-DD"), updated, quarterly (up to 8, oldest first), annual (up to 4), estimates {quarter, fy, next_fy},
+  preliminary (Korea: a quarter's preliminary results, or null), source, sources (Yahoo plus SEC EDGAR / DART when
+  the filings filled figures), notes}. Each period: end (the company's own period end date), label (the company's
+  own fiscal label, "Q3 26" / "FY26"), fiscal_year, fiscal_quarter, revenue, gross_profit, ebitda, ebit,
+  operating_income (as reported), pretax_income, net_income_after_tax (세후손익), net_income (당기순이익,
+  attributable), eps_diluted (reported), eps_adjusted (Yahoo's EPS on the analysts' basis: for US companies usually
+  adjusted / non-GAAP; the estimates' basis), per, pbr, dividend_yield_pct, roa_pct, ocf (operating cash flow),
+  capex (a positive number), fcf (ocf - capex), fcf_after_leases (fcf - finance-lease principal payments; null
+  unless the company files those), qoq, yoy and derived (fields computed rather than read from a statement).
+  Money is in millions of the reporting currency; EPS in full units.
+  The rules (all in the collector's docstring, and in each file's notes when they apply):
+  - Every public node (all markets). An ADR whose home listing yahoo.ts already maps (TSM -> 2330.TW, ASML ->
+    ASML.AS, ...) uses the home listing, so price and per-share figures share a currency; another US-listed ADR
+    reporting in a foreign currency gets no PER / PBR (unknown ADR ratio).
+  - Dates are the companies' own period ends (the user, 2026-10-17: the column shows the date, so no calendar
+    label; Micron FY26 = 2026-09-03, NVIDIA Q2 27 = 2026-07-26): from the SEC filings, Yahoo's mostRecentQuarter /
+    lastFiscalYearEnd, and for every other period (estimates too) the company's 52/53-week rule (the weekday its
+    periods end on: the last one of the month, NVIDIA, or the nearest one, Micron / Broadcom). Month-end reporters
+    keep the month end. Inside the collector, periods are keyed by Yahoo's month end. Fiscal years are named by
+    the calendar year they end in (Micron's quarter ending May 2026 = "Q3 26", NVIDIA's ending July 2026 = "Q2
+    27"); the fiscal year end month is the most recent year's (a company that moved its year end, like Daifuku,
+    is labelled on its new calendar).
+  - Filings first: for SEC 10-K / 10-Q filers the XBRL facts fill what Yahoo lacks (the newest filed quarter and
+    year before Yahoo has them, and the quarters before Yahoo's 5-quarter window, so YoY has its base): a fiscal
+    Q4 = the 10-K year - the 10-Q nine months, its diluted EPS = Q4 net income / Q4 diluted shares, EBIT / EBITDA
+    = pre-tax income + interest (+ D&A) only where that matches Yahoo's own figures; each XBRL concept is checked
+    against Yahoo's figures on the periods both have. A 20-F filer's facts (they can be on another GAAP than the
+    home listing, e.g. TSMC) only check the EPS and give the dates. For Korea, DART's reports fill the same way
+    (Q4 = the annual report - the Q3 report's nine months, diluted EPS included), and book value per share uses
+    DART's shares outstanding of all classes (common + preferred - treasury), as Korean BPS does.
+  - Then Yahoo's earnings summary: revenue and net income of the newest periods neither has yet (a 0 there means
+    "not reported yet" and stays blank; only periods newer than the newest known one are added, so an old series
+    some small listings carry is ignored; a summary series that disagrees with the statements on revenue or net
+    income is not used). Checks: a statement net income that does not match diluted EPS x diluted shares while the
+    summary does is replaced (TSMC, whose statements mix 20-F IFRS net income with Taiwan-IFRS EPS); an EPS that
+    does not match net income / shares while the SEC filing's does is replaced (ASML FY22); an EBITDA equal to
+    EBIT (D&A missing) is left blank. Gaps: one missing quarter of a year = FY - the other three; a missing EPS =
+    Yahoo's reported EPS when it is within 1% of net income / diluted shares, else net income / diluted shares.
+    EPS filed before a recent split is put on today's share basis. All computed values are listed in derived.
+  - per = month-end price / trailing-4-quarter diluted EPS (annual: the year's EPS), pbr = price / book value per
+    share, dividend_yield_pct = last 12 months' dividends / price, roa_pct = trailing net income / average total
+    assets (now and 12 months earlier); a foreign-currency price is converted at the month-end Yahoo FX rate. QoQ /
+    YoY of revenue, ebit, net_income and eps_diluted; null from a zero or negative base. QoQ / YoY of fcf only
+    between two positive values.
+  - Cash flow (2026-10-17; the panel's separate Cash flow section was merged into this table), one source per
+    company so a table never mixes capex definitions: a 10-K / 10-Q filer's SEC XBRL facts with
+    `hyperscaler_cash.py`'s tags and quarter logic (imported: NetCashProvidedByUsedInOperatingActivities,
+    PaymentsToAcquirePropertyPlantAndEquipment, or PaymentsToAcquireProductiveAssets where the company files that
+    (Amazon, NVIDIA), FinanceLeasePrincipalPayments; 10-Q cash flows are year-to-date, so a quarter without a
+    3-month figure is the difference of two, Q4 = FY - 9 months), so the 8 companies of `hyperscaler_cash.json`
+    show the same quarters (a test pins this on real Amazon / Alphabet facts); else a Korean company's DART
+    cash-flow statements (영업활동 현금흐름, capex = 유형자산의 취득; year-to-date too: Q2 = H1 - Q1 ... Q4 = FY - 9M);
+    else Yahoo's rows (Operating Cash Flow, Capital Expenditure with its sign turned, Free Cash Flow where one of
+    the two is missing). Differenced quarters are listed in derived, and fcf / fcf_after_leases when an input is.
+    A DART report cached before this change is read once more for its cash-flow statement (its share counts are
+    kept), and an SEC or Yahoo cache written before it is fetched again even on the same day.
+  - Estimates: Yahoo's earningsTrend 0q (the next unreported quarter), 0y (this fiscal year) and +1y, labelled with
+    the same fiscal labels, with the exact period end; an estimate for a period already reported is dropped. The
+    EPS consensus is on Yahoo's basis (for US companies usually adjusted), so the panel shows it in the EPS row only
+    when Yahoo's actuals equal the reported EPS, and otherwise in its own "EPS (Yahoo basis)" row next to them.
+  - Preliminary results (Korea): a 연결재무제표기준영업(잠정)실적(공정공시) filing for a quarter without its report yet
+    becomes a "(P)" column (revenue, operating income and whatever else it gives, with QoQ / YoY).
+  - Refresh: daily for companies 10 days before to 4 days after their earnings date (hyperscaler_cash's calendar
+    or Yahoo's), plus companies never fetched or whose fetch failed, plus a rotating 1/7 of the rest (each company
+    at least weekly), at most 15 minutes a day; `--backfill` fetches all (about 2.5 s per company, 3 requests).
+    The same companies' filings follow, at most 5 more minutes: SEC company facts (1 request, at most daily) and
+    DART (only reports not read yet; a first read is about 13 reports x ~8 s, so `--filings-only --workers 8`
+    does the first fill of every company). The latest raw answers are cached in `market/cache/financials/`
+    (Yahoo per symbol, `sec/`, `dart/`; local), so `--build-only` rebuilds without the network; a company
+    without a cache keeps its published file. `financials_snapshots.jsonl` keeps
+    every reported period as first seen (key company + end + period_type), to spot restatements and to keep
+    quarters that dropped out of Yahoo's 5-quarter window.
 
 ## Licences and terms
 
@@ -154,7 +233,8 @@ What each web file holds:
   rules are followed (descriptive User-Agent, at most 4 requests per second). EDINET and OpenDART need their free
   API keys.
 - **Alpha Vantage**: free key, 1 calendar call a day (the free tier allows 25). **Yahoo Finance via yfinance**:
-  unofficial and personal-use; only earnings dates are read, paced at about 2 per second.
+  unofficial and personal-use: earnings dates (hyperscaler_cash, about 2 requests per second) and the
+  financial-statement table (financials: 3 requests per company, 0.6 s apart, backing off on HTTP 429).
 
 ## Files
 
@@ -185,7 +265,9 @@ What each web file holds:
 - `market/cache/`: download caches (SEC data-set zips, Epoch zips, same-day responses). Gitignored and never
   published; deleting it only makes the next run download again.
 - `web/scripts/sync-data.mjs` copies the six web files to `web/public/data/` (`npm run sync`, also run by
-  `graph_build.py --sync` and before every `next build`).
+  `graph_build.py --sync` and before every `next build`), and mirrors the per-company folders `graph/insiders/`,
+  `graph/financing/` and `graph/financials/` into `web/public/data/<feed>/` (stale company files removed). The
+  mirrored files are committed with the feature that adds them, like `insiders/` and `financing/`.
 
 ## Run, rerun and backfill
 
@@ -199,13 +281,18 @@ python -X utf8 -m market.gpu_prices                       # one collector
 python -X utf8 -m market.insiders_us --backfill           # one collector's backfill
 python -X utf8 -m market.memory_prices --build-only       # rebuild a web file from history, no network
 python -X utf8 -m market.financing                        # rebuild graph/financing.json only
+python -X utf8 -m market.financials --only "Micron,NVIDIA" # refetch a few companies
+python -X utf8 -m market.financials --build-only          # rebuild graph/financials/ from the local cache
+python -X utf8 -m market.financials --filings-only --workers 8   # (re)fill the SEC / DART caches, then rebuild
 ```
 
 Backfill per collector: `insiders_us` scans the last four SEC quarterly data sets; `insiders_asia` reads every
 Korean company's reports and walks 365 days of EDINET lists; `financing_us` / `financing_asia` re-read the 365-day
 window; `gpu_prices` records every week GetDeploying still has; `memory_prices` walks the TrendForce press list
 back 365 days (DRAMeXchange history is members-only, so spot prices start on the first run); `hyperscaler_cash`
-records every quarter XBRL can derive; `ai_labs` forces a fresh download. Re-running a backfill adds no duplicates.
+records every quarter XBRL can derive; `financials` fetches every public company (highest graph degree first, about
+35 minutes, then their SEC facts, about 4 minutes, and their DART reports, about an hour with 8 workers the first
+time); `ai_labs` forces a fresh download. Re-running a backfill adds no duplicates.
 
 After a manual run, `cd web && npm run sync` copies the new files for local viewing; the nightly PR publishes them.
 
