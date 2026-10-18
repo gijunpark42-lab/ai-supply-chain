@@ -53,10 +53,23 @@ new concepts. Prefer clarity over cleverness.
    A node belongs only if it directly builds, supplies, packages, manufactures, hosts, or
    consumes the product. Exclude mere tool vendors, partners, or unrelated customers.
    Litmus test: "Does this company's stock directly benefit from {product} being built and sold?"
-   If no, exclude it.
+   If no, exclude it. The litmus test decides CHAIN MEMBERSHIP only; a member's relationships are item 6.
+   **Contractors (rule B, user 2026-10-17):** data-center and power-grid contractors (construction / EPC /
+   electrical / mechanical builders of data centers and grid) ARE allowed; semiconductor-FAB contractors stay
+   excluded — United Integrated Services, Acter, Marketech, Hanyang Eng.
 
 5. **Build for the web from day one.**
    Keep LOGIC (functions that do the work) separate from EXECUTION (how it's triggered).
+
+6. **Every relationship, AI or not, with a scope tag (decision C, user 2026-10-17).**
+   When a company is on the map, ALL its real relationships are recorded — customers, suppliers, partners in a
+   supply role — even when they have nothing to do with AI. Each carries `scope`: `"ai"` = an edge in a chain
+   file (`connects_to`, written through patches as always) or `"other"` = a row in `relations/<company>.json`
+   (THE GRAPH MODEL (3)). AI chain maps show `"ai"` by default; `"other"` is drawn only on demand ("Show non-AI
+   relationships"). A NEW company gets its full relationships in the run that adds it; the companies already on
+   the map are backfilled by the nightly enrich, ~5 per night, from `relations_backfill.json` (enrich skill §2).
+   Same source rules: every relationship cites a saved transcript / filing (path + verbatim quote) or a public
+   URL (10-K customer / supplier note, company release, IR page) — never model memory.
 
 ---
 
@@ -96,6 +109,22 @@ Example of the difference:
 - `vera_rubin.json`'s TSMC == `tpu_v6.json`'s TSMC == `b200.json`'s TSMC → one TSMC hub after merge.
 - A future `graph build` step reads ALL chain files and merges by company name into one big
   nodes+edges graph. Current data is not lost; this is a one-time automated merge.
+
+**(3) Non-AI relationships — `relations/<company>.json`, scope "other" (decision C, 2026-10-17).**
+- Every chain edge is an AI relationship: `graph_build.py` tags each one `"scope": "ai"` in
+  `graph/merged_graph.json` → `edges`. A chain file never holds a non-AI relationship.
+- A company's relationships OUTSIDE the AI chains (a turbine maker's utility customers, a chipmaker's automotive
+  customers) are ADD-only rows in `relations/<company>.json` — `{from, to, relation (supplies | customer_of |
+  partner), product, scope: "other", source (saved file or public URL), quote, label, date, added[, figure]}`;
+  the full spec is the `relations.py` docstring. The counterparty need not be a graph node.
+- `graph_build.py` merges them into `merged_graph.json` under a SEPARATE key, `other_edges` (pointed supplier →
+  customer, one edge per relationship — matched on the two companies + relation, not the product wording — with
+  every source in `refs`, each keeping its own `product`). `derive.py`, `evidence.py`,
+  `enrich_status.py` and `verify_graph.py` read only `edges`, so every derived view and audit is unchanged by
+  them; only the web app reads `other_edges` (hidden by default, a toggle draws them; the company panel lists
+  them, folded, under "Other business relationships").
+- Pre-flight: `python -X utf8 utils/check_relations.py` (source rule, verbatim quote, names, rule B, ADD-only
+  against the committed copy).
 
 ### An EDGE is an object that carries data, not just a line
 
@@ -227,8 +256,10 @@ analyst opinion (enrich skill §2). The system:
    - add `contracts` entries to existing edges (deal detail: units, value, date).
    - ADD a new company only if it passes the litmus test AND an independent Claude (Opus) verifier approves it
      (enrich skill JOB 3 — the user delegated this approval to Claude on 2026-09-26); every addition is reported.
-     Banks, lenders, distributors, contractors and the like are rejected without asking; genuinely ambiguous
+     Banks, lenders, distributors, semiconductor-fab contractors and the like are rejected without asking
+     (data-center and power-grid contractors are allowed — rule B, Core philosophy 4); genuinely ambiguous
      cases are asked to the user (`enrich_status.py ask`, shown on the status board).
+   - record the company's NON-AI relationships too, in `relations/` (Core philosophy 6, enrich skill §2).
    - ADD a new edge ONLY IF the transcript states a real relationship (e.g. "AWS supports
      Anthropic compute") → add/extend that `connects_to` entry.
 3. **Saves** the additions as a patch in `patches/`; `apply_patches.py` merges it into the chain
@@ -340,6 +371,10 @@ earnings-ai/
 ├── apply_patches.py          # patches/*.json → chains/ — the ONLY writer of chains/ during enrichment (safe under parallel jobs)
 ├── patches/                  # enrichment INBOX: one ADD-only patch per transcript; applied/ holds the receipts
 ├── graph_build.py            # applies patches, then chains/ → graph/merged_graph.json, then calls derive.py (--sync also refreshes web/public)
+├── relations.py              # NON-AI relationships (decision C): relations/*.json → merged_graph.json "other_edges"; backfill CLI (queue / next / done)
+├── relations/                # one ADD-only file per company: its non-AI customers / suppliers / partners (scope "other")
+├── relations_backfill.json   # companies on the map before 2026-10-17, most-connected first: pending / done + date (~5 per night)
+├── utils/check_relations.py  # pre-flight check of relations files (source + verbatim quote, names, rule B, ADD-only vs git HEAD)
 ├── verify_graph.py           # AUDIT (read-only): every quarterly_data/contract re-checked against its source file → graph/verification.json
 ├── derive.py                 # graph → Timelines / Screener / Capex views (graph/timelines.bundle.json, graph/company_metrics.json, graph/capex_backlog.json)
 ├── enrich_status.py          # per-PIPELINE dashboard (enrich us/edgar/dart/intl/tw/conference/manual): last sync, source date range,
@@ -391,6 +426,19 @@ Later split into: `supply_chain.py`, `analyzer.py`, `graph.py` (merge chains →
 1. **[in progress]** Per-chain skeletons for multiple products, each WITH `connects_to` edges from
    the start. Cover many domains (memory, photonics, packaging, substrate, foundry, cloud, ai_lab).
    Human curates/corrects each (especially photonics/optical depth, which AI under-fills).
+   **Drafted 2026-10-17, pending user approval** (decision D: drafts live in `drafts/chains/`, their non-AI rows
+   in `drafts/relations/`, each with a review note `drafts/<chain>_review.md`, and are NOT applied to `chains/`,
+   `patches/` or `relations/` until the user approves each one):
+   - Quantum computing — the whole supply chain (`drafts/chains/applications/quantum_computing.json`).
+   - Space, scoped to AI infrastructure — orbital / space data centers, satellite connectivity and backhaul for
+     AI, optical inter-satellite links, radiation-hardened semis / components, launch
+     (`drafts/chains/applications/space_ai_infrastructure.json`).
+   - AI security & trusted compute — security silicon (TPM, HSM, root of trust), HSM vendors, confidential
+     computing; cybersecurity platforms only as evidenced consumers of AI compute
+     (`drafts/chains/components/ai_security_trusted_compute.json`).
+   - Data-center construction & power build-out — power generation equipment, electrical gear, cooling,
+     construction / EPC (rule B), developers, then hyperscalers / neoclouds
+     (`drafts/chains/components/datacenter_construction_power.json`).
 2. Transcript/article enrichment that ADDS deal detail to edges (units, $, dates) and node figures.
 3. Graph build: merge all chains by company name → one nodes+edges graph (cross-file hubs).
 4. Web app: clickable multidimensional map + search + drill-down (Streamlit MVP → full frontend).
@@ -440,6 +488,8 @@ Nothing was dropped when these moved out of this file — each skill holds the o
 - Build edges as SPECIFIC directed relationships (`connects_to`), not full layer-to-layer links.
   Same-layer edges allowed when real (e.g. HBM → CoWoS). No-relationship nodes get `connects_to: []`.
 - Edges are objects carrying `contracts[]`; skeleton leaves contracts empty, transcripts fill them.
+- Every relationship has a scope: AI ones are chain edges (via patches), non-AI ones are rows in
+  `relations/<company>.json` (scope "other", checked with `utils/check_relations.py`) — never the other way round.
 - Follow FIXED layer/domain slugs and the `{company, product, connects_to, quarterly_data}` player shape (nested under layer→sector).
 - Apply the litmus test before adding any company; during enrichment a new company needs an independent Claude
   verifier's approval (enrich skill JOB 3) and is always named in the report.

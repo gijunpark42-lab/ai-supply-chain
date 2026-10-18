@@ -62,6 +62,29 @@ export const UI: Record<string, Row> = {
     "現在Hyperliquidの価格を取得できません。1分ごとに再試行します。",
   ],
 
+  // ── Non-AI relationships (2026-10-17) ────────────────────────────────────
+  // merged_graph.json "other_edges" (relations/*.json): the toggle on the Graph tab (page.tsx) and in
+  // Chain 2D (components/Chain2D.tsx, lib/chain2d.ts), and the company panel's folded list
+  // (components/NodePanel.tsx). Reuses "Customers", "Suppliers", "source" and "not a graph node".
+  "Show non-AI relationships": ["비AI 관계 보기", "显示非AI关系", "AI以外の関係を表示"],
+  "Also draw the business relationships outside the AI supply chains ({n} links, in grey)": [
+    "AI 공급망 밖의 사업 관계도 함께 그립니다 (연결 {n}개, 회색)",
+    "同时绘制 AI 供应链之外的业务关系（{n} 条连接，灰色）",
+    "AIサプライチェーン以外の取引関係も描画します（{n}本のリンク、灰色）",
+  ],
+  "non-AI relationship": ["비AI 관계", "非AI关系", "AI以外の関係"],
+  "Non-AI relationship": ["비AI 관계", "非AI关系", "AI以外の関係"],
+  "{n} source": ["출처 {n}건", "{n} 个来源", "出典 {n}件"],
+  "{n} sources": ["출처 {n}건", "{n} 个来源", "出典 {n}件"],
+  "{n} source on this link": ["이 연결의 출처 {n}건", "此连接有 {n} 个来源", "このリンクの出典 {n}件"],
+  "{n} sources on this link": ["이 연결의 출처 {n}건", "此连接有 {n} 个来源", "このリンクの出典 {n}件"],
+  "Other business relationships": ["기타 사업 관계", "其他业务关系", "その他の取引関係"],
+  "outside the AI supply chains": ["AI 공급망 밖의 관계", "AI 供应链之外", "AIサプライチェーンの外"],
+  "Show non-AI relationships ({n})": ["비AI 관계 보기 ({n})", "显示非AI关系（{n}）", "AI以外の関係を表示（{n}）"],
+  "Hide non-AI relationships": ["비AI 관계 숨기기", "隐藏非AI关系", "AI以外の関係を隠す"],
+  "Business partners": ["사업 파트너", "业务合作伙伴", "事業パートナー"],
+  "Non-AI": ["비AI", "非AI", "AI以外"],
+
   // ── Language switch / app shell (page.tsx) ──────────────────────────────
   "Language": ["언어", "语言", "言語"],
   "Skip to research": ["리서치로 건너뛰기", "跳到研究内容", "リサーチへスキップ"],

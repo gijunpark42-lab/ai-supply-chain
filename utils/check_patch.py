@@ -74,6 +74,15 @@ if os.path.exists(_fold_log):
 DO_NOT_ADD -= {"Samsung SDI", "LG Energy Solution", "Lotte Energy Materials"}  # AES stays out: added 10-01, removed by the user the same day (going private)
 # Lifted by the user on 2026-10-13 under the 2026-10-12 supply-chain-terminal rule ("HD건설기계랑 샤오미 둘 다 추가해").
 DO_NOT_ADD -= {"HD Construction Equipment", "Xiaomi"}
+# Rule B (user, 2026-10-17): data-center and power-grid contractors are allowed. Three of the five "EPC / construction
+# contractors" folded on 2026-09-05 are grid / power contractors and may come back as nodes: Algihaz Contracting
+# Company (HD Hyundai Electric 380kV breakers and transformers), Semco Maritime (275kV transformers and reactors),
+# Burns & McDonnell (HICO America customer). Samsung E&C stays out (its deal is the Taylor FAB1 project = fab work);
+# HL D&I Halla (Pyeongtaek 345kV substation for Samsung's semiconductor campus) waits for the user's decision.
+DO_NOT_ADD -= {"Algihaz Contracting Company", "Semco Maritime", "Burns & McDonnell"}
+# ... and the semiconductor-FAB contractors rule B keeps out are never added (defined once in relations.py).
+from relations import FAB_CONTRACTORS  # noqa: E402
+DO_NOT_ADD |= FAB_CONTRACTORS
 DO_NOT_ADD_SQUASHED = {squash(n): n for n in DO_NOT_ADD}
 
 problems = 0
@@ -228,8 +237,9 @@ def check_new_node(where, company, p, group, chain, new_nodes):
         ok = False
     ruled = DO_NOT_ADD_SQUASHED.get(squash(company))
     if ruled:
-        say("ERROR", f"{where}: {ruled!r} was removed in the 2026-09-05 cleanup or ruled out by the user — put the deal "
-                     f"on the filer's quarterly_data with counterparty keys instead")
+        say("ERROR", f"{where}: {ruled!r} was removed in the 2026-09-05 cleanup or ruled out by the user (rule B, "
+                     f"2026-10-17, keeps semiconductor-fab contractors out; data-center / power-grid contractors are "
+                     f"allowed) — put the deal on the filer's quarterly_data with counterparty keys instead")
         ok = False
     if group not in LAYER_SLUGS | DOMAIN_SLUGS or not p.get("sector"):
         say("ERROR", f"{where}: NEW node needs a valid layer/domain slug + sector (got {group!r} / {p.get('sector')!r})")

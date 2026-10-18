@@ -42,6 +42,8 @@ releases, same-date slot collisions, 10-K concentration facts that never reached
   generic customers, divisions, products, do-not-add list) / ask the user (`"ask_user"`). Any judgment the rules do
   not settle → `enrich_status.py ask "<subject>" --question …` (board + web Status tab "Needs a decision"); the
   user's answer → `resolve … --answer …` (kept under `answered` in enrich_marks.json).
+  **Rule B (user, 2026-10-17) narrows "contractors":** data-center and power-grid contractors ARE allowed as nodes;
+  only semiconductor-fab contractors (United Integrated Services, Acter, Marketech, Hanyang Eng) are still rejected.
 - Korean earnings calls still have no pipeline (decision pending with the user).
 - Korean IR materials pipeline (user, 2026-09-27: build it so an agent does not have to look each time): `kind.py`
   = the KRX KIND IR library (34 of our 84 Korean companies post decks there, mostly KOSDAQ) + six large-cap IR sites

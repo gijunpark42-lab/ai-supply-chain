@@ -32,6 +32,10 @@ interface Props {
   // Max number of name labels drawn in focus mode (default 80). Labels are
   // ordered nearest-hop first, then by degree, so hubs keep theirs.
   labelLimit?: number;
+  // Draw the non-AI links (scope "other") that `links` carries (default false). They are
+  // always IN `links` (stable array, so flipping this never restarts the layout); this
+  // only shows or hides them, like the chain filter does for AI links.
+  showOther?: boolean;
 }
 
 interface LogoObj {
@@ -70,6 +74,10 @@ const DIM_LINK = 0.08;
 // A link endpoint is a raw id string before the force sim runs, and the node
 // object afterwards. Module scope so the memoised accessors below can use it.
 const linkId = (e: any) => (typeof e === "object" ? e.id : e);
+// A non-AI link (scope "other") belongs to no chain, so the chain filter cannot hide it;
+// it is shown only while "Show non-AI relationships" is on (`showOther`).
+const chainShown = (l: any, chains: Set<string>, showOther: boolean) =>
+  l.scope === "other" ? showOther : chains.has(l.chain);
 
 // "#rrggbb" (or "#rgb") → "rgba(r, g, b, a)". Anything else is returned as is.
 const alphaCache = new Map<string, string>();
@@ -117,6 +125,7 @@ export default function Graph3D({
   onFocusChange,
   showLegend = true,
   labelLimit = 80,
+  showOther = false,
 }: Props) {
   const { t, name, rev } = useLang();
   const fgRef = useRef<any>(null);
@@ -198,6 +207,19 @@ export default function Graph3D({
     try {
       fg.d3Force("charge").strength(-400);
       fg.d3Force("link").distance(150);
+      // Non-AI links (scope "other") ride in the same link list but must never pull the
+      // layout: strength 0. AI links keep d3's default strength, 1 / min(degree of either
+      // end), counted over AI links only, so the map lays out as it did without them.
+      const aiDegree = new Map<string, number>();
+      for (const l of links as any[]) {
+        if (l.scope === "other") continue;
+        for (const end of [linkId(l.source), linkId(l.target)]) aiDegree.set(end, (aiDegree.get(end) || 0) + 1);
+      }
+      fg.d3Force("link").strength((l: any) =>
+        l.scope === "other"
+          ? 0
+          : 1 / Math.min(aiDegree.get(linkId(l.source)) || 1, aiDegree.get(linkId(l.target)) || 1)
+      );
     } catch {}
     // On a retina/4K display devicePixelRatio is 2-3, so the GPU renders 4-9x the
     // pixels of the canvas. Clamping to 1.5 is a huge fill-rate win and is visually
@@ -220,7 +242,7 @@ export default function Graph3D({
   const focus = useMemo<Focus | null>(() => {
     if (!fid || !visibleIds.has(fid)) return null;
     const linkVisible = (l: any) =>
-      visibleChains.has(l.chain) &&
+      chainShown(l, visibleChains, showOther) &&
       visibleIds.has(linkId(l.source)) &&
       visibleIds.has(linkId(l.target));
     const hop = new Map<string, number>([[fid, 0]]);
@@ -248,7 +270,7 @@ export default function Graph3D({
     for (const l of links as any[])
       if (linkVisible(l) && hop.has(linkId(l.source)) && hop.has(linkId(l.target))) inLinks.add(l);
     return { id: fid, nodes: new Set(hop.keys()), links: inLinks, hop };
-  }, [fid, hops, links, visibleIds, visibleChains]);
+  }, [fid, hops, links, visibleIds, visibleChains, showOther]);
 
   // Build the logo overlay once per node set (not per filter change). The same
   // animation-frame loop also positions the focus-mode name labels.
@@ -519,8 +541,9 @@ export default function Graph3D({
     (l: any) => (touchesEmphasis(l) && l.contracts && l.contracts.length ? 2 : 0),
     [touchesEmphasis]
   );
+  // A partnership has no direction, so a non-AI partner link never gets an arrow.
   const linkArrowLength = useCallback(
-    (l: any) => (touchesEmphasis(l) ? 4 : 0),
+    (l: any) => (touchesEmphasis(l) && l.relation !== "partner" ? 4 : 0),
     [touchesEmphasis]
   );
 
@@ -543,7 +566,7 @@ export default function Graph3D({
           nodeOpacity={0.9}
           nodeVisibility={(n: any) => visibleIds.has(n.id)}
           linkVisibility={(l: any) =>
-            visibleChains.has(l.chain) &&
+            chainShown(l, visibleChains, showOther) &&
             visibleIds.has(linkId(l.source)) &&
             visibleIds.has(linkId(l.target))
           }
