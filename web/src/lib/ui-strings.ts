@@ -8,6 +8,60 @@
 type Row = [ko: string, zh: string, ja: string];
 
 export const UI: Record<string, Row> = {
+  // ── Weekend perp prices (2026-10-17) ─────────────────────────────────────
+  // components/WeekendPerpPrice.tsx: the 24/7 Hyperliquid perp chip under the price
+  // chart on weekends / exchange holidays. {day} is already localised (금요일 / 周五 / 金曜日).
+  "24/7 · Hyperliquid perp": ["24/7 · Hyperliquid 무기한 선물", "24/7 · Hyperliquid 永续合约", "24/7 · Hyperliquid 無期限先物"],
+  "{pct} vs {day} close": ["{day} 종가 대비 {pct}", "较{day}收盘 {pct}", "{day}終値比 {pct}"],
+  "24h vol {v}": ["24시간 거래대금 {v}", "24小时成交额 {v}", "24時間売買代金 {v}"],
+  "Perpetual futures on Hyperliquid ({venue}), trading 24/7 — not the official stock price; can diverge (funding, liquidity)": [
+    "Hyperliquid({venue})에서 24시간 거래되는 무기한 선물 — 공식 주가가 아니며, 펀딩비·유동성 때문에 괴리가 생길 수 있습니다",
+    "Hyperliquid（{venue}）上全天候交易的永续合约——并非官方股价，可能因资金费率、流动性而出现偏离",
+    "Hyperliquid（{venue}）で24時間取引される無期限先物 — 公式の株価ではなく、資金調達率や流動性により乖離することがあります",
+  ],
+  "Funding {rate}/hr": ["펀딩비 {rate}/시간", "资金费率 {rate}/小时", "資金調達率 {rate}/時間"],
+  "Converted at 1 USD = {rate} {cur}": ["1 USD = {rate} {cur} 기준 환산", "按 1 USD = {rate} {cur} 换算", "1 USD = {rate} {cur} で換算"],
+  "Last regular close {close}": ["직전 정규장 종가 {close}", "上一常规交易日收盘价 {close}", "直近の通常取引終値 {close}"],
+  // Markets → Weekend sub-tab (page.tsx tab + intro, components/WeekendPerps.tsx). Reuses
+  // "Company", "Change", "Sort by {col}", "Updated {time}" and the chip rows above.
+  "Weekend": ["주말", "周末", "週末"],
+  "See the weekend tape.": ["주말 시세를 확인하세요.", "查看周末行情。", "週末の値動きを見る。"],
+  "Compare Hyperliquid's 24/7 perpetuals for the stocks in the graph with their last regular close.": [
+    "그래프에 있는 종목의 Hyperliquid 24시간 무기한 선물 가격을 직전 정규장 종가와 비교하세요.",
+    "将图谱中股票在 Hyperliquid 上全天候交易的永续合约与其上一常规交易日收盘价进行对比。",
+    "グラフ内の銘柄について、Hyperliquidで24時間取引される無期限先物を直近の通常取引終値と比較します。",
+  ],
+  "Weekend perp prices": ["주말 무기한 선물 가격", "周末永续合约价格", "週末の無期限先物価格"],
+  "Exchanges are open: official prices are live; this table compares the perp with the previous close.": [
+    "거래소가 열려 있습니다. 공식 주가가 실시간으로 반영되며, 이 표는 무기한 선물을 직전 종가와 비교합니다.",
+    "交易所正在开市：官方股价为实时价格；本表将永续合约与上一收盘价进行对比。",
+    "取引所は開いています。公式の株価はリアルタイムで、この表は無期限先物を前回の終値と比較しています。",
+  ],
+  "{n} companies in the graph have a live Hyperliquid perp. Biggest moves first; click a column to sort.": [
+    "그래프의 기업 {n}곳에 거래 중인 Hyperliquid 무기한 선물이 있습니다. 변동 폭이 큰 순서로 보여 주며, 열을 클릭하면 정렬이 바뀝니다.",
+    "图谱中有 {n} 家公司在 Hyperliquid 上有正在交易的永续合约。默认按变动幅度从大到小排列；点击列标题可排序。",
+    "グラフ内の {n} 社にHyperliquidで取引中の無期限先物があります。値動きの大きい順に表示し、列をクリックすると並べ替えます。",
+  ],
+  "Perp": ["무기한 선물", "永续合约", "無期限先物"],
+  "Perp price": ["선물 가격", "合约价格", "先物価格"],
+  "Last close": ["직전 종가", "上一收盘价", "直近終値"],
+  "24h volume": ["24시간 거래대금", "24小时成交额", "24時間売買代金"],
+  "Home exchange": ["상장 거래소", "上市交易所", "上場取引所"],
+  "Closed today": ["오늘 휴장", "今日休市", "本日休場"],
+  "Open": ["개장", "开市", "開場"],
+  "previous session": ["직전 거래일", "上一交易日", "前営業日"],
+  "{n} more perps hidden: under $50k traded in 24 h, or more than 30% from the last close.": [
+    "무기한 선물 {n}개 숨김: 24시간 거래대금이 5만 달러 미만이거나 직전 종가와 30% 넘게 차이 납니다.",
+    "另有 {n} 个永续合约已隐藏：24 小时成交额低于 5 万美元，或与上一收盘价相差超过 30%。",
+    "無期限先物 {n} 件を非表示：24時間の売買代金が5万ドル未満、または直近終値から30%超乖離しています。",
+  ],
+  "Loading Hyperliquid prices…": ["Hyperliquid 가격 불러오는 중…", "正在加载 Hyperliquid 价格…", "Hyperliquidの価格を読み込み中…"],
+  "Hyperliquid prices are unavailable right now. The table retries every minute.": [
+    "지금은 Hyperliquid 가격을 불러올 수 없습니다. 1분마다 다시 시도합니다.",
+    "目前无法获取 Hyperliquid 价格。表格每分钟重试一次。",
+    "現在Hyperliquidの価格を取得できません。1分ごとに再試行します。",
+  ],
+
   // ── Language switch / app shell (page.tsx) ──────────────────────────────
   "Language": ["언어", "语言", "言語"],
   "Skip to research": ["리서치로 건너뛰기", "跳到研究内容", "リサーチへスキップ"],
@@ -942,8 +996,6 @@ export const UI: Record<string, Row> = {
   // cash-flow table in CapexBacklog.tsx. Literals that already have a row above
   // ("Markets", "Sources", "Model", "Quarter", the cash-flow columns …) are reused.
   "Tab group: Markets": ["시장", "市场", "マーケット"],
-  "Read the market.": ["시장을 읽으세요.", "读懂市场。", "市場を読む。"],
-  "Memory and GPU rental prices, upcoming earnings dates and AI lab numbers, recorded daily from public sources.": ["메모리·GPU 임대 가격, 다가오는 실적 발표일, AI 연구소 지표를 공개 출처에서 매일 기록합니다.", "内存与 GPU 租赁价格、即将到来的财报日期和 AI 实验室数据，每天从公开来源记录。", "メモリとGPUのレンタル価格、今後の決算発表日、AIラボの数値を公開情報から毎日記録します。"],
   "Loading market data…": ["시장 데이터 불러오는 중…", "正在加载市场数据…", "市場データを読み込み中…"],
   "No market data has been published yet. The nightly collectors fill this view.": ["아직 게시된 시장 데이터가 없습니다. 야간 수집 작업이 이 화면을 채웁니다.", "尚未发布市场数据。每晚的采集任务会填充此视图。", "市場データはまだ公開されていません。夜間の収集処理がこのビューを埋めます。"],
   "Memory prices": ["메모리 가격", "内存价格", "メモリ価格"],
@@ -968,7 +1020,6 @@ export const UI: Record<string, Row> = {
   "Tomorrow": ["내일", "明天", "明日"],
   "in {n} days": ["{n}일 후", "{n} 天后", "{n}日後"],
   "AI labs": ["AI 연구소", "AI 实验室", "AIラボ"],
-  "Revenue run-rates, funding rounds, compute deals and benchmark scores of the AI labs, from public reports.": ["AI 연구소의 연환산 매출, 투자 유치, 컴퓨팅 계약, 벤치마크 점수를 공개 보도에서 모았습니다.", "AI 实验室的年化收入、融资轮次、算力交易和基准测试得分，来自公开报道。", "AIラボの年換算売上高、資金調達、計算資源の契約、ベンチマークスコアを公開報道から集めています。"],
   "Labs": ["연구소", "实验室", "ラボ"],
   "Lab": ["연구소", "实验室", "ラボ"],
   "Revenue as of": ["매출 기준일", "收入截至", "売上高の基準日"],
@@ -980,6 +1031,21 @@ export const UI: Record<string, Row> = {
   "Deal value": ["계약 규모", "交易金额", "契約規模"],
   "Model benchmarks": ["모델 벤치마크", "模型基准测试", "モデルのベンチマーク"],
   "Click a column to sort. ▲ / ▼ shows the direction; the first click puts the best score on top.": ["열을 클릭해 정렬하세요. ▲ / ▼는 방향을 나타내며, 처음 클릭하면 최고 점수가 맨 위에 옵니다.", "点击列标题排序。▲ / ▼ 表示方向；首次点击会把最佳得分排在最上面。", "列をクリックして並べ替えます。▲ / ▼ は方向を示し、最初のクリックで最高スコアが一番上に来ます。"],
+  // Markets sub-tabs (page.tsx tab names + intros, MarketsView.tsx captions)
+  "GPU": ["GPU", "GPU", "GPU"],
+  "AI Labs": ["AI 연구소", "AI 实验室", "AIラボ"],
+  "Track memory prices.": ["메모리 가격을 추적하세요.", "追踪内存价格。", "メモリ価格を追跡する。"],
+  "Follow DRAM, NAND and module spot prices and memory price releases, recorded daily from public sources.": ["공개 출처에서 매일 기록한 DRAM·NAND·모듈 현물 가격과 메모리 가격 발표를 확인하세요.", "查看每天从公开来源记录的 DRAM、NAND 和模组现货价格以及内存价格发布。", "公開情報から毎日記録したDRAM・NAND・モジュールのスポット価格とメモリ価格の発表を追跡します。"],
+  "Price the compute.": ["컴퓨팅 가격을 확인하세요.", "看清算力价格。", "計算資源の価格を知る。"],
+  "Compare GPU rental prices across marketplaces and cloud providers, recorded daily from public sources.": ["공개 출처에서 매일 기록한 마켓플레이스·클라우드 업체별 GPU 임대 가격을 비교하세요.", "对比各交易平台和云服务商的 GPU 租赁价格，每天从公开来源记录。", "公開情報から毎日記録した、マーケットプレイスとクラウド事業者のGPUレンタル価格を比較します。"],
+  "Know who reports next.": ["다음 실적 발표를 확인하세요.", "了解接下来谁发布财报。", "次の決算発表を知る。"],
+  "See upcoming earnings dates and times, with confirmed and estimated dates marked.": ["다가오는 실적 발표 날짜와 시간을 확정일·추정일로 구분해 확인하세요.", "查看即将到来的财报日期和时间，并标明已确认和估计的日期。", "今後の決算発表の日付と時間を、確定日と推定日を区別して確認します。"],
+  "Follow the AI labs.": ["AI 연구소를 따라가 보세요.", "追踪 AI 实验室。", "AIラボを追う。"],
+  "Compare revenue run-rates, funding rounds, and compute deals across the AI labs.": ["AI 연구소별 연환산 매출, 투자 라운드, 컴퓨팅 계약을 비교하세요.", "对比各 AI 实验室的年化收入、融资轮次和算力交易。", "AIラボの年換算売上高、資金調達ラウンド、計算資源の契約を比較します。"],
+  "Compare the models.": ["모델을 비교하세요.", "对比各个模型。", "モデルを比較する。"],
+  "Rank recent AI models by their scores on public benchmarks.": ["최근 AI 모델을 공개 벤치마크 점수로 비교해 순위를 확인하세요.", "按公开基准测试得分为近期 AI 模型排名。", "最近のAIモデルを公開ベンチマークのスコアで順位付けします。"],
+  "Revenue run-rates, funding rounds and compute deals of the AI labs, from public reports.": ["AI 연구소의 연환산 매출, 투자 유치, 컴퓨팅 계약을 공개 보도에서 모았습니다.", "AI 实验室的年化收入、融资轮次和算力交易，来自公开报道。", "AIラボの年換算売上高、資金調達、計算資源の契約を公開報道から集めています。"],
+  "Benchmark scores of recent models from the AI labs.": ["AI 연구소 최근 모델의 벤치마크 점수입니다.", "AI 实验室近期模型的基准测试得分。", "AIラボの最近のモデルのベンチマークスコアです。"],
   "Capex, operating cash flow and free cash flow (SEC filings)": ["설비투자, 영업현금흐름, 잉여현금흐름 (SEC 공시)", "资本开支、经营现金流和自由现金流（SEC 文件）", "設備投資、営業キャッシュフロー、フリーキャッシュフロー（SEC提出書類）"],
   "Last four quarters per company, in US$ billions. Updated {date}.": ["기업별 최근 4개 분기, 단위 10억 달러. {date} 업데이트.", "每家公司最近四个季度，单位：十亿美元。{date} 更新。", "企業ごとの直近4四半期、単位は10億米ドル。{date} 更新。"],
   // @@END

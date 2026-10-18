@@ -12,6 +12,7 @@ import { yahooSymbol } from "@/lib/yahoo";
 import ReportView from "./ReportView";
 import TradingViewChart from "./TradingViewChart";
 import LiveQuote from "./LiveQuote";
+import WeekendPerpPrice from "./WeekendPerpPrice";
 import Fundamentals from "./Fundamentals";
 import { EvidenceButton } from "./Evidence";
 import { ExpandAllContext, SignalBody, SourceBadge, SourceText } from "./SignalText";
@@ -773,6 +774,7 @@ export default function NodePanel({
         ) : node.ticker ? (
           <LiveQuote ticker={node.ticker} exchange={node.exchange} />
         ) : null}
+        {node.ticker && <WeekendPerpPrice id={node.id} ticker={node.ticker} exchange={node.exchange} />}
         {node.ticker && <Fundamentals ticker={node.ticker} exchange={node.exchange} />}
 
         {/* Financial statements and cash flow per fiscal quarter / year + estimates, with the next earnings

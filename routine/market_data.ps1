@@ -11,12 +11,15 @@ used the same day. Then these steps, in this order, each one time-boxed:
                                     (writes market/selftest_result.json)                                  10 min
     b) market/run_all.py            every market-data collector, one line each in market/run_log.jsonl    45 min
     c) utils/transcript_quality.py  writes graph/transcript_quality.json for the enrich session            10 min
+    c2) media_pull.py --days 2      news-outlet interviews in which a named company executive speaks, saved
+                                    in transcripts/media for the enrich session (enrich skill section 11,
+                                    docs/media_interviews.md); starts only when at most 75 min have passed  20 min
     d) market/health.py             reads market/run_log.jsonl and the selftest result, sends the phone
                                     alert (a collector failed 2 nights in a row, or the tests failed)      5 min
     e) publish                      routine/nightly.ps1 -PublishOnly -MarketOnly: the market-data files only
                                     (branch, PR, merge into main), when the checkout is on main, no
                                     "nightly enrich*" session is working and the collectors added market
-                                    history rows                                                          15 min
+                                    history rows (c2's state goes along; its transcripts are gitignored)  15 min
 A step whose script does not exist yet is skipped and logged. One line per event goes to
 .claude/market_data_task.log (gitignored); each step's full output goes to .claude/<step>.log and .claude/<step>.err.log.
 
@@ -24,10 +27,12 @@ nightly.ps1 at 23:00 then skips its own market-data steps when market/run_log.js
 every collector, and runs them itself only when this task did not run today (fallback). The two scripts never
 collect at the same time: both take the same lock (a named Windows mutex) around their market-data steps, and the
 one that comes second waits. This script waits at most 30 minutes for the lock: if nightly.ps1 holds it that long,
-nightly.ps1 is collecting today's data itself, so b), c) and e) are skipped. a) and d) run either way, so the tests
-and the phone-alert check never depend on the lock. Pulling and publishing also take nightly.ps1's git lock, so they
-never overlap a switch, pull or publish of nightly.ps1. Worst case, all steps together:
-2 + 10 + 30 + 45 + 10 + 5 + 15 = 117 min, inside the task's 2-hour limit.
+nightly.ps1 is collecting today's data itself, so b), c), c2) and e) are skipped. a) and d) run either way, so the
+tests and the phone-alert check never depend on the lock. Pulling and publishing also take nightly.ps1's git lock, so
+they never overlap a switch, pull or publish of nightly.ps1. Worst case, all steps together:
+2 + 10 + 30 + 45 + 10 + 5 + 15 = 117 min, inside the task's 2-hour limit. c2) starts only when at most 75 minutes
+have passed since the start, so with it the run still ends by 75 + 20 + 5 + 15 = 115 min; a day it is skipped is
+caught up by the next run (--days 2 looks back two days). nightly.ps1's fallback does not run c2).
 
 Test it in another checkout (a git worktree), without publishing and without a phone alert:
     powershell -NoProfile -ExecutionPolicy Bypass -File routine\market_data.ps1 -RepoRoot C:\Users\calif\Desktop\earnings-ai-market -NoPublish -NoAlert
@@ -74,7 +79,10 @@ function Invoke-DataStep($step, [string[]]$arguments, [int]$minutes, [string]$pr
     }
     $null = $p.Handle                                            # keeps ExitCode readable after the process ends
     if (-not $p.WaitForExit($minutes * 60 * 1000)) {
-        try { $p.Kill() } catch { }
+        # Stop the whole process tree: media_pull.py runs yt-dlp, which runs node; Kill() would stop python.exe only
+        # and leave those running. taskkill /T ends the children too; Kill() stays as the fallback.
+        & taskkill.exe /T /F /PID $p.Id 2>&1 | Out-Null
+        if (-not $p.HasExited) { try { $p.Kill() } catch { } }
         Write-Log ("{0} TIMED OUT after {1} min and was stopped (steps that finished are kept)" -f $step, $minutes)
         return
     }
@@ -154,6 +162,16 @@ if (-not $haveLock) {
     # b) - c)
     Invoke-PythonStep "market_data" "market/run_all.py" 45
     Invoke-PythonStep "transcript_quality" "utils/transcript_quality.py" 10
+    # c2) News interviews (user, 2026-10-17; enrich skill section 11): media_pull.py saves the transcripts of allowlisted
+    #     news outlets' interviews in which a named company executive speaks. It starts only when at most 75 minutes
+    #     have passed, so its 20 minutes plus d) and e) still end inside the task's 2-hour limit (see the header).
+    #     Skipped like every step when its script does not exist (Invoke-PythonStep checks that).
+    $elapsed = ((Get-Date) - $scriptStart).TotalMinutes
+    if ($elapsed -le 75) {
+        Invoke-PythonStep "media_pull" "media_pull.py" 20 @("--days", "2")
+    } else {
+        Write-Log ("media_pull skipped: {0} min have passed, its 20 min would not fit in the 2-hour task limit (the next run's --days 2 catches up)" -f [math]::Round($elapsed))
+    }
 }
 
 # d) The phone-alert check runs even when the lock was busy (health.py pushes each alert at most once a day).
@@ -171,6 +189,8 @@ if ($haveLock) {
     } elseif ($branch -ne "main") {
         Write-Log ("publish skipped: the checkout is on {0}, not main" -f $branch)
     } else {
+        # media/ (the puller's state and roster) alone does not start a publish: it goes along with the next one. The
+        # interview transcripts themselves are gitignored (never published, see .gitignore).
         $changed = @(git status --porcelain -- market/history market/ai_lab_deals.json)
         if ($changed.Count -eq 0) {
             Write-Log "publish skipped: the collectors added no market history rows"

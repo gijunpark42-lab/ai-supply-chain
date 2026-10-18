@@ -18,6 +18,9 @@ counterparty is named, English only — any Korean/Chinese/Japanese character fa
     one entry per slot per patch, and no second entry with the same slot and the same date on the company
   * ONE FACT, ONE NODE: the same (label, signal) must not be written to two players
   * the same (quarter, signal) / (source, signal) is not already in the chain
+  * NEWS INTERVIEWS (transcripts/media/, enrich skill section 11): no slot at all, and (verify_graph.check_entry)
+    the quoted words must be verbatim in the cited [mm:ss] paragraph of the transcript body, with every figure
+    number inside the quote
 
     python -X utf8 utils/check_patch.py patches/nvidia_q3_2027.json [more patches ...]
 
@@ -115,6 +118,8 @@ def source_kind(label, doc_path):
         return "call / conference / periodic report"                   # the hand-saved statutory reports: statutory statements
     if doc_path and "_prelim_" in doc_path:
         return "DART preliminary results"
+    if vg.is_media_source(label, doc_path):          # "[Company] CNBC interview (MM-DD-YYYY)", transcripts/media/
+        return "news interview"                      # enrich skill section 11: a TV remark never fills a slot
     return "call / conference / periodic report"
 
 
@@ -130,6 +135,7 @@ ALLOWED_SLOTS = {
     "regulatory filing": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},  # a utility IRP / load report (utility_filings.py)
     "DART preliminary results": {"revenue_growth"},
     "monthly revenue": set(),                        # Taiwan monthly revenue (mops.py): no slot, like the IR-release monthly entries (user, 2026-10-01)
+    "news interview": set(),                         # media_pull.py (enrich skill sections 4 and 11): never a slot
     "call / conference / periodic report": SLOTS,
 }
 
@@ -243,7 +249,7 @@ def verify(where, label, fields, counterparty=None):
     verdict, issues, detail = vg.check_entry(label, docs, fields, counterparty)
     level = {"fail": "FAIL", "warn": "WARN"}.get(verdict)
     if level:
-        extra = {k: v for k, v in detail.items() if k.startswith("numbers_") or k == "counterparty"}
+        extra = {k: v for k, v in detail.items() if k.startswith("numbers_") or k in ("counterparty", "media_quote")}
         say(level, f"{where}: verify {verdict} {issues} {extra}")
 
 

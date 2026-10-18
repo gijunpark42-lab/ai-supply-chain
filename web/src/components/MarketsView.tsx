@@ -1,19 +1,23 @@
 "use client";
 
-// MarketsView — the market-level "Markets" tab (2026-10-17).
+// MarketsView — the market-level "Markets" tab group (2026-10-17).
 //
-// Four sections, each drawn from one daily file the nightly collectors write
-// (market/*.py → graph/*.json → /data/*.json). No model tokens are involved and
-// none of this is a "signal": it never touches quarterly_data or the chains.
-//   1) Memory prices      /data/memory_prices.json
-//   2) GPU rental prices  /data/gpu_prices.json
-//   3) Earnings calendar  /data/hyperscaler_cash.json → "calendar"
-//   4) AI labs            /data/ai_labs.json
-// Any file may be missing (collector not run yet, source down): that section
-// then renders nothing. Every row links back to its source.
+// Six sections, each shown on its own sub-tab (page.tsx picks one with the
+// `section` prop). The first five are drawn from one daily file the nightly
+// collectors write (market/*.py → graph/*.json → /data/*.json). No model tokens
+// are involved and none of this is a "signal": it never touches quarterly_data or the chains.
+//   memory    Memory prices      /data/memory_prices.json
+//   gpu       GPU rental prices  /data/gpu_prices.json
+//   earnings  Earnings calendar  /data/hyperscaler_cash.json → "calendar"
+//   labs      AI labs            /data/ai_labs.json → labs (revenue, funding, deals)
+//   models    Model benchmarks   /data/ai_labs.json → models
+//   weekend   Weekend perps      live: /api/hl + /api/quotes (WeekendPerps.tsx, no daily file)
+// Any file may be missing (collector not run yet, source down): that sub-tab
+// then shows a one-line "no data yet" note. Every row links back to its source.
 
 import { useEffect, useMemo, useState } from "react";
 import type { Resolver } from "@/lib/company";
+import type { GraphNode } from "@/lib/types";
 import {
   loadMarketJson,
   type AiLab,
@@ -31,6 +35,7 @@ import { fmtDay, isRunRate } from "@/lib/companyFeeds";
 import CompanyLink from "./CompanyLink";
 import CellText from "./CellText";
 import SeriesChart, { MAX_LINES, fmtValue, type ChartLine } from "./SeriesChart";
+import WeekendPerps from "./WeekendPerps";
 import "./Tables.css";
 import "./Markets.css";
 
@@ -137,10 +142,14 @@ function upcomingDates(cash: HyperscalerCash | null, today: string): EarningsDat
 // A lab's display / lookup name: its graph node when it is on the map.
 const labName = (l: AiLab) => l.node_id || l.id;
 const labHasData = (l: AiLab) => (l.revenue || []).length + (l.funding || []).length + (l.deals || []).length > 0;
-const hasLabs = (f: AiLabsFile | null): f is AiLabsFile =>
-  !!f && ((f.labs || []).some(labHasData) || (f.models || []).length > 0);
+// ai_labs.json feeds two sub-tabs: the labs (revenue, funding, deals) and the model benchmarks.
+const hasLabs = (f: AiLabsFile | null): f is AiLabsFile => !!f && (f.labs || []).some(labHasData);
+const hasModels = (f: AiLabsFile | null): f is AiLabsFile => !!f && (f.models || []).length > 0;
 
 // ── The tab ─────────────────────────────────────────────────────────────────
+
+/** Which section a Markets sub-tab shows (page.tsx maps each sub-tab to one). */
+export type MarketSection = "memory" | "gpu" | "earnings" | "labs" | "models" | "weekend";
 
 interface Files {
   memory: SeriesFile | null;
@@ -149,7 +158,20 @@ interface Files {
   labs: AiLabsFile | null;
 }
 
-export default function MarketsView({ resolve, onOpen }: { resolve: Resolver; onOpen: (id: string) => void }) {
+// page.tsx keeps this component mounted while the user moves between the Markets
+// sub-tabs (only `section` changes), so the four files load once and switching
+// sub-tabs redraws at once. loadMarketJson caches each request for the page load too.
+export default function MarketsView({
+  section,
+  nodes,
+  resolve,
+  onOpen,
+}: {
+  section: MarketSection;
+  nodes: GraphNode[]; // the graph's companies (the Weekend table looks up their perps)
+  resolve: Resolver;
+  onOpen: (id: string) => void;
+}) {
   const { t } = useLang();
   const [files, setFiles] = useState<Files | null>(null);
 
@@ -168,24 +190,31 @@ export default function MarketsView({ resolve, onOpen }: { resolve: Resolver; on
     };
   }, []);
 
+  // The Weekend table reads live prices, not the daily files, so it never waits for them.
+  // It is only mounted while its sub-tab is open, so its 60 s polling stops when you leave.
+  if (section === "weekend")
+    return (
+      <div className="mk">
+        <WeekendPerps nodes={nodes} resolve={resolve} onOpen={onOpen} />
+      </div>
+    );
+
   if (!files) return <div className="spinner">{t("Loading market data…")}</div>;
 
+  // The chosen section, or null when its file has nothing to show yet.
   const today = localToday();
   const upcoming = upcomingDates(files.cash, today);
-  const any = hasSeries(files.memory) || hasSeries(files.gpu) || upcoming.length > 0 || hasLabs(files.labs);
-  if (!any)
+  let body: React.ReactNode = null;
+  if (section === "memory" && hasSeries(files.memory)) body = <SeriesSection file={files.memory} heading="Memory prices" />;
+  if (section === "gpu" && hasSeries(files.gpu)) body = <SeriesSection file={files.gpu} heading="GPU rental prices" />;
+  if (section === "earnings" && upcoming.length > 0)
+    body = <EarningsCalendar rows={upcoming} today={today} updated={files.cash?.updated} resolve={resolve} onOpen={onOpen} />;
+  if (section === "labs" && hasLabs(files.labs)) body = <AiLabsSection file={files.labs} resolve={resolve} onOpen={onOpen} />;
+  if (section === "models" && hasModels(files.labs)) body = <AiModelsSection file={files.labs} resolve={resolve} onOpen={onOpen} />;
+  if (!body)
     return <p className="caption">{t("No market data has been published yet. The nightly collectors fill this view.")}</p>;
 
-  return (
-    <div className="mk">
-      {hasSeries(files.memory) && <SeriesSection file={files.memory} heading="Memory prices" />}
-      {hasSeries(files.gpu) && <SeriesSection file={files.gpu} heading="GPU rental prices" />}
-      {upcoming.length > 0 && (
-        <EarningsCalendar rows={upcoming} today={today} updated={files.cash?.updated} resolve={resolve} onOpen={onOpen} />
-      )}
-      {hasLabs(files.labs) && <AiLabsSection file={files.labs} resolve={resolve} onOpen={onOpen} />}
-    </div>
-  );
+  return <div className="mk">{body}</div>;
 }
 
 // ── 1) + 2) Price series ────────────────────────────────────────────────────
@@ -471,12 +500,8 @@ function EarningsCalendar({
 
 // ── 4) AI labs ──────────────────────────────────────────────────────────────
 
-// The model table sorts by a fixed column or by one benchmark ("b:<id>").
-type ModelSort = "model" | "lab" | "release_date" | `b:${string}`;
-
 function AiLabsSection({ file, resolve, onOpen }: { file: AiLabsFile; resolve: Resolver; onOpen: (id: string) => void }) {
   const { t } = useLang();
-  const benchmarks = file.benchmarks || [];
 
   // Labs table: latest annualized revenue + last funding round, biggest first.
   const labRows = useMemo(() => {
@@ -500,58 +525,11 @@ function AiLabsSection({ file, resolve, onOpen }: { file: AiLabsFile; resolve: R
     return all.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
   }, [file]);
 
-  // Model table sort: best score first on the first benchmark by default.
-  const firstBench = benchmarks[0];
-  const [sortKey, setSortKey] = useState<ModelSort>(firstBench ? `b:${firstBench.id}` : "release_date");
-  const [sortDir, setSortDir] = useState<SortDir>(firstBench && !firstBench.higher_is_better ? 1 : -1);
-  const defaultDir = (key: ModelSort): SortDir => {
-    if (key === "release_date") return -1; // newest first
-    if (key.startsWith("b:")) return benchmarks.find((b) => `b:${b.id}` === key)?.higher_is_better === false ? 1 : -1;
-    return 1; // names A→Z
-  };
-  const onSort = (key: ModelSort) => {
-    if (key === sortKey) setSortDir((d) => (d === 1 ? -1 : 1));
-    else {
-      setSortKey(key);
-      setSortDir(defaultDir(key));
-    }
-  };
-  const models = useMemo(() => {
-    const get = (m: ModelScores): CellValue =>
-      sortKey.startsWith("b:") ? m.scores?.[sortKey.slice(2)] ?? null : (m[sortKey as "model" | "lab" | "release_date"] ?? null);
-    return sortRows(file.models || [], get, sortDir);
-  }, [file, sortKey, sortDir]);
-
-  // A sortable header cell (same pattern as the Screener). A plain function,
-  // not a component, so React keeps the same <th> (and its keyboard focus)
-  // when a click re-sorts the table.
-  const sortTh = (k: ModelSort, label: string, title?: string) => (
-    <th
-      key={k}
-      className={"tb-sortable" + (sortKey === k ? " active" : "")}
-      aria-sort={sortKey === k ? (sortDir === 1 ? "ascending" : "descending") : "none"}
-      tabIndex={0}
-      title={title || t("Sort by {col}", { col: label })}
-      onClick={() => onSort(k)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onSort(k);
-        }
-      }}
-    >
-      <span className="th-label">{label}</span>
-      <span className="sort-arrow" aria-hidden="true">
-        {sortKey === k ? (sortDir === 1 ? "▲" : "▼") : "↕"}
-      </span>
-    </th>
-  );
-
   return (
     <section className="mk-section">
       <h3>{t("AI labs")}</h3>
       <p className="caption">
-        {t("Revenue run-rates, funding rounds, compute deals and benchmark scores of the AI labs, from public reports.")}{" "}
+        {t("Revenue run-rates, funding rounds and compute deals of the AI labs, from public reports.")}{" "}
         {t("Updated {date}.", { date: file.updated })}
       </p>
 
@@ -643,44 +621,108 @@ function AiLabsSection({ file, resolve, onOpen }: { file: AiLabsFile; resolve: R
         </>
       )}
 
-      {models.length > 0 && (
-        <>
-          <div className="mk-sub-title">{t("Model benchmarks")}</div>
-          <p className="caption">{t("Click a column to sort. ▲ / ▼ shows the direction; the first click puts the best score on top.")}</p>
-          <div className="tbl-wrap mk-tbl">
-            <table className="data mk-table mk-bench">
-              <thead>
-                <tr>
-                  {sortTh("model", t("Model"))}
-                  {sortTh("lab", t("Lab"))}
-                  {sortTh("release_date", t("Released"))}
-                  {benchmarks.map((b) =>
-                    sortTh(`b:${b.id}`, b.label, `${b.label}: ${b.higher_is_better ? t("higher is better") : t("lower is better")}`)
-                  )}
-                  <th className="tb-static">{t("Source")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {models.map((m, i) => (
-                  <tr key={`${m.lab}-${m.model}-${i}`}>
-                    <td className="co">{m.model}</td>
-                    <td>
-                      <CompanyLink text={m.lab} resolve={resolve} onOpen={onOpen} />
-                    </td>
-                    <td className="mk-num"><Day iso={m.release_date} /></td>
-                    {benchmarks.map((b) => (
-                      <td key={b.id} className={"mk-num" + (sortKey === `b:${b.id}` ? " mk-sorted" : "")}>
-                        {fmtScore(m.scores?.[b.id])}
-                      </td>
-                    ))}
-                    <td><SrcLink name={m.source} url={m.url} /></td>
-                  </tr>
+      {/* The revenue and funding rows come from Epoch AI's data set, so its credit line shows here too. */}
+      {file.attribution && <p className="caption mk-attribution">{file.attribution}</p>}
+    </section>
+  );
+}
+
+// ── 5) Model benchmarks ─────────────────────────────────────────────────────
+
+// The model table sorts by a fixed column or by one benchmark ("b:<id>").
+type ModelSort = "model" | "lab" | "release_date" | `b:${string}`;
+
+function AiModelsSection({ file, resolve, onOpen }: { file: AiLabsFile; resolve: Resolver; onOpen: (id: string) => void }) {
+  const { t } = useLang();
+  const benchmarks = file.benchmarks || [];
+
+  // Model table sort: best score first on the first benchmark by default.
+  const firstBench = benchmarks[0];
+  const [sortKey, setSortKey] = useState<ModelSort>(firstBench ? `b:${firstBench.id}` : "release_date");
+  const [sortDir, setSortDir] = useState<SortDir>(firstBench && !firstBench.higher_is_better ? 1 : -1);
+  const defaultDir = (key: ModelSort): SortDir => {
+    if (key === "release_date") return -1; // newest first
+    if (key.startsWith("b:")) return benchmarks.find((b) => `b:${b.id}` === key)?.higher_is_better === false ? 1 : -1;
+    return 1; // names A→Z
+  };
+  const onSort = (key: ModelSort) => {
+    if (key === sortKey) setSortDir((d) => (d === 1 ? -1 : 1));
+    else {
+      setSortKey(key);
+      setSortDir(defaultDir(key));
+    }
+  };
+  const models = useMemo(() => {
+    const get = (m: ModelScores): CellValue =>
+      sortKey.startsWith("b:") ? m.scores?.[sortKey.slice(2)] ?? null : (m[sortKey as "model" | "lab" | "release_date"] ?? null);
+    return sortRows(file.models || [], get, sortDir);
+  }, [file, sortKey, sortDir]);
+
+  // A sortable header cell (same pattern as the Screener). A plain function,
+  // not a component, so React keeps the same <th> (and its keyboard focus)
+  // when a click re-sorts the table.
+  const sortTh = (k: ModelSort, label: string, title?: string) => (
+    <th
+      key={k}
+      className={"tb-sortable" + (sortKey === k ? " active" : "")}
+      aria-sort={sortKey === k ? (sortDir === 1 ? "ascending" : "descending") : "none"}
+      tabIndex={0}
+      title={title || t("Sort by {col}", { col: label })}
+      onClick={() => onSort(k)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSort(k);
+        }
+      }}
+    >
+      <span className="th-label">{label}</span>
+      <span className="sort-arrow" aria-hidden="true">
+        {sortKey === k ? (sortDir === 1 ? "▲" : "▼") : "↕"}
+      </span>
+    </th>
+  );
+
+  return (
+    <section className="mk-section">
+      <h3>{t("Model benchmarks")}</h3>
+      <p className="caption">
+        {t("Benchmark scores of recent models from the AI labs.")}{" "}
+        {t("Updated {date}.", { date: file.updated })}
+      </p>
+      <p className="caption">{t("Click a column to sort. ▲ / ▼ shows the direction; the first click puts the best score on top.")}</p>
+      <div className="tbl-wrap mk-tbl">
+        <table className="data mk-table mk-bench">
+          <thead>
+            <tr>
+              {sortTh("model", t("Model"))}
+              {sortTh("lab", t("Lab"))}
+              {sortTh("release_date", t("Released"))}
+              {benchmarks.map((b) =>
+                sortTh(`b:${b.id}`, b.label, `${b.label}: ${b.higher_is_better ? t("higher is better") : t("lower is better")}`)
+              )}
+              <th className="tb-static">{t("Source")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {models.map((m, i) => (
+              <tr key={`${m.lab}-${m.model}-${i}`}>
+                <td className="co">{m.model}</td>
+                <td>
+                  <CompanyLink text={m.lab} resolve={resolve} onOpen={onOpen} />
+                </td>
+                <td className="mk-num"><Day iso={m.release_date} /></td>
+                {benchmarks.map((b) => (
+                  <td key={b.id} className={"mk-num" + (sortKey === `b:${b.id}` ? " mk-sorted" : "")}>
+                    {fmtScore(m.scores?.[b.id])}
+                  </td>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        </>
-      )}
+                <td><SrcLink name={m.source} url={m.url} /></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {file.attribution && <p className="caption mk-attribution">{file.attribution}</p>}
     </section>

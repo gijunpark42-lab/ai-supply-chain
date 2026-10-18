@@ -1,0 +1,54 @@
+/* WeekendPerpPrice.css — the 24/7 Hyperliquid perp chip under the price chart
+   (weekends / exchange holidays only). Everything is prefixed `.wpp-` so it
+   cannot collide with globals.css or another component's stylesheet.
+   The dashed amber border marks it as "not the official price". */
+.wpp {
+  margin: 0.1rem 0 0.7rem;
+  padding: 7px 10px 6px;
+  border: 1px dashed rgba(210, 153, 34, 0.55);
+  border-radius: 10px;
+  background: var(--ap-surface2);
+  font-size: 0.8rem;
+}
+.wpp-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+}
+.wpp-tag {
+  color: #d29922;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.wpp-px {
+  color: var(--ap-text);
+  font-size: 0.98rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.wpp-local {
+  color: var(--ap-muted);
+  font-variant-numeric: tabular-nums;
+}
+.wpp-chg {
+  font-weight: 600;
+}
+.wpp-chg.up {
+  color: #3fb950;
+}
+.wpp-chg.down {
+  color: #f85149;
+}
+.wpp-vol {
+  margin-left: auto;
+  color: var(--ap-muted);
+  font-size: 0.72rem;
+}
+.wpp-cap {
+  margin-top: 3px;
+  color: var(--ap-muted);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
