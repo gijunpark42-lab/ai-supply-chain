@@ -1,7 +1,7 @@
 "use client";
 
 // FeedParts.tsx — small pieces shared by the company panel's market-data sections
-// (FinancingSection, InsiderTrades, CashFlowSection, LabMetricsSection; 2026-10-17).
+// (FinancingSection, InsiderTrades, LabMetricsSection, FinancialsSection; 2026-10-17).
 //
 // ShowAllToggle / LIST_PREVIEW repeat the ones inside NodePanel.tsx (same classes,
 // same strings) so these sections can live in their own files without importing

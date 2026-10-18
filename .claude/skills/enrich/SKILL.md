@@ -11,8 +11,8 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 ## 0. Start and finish every run with the status board
 
 1. **Before anything, read `ENRICH_STATUS.md`** (repo root). It lists, per market, what is fetched and waiting,
-   which companies are overdue for a call or were never enriched, where no source exists, and the ordered
-   **Run next** list. If its "Generated" time is older than ~12 hours, or another session may have run since,
+   which companies are overdue for a call or were never enriched, where no source exists, and the ordered **Run next**
+   list. Also run `python -X utf8 media_status.py` (seconds): it lists the news-interview transcripts not yet read (§11). If its "Generated" time is older than ~12 hours, or another session may have run since,
    refresh it first: `python -X utf8 enrich_status.py` (seconds, no model tokens). Do not re-scan pipelines,
    queues or the graph to find out what is done — the board already did.
 2. **At the end**, `python graph_build.py --sync` rebuilds the board. If the run applied nothing (empty queues),
@@ -116,7 +116,8 @@ Hanyang Eng — never a node and never a `relations/` counterparty; their facili
    (the company's own channel or IR site: results interview, investor day, webcast): `yt-dlp --js-runtimes node "<URL>"
    --skip-download --write-auto-subs --sub-langs "en.*" --sub-format vtt`, saved in `transcripts/non_transcript_sources/` with a
    NOT-a-transcript NOTE "(YouTube auto-captions, may mishear)"; a number enters only if the company's release or filing
-   states it too. Never third-party channels' videos. **Exa search is fintweet-only and never used here** (user, 2026-10-14).
+   states it too. Never third-party channels' videos, except the news-outlet interviews of §11 (a named executive
+   speaking on camera, saved by `media_pull.py`). **Exa search is fintweet-only and never used here** (user, 2026-10-14).
 3. **IR press releases: only the important ones** — a named supply / customer agreement or design win, capacity /
    capex / production facts, company guidance or targets, a product launch or availability with specs and dates,
    the operating facts of an acquisition (never its price), a fab / facility start; for pharma / biotech / diagnostics nodes every clinical or regulatory fact that matters to the stock — trial authorisations, first patient dosed, interim / topline results and their numbers, designations (Fast Track, Breakthrough, priority review), filings and decision dates, approvals, the company's own validation-study results (user, 2026-10-06: "임상승인처럼 그 주식에 중요한것들은 당연히 넣어야함"; replaces the 2026-09-27 approvals-only rule). Facts from segments outside the node's chain ARE captured when material to the company (user, 2026-10-06: enrich covers the WHOLE company; replaces the 2026-09-27 out-of-chain-segment rule). **No AI-relevance check at all since 2026-10-12** (user: "관련있으면 추가시켜 ai뿐만아니라 … 목표가 공급망기반 블룸버그같은거임" — the goal is a supply-chain-based Bloomberg-style terminal): a real supply / customer relationship or material company fact is never held, rejected or deleted for being non-AI or outside the node's chain; the source rules, the analyst / financing exclusions and the JOB 3 rejection list still apply. Anything else yields no entry:
@@ -273,6 +274,7 @@ which slot:
 | Japan TDnet filing (`tdnet.py`) | same as a company IR press release (row below), never `revenue_growth`; a results-meeting Q&A record (`_qa` file) = the call / conference row |
 | Utility regulatory filing (IRP, large-load report or tariff; `utility_filings.py`) | same as a company IR press release (the row below): the company's load / capacity plan → `guidance`, contracted large load → `backlog_or_b2b`; never `revenue_growth` |
 | Company IR press release | `guidance` (company guidance / targets), `next_catalyst` (a new product launch, availability, production or shipment start with a date), `backlog_or_b2b` (a named order, contract or design win), `supply_status` (capacity, utilisation, sold-out) — only what the release itself states; never `revenue_growth`; a demo never fills a slot |
+| News interview (`transcripts/media/`, `media_pull.py`, §11) | none — a remark on TV never replaces the call / filing entry the screener shows |
 
 Never give a company a second entry with the same slot and the same date (the screener cannot choose), and leave
 the key out when an entry fills no slot (never `"slot": null`). `utils/check_patch.py` enforces all of this.
@@ -299,6 +301,7 @@ the key out when an entry fills no slot (never `"slot": null`). `utils/check_pat
 | Japan TDnet timely disclosure (`tdnet.py`) | `[Company] TDnet: [short English title, ≤ 60 chars] (MM-DD-YYYY)` for an English version; `[Company] TDnet: release <doc id> (MM-DD-YYYY)` for a Japanese-only filing; dated the disclosure day | `Taiyo Yuden TDnet: Conclusion of a Memorandum of Understanding Regarding (09-29-2026)` |
 | Japan annual securities report / semi-annual report from EDINET (`edinet.py`) | `[Company] annual securities report: FY[YYYY] (MM-DD-YYYY)` / `[Company] semi-annual report: H1 FY[YYYY] (MM-DD-YYYY)`; an amended one adds `amended ` before the type; FY = the year the fiscal year ENDS in (a March year Apr 2025 – Mar 2026 = FY2026, as for the calls); dated the filing day | `SUMCO semi-annual report: H1 FY2026 (08-07-2026)` (December year); a March-year company's report filed in late June 2026 = `… annual securities report: FY2026 (06-dd-2026)` |
 | US utility regulatory filing (`utility_filings.py`) | `[Company] regulatory filing: [document short title] (MM-DD-YYYY)`, dated the filing; [Company] = the graph node (the parent of the filing subsidiary) | `Southern Company regulatory filing: Georgia Power Large Load Economic Development Report Q2 2026 (08-17-2026)` |
+| News interview of a company executive (`media_pull.py`, `transcripts/media/`, §11) | `[Company] [Outlet] interview (MM-DD-YYYY)`, dated the day the video was published; [Company] = the graph node the speaking executive works for; [Outlet] = `CNBC`, `CNBC International`, `Bloomberg`, `Yahoo Finance` or `Fox Business`; a second video of the same company, outlet and day adds its YouTube video id before the date | `NVIDIA CNBC interview (10-16-2026)`, `Micron Bloomberg interview <video id> (10-16-2026)` |
 | Other company document (deck, investor-day material) | `[Company] [document type]: [title] (MM-DD-YYYY)` | — |
 | Third-party note | legacy only — no new ones (articles are pointers, §2) | `Goldman Sachs optical note (04-17-2026)` |
 
@@ -352,14 +355,16 @@ logic depend on it); tools that must tell them apart use the source file's folde
 3. **Independent Opus check, without being asked:** append the applied labels to repo-root `verify_queue.json`;
    at 5+ pending (or at the end of a multi-job session) spawn an `enricher` verifier over them (batch labels of
    the same chain / company group). It re-reads every source and checks accuracy AND §2 (no analyst content, no
-   financing terms, important releases only, attribution and hedges kept, English only); it corrects or deletes
+   financing terms, important releases only, attribution and hedges kept, English only) and, for a news interview
+   (§11), that **the quoted words are the `# SPEAKER`'s at that timestamp — not the anchor's, a reporter's, another
+   guest's or the title's** (re-read the lines around the `[mm:ss]`); it corrects or deletes
    entries (corrections go through a patch in `patches/corrections/`), lists facts it believes were missed in its
    report (the coordinator decides; it does not add them), and the verified rows move to `verified`.
 4. **Parallel by default (user, 2026-09-26): up to 20 `enricher` agents at once** (`subagent_type: "enricher"`,
    pinned Opus, effort high), fewer when the work is small (about one agent per 2–5 sources; one source = one
    agent). Splitting never costs accuracy because: all of one company's sources go to the same agent (the depth
    rule stays consistent); each agent writes only its own patch files — never chains/, `company_metadata.json`,
-   queues, `verify_queue.json` or `enrich_marks.json`; the coordinator alone runs `utils/check_patch.py` over every
+   queues, `verify_queue.json`, `enrich_marks.json` or `media/enriched.jsonl`; the coordinator alone runs `utils/check_patch.py` over every
    patch, sends new-node proposals to a separate verifier, dedupes proposals two agents made for the same company,
    applies once, closes the queues and records marks. Verifiers run in parallel too (~5 labels each, grouped by
    chain / company). Collection and the number / locator / collision checks are scripts, not models.
@@ -411,6 +416,54 @@ c. **Financing the scripts miss.** Credit-rating actions and financing events (o
    "amount_usd", "detail", "form", "market", "source", "url"}`. ADD-only, English, every row with its source URL.
    This file is the only place financing goes (§2 keeps it out of the map). Then rebuild the web file with
    `python -X utf8 market/run_all.py --only financing` (no network) before `graph_build.py --sync`.
+
+## 11. News interviews (`transcripts/media/`, user 2026-10-17)
+
+User: "찌라시면 시그널이면 안 돼. 무조건 뉴스여야 함. 회사 관계자가 직접 얘기한 거여야 해" — a rumor is never a signal; only
+news, and only what a company official said directly. `media_pull.py` (daily in `routine/market_data.ps1`; details in
+`docs/media_interviews.md`) saves the transcripts of interviews on the allowlisted news channels (`media/channels.json`:
+CNBC, CNBC International, Bloomberg, Yahoo Finance, Fox Business) in which an executive on the company's roster
+(`media/executives.json`) is named and speaks on camera: `transcripts/media/<node-slug>_<YYYY-MM-DD>_<video id>.txt`,
+headers `# source label`, `# SOURCE` (the video URL), `# SPEAKER`, `# TRANSCRIPT`, then `[mm:ss]` timestamps.
+**Who reads them:** `python -X utf8 media_status.py` lists the files whose label is not yet in `media/enriched.jsonl`
+(a separate script, so `enrich_status.py` stays untouched). The **coordinator** of the run gives each one to the agent that handles
+that company's sources (all of one company's sources go to one agent, §7.4) and, when the file is done, appends
+its line to `media/enriched.jsonl`: `{"label", "date" (the run day), "entries" (how many were added), "why" (when
+none)}` (ADD-only). Enrich agents never write that file, and `media_pull.py` never does either. Two parallel market
+runs (`enrich us` and `enrich korea`) take only the files of their own market's companies.
+
+a. **Only the named executive's own first-person words about their own company** — the person in the `# SPEAKER`
+   header saying "we / our / I" about that company: facts, guidance and targets, attributed management views (the §2
+   bar, nothing lower). A restatement of what the latest call or filing already states yields no entry (§6). JOB 1 on
+   the speaker's node, JOB 2 only on an existing edge; never a new node or edge (JOB 3 / JOB 4 need a company
+   document): a counterparty named only on TV goes on the speaker's node with `counterparty` keys.
+b. **Never:** what the anchor, reporter, host, analyst, strategist or another guest says (analysts such as Dan Ives
+   are out of this pipeline entirely); a number from the anchor's question, even when the executive agrees with it;
+   the video title or description (the outlet's words); anything second-hand or rumoured ("reportedly", "sources
+   say", "we've heard", "people familiar with") — also when the executive repeats it.
+c. **Speaker unclear → skip.** Captions name no speakers (broadcast captions mark a new speaker with `>>`, Fox with
+   an upper-case tag such as `LIZ:`; the file starts a new `[mm:ss]` line at both, but a turn without either marker
+   runs on in the same line): use a line only when the lines around it show that the executive is the one
+   speaking at that timestamp (answering the question just asked, in the first person).
+d. **Verbatim, with the timestamp and the video URL.** `quarter` = the file's `# source label` (§5). Signal:
+   `<job title> <name> on <outlet> [mm:ss] <caption mark>: '<verbatim words, one or two sentences>' (video: <the
+   # SOURCE URL>)`, hedges kept; `figure` = the number as said (see e.), else 'no specific figure'; no screener slot
+   (§4). `utils/check_patch.py` (and `verify_graph.py` after the apply) fails an entry whose quoted words are not
+   word for word in the cited `[mm:ss]` paragraph of the transcript body (a quote may run on into the next one),
+   or whose figure has a number that is not inside the quote.
+e. **No caption kind is checked text, so every quote is treated as machine output.** `youtube manual captions` is
+   the track the outlet uploaded: live broadcast captioning or a machine track, which mishears too (the CoreWeave
+   file has "IN VIDEO SILICON ADVANTAGE" and "SIX AND 48 MILLION"; the NVIDIA file "reducing by 3040 times per
+   year"). `youtube auto-captions` and `faster-whisper (machine)` are machine transcripts. For all three: nobody can
+   re-listen, so use only a quote whose wording is unambiguous — skip a garbled phrase or a sentence that needs a
+   guessed word — and write the mark right after the timestamp: "(broadcast captions)" for `youtube manual
+   captions`, "(auto-captions)" for `youtube auto-captions`, "(machine transcript)" for `faster-whisper (machine)`.
+   **A number** (in the quote or in `figure`) counts only when it is written clearly AND the company's own call,
+   filing or release states the same number (as for company videos, §2.2); otherwise leave the number out of the
+   entry ('no specific figure', and a quote without it) or skip the entry.
+f. **Nothing of the video or the transcript goes on the site**: the file is an enrich input; the site shows only
+   the short quote in the signal, with the video URL. `evidence.py` gives a news-interview entry no excerpt and no
+   file path, and `enrich_status.py` lists the files by label only. The §7 checks apply as for every source.
 
 ---
 

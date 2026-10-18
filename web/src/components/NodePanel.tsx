@@ -16,10 +16,10 @@ import WeekendPerpPrice from "./WeekendPerpPrice";
 import Fundamentals from "./Fundamentals";
 import { EvidenceButton } from "./Evidence";
 import { ExpandAllContext, SignalBody, SourceBadge, SourceText } from "./SignalText";
-import CashFlowSection from "./CashFlowSection";
 import LabMetricsSection from "./LabMetricsSection";
 import FinancingSection from "./FinancingSection";
 import InsiderTrades from "./InsiderTrades";
+import FinancialsSection from "./FinancialsSection";
 import "./NodePanel.css";
 
 const US = new Set(["NASDAQ", "NYSE"]);
@@ -847,6 +847,11 @@ export default function NodePanel({
         {node.ticker && <WeekendPerpPrice id={node.id} ticker={node.ticker} exchange={node.exchange} />}
         {node.ticker && <Fundamentals ticker={node.ticker} exchange={node.exchange} />}
 
+        {/* Financial statements and cash flow per fiscal quarter / year + estimates, with the next earnings
+            date in its header (2026-10-17): own files, NOT signals. Renders nothing when this company has
+            neither a file nor an upcoming earnings date. */}
+        <FinancialsSection companyId={node.id} />
+
         {/* "At a glance" sits under the price + chart (user, 2026-10-01). */}
         <GlanceCard node={node} slots={slots} customers={customers} suppliers={suppliers} onNavigate={onNavigate} />
 
@@ -1118,8 +1123,8 @@ export default function NodePanel({
         )}
 
         {/* Daily market data (2026-10-17): own files, NOT signals. Each section
-            renders nothing when this company has no rows in its file. */}
-        <CashFlowSection companyId={node.id} />
+            renders nothing when this company has no rows in its file. (Quarterly cash
+            flow and the next earnings date are in the Financials section above.) */}
         <LabMetricsSection companyId={node.id} />
         <FinancingSection companyId={node.id} />
         <InsiderTrades companyId={node.id} />

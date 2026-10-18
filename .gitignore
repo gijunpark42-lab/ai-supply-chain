@@ -31,3 +31,10 @@ market/selftest_result.json
 
 # scratch output of local verification runs (screenshots, build logs)
 /tmp/
+
+# media_pull.py: full transcripts of CNBC / Bloomberg / Fox / Yahoo broadcasts (enrich inputs only, enrich skill
+# section 11). The GitHub repo is public, and republishing whole broadcasts goes far beyond the short quote the user's
+# rule 5 allows (2026-10-17), so they stay in the local checkout. Its state, roster and allowlist in media/ are
+# published. A checkout without a file fetches it again (media_pull.already_decided). To publish them after all,
+# delete this line.
+transcripts/media/
