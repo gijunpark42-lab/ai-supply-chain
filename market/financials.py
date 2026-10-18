@@ -17,9 +17,10 @@ Web files (data contract, the company panel reads them):
   period = {"end" (the company's own period end), "label", "fiscal_year", "fiscal_quarter", "revenue",
             "gross_profit", "ebitda", "ebit", "operating_income" (as reported), "pretax_income",
             "net_income_after_tax" (세후손익, incl. minority interests), "net_income" (당기순이익, attributable to
-            shareholders), "eps_diluted" (reported), "eps_adjusted" (Yahoo's EPS on the analysts' basis, the basis
-            of the estimates: for US companies usually adjusted / non-GAAP), "per", "pbr", "dividend_yield_pct",
-            "roa_pct", "ocf" (operating cash flow), "capex" (capital expenditure, a positive number), "fcf"
+            shareholders), "eps_diluted" (reported: GAAP / IFRS), "eps_adjusted" (Yahoo's EPS on the analysts'
+            basis, the basis of the estimates: for US companies usually the company's adjusted / non-GAAP EPS,
+            elsewhere usually the reported one; kept over time, see "Adjusted EPS" below), "per", "pbr",
+            "dividend_yield_pct", "roa_pct", "ocf" (operating cash flow), "capex" (capital expenditure, a positive number), "fcf"
             (ocf - capex), "fcf_after_leases" (fcf - finance-lease principal payments; null unless the company files
             those: SEC 10-K / 10-Q filers), "qoq": {...} | null, "yoy": {...}, "derived": [field names]}
   Money is in the company's reporting currency, in millions ("unit"), rounded to 2 decimals; EPS is in full
@@ -27,10 +28,10 @@ Web files (data contract, the company panel reads them):
   EPS); pbr = price / book value per share at the period end; dividend_yield_pct = dividends of the last 12 months
   per share / price; roa_pct = trailing-4-quarter (annual: the year's) net income / average total assets (period
   end and 12 months earlier). Each is null when an input is missing or the EPS / book value is not positive.
-  qoq / yoy: % change of revenue, ebit, net_income and eps_diluted against the previous fiscal quarter / the same
-  quarter a year earlier (annual: the previous fiscal year); null when the earlier value is missing, zero or
-  negative (a % change from a loss has no meaning; the values themselves are in the table). "fcf" too, but only
-  when both values are positive (free cash flow swings through zero).
+  qoq / yoy: % change of revenue, ebit, net_income, eps_diluted and eps_adjusted (adjusted against adjusted only)
+  against the previous fiscal quarter / the same quarter a year earlier (annual: the previous fiscal year); null
+  when the earlier value is missing, zero or negative (a % change from a loss has no meaning; the values themselves
+  are in the table). "fcf" too, but only when both values are positive (free cash flow swings through zero).
 
 Sources:
   - Yahoo Finance, read with yfinance's own session (cookie + crumb): per company ONE fundamentals-timeseries
@@ -83,6 +84,16 @@ Rules that make the numbers line up (each is said in the file's notes when it ap
     Kong listing reporting in CNY. A US-listed ADR whose statements are in another currency gets no PER / PBR (the
     ADR ratio is unknown); a node whose US line is an ADR of a home listing (TSMC = TSM -> 2330.TW, the same
     mapping as web/src/lib/yahoo.ts homeSymbol) uses the home listing, so price and per-share data match.
+  - Adjusted EPS (user, 2026-10-17: "조정, GAAP, net income 다 볼 수 있게"): the panel shows net income, the reported
+    diluted EPS and the adjusted EPS, each with its own QoQ / YoY. eps_adjusted is Yahoo's earningsChart "actual"
+    (and the year-ago EPS of its estimate entries), which Yahoo keeps for the last ~4 quarters only, so each daily
+    run records what it sees in market/history/financials_eps_adjusted.jsonl (ADD-only, key company + period_type +
+    month-end key) and the web file is built from Yahoo's current answer plus that history: older quarters stay
+    after Yahoo drops them. A history figure seen before a later stock split is divided by that split. A fiscal
+    year's adjusted EPS is Yahoo's own annual figure (the 0y entry's year-ago EPS) where given, else the sum of its
+    four fiscal quarters only when all four are known (listed in "derived"); otherwise null, never estimated. A
+    listing whose Yahoo EPS is in another currency than its statements (6805.TW, HYFT: USD) gets no adjusted
+    actuals.
 
 Schedule: daily (market/run_all.py), at most DAILY_MAX_MINUTES of Yahoo, then at most FILINGS_MAX_MINUTES of the
 same companies' filings. Refreshed each day: companies whose earnings date (graph/hyperscaler_cash.json calendar,
@@ -99,6 +110,9 @@ Files:
   market/history/financials_snapshots.jsonl  ADD-only: every reported period as first seen (key company + end +
                                           period_type), so a later restatement can be spotted; also fills quarters
                                           that have dropped out of Yahoo's 5-quarter window.
+  market/history/financials_eps_adjusted.jsonl  ADD-only: Yahoo's adjusted EPS actuals as first seen (key company +
+                                          period_type + end; with the fiscal label, the day seen and the EPS
+                                          currency), so the adjusted series outlives Yahoo's 4-quarter window.
   market/history/financials_state.json    per company: symbol, last fetch date, ok, next earnings date.
 
 CLI:
@@ -125,6 +139,8 @@ from market.common import (GRAPH, HISTORY, ROOT, append_history, company_file_na
                            today, universe, write_json)
 
 DATASET = "financials_snapshots"
+ADJ_DATASET = "financials_eps_adjusted"            # Yahoo's adjusted EPS actuals, kept past its 4-quarter window
+ADJ_KEY = ("company", "period_type", "end")
 OUT_DIR_NAME = "financials"
 CACHE = ROOT / "market" / "cache" / "financials"
 STATE_FILE_NAME = "financials_state.json"
@@ -664,6 +680,84 @@ def chart_actuals(summary):
         elif t.get("period") == "0y":
             annual.setdefault(key, ago)
     return quarterly, annual
+
+
+# ------------------------------------------------ adjusted EPS, kept over time (2026-10-17)
+
+def reporting_currency(raw):
+    """The currency of a company's statements in its raw Yahoo answers."""
+    summary = raw.get("summary") or {}
+    return ((raw.get("timeseries") or {}).get("currency")
+            or (summary.get("financialData") or {}).get("financialCurrency")
+            or (summary.get("earnings") or {}).get("financialCurrency") or (raw.get("chart") or {}).get("currency"))
+
+
+def eps_currency(summary, currency):
+    """The currency of Yahoo's EPS figures: the estimates' earningsCurrency (the earningsChart actuals are in it too;
+    a few listings get USD there for statements in TWD or CAD: 6805.TW, HYFT), else the reporting currency."""
+    for t in ((summary.get("earningsTrend") or {}).get("trend") or []):
+        ccy = (t.get("earningsEstimate") or {}).get("earningsCurrency")
+        if ccy:
+            return ccy
+    return currency
+
+
+def adjusted_rows(node_id, raw, seen):
+    """History rows (ADD-only, key ADJ_KEY) of the adjusted EPS actuals in one raw Yahoo answer (chart_actuals: the
+    earningsChart's last ~4 quarters, the year-ago EPS of the estimate entries): {"seen", "company", "ticker",
+    "period_type", "end" (month-end key), "label" (fiscal label), "eps_adjusted", "currency" (Yahoo's EPS currency)}.
+    Yahoo drops a quarter after about a year; these rows keep it."""
+    summary = (raw or {}).get("summary") or {}
+    quarterly, annual = chart_actuals(summary)
+    if not quarterly and not annual:
+        return []
+    stats = summary.get("defaultKeyStatistics") or {}
+    stmt = statement_periods(raw.get("timeseries"))
+    fy_month = fiscal_year_end_month(stmt["annual"].keys(), _iso(raw_value(stats.get("lastFiscalYearEnd"))))
+    ccy = eps_currency(summary, reporting_currency(raw))
+    rows = []
+    for period_type, series in (("quarterly", quarterly), ("annual", annual)):
+        for end, value in sorted(series.items()):
+            label = quarter_label(*fiscal_of(end, fy_month)) if period_type == "quarterly" else year_label(int(end[:4]))
+            rows.append({"seen": seen, "company": node_id, "ticker": raw.get("symbol"), "period_type": period_type,
+                         "end": end, "label": label, "eps_adjusted": round(value, 4), "currency": ccy})
+    return rows
+
+
+def adjusted_series(summary, adj_rows, currency, splits=()):
+    """Adjusted EPS by month-end key: (quarterly, annual, resplit). Yahoo's current answer first (chart_actuals, on
+    today's share basis), then the history rows (adjusted_rows of earlier days) for the periods Yahoo no longer
+    lists. Only figures in the reporting currency. A history figure seen before a later stock split is divided by
+    that split (today's share basis, like the prices); those (period_type, key) pairs are returned in resplit."""
+    quarterly, annual = chart_actuals(summary) if eps_currency(summary, currency) == currency else ({}, {})
+    resplit = set()
+    for r in adj_rows:
+        series = {"quarterly": quarterly, "annual": annual}.get(r.get("period_type"))
+        value, key = num(r.get("eps_adjusted")), r.get("end")
+        if series is None or value is None or not key or key in series or r.get("currency", currency) != currency:
+            continue
+        factor = 1.0
+        for _, ratio in later_splits(splits, r.get("seen") or key):
+            factor *= ratio
+        series[key] = value / factor
+        if factor != 1.0:
+            resplit.add((r["period_type"], key))
+    return quarterly, annual, resplit
+
+
+def annual_adjusted(quarterly, annual, year_ends):
+    """A fiscal year's adjusted EPS: Yahoo's own annual figure where it gives one, else the sum of the year's four
+    fiscal quarters (the year end and 3, 6, 9 months before it) only when all four are known; otherwise none (never
+    estimated). Returns (the annual series, the year keys that are sums)."""
+    out, summed = dict(annual), set()
+    for fy_end in sorted(year_ends):
+        if fy_end in out:
+            continue
+        values = [quarterly.get(add_months(fy_end, -3 * k)) for k in range(4)]
+        if all(v is not None for v in values):
+            out[fy_end] = sum(values)
+            summed.add(fy_end)
+    return out, summed
 
 
 def fill_from_summary(periods, entries, derived, now=None):
@@ -1218,10 +1312,11 @@ def _iso(ts):
     return dt.datetime.fromtimestamp(ts, dt.timezone.utc).date().isoformat() if ts else None
 
 
-def compose(node_id, raw, hist_rows=(), fx=None, filings=None):
+def compose(node_id, raw, hist_rows=(), fx=None, filings=None, adj_rows=()):
     """The web file of one company from its raw Yahoo answers (+ its history rows, + its SEC / DART filings when
     known). fx(from, to) returns monthly rates {"YYYY-MM": rate} or None. filings: {"sec": compact SEC facts,
-    "dart": DART cache} (either may be missing). Returns None when there is nothing to show.
+    "dart": DART cache} (either may be missing). adj_rows: its ADJ_DATASET history rows (adjusted EPS that Yahoo
+    may no longer list). Returns None when there is nothing to show.
 
     Periods are keyed by Yahoo's month end inside (so the same period never shows up twice); the file's "end" is the
     exact period end."""
@@ -1230,10 +1325,8 @@ def compose(node_id, raw, hist_rows=(), fx=None, filings=None):
     summary = raw.get("summary") or {}
     chart = raw.get("chart") or {}
     stats = summary.get("defaultKeyStatistics") or {}
-    fin = summary.get("financialData") or {}
     stmt = statement_periods(raw.get("timeseries"))
-    currency = ((raw.get("timeseries") or {}).get("currency") or fin.get("financialCurrency")
-                or (summary.get("earnings") or {}).get("financialCurrency") or chart.get("currency"))
+    currency = reporting_currency(raw)
     # history rows of the same company in the same currency and unit (a ticker fix could change the listing)
     stmt = merge_history(stmt, [r for r in hist_rows if r.get("company") == node_id
                                 and r.get("currency", currency) == currency and r.get("unit", UNIT) == UNIT])
@@ -1371,7 +1464,7 @@ def compose(node_id, raw, hist_rows=(), fx=None, filings=None):
     # 5) gaps: a single missing quarter of a fiscal year = FY - the other three (flows); then diluted EPS from
     #    Yahoo's actual / net income / shares; then EPS = FY - the other three as the last resort
     made = derive_missing_quarter(quarters, years, derived, list(FLOW_FIELDS) + ["ocf", "capex"], pre_skip)
-    actual_q, actual_y = chart_actuals(summary)
+    actual_q, _ = chart_actuals(summary)
     by_shares = eps_matches_shares(quarters, years)
     filled_q = fill_eps(quarters, derived, actual_q, balances, False, by_shares)
     mrq = month_end(mrq_exact) if mrq_exact else None
@@ -1393,6 +1486,17 @@ def compose(node_id, raw, hist_rows=(), fx=None, filings=None):
                      "diluted shares (Yahoo's statements lack it).")
     finish_cash_flow(quarters, derived)                    # fcf, fcf_after_leases
     finish_cash_flow(years, derived_y)
+
+    # 5b) adjusted EPS (Yahoo's analysts' basis, the basis of the (E) consensus), its own series: Yahoo's current
+    #     answer, then the history for the quarters Yahoo no longer lists; a fiscal year = Yahoo's annual figure, else
+    #     the sum of its four quarters when all four are known
+    adj_q, adj_y, resplit = adjusted_series(summary, [r for r in adj_rows if r.get("company") == node_id], currency,
+                                            splits)
+    adj_y, summed = annual_adjusted(adj_q, adj_y, years)
+    for scale, key in resplit:
+        (derived if scale == "quarterly" else derived_y).setdefault(key, set()).add("eps_adjusted")
+    for key in summed:
+        derived_y.setdefault(key, set()).add("eps_adjusted")
 
     if not quarters and not years:
         return None
@@ -1477,9 +1581,12 @@ def compose(node_id, raw, hist_rows=(), fx=None, filings=None):
         per, pbr, dy, roa = ratios(end, eps_ttm, ni_ttm_q, assets_at(add_months(end, -12)))
         prev = quarters.get(add_months(end, -3)) or {}
         year_ago = quarters.get(add_months(end, -12)) or {}
+        qoq, yoy = growth(p, prev), growth(p, year_ago)
+        qoq["eps_adjusted"] = pct_change(adj_q.get(end), adj_q.get(add_months(end, -3)))     # adjusted vs adjusted
+        yoy["eps_adjusted"] = pct_change(adj_q.get(end), adj_q.get(add_months(end, -12)))
         fyq = fiscal_of(end, fy_month)
-        q_rows.append(period_row(ends.quarter(end), quarter_label(*fyq), fyq[0], fyq[1], p, actual_q.get(end),
-                                 per, pbr, dy, roa, growth(p, prev), growth(p, year_ago), derived.get(end, set())))
+        q_rows.append(period_row(ends.quarter(end), quarter_label(*fyq), fyq[0], fyq[1], p, adj_q.get(end),
+                                 per, pbr, dy, roa, qoq, yoy, derived.get(end, set())))
     y_rows = []
     for end in sorted(years):
         p = years[end]
@@ -1488,8 +1595,10 @@ def compose(node_id, raw, hist_rows=(), fx=None, filings=None):
         per, pbr, dy, roa = ratios(end, p.get("eps_diluted"), p.get("net_income"),
                                    assets_at(prev_end) if prev_end in years else None)
         prev = years.get(prev_end) or {}
-        y_rows.append(period_row(ends.year(end), year_label(fiscal_year), fiscal_year, None, p, actual_y.get(end),
-                                 per, pbr, dy, roa, None, growth(p, prev), derived_y.get(end, set())))
+        yoy = growth(p, prev)
+        yoy["eps_adjusted"] = pct_change(adj_y.get(end), adj_y.get(prev_end))
+        y_rows.append(period_row(ends.year(end), year_label(fiscal_year), fiscal_year, None, p, adj_y.get(end),
+                                 per, pbr, dy, roa, None, yoy, derived_y.get(end, set())))
 
     # a company that changed its fiscal year can have two years with one label (Hut 8: June 2023 and, from the
     # successor's filings, December 2023): the one on the current calendar stays
@@ -1529,8 +1638,22 @@ def compose(node_id, raw, hist_rows=(), fx=None, filings=None):
     else:
         notes.append("Fiscal labels are the company's own fiscal year, named by the calendar year it ends in.")
     notes.append("PER uses the trailing 4 quarters' diluted EPS (annual: the year's), ROA the trailing 4 quarters' "
-                 "net income over average total assets. The (E) EPS is the analysts' consensus, on Yahoo's EPS "
-                 "basis (\"EPS (Yahoo basis)\": for US companies usually adjusted, non-GAAP).")
+                 "net income over average total assets. EPS (GAAP, diluted) is the reported figure; EPS (adjusted) "
+                 "is Yahoo Finance's EPS on the analysts' basis (for US companies usually the company's adjusted, "
+                 "non-GAAP EPS; elsewhere usually the reported one), the basis of the (E) consensus. Each has its "
+                 "own QoQ / YoY, so a reported figure is never compared with an adjusted one.")
+    if adj_q or adj_y:
+        notes.append("Yahoo lists the adjusted EPS of the last 4 quarters only: each daily run records what it shows "
+                     "(market/history/financials_eps_adjusted.jsonl), so older quarters stay. A fiscal year's "
+                     "adjusted EPS is Yahoo's annual figure, else the sum of its four quarters when all four are "
+                     "known (listed in \"derived\"), else blank.")
+    if resplit:
+        notes.append("Adjusted EPS recorded before a later stock split is shown on today's share basis (divided by "
+                     "the split; listed in \"derived\").")
+    ccy = eps_currency(summary, currency)
+    if ccy != currency and any(chart_actuals(summary)):
+        notes.append(f"Yahoo's EPS figures for this listing are in {ccy}, its statements in {currency}: EPS "
+                     f"(adjusted) actuals are left blank; the (E) consensus is converted into {currency}.")
     symbol = raw.get("symbol")
     out = {
         "company": node_id, "ticker": symbol, "currency": currency, "unit": UNIT,
@@ -1782,9 +1905,11 @@ def build(only=None):
     names = company_file_names(tg)
     state = read_json(HISTORY / STATE_FILE_NAME, {}) or {}
     sec_map = financials_sec.cached_cik_map()
-    hist = {}
+    hist, adj_hist = {}, {}
     for r in read_history(DATASET):
         hist.setdefault(r.get("company"), []).append(r)
+    for r in read_history(ADJ_DATASET):
+        adj_hist.setdefault(r.get("company"), []).append(r)
     index, written = {}, 0
     for node_id in sorted(tg):
         path = out_dir / names[node_id]
@@ -1793,7 +1918,8 @@ def build(only=None):
         raw = read_json(cache_path(symbol)) if symbol and cache_path(symbol).exists() else None
         if raw and (only is None or node_id in only):
             try:
-                data = compose(node_id, raw, hist.get(node_id, []), cached_fx, load_filings(tg[node_id], sec_map))
+                data = compose(node_id, raw, hist.get(node_id, []), cached_fx, load_filings(tg[node_id], sec_map),
+                               adj_hist.get(node_id, []))
             except Exception as e:                     # one odd company never stops the build
                 log(f"WARNING {node_id} ({symbol}): {type(e).__name__}: {e}")
                 data = None
@@ -1842,6 +1968,7 @@ def run(backfill=False, only=None, limit=None, max_minutes=None):
     ok = nodata = failed = 0
     limited_in_a_row = 0                               # companies in a row that hit Yahoo's rate limit
     snapshots = []
+    adj_snapshots = []                                 # adjusted EPS actuals seen (ADJ_DATASET)
     fetched_ids = []
 
     def out_of_time(extra_seconds=0):
@@ -1854,11 +1981,13 @@ def run(backfill=False, only=None, limit=None, max_minutes=None):
         info = tg[node_id]
         st = dict(state.get(node_id) or {})
         raw, error = None, None
+        previous = None                                # the older cache a new answer replaces
         for symbol in info["symbols"]:
             cached = read_json(cache_path(symbol))
             if cached and cached.get("fetched") == now and cached.get("format") == RAW_FORMAT:
                 raw = cached
                 break
+            previous = previous or cached
             for attempt in range(3):
                 try:
                     raw = fetch_company(symbol)
@@ -1900,6 +2029,11 @@ def run(backfill=False, only=None, limit=None, max_minutes=None):
             stmt = statement_periods(raw.get("timeseries"))
             currency = (raw.get("timeseries") or {}).get("currency")
             snapshots += snapshot_rows(node_id, raw["symbol"], currency, stmt, now)
+            # the adjusted EPS Yahoo shows today, after the older cache's (so a quarter it has dropped since that
+            # cache was written is kept too; the history keeps the first sighting of each period)
+            if previous and previous is not raw and previous.get("symbol") == raw["symbol"]:
+                adj_snapshots += adjusted_rows(node_id, previous, previous.get("fetched") or now)
+            adj_snapshots += adjusted_rows(node_id, raw, raw.get("fetched") or now)
             # FX rates the build will need (fetched now, so build() stays offline)
             price_ccy = (raw.get("chart") or {}).get("currency")
             base = "GBP" if price_ccy == "GBp" else price_ccy
@@ -1922,12 +2056,14 @@ def run(backfill=False, only=None, limit=None, max_minutes=None):
         if (i + 1) % 25 == 0:
             write_json(state_path, state)
             append_history(DATASET, snapshots, ("company", "end", "period_type"))
-            snapshots = []
+            append_history(ADJ_DATASET, adj_snapshots, ADJ_KEY)
+            snapshots, adj_snapshots = [], []
             log(f"{i + 1}/{len(due)} done ({ok} ok, {nodata} without data, {failed} failed)")
     write_json(state_path, state)
     new_rows = append_history(DATASET, snapshots, ("company", "end", "period_type"))
+    new_adj = append_history(ADJ_DATASET, adj_snapshots, ADJ_KEY)
     log(f"fetched {ok} companies, {nodata} without data on Yahoo, {failed} failed; {new_rows} new history rows "
-        f"in the last batch")
+        f"and {new_adj} new adjusted-EPS rows in the last batch")
     # the same companies' filings (SEC XBRL for US filers, DART for Korea): exact dates, depth, the newest filing
     counts = refresh_filings(fetched_ids, tg, None if backfill or only else FILINGS_MAX_MINUTES, DART_WORKERS)
     log(f"filings: SEC facts of {counts['sec']} companies, DART reports of {counts['dart']} "

@@ -5,8 +5,9 @@ The tests live in tests/market/ (stdlib unittest, one file per collector) and re
 tests/market/fixtures/: no network (tests/market/__init__.py switches it off for the test process), no API keys,
 and nothing is written to market/history or graph (builders run in temporary folders). They take a few seconds.
 They pin the cases the 2026-10-17 verification fixed (Alphabet's two-class share offering, Supermicro's common-stock
-prospectus, per-line 10b5-1 flags, the Eli Lilly price typo, NRG's joint filers, Korean unit-price cells, ...), so a
-parser change that breaks one of them is caught the same night instead of silently publishing wrong numbers.
+prospectus, per-line 10b5-1 flags, the Eli Lilly price typo, NRG's joint filers, Korean unit-price cells, the
+financials' GAAP vs adjusted EPS rows and their adjusted-EPS history, ...), so a parser change that breaks one of
+them is caught the same night instead of silently publishing wrong numbers.
 
 This script runs them all and writes the outcome for the nightly routine:
     market/selftest_result.json   {"date", "ok", "passed", "failed": [{"test", "message"}]}

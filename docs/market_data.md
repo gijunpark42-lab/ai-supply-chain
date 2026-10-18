@@ -110,7 +110,7 @@ from `.env` (`DART_API_KEY`, `EDINET_API_KEY`, `ALPHAVANTAGE_API_KEY`, `EDGAR_US
 | `financing_asia.py` | `financing_index.json` + `financing/<company>.json` | `financing_kr.jsonl`, `financing_tw.jsonl`, `financing_jp.jsonl` | Korea: OpenDART major-issues reports and debt registrations. Taiwan: MOPS material information. Japan: TDnet timely disclosures |
 | `financing.py` | `financing_index.json` + `financing/<company>.json` | reads every `financing_*.jsonl`, including `financing_manual.jsonl` | builder only, no network |
 | `hyperscaler_cash.py` | `hyperscaler_cash.json` | `hyperscaler_cash.jsonl`, `earnings_calendar.jsonl` | SEC XBRL companyconcept API (capex, operating cash flow, finance-lease principal); Alpha Vantage EARNINGS_CALENDAR (1 call a day); Yahoo Finance via yfinance; the companies' own IR event pages |
-| `financials.py` (+ `financials_sec.py`, `financials_dart.py`) | `financials_index.json` + `financials/<company>.json` | `financials_snapshots.jsonl` (+ `financials_state.json`) | Yahoo Finance via yfinance's session: fundamentals timeseries (quarterly / annual income statement, balance sheet and cash flow), quoteSummary (earnings summary, estimates, key statistics, calendar), monthly price chart with dividends and splits; Yahoo FX for currency conversion. The companies' own filings: SEC XBRL company facts (US filers: 10-K / 10-Q, cash flow included; 20-F filers for per-share checks and dates) and OpenDART (Korea: quarterly / annual statements with the cash-flow statement, share counts, preliminary-results disclosures) |
+| `financials.py` (+ `financials_sec.py`, `financials_dart.py`) | `financials_index.json` + `financials/<company>.json` | `financials_snapshots.jsonl`, `financials_eps_adjusted.jsonl` (+ `financials_state.json`) | Yahoo Finance via yfinance's session: fundamentals timeseries (quarterly / annual income statement, balance sheet and cash flow), quoteSummary (earnings summary, estimates, key statistics, calendar), monthly price chart with dividends and splits; Yahoo FX for currency conversion. The companies' own filings: SEC XBRL company facts (US filers: 10-K / 10-Q, cash flow included; 20-F filers for per-share checks and dates) and OpenDART (Korea: quarterly / annual statements with the cash-flow statement, share counts, preliminary-results disclosures) |
 | `ai_labs.py` | `ai_labs.json` | `ai_lab_revenue.jsonl`, `ai_lab_funding.jsonl`, `ai_lab_compute.jsonl`, `ai_model_scores.jsonl` | Epoch AI "Data on AI companies" and "Benchmarking Hub" downloads; the curated deals log `market/ai_lab_deals.json` |
 
 What each web file holds:
@@ -153,10 +153,12 @@ What each web file holds:
   the filings filled figures), notes}. Each period: end (the company's own period end date), label (the company's
   own fiscal label, "Q3 26" / "FY26"), fiscal_year, fiscal_quarter, revenue, gross_profit, ebitda, ebit,
   operating_income (as reported), pretax_income, net_income_after_tax (세후손익), net_income (당기순이익,
-  attributable), eps_diluted (reported), eps_adjusted (Yahoo's EPS on the analysts' basis: for US companies usually
-  adjusted / non-GAAP; the estimates' basis), per, pbr, dividend_yield_pct, roa_pct, ocf (operating cash flow),
-  capex (a positive number), fcf (ocf - capex), fcf_after_leases (fcf - finance-lease principal payments; null
-  unless the company files those), qoq, yoy and derived (fields computed rather than read from a statement).
+  attributable), eps_diluted (reported: GAAP / IFRS), eps_adjusted (Yahoo's EPS on the analysts' basis: for US
+  companies usually the company's adjusted / non-GAAP EPS, elsewhere usually the reported one; the estimates'
+  basis; kept past Yahoo's 4-quarter window, see below), per, pbr, dividend_yield_pct, roa_pct, ocf (operating
+  cash flow), capex (a positive number), fcf (ocf - capex), fcf_after_leases (fcf - finance-lease principal
+  payments; null unless the company files those), qoq, yoy and derived (fields computed rather than read from a
+  statement).
   Money is in millions of the reporting currency; EPS in full units.
   The rules (all in the collector's docstring, and in each file's notes when they apply):
   - Every public node (all markets). An ADR whose home listing yahoo.ts already maps (TSM -> 2330.TW, ASML ->
@@ -190,8 +192,8 @@ What each web file holds:
   - per = month-end price / trailing-4-quarter diluted EPS (annual: the year's EPS), pbr = price / book value per
     share, dividend_yield_pct = last 12 months' dividends / price, roa_pct = trailing net income / average total
     assets (now and 12 months earlier); a foreign-currency price is converted at the month-end Yahoo FX rate. QoQ /
-    YoY of revenue, ebit, net_income and eps_diluted; null from a zero or negative base. QoQ / YoY of fcf only
-    between two positive values.
+    YoY of revenue, ebit, net_income, eps_diluted and eps_adjusted (each basis against itself only); null from a
+    zero or negative base. QoQ / YoY of fcf only between two positive values.
   - Cash flow (2026-10-17; the panel's separate Cash flow section was merged into this table), one source per
     company so a table never mixes capex definitions: a 10-K / 10-Q filer's SEC XBRL facts with
     `hyperscaler_cash.py`'s tags and quarter logic (imported: NetCashProvidedByUsedInOperatingActivities,
@@ -206,8 +208,19 @@ What each web file holds:
     kept), and an SEC or Yahoo cache written before it is fetched again even on the same day.
   - Estimates: Yahoo's earningsTrend 0q (the next unreported quarter), 0y (this fiscal year) and +1y, labelled with
     the same fiscal labels, with the exact period end; an estimate for a period already reported is dropped. The
-    EPS consensus is on Yahoo's basis (for US companies usually adjusted), so the panel shows it in the EPS row only
-    when Yahoo's actuals equal the reported EPS, and otherwise in its own "EPS (Yahoo basis)" row next to them.
+    EPS consensus is on Yahoo's basis (for US companies usually adjusted), so the panel shows it only in the
+    "EPS (adjusted)" row, never next to the reported EPS.
+  - EPS rows (user, 2026-10-17: "조정, GAAP, net income 다 볼 수 있게"): the panel always shows "Net income", "EPS (GAAP,
+    diluted)" (eps_diluted) and, when it has any value, "EPS (adjusted)" (eps_adjusted, with the (E) consensus), each
+    with its own QoQ / YoY. For most non-US companies Yahoo's basis is the reported EPS, so the two EPS rows (nearly)
+    match. Yahoo's earningsChart gives the adjusted EPS of the last ~4 quarters only, so every daily fetch records the
+    adjusted actuals it sees (and those of the older cache it replaces) in `financials_eps_adjusted.jsonl` (ADD-only,
+    key company + period_type + month-end key, with the fiscal label, the day seen and Yahoo's EPS currency), and the
+    web file is built from Yahoo's current answer plus that history: older quarters stay after Yahoo drops them. A
+    recorded figure seen before a later stock split is divided by the split. A fiscal year's adjusted EPS is Yahoo's own
+    annual figure (the 0y estimate's year-ago EPS) where given, else the sum of its four fiscal quarters only when all
+    four are known (listed in derived), else blank; nothing is estimated. A listing whose Yahoo EPS is in another
+    currency than its statements (6805.TW, HYFT) gets no adjusted actuals.
   - Preliminary results (Korea): a 연결재무제표기준영업(잠정)실적(공정공시) filing for a quarter without its report yet
     becomes a "(P)" column (revenue, operating income and whatever else it gives, with QoQ / YoY).
   - Refresh: daily for companies 10 days before to 4 days after their earnings date (hyperscaler_cash's calendar
