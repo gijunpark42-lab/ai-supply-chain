@@ -55,6 +55,38 @@ The map records **facts** and **what the company itself says**.
   transitions — written as attributed statements ("CEO: …", "management expects …") with the hedge kept, never
   rewritten as a fact.
 
+**Every relationship, with a scope (decision C, user 2026-10-17: when a company is added, add everything related
+to it, even if not AI-related)**
+- Every real customer / supplier / partner-in-a-supply-role relationship a source states is recorded, AI or not,
+  with a scope: `"ai"` = part of an AI chain → a `connects_to` edge through the patch (JOB 2 / JOB 4, unchanged);
+  `"other"` = anything else → an ADD-only row in `relations/<company>.json` (shape: the `relations.py` docstring —
+  from, to, relation `supplies` | `customer_of` | `partner`, product, scope "other", source, quote, label, date,
+  added[, figure]). The litmus test decides chain MEMBERSHIP, never whether a relationship is recorded; the
+  counterparty of an "other" row need not be a graph node and is not added as one for it.
+- Same source rules: a saved file under `transcripts/` (its path + a verbatim, grep-able `quote`) or a public URL
+  (10-K / 20-F customer or supplier note, company release, IR page). Never model memory, never third-party
+  articles; lenders, banks and investors are financing, not relationships (below). A row with a `figure` must cite
+  a saved file (save the page first); `check_relations.py` lists every URL row as a WARN for a human check.
+- **New companies get their full relationships now:** the run that adds a node (JOB 3, `enrich waitlist`, a new
+  chain) also writes its `relations/<company>.json` from the same documents, then records it with
+  `python -X utf8 relations.py done "<Company>"`.
+- **Companies already on the map are backfilled, ~5 per night:** every bare `enrich` run (the nightly) takes
+  `python -X utf8 relations.py next` (the next 5 pending in `relations_backfill.json`, most-connected first),
+  reads each company's latest annual report (10-K / 20-F / 사업보고서 / 有価証券報告書 / 年度报告) customer and supplier
+  notes and its own releases for named relationships, writes the AI ones as patch edges and the rest as
+  `relations/` rows, and closes each with `relations.py done "<Company>"` — also when its documents name nobody
+  (say so in the report). ADD-only: a done row never goes back to pending. Parallel agents write only the
+  `relations/` files of the companies they were given; the coordinator alone runs `relations.py done`.
+- Pre-flight every relations file with `python -X utf8 utils/check_relations.py <files>` until clean, before
+  `graph_build.py --sync` (which merges them into `merged_graph.json` → `other_edges`; the website shows them only
+  on demand).
+
+**Contractors (rule B, user 2026-10-17):** data-center and power-grid contractors — construction / EPC /
+electrical / mechanical builders of data centers, substations and transmission — ARE supply-chain participants and
+may be added as nodes. Semiconductor-FAB contractors stay excluded: United Integrated Services, Acter, Marketech,
+Hanyang Eng — never a node and never a `relations/` counterparty; their facility contracts stay on the client's
+`quarterly_data` with counterparty keys, as before.
+
 **Do not capture**
 - Analyst or moderator questions, estimates, opinions, ratings or price targets. When management confirms an
   analyst's number, the number is management's — attribute it to the executive who confirmed it.
@@ -166,8 +198,9 @@ supply chain, AI or not, since 2026-10-12):
      in a stated supply / customer relationship, not an existing node under another spelling (naming rules),
      placed on the fixed slugs and an existing sector. It writes `"approved": "opus verifier <date>: <one line>"`.
    - **reject without asking** what is clearly not a supply-chain participant (user, 2026-09-26: banks and the like
-     are not needed): banks, lenders, insurers, investors / funds, governments and agencies, distributors, EPC /
-     construction contractors, generic end customers, divisions, sub-brands, product names, and the do-not-add
+     are not needed): banks, lenders, insurers, investors / funds, governments and agencies, distributors,
+     semiconductor-fab contractors (rule B, §2 — data-center and power-grid contractors are allowed), generic end
+     customers, divisions, sub-brands, product names, and the do-not-add
      list (the 2026-09-05 cleanup removals, Core42, AES, Nanjing Casela).
    - **ask the user** when it is genuinely ambiguous — its role in this product is indirect or unclear, a
      borderline litmus case, a private company, an affiliate or JV, no sector fits. It writes
@@ -288,6 +321,14 @@ logic depend on it); tools that must tell them apart use the source file's folde
 - **Edge meaning must match.** A contract goes on an edge only if it describes that edge's relationship in that
   direction; otherwise on the correct-direction edge (when both companies are players in the chain) or on the
   filer's `quarterly_data` naming the counterparty.
+- **AI chain or `relations/` (decision C, §2).** A relationship that belongs to an AI chain (the product feeds
+  that chain's supply path) goes on the chain edge through the patch; any other goes in `relations/<filer>.json`
+  with scope "other" — the filer's own document fills the filer's file (`from` = the filer; `customer_of` when the
+  filer is the buyer). Never write one fact both ways. An "other" row between two companies that already share
+  an AI edge must describe a DIFFERENT relationship (`utils/check_relations.py` warns). When it is unclear whether
+  a relationship is AI, record it as "other" (shown only on demand, so the call is harmless) and say so in the
+  report. The row records THAT the relationship exists; a non-AI deal's figures stay facts on the filer's
+  `quarterly_data` with counterparty keys (a row's optional `figure` only repeats what its quote states).
 - **The earnings call is the primary source.** Every later source — conference talk, IR release, 8-K, the DART
   periodic report after the preliminary results — adds only what the company's node does not already state for
   that period: new or changed numbers, newly named customers / partners, transitions and constraints the call did

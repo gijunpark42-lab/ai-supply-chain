@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import type { VizNode, Contract, QuarterlyData } from "@/lib/types";
+import type { VizNode, Contract, QuarterlyData, OtherRelation } from "@/lib/types";
 import { SOURCE_KINDS, sourceDetail, sourceType, type SourceKind } from "@/lib/sourceKind";
 import { buildBadges, buildTimeline, sigDate, FLAG } from "@/lib/signals";
 import { GROUP_COLORS, groupName, slugLabel } from "@/lib/taxonomy";
@@ -352,6 +352,76 @@ const OnFileRow = memo(function OnFileRow({ g, company }: { g: OnFile; company: 
     </div>
   );
 });
+
+// ── Other business relationships (user decision C, 2026-10-17) ──────────────
+// The company's NON-AI customers, suppliers and partners (merged_graph.json "other_edges").
+// Folded by default: the panel reads as the AI supply chain first, these come on demand.
+// Each row: the other company (opens its panel when it is a graph node), the product, a
+// "Non-AI" tag, and every source (label, link when it is a URL, the verbatim quote).
+const OTHER_ROLES: { role: OtherRelation["role"]; label: string }[] = [
+  { role: "customer", label: "Customers" },
+  { role: "supplier", label: "Suppliers" },
+  { role: "partner", label: "Business partners" },
+];
+
+function OtherRelations({ rels, viewer, onNavigate }: { rels: OtherRelation[]; viewer: string; onNavigate: (id: string) => void }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="np-onfile">
+      <div className="pcol-head">
+        {t("Other business relationships")}{" "}
+        <span className="np-of-hint">— {t("outside the AI supply chains")}</span>
+      </div>
+      <button className="np-linkbtn" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+        {open ? t("Hide non-AI relationships") : t("Show non-AI relationships ({n})", { n: rels.length })}
+      </button>
+      {open &&
+        OTHER_ROLES.map(({ role, label }) => {
+          const list = rels.filter((r) => r.role === role);
+          if (list.length === 0) return null;
+          return (
+            <div key={role} style={{ marginTop: "0.6rem" }}>
+              <div className="np-of-sub">{t(label)} ({list.length})</div>
+              {list.map((r, i) => (
+                <div className="np-of-row" key={r.company + "|" + i}>
+                  <div className="np-deal-head">
+                    {r.isNode ? (
+                      <div className="deal-co" onClick={() => onNavigate(r.company)}>{name(r.company)}</div>
+                    ) : (
+                      <span className="np-of-name">{r.company}</span>
+                    )}
+                    <span className="np-tag">{t("Non-AI")}</span>
+                    {!r.isNode && <span className="np-of-note">{t("not a graph node")}</span>}
+                  </div>
+                  <div className="deal-rel">{tr(r.product)}</div>
+                  <div className="np-of-list">
+                    {r.refs.map((ref, j) => (
+                      <div className="np-of-entry" key={j}>
+                        <SourceHead label={ref.label} viewer={viewer}>
+                          {/^https?:\/\//.test(ref.source) && (
+                            <a className="np-linkbtn" href={ref.source} target="_blank" rel="noopener noreferrer">
+                              {t("source")} ↗
+                            </a>
+                          )}
+                        </SourceHead>
+                        {/* This source's own product wording, when it differs from the line above
+                            (the other company's document words the same relationship its own way). */}
+                        {ref.product && ref.product !== r.product && (
+                          <div className="np-of-note">{tr(ref.product)}</div>
+                        )}
+                        {/* The quote stays verbatim (in the source's language). */}
+                        <SignalBody headline={ref.figure ? tr(ref.figure) : undefined} text={ref.quote} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          );
+        })}
+    </div>
+  );
+}
 
 // ── "At a glance" summary card (top of the panel, added 2026-10-01) ─────────
 // With 818 companies the panel had become one long list. The card answers the
@@ -1040,6 +1110,12 @@ export default function NodePanel({
             )}
           </div>
         </div>
+
+        {/* Non-AI customers / suppliers / partners, folded until asked for (2026-10-17). */}
+        {node.other && node.other.length > 0 && (
+          // key: opening another company starts the list folded again
+          <OtherRelations key={node.id} rels={node.other} viewer={node.id} onNavigate={onNavigate} />
+        )}
 
         {/* Daily market data (2026-10-17): own files, NOT signals. Each section
             renders nothing when this company has no rows in its file. */}

@@ -30,7 +30,19 @@ skeleton for X", "Transcript:<company>", ...), follow the matching skill file ve
   (run by `graph_build.py --sync`) is the only writer of `chains/` during enrichment.
 - Every figure must come from a transcript/filing saved under `transcripts/`. No news, no model knowledge,
   no web facts. The user fully reverted a news/knowledge-edge program once; do not re-propose it.
+  (`relations/` rows may cite a public company / SEC URL for the relationship itself — see below — but a row
+  with a `figure` must cite a saved file; `utils/check_relations.py` refuses it otherwise and WARNs on every URL row.)
 - Litmus test before adding a company: does its stock directly benefit from the product being built?
+  Contractors (rule B, 2026-10-17): data-center and power-grid contractors may be added; semiconductor-fab
+  contractors (United Integrated Services, Acter, Marketech, Hanyang Eng) stay out.
+- Every relationship has a scope (decision C, 2026-10-17): AI ones are chain edges (via patches); non-AI ones are
+  ADD-only rows in `relations/<company>.json` (spec: `relations.py`; check: `utils/check_relations.py`; source =
+  a saved transcript / filing with a verbatim quote, or a public company / SEC URL), merged into
+  `merged_graph.json` `other_edges`, never `edges`. A new company gets its full relationships when added; the
+  nightly enrich backfills ~5 older companies per night from `relations_backfill.json` (enrich skill §2).
+- Chains drafted 2026-10-17 (quantum computing, space / AI infrastructure, AI security & trusted compute,
+  data-center construction & power) wait in `drafts/chains/` (non-AI rows in `drafts/relations/`, review notes in
+  `drafts/*_review.md`) for the user's approval — never apply them unasked.
 - Company names must be byte-identical across chain files (see `docs/memory/naming_rules.md`).
 - Tag every new entry (`topics`, and `slot` / `capex` where relevant) — the web tabs are derived from tags.
 - NEVER `git commit` or `git push` unless the user says so in that turn ("커밋해" / "푸시해" / commit / push).

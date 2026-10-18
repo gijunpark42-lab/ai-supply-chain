@@ -54,11 +54,40 @@ export interface GraphEdge {
   relationship: string;
   contracts: Contract[];
   chain: string;
+  // Every chain edge is an AI supply-chain relationship: "ai" (added 2026-10-17; a graph built
+  // before then has no scope, which also means "ai").
+  scope?: "ai";
+}
+
+// One source of a non-AI relationship (a relations/*.json row, see relations.py).
+export interface RelationRef {
+  label: string; // canonical source label, e.g. "Caterpillar 10-K (02-14-2026)"
+  source: string; // a saved file under transcripts/ or a public https:// URL
+  quote: string; // the verbatim line, in the source's language
+  date: string; // YYYY-MM-DD
+  // This row's own product wording. Both companies of one relationship word it their own way, so
+  // the edge keeps the first row's product as `relationship` and each ref keeps its own (graphs
+  // built before the change have no per-ref product).
+  product?: string;
+  figure?: string;
+}
+
+// A non-AI business relationship (user decision C, 2026-10-17): merged_graph.json "other_edges",
+// kept apart from `edges`. source = the supplier (or the first partner), target = the customer.
+// Either end may be a company that is not a graph node.
+export interface OtherEdge {
+  source: string;
+  target: string;
+  relationship: string; // the product / service of the relationship
+  relation: "supplies" | "partner";
+  scope: "other";
+  refs: RelationRef[];
 }
 
 export interface MergedGraph {
   nodes: GraphNode[];
   edges: GraphEdge[];
+  other_edges?: OtherEdge[]; // absent in graphs built before 2026-10-17
 }
 
 export interface LogoEntry {
@@ -134,12 +163,23 @@ export interface VizNode extends GraphNode {
     contracts: Contract[];
     chain: string;
   }[];
+  // Non-AI relationships touching this company (merged_graph.json "other_edges"), shown on
+  // demand in the panel. role = what the OTHER company is to this one.
+  other?: OtherRelation[];
   badges: string[]; // slugs: tight/guideup/lta/capex
   lastData: string | null;
   stale: boolean;
   logo: string | null; // /logos/<file> url
   logoBg: "light" | "dark" | null;
   hasReport: boolean;
+}
+
+export interface OtherRelation {
+  company: string;
+  role: "customer" | "supplier" | "partner";
+  product: string;
+  refs: RelationRef[];
+  isNode: boolean; // the other company is a graph node (its name opens its panel)
 }
 
 export interface VizLink {
@@ -149,4 +189,6 @@ export interface VizLink {
   contracts: Contract[];
   chain: string;
   color: string;
+  scope?: "ai" | "other"; // "other" = a non-AI relationship, drawn only on demand
+  relation?: "supplies" | "partner"; // non-AI links only; a "partner" link has no direction (no arrow)
 }

@@ -8,10 +8,13 @@ import subprocess
 from taxonomy import iter_players  # the one shared layer/sector/domain walker
 from derive import derive_all      # graph → timelines / screener / capex projections
 from apply_patches import apply_all  # patches/*.json → chains/ (safe merge, see apply_patches.py)
+from relations import RELATIONS_DIR, load_relation_files, build_other_edges  # non-AI relationships (relations/)
 
 # Read all chain files in chains/ and merge by company name into one flat graph.
 # Original chain files are never modified — this only writes to graph/merged_graph.json.
 # To revert: delete graph/merged_graph.json and re-run.
+# Non-AI business relationships (relations/*.json, relations.py) are merged too, under their own key
+# "other_edges" — "edges" keeps only the chains' AI edges (each tagged "scope": "ai").
 #
 # After the graph is written, derive.py projects it onto the three derived views
 # (graph/timelines.bundle.json, graph/company_metrics.json, graph/capex_backlog.json).
@@ -109,7 +112,7 @@ def report_hubs(hubs, path=HUBS_PATH):
         print(f"  ~ {c:30s} {' '.join(bits)}")
 
 
-def build_graph(chains_dir="chains", output_path="graph/merged_graph.json"):
+def build_graph(chains_dir="chains", output_path="graph/merged_graph.json", relations_dir=RELATIONS_DIR):
     metadata = load_metadata()
     nodes = {}  # key: company name → merged node data
     edges = []  # flat list of all directed edges across all chains
@@ -203,13 +206,22 @@ def build_graph(chains_dir="chains", output_path="graph/merged_graph.json"):
                         "target": edge["company"],
                         "relationship": edge["relationship"],
                         "contracts": edge.get("contracts", []),
-                        "chain": chain_name  # which chain this edge came from
+                        "chain": chain_name,  # which chain this edge came from
+                        # Every edge in a chain file is an AI supply-chain relationship (user decision C,
+                        # 2026-10-17). Non-AI relationships come from relations/ and get scope "other".
+                        "scope": "ai",
                     })
+
+    # Non-AI relationships (relations/*.json, see relations.py) go under their OWN key, "other_edges",
+    # never into "edges": derive.py, evidence.py, enrich_status.py and verify_graph.py read only "edges",
+    # so every derived view and audit stays exactly what it was. Only the web app reads "other_edges".
+    other_edges = build_other_edges(load_relation_files(relations_dir))
 
     # Write merged graph
     graph = {
         "nodes": list(nodes.values()),
-        "edges": edges
+        "edges": edges,
+        "other_edges": other_edges,
     }
 
     os.makedirs("graph", exist_ok=True)
@@ -220,6 +232,7 @@ def build_graph(chains_dir="chains", output_path="graph/merged_graph.json"):
     print(f"\nSaved to {output_path}")
     print(f"Total nodes : {len(nodes)}")
     print(f"Total edges : {len(edges)}")
+    print(f"Other edges : {len(other_edges)} non-AI relationships from {relations_dir}/ (kept out of 'edges')")
 
     # Hub nodes - companies that appear in 2+ chains.
     hubs = sorted(
@@ -267,6 +280,14 @@ def write_company_ko(graph, output_path="graph/company_ko.json"):
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")  # chain text contains → and non-ASCII names
+
+    # Any unknown flag (e.g. --help) used to fall through to a REAL build (apply every pending patch,
+    # rewrite graph/, ENRICH_STATUS.md and enrich_log.json; ~25 minutes). Same guard as apply_patches.py:
+    # only --sync is accepted; anything else stops before touching a file.
+    unknown = [a for a in sys.argv[1:] if a != "--sync"]
+    if unknown:
+        print("usage: python graph_build.py [--sync]   (unknown argument(s): %s -- nothing built)" % " ".join(unknown))
+        sys.exit(2)
 
     # Step 0: fold any pending enrichment patches into chains/ first. Enrichment jobs
     # write to patches/ instead of chains/ so parallel jobs can never overwrite each

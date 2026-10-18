@@ -11,7 +11,8 @@
 // what keeps the merged "all chains" map (300+ pills, 1,200+ edges) responsive:
 // we never rebuild the DOM on a mouse move.
 
-import type { MergedGraph, GraphNode } from "./types";
+import type { MergedGraph, GraphNode, OtherEdge } from "./types";
+import { OTHER_LINK_COLOR } from "./data";
 import {
   LAYERS, DOMAINS, LAYER_ORDER, LAYER_NAMES, LAYER_COLORS, DOMAIN_NAMES, DOMAIN_COLORS,
 } from "./taxonomy";
@@ -31,6 +32,7 @@ export interface C2DColumn {
 }
 export interface C2DEdge {
   ci: number; pi: number; cj: number; pj: number; rel: string; nc: number; contracts: any[];
+  other?: boolean; // a non-AI relationship (merged_graph.json other_edges), drawn only on request
 }
 export interface C2DData { columns: C2DColumn[]; edges: C2DEdge[]; }
 
@@ -218,6 +220,32 @@ export function buildFromMerged(graph: MergedGraph): C2DData {
   return { columns: cols, edges };
 }
 
+// ── Non-AI relationships (user decision C, 2026-10-17) ───────────────────────
+// The model plus every other_edge whose two companies both have a pill on this map, flagged
+// `other` (drawn grey and dotted). Their sources ride along as the edge's `contracts`
+// (label, verbatim quote, figure, and the source's own product wording in `type` when it differs
+// from the edge's), so the edge panel lists them like deals.
+export function withOtherEdges(data: C2DData, otherEdges: OtherEdge[]): C2DData {
+  const pos: Record<string, [number, number]> = {};
+  data.columns.forEach((col, ci) => col.players.forEach((pl, pi) => {
+    if (!(pl.c in pos)) pos[pl.c] = [ci, pi];
+  }));
+  const extra: C2DEdge[] = [];
+  for (const e of otherEdges) {
+    const s = pos[e.source];
+    const t = pos[e.target];
+    if (!s || !t) continue;
+    const contracts = (e.refs || []).map((r) => ({
+      source: r.label,
+      signal: r.quote,
+      units: r.figure || "",
+      type: r.product && r.product !== e.relationship ? r.product : "",
+    }));
+    extra.push({ ci: s[0], pi: s[1], cj: t[0], pj: t[1], rel: e.relationship || "", nc: 0, contracts, other: true });
+  }
+  return extra.length ? { columns: data.columns, edges: [...data.edges, ...extra] } : data;
+}
+
 // ── Imperative SVG renderer (ported from CHAIN2D_TEMPLATE JS) ────────────────
 const NS = "http://www.w3.org/2000/svg";
 const esc = (s: string) => (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -275,7 +303,7 @@ export function renderChain2D(
     })
   );
   const edges = data.edges.map((e) => ({
-    s: e.ci + "|" + e.pi, t: e.cj + "|" + e.pj, rel: e.rel, nc: e.nc, cn: e.contracts || [],
+    s: e.ci + "|" + e.pi, t: e.cj + "|" + e.pj, rel: e.rel, nc: e.nc, cn: e.contracts || [], other: !!e.other,
   }));
   const outs: Record<string, number[]> = {};
   const ins: Record<string, number[]> = {};
@@ -424,12 +452,13 @@ export function renderChain2D(
     const p = document.createElementNS(NS, "path");
     p.setAttribute("d", d);
     p.classList.add("c2edge");
-    p.setAttribute("stroke", e.nc > 0 ? "#7dd3fc" : "#475569");
+    p.setAttribute("stroke", e.other ? OTHER_LINK_COLOR : e.nc > 0 ? "#7dd3fc" : "#475569");
     p.setAttribute("stroke-width", e.nc > 0 ? "1.8" : "1");
-    if (e.nc === 0) p.setAttribute("stroke-dasharray", "4 4");
+    if (e.other) p.setAttribute("stroke-dasharray", "1.5 3"); // non-AI: dotted, never a deal line
+    else if (e.nc === 0) p.setAttribute("stroke-dasharray", "4 4");
     // Low base opacity so the web reads calm; hover/focus (elit), ripple
     // (edown/eup) and selection (esel) bring individual edges up to full.
-    p.setAttribute("opacity", e.nc > 0 ? "0.35" : "0.2");
+    p.setAttribute("opacity", e.nc > 0 || e.other ? "0.35" : "0.2");
     (p.style as any).pointerEvents = "none";
     gE.appendChild(p);
     edgeEls.push(p);
@@ -444,7 +473,9 @@ export function renderChain2D(
       const latest = latestLabel(e.cn);
       tip(ev,
         `<b>${esc(NM(a.c))} → ${esc(NM(b.c))}</b><br>${esc(TR(e.rel)) || esc(T("supply relationship"))}<br>` +
-        `<span style="color:#7dd3fc">${plural(e.nc, "contract")}</span>` +
+        (e.other
+          ? `<span style="color:${OTHER_LINK_COLOR}">${esc(T("Non-AI relationship"))} · ${plural(e.cn.length, "source")}</span>`
+          : `<span style="color:#7dd3fc">${plural(e.nc, "contract")}</span>`) +
         (latest ? ` · ${esc(T("latest:"))} <span style="color:#fbbf24">${esc(latest)}</span>` : "") +
         `<br><span style="color:#64748b">${esc(T("click = detail"))}</span>`);
     });
@@ -650,7 +681,9 @@ export function renderChain2D(
       + `<span class="ep-x" id="ep-x">&times;</span></div>`
       + `<div class="ep-rel">${esc(TR(e.rel)) || esc(T("supply relationship"))}</div>`;
     if (e.cn && e.cn.length) {
-      h += `<div class="ep-n">${esc(T(e.cn.length === 1 ? "{n} contract on this link" : "{n} contracts on this link", { n: e.cn.length }))}</div>`;
+      h += e.other
+        ? `<div class="ep-n">${esc(T("Non-AI relationship"))} · ${esc(T(e.cn.length === 1 ? "{n} source on this link" : "{n} sources on this link", { n: e.cn.length }))}</div>`
+        : `<div class="ep-n">${esc(T(e.cn.length === 1 ? "{n} contract on this link" : "{n} contracts on this link", { n: e.cn.length }))}</div>`;
       // Same order as the node panel: source (with its source-type badge), the
       // deal's short summary, then the signal clamped to 3 lines + More/Less.
       e.cn.forEach((c: any) => {

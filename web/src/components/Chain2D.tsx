@@ -3,11 +3,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { fetchJson } from "@/lib/data";
 import { slugLabel } from "@/lib/taxonomy";
-import type { MergedGraph } from "@/lib/types";
+import type { MergedGraph, OtherEdge } from "@/lib/types";
 import {
-  buildFromChain, buildFromMerged, renderChain2D,
+  buildFromChain, buildFromMerged, renderChain2D, withOtherEdges,
   type C2DData, type C2DHandle,
 } from "@/lib/chain2d";
+import { OTHER_LINK_COLOR } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
 import "./Graph.css";
 import "./SignalText.css"; // source-type badges inside the edge popup (lib/chain2d.ts)
@@ -45,12 +46,24 @@ function storeChain(id: string): void {
   }
 }
 
-export default function Chain2D({ glass }: { glass: boolean }) {
+// `otherEdges`: the merged graph's non-AI relationships (page.tsx already holds the graph).
+export default function Chain2D({ glass, otherEdges }: { glass: boolean; otherEdges?: OtherEdge[] }) {
   // The chain files carry the "graph" overlay's text (products, sectors, deals).
   const { t, tr, name, rev } = useLang(["graph"]);
   const [index, setIndex] = useState<ChainIndexEntry[]>([]);
   const [sel, setSel] = useState<string>(readStoredChain);
-  const [data, setData] = useState<C2DData | null>(null);
+  // `model` = the chain as loaded; `data` (below) = what is drawn: the model, plus the
+  // non-AI edges while "Show non-AI relationships" is on.
+  const [model, setModel] = useState<C2DData | null>(null);
+  // Non-AI relationships are hidden by default (user decision C, 2026-10-17).
+  const [showOther, setShowOther] = useState(false);
+  // The map adds only the non-AI edges whose two companies both have a pill on it.
+  const withOther = useMemo(
+    () => (model && otherEdges && otherEdges.length ? withOtherEdges(model, otherEdges) : model),
+    [model, otherEdges]
+  );
+  const nOther = model && withOther ? withOther.edges.length - model.edges.length : 0;
+  const data = showOther ? withOther : model;
   const [loading, setLoading] = useState(true);
   const [loadErr, setLoadErr] = useState<string | null>(null);
   // Column slugs currently drawn as a single collapsed bar.
@@ -88,12 +101,12 @@ export default function Chain2D({ glass }: { glass: boolean }) {
     setLoadErr(null);
     const cached = modelCache.get(sel);
     if (cached) {
-      setData(cached);
+      setModel(cached);
       setLoading(false);
       return;
     }
     setLoading(true);
-    setData(null);
+    setModel(null);
     const p =
       sel === ALL
         ? fetchJson<MergedGraph>("/data/merged_graph.json").then(buildFromMerged)
@@ -101,7 +114,7 @@ export default function Chain2D({ glass }: { glass: boolean }) {
     p.then((d) => {
       modelCache.set(sel, d);
       if (alive) {
-        setData(d);
+        setModel(d);
         setLoading(false);
       }
     }).catch((e) => {
@@ -225,6 +238,14 @@ export default function Chain2D({ glass }: { glass: boolean }) {
         <span className="lg-item">
           <span className="lg-sw" style={{ background: "#60a5fa" }} />▲ {t("upstream")}
         </span>
+        {showOther && nOther > 0 && (
+          <span className="lg-item">
+            <svg width="24" height="6" aria-hidden="true">
+              <line x1="1" y1="3" x2="23" y2="3" stroke={OTHER_LINK_COLOR} strokeWidth="1.5" strokeDasharray="1.5 3" />
+            </svg>
+            {t("non-AI relationship")}
+          </span>
+        )}
         {hasExternal && (
           <span className="lg-item" title={t("Named as a supplier or customer here, but its own node lives in another chain")}>
             <span className="gx-lg-ext" />
@@ -235,6 +256,17 @@ export default function Chain2D({ glass }: { glass: boolean }) {
           {t("hover = full path · click = pin (click again / Esc = unpin) · click edge = contracts · layer label = collapse")}
         </span>
         <span className="gx-c2d-tools">
+          {nOther > 0 && (
+            <button
+              type="button"
+              className="gx-mini"
+              aria-pressed={showOther}
+              onClick={() => setShowOther((on) => !on)}
+              title={t("Also draw the business relationships outside the AI supply chains ({n} links, in grey)", { n: nOther })}
+            >
+              {showOther ? "✓ " : ""}{t("Show non-AI relationships")}
+            </button>
+          )}
           <button
             type="button"
             className="gx-mini"

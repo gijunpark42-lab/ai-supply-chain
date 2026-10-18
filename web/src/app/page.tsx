@@ -115,6 +115,9 @@ function Workspace() {
   const closeNav = useCallback(() => setNavOpen(false), []);
   const [glass, setGlass] = useState(true);
   const [dimStale, setDimStale] = useState(false);
+  // Non-AI business relationships (merged_graph.json "other_edges", user decision C, 2026-10-17)
+  // are hidden by default: the map is the AI supply chain; these are drawn only on request.
+  const [showOther, setShowOther] = useState(false);
   const [chains, setChains] = useState<Set<string>>(new Set(Object.keys(CHAIN_COLORS)));
   const [layers, setLayers] = useState<Set<string>>(new Set(LAYERS.map((l) => l[0])));
   const [domains, setDomains] = useState<Set<string>>(new Set(DOMAINS.map((d) => d[0])));
@@ -276,6 +279,12 @@ function Workspace() {
     return new Set([...visibleIds].filter((id) => group.ids.has(id)));
   }, [visibleIds, group]);
 
+  // The links the 3D graph gets: the AI edges AND the non-AI ones, always. Built once per graph
+  // load, so neither the filters nor the "Show non-AI relationships" toggle hand the force layout a
+  // new array (a new array restarts it and the focused company drifts off screen). Graph3D hides
+  // the non-AI links until `showOther` is on, and gives them zero pull on the layout.
+  const graphLinks = useMemo(() => (!viz ? [] : [...viz.links, ...viz.otherLinks]), [viz]);
+
   const linkCount = useMemo(() => {
     if (!graph) return 0;
     let c = 0;
@@ -283,8 +292,11 @@ function Workspace() {
     // untouched source edges so changing filters cannot turn this total to zero.
     for (const l of graph.edges)
       if (chains.has(l.chain) && graphIds.has(l.source) && graphIds.has(l.target)) c++;
+    if (showOther)
+      for (const l of graph.other_edges || [])
+        if (graphIds.has(l.source) && graphIds.has(l.target)) c++;
     return c;
-  }, [graph, chains, graphIds]);
+  }, [graph, chains, graphIds, showOther]);
 
   const toggle = (kind: "chain" | "layer" | "domain", slug: string) => {
     const map = { chain: [chains, setChains], layer: [layers, setLayers], domain: [domains, setDomains] } as const;
@@ -505,12 +517,23 @@ function Workspace() {
                   {t("Showing “{label}” · {n} companies", { label: group.label, n: graphIds.size })} ✕
                 </button>
               )}
+              {/* Shown only when there is a non-AI relationship between two graph companies to draw. */}
+              {viz.otherLinks.length > 0 && (
+                <button
+                  aria-pressed={showOther}
+                  onClick={() => setShowOther((on) => !on)}
+                  title={t("Also draw the business relationships outside the AI supply chains ({n} links, in grey)", { n: viz.otherLinks.length })}
+                >
+                  {showOther ? "✓ " : ""}{t("Show non-AI relationships")}
+                </button>
+              )}
               {filtersChanged ? <button onClick={resetFilters}>{t("Reset graph filters")} ↗</button> : <span className="workspace-all-visible">{t("All filters selected")}</span>}
             </div>
             <div className="workspace-map">
             <Graph3D
               nodes={viz.nodes}
-              links={viz.links}
+              links={graphLinks}
+              showOther={showOther}
               visibleIds={graphIds}
               visibleChains={chains}
               dimStale={dimStale}
@@ -534,7 +557,7 @@ function Workspace() {
           </>
         )}
 
-        {viz && tab === "Chain 2D" && <Chain2D glass={glass} />}
+        {viz && tab === "Chain 2D" && <Chain2D glass={glass} otherEdges={graph?.other_edges} />}
         {viz && tab === "Generations" && (
           <Generations nodes={viz.nodes} byId={viz.byId} onSelect={setSelected} />
         )}
