@@ -1,0 +1,62 @@
+{
+  "reviewer": "verbatim-1017b-oracle_q4_2026",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Oracle",
+      "target": null,
+      "label": "Oracle Q4 FY2026 (06-10-2026)",
+      "signal_prefix": "Q4 FY2026 (ended May): record quarter — revenue $19.2B (+21%",
+      "action": "set",
+      "set": {
+        "signal": "Q4 FY2026 (ended May), CFO Hilary Maxson: a record quarter - revenue $19.2B (+21% in US dollars), cloud infrastructure revenue +93%, cloud apps +10% (co-CEO Mike Sicilia: $4.1B, SaaS deferred revenue +16%), non-GAAP EPS $2.11 (+24%). FY2026: revenue above $67B for the first time, non-GAAP operating income $29B (+16%), cash flow from operations $32B (+54%), net cash outlay for capex $48B. RPO $638 BILLION, up 363% - 12% expected to be recognized in the next 12 months and another 34% between 13 and 36 months, percentages 'both expected to accelerate over the coming quarters based on our current long-term outlook'. FY2027 guide: total revenue +34% in constant currency (surpassing the five-year revenue CAGR in the long-term outlook), non-GAAP EPS $8.05 (+18% cc); Q1 cloud revenue +58% to 64%; revenues and earnings expected to accelerate in the second half as further megawatts come online. Long-term targets RECONFIRMED by the new CFO: +31% revenue / +28% EPS CAGR through FY2030."
+      },
+      "chains": ["components/hbm_memory.json"],
+      "reason": "The RPO recognition percentages are 'expected to accelerate' (hedge lost: the entry said 'accelerating'); speaker named.",
+      "evidence": "These percentages are both expected to accelerate over the coming quarters based on our current long-term outlook."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Oracle",
+      "target": null,
+      "label": "Oracle Q4 FY2026 (06-10-2026)",
+      "signal_prefix": "AI infrastructure: SIGNED $67B OF AI INFRA CONTRACTS THIS QU",
+      "action": "set",
+      "set": {
+        "signal": "AI infrastructure (co-CEO Clay Magouyrk): SIGNED $67B OF AI INFRASTRUCTURE CONTRACTS THIS QUARTER, the majority either bring-your-own-hardware (BYOH) or prepaid, taking BYOH/prepaid customer contracts to $75B with 'no degradation in margin compared to our other contracts'. Delivered more than 1.2GW to customers in FY2026; FY2027 Q1 delivery approaching 1GW, nearly the same capacity as delivered in the previous four quarters combined. 'Four customers contracting for more than $8 billion this quarter' (diversification across the largest customers). Renewals: 35,000 GPUs from 59 customers came up in Q4 - 49% of those customers renewed for 92% of the GPUs, and most of the remaining GPUs were subsequently sold to other customers in the same quarter; GLOBAL GPU UTILIZATION 97.5%. 'Everything we see shows this market size is $trillions per year'; with the previously outlined 30%-40% margin profile, OCI 'should grow into an extremely large and extremely profitable business'. CFO Hilary Maxson, 'from a back-of-envelope standpoint': return on invested capital in the high 20s at a steady state at the project level once revenues have ramped, even higher for BYOH-type structures."
+      },
+      "chains": ["components/hbm_memory.json"],
+      "reason": "'Four customers EACH contracted >$8B' is not what was said ('four customers contracting for more than $8 billion this quarter'); non-renewed GPUs: 'Most' were resold, not all; market-size quote not verbatim; ROIC is the CFO's hedged back-of-envelope view; speakers named.",
+      "evidence": "We continue to diversify across our largest customers, with four customers contracting for more than $8 billion this quarter."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Oracle",
+      "target": null,
+      "label": "Oracle Q4 FY2026 (06-10-2026)",
+      "signal_prefix": "Build-out (five largest sites): ABILENE TX 42% of capacity d",
+      "action": "set",
+      "set": {
+        "signal": "Build-out, five largest sites (co-CEO Clay Magouyrk): ABILENE TX has delivered 42% of the total capacity, an additional 35% will be delivered in the next 90 days and the remainder in the subsequent quarter; SHACKELFORD TX customer delivery begins 1H CY2027, with 115MW of power capacity already online, more than one month ahead of schedule; DONA ANA COUNTY NM customer delivery begins 1H CY2027, power design based on GIGAWATTS of clean, energy-efficient Bloom fuel cells; SALINE MI delivery begins 2H 2027 (network core ahead of schedule, delivered at the end of this calendar year); PORT WASHINGTON WI delivery begins 2H CY2027. Component-cost protection (Clay Magouyrk): Oracle does fixed-price customer contracts only when it has certainty on costs (capacity already deployed, or space and power, energy, people and component costs locked); otherwise it does not, and a mechanism makes those costs floating, so that when costs go up Oracle 'is not sitting there with reduced margins'.",
+        "figure": "Abilene 42% of capacity delivered, 35% more in the next 90 days; Shackelford 115MW of power online"
+      },
+      "chains": ["components/hbm_memory.json"],
+      "reason": "Financing terms removed (the ~$40B debt and equity raise, the $20B at-the-market equity issuance, no additional debt in CY2026 - financing is out of the map); the FY2027 net-cash-capex sentence moves to the guidance entry of patches/oracle_q4_2026_verbatim.json, which carries the capex tag; speaker named.",
+      "evidence": "To support our capital investments program, we expect to raise around $40 billion in debt and equity in our fiscal year 2027. That includes our already announced $20 billion at-the-market equity issuance."
+    },
+    {
+      "kind": "contract",
+      "company": "Bloom Energy",
+      "target": "Oracle",
+      "label": "Oracle Q4 FY2026 (06-10-2026)",
+      "signal_prefix": "Oracle confirmed its Dona Ana County, New Mexico mega-site (",
+      "action": "set",
+      "set": {
+        "signal": "Oracle co-CEO Clay Magouyrk on the Dona Ana County, New Mexico site (contracted September 2025, customer delivery begins in the first half of calendar year 2027): 'Power design is based on gigawatts of clean, energy-efficient Bloom fuel cells.'"
+      },
+      "chains": ["components/power_cooling.json"],
+      "reason": "'corroborating Bloom's Project Jupiter disclosure (up to 2.45GW exclusive)' is background knowledge the call does not state.",
+      "evidence": "We contracted this in September of 2025. Customer delivery begins in the first half of calendar year 2027 as well. Power design is based on gigawatts of clean, energy-efficient Bloom fuel cells."
+    }
+  ]
+}

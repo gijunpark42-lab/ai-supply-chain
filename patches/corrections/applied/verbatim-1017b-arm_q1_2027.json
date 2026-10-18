@@ -1,0 +1,136 @@
+{
+  "reviewer": "verbatim-1017b-arm_q1_2027",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Arm Holdings",
+      "target": null,
+      "label": "Arm Holdings Q1 FY2027 (07-29-2026)",
+      "signal_prefix": "Arm data-center royalty more than doubled YoY again, with Amazon/Graviton named",
+      "action": "set",
+      "set": {
+        "signal": "Arm data-center royalty more than doubled YoY again, with Amazon/Graviton named among the deployments driving cloud-AI overperformance; Neoverse shipments have passed 1.5 billion cores (most recent 500 million in nine months). AWS plans tens of millions of Graviton5 cores for agentic AI workloads."
+      },
+      "chains": [
+        "accelerators/aws_trainium3.json"
+      ],
+      "reason": "Removed 'extending the Arm host-CPU pairing alongside Trainium': Trainium is never mentioned on the call; the clause was the enricher's inference.",
+      "evidence": "AWS announced plans to deploy tens of millions of Graviton5 cores to power agentic AI workloads."
+    },
+    {
+      "kind": "contract",
+      "company": "Arm Holdings",
+      "target": "Amazon",
+      "label": "Arm Holdings Q1 FY2027 (07-29-2026)",
+      "signal_prefix": "AWS announced plans to deploy TENS OF MILLIONS of Graviton5 cores to power agentic AI workloads. Graviton5 is a 192-CORE design",
+      "action": "set",
+      "set": {
+        "signal": "AWS announced plans to deploy TENS OF MILLIONS of Graviton5 cores to power agentic AI workloads. CEO Rene Haas cited Graviton5, at 192 CORES, as an Arm-based instance in the market with a greater number of cores than Arm's own 128-core AGI CPU, and said more cores is 'clearly the direction of travel' for agentic workloads because the software overhead is simpler and virtual machines or jobs on single cores are 'much more efficient in terms of throughput'."
+      },
+      "chains": [
+        "accelerators/aws_trainium3.json"
+      ],
+      "reason": "'the highest core count Arm cited in the market' and 'throughput per rack' are not in the source: Haas named Graviton5 as one Arm instance with more cores than the 128-core AGI CPU and spoke of throughput, not racks.",
+      "evidence": "There are instances in the market, using Arm, that are better, or actually greater number of cores, and that's Graviton5, which is 192 cores."
+    },
+    {
+      "kind": "contract",
+      "company": "Arm Holdings",
+      "target": "Google",
+      "label": "Arm Holdings Q1 FY2027 (07-29-2026)",
+      "signal_prefix": "Google stated that its Arm-based Axion CPU is a CORE COMPONENT of its AI infrastructure strategy and THE HOST CPU for its latest TPU AI systems. Arm called out",
+      "action": "set",
+      "set": {
+        "signal": "Google stated that its Arm-based Axion CPU is a CORE COMPONENT of its AI infrastructure strategy and THE HOST CPU for its latest TPU AI systems. CFO Jason Child called out 'strong deployments from some of our partners like Google with their Axion, as it's branded, with all the new TPU deployments' as a driver of cloud-AI royalty overperformance, and CEO Rene Haas cited Axion as proof Arm coexists with proprietary accelerators: Google 'used Axion as an interface into their TPUs, away from x86'."
+      },
+      "chains": [
+        "accelerators/tpu_v8t.json"
+      ],
+      "reason": "The quoted phrase was not verbatim (words dropped); restored the CFO's exact words and named the speakers.",
+      "evidence": "we're really seeing strong deployments from some of our partners like Google with their Axion, as it's branded, with all the new TPU deployments."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Arm Holdings",
+      "target": null,
+      "label": "Arm Holdings Q1 FY2027 (07-29-2026)",
+      "signal_prefix": "Arm AGI CPU status: initial product DELIVERED to multiple customers",
+      "action": "set",
+      "set": {
+        "signal": "Arm AGI CPU status: initial product DELIVERED to multiple customers; manufacturing capacity SECURED for the $1B opportunity across FY2027-FY2028, while demand now EXCEEDS $2B with new customers added in the U.S. and China. Confidence in achieving upside above $1B increased over the past 90 days; a detailed revenue and margin update comes at Q3 results. CFO Jason Child: no change to the gross-margin view of last quarter, 'somewhere in the high 30% range, maybe low 40s for the first generation' in Q4 of this year as well as next year, with 50% expected over the next couple of years by bringing in-house some of the work 'that maybe an ASIC has helped us with in the past'; the recent price increases are still being worked through. The AGI CPU is a 128-core design; more cores is 'clearly the direction of travel' for agentic workloads. Silicon revenue will be broken out as a THIRD reporting line (separate from licensing and royalty) once it is at least 10% of revenue, which Child expects in FY2028 based on the forecast, with shipping starting 'at the end of this year'."
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "The CFO said 'Q4 of this year as well as for next year' and shipping 'at the end of this year'; the entry turned these into 'Q4 FY2027 and FY2028' and 'end of calendar 2026' (an inferred calendar). Restored his wording and hedges.",
+      "evidence": "Jason Child: ... somewhere in the high 30% range, maybe low 40s for the first generation for really in Q4 of this year as well as for next year."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Arm Holdings",
+      "target": null,
+      "label": "Arm Holdings Q1 FY2027 (07-29-2026)",
+      "signal_prefix": "Supply chain is the binding constraint on the AGI CPU ramp, not demand",
+      "action": "set",
+      "set": {
+        "signal": "Supply chain is the binding constraint on the AGI CPU ramp, not demand: 'It is a very tight market across everything. Whether it's memory, whether it's test equipment, whether it's substrates, whether it's TSMC wafers' - CEO Rene Haas, noting even CPU rivals with their own fabs 'have not been able to supply the demand'. Confidence improved across ALL of wafers, substrates, test capacity and memory over the past 90 days, and management sees no single-point-of-failure component risk. CFO Jason Child expects the supply chain 'is going to loosen or at least expand quite a bit' into calendar 2028 and 2029 (FY2029 and FY2030), citing estimates ('I think there's estimates') that capacity is going up somewhere between 70%-100% depending on wafer assumptions, 'and even more so on the memory side'.",
+        "figure": "wafers/substrates/test/memory all tight; CFO cites estimates of capacity going up 70%-100%"
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "The 70-100% capacity figure is estimates the CFO cited (hedged 'I think there's estimates'), not a company forecast, and it was the CFO, not the CEO, who said it; restored the hedge and the speaker in signal and figure. Verifier: 'outside' and the tie of the 70%-100% figure to CY2028-29 were not stated; the CFO said only 'I think there's estimates that the capacity's going up somewhere between 70%-100%'.",
+      "evidence": "Jason Child: ... I think there's estimates that the capacity's going up somewhere between 70%-100%, depending on your assumptions on wafer"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Arm Holdings",
+      "target": null,
+      "label": "Arm Holdings Q1 FY2027 (07-29-2026)",
+      "signal_prefix": "TAM reframing: Arm's March view of a $100B+ data-center CPU market",
+      "action": "set",
+      "set": {
+        "signal": "TAM reframing: Arm's March view of a CPU TAM of about $100B in the outer years (prior to that 'most folks were talking about a number of around $50 billion to $60 billion') may have been conservative, CEO Rene Haas said: peers have since talked about numbers up to $200B, and CFO Jason Child cited a most recent estimate of $220B 'from a variety of sources'. Haas: 'We're not changing the numbers at all'. Asked whether the same market share would be much higher if the market is $200B-plus, Child said 'certainly it could be', and that internally Arm has higher targets. Driver (Haas): inference-based compute running agentic workloads is throughput-constrained by the number of CPUs, so rising inference and agentic demand means an increase in CPU demand.",
+        "figure": "CPU TAM $100B+ (March) -> most recent estimate $220B; Arm numbers unchanged"
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "'the $15B AGI CPU / FY2031 framework stands' came from the analyst's question (Gary Mobley); management never stated or confirmed $15B. 'would imply material upside' overstated the CFO's hedged 'certainly it could be'.",
+      "evidence": "Gary Mobley: ... I assume the $15 billion in projected AGI revenue expected for 2031 ... | Rene Haas: ... We're not changing the numbers at all"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Arm Holdings",
+      "target": null,
+      "label": "Arm Holdings Q1 FY2027 (07-29-2026)",
+      "signal_prefix": "Royalty mix shift — cloud AI is offsetting a weaker smartphone market",
+      "action": "set",
+      "set": {
+        "signal": "Royalty mix shift - cloud AI is offsetting a weaker smartphone market. CFO Jason Child: the decline in smartphone sales due to higher memory prices was more than offset by higher royalty rates as Armv9 and Compute Subsystems increase their penetration into smartphones, tablets and other consumer devices; the slowdown, first expected only at the lower end, now reaches 'all parts of the market, even some upper and mid-tier'. Royalty growth for the year, expected at around 20% last quarter, is 'probably somewhere closer to the high teens right now, but hard to say until we learn more', with Q2 royalty guided to 13%. CEO Rene Haas: with the smartphone market projected down by double digits, Arm is projecting double-digit royalty growth in smartphones because most customers moved to v9 and CSS. Licence growth guidance was raised, leaving the combined business 'ahead of where we'd expected to be'. On the 20%-plus royalty growth for 2028 and 2029, Child said 'that's very much still intact', with the 20% range expected next year and beyond as the memory-driven smartphone weakness laps.",
+        "figure": "this year's royalty growth ~20% -> 'closer to the high teens'; Q2 royalty +13%; 20%+ 'still intact' for 2028 and 2029"
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "'OEMs are raising prices' and the handset BOM framing came from the analyst's question (Sebastien Naji), not management; the CFO's hedge on 'high teens' was dropped; and he said '2028 and 2029', which the entry turned into FY2028-FY2029. Verifier: figure says 'this year' as the CFO did, not 'FY27'.",
+      "evidence": "Sebastien Naji: ... They are starting to raise prices. | Jason Child: ... that's probably somewhere closer to the high teens right now, but hard to say"
+    },
+    {
+      "kind": "contract",
+      "company": "Arm Holdings",
+      "target": "Microsoft",
+      "label": "Arm Holdings Q1 FY2027 (07-29-2026)",
+      "signal_prefix": "Microsoft EXPANDED Azure Cobalt 200 virtual machines built on Arm Neoverse CSS",
+      "action": "set",
+      "set": {
+        "signal": "Microsoft EXPANDED Azure Cobalt 200 virtual machines built on Arm Neoverse CSS. Microsoft was also named among the supporters of Arm's new Performix workload-analysis tooling (with MongoDB, Redis and SAP)."
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "Removed 'the second-generation Cobalt part, succeeding Cobalt 100': background knowledge, not stated on the call.",
+      "evidence": "Microsoft expanded Azure Cobalt 200 virtual machines built on Arm Neoverse CSS."
+    }
+  ]
+}

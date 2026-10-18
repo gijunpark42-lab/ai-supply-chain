@@ -1,0 +1,54 @@
+{
+  "reviewer": "verbatim-1017-google",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Google",
+      "target": null,
+      "label": "Google Q2 FY2026 (07-22-2026)",
+      "signal_prefix": "CALL — GEMINI 4 AND TOKEN ECONOMICS: Google has 's",
+      "action": "set",
+      "set": {
+        "signal": "CALL — GEMINI 4 AND TOKEN ECONOMICS: Google has 'started our MOST AMBITIOUS PRE-TRAINING RUN YET for GEMINI 4' — needed as the larger base model to compete at the next frontier. Sundar Pichai: 'Picking up pace and releasing models almost at a monthly cadence is part of our roadmap as we are building Gemini 4 as well.' Announced the day before the call: Gemini 3.6 Flash (over 10 points higher than 3.5 Flash on the DeepSuite benchmark, six weeks after the prior version, and more token-efficient) and 3.5 Flash-Lite; Gemini 3.5 Flash CYBER + CodeMender agent (finds and fixes vulnerabilities); Gemini 3.5 Pro in testing. Usage: model APIs now processing ~22 BILLION TOKENS PER MINUTE, up from 16B a quarter ago; >9M developers building monthly; Gemini app at 950M MAU with DAU TRIPLED in a year; AI Mode >1 BILLION MAU; Gemma open models >900M downloads. Sundar Pichai: 'we continue to be supply constrained, a sign of momentum and rapid adoption.' Cost curve: AI Mode response cost cut to its LOWEST LEVEL SINCE LAUNCH via engineering + hardware optimization even as capabilities grew.",
+        "figure": "Gemini 4 pre-training underway (most ambitious); ~22B tokens/min (up from 16B); Gemini app 950M MAU; AI Mode >1B MAU; supply constrained"
+      },
+      "chains": [
+        "accelerators/google_tpu_v7_ironwood.json"
+      ],
+      "reason": "Verbatim call: the near-monthly release cadence is on the roadmap WHILE Gemini 4 is being built (not 'once it lands'); 3.6 Flash / 3.5 Flash-Lite were announced the day before the call (July 21, not in Q2) and gained 'over 10 points'; '+38% QoQ' is arithmetic not stated on the call; the supply-constrained quote is reworded inside quotation marks and unattributed.",
+      "evidence": "Picking up pace and releasing models almost at a monthly cadence is part of our roadmap as we are building Gemini 4 as well. | Yesterday, we announced new models, Gemini 3.6 Flash and 3.5 Flash-Lite"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Google",
+      "target": null,
+      "label": "Google Q2 FY2026 (07-22-2026)",
+      "signal_prefix": "CALL — CLOUD +82% AND THE TPU-SYSTEM-SALES MODEL S",
+      "action": "set",
+      "set": {
+        "signal": "CALL — CLOUD +82% AND THE TPU-SYSTEM-SALES MODEL SHIFT: Google Cloud revenue $24.8B (+82%), led by GCP (grew faster than Cloud overall); operating income $8.8B — MORE THAN TRIPLED YoY, margin 20.7% -> 35.6%. Backlog rose MORE THAN $50B sequentially to $514 BILLION (just over 50% to convert to revenue within 24 months). Google BEGAN RECOGNIZING REVENUE FROM TPU SYSTEM SALES — TPU systems were DELIVERED TO CUSTOMER DATA CENTERS FOR THE FIRST TIME in Q2; a relatively small revenue portion in 2026, ramping as 2026 exits, with the VAST MAJORITY REALIZED IN 2027 (agreements sit in backlog). CFO: Cloud revenue growth 'accelerated meaningfully even after excluding the impact of TPU system sales.' Demand (Sundar Pichai): new-customer acquisition velocity MORE THAN DOUBLED YoY; existing customers EXCEEDING COMMITMENTS BY >50% (accelerating); nearly 500 Cloud customers each processed >1 TRILLION tokens in the last year; >2,000 enterprises consumed >100B tokens. SUPPLY BRIDGE (CFO Anat Ashkenazi): Q3 will expand THIRD-PARTY capacity as a bridging strategy while internal capacity builds — modest near-term Cloud margin pressure; Sundar Pichai on the bridge deals for very large Cloud customers: 'while a short-term cost over a few months may be very high, in the lifetime of the deal, as we bring more capacity on, is highly ROI positive.' External TPU placements (Sundar Pichai: 'like the project we are doing with Blackstone') balance third-party infrastructure demand."
+      },
+      "chains": [
+        "accelerators/google_tpu_v7_ironwood.json"
+      ],
+      "reason": "Verbatim call: the CFO tied built-ahead TPU inventory to cash from operations, not cost of revenues; the 'excluding TPU' quote and the ROI quote are reworded inside quotation marks; '(was 330 last quarter)' is not stated on this call; the SpaceX deal is an analyst's words (Ross Sandler), which management never addressed; attributions added.",
+      "evidence": "You see that impact on the cash from operations because we built ahead | [analyst Ross Sandler] We all saw the third-party compute deal with SpaceX."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Google",
+      "target": null,
+      "label": "Google Q2 FY2026 (07-22-2026)",
+      "signal_prefix": "CALL — CAPEX RAISED AGAIN, AND THE INFRA STACK: Q2",
+      "action": "set",
+      "set": {
+        "signal": "CALL — CAPEX RAISED AGAIN, AND THE INFRA STACK: CFO Anat Ashkenazi: Q2 CAPEX WAS $44.9 BILLION (~60% servers / ~40% data centers + networking), driving NEGATIVE free cash flow of $5.9B in the quarter (OCF $39.1B). FULL-YEAR 2026 CAPEX GUIDANCE RAISED TO $195-205 BILLION (from $180-190B) on 'an acceleration in the delivery of capacity to meet growing demand'; 2027 capex to INCREASE SIGNIFICANTLY again. Cash and marketable securities $242.5B. Infrastructure differentiators (Sundar Pichai): VIRGO NETWORK connects up to A MILLION AI ACCELERATORS across multiple data-center sites into one unified supercomputer; software stack natively supports JAX/PyTorch/vLLM/SGLang for GPU<->TPU portability; new AGENT-OPTIMIZED AXION CPU delivers 30% better performance/dollar than peers; accelerator portfolio spans TPU 8t/8i and the new NVIDIA VERA RUBIN platform. TPU ALLOCATION PRIORITIES: (1) frontier AGI development ('the foundation for everything'), (2) core products (Search/YouTube) and serving first-party models for Cloud (Vertex/Gemini Enterprise), (3) external infrastructure demand — balanced by placing TPUs in customers' or partners' data centers."
+      },
+      "chains": [
+        "accelerators/google_tpu_v7_ironwood.json"
+      ],
+      "reason": "Verbatim call: 'H1 = $80.6B' is arithmetic not stated on the call; the funding sentence is financing (enrich rule 2: debt / equity raise / ATM are excluded) and its '$49.6B' and 'June' are not in the call; attributions added.",
+      "evidence": "CapEx was $44.9 billion in the second quarter | we were at about $16 billion, and we went to about $100 billion across multiple currencies and geographies"
+    }
+  ]
+}

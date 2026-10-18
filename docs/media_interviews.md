@@ -110,7 +110,9 @@ id before the date.
   skipped day is caught up by the next run, because `--days 2` looks back two days and the state file skips videos
   already seen;
 - output: `.claude/media_pull.log` and `.claude/media_pull.err.log`, one line in `.claude/market_data_task.log`;
-- `nightly.ps1`'s market-data fallback (when the 22:00 task did not run) does not run it;
+- `nightly.ps1` calls it too, every night before the enrich session (user, 2026-10-17: YouTube goes into the daily
+  enrich): the puller's own one-run-a-day check makes that a no-op after the 22:00 run and a catch-up when the 22:00
+  task did not run or skipped it for time;
 - on a timeout the whole process tree is stopped (`taskkill /T`), so no yt-dlp or node process is left running.
 
 Publishing: the transcripts in `transcripts/media/` are gitignored and never published (see below). The 22:00

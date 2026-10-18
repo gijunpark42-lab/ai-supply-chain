@@ -9,10 +9,10 @@ market/history/<dataset>.jsonl (ADD-only, deduplicated by key) and rebuilds its 
 Order (fixed): memory_prices, gpu_prices, insiders_us, insiders_asia, insiders (build), financing_asia,
 hyperscaler_cash, financials, ai_labs, financing_us, financing (build). financials (Yahoo Finance statements) runs
 after hyperscaler_cash, whose earnings calendar tells it which companies report soon; it stops fetching Yahoo after
-15 minutes (the rest of its weekly rotation waits for the next day) and then spends at most 5 minutes on the same
-companies' SEC / DART filings. financing_us runs late because it is the slowest
-step when SEC is slow or blocking us (it stops itself after 5 filers fail in a row, see its circuit breaker), so
-it cannot starve the other collectors of the nightly time box.
+15 minutes (the rest of its weekly rotation waits for the next day), then reads Yahoo's earnings calendars (past
+adjusted EPS) for at most 5 minutes and spends at most 5 minutes on the same companies' SEC / DART filings.
+financing_us runs late because it is the slowest step when SEC is slow or blocking us (it stops itself after 5
+filers fail in a row, see its circuit breaker), so it cannot starve the other collectors of the nightly time box.
 
 Before the first collector, every market/history/*.jsonl is checked for a cut-off last line (a run killed while
 append_history was writing): such a line would make read_history() fail on every later night, so it is moved to

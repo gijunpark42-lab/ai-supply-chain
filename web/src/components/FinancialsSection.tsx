@@ -26,11 +26,13 @@
 // signal: own file, own section, never quarterly_data. Renders nothing when the company has
 // neither a file nor an upcoming earnings date.
 //
-// EPS: the "(E)" consensus is on Yahoo's EPS basis, which for US companies is usually the
-// adjusted (non-GAAP) EPS, while "EPS (diluted)" is the reported figure. When Yahoo's own
-// "actual" EPS equals the reported one, the bases match and the consensus sits in the EPS
-// row; otherwise it gets its own "EPS (Yahoo basis)" row next to Yahoo's actuals, so a GAAP
-// figure is never compared with an adjusted one.
+// EPS (user, 2026-10-17: "조정, GAAP, net income 다 볼 수 있게"): net income, "EPS (GAAP,
+// diluted)" (the reported figure) and "EPS (adjusted)" (Yahoo's EPS on the analysts' basis:
+// for US companies usually the company's adjusted / non-GAAP EPS, elsewhere usually the
+// reported one) are always separate rows, each with its own QoQ / YoY. The "(E)" consensus is
+// on the adjusted basis, so it sits only in the adjusted row: a GAAP figure is never compared
+// with an adjusted one. The adjusted row is left out when it has no value at all. Its older
+// quarters come from the collector's history (Yahoo itself lists only the last ~4).
 //
 // A Korean quarter whose preliminary results are filed (DART 잠정실적) but not its statements
 // gets a "(P)" column with what the filing gives (revenue, operating income, ...).
@@ -92,21 +94,9 @@ function grossMargin(p: FinPeriod): number | null {
 
 const isNum = (v: Num): v is number => typeof v === "number" && Number.isFinite(v);
 
-/** True unless Yahoo's EPS ("actual", the consensus basis) equals the reported EPS (within 2%: basic vs diluted,
- *  rounding) wherever both exist. US adjusted EPS differs by more (NVIDIA Q2 27: 2.22 vs 2.46). */
-function epsBasisDiffers(file: FinancialsFile): boolean {
-  const both = [...file.quarterly, ...file.annual].filter((p) => isNum(p.eps_adjusted) && isNum(p.eps_diluted));
-  if (both.length === 0) return true; // unknown: keep them apart
-  return both.some((p) => Math.abs(p.eps_adjusted! - p.eps_diluted!) > 0.02 * Math.abs(p.eps_diluted!) + 0.006);
-}
-
-const epsEstimate = {
-  est: (e: FinEstimate) => e.eps_avg,
-  estRange: (e: FinEstimate): [Num, Num, Num] => [e.eps_low, e.eps_high, e.eps_analysts],
-};
-
 // The rows: the order of the user's Naver screenshot, plus growth rows, operating income, EPS and the gross margin.
-function rowsFor(separateEps: boolean): RowDef[] {
+// Net income, GAAP EPS and adjusted EPS each carry their own QoQ / YoY; only the adjusted row has the (E) consensus.
+function rowsFor(): RowDef[] {
   const rows: RowDef[] = [
     {
       key: "revenue",
@@ -163,35 +153,27 @@ function rowsFor(separateEps: boolean): RowDef[] {
     { key: "ni-yoy", label: "YoY %", kind: "growth", sub: true, value: (p) => p.yoy?.net_income },
     {
       key: "eps",
-      label: "EPS (diluted)",
-      tip: "Reported diluted earnings per share",
+      label: "EPS (GAAP, diluted)",
+      tip: "Reported diluted EPS, as in the financial statements (US GAAP; outside the US the company's own standard, e.g. IFRS)",
       kind: "eps",
       value: (p) => p.eps_diluted,
       derivedFrom: ["eps_diluted"],
-      ...(separateEps ? {} : epsEstimate),
     },
+    { key: "eps-qoq", label: "QoQ %", kind: "growth", sub: true, quarterlyOnly: true, value: (p) => p.qoq?.eps_diluted },
+    { key: "eps-yoy", label: "YoY %", kind: "growth", sub: true, value: (p) => p.yoy?.eps_diluted },
     {
-      key: "eps-yoy",
-      label: "YoY %",
-      kind: "growth",
-      sub: true,
-      value: (p) => p.yoy?.eps_diluted,
-      ...(separateEps ? {} : { est: (e: FinEstimate) => e.eps_growth_pct }),
+      key: "eps-adj",
+      label: "EPS (adjusted)",
+      tip: "The company's adjusted (non-GAAP) EPS on the analysts' basis, as reported by Yahoo Finance; where Yahoo has no separate adjusted figure (mostly outside the US) it equals the reported EPS. The (E) consensus is on this basis",
+      kind: "eps",
+      value: (p) => p.eps_adjusted,
+      derivedFrom: ["eps_adjusted"],
+      est: (e) => e.eps_avg,
+      estRange: (e) => [e.eps_low, e.eps_high, e.eps_analysts],
     },
+    { key: "eps-adj-qoq", label: "QoQ %", kind: "growth", sub: true, quarterlyOnly: true, value: (p) => p.qoq?.eps_adjusted },
+    { key: "eps-adj-yoy", label: "YoY %", kind: "growth", sub: true, value: (p) => p.yoy?.eps_adjusted, est: (e) => e.eps_growth_pct },
   ];
-  if (separateEps) {
-    rows.push(
-      {
-        key: "eps-adj",
-        label: "EPS (Yahoo basis)",
-        tip: "Yahoo's EPS on the analysts' basis (for US companies usually adjusted, non-GAAP); the (E) consensus is on the same basis",
-        kind: "eps",
-        value: (p) => p.eps_adjusted,
-        ...epsEstimate,
-      },
-      { key: "eps-adj-yoy", label: "YoY %", kind: "growth", sub: true, value: () => null, est: (e) => e.eps_growth_pct }
-    );
-  }
   rows.push(
     {
       key: "dy",
@@ -446,7 +428,6 @@ export default function FinancialsSection({ companyId }: { companyId: string }) 
       ? t("Unit: KRW 100 millions; %, x (EPS in KRW)")
       : t("Unit: {cur} millions; %, x (EPS in {cur})", { cur: currency });
 
-  const separateEps = epsBasisDiffers(file);
   const shownRows = (defs: RowDef[]) =>
     defs.filter(
       (r) =>
@@ -457,7 +438,7 @@ export default function FinancialsSection({ companyId }: { companyId: string }) 
           isNum(c.kind === "period" ? r.value(c.p) : c.kind === "prelim" ? r.prelim?.(c.r) : r.est?.(c.e))
         )
     );
-  const rows = shownRows(rowsFor(separateEps));
+  const rows = shownRows(rowsFor());
   const cashRows = shownRows(CASH_ROWS);
   const hasEst = cols.some((c) => c.kind === "est");
   const prelimCol = cols.find((c): c is Extract<Col, { kind: "prelim" }> => c.kind === "prelim");
@@ -637,9 +618,9 @@ export default function FinancialsSection({ companyId }: { companyId: string }) 
           </div>
         )}
         {hasEst && <div>{t("(E): analyst consensus average, with the low–high range under it")}</div>}
-        {hasEst && adjShown && (
+        {adjShown && (
           <div>
-            {t("EPS (Yahoo basis) and its (E) consensus are on the analysts' basis (for US companies usually adjusted, non-GAAP); EPS (diluted) is the reported figure")}
+            {t("EPS (adjusted) and its (E) consensus: the company's adjusted (non-GAAP) EPS on the analysts' basis, as reported by Yahoo Finance; EPS (GAAP, diluted) is the reported figure. Each is compared only with itself")}
           </div>
         )}
         {hasDerived && <div>{t("* computed from other reported figures (e.g. a fiscal Q4 = FY minus Q1–Q3)")}</div>}

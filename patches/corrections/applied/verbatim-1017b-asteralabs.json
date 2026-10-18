@@ -1,0 +1,55 @@
+{
+  "reviewer": "verbatim-1017b-asteralabs",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Astera Labs",
+      "target": null,
+      "label": "Astera Labs Q2 FY2026 (08-04-2026)",
+      "signal_prefix": "CALL — SCORPIO INFLECTION AND CONTENT-PER-XPU",
+      "action": "set",
+      "set": {
+        "signal": "CALL — SCORPIO INFLECTION AND CONTENT-PER-XPU: PCIe 6 products crossed MORE THAN 50% OF TOTAL REVENUE (from one-third in Q1). Scorpio becomes the company's LARGEST PRODUCT FAMILY in Q3 — one quarter AHEAD of plan — as high-radix Scorpio X-Series (320-lane) enters volume production against a $20 BILLION merchant scale-up switching TAM; OVER 10 CUSTOMERS engaged on Scorpio X, shipping to multiple customers for qualification, additional customers ramping end-2026/early-2027, and even at the lead hyperscaler MULTIPLE PLATFORMS are designed in. Content per XPU has gone from 'small numbers' at IPO (President/COO) to MULTIPLE THOUSANDS OF DOLLARS, with the Scorpio X scale-up switch alone >$1,000/XPU and growing 'well beyond' that in future generations. COSMOS software has crossed into the ORCHESTRATION layer — XPUs now talk directly to the switch (hardware in-network compute + HyperCast, up to 2x collective performance), driving stickiness across generations. Aries set a record (the retimer is 'a socket that somewhat keeps on giving'; Gen 5 extended by a new INFERENCE wave; Gen 6 higher attach; PCIe 7.0 solutions expected to be ready to meet customer timelines). Q2 GM 73.7%, op margin 39.1% -> Q3 op margin ~43% (+400bps); long-term GM target ~70%; Scorpio margins ~corporate average. CEO: 'Multiple industry forecasts now point to hyperscaler AI and cloud infrastructure spending in 2027 reaching into the trillion-dollar range'."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "The $50-$100 per accelerator at IPO is the Citi analyst's number; management said only 'small numbers'. 'Keeps on giving' was said of the retimer socket, not Gen 5. The trillion-dollar figure is industry forecasts cited by the CEO.",
+      "evidence": "Like you correctly noted, we started with small numbers when IPO time. Now we see our business contributing multiple thousands of dollars per XPU"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Astera Labs",
+      "target": null,
+      "label": "Astera Labs Q2 FY2026 (08-04-2026)",
+      "signal_prefix": "CALL — OPTICAL ROADMAP IN THREE PHASES",
+      "action": "set",
+      "set": {
+        "signal": "CALL — OPTICAL ROADMAP IN THREE PHASES (potential to unlock 'tens of billions of dollars' beyond the copper TAM): (1) high-density FIBER-ATTACHED solutions on aiXscale core tech (up to 50-meter fiber, ultra-low latency) — initial opportunity with a TIER-1 AI PLATFORM PROVIDER expected to enter VOLUME PRODUCTION IN 2027; (2) NEAR-PACKAGED OPTICS (NPO) chipsets for multi-rack scale-up clusters, also targeted for 2027 production; (3) fully integrated Scorpio X switches with CPO optical-engine modules on the longer-term roadmap for 2028 and beyond, terabits/sec of optical I/O per switch. Management expects copper and optical to COEXIST: scale-up WITHIN a rack stays copper this generation and next, optical plays 'an increasingly important role' as clusters expand to four, five or more racks — and $/XPU content GOES UP moving copper->NPO. Full-stack capability (EIC + silicon photonics + aiXscale connector) enables complete optical engines, not just components.",
+        "figure": "Optical: fiber-attach volume production expected 2027 (tier-1 AI platform provider), NPO targeted for 2027 production, CPO-integrated Scorpio 2028 and beyond; tens of $B TAM potential"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Hedge lost: management said optical will play an increasingly important role, not that it takes over. Verifier: other hedges restored ('expected to enter', 'targeted for', 'potential to unlock') and the figure no longer ties the tier-1 provider to NPO.",
+      "evidence": "optical will definitely play an increasingly important role as you start connecting these racks to each other and cluster size expands from maybe one or two racks to four, five"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Astera Labs",
+      "target": null,
+      "label": "Astera Labs Q2 FY2026 (08-04-2026)",
+      "signal_prefix": "CALL — CXL REVIVAL, TAURUS EXPANSION, CUSTOM SILICON",
+      "action": "set",
+      "set": {
+        "signal": "CALL — CXL REVIVAL, TAURUS EXPANSION, CUSTOM SILICON: CXL momentum is back, driven by (1) MEMORY PRICING/SUPPLY dynamics — CXL-attached memory as a cost alternative to expensive local memory/HBM for memory-intensive inference and agentic workloads, (2) GPU-attach with KV-CACHE ACCELERATION improving inference latency, (3) memory-intensive general compute (SAP-class). Closed a NEW standard Leo design win at a U.S. hyperscaler in Q2; in 2027 expects VOLUME shipments of BOTH standard and custom Leo CXL controllers to TWO U.S. HYPERSCALERS. Taurus: 100G/lane smart cable modules in pre-production for 800G AECs; new 3.2T smart retimers/redrivers at 200G/lane (the company calls them 'the industry's first solutions to enable smart swap') support next-gen Ethernet AND UALink, and the CEO expects them to DOUBLE the Taurus market opportunity to OVER $4 BILLION by 2030. Custom: NVLINK FUSION-BASED designs for hybrid rack architectures plus custom Leo controllers — initial shipments expected to commence in 2027, 'multi-billion dollar incremental opportunity.' China stays single-digit % of revenue (open protocols: PCIe, Ethernet, increasingly NVLink).",
+        "figure": "CXL: 2 US hyperscalers in volume 2027 (memory-cost + KV-cache drivers); Taurus TAM expected to double to >$4B by 2030; NVLink-fusion custom ships 2027"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Hedge and attribution lost: the doubling is the CEO's expectation and 'industry's first' is the company's claim.",
+      "evidence": "We expect our new high-speed 200G per lane retimers and redrivers to double our Taurus portfolio market opportunity to over $4 billion by 2030."
+    }
+  ]
+}

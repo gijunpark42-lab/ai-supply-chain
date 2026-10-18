@@ -1,6 +1,6 @@
 {
  "updated": "2026-10-17",
- "scanned": 818,
+ "scanned": 824,
  "flagged": [
   {
    "path": "transcripts/accelerators/amd_q2_2026.txt",
@@ -47,19 +47,19 @@
   {
    "path": "transcripts/bigtech/amazon_q2_2026.txt",
    "label": "Amazon Web Services Q2 FY2026 (07-30-2026)",
-   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 38% bullet lines; 7,088 chars vs a median 51,670 for its other calls)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 38% bullet lines; 7,088 chars vs a median 49,624 for its other calls)",
    "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
   },
   {
    "path": "transcripts/bigtech/meta_q2_2026.txt",
    "label": "Meta Q2 FY2026 (07-29-2026)",
-   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 33% bullet lines; 9,081 chars vs a median 51,544 for its other calls)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 33% bullet lines; 9,081 chars vs a median 53,312 for its other calls)",
    "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
   },
   {
    "path": "transcripts/bigtech/microsoft_q4_fy2026.txt",
    "label": "Microsoft Q4 FY2026 (07-29-2026)",
-   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 33% bullet lines; 8,396 chars vs a median 52,482 for its other calls)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (2 bracketed \"[Speaker — role]\" summaries; note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 33% bullet lines; 8,396 chars vs a median 52,812 for its other calls)",
    "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
   },
   {

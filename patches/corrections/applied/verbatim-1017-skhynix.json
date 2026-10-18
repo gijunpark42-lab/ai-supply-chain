@@ -1,0 +1,85 @@
+{
+  "reviewer": "verbatim-1017-skhynix",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "SK Hynix",
+      "target": null,
+      "label": "SK Hynix Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "Q2 2026 call, Q&A (management via interpreter; the medium-to-long-term outlook",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 call, Q&A (management, via interpreter): SK Hynix views big tech data-center leasing and more efficient AI models not as an AI investment slowdown but as higher utilization and accelerated monetization of infrastructure already built; it expects CSPs' AI-related investment to continue over the medium to long term and to 'remain solid beyond next year', though the timing of individual projects may differ due to physical constraints such as power availability and data center construction; it expects memory demand to expand across HBM, server DRAM for agentic AI and high-performance, high-capacity NAND."
+      },
+      "chains": [
+        "components/hbm_memory.json"
+      ],
+      "reason": "Speaker labels for this answer are unreliable: the Korean answer (lines 103-123) is labelled Interpreter/Moderator and its English rendering Park Seong-hwan, then the same continuous answer switches to a Song Hyeon-jong label (127-131); the article summary credits part of it to the CFO. Attribute neutrally.",
+      "evidence": "We do believe AI infrastructure investment will remain solid beyond next year, supported by ongoing AI competition among CSPs and continued expansion of AI services."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Hynix",
+      "target": null,
+      "label": "SK Hynix Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "Q2 2026 call, Q&A (management, via interpreter): in Q2 shipments of some high",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 call, Q&A (management, via interpreter): in Q2 shipments of some high value-add products were pushed back into the second half and product-portfolio changes appeared to have affected the blended DRAM ASP; management expects these factors to ease, with second-half bit growth higher than the first half as HBM4 shipments ramp in earnest and 1c-nanometer conventional DRAM shipments increase, and expects growing HBM4 sales and a higher value-add contribution to lift blended ASP and second-half earnings."
+      },
+      "chains": [
+        "components/hbm_memory.json"
+      ],
+      "reason": "Management hedged the ASP explanation ('appeared to have affected'); the entry stated it as fact. Restore the hedge (SKILL.md section 2). Attribution (neutral) and the rest are correct.",
+      "evidence": "In the second quarter, shipments of some high value add products were pushed back into the second half, and changes in the product portfolio appeared to have affected our blended ASP."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Hynix",
+      "target": null,
+      "label": "SK Hynix Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "Q2 2026 call, Q&A (CFO Kim Woo-hyun, via interpreter): discussions on 2027",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 call, Q&A (management, via interpreter): discussions on 2027 HBM supply volume and pricing with key customers are underway and progressing smoothly, supported by solid customer demand (terms not disclosed); the sharp rise in conventional DRAM prices 'may also have some influence' on HBM pricing talks, but HBM pricing is not set solely by conventional DRAM prices - it also reflects HBM's greater wafer input, advanced process, TSV and packaging capacity, technical complexity and the value delivered to customers."
+      },
+      "chains": [
+        "components/hbm_memory.json"
+      ],
+      "reason": "Executive name labels in this transcript are machine-assigned and demonstrably wrong elsewhere (line 265-267: one sentence split between Kim Woo-hyun and Song Hyeon-jong; Song/Park labels on moderator lines), and an HBM pricing answer may be the Head of HBM Sales (also a Kim). Attribute neutrally; content and quotes match.",
+      "evidence": "Discussion is underway for 2027 HBM supply volume and pricing with our key customers, which is progressing smoothly, supported by solid customer demand."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Hynix",
+      "target": null,
+      "label": "SK Hynix Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "Q2 2026 call, Q&A (President Song Hyeon-jong, via interpreter) on domestic",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 call, Q&A (management, via interpreter) on domestic vs overseas capacity: in Korea, Icheon and Yongin are to be the key production hubs for next-generation DRAM and AI memory, and Cheongju's capability is being strengthened for both NAND and advanced packaging; future production sites will be chosen on power, water, people, supply chain, ecosystem and customer accessibility rather than domestic vs overseas; at this time no further decisions on new production infrastructure have been made beyond the investments already announced."
+      },
+      "chains": [
+        "components/hbm_memory.json"
+      ],
+      "reason": "The answer opens under a Kim Woo-hyun (CFO) label (line 265) and the same Korean sentence finishes under a Song Hyeon-jong label (line 267), so the speaker name is unreliable. Attribute neutrally; content matches lines 281, 289, 293.",
+      "evidence": "Inside Korea, we will continue to strengthen the Icheon and Yongin as our key production hubs for next generation DRAM and AI memory, while enhancing Cheongju’s manufacturing capability"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SK Hynix",
+      "target": null,
+      "label": "SK Hynix Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "Q2 2026 call, Q&A (via interpreter): President Song Hyeon-jong - as AI",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 call, Q&A (management, via interpreter) on NAND strategy: as AI shifts from training to inference, NAND is becoming a core part of the AI memory hierarchy and eSSD-led NAND demand is expected to keep growing; SK Hynix's strategy is not a choice among SLC, TLC or QLC but a workload-optimized portfolio - high-capacity QLC eSSDs for AI data lakes and HDD replacement, high-performance TLC eSSDs and SLC-mode high-performance SSDs - and it is developing new-tier AI storage products for KV cache offloading and near-GPU storage."
+      },
+      "chains": [
+        "components/nand_flash.json"
+      ],
+      "reason": "The one NAND answer switches labels mid-thought from Song Hyeon-jong (lines 311, 315) to Song Chang-seop (319, which begins 'However'), so at least one name is wrong for part of the answer; the entry splits it between two executives. Attribute neutrally; content matches.",
+      "evidence": "Our NAND strategy for the AI era, we believe, is not about choosing out of SLC, TLC, or QLC. Rather, it is about providing the optimal storage portfolio that is customized to each customer’s workload."
+    }
+  ]
+}

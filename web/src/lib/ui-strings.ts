@@ -983,7 +983,12 @@ export const UI: Record<string, Row> = {
   "Pre-tax income": ["세전손익", "税前利润", "税引前利益"],
   "Income after tax": ["세후손익", "税后利润", "税引後利益"],
   "Net income": ["당기순이익", "归母净利润", "当期純利益"],
-  "EPS (diluted)": ["EPS (희석)", "稀释每股收益", "希薄化後EPS"],
+  // (2026-10-17, the user: "조정, GAAP, net income 다 볼 수 있게": GAAP and adjusted EPS as separate rows)
+  "EPS (GAAP, diluted)": ["EPS (GAAP, 희석)", "每股收益（GAAP，稀释）", "EPS（GAAP・希薄化後）"],
+  "Reported diluted EPS, as in the financial statements (US GAAP; outside the US the company's own standard, e.g. IFRS)": ["재무제표에 공시된 희석 EPS (미국 GAAP, 미국 외 기업은 IFRS 등 각 회사의 회계기준)", "财务报表中公布的稀释每股收益（美国 GAAP；美国以外为公司自身的会计准则，如 IFRS）", "財務諸表で公表された希薄化後EPS（米国GAAP、米国外はIFRSなど各社の会計基準）"],
+  "EPS (adjusted)": ["EPS (조정)", "每股收益（调整后）", "EPS（調整後）"],
+  "The company's adjusted (non-GAAP) EPS on the analysts' basis, as reported by Yahoo Finance; where Yahoo has no separate adjusted figure (mostly outside the US) it equals the reported EPS. The (E) consensus is on this basis": ["야후 파이낸스가 제공하는 애널리스트 기준의 회사 조정(비GAAP) EPS. 별도의 조정 수치가 없는 경우(주로 미국 외 기업)에는 공시 EPS와 같습니다. (E) 컨센서스도 이 기준입니다", "雅虎财经提供的分析师口径公司调整后（非GAAP）每股收益；雅虎没有单独的调整后数字时（多为美国以外公司）等于公布的每股收益。(E) 一致预期采用同一口径", "Yahoo Financeが示すアナリスト基準の会社の調整後（非GAAP）EPS。別の調整後数値がない場合（主に米国外）は公表EPSと同じです。(E)のコンセンサスもこの基準です"],
+  "EPS (adjusted) and its (E) consensus: the company's adjusted (non-GAAP) EPS on the analysts' basis, as reported by Yahoo Finance; EPS (GAAP, diluted) is the reported figure. Each is compared only with itself": ["EPS (조정)과 (E) 컨센서스: 야후 파이낸스가 제공하는 애널리스트 기준의 회사 조정(비GAAP) EPS이며, EPS (GAAP, 희석)은 공시 수치입니다. 증감률은 각 기준끼리만 비교합니다", "每股收益（调整后）及其 (E) 一致预期：雅虎财经提供的分析师口径公司调整后（非GAAP）每股收益；每股收益（GAAP，稀释）为公布数字。增长率仅在同一口径内比较", "EPS（調整後）と(E)のコンセンサス：Yahoo Financeが示すアナリスト基準の会社の調整後（非GAAP）EPS。EPS（GAAP・希薄化後）は公表値です。増減率はそれぞれ同じ基準同士でのみ比較します"],
   "PER": ["PER", "市盈率", "PER"],
   "PBR": ["PBR", "市净率", "PBR"],
   "Dividend yield %": ["배당수익률 %", "股息率 %", "配当利回り %"],
@@ -1004,10 +1009,6 @@ export const UI: Record<string, Row> = {
   // (2026-10-17, verification fixes: Naver's 매출액 wording, operating income, the EPS basis, preliminary results)
   "Total revenue": ["매출액", "营业收入", "売上高"],
   "Operating income": ["영업이익", "营业利润", "営業利益"],
-  "Reported diluted earnings per share": ["공시된 희석 주당순이익", "公布的稀释每股收益", "公表された希薄化後1株当たり利益"],
-  "EPS (Yahoo basis)": ["EPS (야후 기준)", "每股收益（雅虎口径）", "EPS（Yahoo基準）"],
-  "Yahoo's EPS on the analysts' basis (for US companies usually adjusted, non-GAAP); the (E) consensus is on the same basis": ["애널리스트 기준의 야후 EPS (미국 기업은 보통 조정·비GAAP 기준), (E) 컨센서스도 같은 기준", "雅虎按分析师口径的每股收益（美国公司通常为调整后、非GAAP），(E) 一致预期同一口径", "アナリスト基準のYahoo EPS（米国企業は通常、調整後・非GAAP）、(E)のコンセンサスも同じ基準"],
-  "EPS (Yahoo basis) and its (E) consensus are on the analysts' basis (for US companies usually adjusted, non-GAAP); EPS (diluted) is the reported figure": ["EPS (야후 기준)과 (E) 컨센서스는 애널리스트 기준(미국 기업은 보통 조정·비GAAP)이며, EPS (희석)은 공시 수치입니다", "每股收益（雅虎口径）及其 (E) 一致预期为分析师口径（美国公司通常为调整后、非GAAP）；稀释每股收益为公布数字", "EPS（Yahoo基準）と(E)のコンセンサスはアナリスト基準（米国企業は通常、調整後・非GAAP）、希薄化後EPSは公表値です"],
   "Preliminary results filed {date}": ["{date} 공시된 잠정실적", "{date} 公布的初步业绩", "{date} 開示の速報値"],
   "(P): preliminary results the company filed on {date}; the full statements follow": ["(P): 회사가 {date}에 공시한 잠정실적이며, 확정 재무제표는 이후 공시됩니다", "(P)：公司于 {date} 公布的初步业绩，完整报表随后公布", "(P)：会社が {date} に開示した速報値、確定した財務諸表は後日開示"],
   // (2026-10-17, the Cash flow section merged in: its rows and the next earnings date reuse the cash-flow

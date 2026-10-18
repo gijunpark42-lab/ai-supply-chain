@@ -1,0 +1,54 @@
+{
+  "reviewer": "verbatim-1017b-teradyne",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Teradyne",
+      "target": null,
+      "label": "Teradyne Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "RECORD MEMORY-TEST QUARTER: Teradyne posted a second consecu",
+      "action": "set",
+      "set": {
+        "signal": "RECORD MEMORY-TEST QUARTER: Teradyne posted a second consecutive record quarter (revenue $1,329M, above the high end of guidance) with 'RECORD MEMORY REVENUE driven by continued strength in DRAM and A RESURGENCE IN NAND FINAL TEST'. Semiconductor Test revenue $1,122M of the $1,329M total; GAAP EPS $2.38. Q3 2026 guided to $1,200-1,300M with non-GAAP EPS $1.85-2.15, reflecting 'robust AI-related demand'; CEO Greg Smith: 'rapid increase in WAFER FAB EQUIPMENT investment sets the stage for continued growth in 2027 and beyond.'"
+      },
+      "reason": "Drops an editorial clause no source states (a link to 'the NAND upgrade cycle other chain members flagged'); the rest is unchanged.",
+      "evidence": "driven by robust HBM and DRAM test solutions demand and a resurgence in NAND",
+      "chains": [
+        "components/hbm_memory.json"
+      ]
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Teradyne",
+      "target": null,
+      "label": "Teradyne Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — MEMORY TEST: BOOK-TO-BILL OVER 2 AND A +40% TAM: memo",
+      "action": "set",
+      "set": {
+        "signal": "CALL — MEMORY TEST: BOOK-TO-BILL OVER 2 AND A +40% TAM: CFO Michelle Turner: memory revenue hit a third consecutive quarter over $200 million, a record $212 million, with a book-to-bill ratio in the quarter over two as 'memory manufacturers are planning capacity additions further out in time'. CEO Greg Smith: 'The 2026 memory TAM is likely to be more than 40% larger than 2025', growing from the first half to the second. Drivers: HBM strength was expected, but 'The thing that surprised us a little bit was just how strong the DDR business is', which he links 'to the resurgence in CPU-oriented applications, so agentic AI', plus LPDDR used in some SoCs; in NAND 'we actually have seen the beginning of that inflection and are actually getting pull from our customers for more NAND capacity'. HBM-based die test is a highlight: Magnum's logic test capabilities 'provide attractive swing tool advantages for memory makers'. 2027: 'I don't think we are looking at particular lumpiness in memory', as WFE investment, new fabs and planned wafer output have customers making test-capacity add plans into 2027. Memory has two flywheels, bit growth (forecast 15%-20% CAGR over the midterm) and technology change (HBM3 to HBM4, DDR5 to DDR6, next generations of flash); 'right now the SoC TAM is 5X the size of the memory TAM'. CFO: memory 'is going to continue to be a strain from an overall margin perspective, and we expect that that'll continue into 2027'. Share: the CEO agrees with Advantest's commentary that Advantest would 'lose a bit of share in memory'.",
+        "figure": "Memory b2b >2; 2026 memory-test TAM +>40%; DDR the surprise (agentic-AI CPU pull); beginning of a NAND inflection"
+      },
+      "reason": "The call never says Teradyne expects to gain memory share: the CEO agrees with Advantest's commentary that Advantest would lose a bit of share in memory. Also restores speakers and hedges ('I don't think we are looking at particular lumpiness'; NAND 'the beginning of that inflection').",
+      "evidence": "they were going to lose a bit of share in memory. I have to say I agree with their commentary about memory",
+      "chains": [
+        "components/hbm_memory.json"
+      ]
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Teradyne",
+      "target": null,
+      "label": "Teradyne Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — THE ATE-TAM RERATING AND THE DUAL-VENDOR SHARE MACHIN",
+      "action": "set",
+      "set": {
+        "signal": "CALL — THE ATE-TAM RERATING AND THE DUAL-VENDOR SHARE MACHINE: CEO Greg Smith: AI-driven revenue is now more than 60% of total company revenue. New TAM frame: test equipment went from near 4% of semiconductor capex (2023) to 7% (2025) to 8% (first five months of 2026), and he thinks it is 'going to settle somewhere in the 7%-9% range'. With WFE approaching $250B by the end of the decade, Teradyne sees a path for total ATE TAM to reach or exceed $20 billion; after more than a decade of semi-cap outgrowing test, the trend reversed in 2024 and test now outpaces fab equipment (transistor production +15%-20% CAGR = first-order SoC-TAM predictor; the WFE correlation is strong over 3-5 year periods and 'there can be a year lag'). Advanced packaging is the second engine: more chiplets, memories and eventually CPO per package raise test intensity per die. SHARE: the first merchant GPU order, received in Q1, was delivered in Q2; 'In Q3, we completed correlation at a second hyperscaler'. Dual-vendor framework at the largest compute customers (supply de-risking): four phases taking nine to 12 months from start to ramp, then a fast-follower phase in which share is expected to grow 'from 0% up to about 30%'; status: one compute customer in the mature dual-vendor phase, one in fast follower, one in qualification prior to ramp; share effects from 2027, gradual, 'socket-by-socket'; the next compute surge is expected in the first half of 2027. Vs Advantest: the CEO agrees with Advantest's commentary that it would 'lose a bit of share in memory', while in SoC he sees Teradyne's share 'probably going to be pretty flat, maybe a slight incremental gain for us year-on-year'. A server-CPU share shift toward Arm 'gives us a greater share gain opportunity'. Test intensity: the CEO called an analyst's 1:4 test-intensity ratio between CPUs and accelerators 'probably not far off', but 'all of the wafers that get fabbed are going to need to get tested'. CFO Michelle Turner: 'We anticipate a resurgence in growth in 2027'; target-model update at the Q4 call. Networking test: 'We expect CPO alone will be a $300 million-$700 million market by 2028' (CEO: next year 'the low end would be in the $200 million range'); Photon 100, Quantifi Photonics and the MLTP JV cover pluggable, XPO, CPO and copper; silicon-photonics nuance: the polymer lens is applied after the electronics IC is bonded to the photonics IC wafer, so many loss and polarization tests cannot be done at Insertion 1."
+      },
+      "reason": "Verbatim call contradicts 'memory share shifting TO Teradyne (Advantest concurs), SoC roughly flat': the CEO agrees Advantest would lose a bit of memory share and sees Teradyne's SoC share flat, maybe a slight gain. Also attributes the 1:4 test-intensity ratio (an analyst's number the CEO called 'probably not far off'), fixes two misquotes and restores hedges.",
+      "evidence": "I think in terms of SoC, it's probably going to be pretty flat, maybe a slight incremental gain for us year-on-year.",
+      "chains": [
+        "manufacturing/foundry.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "reviewer": "verify-1018-kla",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "KLA",
+      "target": null,
+      "label": "KLA Q4 FY2026 (07-28-2026)",
+      "signal_prefix": "Packaging-adjacent inspection accelerated in the June quarter: KLA's PCB AND COMPONENT INSPECTION",
+      "action": "set",
+      "set": {
+        "signal": "Packaging-adjacent inspection in the June quarter: KLA's PCB AND COMPONENT INSPECTION segment revenue was $241.1M (from $154.1M a year earlier), and $750.4M for fiscal 2026 versus $621.7M in fiscal 2025. Core Semiconductor Process Control was $3.257B in the quarter and $12.245B for the fiscal year. Total fiscal Q4 revenue $3.66B beat the guidance midpoint, and the September-quarter guide steps up to $4.0 BILLION +/- $200M.",
+        "figure": "PCB & Component Inspection $241.1M (from $154.1M); Sept-qtr total guide $4.0B"
+      },
+      "chains": ["manufacturing/packaging_substrate.json"],
+      "reason": "verify_graph number_not_in_source: '+56% YoY' (and '+13%' / '+12%') are computed from the release table, not stated; the release states the segment amounts only (241,110 / 154,106 thousand)",
+      "evidence": "PCB and Component Inspection 241,110 154,106"
+    }
+  ]
+}

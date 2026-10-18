@@ -1,0 +1,37 @@
+{
+  "reviewer": "verbatim-1017b-rambus",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Rambus",
+      "target": null,
+      "label": "Rambus Q2 FY2026 (07-27-2026)",
+      "signal_prefix": "ALL-TIME RECORD quarter, above guidance: total revenue $207.",
+      "action": "set",
+      "set": {
+        "signal": "ALL-TIME RECORD quarter, above guidance: total revenue $207.4M (+20% YoY) vs $192-198M guided; RECORD PRODUCT REVENUE $99.2M (+22% YoY, +13% QoQ); royalties $84.2M; contract and other $24.0M; licensing billings $84.1M. Non-GAAP operating income $93.7M (45% margin); non-GAAP EPS $0.77 (above the guidance range; GAAP $0.61). Cash from operations $61.2M; cash + marketable securities $824.9M (+$38.8M QoQ). Q3 2026 guidance implies a STEP-UP IN PRODUCT REVENUE to $110-116M (vs $99.2M) on total revenue $210-216M, with royalties easing to $69-75M and non-GAAP EPS $0.75-0.82. CEO Luc Seraphin: 'a new all-time high in revenue and non-GAAP earnings, fueled by record product revenue'; positioned for 'the rapid expansion of AI INFERENCE AND AGENTIC WORKLOADS'."
+      },
+      "reason": "'+23% YoY' for royalties is stated in neither the call nor the release (arithmetic); the product ($95-101M) and EPS ($0.65-0.73) guide ranges come from the Q1 call, not this label's sources. The release says EPS exceeded the guidance range.",
+      "evidence": "We delivered Q2 revenue and non-GAAP earnings per share exceeding our Q2 guidance",
+      "chains": [
+        "components/cpu_datacenter.json"
+      ]
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Rambus",
+      "target": null,
+      "label": "Rambus Q2 FY2026 (07-27-2026)",
+      "signal_prefix": "Product and IP expansion for next-generation AI systems: COM",
+      "action": "set",
+      "set": {
+        "signal": "Product and IP expansion for next-generation AI systems: complete chipsets for DDR5 9600 server and client memory modules, plus PCIe 7 Switch IP. CEO Luc Seraphin: the DDR5 9600 RDIMM chipset is 'built around our sixth generation RCD and PMIC5030'; the DDR5 9600 client chipset 'enables top-of-the-line performance for emerging AI PCs'; the PCIe 7 switch IP supports 128 GT/s and 'is designed to support the next generation of AI scale up and scale out architectures'."
+      },
+      "reason": "'the speed grade above the 9.6 Gbps SOCAMM2 generation introduced last quarter' and 'extending the PCIe retimer/switch franchise' appear in neither source (background knowledge); replaced with what the CEO says about the chipsets and the PCIe 7 switch IP.",
+      "evidence": "we also expanded our AI IP solutions with PCIe 7 switch IP supporting 128 GT/s.",
+      "chains": [
+        "components/cpu_datacenter.json"
+      ]
+    }
+  ]
+}
