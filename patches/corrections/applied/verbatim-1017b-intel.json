@@ -1,0 +1,87 @@
+{
+  "reviewer": "verbatim-1017b-intel",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Intel",
+      "target": null,
+      "label": "Intel Q2 FY2026 (07-23-2026)",
+      "signal_prefix": "CALL — SERVER DEMAND AND THE CPU:GPU RATIO",
+      "action": "set",
+      "set": {
+        "signal": "CALL — SERVER DEMAND AND THE CPU:GPU RATIO: Q2 beat the guidance midpoint by $1.8 BILLION (7th straight beat); AI-driven businesses grew >70% YoY and are now ~70% OF REVENUE. Q2 YoY server growth was the STRONGEST ON RECORD; DCAI operating margin hit 40% ($2.5B, +$1B QoQ). CFO: 'while things will improve, we will not catch up. We will be behind in the fourth quarter' — supply growth is skewed to end-Q3/Q4, especially servers; GRANITE RAPIDS IS 'EXTREMELY TIGHT' (Intel 3 'the most important node for us on servers'). Choke points beyond wafers: advanced packaging, SUBSTRATES, T-GLASS and MEMORY — 'probably our most challenged parts of our supply chain.' CFO: industry server-CPU units to grow strong double digits THIS YEAR AND NEXT with momentum into 2028; pricing is ASP-PER-CORE so rising core counts lift ASPs → 'well north of a double-digit CAGR for us in terms of growth rate over the next few years.' CFO on the CPU:GPU ratio: 'we're almost in PARITY at this point and could eventually even skew MORE TO CPUs on a unit basis.' Asked about a competitor's 2030 CPU TAM, CFO gave no number ('without putting a number out there') but said the market is 'going to grow significantly.' PC side: market down low-double-digits in 2026 on memory costs — Intel will PIVOT as much wafer production as possible to data-center CPUs; client strength was largely ASP (mix + like-for-like price increases passing on inflation); AI PC now two-thirds of client mix; edge ~10% of CCPG.",
+        "figure": "Beat by $1.8B; record server growth; DCAI margin 40%; CFO: 'we will not catch up' in Q4; CPU:GPU ~parity -> CPU skew; well north of a double-digit CAGR"
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "The >$1B/quarter undershipping figure and the $220B AMD TAM were the analysts' numbers (Arcuri, Reitzes), not confirmed by management; 'from 60% in Q1' is not in the call or the release; speakers restored.",
+      "evidence": "I would point out that while things will improve, we will not catch up. We will be behind in the fourth quarter."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Intel",
+      "target": null,
+      "label": "Intel Q2 FY2026 (07-23-2026)",
+      "signal_prefix": "CALL — ASIC/PURPOSE-BUILT AND MEMORY STRATEGY",
+      "action": "set",
+      "set": {
+        "signal": "CALL — ASIC/PURPOSE-BUILT AND MEMORY STRATEGY: purpose-built silicon (design services/ASIC) revenue grew ~20% QoQ and nearly TRIPLED YoY; CFO: run rate 'approaching a $2 billion run rate' -> 'in the not too distant future we'll be at a $4 billion run rate'; CEO: 'potentially it's over $100 billion TAM' — anchored by CPU/XPU design capability, the IP portfolio, advanced packaging and leading-edge process; Fortinet next-generation security processor collaboration; IPUs already supplied to hyperscalers; roadmap from networking to compute to eventually ACCELERATORS. MEMORY (CEO): Intel hired SEOK-HEE LEE, former CEO of SK HYNIX; memory has become 'the big supply constraint challenge' — collaborating with the three big memory vendors — and Intel is exploring COMPUTE-MEMORY INTEGRATION, stacking, and better memory utilization ('stay tuned'). Also announced a Google Cloud collaboration to run Intel's operations AI-first, and customer PREPAYS are already unlocking capacity."
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "The Z-Angle / Cross-Batch Memory names came from the analyst's question (Rakers), not management; 'EMIB-T' and 'win' are not in that answer; quotes made verbatim and attributed.",
+      "evidence": "First of all, the memory become the big supply constraint challenge, and we collaborating with the three big memory vendors."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Intel",
+      "target": null,
+      "label": "Intel Q2 FY2026 (07-23-2026)",
+      "signal_prefix": "CALL — 18A EXECUTION AND THE 14A COMMIT",
+      "action": "set",
+      "set": {
+        "signal": "CALL — 18A EXECUTION AND THE 14A COMMIT: 18A output came in ~25% ABOVE TARGET and rose MORE THAN 50% QoQ; Q3 quarter-to-date 18A yields are trending ahead of the targets set in March. The primary PANTHER LAKE SKU's cost is DOWN ~50% YEAR-TO-DATE and (CFO) 'on track for an additional 20% this year' and further meaningful cuts in 2027 — Panther Lake margins are still below corporate average (early lifecycle) but are expected to rise ABOVE it as yields improve. INTEL 14A: PDK 0.5 complete, PDK 0.9 on track for October; CEO: the yield for 256 SRAM, defect density and transistor performance all AHEAD of an aggressive internal schedule, with defect density OUTPACING 18A at the same stage; risk production H2 2027 (internal), and Intel made the DECISION IN Q2 TO FULLY COMMIT TO HIGH-VOLUME 14A RAMP IN 2028. External foundry revenue $293M; foundry operating loss narrowed $348M QoQ to $2.1B on yields/cycle-time/scale. CEO on external customers: 'The moment they're starting to see the PDK 0.9, the yield, they're starting to get excited about what kind of product they want to run that and how much capacity we can provide them.' CAPEX: 2026 raised to MORE THAN $20B with TOOLING SPEND +40% vs 2025 (space largely built); 2027 to be SIGNIFICANTLY ABOVE 2026, vast majority in the US — 2021-2026 US tools+space spend approaching $100 BILLION, more than any other semiconductor company; AMIC returns $0.35 per $1 of US investment; CUSTOMER PREPAYS are already unlocking capacity; longer node lifetimes (the Intel 7 pattern) underpin returns."
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "The CEO said '256 SRAM' (no 'Mb'); the external-customer quote was paraphrased inside quote marks and lost its speaker; the 20% Panther Lake cost step is 'on track', not 'planned'.",
+      "evidence": "The moment they're starting to see the PDK 0.9, the yield, they're starting to get excited about what kind of product they want to run that and how much capacity we can provide them."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Intel",
+      "target": null,
+      "label": "Intel Q2 FY2026 (07-23-2026)",
+      "signal_prefix": "CALL — EMIB-T RAMPS TOWARD 2027",
+      "action": "set",
+      "set": {
+        "signal": "CALL — EMIB-T RAMPS TOWARD 2027: customer interest in EMIB-T is 'very high' with a GROWING BACKLOG; yield and reliability are hitting targets and Intel is ramping the technology into high volume to support CUSTOMER RAMPS IN 2027 — EMIB-T provides capabilities for advanced AI silicon 'not possible with today's mainstream offerings.' CFO: the raised >$20B 2026 capex is 'fairly broad-based. It's going to include advanced packaging' (front-end fabs cost more than a packaging facility, so spend skews front-end, but 'both of them will be important to us'). SUPPLY CHOKE POINTS: advanced packaging, SUBSTRATES, T-GLASS and memory are 'probably our most challenged parts of our supply chain' — chunkier to expand than front-end wafers; Intel is PREPAYING substrate vendors ('putting money up in advance of getting the substrates') and moving quickly to be ready for the packaging backlog."
+      },
+      "chains": [
+        "manufacturing/packaging_substrate.json"
+      ],
+      "reason": "The CFO said capex will 'include' advanced packaging and skew to the front end; 'a meaningful part' is not stated; quote made verbatim.",
+      "evidence": "The CapEx is fairly broad-based. It's going to include advanced packaging, as Lip-Bu talked about."
+    },
+    {
+      "kind": "contract",
+      "company": "SambaNova",
+      "target": "Intel",
+      "label": "Intel Q2 FY2026 (07-23-2026)",
+      "signal_prefix": "Intel CEO Lip-Bu Tan on the call: 'We also extended",
+      "action": "set",
+      "set": {
+        "signal": "Intel CEO Lip-Bu Tan on the call: 'We also extended our heterogeneous AI strategy through a MULTI-YEAR collaboration with SambaNova. We are pleased with their GROWING MOMENTUM as we work with them to drive performance and power improvements with DISAGGREGATED INFERENCE.'",
+        "type": "co-design collaboration"
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "Joint demonstrations never feed a contract (enrich skill section 2); the multi-year collaboration the CEO stated stays.",
+      "evidence": "We also extended our heterogeneous AI strategy through a multi-year collaboration with SambaNova."
+    }
+  ]
+}

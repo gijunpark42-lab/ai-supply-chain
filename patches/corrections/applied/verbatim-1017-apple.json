@@ -1,0 +1,103 @@
+{
+  "reviewer": "verbatim-1017-apple",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Apple",
+      "target": null,
+      "label": "Apple Q3 FY2026 (07-30-2026)",
+      "signal_prefix": "STRONGEST JUNE QUARTER EVER — leading-edge silicon",
+      "action": "set",
+      "set": {
+        "signal": "STRONGEST JUNE QUARTER EVER: FQ3 revenue $109.4B, UP 16% year over year, with iPhone, Mac and Services each setting June-quarter records and double-digit growth IN EVERY GEOGRAPHIC SEGMENT. Gross margin 50.1% — including a favorable ~2-percentage-point impact from TARIFF REFUNDS — and diluted EPS $2.02, up 29%. Installed base of active devices at a new all-time high across all major product categories and regions. AI angle: WWDC26 introduced 'the all-new SIRI AI' alongside the latest software platforms."
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "The TSMC-capacity read-through is not stated on the call (TSMC is never named); it was the enricher's inference presented as part of the signal. Numbers are correct and stay.",
+      "evidence": "This year's WWDC was a wonderful showcase of our latest innovations. We were tremendously excited to unveil the all-new Siri AI"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Apple",
+      "target": null,
+      "label": "Apple Q3 FY2026 (07-30-2026)",
+      "signal_prefix": "CALL-ONLY: THE JUNE-QUARTER SHORTFALL WAS A LEADIN",
+      "action": "set",
+      "set": {
+        "signal": "CALL-ONLY: JUNE-QUARTER SUPPLY CONSTRAINTS CAME PRIMARILY FROM ADVANCED-NODE AVAILABILITY, AND APPLE EXPECTS THEIR IMPACT TO INCREASE SIGNIFICANTLY IN SEPTEMBER. Cook: June-quarter supply constraints hit 'primarily on the Mac, and to a lesser extent, on iPhone and iPad', and 'the constraints were primarily driven by the availability of the ADVANCED NODES that our SoCs are produced on'. Root cause 'is not a regular supply issue. It's a DEMAND FORECAST issue, to be candid' (iPhone +22% and Mac +29% ran ahead of Apple's own high expectations). 'We are seeing LESS FLEXIBILITY in the supply chain than normal... we've been pulling supply ahead. At some point, there's a limit to that.' For the September quarter 'we expect the impact from the supply constraints to increase SIGNIFICANTLY sequentially', and the projected constraints affect iPhone, Mac AND iPad - 'we've got a quarter that we're going to be scrambling on the supply side'. Asked whether adding a second US fab operator would help, Cook rejected the premise: 'this isn't a partner or supplier issue.'",
+        "figure": "Sept-qtr supply-constraint impact expected to increase significantly sequentially; projected constraints affect iPhone, Mac and iPad"
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "Three quotes differ from the verbatim; the September one dropped the 'we expect' hedge and quoted 'increases' as if it were a stated fact.",
+      "evidence": "However, with less flexibility in supply chain, we expect the impact from the supply constraints to increase significantly sequentially."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Apple",
+      "target": null,
+      "label": "Apple Q3 FY2026 (07-30-2026)",
+      "signal_prefix": "CALL-ONLY: '100-YEAR FLOOD' ON MEMORY PRICING - AP",
+      "action": "set",
+      "set": {
+        "signal": "CALL-ONLY: '100-YEAR FLOOD' ON MEMORY PRICING - APPLE RAISED PRODUCT PRICES BECAUSE OF IT. Cook: 'we reluctantly raised prices... we did it because we're in what I would characterize as a 100-YEAR FLOOD on the memory pricing, with EXPONENTIAL INCREASES in memory prices' (prices already raised on iPad and Mac; elasticity 'too early' to judge, channel inventory delays the read). Cost path: Dec < Mar < Jun ('significantly more' than March, partly offset by carry-in inventory) < Sep ('we expect to pay EVEN HIGHER memory costs'), with Apple believing the carry-in-inventory benefit will DECREASE beyond September; 'if you look beyond September, we see the market pricing for memory CONTINUING TO INCREASE, which could drive an increasing impact on our business'. On DRAM sourcing, Cook: 'primarily the DRAM market has THREE SUPPLIERS. Obviously if there were more suppliers, that would be good, and it would help us on the supply side and perhaps the pricing side. It's unclear on the pricing side, it could help on the supply side. We're EVALUATING ALL OPTIONS.'"
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "'Largest non-datacenter DRAM buyer' is not stated on the call (background claim); the quotes themselves are correct.",
+      "evidence": "In terms of the sources of supply, primarily the DRAM market has three suppliers. Obviously if there were more suppliers, that would be good"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Apple",
+      "target": null,
+      "label": "Apple Q3 FY2026 (07-30-2026)",
+      "signal_prefix": "CALL-ONLY / US SILICON BUILD-OUT: (1) BROADCOM - a",
+      "action": "set",
+      "set": {
+        "signal": "CALL-ONLY / US SILICON BUILD-OUT: (1) BROADCOM - a new MULTI-YEAR agreement to 'design and produce CUSTOM SILICON COMPONENTS and cutting-edge WIRELESS CONNECTIVITY technologies' in the US under Apple's American Manufacturing Program, 'expected to EXCEED $30 BILLION'; Apple's largest-ever American manufacturing commitment and 'an important step forward in our work to build an END-TO-END SILICON SUPPLY CHAIN here in the U.S.' (announced 'earlier this month', per the July 30, 2026 call). (2) THE ARIZONA FAB HAS RAMPED: 'we do source OVER 100 MILLION COMPONENTS this year out of Arizona... we could not be more pleased with how that fab has ramped and is producing for us.' (3) The Apple Advanced Manufacturing Center opening in HOUSTON 'is located in a facility where we currently assemble ADVANCED AI SERVERS'; 'Later this year, we'll make Mac mini there, too.' The Arizona sourcing 'is part of our $600 billion commitment to the U.S.' (made last year, over four years), and Cook: 'we plan to reinvest the tariff refunds we've received into the U.S.'",
+        "figure": ">$30B Broadcom agreement; over 100M components sourced from Arizona this year"
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "Cook did not name TSMC on this call ('In Arizona... that fab'); the servers quote was reworded and the 'private-cloud-compute fleet' gloss is not stated; the refund reinvestment is a plan ('we plan to'), not under way; the Broadcom deal was announced 'earlier this month', no date given; the call says 'this year', not a yearly rate.",
+      "evidence": "In Arizona, we do source over 100 million components this year out of Arizona, it is part of our $600 billion commitment to the U.S."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Apple",
+      "target": null,
+      "label": "Apple Q3 FY2026 (07-30-2026)",
+      "signal_prefix": "CALL-ONLY: MAC IS BEING BOUGHT AS AI COMPUTE. Mac ",
+      "action": "set",
+      "set": {
+        "signal": "CALL-ONLY: MAC IS BEING BOUGHT AS AI COMPUTE. Mac $10.4B (+29% YoY, June-quarter record) 'despite significant supply constraints', with customers 'using MAC MINI as a powerful platform for AGENTIC AI' and 'deploying CLUSTERS OF MAC STUDIO systems to RUN FRONTIER-CLASS MODELS LOCALLY'; the stated differentiator is 'massive UNIFIED MEMORY BANDWIDTH' plus power-efficient performance and on-device inference. Enterprise pull, per CFO Parekh: at Disney, creative teams 'are increasingly turning to Mac for on-device AI workflows that reduce overall CLOUD TOKEN COSTS and keep their IP secure'; Credit Agricole on MacBook Pro. On capital intensity for Siri AI, Cook: Apple runs a HYBRID model - 'we use some THIRD-PARTY CLOUD, and we do OUR OWN DATA CENTERS. There will be a mix' - and 'we have been growing our OpEx and spending more in AI in general and quite a bit more. There are other locations on the P&L other than OpEx, like COGS etc., that also have AI expenditures' (opex $19.1B, +23% YoY on R&D, per CFO). Siri AI (WWDC26) is in developer + public beta; EU launch still unresolved with the Commission (Mac exempt from those rules), China approved only for the original Apple Intelligence features so far."
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "The Disney line is CFO Parekh's, and its quote is reworded; Cook said COGS also carries AI expenditures, not that AI spend there is rising.",
+      "evidence": "At Disney, creative teams are increasingly turning to Mac for on-device AI workflows that reduce overall cloud token costs and keep their IP secure."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Broadcom",
+      "target": null,
+      "label": "Apple Q3 FY2026 (07-30-2026)",
+      "signal_prefix": "BROADCOM LANDS A >$30B MULTI-YEAR APPLE AGREEMENT ",
+      "action": "set",
+      "set": {
+        "signal": "BROADCOM LANDS A >$30B MULTI-YEAR APPLE AGREEMENT (disclosed on Apple's July 30, 2026 call; announced 'earlier this month'): Broadcom will 'design and produce custom silicon components and cutting-edge wireless connectivity technologies' for Apple IN THE UNITED STATES, under Apple's American Manufacturing Program. Cook called it Apple's 'largest-ever American manufacturing program commitment' and 'an important step forward in our work to build an end-to-end silicon supply chain here in the U.S.'"
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "The 'read-through' about hyperscaler XPUs is not stated on the call (enricher commentary); the call says the deal was announced 'earlier this month', not early July.",
+      "evidence": "Earlier this month, Apple announced a new agreement with Broadcom to design and produce custom silicon components and cutting-edge wireless connectivity technologies."
+    }
+  ]
+}

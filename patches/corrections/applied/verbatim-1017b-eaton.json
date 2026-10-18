@@ -1,0 +1,38 @@
+{
+  "reviewer": "verbatim-1017b-eaton",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Eaton",
+      "target": null,
+      "label": "Eaton Q2 FY2026 (08-05-2026)",
+      "signal_prefix": "US DATA-CENTER BACKLOG REVISED UP TO 307 GW",
+      "action": "set",
+      "set": {
+        "signal": "US DATA-CENTER BACKLOG REVISED UP TO 307 GW = FIFTEEN YEARS of backlog at 2025 build rates (up from 12 years in the last update) — only ~20% converts near term, the MAJORITY lands 2028 AND BEYOND ('a very nice tailwind for years to come'); for scale, only ~50 GW total will be online by end-2026 after decades of building — the announced pipeline is ~6x everything ever built. Record Q2: revenue $8.5B (+21% total, +14% organic, +16% ex-Mobility), record adjusted EPS $3.15, segment margins 23.1%, record operating cash flow (+23%); book-to-bill 1.2 total / AMERICAS 1.3. Electrical Americas +18% organic with DATA CENTERS UP ~65%; record orders +41% rolling-12M, negotiations pipeline +60% YTD, backlog +$5B since start of 2025; revenue-per-day +25% since start of 2025 (+8% Q2/Q1 — the largest quarterly production ramp in the plan, cleared) as >$1B of capacity across ~two dozen projects ramps; Americas margins 27.5% (+190bps QoQ) with an H1->H2 bridge of +450-500bps (~300bps price-cost + 150-200bps output/productivity; 32% margin still targeted by 2030). Electrical Global +18% organic (+25pts Boyd): DC organic +65% vs a ~23% market = SHARE GAINS; organic backlog +54%. FY2026 guidance RAISED AGAIN: organic growth to 11-13% (guide progression 8% -> 10% -> 12%) and adjusted EPS to $13.50 midpoint. Eight consecutive quarters of >35% data-center growth; the 2030 model baked in only 17% DC growth. IEEPA tariff refunds immaterial (<$3M).",
+        "figure": "US DC backlog 307 GW = 15 YEARS (was 12 years); DC revenue +~65%; FY organic raised to 12% mid; Americas orders +41% R12M, b2b 1.3"
+      },
+      "chains": [
+        "components/power_cooling.json"
+      ],
+      "reason": "The verbatim call gives no 228 GW figure; the CEO said only 'up from 12 years in our last update'.",
+      "evidence": "Total U.S. data center backlog has grown to 307 GW, or 15 years of backlog at 2025 build rates, up from 12 years in our last update."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Eaton",
+      "target": null,
+      "label": "Eaton Q2 FY2026 (08-05-2026)",
+      "signal_prefix": "BOYD RAISED AND THE 800V PLAYBOOK",
+      "action": "set",
+      "set": {
+        "signal": "BOYD RAISED AND THE 800V PLAYBOOK: Boyd (liquid cooling — COLD PLATES + CDUs) raised to $1.8B FY2026 revenue ($1.5B lands in Eaton's books; Boyd did $1.1B in 2025); Q2 $432M was 20% ABOVE plan; the CEO believes it keeps winning as the DESIGN PARTNER embedded in chip providers' roadmaps (first look/first bid), aerospace-grade quality at scale (smaller rivals showing 'quality issues from the get-go'), and it hands Eaton an early strategic read into chip development; joins organic growth in 2027. 800V DC: asked about ~$3.4M of content PER MW, the CEO CONFIRMED 'The $3.4 million is the right number to think about it'; the customer objective is TOKENS PER MEGAWATT (~5% efficiency gain from DC conversion — 'when there's so much money involved, this is going to happen'). Eaton frames FOUR technical blocks required to win 800V — (1) medium-voltage SOLID-STATE TRANSFORMER (Resilient Power, 'clearly ahead' per hyperscaler and chip-maker feedback), (2) DC BREAKER technology, (3) power electronics/power quality (UPS), (4) COOLING (Boyd) — plus a service network that arrives 'in an hour, not in days'; in the CEO's 'personal opinion', if a company is missing one or many of the four blocks, 'they'll have a really hard time convincing their competitors to sell to them so they can package the solution'. Prefab/modular (Fibrebond): electrician/plumber scarcity pushes modular builds, and 800V's simpler architecture INCREASES the modular opportunity, extending Eaton from gray space into white space."
+      },
+      "chains": [
+        "components/power_cooling.json"
+      ],
+      "reason": "The ~$1.7B Q1 trajectory is not in this call; the $3.4M/MW is the analyst's number confirmed by the CEO; the CEO's hedges ('I believe', 'my personal opinion') were lost. Verifier: two quotes made verbatim ('in an hour, not in days'; 'they'll have a really hard time').",
+      "evidence": "Again, it's my personal opinion, and my team coincides with this opinion here, is that if a company will be missing one or many blocks of these four, they'll have a really hard time"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "reviewer": "verbatim-1017-nebius",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Nebius",
+      "target": null,
+      "label": "Nebius Q2 FY2026 (08-12-2026)",
+      "signal_prefix": "VERA RUBIN TIMELINE FROM A NEOCLOUD BUYER: Nebius has",
+      "action": "set",
+      "set": {
+        "signal": "VERA RUBIN TIMELINE FROM A NEOCLOUD BUYER (Andrey Korolenko): Nebius has had Vera Rubin systems IN ITS LABS 'for quite a while already' and is 'already getting the expected results'. He expects deployment to start LATE 2026 OR EARLY 2027 and continue throughout 2027. On transition risk, he said the step from GRACE BLACKWELL TO VERA RUBIN is 'somewhat EASIER from the technical perspective than the step from the previous generations to the Grace Blackwell'. Nebius is in discussions with all four of its new landmark AI cloud customers about significant additional capacity and next-generation chips including Vera Rubin (Marc Boroditsky). Pricing context: short-term capacity deals are being negotiated at $40-50M per megawatt 'and sometimes above' (one signed recently), versus $20-25M per megawatt on mid-term contracts, and Nebius' first capacity auction cleared 15% above the highest price it had ever charged for Blackwell-generation capacity."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "CEO said short-term deals at $40-50M/MW are being NEGOTIATED (one signed), not 'monetized'; 'smoother handoff than the GB200 ramp' is an editorial inference the call does not make; speakers named (Korolenko on Vera Rubin, Boroditsky on customer talks).",
+      "evidence": "We are negotiating deals for $40 million-$50 million per megawatt range, and sometimes above, under this model. One of such deal has been signed just recently"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Nebius",
+      "target": null,
+      "label": "Nebius Q2 FY2026 (08-12-2026)",
+      "signal_prefix": "THREE-TIER DEAL MODEL made explicit. (1) MID-TERM core",
+      "action": "set",
+      "set": {
+        "signal": "THREE-TIER DEAL MODEL made explicit. (1) MID-TERM core AI cloud contracts of one to three years — four landmark deals closed in Q2 with REFLECTION, COHERE, an unnamed scale U.S. Neolab and a large U.S.-based quant trading firm, averaging MORE THAN $1B EACH at a yield of $20-25M PER MEGAWATT, upfront payments covering 50-60% of associated capex and payback under two years. (2) SHORT-DURATION capacity of up to six months for time-boxed needs (large training runs before a model release, RL post-training sprints) on dedicated GB300 clusters, being negotiated at $40-50M PER MEGAWATT 'and sometimes above'; one such deal signed recently. (3) LONG-TERM contracts with investment-grade customers, which help Nebius finance its build-out faster and more efficiently. Management states it COULD SELL ITS ENTIRE 2027 CAPACITY TODAY on mid-term terms but is deliberately choosing NOT TO, retaining capacity for higher-value short-term demand; it has also tactically shortened how far in advance it sells, selling closer to deployment to improve realized pricing."
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "'Roughly double the mid-term yield' is the enricher's own arithmetic; the call states only the two ranges ($20-25M and $40-50M per megawatt).",
+      "evidence": "We are negotiating deals for $40 million-$50 million per megawatt range, and sometimes above, under this model."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Nebius",
+      "target": null,
+      "label": "Nebius Q2 FY2026 (08-12-2026)",
+      "signal_prefix": "FIRST CAPACITY AUCTION as a price-discovery mechanism",
+      "action": "set",
+      "set": {
+        "signal": "FIRST CAPACITY AUCTION as a price-discovery mechanism: it cleared at the highest price Nebius has ever seen for the BLACKWELL generation — 15% ABOVE THE HIGHEST PRICE IT HAD EVER CHARGED and 20% ABOVE its Blackwell pipeline pricing. Management framed it as letting the market set price directly in an environment where 'competitor pricing, analyst opinions, and even prediction markets are all over the place' and 'we have several buyers for every GPU'; the winning bidder plans to participate in future rounds. Both the auction and the short-term scale-training deals use only a small portion of total capacity and have faster close-to-deployment cycles (Marc Boroditsky). On new entrants to the market, CEO Arkady Volozh said they 'validate the market' — the AI cloud market is growing tens of gigawatts per year while Nebius plans roughly 1 GW per year, so hyperscalers 'cannot build all of it'."
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "Take-or-pay status appears only in the IR-relayed portal question ('are they still take-or-pay'); Marc Boroditsky's answer never states that the auction or short-term deals are take-or-pay.",
+      "evidence": "Walk us through the strategy behind these motions, what they told you about pricing, and are they still take-or-pay."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Nebius",
+      "target": null,
+      "label": "Nebius Q2 FY2026 (08-12-2026)",
+      "signal_prefix": "CAPACITY: year-end CONTRACTED POWER TARGET RAISED TO 5 G",
+      "action": "set",
+      "set": {
+        "signal": "CAPACITY: year-end CONTRACTED POWER TARGET RAISED TO 5 GW — Nebius says it is exceeding its end-of-year projections much earlier — achieved through regional expansion and a mix of grid and behind-the-meter power, with hundreds of megawatts of behind-the-meter generation already secured. Almost all contracted power comes online over roughly the next two to three and a half years. Connected-power guidance for 2026 MAINTAINED at 800 MW - 1 GW, though management cautions that connected power converts to revenue only after commissioning, network build, cluster build, platform deployment and customer onboarding — a gap of a few months, so this cohort is 'active throughout the first half of 2027'. Nebius plans to build MORE THAN 1 GW OF NEW CAPACITY PER YEAR starting 2027, which it says puts it among just a few companies worldwide able to do so. New ASSET-LIGHT PARTNERSHIP MODEL introduced this quarter: partners finance, build and operate facilities while Nebius supplies the full-stack platform and the demand, generating high-margin revenue with minimal balance-sheet capital; dozens of inbound partner inquiries since announcement, still early stage."
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "The '>=4 GW at Q1' and '>3.5 GW' figures are not stated on this call (they come from the Q1 FY2026 call and already sit under that label); replaced with what Andrey Korolenko said.",
+      "evidence": "we are exceeding our end-of-the-year projections much earlier, for 2026. We will be raising, or we are raising, actually the contracted power to 5 GW now, by the end of 2026."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Nebius",
+      "target": null,
+      "label": "Nebius Q2 FY2026 (08-12-2026)",
+      "signal_prefix": "FUNDING STACK: customer prepayments hit an all-time hig",
+      "action": "set",
+      "set": {
+        "signal": "FUNDING FROM OPERATIONS (CFO Dado Alonso): customer prepayments hit an all-time high in the quarter — roughly 70% of the deals closed in Q2 included an upfront prepayment, and prepayments will bring in MORE THAN $9 BILLION of upfront funding in 2026, directly reducing the capital needed from debt and equity. Operating cash flow was $2.3B in the quarter and Nebius ended June with $8B of cash and cash equivalents. Q2 capex was approximately $5.7B, driven primarily by purchases of GPUs, GPU-related hardware and data-center expansion, and the capital invested to date positions Nebius to achieve its capacity plans for the year. Nebius has more than $40B of committed backlog from its strategic long-term deals with investment-grade companies.",
+        "figure": "prepayments >$9B in 2026 (~70% of Q2 deals prepaid); Q2 operating cash flow $2.3B; $8B cash; Q2 capex ~$5.7B; >$40B committed backlog"
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "SKILL section 2: the ATM share issuance (12.7M shares at $224, ~$2.8B) and the $775M asset-backed facility's pricing and collateral are financing terms, which the map does not capture; operating facts kept and attributed to the CFO.",
+      "evidence": "In total, customers' prepayments will bring in more than $9 billion of up-front funding this year, directly reducing the capital we need from debt and equity."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Nebius",
+      "target": null,
+      "label": "Nebius Q2 FY2026 (08-12-2026)",
+      "signal_prefix": "PLATFORM AND WORKLOAD MIX: Token Factory provides day-ze",
+      "action": "set",
+      "set": {
+        "signal": "PLATFORM AND WORKLOAD MIX: Token Factory provides day-zero support for frontier OPEN-WEIGHT models — Nemotron 3 Ultra, GLM-5.2, Kimi K3, DeepSeek-V4-Flash, MiniMax-M3 and Nemotron 3.5 Lightning all launched within about four weeks. Nebius' GLM-5.2 implementation scored 100% on quality with leading performance per independent benchmarking by Artificial Analysis (the GLM-5.2 release was described by some as 'the DeepSeek Moment 2'). Tavily, in its first full quarter inside Nebius, grew its developer community to MORE THAN 2.5 MILLION developers from 1 million in February and launched keyless paper search built for autonomous agent consumption. As examples of AI systems moving into production, Roman Chernin cited long-horizon agentic workflows in financial services (use cases at Revolut and Mastercard), e-commerce applications at Shopify and Sword Health in healthcare. Post-training workloads (RL rollouts, evaluation, synthetic data generation, grounded training) are creating inference and grounding demand beyond production serving. Notably, because agentic orchestration, tool calling and data preparation are CPU-HEAVY, Nebius is ADDING ARM AND CPU DEPLOYMENTS ALONGSIDE ITS GPU FLEET."
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "Roman Chernin cites these as market use cases of agentic AI moving into production; the call does not call them Nebius customers.",
+      "evidence": "We see long-horizon agentic workflows in financial services, such as use cases at Revolut and Mastercard, e-commerce applications improving the customer experience and processes in Shopify"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Nebius",
+      "target": null,
+      "label": "Nebius Q2 FY2026 (08-12-2026)",
+      "signal_prefix": "VINELAND, NEW JERSEY: the public hearing adjourned WITHOU",
+      "action": "set",
+      "set": {
+        "signal": "VINELAND, NEW JERSEY (Tom Blackwell, Andrey Korolenko): the project is seeking final approval for an amendment to its originally approved site layout plan; the amendment resulted from the decision to SWITCH THE PROJECT'S POWER SOURCE TO BLOOM ENERGY fuel cells — an on-site solution management says significantly enhances the project, including from a community perspective (reliable power, quiet, ultra-low emissions). Management is confident the layout complies with all applicable local, state and federal laws and is 'optimistic that once the public has been heard, this will move quickly to approval', framing such hearings as a normal part of the process that it builds into its schedule, amid a broader U.S. debate around data centers. All tranches required under the contract to date have been delivered, building construction finished earlier in the summer, engineering fit-out is progressing, Bloom fuel-cell deployment 'should be fast', and NO SIGNIFICANT IMPACT on the project timeline is expected; Vineland remains part of 2026 capacity and connected power.",
+        "figure": "site layout amendment awaiting final approval; power source switched to Bloom fuel cells; no significant timeline impact expected"
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "'Hearing adjourned without a vote' is only the analyst's premise (Morgan Stanley question); management described the status as seeking final approval of the layout amendment and expects quick approval.",
+      "evidence": "Ryan Lantz: With the Vineland, New Jersey data center site hearing adjourning without a vote, can we just get an update on the site?"
+    },
+    {
+      "kind": "contract",
+      "company": "Bloom Energy",
+      "target": "Nebius",
+      "label": "Nebius Q2 FY2026 (08-12-2026)",
+      "signal_prefix": "Nebius SWITCHED THE VINELAND, NEW JERSEY project's power",
+      "action": "set",
+      "set": {
+        "signal": "Nebius SWITCHED THE VINELAND, NEW JERSEY project's power source to BLOOM fuel cells — the change is what led to the amendment of the site layout plan, for which the project is seeking final approval. Nebius (Tom Blackwell) describes the switch as significantly enhancing the project including from a community perspective: an on-site solution delivering reliable power quietly with ultra-low emissions. Building construction finished earlier in summer 2026, engineering fit-out is progressing, 'Bloom fuel cells deployment should be fast', and no significant impact on the project timeline is expected; Vineland remains part of Nebius' 2026 capacity. Nebius separately cited its 'partnership with Bloom, which allows us to unlock and expedite a lot of our sites', alongside hundreds of megawatts of behind-the-meter generation already secured."
+      },
+      "chains": [
+        "components/power_cooling.json"
+      ],
+      "reason": "Removed the analyst's premise (hearing adjourned without a vote) and the unstated 'now before the local board'; management said only that the project is seeking final approval of the layout amendment.",
+      "evidence": "Data want to seek and final approval for the amendment to their originally approved site layout plan, and the amendment to the site layout plan was a result of the decision to switch"
+    },
+    {
+      "kind": "contract",
+      "company": "Nebius",
+      "target": "Reflection",
+      "label": "Nebius Q2 FY2026 (08-12-2026)",
+      "signal_prefix": "One of four landmark mid-term AI cloud deals closed in Q",
+      "action": "set",
+      "set": {
+        "signal": "One of four landmark mid-term AI cloud deals closed in Q2, named alongside Cohere. The four averaged MORE THAN $1 BILLION EACH, priced at a yield of $20-25M PER MEGAWATT with upfront payments covering 50-60% of the associated capex and a payback period under two years. All four were competitive wins where the customer already had an existing supplier (in some cases a hyperscaler) and was expanding to next-generation capacity; Nebius cites scale, performance and reliability as the differentiators. Capacity comes online from late Q4 2026 onward, so it does not materially affect 2026 revenue but does affect 2027 and beyond. Nebius is in discussions with all four on significant additional capacity and next-generation chips including Vera Rubin (Marc Boroditsky)."
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "Marc Boroditsky said ALL of the four customers (not several) are in discussions on additional capacity and next-generation chips; 'several' refers to post-training and inference.",
+      "evidence": "We are already in discussions with several of them on post-training and inference to support their revenue plans and growth, and with all of them on significant additional capacity"
+    }
+  ]
+}

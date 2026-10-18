@@ -1,0 +1,70 @@
+{
+  "reviewer": "verbatim-1017b-stmicroelectronics_q1_2026",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "STMicroelectronics",
+      "target": null,
+      "label": "STMicroelectronics Q1 FY2026 (04-23-2026)",
+      "signal_prefix": "Q1 2026: net revenues $3.10B (+23% YoY; incl ~$40M from the ",
+      "action": "set",
+      "set": {
+        "signal": "Q1 2026: net revenues $3.1B (incl ~$40M from the NXP MEMS-sensor business acquired in Feb; ex-that, above guidance midpoint), GM 33.8% (non-GAAP 34.1%), non-GAAP OI $171M (5.5%), non-GAAP EPS $0.13; FCF -$720M incl the $895M NXP MEMS payment. STRONG bookings: book-to-bill WELL ABOVE 1 across ALL end markets and regions with NO pull-ins; ~85-90% of Q1 bookings billable within 2026. Distribution inventories NORMALIZED. By end market YoY: comms equipment & computer peripherals +41%, industrial +26%, personal electronics +21%, automotive +15% (return to growth). Q2 guide: $3.45B (+11.6% QoQ, +24.9% YoY), GM 34.8% (non-GAAP 35.2%, ~100bps unused-capacity charges); GM to keep improving in Q3/Q4; FY2026 = DOUBLE-DIGIT revenue growth. Pricing environment improved: from low-to-mid-single-digit decline expected to VERY-LOW-single-digit decline with selected price increases. Path to 40% GM: CFO expects 40% 'when the company, let's say, will be with revenues above EUR 4 billion, quarterly revenues' (as transcribed), after the manufacturing reshaping (200->300mm, SiC 6->8 inch) is completed; reshaping costs ~50bps of GM through 2026; capacity-reservation fees -$140M YoY is the only revenue negative.",
+        "figure": "Q1 $3.1B; B2B >1 everywhere, no pull-ins; Q2 $3.45B; FY double-digit growth"
+      },
+      "chains": [
+        "components/power_semiconductor.json"
+      ],
+      "reason": "The call states no total-revenue YoY growth for Q1 (no same-day release saved under the label); 'April' came from the analyst's question; the 40% GM threshold is quoted as the CFO stated it.",
+      "evidence": "We said that when the company, let's say, will be with revenues above EUR 4 billion, quarterly revenues. Let's say, we expect to have our gross margin at 40%."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "STMicroelectronics",
+      "target": null,
+      "label": "STMicroelectronics Q1 FY2026 (04-23-2026)",
+      "signal_prefix": "AI data center: revenue confirmed \"nicely above $500M\" in 20",
+      "action": "set",
+      "set": {
+        "signal": "AI data center: revenue confirmed \"nicely above $500M\" in 2026 and \"well above $1B\" in 2027 - and UNCONSTRAINED demand is above those numbers; ST is in ramp-up mode ('the company first has to ramp up the capacity already installed', adding capacity in H2; 'our ambition here is to fulfill as much as we can the unconstrained demand of customer'). 2026 DC revenue split: ~40% analog & power, ~60% MCU + RF & optical comms. Grid-to-core strategy across three domains: (1) NETWORK FLOW - silicon-photonics PIC100 platform entered HIGH-VOLUME PRODUCTION for hyperscaler optical interconnect; ST claims to be the only company doing silicon photonics on 300mm (Crolles, 'possibly later on in Agrate'); pluggable-optics momentum also pulls high-performance MCUs (already contributing since Q1; photonics/BiCMOS bulk comes next); (2) POWER FLOW - 20,000V down to 0.8V with SiC/silicon/GaN, smart power, drivers, MCUs; multiple Si and SiC design wins for next-gen AI compute power density; GaN key for 800V with sockets that Marco Cassis thinks 'will come to life during this year and next year' across Taiwan PSU makers and the US ecosystem; (3) THERMAL/COOLING with power, MCU and analog. Plus initial Secure Element demand in server PSUs (authentication/anti-tamper)."
+      },
+      "chains": [
+        "components/power_semiconductor.json"
+      ],
+      "reason": "Quoted phrases were not the speakers' words; 'capacity-limited' replaced by the CEO's 'ramp-up mode'; restore the hedges 'possibly' (Agrate) and 'I think' (GaN sockets).",
+      "evidence": "Our ambition is to fulfill this unconstrained demand, but the company first has to ramp up the capacity already installed."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "STMicroelectronics",
+      "target": null,
+      "label": "STMicroelectronics Q1 FY2026 (04-23-2026)",
+      "signal_prefix": "New AI programs and ecosystem: expanded strategic engagement",
+      "action": "set",
+      "set": {
+        "signal": "New AI programs and ecosystem: expanded strategic engagement with AMAZON WEB SERVICES - a MULTI-YEAR, MULTI-BILLION-DOLLAR commercial engagement to enable new high-performance compute infrastructure for cloud and AI data centers across a broad range of ST proprietary technologies; CEO: ST is positioned in optical cable 'far beyond only AWS' and in power flow 'we will compete far beyond AWS'; in thermal cooling ST is already present with power, MCU and analog. Expanded the 800VDC power-conversion portfolio with new 12V and 6V architectures IN COLLABORATION WITH NVIDIA - ST now has a complete portfolio for 800VDC distribution inside gigawatt-scale compute. Also collaborating with NVIDIA on robotics/physical AI (ST sensors, MCUs, motor control in the NVIDIA robotics ecosystem for humanoids). LEO satellites: strongly progressing - selected by the main LEO customer to develop a power-amplifier controller for DIRECT-TO-CELL satellites (BCD tech), ramping a second customer; ambition WELL ABOVE $3B cumulative LEO revenue 2026-2028."
+      },
+      "chains": [
+        "components/power_semiconductor.json"
+      ],
+      "reason": "The CEO said 'far beyond AWS' for the optical (network flow) and power-flow domains only, not for cooling.",
+      "evidence": "ST is positioned to be a provider of product and solution for optical cable far beyond only AWS."
+    },
+    {
+      "kind": "contract",
+      "company": "STMicroelectronics",
+      "target": "Amazon",
+      "label": "STMicroelectronics Q1 FY2026 (04-23-2026)",
+      "signal_prefix": "ST expanded its strategic engagement with Amazon Web Service",
+      "action": "set",
+      "set": {
+        "signal": "ST expanded its strategic engagement with Amazon Web Services through a MULTI-YEAR, MULTI-BILLION-DOLLAR commercial engagement to enable new high-performance compute infrastructure for cloud and AI data centers, covering a broad range of ST proprietary technologies (CEO: in the network flow - optical cable, co-packaged and pluggable optics - 'one of the main driver will be AWS'; ST positions to compete beyond AWS as well)."
+      },
+      "chains": [
+        "components/power_semiconductor.json"
+      ],
+      "reason": "The call does not tie PIC100 to the AWS engagement; the CEO named AWS as one of the main drivers of the network-flow (optical) domain.",
+      "evidence": "More clearly here, one of the main driver will be AWS, but clearly ST is positioned to be a provider of product and solution for optical cable far beyond only AWS."
+    }
+  ]
+}

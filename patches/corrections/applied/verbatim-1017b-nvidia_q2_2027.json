@@ -1,0 +1,265 @@
+{
+  "reviewer": "verbatim-1017b-nvidia_q2_2027",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "OpenAI",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "OpenAI commitments represent ~12 GW of NVIDIA Compute through 2030",
+      "action": "set",
+      "set": {
+        "signal": "OpenAI commitments represent ~12 GW of NVIDIA Compute (existing and planned; OpenAI committed to substantial deployments through 2030); the initial Portsmouth deployment, expected to support 4.25 GW, will be utilized by OpenAI."
+      },
+      "chains": [
+        "accelerators/nvda_b200.json"
+      ],
+      "reason": "The 'Jalapeno' custom-chip sentence was analyst Vivek Arya's question, not management; removed. Hedge on the 4.25 GW restored.",
+      "evidence": "Vivek Arya: ... OpenAI just in the last few days spoke about Jalapeño and their claims about being better than Blackwell"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "OpenAI",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "OpenAI committed to substantial NVIDIA AI infrastructure deployments through 2030",
+      "action": "set",
+      "set": {
+        "signal": "OpenAI committed to substantial NVIDIA AI infrastructure deployments through 2030 (~12 GW of NVIDIA Compute incl. planned); will utilize the initial deployment at SoftBank Energy's Portsmouth campus, expected to support 4.25 GW of AI factory capacity (CFO Colette Kress)."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "The 'Jalapeno' custom-chip claim was analyst Vivek Arya's question (removed); CEO said 'Two of the companies will likely go public soon' without naming OpenAI, so the IPO attribution to OpenAI is removed.",
+      "evidence": "Jensen Huang: ... Two of the companies will likely go public soon, and others will follow."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Anthropic",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "Named among the leading closed models running on NVIDIA; NVIDIA invested",
+      "action": "set",
+      "set": {
+        "signal": "Named by CFO Colette Kress among the leading closed models running on NVIDIA; NVIDIA has invested nearly $50B in the frontier AI labs. CEO Jensen Huang (companies not named): 'Two of the companies will likely go public soon, and others will follow.'"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Anthropic custom chips (Vivek Arya) and recursive self-improvement at Anthropic and OpenAI (Ben Reitzes) were analyst statements; removed. CEO did not name which labs will go public.",
+      "evidence": "Ben Reitzes: ... There's recursive self-improvement, which apparently at Anthropic and OpenAI is going very well"
+    },
+    {
+      "kind": "contract",
+      "company": "NVIDIA",
+      "target": "Anthropic",
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "Analyst noted OpenAI and Anthropic are designing their own custom chips",
+      "action": "set",
+      "set": {
+        "signal": "CEO Jensen Huang on the frontier AI labs NVIDIA has invested in: 'I'm very confident that they're going to be customers and partners of ours for a very long time'; he has '100% confidence that through quite a long period of time, they're going to be utilizing NVIDIA Compute for a lot of their computing'; 'Two of the companies will likely go public soon, and others will follow.'"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "The custom-chip statement was analyst Vivek Arya's question, not management; removed and the CEO's words quoted verbatim.",
+      "evidence": "Jensen Huang: ... I'm very confident that they're going to be customers and partners of ours for a very long time."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SoftBank",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "SoftBank Energy Portsmouth campus: NVIDIA secured",
+      "action": "set",
+      "set": {
+        "signal": "SoftBank Energy Portsmouth campus: NVIDIA secured land/power/shell capacity through its partnership with SoftBank Energy to exclusively host NVIDIA Compute; the initial deployment, expected to support 4.25 GW of AI factory capacity, will be utilized by OpenAI; each generation deployed could represent ~1.5M NVIDIA GPUs, and over 20 years the site could support multiple upgrade cycles."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "CFO hedges ('expected to support', 'could represent', 'could support') were lost; restored.",
+      "evidence": "Colette Kress: The initial deployment, expected to support 4.25 GW of AI factory capacity, will be utilized by OpenAI. Each generation ... could represent approximately 1.5 million NVIDIA GPUs"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NVIDIA",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "Frontier-lab support: ~$50B invested in frontier AI labs",
+      "action": "set",
+      "set": {
+        "signal": "Frontier-lab support: NVIDIA has invested nearly $50B in the frontier AI labs. CFO Colette Kress: demand from the AI labs for which NVIDIA expects to leverage its balance sheet is expected to contribute toward roughly a quarter of its business next year; the compute NVIDIA ships will be consumed by investment-grade customers or those backed by one.",
+        "figure": "nearly $50B invested in frontier AI labs; AI labs roughly a quarter of business next year"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Financing terms removed (skill section 2): the >$500B third-party capital-raising platforms with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR, and the selective credit enhancement for nearly 2 GW. The figure turned 'roughly a quarter of our business next year' into '~25% of FY2028' (arithmetic / inferred period); restored to the CFO's words.",
+      "evidence": "Colette Kress: ... we expect demand from the AI labs for which we expect to leverage our balance sheet to contribute toward roughly a quarter of our business next year."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amazon",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "AWS expanding its NVIDIA installed base with an additional 2 million GPUs",
+      "action": "set",
+      "set": {
+        "signal": "AWS expanding its NVIDIA installed base with an additional 2 million GPUs starting Q3 FY2027 through Q2 FY2029, along with Vera CPUs (some integrated with Rubin, others standalone)."
+      },
+      "chains": [
+        "accelerators/nvda_b200.json"
+      ],
+      "reason": "'(Rubin era)' is not stated on the call; replaced by the CFO's own wording.",
+      "evidence": "Colette Kress: AWS is deploying an additional 2 million GPUs starting this quarter through the second quarter of fiscal 2029, along with Vera CPUs, some integrated with Rubin, others standalone."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NVIDIA",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "Agentic compute intensity: an agent uses ~15-100x the compute",
+      "action": "set",
+      "set": {
+        "signal": "Agentic compute intensity, CEO Jensen Huang: the compute necessary for an agent versus a human using it is 'probably 15- 100 times, depending on the type of problem'; 'I believe that this last month it has crossed. Most AI are now agentic.' NVIDIA has roughly 40,000 employees and 'in the future, we'll have 400,000 agents, 4 million agents.' He added, second-hand: 'I heard the other day that return on investment capital is now less than a year, and we are talking about $50 billion data centers.'",
+        "figure": "agent = 15-100x human compute"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Hedges lost: 'probably', 'I believe', and the ROIC point is hearsay ('I heard the other day'), not a stated fact; figure no longer states ROIC as fact.",
+      "evidence": "Jensen Huang: ... I heard the other day that return on investment capital is now less than a year, and we are talking about $50 billion data centers."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NVIDIA",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "Neocloud partners expected to exit 2026 at 8 GW installed capacity",
+      "action": "set",
+      "set": {
+        "signal": "Neocloud partners expected to exit 2026 at 8 GW installed capacity (vs ~3 GW end-2025); OpenAI commitments ~12 GW of NVIDIA Compute; SoftBank Energy Portsmouth campus initial deployment expected to support 4.25 GW. Revenue opportunity per GW: $18B Hopper -> $25B Blackwell -> $40B Vera Rubin; total DC cost ~$60B/GW today. CEO: securing land, power and shell 'oftentimes is a couple, two, three years out' — NVIDIA works with power generator companies and Land, Power, and Shell companies around the world."
+      },
+      "chains": [
+        "components/power_cooling.json"
+      ],
+      "reason": "Hedges lost ('oftentimes' on the land/power/shell lead time; 'expected to support' on 4.25 GW); restored.",
+      "evidence": "Jensen Huang: You have got to go secure the Land, Power, and Shell, which oftentimes is a couple, two, three years out."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NVIDIA",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "Capital return: record $26B returned in Q2 ($20B buybacks",
+      "action": "set",
+      "set": {
+        "signal": "DSO rose to 60 days, reflecting extended payment terms for large purchases by certain investment-grade customers to be shipped over multiple quarters. Q3 OpEx ~$9.2B GAAP / $9.0B non-GAAP; FY2027 OpEx growth now expected in the low 50s%, driven by a broader product portfolio and more use of AI tools.",
+        "figure": "DSO 60 days; Q3 OpEx ~$9.2B GAAP / $9.0B non-GAAP; FY OpEx growth low 50s%"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Capital-return detail (record $26B returned, $20B buybacks, $6B dividend at $0.25/share, 60% of free cash flow returned YTD) is excluded by skill section 2 (buybacks / dividends); the operating facts (DSO, OpEx) are kept.",
+      "evidence": "Colette Kress: In Q2, we returned a record $26 billion to shareholders, $20 billion through share repurchases, and $6 billion through our quarterly dividend"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NVIDIA",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "New neocloud revenue-sharing structure: NVIDIA provides a take-or-pay",
+      "action": "set",
+      "set": {
+        "signal": "New neocloud revenue-sharing structure: NVIDIA provides a take-or-pay commitment on a portion of a facility's capacity and shares in the neocloud's revenue earned above that floor. CFO Colette Kress: 'we get paid twice, once on the hardware sale and again through the share of rental revenue'; over time the model 'can expand our addressable market' with 'the potential to drive billions in revenue over the medium to long term.'",
+        "figure": "take-or-pay commitment on part of capacity + revenue share above the floor; 'billions' medium/long-term"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Credit-support terms removed (skill section 2): the minimum revenue guarantee 'that gives lenders the confidence to underwrite the project' and 'not making loans'. The revenue-share business model and its revenue potential are kept.",
+      "evidence": "Colette Kress: NVIDIA provides a take or pay commitment on a portion of the facility's capacity, a minimum revenue guarantee that gives lenders the confidence to underwrite the project"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NVIDIA",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "New neocloud financing structure: NVIDIA gives a take-or-pay",
+      "action": "set",
+      "set": {
+        "signal": "New neocloud revenue-sharing structure: NVIDIA gives a take-or-pay commitment on part of a facility's capacity and receives a share of the neocloud's rental revenue above that floor - paid twice (hardware sale + recurring usage-linked share), with the potential for billions in revenue over the medium to long term. Regional neoclouds named: Firebird (Armenia), Cassava Technologies (Africa), GMI Cloud (Taiwan), Yotta and Neysa (India), Firmus (Australia), YTL AI Cloud (Malaysia); Noetra (Japan's national AI company) to build an NVIDIA DSX AI factory."
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "Credit-support terms removed (skill section 2): the guarantee 'so lenders can underwrite it' and 'not making loans'; the revenue-share model and the named regional neoclouds are kept.",
+      "evidence": "Colette Kress: a minimum revenue guarantee that gives lenders the confidence to underwrite the project ... We're not making loans."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "CoreWeave",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "NVIDIA 'helped CoreWeave, Nebius and Nscale build entire",
+      "action": "set",
+      "set": {
+        "signal": "NVIDIA 'helped CoreWeave, Nebius, and Nscale build entire infrastructure businesses'; NVIDIA's neocloud partners are expected to exit 2026 at 8 GW installed capacity (from ~3 GW end-2025)."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "The clause 'take-or-pay floors + revenue share to help lenders underwrite neocloud projects' is credit-support (financing) wording excluded by skill section 2, and was not said about CoreWeave; removed.",
+      "evidence": "Colette Kress: We helped CoreWeave, Nebius, and Nscale build entire infrastructure businesses"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "CoreWeave",
+      "target": null,
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "Cited by NVIDIA as a neocloud it helped build into an entire",
+      "action": "set",
+      "set": {
+        "signal": "Cited by NVIDIA as a neocloud it helped build into an entire infrastructure business ('We helped CoreWeave, Nebius, and Nscale build entire infrastructure businesses')."
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "The clause 'take-or-pay floors + revenue share to help lenders underwrite neocloud projects' is credit-support (financing) wording excluded by skill section 2, and was not said about CoreWeave; removed.",
+      "evidence": "Colette Kress: We helped CoreWeave, Nebius, and Nscale build entire infrastructure businesses"
+    },
+    {
+      "kind": "contract",
+      "company": "NVIDIA",
+      "target": "OpenAI",
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "OpenAI has committed to substantial deployments of NVIDIA AI infrastructure through 2030",
+      "action": "set",
+      "set": {
+        "signal": "OpenAI has committed to substantial deployments of NVIDIA AI infrastructure through 2030; existing and planned commitments represent ~12 GW of NVIDIA Compute. The initial deployment at the SoftBank Energy Portsmouth campus (land, power and shell secured by NVIDIA to exclusively host NVIDIA Compute), expected to support 4.25 GW of AI factory capacity, will be utilized by OpenAI; each generation of NVIDIA systems deployed there could represent ~1.5 million NVIDIA GPUs, and over 20 years the site could support multiple upgrade cycles."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "CFO hedges lost ('expected to support' 4.25 GW; the site 'could support multiple upgrade cycles' over 20 years, not a stated 20-year life); restored, as in the matching quarterly_data corrections.",
+      "evidence": "Colette Kress: The initial deployment, expected to support 4.25 GW of AI factory capacity, will be utilized by OpenAI. ... over 20 years, the site could support multiple upgrade cycles."
+    },
+    {
+      "kind": "contract",
+      "company": "SoftBank",
+      "target": "OpenAI",
+      "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+      "signal_prefix": "Initial 4.25 GW of AI factory capacity at the SoftBank Energy Portsmouth campus",
+      "action": "set",
+      "set": {
+        "signal": "The initial deployment at the SoftBank Energy Portsmouth campus, expected to support 4.25 GW of AI factory capacity, will be utilized by OpenAI; each generation of NVIDIA AI factory systems deployed there could represent ~1.5 million NVIDIA GPUs, and over 20 years the site could support multiple upgrade cycles."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "CFO hedges lost ('expected to support' 4.25 GW; the site 'could support' multiple upgrade cycles); restored.",
+      "evidence": "Colette Kress: The initial deployment, expected to support 4.25 GW of AI factory capacity, will be utilized by OpenAI."
+    }
+  ]
+}

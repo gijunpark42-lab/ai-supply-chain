@@ -1,0 +1,70 @@
+{
+  "reviewer": "verbatim-1017b-amphenol",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Amphenol",
+      "target": null,
+      "label": "Amphenol Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "RECORD Q2, above the high end of guidance: sales $8.8 BILLION, UP 55% ",
+      "action": "set",
+      "set": {
+        "signal": "RECORD Q2, above the high end of guidance: sales $8.8 BILLION, UP 55% in US dollars and 30% ORGANICALLY, 'driven by strong organic growth in most of our end markets, including EXCEPTIONAL ORGANIC GROWTH IN THE IT DATACOM MARKET' (CEO Adam Norwitt). ORDERS a record $10.7 BILLION, a BOOK-TO-BILL OF 1.23:1, with every end market having a positive book-to-bill (CFO Craig Lampo). Adjusted diluted EPS $1.35 versus $0.81 a year ago (+67%). Q3 2026 GUIDANCE: sales $9.3-9.4B, representing 50-52% growth, with adjusted EPS $1.40-1.42 (+51-53%); the guidance does not reflect any additional net tariff recoveries, which management expects to be immaterial going forward. Two companies acquired during the quarter (El.Com and Wilder Technologies)."
+      },
+      "chains": ["components/optical_networking.json"],
+      "reason": "The guide excludes additional tariff recoveries (not 'future acquisitions'); removed the capital-return (buyback / dividend) sentence and the unstated 'implying demand running ahead' inference; speakers attributed.",
+      "evidence": "I would just note that our guidance does not reflect any additional net tariff recoveries, which we expect to be immaterial going forward."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amphenol",
+      "target": null,
+      "label": "Amphenol Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — IT DATACOM IS NOW 43% OF THE COMPANY AND IT'S ALL AI",
+      "action": "set",
+      "set": {
+        "signal": "CALL — IT DATACOM IS NOW 43% OF THE COMPANY: IT-datacom sales rose 89% in USD and 63% ORGANICALLY, 'driven by continued acceleration in demand for our products used in artificial intelligence applications, together with robust growth in our base IT datacom business'; sequentially +22%, and 'virtually all of this growth was driven by sales of AI-related products' (CEO Adam Norwitt); Q3 guided to a FURTHER mid-teens sequential increase 'as investments in AI data centers continue to accelerate.' Norwitt: 'If you look at our IT datacom overall growth organically growing 63% in the quarter. The AI is growing faster than that.' The demand thesis: 'the one consistent thing we hear from our customers is they need more of everything ... More high-speed copper, more fiber optic solutions, and more power solutions'; on the cabled-backplane-vs-PCB debate: 'this is really not the core question. The core question is: Is there more overall content of interconnect?' and 'they're all moving in the direction of more content, not less' ('We are not model-dependent, we're not frontier training versus inference dependent. We're not geographically dependent'; 'inference seems to grow at an even faster pace'). Profitability: record ADJUSTED OP MARGIN 29.8% (+420bps YoY; nearly 29% excluding the benefit of net tariff refunds, an $80M net benefit); Communications Solutions segment margin 33.6%; ORDERS +63% ORGANICALLY to a record $10.7B (book-to-bill 1.23, positive in every end market). Power franchise: from 'deep in the rack, connecting directly to the chip, all the way to where it comes into the data center from the switchgear', with movements to higher voltages, liquid cooling and sensors embedded in connectors — 'What AI is conversion of electrons into tokens.'",
+        "figure": "IT datacom 43% of sales (+63% organic; AI growing faster); adj op margin record 29.8%; 'more of everything' — content up regardless of architecture"
+      },
+      "chains": ["components/optical_networking.json"],
+      "reason": "Removes the analyst's $10.5-11B AI run-rate figure (analyst question, never confirmed) and the 'it's all AI' claim — the CEO credits robust base IT datacom growth too; quotes made verbatim.",
+      "evidence": "This was driven by continued acceleration in demand for our products used in artificial intelligence applications, together with robust growth in our base IT datacom business."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amphenol",
+      "target": null,
+      "label": "Amphenol Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — COMMSCOPE RAISED AND A SCALE-UP SEAT",
+      "action": "set",
+      "set": {
+        "signal": "CALL — COMMSCOPE RAISED AND A SCALE-UP SEAT: CommScope's 2026 contribution UPGRADED to $4.6 BILLION of sales and $0.30 of EPS accretion (from $4.1B / $0.15) after two full quarters. CFO Craig Lampo: 'They're essentially in the second quarter operating over 20%, including the amortization', from operational execution in the factory and operating expenses rather than pricing. CEO Adam Norwitt: CommScope's IT-datacom business (all 'advanced, complex optical interconnect solutions') essentially DOUBLED year over year, and IT datacom will be just a bit less than half of CommScope's 2026 sales versus about a third in 2025. SCALE-UP: CommScope is known as scale-out / scale-across 'because that's where optics has been present so far'; 'this still remains to be seen what the architectures of the future will be like. Clearly, there'll be hybrid architectures' — CommScope, 'especially given Amphenol's unique relationships across the ecosystem of AI, has a great seat at the table to the extent that customers are thinking about integrating some degree of optics within their scale-up architectures', and is 'certainly part of that discussion in a very significant way.' Supply: no significant bottlenecks — CommScope has 'managed to secure all that they need, including fiber'; the company doubled in size in two years (roughly a third through acquisitions, two-thirds organic). CFO: capex at the high end of the 3%-4%-of-sales range, modestly above it in the second half. Wilder Technologies acquired (high-speed interconnect test and measurement)."
+      },
+      "chains": ["components/optical_networking.json"],
+      "reason": "The scale-up quote was re-ordered and lost its hedges ('to the extent', 'some degree of', 'still remains to be seen'); speakers attributed (margin and capex are the CFO's).",
+      "evidence": "has a great seat at the table to the extent that customers are thinking about integrating some degree of optics within their scale-up architectures"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amphenol",
+      "target": null,
+      "label": "Amphenol Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "Record Q2 sales $8.8B (+55% USD, +30% organic) above the high end",
+      "action": "delete",
+      "chains": ["accelerators/nvidia_vera_rubin.json"],
+      "reason": "Duplicate copy of the company-wide Q2 results already held on Amphenol's optical_networking node (one fact, one node); its 'sequential acceleration into the Rubin-generation rack ramp' is not stated on the call.",
+      "evidence": "The company closed the second quarter of 2026 with record sales of $8.8 billion"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amphenol",
+      "target": null,
+      "label": "Amphenol Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — THE RACK-CONTENT SUPPLIER'S VIEW OF THE AI RAMP",
+      "action": "delete",
+      "chains": ["accelerators/nvidia_vera_rubin.json"],
+      "reason": "Duplicate copy of the optical_networking call entries (one fact, one node), and it carries the analyst's $10.5-11B AI run rate in signal and figure.",
+      "evidence": "how big the fiber business is within the $10.5 billion-$11 billion AI revenue run rate you have right now would be really helpful"
+    }
+  ]
+}

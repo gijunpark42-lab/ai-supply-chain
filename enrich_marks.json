@@ -1094,6 +1094,26 @@
    "at": "2026-10-17 00:00",
    "market": "US",
    "text": "2026-10-16/17 nightly enrich: board said nothing due; av.py sync saved 0 (only the 5 marked known gaps). Alpha Vantage's earnings calendar does not list TSM, so TSMC's Q3 call (10-15) was fetched from defeatbeta (utils/defeatbeta_fetch.py \"TSMC\" TSM --fy 2026 --q 3) and enriched: 10 entries, Opus verifier 3 wording fixes (patches/corrections/applied/verify-1017-tsmc.json). A defeatbeta scan of every US-market ticker for calls dated 10-06..10-16 found nothing else missing. Next quarters: TSMC must be fetched by hand (defeatbeta) each mid-Jan/Apr/Jul/Oct. Also: the 'us' sync cadence compares dates, so a nightly that finishes after midnight counts as today's sync; the board's refresh took ~18 min (enrich_status.py, ~1.5 GB)."
+  },
+  {
+   "at": "2026-10-17 02:07",
+   "market": "US",
+   "text": "2026-10-17 01:30-03:00 (same nightly, on the user's request relayed from another session): verbatim re-pass of calls first enriched from condensed / unlabelled files - defeatbeta verbatim saved to transcripts/av/ under the existing labels: Microsoft Q4 FY2026, Google Q2, Amazon Q2, Meta Q2, Nebius Q2, Apple Q3 FY2026; 6 delta patches (*_verbatim.json) + correction proposals (patches/corrections/verbatim-1017-*.json, incl. SK Hynix Q2 call attribution made neutral where Investing.com swapped speaker labels), each checked by an independent Opus verifier before apply."
+  },
+  {
+   "at": "2026-10-18 01:05",
+   "market": "all",
+   "text": "2026-10-18 nightly (session b62dfa03): transcript-quality pass (skill 10a) re-fetched verbatim speaker-labelled copies for 46 call labels (transcripts/av/, same labels) with delta patches + correction files, all pre-verified by independent Opus verifiers. Still flagged in graph/transcript_quality.json and NOT re-fetched: Fujitsu Q1 FY2027 (Investing.com), IQE FY2025, ASMPT Q1, ABB Q1, Schneider Q1 (non-US, need Investing.com / company copies); Magnachip Q2 and ChipMOS Q2 (defeatbeta copies also have no speaker labels, checked 2026-10-18); KeyCorp Q2 (not a graph company - nothing to fix). The old condensed / unlabelled files remain beside the new ones (question recorded). Relations backfill night 1: TSMC, NVIDIA, Samsung, SK Hynix, Microsoft done."
+  },
+  {
+   "at": "2026-10-18 01:33",
+   "market": "all",
+   "text": "2026-10-18 01:45: the second graph_build.py --sync (2 DART patches Mirae Industry / JT + verify-1018-kla correction) was stopped by Claude Code for low memory after merge/derive; its 3 labels were verified by hand (verify_graph --label: 14/14 pass), i18n merged and built (0 untranslated), board rebuilt. Still to run once: python -X utf8 graph_build.py --sync (evidence.json + web/public/data sync). IR feed sync (last 2026-10-14) is due for the next run."
+  },
+  {
+   "at": "2026-10-18 02:01",
+   "market": "all",
+   "text": "2026-10-18 02:05: the pending graph_build.py --sync finished cleanly at 01:58 (run from another session); web/public has the DART + KLA changes, i18n 0 untranslated. Nothing left from the 10-17/18 nightly except the IR feed sync (due) and the open questions."
   }
  ],
  "questions": [
@@ -1534,6 +1554,90 @@
    "question": "TSMC's Q3 call (10-15): IR head Jeff Su cited 'the recent announcement with GlobalFoundries on interposers'; CEO C.C. Wei: the GlobalFoundries deal 'is part of our overall strategy in the back-end supply', 'we have a little bit shortage on the back end', and TSMC will work with 'our so-called partner' GlobalFoundries to support TSMC's customers. GlobalFoundries is a node but not a player in packaging_substrate.json (TSMC's CoWoS placement). Add a GlobalFoundries placement there (advanced_packaging, interposers) with a GlobalFoundries -> TSMC edge? Meanwhile the fact is on TSMC's packaging node with counterparty GlobalFoundries, counterparty_role 'supplier' (management's own word was 'partner'; change the role to 'partner' if you prefer).",
    "label": "TSMC Q3 FY2026 (10-15-2026)",
    "at": "2026-10-17"
+  },
+  {
+   "subject": "Ineffable Intelligence",
+   "question": "Google's Q2 call (07-22, verbatim): CEO Sundar Pichai: 'We are seeing strong growth and demand for our AI infrastructure offerings from leading labs such as Ineffable Intelligence'. Private AI lab, country not stated. Add it as a node (accelerators/nvidia_vera_rubin.json, ai_models / Foundation Models, beside World Labs and Thinking Machines Lab) with a Google -> Ineffable Intelligence edge, or keep it as a counterparty on Google's node (current)?",
+   "label": "Google Q2 FY2026 (07-22-2026)",
+   "at": "2026-10-17"
+  },
+  {
+   "subject": "EssilorLuxottica",
+   "question": "Meta's Q2 call (07-29, verbatim): AI glasses made with EssilorLuxottica, early sales above expectations. No chain has an AR/VR / smart-glasses sector (edge_ai lists AR/VR). Add EssilorLuxottica as a node (edge_ai) with a Meta edge, or keep it as a counterparty on Meta's node (current)?",
+   "label": "Meta Q2 FY2026 (07-29-2026)",
+   "at": "2026-10-17"
+  },
+  {
+   "subject": "Microsoft -> Arm Holdings (Cobalt VM customer)",
+   "question": "Microsoft's Q4 FY2026 call (07-29, verbatim) names Arm as a customer of Cobalt VMs. A Microsoft -> Arm Holdings edge in cpu_datacenter.json would run opposite to the existing Arm -> Microsoft (Neoverse licence) edge. Allow a second, reverse-direction edge (same shape as the open Tempus AI and SharonAI questions), or keep the fact on the Cobalt entry (current)?",
+   "label": "Microsoft Q4 FY2026 (07-29-2026)",
+   "at": "2026-10-17"
+  },
+  {
+   "subject": "Curated capex_backlog.json fixes (big tech)",
+   "question": "The verbatim pass found curated capex_backlog.json text the calls do not support: Amazon backlog 'RPO ~2.5x (year-ago)' is an analyst's figure (and vs Q3 2025); Nebius 'USD 27B 5-yr Meta' is not on the Q2 call; the Google rows are named 'Alphabet' / 'Google Cloud' (not the node 'Google', so the Capex tab shows a second, derived 'Google' bar) and mention a '$49.6B equity raise' (financing). Only the user edits that file: fix these rows?",
+   "label": null,
+   "at": "2026-10-17"
+  },
+  {
+   "subject": "Condensed call files labelled FULL",
+   "question": "transcripts/bigtech/{microsoft_q4_fy2026, alphabet_q2_2026, amazon_q2_2026, meta_q2_2026}.txt are ~8-9 KB condensed notes whose headers say 'User-pasted FULL earnings call transcript' (amazon's also declares the label 'Amazon Web Services Q2 FY2026 ...'). The verbatim calls now sit beside them in transcripts/av/ under the same labels and the entries were corrected from them (2026-10-17). Change those headers to say 'condensed notes, NOT verbatim' (and move them out of the label's sources), or leave them as they are?",
+   "label": null,
+   "at": "2026-10-17"
+  },
+  {
+   "subject": "Google Q2 entry on NVIDIA's node",
+   "question": "chains/accelerators/google_tpu_v7_ironwood.json holds an entry on the NVIDIA player under the label 'Google Q2 FY2026 (07-22-2026)' (signal starts 'GOOGLE CLOUD ACCELERATED SHARPLY ON AI INFRASTRUCTURE DEMAND'): Google company-wide facts on NVIDIA's node (one fact, one node), partly restating Google's own entries, and quoting 'a meaningful acceleration in growth', which is in Google's 8-K release, not the call. Delete it, or relabel it to the 8-K and move it to Google's node, in a corrections pass?",
+   "label": "Google Q2 FY2026 (07-22-2026)",
+   "at": "2026-10-17"
+  },
+  {
+   "subject": "Amazon duplicate player in aws_trainium3",
+   "question": "chains/accelerators/aws_trainium3.json has two Amazon players under the same locator compute_hardware / 'Custom AI ASIC (hyperscaler silicon)': 'Trainium3 NPU (Annapurna Labs design)' (holds the company-wide entries) and 'Trainium UltraServer' (holds only a legacy Goldman note). Merge the second into the first?",
+   "label": null,
+   "at": "2026-10-17"
+  },
+  {
+   "subject": "Eaton Q2 FY2026 label date",
+   "question": "The verbatim Eaton Q2 call fetched tonight (transcripts/av/eaton_q2_2026.txt, defeatbeta) gives a report date of 07-31-2026, but the graph label is 'Eaton Q2 FY2026 (08-05-2026)' (the old pasted notes said the date was approximate). The new file was pinned to the existing label so nothing split. Relabel all Eaton Q2 entries and both transcript headers to (07-31-2026)? Same open issue as the Tower Semiconductor 08-06 vs 08-04 question, which defeatbeta also dates 08-04.",
+   "label": "Eaton Q2 FY2026 (08-05-2026)",
+   "at": "2026-10-18"
+  },
+  {
+   "subject": "Release facts under call labels (Astera Labs, AMD, Keysight)",
+   "question": "Tonight's verbatim re-fetch showed that some entries under call labels hold facts that are only in the same-day earnings release: Astera Labs Q2 FY2026 (08-04-2026) - an amd_mi450_helios entry (AMD Advancing AI joint architectures) and the nvidia_vera_rubin revenue_growth entry (Computex demo, MGX reference designs, Taiwan expansion, '320-lane production ramp' quote); AMD Q2 FY2026 (08-04-2026) - entries with GAAP margin / net income / EPS, Jean Hu's 'accelerate in the second half', MI430X/MI455X and the Anthropic 'up to 2 gigawatts' wording (verbatim in transcripts/edgar/AMD_8-K_2026-08-04.txt); Keysight Q3 FY2026 (08-18-2026) - non-GAAP $531M / $3.07 and GAAP $397M / $2.30 (in transcripts/edgar/KEYS_8-K_2026-08-18.txt). They were kept, unchanged. Relabel them to the 8-K labels ('Astera Labs 8-K (08-04-2026)', 'AMD 8-K (08-04-2026)', 'Keysight 8-K (08-18-2026)') with apply_corrections relabel items?",
+   "label": "AMD Q2 FY2026 (08-04-2026)",
+   "at": "2026-10-18"
+  },
+  {
+   "subject": "NVIDIA memory suppliers named by inference",
+   "question": "On the verbatim NVIDIA Q2 FY2027 call (08-26-2026) NVIDIA says only 'all three major memory suppliers'; it never names them. Existing entries under that label name them anyway: 6 quarterly_data (SK Hynix, Micron, Samsung in nvidia_vera_rubin.json - signal 'NVIDIA: 'extreme pricing conditions in memory' - price increases exceeded...'; the same three in hbm_memory.json - 'NVIDIA Q2 FY2027: 'extreme pricing conditions in memory' - increases exceeded...') and 3 contracts (SK Hynix -> NVIDIA, Samsung -> NVIDIA, Micron -> NVIDIA in hbm_memory.json - 'NVIDIA: longstanding deep relationships with all three major memory suppliers...'). The names are background knowledge (skill section 2). Delete them (the fact stays on NVIDIA's own node), reword them to the call's words, or keep them?",
+   "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+   "at": "2026-10-18"
+  },
+  {
+   "subject": "OpenAI -> Microsoft edge (IP rights)",
+   "question": "Microsoft's 10-K (07-29-2026): 'We hold rights to OpenAI's intellectual property, including models and infrastructure, for integration into our products.' That is an AI relationship in the OpenAI -> Microsoft direction; OpenAI has no outgoing edges and Microsoft sits only in cloud_infra, so the edge would point down the stack. Not created. Add an OpenAI -> Microsoft 'model / IP licence' edge?",
+   "label": "Microsoft 10-K (07-29-2026)",
+   "at": "2026-10-18"
+  },
+  {
+   "subject": "Relations rows: government customers and free-software users",
+   "question": "Decision C relations rows (2026-10-17): (1) Oracle's verbatim Q4 FY2026 call names government customers - US Department of Veterans Affairs (EHR), US Office of Personnel Management (Fusion HCM), UK NHS Shared Business Services, Wright County Sheriff's Office (Public Safety Suite). JOB 3 bars governments as NODES; should they be relations counterparties (Oracle supplies X)? Left out for now; relations/oracle.json has the 8 company customers. (2) relations/nvidia.json records 11 CUDA-Q quantum companies as 'supplies' / 'partner' although CUDA-Q is open-source software they use for free - keep 'supplies', change to 'partner', or drop such rows?",
+   "label": "Oracle Q4 FY2026 (06-10-2026)",
+   "at": "2026-10-18"
+  },
+  {
+   "subject": "Synopsys -> Microsoft edge left empty",
+   "question": "The verbatim Synopsys Q3 FY2026 call (08-26-2026) calls the Microsoft Discovery workflow 'a demonstration', so tonight's correction deleted the only contract on the Synopsys -> Microsoft edge in nvidia_vera_rubin.json (no contracts from joint demos, skill section 2.4). The edge now has no contracts; under the 2026-10-05 decision empty edges are dropped, but removing an edge is structural. Remove the edge? Also the Synopsys -> AMD edge's relationship text still reads 'joint autonomous EDA workflow work with AMD and Microsoft' - reword to its remaining 3DIC Compiler / MI455X contract?",
+   "label": "Synopsys Q3 FY2026 (08-26-2026)",
+   "at": "2026-10-18"
+  },
+  {
+   "subject": "Superseded call transcripts (verbatim re-fetch 10-17b)",
+   "question": "Tonight 46 call labels got a verbatim, speaker-labelled copy in transcripts/av/ under the SAME label (Intel, Arista, KLA, Lam, Teradyne, Rambus, Amphenol, Corning, Navitas, onsemi, Astera Labs, Eaton, Tower, Oracle, Cisco, Coherent, Supermicro, Lumentum, Sandisk, Western Digital, Viavi, Applied Optoelectronics, Constellation Energy, Vistra, Fabrinet, Semtech, NVIDIA Q2 FY2027, AMD, Synopsys, Applied Materials, Fluence, Onto, Keysight, Wolfspeed, Qualcomm, Arm Holdings, Celestica, Jabil, Amkor, FormFactor, Lumen, ASE Q1/Q2, Nova, Camtek, STMicroelectronics). The old condensed / unlabelled files stay beside them and still count as sources for the label (verify_graph reads every file of a label). Mark the old files superseded (header line) or move them to an archive folder so evidence links and quality scans use only the verbatim copy? (Extends the open 'Condensed call files labelled FULL' question.) Also: the old file transcripts/accelerators/arm_q1_2027.txt header says 'Arm Q1 FY2027' but the graph label is 'Arm Holdings Q1 FY2027 (07-29-2026)'.",
+   "label": null,
+   "at": "2026-10-18"
   }
  ],
  "answered": [
