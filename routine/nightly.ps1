@@ -201,7 +201,9 @@ function Invoke-DataStep($step, [string[]]$arguments, [int]$minutes) {
     }
     $null = $p.Handle                                            # keeps ExitCode readable after the process ends
     if (-not $p.WaitForExit($minutes * 60 * 1000)) {
-        try { $p.Kill() } catch { }
+        # Stop the whole process tree, as routine/market_data.ps1 does: media_pull.py runs yt-dlp, which runs node.
+        & taskkill.exe /T /F /PID $p.Id 2>&1 | Out-Null
+        if (-not $p.HasExited) { try { $p.Kill() } catch { } }
         Write-Log ("{0} TIMED OUT after {1} min and was stopped (steps that finished are kept)" -f $step, $minutes)
         return
     }
@@ -254,6 +256,13 @@ if (-not $Test) {
             # alert at most once a day, so running it here too is harmless.
             Invoke-DataStep "market_health" @("-X", "utf8", "market/health.py") 5
         }
+        # News interviews (user, 2026-10-17: "유튜브도 매일 enrich에 포함"): media_pull.py normally runs in the 22:00 task
+        # (its step c2). It keeps to one run a day by itself (media/sync_state.json), so calling it here is a no-op after
+        # the 22:00 run and a catch-up when that task did not run or skipped it for time. Either way the session below
+        # reads today's interviews (enrich skill section 11).
+        if (Test-Path (Join-Path $repo "media_pull.py")) {
+            Invoke-DataStep "media_pull" @("-X", "utf8", "media_pull.py", "--days", "2") 20
+        }
         $lock.ReleaseMutex()
     }
 }
@@ -264,7 +273,7 @@ if ($Test) { $command = "test" } else { $command = "enrich" }
 if ($Test) {
     $prompt = 'Routine plumbing test started by routine/nightly.ps1. Use the Write tool to create .claude/nightly_test.txt containing the word OK (this checks that the routine can write in place), then reply with one line: OK plus the first item of the Run next list in ENRICH_STATUS.md. Touch nothing else and run nothing else.'
 } else {
-    $prompt = 'Nightly routine started by routine/nightly.ps1 while nobody is watching. Run `' + $command + '` exactly as the enrich skill says: status board first and last, parallel enricher agents, check_patch, the relations backfill (relations.py next, relations/ rows, utils/check_relations.py until clean, relations.py done), graph_build.py --sync, verification. Unattended rules: never stop to wait for an answer - record a judgment the rules do not settle with enrich_status.py ask and carry on; do not commit, push or merge yourself - routine/nightly.ps1 publishes the data (branch, PR, merge into main) after you stop, and only if you finish with result:, so end with needs input: if graph_build.py --sync or verification did not complete; leave alone any uncommitted edits you did not make. Run Python scripts by the literal path, e.g. `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 apply_corrections.py --check` - never through a shell variable such as P=...; $P, because the permission allow rules match the literal command. End with a short report in Korean: what was enriched, new companies, open questions, and the board Run next block. Its last line is `result:` plus a one-line summary - board questions are not a reason to wait. Write `needs input:` instead only when a step could not run (permission denied, usage limit, a source down that the rules cannot work around), naming the step.'
+    $prompt = 'Nightly routine started by routine/nightly.ps1 while nobody is watching. Run `' + $command + '` exactly as the enrich skill says: status board first and last (with media_status.py: the news-interview transcripts it lists are enriched every night like any other source, enrich skill section 11), parallel enricher agents, check_patch, the relations backfill (relations.py next, relations/ rows, utils/check_relations.py until clean, relations.py done), graph_build.py --sync, verification. Unattended rules: never stop to wait for an answer - record a judgment the rules do not settle with enrich_status.py ask and carry on; do not commit, push or merge yourself - routine/nightly.ps1 publishes the data (branch, PR, merge into main) after you stop, and only if you finish with result:, so end with needs input: if graph_build.py --sync or verification did not complete; leave alone any uncommitted edits you did not make. Run Python scripts by the literal path, e.g. `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 apply_corrections.py --check` - never through a shell variable such as P=...; $P, because the permission allow rules match the literal command. End with a short report in Korean: what was enriched, new companies, open questions, and the board Run next block. Its last line is `result:` plus a one-line summary - board questions are not a reason to wait. Write `needs input:` instead only when a step could not run (permission denied, usage limit, a source down that the rules cannot work around), naming the step.'
 }
 
 # 3. Start the background session. `claude --bg` prints the session id and returns at once.
