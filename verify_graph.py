@@ -876,9 +876,81 @@ def company_rank(label_company, file_token):
 
 
 def label_company(label):
-    """'Broadcom Q2 FY2026 (06-03-2026)' -> 'broadcom'; 'Goldman Sachs optical note (…)' -> 'goldmansachs…'."""
-    head = re.split(r"\s+(Q[1-4]\s+FY|DART|GTC|Computex|\(|note)", label)[0]
+    """'Broadcom Q2 FY2026 (06-03-2026)' -> 'broadcom'; 'Goldman Sachs optical note (…)' -> 'goldmansachs…';
+    'Dell CNBC interview (10-13-2026)' -> 'dell' (a news interview, enrich skill section 11)."""
+    head = re.split(r"\s+(Q[1-4]\s+FY|DART|GTC|Computex|\(|note|" + MEDIA_OUTLETS + r" interview)", label)[0]
     return normalize_company(head)
+
+
+# ---------------------------------------------------------------------------
+# News interviews (media_pull.py -> transcripts/media/, enrich skill section 11, user rule 2026-10-17)
+# ---------------------------------------------------------------------------
+# Their label is "[Company] [Outlet] interview (MM-DD-YYYY)", or with the YouTube video id before the date when
+# the same company, outlet and day have two videos. Nothing of these transcripts may reach the website (rule 5),
+# and only the named executive's own words may become a signal (rule 4), so the tools below treat them apart.
+MEDIA_OUTLETS = r"(?:CNBC International|CNBC|Bloomberg|Yahoo Finance|Fox Business)"
+MEDIA_LABEL = re.compile(r" " + MEDIA_OUTLETS + r" interview(?: [\w-]{11})? \(\d\d-\d\d-\d{4}\)$")
+MEDIA_FOLDER = "transcripts/media/"
+
+
+def is_media_source(label, doc_path=None):
+    """True for a news-interview source: its label has the media shape, or its file sits in transcripts/media/."""
+    path = (doc_path or "").replace("\\", "/")
+    return bool(MEDIA_LABEL.search(label or "")) or path.startswith(MEDIA_FOLDER) or ("/" + MEDIA_FOLDER) in path
+
+
+# A media signal quotes the executive (enrich skill section 11d):
+#   <job title> <name> on <outlet> [mm:ss]: '<verbatim words>' (video: <URL>)
+#   (with a caption mark after the timestamp: "[03:15] (broadcast captions): '...'")
+MEDIA_QUOTE = re.compile(r"\[(\d{2,3}:\d\d)\][^:']*:\s*'(.+)'\s*\(video:", re.S)
+STAMP_LINE = re.compile(r"^\[(\d{2,3}:\d\d)\]\s?(.*)$")
+
+
+def _words(text):
+    """Lower-case words and numbers only: the comparison ignores case, spacing and punctuation."""
+    return re.findall(r"[a-z0-9]+", (text or "").lower())
+
+
+def media_quote_problems(signal, number_fields, doc_text):
+    """Problems of one news-interview entry, [] when there are none (utils/check_patch.py runs this):
+    1. the signal must carry "[mm:ss]: '<quote>'" in the section 11d shape;
+    2. the quoted words must stand, word for word (case, spacing and punctuation ignored), in the transcript BODY
+       (never the header or its # TITLE line), starting in the [mm:ss] paragraph the signal cites (a quote may
+       run on into the next paragraph);
+    3. every number in figure / units / value must be inside that quote, so a number from the anchor's question
+       or from the outlet's title can never become the executive's figure.
+    Whether the quoted words are the # SPEAKER's and not the anchor's is left to the section 7.3 verifier."""
+    m = MEDIA_QUOTE.search(signal or "")
+    if not m:
+        return ["a news-interview signal needs the section 11d shape: "
+                "\"<title> <name> on <outlet> [mm:ss]: '<verbatim words>' (video: <URL>)\""]
+    stamp, quote = m.group(1), m.group(2)
+    lines = (doc_text or "").splitlines()
+    body_start = next((i + 1 for i, line in enumerate(lines) if line.strip() == "---"), len(lines))
+    paragraphs = [STAMP_LINE.match(line.strip()) for line in lines[body_start:]]
+    paragraphs = [(p.group(1), p.group(2)) for p in paragraphs if p]
+    cited = [i for i, (s, _text) in enumerate(paragraphs) if s == stamp]
+    if not cited:
+        return [f"[{stamp}] is not a timestamp of the transcript body"]
+    wanted = _words(quote)
+    found = False
+    for i in cited:
+        own = _words(paragraphs[i][1])
+        both = own + (_words(paragraphs[i + 1][1]) if i + 1 < len(paragraphs) else [])
+        # the quote must START inside the cited paragraph
+        if any(both[start:start + len(wanted)] == wanted for start in range(len(own))):
+            found = True
+            break
+    problems = []
+    if not wanted or not found:
+        problems.append(f"the quoted words are not in the [{stamp}] paragraph of the transcript body "
+                        f"(they must be verbatim, and the named executive's words only)")
+    quote_numbers = {n.replace(",", "") for n in numbers_in(quote)}
+    for n in numbers_in(*number_fields):
+        if n.replace(",", "") not in quote_numbers:
+            problems.append(f"the number {n} is not inside the quoted words (a number from the anchor's question "
+                            f"or the title never counts)")
+    return problems
 
 
 def _filename_matches(label, all_docs):
@@ -1085,7 +1157,16 @@ def check_entry(label, docs, fields, counterparty=None):
             issues.append("counterparty_not_in_source")
             detail["counterparty"] = "not_found"
 
-    if {"korean_characters", "cjk_characters", "number_not_in_source"} & set(issues):
+    # NEWS INTERVIEW (enrich skill section 11): the quote must be verbatim in the cited [mm:ss] paragraph and every
+    # figure must be inside it. The number check above also passes on the anchor's question or the # TITLE line.
+    if is_media_source(label, docs[0].path):
+        problems = media_quote_problems(fields.get("signal"),
+                                        [fields.get(k) for k in ("figure", "units", "value")], docs[0].text)
+        if problems:
+            issues.append("media_quote")
+            detail["media_quote"] = problems
+
+    if {"korean_characters", "cjk_characters", "number_not_in_source", "media_quote"} & set(issues):
         return "fail", issues, detail
     if issues:
         return "warn", issues, detail
@@ -1149,6 +1230,8 @@ def _print_entry(e, indent="        "):
         extra += "  near_miss=%s" % e["numbers_near_miss"]
     if e.get("numbers_derived"):
         extra += "  derived=%s" % e["numbers_derived"]
+    if e.get("media_quote"):
+        extra += "  media_quote=%s" % e["media_quote"]
     print("[%s] %s | %s | %s%s" % (e["verdict"], who, e["label"], ", ".join(e["issues"]), extra))
     if e.get("doc"):
         more = "  (+%d companion%s)" % (len(e["docs"]) - 1, "s" if len(e["docs"]) > 2 else "") if e.get("docs") else ""

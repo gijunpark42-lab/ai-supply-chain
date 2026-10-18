@@ -60,6 +60,9 @@ How the excerpt is chosen
 4. EXCERPT — verbatim source text (only runs of whitespace are collapsed to one space),
              ±220 characters around the match, cut on word boundaries, the match wrapped
              in «…», "…" marking a cut edge.
+             EXCEPT a news interview (transcripts/media/, media_pull.py; user rule 2026-10-17: nothing of
+             the video or the transcript on the website): its record keeps the status but has
+             doc / excerpt / matched = null (hide_media_source below).
 
 How to run
 ----------
@@ -89,7 +92,8 @@ from datetime import date
 #   numbers_in()      -> the checkable numbers inside figure / units / value
 #   NUMBER            -> the regex that defines what a "number" is ("27,800", "24.8", "1.6")
 #   KO_ALIASES        -> Korean spellings of the big counterparties ("SK Hynix" -> "SK하이닉스")
-from verify_graph import load_documents, resolve_label, numbers_in, NUMBER, KO_ALIASES
+#   is_media_source() -> is this a news-interview transcript (transcripts/media/, media_pull.py)?
+from verify_graph import load_documents, resolve_label, numbers_in, NUMBER, KO_ALIASES, is_media_source
 from agent.corpus import list_documents
 
 GRAPH_PATH = "graph/merged_graph.json"
@@ -632,6 +636,17 @@ def locate(index, label, fields, extra_texts=()):
 # 5. Walk the graph
 # ---------------------------------------------------------------------------
 
+def hide_media_source(record, label, doc_path):
+    """User rule 5 (2026-10-17): nothing of a news-interview transcript reaches the website. The site shows this
+    record (web/src/components/Evidence.tsx: the excerpt box and the file path), so for a source from
+    transcripts/media/ (media_pull.py; label "[Company] CNBC interview (MM-DD-YYYY)") the excerpt, the matched text
+    and the path are blanked. The status stays, and the entry's own signal already carries its short quote and the
+    video URL. Returns the record."""
+    if is_media_source(label, doc_path):
+        record.update({"doc": None, "excerpt": None, "matched": None})
+    return record
+
+
 def iter_entries(graph):
     """Yield (kind, company, target, label, fields, extra_texts) for every data point."""
     for node in graph["nodes"]:
@@ -693,6 +708,7 @@ def build_evidence(graph=None, out_path=OUT_PATH, company=None, label=None):
                 record["matched"] = index.disp[span[0]:span[1]]
             if unmatched:
                 record["unmatched"] = unmatched      # numbers the document does not contain
+            hide_media_source(record, lab, index.path)   # a news interview: no excerpt, no path on the site
         records[key] = record
         stats[record["status"]] += 1
         via_stats[record["via"]] += 1
