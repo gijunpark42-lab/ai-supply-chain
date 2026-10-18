@@ -57,17 +57,25 @@ $publishPaths = @(
     "ENRICH_STATUS.md", "enrich_log.json", "enrich_marks.json", "verify_queue.json", "company_metadata.json", "enrich_waitlist.json",
     # Daily market data (user, 2026-10-17; market/run_all.py below). Its web files are graph/*.json (covered by
     # "graph") and their copies in web/public/data (covered by "web/public"); market/cache/ is gitignored, never published.
-    "market/history", "market/run_log.jsonl", "market/ai_lab_deals.json"
+    "market/history", "market/run_log.jsonl", "market/ai_lab_deals.json",
+    # News interviews (user, 2026-10-17; media_pull.py, run by routine/market_data.ps1): media/ holds its state, the
+    # executive roster, the channel allowlist and the coordinator's list of the interview files enriched
+    # (media/enriched.jsonl). The transcripts themselves (transcripts/media) are gitignored: whole broadcasts never go
+    # to the public repo (.gitignore says why), so "transcripts" never picks them up.
+    "media"
 )
 # The daily market data alone (-MarketOnly, the 22:00 publish of routine/market_data.ps1): the collectors' history,
-# run log and web files. It leaves out everything an enrich session writes (transcripts, patches, chains, the rest of
-# graph), so the 22:00 publish never carries what a blocked session left; that waits for a night that finishes as done.
-# web/public/data needs no entry: the site's build copies graph/ into it (web/package.json "prebuild").
+# run log and web files, plus the state, roster and channel allowlist of media_pull.py, which runs in the same task
+# (enrich skill section 11; its transcripts are gitignored). It leaves out everything an enrich session writes
+# (transcripts, patches, chains, the rest of graph, media/enriched.jsonl), so the 22:00 publish never carries what a
+# blocked session left; that waits for a night that finishes as done. web/public/data needs no entry: the site's
+# build copies graph/ into it (web/package.json "prebuild").
 $marketPaths = @(
     "market/history", "market/run_log.jsonl", "market/ai_lab_deals.json",
     "graph/memory_prices.json", "graph/gpu_prices.json", "graph/insiders_index.json", "graph/insiders",
     "graph/financing_index.json", "graph/financing", "graph/hyperscaler_cash.json", "graph/ai_labs.json",
-    "graph/transcript_quality.json"
+    "graph/transcript_quality.json",
+    "media/sync_state.json", "media/executives.json", "media/channels.json"
 )
 
 # One git job at a time in this checkout: switching to main, pulling and publishing must never overlap.

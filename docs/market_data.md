@@ -28,19 +28,26 @@ each time-boxed (a failure or timeout is logged and the next step runs):
    `<dataset>.rejected.txt` (kept), so every later night still reads it.
 3. `python -X utf8 utils/transcript_quality.py` (10 min) writes `graph/transcript_quality.json` (see the end of this
    page).
+3b. `python -X utf8 media_pull.py --days 2` (20 min, since 2026-10-17): transcripts of news-outlet interviews in which
+   a named company executive speaks, saved in `transcripts/media/` (gitignored: kept in this checkout only, never
+   published) as enrich inputs: unlike the market data, the
+   enrich session may turn the executive's own words into signals (enrich skill §11); the site shows nothing of them. It
+   starts only when at most 75 minutes of the task have passed, so the task stays inside its 2-hour limit; a skipped
+   day is caught up the next day. Rules, channels and files: `docs/media_interviews.md`.
 4. `python -X utf8 market/health.py` (5 min): reads the run log and the test result and sends the phone alert.
 5. Publishing (15 min), only when the checkout is on `main`, no `nightly enrich*` Claude session is working and the
    collectors added rows to `market/history` (or `market/ai_lab_deals.json` changed):
    `routine/nightly.ps1 -PublishOnly -MarketOnly` commits only the market-data files (`market/history`,
-   `market/run_log.jsonl`, `market/ai_lab_deals.json` and the market web files in `graph/`: `memory_prices.json`,
+   `market/run_log.jsonl`, `market/ai_lab_deals.json`, the market web files in `graph/`: `memory_prices.json`,
    `gpu_prices.json`, `insiders_index.json` + `insiders/`, `financing_index.json` + `financing/`,
-   `hyperscaler_cash.json`, `ai_labs.json`, `transcript_quality.json`) on a branch, opens a PR and merges it. Vercel
+   `hyperscaler_cash.json`, `ai_labs.json`, `transcript_quality.json`, and step 3b's state, roster and channel list
+   in `media/`) on a branch, opens a PR and merges it. Vercel
    then deploys the site (its build copies `graph/` into `web/public/data`). What an enrich session writes
    (transcripts, patches, chains, the rest of `graph/`) is never part of it, so a blocked session's leftovers wait
    for a night that finishes as done. While an enrich session works, nothing is published: `nightly.ps1` publishes
    everything when the session ends.
 
-Steps 1 and 4 run even when the market-data lock (below) is busy; steps 2, 3 and 5 need it. A step whose script does
+Steps 1 and 4 run even when the market-data lock (below) is busy; steps 2, 3, 3b and 5 need it. A step whose script does
 not exist is skipped (logged). Test it in a worktree, without publishing and without a phone alert (the collectors
 really run there):
 `powershell -NoProfile -ExecutionPolicy Bypass -File routine\market_data.ps1 -RepoRoot <worktree> -NoPublish -NoAlert`.
