@@ -131,6 +131,7 @@ export interface FinGrowth {
   ebit: number | null;
   net_income: number | null;
   eps_diluted: number | null;
+  eps_adjusted?: number | null; // adjusted vs adjusted (older files lack it)
   fcf: number | null; // only between two positive free cash flows, else null
 }
 
@@ -149,7 +150,7 @@ export interface FinPeriod {
   net_income_after_tax: number | null; // income after tax, incl. minority interests (세후손익)
   net_income: number | null; // attributable to shareholders (당기순이익)
   eps_diluted: number | null; // reported (GAAP) diluted EPS
-  eps_adjusted?: number | null; // Yahoo's EPS on the analysts' basis (US: usually adjusted / non-GAAP)
+  eps_adjusted?: number | null; // Yahoo's EPS on the analysts' basis (US: usually adjusted / non-GAAP), kept past Yahoo's 4 quarters
   per: number | null; // price at period end / trailing-4Q diluted EPS (annual: that year's)
   pbr: number | null; // price / book value per share at period end
   dividend_yield_pct: number | null;
