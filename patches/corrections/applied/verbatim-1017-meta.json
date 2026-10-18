@@ -1,0 +1,54 @@
+{
+  "reviewer": "verbatim-1017-meta",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Meta",
+      "target": null,
+      "label": "Meta Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "Q2 2026: revenue $60.80B (+28% YoY, +27% constant currency).",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026: revenue $60.80B (+28% YoY, +27% constant currency). CAPITAL EXPENDITURES INCLUDING PRINCIPAL PAYMENTS ON FINANCE LEASES WERE $31.08 BILLION IN THE QUARTER (purchases of property and equipment alone $30.12B, versus $16.54B in Q2 2025; H1 2026 purchases $49.11B versus $29.48B in H1 2025). FULL-YEAR 2026 CAPEX GUIDANCE NARROWED TO $130-145 BILLION, from the prior $125-145B range — the bottom end raised. Q3 2026 revenue guided to $61-64B. Full-year 2026 total expenses now $165-169B, with the lower end raised to absorb $2.4B of legal charges taken in Q2; Meta still expects 2026 operating income above 2025. Tax rate outlook raised to 15-17% for the remaining quarters.",
+        "figure": "Q2 revenue $60.80B (+28% YoY); Q2 capex $31.08B (incl. finance leases); FY2026 capex NARROWED to $130-145B"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "'~2x YoY' (figure) and 'roughly DOUBLE year over year' (signal) are the enricher's own arithmetic ($30.12B vs $16.54B = 1.82x), stated neither on the call nor in the release; removed. The figure of this revenue_growth-slot entry also carried no revenue number, so it now leads with the stated Q2 revenue.",
+      "evidence": "Q2 total revenue was $60.8 billion, up 28%, or 27% on a constant currency basis."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Meta",
+      "target": null,
+      "label": "Meta Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — COMPUTE PHILOSOPHY, BLACKROCK JV, AND COMPUTE-RESALE ",
+      "action": "set",
+      "set": {
+        "signal": "CALL — COMPUTE PHILOSOPHY, BLACKROCK JV, AND COMPUTE-RESALE OFFERS: CEO Mark Zuckerberg: 'as part of our Meta Compute effort' Meta announced a NEW STRATEGIC VENTURE WITH BLACKROCK to develop a 1 GW DATA CENTER IN EL PASO, TEXAS; CFO Susan Li called it an example of the partnerships Meta can structure to complement its approach to building infrastructure capacity. Zuckerberg: 'We're getting A LOT OF OFFERS FOR COMPUTE AT A SIGNIFICANT PREMIUM over what we paid for it' — Meta may sell compute directly, but believes 'there will continue to be a significantly higher margin on selling INTELLIGENCE rather than selling compute directly'; over time he wants to 'run an efficient AUCTION over our compute', similar to how Meta does it for advertisers. Capacity philosophy (CFO Susan Li): plans geared to MAXIMIZING 2026 AND 2027 CAPACITY ('near-term capacity is more valuable than long-term capacity'); 'we are today and expect to be in the sort of foreseeable future DEMAND-CONSTRAINED. That really includes our core business too, where we still have numerous ROI-positive places that we would put compute toward if we had it'; the industry has historically UNDER-BUILT for the wave of AI adoption, and she believes overall industry capacity will remain TIGHT for the foreseeable future; 2028+ strategy = flexibility (land, power, data center and network foundations now; server and chip decisions later); NO 2027 capex outlook given; the internal custom silicon effort provides long-term strategic flexibility and SUPPLY-CHAIN LEVERAGE. Cost reality (CFO): Q2 total expenses +55%, with THIRD-PARTY AI TOKEN COSTS among the drivers and third-party cloud spend part of the infrastructure-cost growth; FREE CASH FLOW $784 MILLION on $31.1B quarterly capex; cash $90.3B vs debt $83.7B."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Quoted demand-constrained line is not the CFO's wording; the capacity remarks read as Zuckerberg's but are CFO Susan Li's; 'MTIA' is not named on the call ('internal custom silicon effort'); '(rented neocloud capacity)' is not stated; 'capacity stays TIGHT' dropped the CFO's 'we believe' hedge.",
+      "evidence": "One is we are today and expect to be in the sort of foreseeable future demand-constrained. That really includes our core business too, where we still have numerous ROI-positive places"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Meta",
+      "target": null,
+      "label": "Meta Q2 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — AI IS COMPOUNDING THE CORE BUSINESS: ads engine gains",
+      "action": "set",
+      "set": {
+        "signal": "CALL — AI IS COMPOUNDING THE CORE BUSINESS: ads engine gains from LLMs (CFO Susan Li) — GEM ranking + sequence learning + user-understanding models drove +8.3% AD CLICKS and +15.7% CONVERSIONS on Facebook; META GENERATIVE RECOMMENDER ('a paradigm shift') has LLMs reason about ad content and user preferences together, first generative model live in ads retrieval; impressions +14% and price/ad +12%. CEO Mark Zuckerberg: 'On a dollar basis, our ads business is reporting faster year-over-year revenue growth than any other company's reported ad business.' Advantage+ end-to-end reached an over $75 BILLION annual revenue run rate; 9M SMBs use AI creative tools (image-generation adoption more than doubled this quarter). Recommendations: every public IG Reels/Feed post is auto-processed through an LLM; over HALF of IG Feed recommendations are <1 DAY OLD (more than double a year ago); research milestone — a large-scale model continuously pre-trained on RECOMMENDATIONS DATA showed HEALTHY SCALING LAWS. Models: Muse Spark 1.1 (agentic coding; public API + OpenRouter for U.S.-based developers; enterprise features coming); CEO: the number of people interacting with Meta AI each day is up 60% since Meta AI was rebuilt with Muse Spark, still growing quickly week over week; he expects Meta to get back to releasing some open source models 'at some point soon' (mix of open + closed). Business agents: >1 MILLION businesses use Meta business agents every week (Movida: +44% daily WhatsApp bookings, 85% of conversations resolved entirely by the agent); Business Agent Platform for enterprises launched. Scale: 3.6B daily users; Instagram 2B DAU; Threads 500M MAU; WhatsApp peaked at 30M messages/second in the World Cup final; FoA 'other' revenue reached $1B for the first time (+73%) on WhatsApp paid messaging + subscriptions; Meta One subscription launched."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Zuckerberg's ad-growth line is misquoted ('is growing faster than'); the +60% is the number of people interacting with Meta AI each day, not 'daily interactions'; FoA other revenue 'reached' (not crossed) $1B; the open-source return was an expectation, not a plan; CFO / CEO attributions added.",
+      "evidence": "On a dollar basis, our ads business is reporting faster year-over-year revenue growth than any other company's reported ad business."
+    }
+  ]
+}

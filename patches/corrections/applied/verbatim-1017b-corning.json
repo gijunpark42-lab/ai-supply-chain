@@ -1,0 +1,72 @@
+{
+  "reviewer": "verbatim-1017b-corning",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Corning",
+      "target": null,
+      "label": "Corning Q2 FY2026 (07-28-2026)",
+      "signal_prefix": "CALL — THE FIBER-CONTENT-PER-GPU FRAMEWORK (the definitive",
+      "action": "set",
+      "set": {
+        "signal": "CALL — CEO Wendell Weeks' FIBER-CONTENT-PER-GPU FRAMEWORK. Base case: 'assuming no changes to the network, we would grow as GPUs grow'; THREE technical drivers add on top. (1) CLUSTER SIZE: clusters above 130,000 GPUs exceed what a 512 radix switch can achieve with two layers and need a THIRD OPTICAL LAYER — 'three layers divided by two layers yields 50% more content per GPU for very large clusters.' (2) BANDWIDTH (doubles about every two years): Hopper -> Blackwell kept 100G SerDes so fibers went from 8 to 16 (content DOUBLED); the RUBIN era jumps SerDes to 200G with lane quantity consistent -> NEUTRAL; Feynman 'likely won't be the primary system until the 2029, 2030 timeframe': fibers double again if it stays at 200G, neutral if 400G SerDes is available (BiDi and WDM could also reduce fibers per GPU; 'We'll know more in a year or so') — the 2030/40 Springboard Plan assumes bandwidth NEUTRAL. (3) SCALE-UP, today 100% COPPER: NVIDIA's announced Vera Rubin Ultra configuration scales up to 576 GPUs in eight racks of 72 Rubin Ultra GPUs, copper inside each rack and direct optical connections rack to rack — 'a transition step to optical that is effectively a hybrid system approach to scale up'; the percent of optical ports has not been announced publicly (confidential). Bracketing a fully optical scale-up: 14.4 Tbps scale-up and 1.6 Tbps scale-out divided by 200G SerDes = 72 and 8 lanes, two fibers each = 144 + 16 = 160 FIBERS PER GPU, 10 times today's scale-out content; 'neither of those cases will be the hybrid system that was just announced. It will be somewhere in between.' COMBINED: optical content per GPU in the enterprise MAP up 1.3x-1.5x BY 2028, with 'the potential that that number could head much, much higher' into 2030. Status: 'this is all just scale-out. We are not yet seeing scale-up or photonics in our results'; orders accelerating; 'if we could make more, we could sell more.'"
+      },
+      "chains": ["components/optical_networking.json"],
+      "reason": "Speaker restored (the CEO's framework) with his hedges; 'NVL576' and 'the definitive supply-side math' are not in the source.",
+      "evidence": "Basically, three layers divided by two layers yields 50% more content per GPU for very large clusters."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Corning",
+      "target": null,
+      "label": "Corning Q2 FY2026 (07-28-2026)",
+      "signal_prefix": "CALL — PHOTONICS: A $10B MAP BY 2030, AND THE LTA MODEL",
+      "action": "set",
+      "set": {
+        "signal": "CALL — PHOTONICS: A $10B MAP BY 2030, AND THE LTA MODEL. CEO Wendell Weeks: 'Based on our assumptions and our discussions and agreements with customers, we believe we have the opportunity for a $10 billion Market-Access Platform by 2030' — Corning passive photonics inside the box (everything inside the faceplate, including fiber array unit harnesses) for co-packaged and near-package optics, where 'Historically, we have had no inside the box content'; these technologies 'will likely start with scale-out', scale-up 'drives a dramatic increase in the size of the opportunity', and optical scale-up 'will likely have an exponential adoption curve, leading to timing challenges that are difficult to predict.' On industry speculation about timing: 'we see no changes to our fundamental belief that we just shared with you in May ... Inside the real ecosystem, there is much less drama than what it looks like from the people outside of it.' Business model: long-term agreements 'will be the lion's share of our optical business' — all significant capacity moves are backed by such risk-and-reward-sharing agreements (some announced, some not); on pricing, 'The price is higher, but that really isn't how we're driving that profitability improvement' — keeping a portion of the value of its innovations drives it (optical net income +77% to a record 21% NPAT margin). Springboard: run rate $20B by end-2026 (CFO Ed Schlesinger: the Q3 guide implies it 'a quarter or so early') -> $30B (2028) -> $40B (2030), 19% CAGR; high-confidence plan $27B / $35B; one of the most significant risk adjustments is the timing on scale-up of the network. CFO elsewhere: memory prices to push handheld units down a mid-teens percentage for the year (Gorilla Glass to outperform the end market) while TV brands shift to larger sizes (favors Gen 10.5); solar to improve from Q3 toward a $3 billion revenue stream; FY capex approximately $2 billion. CEO on polysilicon: 'We're going to increase the amount of poly in the semi, especially the highest grade semi going forward.'"
+      },
+      "chains": ["components/optical_networking.json"],
+      "reason": "Apple's cover-glass agreement is not an optical LTA; 'electronic grade' and 'Hemlock' come from the analyst's question; the CEO's pricing hedge ('the price is higher') and the CFO's 'one of the most significant' (not 'biggest') restored; speakers attributed.",
+      "evidence": "This will be the lion's share of our optical business, because when I say that you're going to underpin any major capacity expansion, we'll be underpinned by these agreements"
+    },
+    {
+      "kind": "contract",
+      "company": "Corning",
+      "target": "Amazon",
+      "label": "Corning Q2 FY2026 (07-28-2026)",
+      "signal_prefix": "Amazon announced a MULTIYEAR, MULTIBILLION-DOLLAR AGREEMENT under which",
+      "action": "set",
+      "set": {
+        "signal": "Amazon announced a MULTIYEAR, MULTIBILLION-DOLLAR AGREEMENT under which Corning will supply the optical fiber, cable, and connectivity solutions 'that power Amazon's expanding data center infrastructure across the United States' (earnings release); CEO Wendell Weeks on the call: announced in June."
+      },
+      "chains": ["components/optical_networking.json"],
+      "reason": "Removes the unstated 'second named hyperscaler fiber agreement' inference; the CEO dates the announcement to June.",
+      "evidence": "In June, Amazon announced a multi-billion dollar agreement with Corning, under which we will supply the optical fiber, cable, and connectivity solutions"
+    },
+    {
+      "kind": "contract",
+      "company": "Corning",
+      "target": "NVIDIA",
+      "label": "Corning Q2 FY2026 (07-28-2026)",
+      "signal_prefix": "NVIDIA and Corning announced a LONG-TERM PARTNERSHIP in which",
+      "action": "set",
+      "set": {
+        "signal": "NVIDIA and Corning announced a LONG-TERM PARTNERSHIP in which Corning will expand its US-based OPTICAL CONNECTIVITY manufacturing capacity BY 10x and expand its US FIBER production capacity by MORE THAN 50% 'to meet the accelerating demand driven by AI factory buildouts' (earnings release); CEO Wendell Weeks on the call: in May NVIDIA announced 'a multi-year commercial and technology partnership with Corning to dramatically expand U.S.-based manufacturing of the advanced optical connectivity solutions needed to power next-generation AI infrastructure.'"
+      },
+      "chains": ["components/optical_networking.json"],
+      "reason": "Removes the editorial tail ('pairing the fiber maker directly with the accelerator vendor's AI-factory roadmap'), not in the source; adds the CEO's own description.",
+      "evidence": "Then in May, NVIDIA announced a multi-year commercial and technology partnership with Corning to dramatically expand U.S.-based manufacturing of the advanced optical connectivity solutions"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Corning",
+      "target": null,
+      "label": "Corning Q2 FY2026 (07-28-2026)",
+      "signal_prefix": "Company backdrop for the glass/substrate franchise",
+      "action": "delete",
+      "chains": ["manufacturing/packaging_substrate.json"],
+      "reason": "Duplicate copy of the company-wide Q2 results held on Corning's optical_networking node (one fact, one node); 'AI is the driver' of a glass/substrate backdrop is not a management statement.",
+      "evidence": "Year-over-year, in the quarter, sales grew 17% to $4.74 billion. EPS grew 30% to $0.78."
+    }
+  ]
+}

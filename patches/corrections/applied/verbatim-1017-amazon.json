@@ -1,0 +1,92 @@
+{
+  "reviewer": "verbatim-1017-amazon",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Amazon",
+      "target": null,
+      "label": "Amazon Q2 FY2026 (07-30-2026)",
+      "signal_prefix": "AWS REACCELERATED AND THE CHIPS BUSINESS IS NOW MATERIAL: AWS segment sales rose 37%",
+      "action": "set",
+      "set": {
+        "signal": "AWS REACCELERATED AND THE CHIPS BUSINESS IS NOW MATERIAL: CEO Andy Jassy: Amazon revenue was $200.6 billion, up 20% year over year, and operating income $27.5 billion, up 43%. AWS 'is booming right now': revenue grew 36.7% year over year, 'our fastest growth in 18 quarters back when AWS was less than half its current revenue size', and AWS is now a $169 billion annualized revenue run rate business; CFO Brian Olsavsky: AWS segment revenue was $42.2 billion, driven by both core and AI services, and AWS operating income was $16.6 billion. Jassy: the chips business now has an annual revenue run rate of over $25 billion, and the AI revenue run rate 'climbed significantly quarter-over-quarter' to over $25 billion, each growing triple-digit percentages year over year; AWS sees strong growth across both AI and non-AI (core), and growth in one is driving growth in the other.",
+        "figure": "AWS +36.7% YoY to $42.2B ($169B run rate), operating income $16.6B; chips business and AI each >$25B run rate (triple-digit growth); Amazon revenue $200.6B (+20%), operating income $27.5B (+43%)"
+      },
+      "chains": ["accelerators/aws_trainium3.json"],
+      "reason": "Written from the press release, not the call: the call says 36.7% (not 37%), never gives the $10.2B year-ago AWS operating income, the quoted 'each eclipsed run rates' sentence (release quote), P&E purchases $54.2B / $32.2B, TTM $173.0B, the $66.1B increase or the TTM free cash flow ($7.6B outflow vs $18.2B inflow). Rewritten to what the call states (slot kept); the release-only facts move to the Graviton5 entry, which items 2-3 relabel to Amazon 8-K (07-30-2026), so nothing is lost.",
+      "evidence": "Revenue growth of 36.7% year-over-year, accelerating for the fifth straight quarter, our fastest growth in 18 quarters back when AWS was less than half its current revenue size."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amazon",
+      "target": null,
+      "label": "Amazon Q2 FY2026 (07-30-2026)",
+      "signal_prefix": "GRAVITON5 GENERALLY AVAILABLE — the in-house Arm server CPU line",
+      "action": "set",
+      "set": {
+        "signal": "GRAVITON5 GENERALLY AVAILABLE — the in-house Arm server CPU line. Amazon's Q2 2026 earnings release (8-K Exhibit 99.1) states that Amazon released Graviton5 into general availability and that Graviton5 delivers up to 25% better compute performance than Graviton4, and that Amazon announced an investment of $1 billion to create AWS Forward Deployed Engineering, a team of AI engineers embedded directly with customers to co-develop and deploy agentic AI solutions (early customers include Allen Institute, Cox Automotive, the NBA, the NFL, Ricoh and Southwest Airlines). Release financials: AWS segment operating income was $16.6 billion versus $10.2 billion in Q2 2025; purchases of property and equipment were $54,208 million in Q2 2026 versus $32,183 million in Q2 2025, and $173,028 million for the trailing twelve months; trailing-twelve-month free cash flow decreased to an outflow of $7.6 billion from an inflow of $18.2 billion, driven primarily by a year-over-year increase of $66.1 billion in purchases of property and equipment, net of proceeds from sales and incentives, which 'primarily reflects investments in artificial intelligence'.",
+        "figure": "Graviton5 GA (up to 25% better compute performance than Graviton4); $1 billion AWS Forward Deployed Engineering; Q2 purchases of property and equipment $54,208 million; TTM free cash flow outflow of $7.6 billion"
+      },
+      "chains": ["accelerators/aws_trainium3.json"],
+      "reason": "Release content filed under the call label: the call never mentions Graviton5 general availability, the 25% compute gain over Graviton4 or the $1 billion AWS Forward Deployed Engineering investment. The Graviton adoption metrics the call does state (98% of top 1,000 EC2 customers, ~3x commitments, ~2x faster growth) already sit on the Graviton node under this label, so they are dropped here; the release-only financials from item 1 are moved in. Item 3 then relabels the entry to its real source.",
+      "evidence": "8-K Ex. 99.1: Released Graviton5 into general availability. ... Graviton5 delivers up to 25% better compute performance than Graviton4."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amazon",
+      "target": null,
+      "label": "Amazon Q2 FY2026 (07-30-2026)",
+      "signal_prefix": "GRAVITON5 GENERALLY AVAILABLE — the in-house Arm server CPU line",
+      "action": "relabel",
+      "new_label": "Amazon 8-K (07-30-2026)",
+      "chains": ["accelerators/aws_trainium3.json"],
+      "reason": "Every fact in this entry (after item 2) comes from the 8-K Exhibit 99.1 earnings release (transcripts/edgar/AMZN_8-K_2026-07-30.txt), not the call; relabelled so it is verified against that filing. No slot on the entry, so no same-date slot clash.",
+      "evidence": "8-K Ex. 99.1: Free cash flow decreased to an outflow of $7.6 billion for the trailing twelve months, driven primarily by a year-over-year increase of $66.1 billion in purchases of property and equipment"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amazon",
+      "target": null,
+      "label": "Amazon Q2 FY2026 (07-30-2026)",
+      "signal_prefix": "CALL — CAPEX RAISED TO ~$220B ON MEMORY COSTS; BACKLOG $496B:",
+      "action": "set",
+      "set": {
+        "signal": "CALL — CAPEX RAISED TO ~$220B ON MEMORY COSTS; BACKLOG $496B: CEO Andy Jassy: 'We now believe we will spend approximately $220 billion in cash CapEx in 2026. The higher cost of memory pushing this number up from our prior estimate of about $200 billion' (CFO Brian Olsavsky: Q2 cash capex $53.1B, primarily AWS and generative AI). AWS BACKLOG = $496 BILLION, GROWING TRIPLE DIGITS YoY; Q2 added over $4.6B of sequential revenue, about 80% MORE than the largest increase ever, the 5th straight quarter of acceleration. 'Even at that amount, we will still not have enough capacity to meet all the demand we have in 2026, and I believe this dynamic will also be true in 2027, too. In fact, the demand we already have for 2028 is striking.' The lion's share of 2027 capacity is LARGELY RESERVED and 'quite a bit' is already reserved for 2028; on pace to DOUBLE 2025 power capacity by end-2027. Investment economics (Jassy): data centers = capital starting ~2 years before monetization, 30+ year lives, at least 5-6 server generations each; servers/networking = bought a few months ahead with demand visibility, a little under 3 years average breakeven, useful lives of at least 5-6 years, and MOST AI CAPACITY CONTRACTED AT 5-YEAR-OR-LONGER TERMS. Long-term frame raised: Amazon long believed AWS could become a few-hundred-billion-dollar business and now believes it will be 'at least double that, and very possibly be a trillion-dollar annual revenue business for us in time'. CFO: AWS margins up 650bps YoY (520bps excluding the ~$600M energy-contract derivative accounting gain). Adoption barbell (Jassy): AI labs and a few runaway generative AI applications (Claude Code, ChatGPT) on one end, enterprises getting cost-avoidance and productivity value on the other; in his opinion the middle, existing enterprise production workloads adopting inference, will be the largest absolute segment. Jassy: 85% of global IT spend is still on premises, an equation he expects to flip in the next 10-20 years.",
+        "figure": "2026 cash capex ~$220B (raised from ~$200B on memory costs); AWS backlog $496B (+triple-digit YoY); 2027 capacity largely reserved; AWS very possibly a trillion-dollar annual revenue business in time"
+      },
+      "chains": ["accelerators/aws_trainium3.json"],
+      "reason": "(1) 'RPO ~2.5x the year-ago level' is analyst Ken Gawrelski's figure (RPO 2.5x that of Q3 2025, not year-ago); management never stated it. (2) 'AWS op margin ~39%' is analyst Doug Anmuth's number; the CFO gave only +650bps / +520bps. (3) Two quotes did not match the verbatim words (capacity quote dropped 'we have' and 'In fact,'; trillion quote dropped 'be' and 'for us'); the figure put non-verbatim words in quotes. (4) The barbell view lost Jassy's 'In my opinion' hedge. Slot kept.",
+      "evidence": "Ken Gawrelski: your RPO reported as two and a half times that of the third quarter of 2025 ... Doug Anmuth: ... the drivers of the 39% AWS operating margin in 2Q"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amazon",
+      "target": null,
+      "label": "Amazon Q2 FY2026 (07-30-2026)",
+      "signal_prefix": "CALL — TRAINIUM MERCHANT-SILICON DOOR OPENS; OWN FRONTIER MODEL:",
+      "action": "set",
+      "set": {
+        "signal": "CALL — TRAINIUM MERCHANT-SILICON DOOR OPENS; OWN FRONTIER MODEL: 'We do have an increasing number of customers who are interested in us providing the Trainium chips to them, separate from our cloud, and we're actively having those conversations and exploring, and I expect there's a real chance we'll do that in the future' (CEO Andy Jassy). Trainium adopter list broadened beyond the Anthropic + OpenAI multi-year multi-gigawatt anchors: unicorns NEURA Robotics and Odyssey join Twelve Labs, Decart, Poolside AI, Karakuri, Metagenomi, NetoAI and Splash Music, plus Uber and Pinterest. AI-pulls-core mechanism (Jassy): post-training reinforcement learning and agent tool use run mostly on CPUs, which favors Graviton (up to 30-40% better price performance; Graviton5 growing nearly 2x faster than Graviton4 did). Amazon IS pursuing its OWN FRONTIER MODEL, for cost control, control over what the models prioritize and speed, while keeping Bedrock model-agnostic: 'within the next few years, you're going to have at least a half dozen models that are comparably good to each other. They'll all be in Bedrock, one of them will be ours.' Agentic layer: Kiro coding agent usage TRIPLED QoQ (up to 50% more cost-effective than others); AWS Continuum security agent released (discovers, prioritizes, validates and remediates code vulnerabilities); Bedrock Agents added policies, payments and web search. Amazon Leo: close to 400 satellites in orbit, enough to begin initial satellite internet service THIS YEAR, with 'meaningful revenue commitments from enterprises and government customers'. Jassy on memory / hard-drive / SSD price inflation: signed deals keep their agreed prices for the duration of the contract; new agreements take current costs into account.",
+        "figure": "Trainium sales outside the cloud 'a real chance'; own frontier model coming (one of at least a half dozen comparably good models); Kiro usage 3x QoQ"
+      },
+      "chains": ["accelerators/aws_trainium3.json"],
+      "reason": "Quotes did not match the verbatim words: the Trainium quote opened 'An increasing number of customers are interested' (verbatim: 'We do have an increasing number of customers who are interested'); the half-dozen quote dropped 'that are' and 'They'll all be in Bedrock'; the figure quoted 'one of the half dozen will be ours', which was never said. Startup names corrected to the spellings in Amazon's same-day release (NEURA Robotics, Decart): the transcript's 'Neurorobotics' and 'Descartes Labs' are transcription renderings, and Descartes Labs is a different company. Attribution of the memory-inflation view (Jassy) added.",
+      "evidence": "We do have an increasing number of customers who are interested in us providing the Trainium chips to them, separate from our cloud, and we're actively having those conversations and exploring"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Amazon",
+      "target": null,
+      "label": "Amazon Q2 FY2026 (07-30-2026)",
+      "signal_prefix": "CALL — AI PULLS THE CPU: Jassy explained WHY AI growth drives core/CPU",
+      "action": "set",
+      "set": {
+        "signal": "CALL — AI PULLS THE CPU: Jassy explained WHY AI growth drives core/CPU growth: 'post-training reinforcement learning and agent tool use is mostly done on CPUs versus AI accelerators', an advantage for AWS because Graviton is 'the strongest CPU chip, offering up to 30%-40% better price performance than other options'. Graviton5 is growing nearly 2x faster than Graviton4 did; Graviton is used by 98% of the top 1,000 EC2 customers, and Graviton revenue commitments increased nearly 3x QoQ. The AWS chips business (Trainium and Graviton) has an annual revenue run rate of over $25 billion, growing triple-digit percentages year over year.",
+        "figure": "Post-training RL + agent tool use run on CPUs; Graviton5 growing nearly 2x faster than Graviton4; chips business >$25B run rate"
+      },
+      "chains": ["components/cpu_datacenter.json"],
+      "reason": "(1) The nearly-3x revenue commitments are Graviton's (said right after the Graviton adoption figure), not 'chip revenue commitments'. (2) The closing clause 'corroborating the industry-wide CPU:GPU ratio shift ... that Intel and AMD described the same quarter' is editorial, not stated on Amazon's call; removed. (3) Jassy said Graviton5 is 'growing' (not 'ramping') nearly 2x faster.",
+      "evidence": "Graviton is used by 98% of our top 1,000 EC2 customers. The revenue commitments have increased nearly 3x quarter-over-quarter, and Graviton5 is growing nearly 2x faster as Graviton4 did."
+    }
+  ]
+}

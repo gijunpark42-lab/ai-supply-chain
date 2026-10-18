@@ -1,0 +1,77 @@
+{
+  "reviewer": "verbatim-1017-microsoft",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Microsoft",
+      "target": null,
+      "label": "Microsoft Q4 FY2026 (07-29-2026)",
+      "signal_prefix": "FISCAL Q4 (June quarter) and FY2026 close: revenue $90.0B (+18%) with operating income",
+      "action": "set",
+      "set": {
+        "signal": "FISCAL Q4 (June quarter) and FY2026 close: revenue $90.0B (+18%) with operating income $40.6B (+18%); FY2026 revenue $331.8B (+18%). MICROSOFT CLOUD revenue $59.3B (+27%); Intelligent Cloud $39.3B (+32%); AZURE AND OTHER CLOUD SERVICES REVENUE +43%, and in the earnings release CEO Satya Nadella said 'this year, AZURE REVENUE SURPASSED $100 BILLION FOR THE FIRST TIME'. Microsoft 365 Copilot passed OVER 30 MILLION PAID SEATS. The forward-demand signal: COMMERCIAL REMAINING PERFORMANCE OBLIGATION ROSE 84% TO $678 BILLION. CASH CAPEX (earnings-release cash flow statement): additions to property and equipment were $35.80 BILLION in the quarter (versus $17.08B a year earlier) and $115.95 BILLION FOR FISCAL 2026 as a whole, versus $64.55B in fiscal 2025. Results also included a $3.2 BILLION GAIN ON MICROSOFT'S INVESTMENT IN ANTHROPIC.",
+        "figure": "Q4 revenue $90.0B (+18%); Azure +43%, past $100B in FY2026; commercial RPO +84% to $678B; FQ4 additions to property and equipment $35.80B (FY2026 $115.95B)"
+      },
+      "chains": ["accelerators/nvidia_vera_rubin.json"],
+      "reason": "The figure called $35.8B 'FQ4 capex', but the call gives capital expenditures of $41B ($35.8B is cash paid for PP&E); '+80%' and 'more than double' are computed, not stated; the Nadella quote is from the earnings release, not the call (call: 'Azure surpassed $100 billion, up 41%').",
+      "evidence": "Capital expenditures were $41 billion, including the impact from higher component pricing as noted in our guide. ... cash paid for PP&E was $35.8 billion."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Microsoft",
+      "target": null,
+      "label": "Microsoft Q4 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — BUILD RATE, THE $175B CY2026 NUMBER, AND RPO QUALITY: Microsoft added",
+      "action": "set",
+      "set": {
+        "signal": "CALL — BUILD RATE, THE $175B CY2026 NUMBER, AND RPO QUALITY: Microsoft added 31 NEW DATA CENTERS this quarter (88 in the fiscal year) across five continents, added ANOTHER GIGAWATT of capacity, cut dock-to-live times for new GPUs in its largest regions by nearly 50% over the fiscal year, and remains on track to ROUGHLY DOUBLE overall capacity in two years. 'Customer demand continues to exceed available capacity' — CPU/GPU fleet efficiency gains and faster capacity delivery are 'QUICKLY MONETIZED' (visible in Azure's +43% beat; spot-market pricing cited as evidence of tightness). ACCOUNTING CHANGE: data-center/office useful life extended 15 -> 25 YEARS from FY27, shifting future DC leases from finance to operating leases — on that basis CALENDAR-2026 CAPEX EXPECTATION IS ~$175 BILLION (CY2026 investment expectations otherwise unchanged); FQ1 capex alone will be OVER $50B and FY27 capex GROWS YoY, with operating margins down <1pt and FCF staying positive. FQ4 capex $41B — ROUGHLY TWO-THIRDS SHORT-LIVED ASSETS (CPUs/GPUs, deliberately: short lead times allow fast demand response; land/builds stagger-able). RPO quality: $678B (+84%) with ALL sequential growth from customers OUTSIDE frontier-model companies (+25% ex-OpenAI); weighted average duration 2.3 years, ~30% recognized within 12 months (+37% YoY), beyond-12-month portion +112%; nearly 90% of the $214B FY26 cloud revenue is from customers outside frontier-model companies. Azure FQ1 guide ~+45% cc with H1 growth ACCELERATING. Also disclosed: a $3.2 BILLION GAIN ON MICROSOFT'S ANTHROPIC INVESTMENT."
+      },
+      "chains": ["accelerators/nvidia_vera_rubin.json"],
+      "reason": "'FY2026 fiscal actual was $115.9B +80%': the +80% is computed and the $115.9B is the release's additions to property and equipment, not a call figure; the dock-to-live cut is stated as 'nearly 50%' in the largest regions; the non-frontier share of cloud revenue is 'nearly 90%'. The release's FY2026 additions to property and equipment stay on the FY2026-close entry of the same node.",
+      "evidence": "Over the last fiscal year, we've reduced dock-to-live times for new GPUs in our largest regions by nearly 50%."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Microsoft",
+      "target": null,
+      "label": "Microsoft Q4 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — SILICON, MODELS-AS-MARGIN-LEVER, AND THE AGENT STACK: Satya Nadella",
+      "action": "set",
+      "set": {
+        "signal": "CALL — SILICON, MODELS-AS-MARGIN-LEVER, AND THE AGENT STACK: Satya Nadella: 'we will be AMONG THE FIRST cloud providers to deploy next-generation rack-scale AI infrastructure based on AMD HELIOS and NVIDIA VERA RUBIN' (buyer-side confirmation of both platforms). MAIA 200 delivers 30% BETTER PERFORMANCE PER DOLLAR than the latest-generation fleet hardware and now serves BOTH OpenAI and MAI models — 40% better performance per WATT when running MAI models; COBALT 200 racks reaching 25+ data centers (Cobalt VMs power Adobe, Arm, Elastic, OpenAI, Sprinklr, TomTom). Model strategy as a MARGIN LEVER: >11,000-model catalog (OpenAI, Anthropic, Mistral, xAI, MAI) with a model-SUBSTITUTABLE harness (context/memory/actions separate from any model family — 'you can't be subject to the refusal of the one model'); MAI-Cyber-1-Flash outperforms a 'much larger MYTHOS model' at HALF the cost by routing 90% of tasks to Flash and 10% to frontier; 89% lower GPU costs in Dynamics 365 with MAI-Voice-2-Flash and up to 84% lower GPU costs in PowerPoint with MAI-Image-2.5. Monetization proof points: M365 Copilot >30M paid seats (net adds 2x QoQ; >50k-seat customers 7x YoY; EY's 400k-seat E7 deal = largest ever; NHS 505k seats); GitHub Copilot 50M users with revenue ACCELERATING >60% QoQ after June usage-based pricing; Foundry at 100,000 customers with revenue MORE THAN DOUBLED; Agent 365 nearly 40M registered agents in 2 months; 1 in 3 GitHub pull requests now involve an agent."
+      },
+      "chains": ["accelerators/nvidia_vera_rubin.json"],
+      "reason": "The PowerPoint saving comes from MAI-Image-2.5 (not a Flash model) and is 'up to' 84%.",
+      "evidence": "89% reduction of GPU costs in Dynamics 365 with MAI-Voice-2-Flash and up to 84% reduced GPU costs in PowerPoint with MAI-Image-2.5"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Microsoft",
+      "target": null,
+      "label": "Microsoft Q4 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — COBALT 200 SCALES OUT: 'When it comes to running agents, CPUs",
+      "action": "set",
+      "set": {
+        "signal": "CALL — COBALT 200 SCALES OUT: 'When it comes to running agents, CPUs ARE JUST AS IMPORTANT AS GPUs.' Cobalt 200 racks expected in OVER 25 DATA CENTERS worldwide by month-end as Microsoft rapidly expands capacity; Cobalt VMs now power first-party workloads plus external customers including Adobe, Arm, Elastic, OPENAI, Sprinklr and TomTom. Roughly TWO-THIRDS of Microsoft's $41B quarterly capex went to SHORT-LIVED assets — 'primarily CPUs and GPUs' — 'as customers increasingly build solutions that leverage both AI and NON-AI infrastructure.'"
+      },
+      "chains": ["components/cpu_datacenter.json"],
+      "reason": "The last sentence ('A third same-quarter hyperscaler datapoint (with AWS's Graviton commentary and Intel/AMD's parity claims) ...') is enricher commentary about other companies' calls; the Microsoft call does not say it.",
+      "evidence": "When it comes to running agents, CPUs are just as important as GPUs. Our Cobalt VMs are powering both our own first-party workloads as well as workloads for customers, including Adobe, Arm"
+    },
+    {
+      "kind": "contract",
+      "company": "AMD",
+      "target": "Microsoft",
+      "label": "Microsoft Q4 FY2026 (07-29-2026)",
+      "signal_prefix": "BUYER-SIDE CONFIRMATION from Satya Nadella on Microsoft's own call",
+      "action": "set",
+      "set": {
+        "signal": "BUYER-SIDE CONFIRMATION from Satya Nadella on Microsoft's own call: 'we will be AMONG THE FIRST cloud providers to deploy next-generation rack-scale AI infrastructure based on AMD HELIOS and NVIDIA Vera Rubin' — Helios named alongside Vera Rubin as the two rack-scale platforms modernizing the Azure fleet, complementing Microsoft's own Maia 200 silicon.",
+        "date_signed": "not stated"
+      },
+      "chains": ["accelerators/amd_mi450_helios.json"],
+      "reason": "Neither '(five days before AMD's)' nor a 2026 signing date is in the call; Nadella gives no deployment or signing date.",
+      "evidence": "And we will be among the first cloud providers to deploy next generation rack-scale AI infrastructure based on AMD Helios and NVIDIA Vera Rubin."
+    }
+  ]
+}

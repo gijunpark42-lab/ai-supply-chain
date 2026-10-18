@@ -1,0 +1,59 @@
+{
+  "source": "NVIDIA 10-K (02-25-2026)",
+  "chains": {
+    "components/optical_networking.json": {
+      "players": [
+        {
+          "company": "Groq",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "product": "LPU inference engine with SRAM-based memory architecture",
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "LPU technology licensed to NVIDIA",
+              "contracts": [
+                {
+                  "source": "NVIDIA 10-K (02-25-2026)",
+                  "signal": "NVIDIA's 10-K: in December 2025 NVIDIA entered into a non-exclusive license agreement with Groq, Inc. for its language processing unit technology and hired certain Groq employees; no customer contracts, existing products or equity interests were purchased.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "December 2025",
+                  "type": "licence",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Samsung",
+          "layer": "foundry",
+          "sector": "Leading-Edge Logic Foundry (2nm/3nm)",
+          "product": "leading-edge wafer fab (SF3/SF2 GAA logic dies)",
+          "connects_to": [
+            {
+              "company": "NVIDIA",
+              "relationship": "semiconductor wafer foundry for NVIDIA",
+              "contracts": [
+                {
+                  "source": "NVIDIA 10-K (02-25-2026)",
+                  "signal": "NVIDIA's 10-K names Samsung Electronics Co., Ltd. among the foundries it utilizes to produce its semiconductor wafers (with TSMC).",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "supply relationship",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
