@@ -82,6 +82,10 @@ export const CHAIN_COLORS: Record<string, string> = {
   neocloud: "#2dd4bf",
   power_semiconductor: "#eab308",
   ai_bio: "#d946ef",
+  quantum_computing: "#4f46e5",
+  space_ai_infrastructure: "#06b6d4",
+  ai_security_trusted_compute: "#ec4899",
+  datacenter_construction_power: "#a16207",
 };
 
 export const groupColor = (slug: string): string => GROUP_COLORS[slug] || "#94a3b8";
@@ -113,6 +117,10 @@ export const SLUG_NAMES: Record<string, string> = {
   neocloud: "Neocloud",
   power_semiconductor: "Power Semiconductors",
   ai_bio: "AI Bio",
+  quantum_computing: "Quantum Computing",
+  space_ai_infrastructure: "Space AI Infrastructure",
+  ai_security_trusted_compute: "AI Security & Trusted Compute",
+  datacenter_construction_power: "Data Center Construction & Power",
   // topic tags (quarterly_data / contracts `topics`)
   supply_tightness: "Supply tightness",
   transitions: "Generation transitions",

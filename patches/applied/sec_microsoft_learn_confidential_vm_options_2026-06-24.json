@@ -1,0 +1,81 @@
+{
+  "source": "Microsoft Learn: Azure Confidential VM options (06-24-2026)",
+  "chains": {
+    "components/ai_security_trusted_compute.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "NVIDIA Confidential Computing on H100 / Blackwell GPUs; Vera Rubin end-to-end confidential computing (Vera CPU + CX9 security processor); NIM / AI Enterprise for security vendors",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Microsoft",
+              "relationship": "H100 GPUs in confidential mode for Azure NCCadsH100v5 confidential GPU VMs",
+              "contracts": [
+                {
+                  "source": "Microsoft Learn: Azure Confidential VM options (06-24-2026)",
+                  "signal": "Microsoft Learn: the NCCadsH100v5-series is Azure's confidential VM with a confidential GPU, built on AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "deployment",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "EPYC CPUs with SEV-SNP confidential computing",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Microsoft",
+              "relationship": "EPYC CPUs with SEV-SNP for Azure confidential VMs, incl. the NCCadsH100v5 confidential GPU VMs",
+              "contracts": [
+                {
+                  "source": "Microsoft Learn: Azure Confidential VM options (06-24-2026)",
+                  "signal": "Microsoft Learn: AMD-based Azure confidential VMs use AMD SEV-SNP, introduced with 3rd Gen AMD EPYC processors (DCasv5 / DCadsv5 / ECasv5 / ECadsv5 and the v6 series, plus the NCCadsH100v5 confidential GPU series).",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "deployment",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Intel",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Xeon CPUs with Intel TDX (and SGX) confidential computing; Intel Tiber Trust Authority attestation",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Microsoft",
+              "relationship": "Xeon CPUs with Intel TDX for Azure DCesv6 / ECesv6 confidential VMs",
+              "contracts": [
+                {
+                  "source": "Microsoft Learn: Azure Confidential VM options (06-24-2026)",
+                  "signal": "Microsoft Learn: Intel-based Azure confidential VMs use Intel TDX, introduced with 5th Gen Intel Xeon processors (DCesv6 / DCedsv6 / ECesv6 / ECedsv6 series).",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "deployment",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

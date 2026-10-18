@@ -1,0 +1,188 @@
+SOURCE: https://azure.microsoft.com/en-us/blog/quantum/2025/02/19/microsoft-unveils-majorana-1-the-worlds-first-quantum-processor-powered-by-topological-qubits/  (company-issued)
+NOTE: NOT a transcript — Microsoft's own Azure Quantum blog post (company announcement), saved 2026-10-17 for the quantum_computing chain. Text converted with edgar_pull.html_to_text.
+# source label: Microsoft blog post: Microsoft unveils Majorana 1, the world's first quantum processor (02-19-2025)
+
+Microsoft unveils Majorana 1, the world’s first quantum processor powered by topological qubits - Microsoft Azure Quantum Blog Skip to content Skip to main content 
+[image: https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png — not text]
+ Azure Get to know Azure Microsoft as Customer Zero View all products (200+) Microsoft Foundry Azure Copilot GitHub Copilot Azure Kubernetes Service (AKS) Azure Cosmos DB Azure Database for PostgreSQL Azure Arc Microsoft Fabric Linux virtual machines in Azure Foundry Models Foundry Agent Service Foundry IQ Foundry Tools Foundry Control Plane Observability in Foundry Control Plane Azure OpenAI in Foundry Models Azure Speech in Foundry Tools Azure Machine Learning View all databases Azure Cosmos DB Azure DocumentDB Azure SQL Azure Database for PostgreSQL Azure Managed Redis Microsoft Fabric Azure Databricks Linux virtual machines in Azure Windows Server on Azure Azure Functions Azure Virtual Machine Scale Sets Azure API Management Azure Container Apps Azure Kubernetes Service (AKS) Azure Kubernetes Fleet Manager Azure Container Registry Azure Red Hat OpenShift Azure Container Instances Azure Container Storage Azure Arc Azure Local Microsoft Defender for Cloud Azure Monitor Microsoft Sentinel Azure Migrate View all solutions (40+) Cloud solutions for small and medium businesses Cloud migration and modernization center Data analytics for AI Azure Databases AI apps and agents Microsoft Marketplace Microsoft Sovereign Cloud AI apps and agents Responsible AI with Azure AI Infrastructure Data analytics for AI Machine learning operations (MLOps) Low-code application development on Azure Integration Services Serverless computing DevOps Migration and modernization center .NET apps migration Databases on Azure Linux on Azure Oracle on Azure SAP on the Microsoft Cloud Adaptive cloud High-performance computing (HPC) Infrastructure as a service (IaaS) Resiliency Azure Essentials Frontier Accelerate for Azure FinOps on Azure Microsoft Marketplace Azure pricing overview Create an Azure account Free Azure services Flexible purchase options Pricing calculator FinOps on Azure Maximize ROI from AI Azure savings plans Azure reservations Azure Hybrid Benefit Virtual Machines Azure SQL Microsoft Foundry Microsoft Fabric Azure Kubernetes Service (AKS) Microsoft Defender for Cloud View more Software Development Companies Microsoft Marketplace Find a partner Resources for Azure partners Get started with Azure Customer stories Analyst reports, white papers, and e-books Videos Learn more about cloud computing Documentation Explore Azure portal Developer resources Quickstart templates Resources for startups Developer community Students Azure for partners Blog Events and Webinars Learn Support Contact Sales Get started with Azure Sign in 
+
+Blog home 
+
+Microsoft unveils Majorana 1, the world’s first quantum processor powered by topological qubits 
+
+Search 
+
+[image: https://azure.microsoft.com/en-us/blog/quantum/wp-content/uploads/2025/02/majorana1_1260x708_v2.jpg — not text]
+
+February 19, 2025 7 min read 
+
+Microsoft unveils Majorana 1, the world’s first quantum processor powered by topological qubits 
+
+By Chetan Nayak, view all posts by this author, Technical Fellow and Corporate Vice President of Quantum Hardware 
+
+Share
+
+Link copied to clipboard! 
+
+Content types
+
+News
+
+Products
+
+Azure Quantum
+
+Built with a breakthrough class of materials called a topoconductor, Majorana 1 marks a transformative leap toward practical quantum computing.
+
+Quantum computers promise to transform science and society—but only after they achieve the scale that once seemed distant and elusive, and their reliability is ensured by quantum error correction. Today, we’re announcing rapid advancements on the path to useful quantum computing:
+
+Majorana 1: the world’s first Quantum Processing Unit (QPU) powered by a Topological Core, designed to scale to a million qubits on a single chip.
+
+A hardware-protected topological qubit: research published today in Nature, along with data shared at the Station Q meeting, demonstrate our ability to harness a new type of material and engineer a radically different type of qubit that is small, fast, and digitally controlled.
+
+A device roadmap to reliable quantum computation: our path from single-qubit devices to arrays that enable quantum error correction.
+
+Building the world’s first fault-tolerant prototype (FTP) based on topological qubits: Microsoft is on track to build an FTP of a scalable quantum computer—in years, not decades—as part of the final phase of the Defense Advanced Research Projects Agency (DARPA) Underexplored Systems for Utility-Scale Quantum Computing (US2QC) program.
+
+Together, these milestones mark a pivotal moment in quantum computing as we advance from scientific exploration to technological innovation.
+
+Microsoft Quantum Innovator Series
+
+Join Chetan Nayak to learn about the advancements Microsoft is making in quantum computing.
+
+Sign up to watch
+
+[image: https://azure.microsoft.com/en-us/blog/quantum/wp-content/uploads/2025/02/Chetan-Headshot.webp — not text]
+
+Harnessing a new type of material
+
+All of today’s announcements build on our team’s recent breakthrough: the world’s first topoconductor. This revolutionary class of materials enables us to create topological superconductivity, a new state of matter that previously existed only in theory. The advance stems from Microsoft’s innovations in the design and fabrication of gate-defined devices that combine indium arsenide (a semiconductor) and aluminum (a superconductor). When cooled to near absolute zero and tuned with magnetic fields, these devices form topological superconducting nanowires with Majorana Zero Modes (MZMs) at the wires’ ends.
+
+[image: https://azure.microsoft.com/en-us/blog/quantum/wp-content/uploads/2025/02/Measurement-graphic.webp — not text]
+ Figure 1: Reading the state of our topological qubit. For nearly a century, these quasiparticles existed only in textbooks. Now, we can create and control them on demand in our topoconductors. MZMs are the building blocks of our qubits, storing quantum information through ‘parity’—whether the wire contains an even or odd number of electrons. In conventional superconductors, electrons bind into Cooper pairs and move without resistance. Any unpaired electron can be detected because its presence requires extra energy. Our topoconductors are different: here, an unpaired electron is shared between a pair of MZMs, making it invisible to the environment. This unique property protects the quantum information.
+
+While this makes our topoconductors ideal candidates for qubits, it also presents a challenge: How do we read quantum information that is so well hidden? How can we distinguish between, say, 1,000,000,000 and 1,000,000,001 electrons?
+
+Our solution to this measurement challenge works as follows (also see Figure 1):
+
+We use digital switches to couple both ends of the nanowire to a quantum dot, which is a tiny semiconductor device that can store electrical charge.
+
+This connection increases the dot’s ability to hold charge. Crucially, the exact increase depends on the parity of the nanowire.
+
+We measure this change using microwaves. The dot’s ability to hold charge determines how the microwaves reflect off the quantum dot. As a result, they return carrying an imprint of the nanowire’s quantum state.
+
+We designed our devices so these changes are large enough to measure reliably in a single shot. Our initial measurements had an error probability of 1%, and we’ve identified clear paths to significantly reduce this.
+
+Our system shows impressive stability. External energy—such as electromagnetic radiation—can break Cooper pairs, creating unpaired electrons that can flip the qubit’s state from even to odd parity. However, our results show that this is rare, occurring only once per millisecond on average. This indicates that the shielding that envelops our processor is effective at keeping such radiation out. We are exploring ways to reduce this even further.
+
+It’s perhaps not surprising that quantum computation would require us to engineer a new state of matter specifically designed to enable it. What’s remarkable is how accurate our readout technique already is, demonstrating that we are harnessing this exotic state of matter for quantum computation.
+
+Revolutionizing quantum control through digital precision
+
+This readout technique enables a fundamentally different approach to quantum computing in which measurements are used to perform calculations.
+
+Traditional quantum computing rotates quantum states through precise angles, requiring complex analog control signals customized for each qubit. This complicates quantum error correction (QEC), which must rely on these same sensitive operations to detect and correct errors.
+
+Our measurement-based approach simplifies QEC dramatically. We perform error correction entirely through measurements activated by simple digital pulses that connect and disconnect quantum dots from nanowires. This digital control makes it practical to manage the large numbers of qubits needed for real-world applications.
+
+From physics to engineering
+
+[image: https://azure.microsoft.com/en-us/blog/quantum/wp-content/uploads/2025/02/Device-Roadmap-figure.webp — not text]
+ Figure 2: Roadmap to fault-tolerant quantum computation with tetrons. The first panel shows a single-qubit device. The tetron is formed through two parallel topological wires (blue) with an MZM at each end (orange dot) connected by a perpendicular trivial superconducting wire (light blue). The next panel shows a two-qubit device that supports measurement-based braiding transformations. The third panel shows a 4×2 array of tetrons supporting a quantum error detection demonstration on two logical qubits. These demonstrations build toward quantum error correction, such as on the device shown in the right panel (a 27×13 tetron array). With the core building blocks now demonstrated—quantum information encoded in MZMs, protected by topology, and processed through measurements—we’re ready to move from physics breakthrough to practical implementation.
+
+The next step is a scalable architecture built around a single-qubit device called a tetron (see Figure 2). At the Station Q meeting, we shared data demonstrating the basic operation of this qubit. One fundamental operation—measuring the parity of one of the topological nanowires in a tetron—uses the same technique described in our Nature paper.
+
+Another key operation puts the qubit in a superposition of parity states. This, too, is performed by a microwave reflectometry measurement of a quantum dot, but in a different measurement configuration in which we decouple the first quantum dot from the nanowire and connect a different dot to both nanowires at one end of the device. By performing these two orthogonal Pauli measurements, Z and X, we’ve demonstrated measurement-based control—a crucial milestone that unlocks the next steps on our roadmap.
+
+Our roadmap now leads systematically toward scalable QEC. The next steps will involve a 4×2 tetron array. We will first use a two-qubit subset to demonstrate entanglement and measurement-based braiding transformations. Using the entire eight-qubit array, we will then implement quantum error detection on two logical qubits.
+
+The built-in error protection of topological qubits simplifies QEC. Moreover, our custom QEC codes reduce overhead roughly tenfold compared to the previous state-of-the-art approach. This dramatic reduction means that our scalable system can be built from fewer physical qubits and has the potential to run at a faster clock speed.
+
+DARPA’s recognition of our approach
+
+The Defense Advanced Research Projects Agency (DARPA) has selected Microsoft as one of two companies to advance to the final phase of their rigorous benchmarking program known as Underexplored Systems for Utility-Scale Quantum Computing (US2QC)—one of the programs that makes up DARPA’s larger Quantum Benchmarking Initiative (QBI). Microsoft views this recognition as validation of our roadmap for building a fault-tolerant quantum computer with topological qubits.
+
+DARPA’s US2QC program and its broader Quantum Benchmarking Initiative represent a rigorous approach to evaluating quantum systems that could solve problems that are beyond the capabilities of classical computers. To date, the US2QC program has brought together experts from DARPA, Air Force Research Laboratory, Johns Hopkins University Applied Physics Laboratory, Los Alamos National Laboratory, Oak Ridge National Laboratory, and NASA Ames Research Center to verify quantum hardware, software, and applications. Going forward, the larger Quantum Benchmarking Initiative is expected to engage with even more experts in the testing and evaluation of quantum computers.
+
+Previously, DARPA selected Microsoft for an earlier phase upon an assessment that we could plausibly build a utility-scale quantum computer in a reasonable timeframe. DARPA then evaluated the Microsoft quantum team’s architectural designs and engineering plan for a fault-tolerant quantum computer. As a result of this careful analysis, DARPA and Microsoft have executed an agreement to begin the final phase of the program. During this phase, Microsoft intends to build a fault-tolerant prototype based on topological qubits in years, not decades—a crucial acceleration step toward utility-scale quantum computing.
+
+Unlocking quantum’s promise
+
+Eighteen months ago, we laid out our roadmap to a quantum supercomputer. Today we hit our second milestone, demonstrating the world’s first topological qubit. And we’ve already placed eight topological qubits on a chip designed to house one million.
+
+A million-qubit quantum computer isn’t just a milestone—it’s a gateway to solving some of the world’s most difficult problems. Even today’s most powerful supercomputers cannot accurately predict the quantum processes that determine the properties of the materials essential to our future. But quantum computing at this scale could lead to innovations like self-healing materials that repair cracks in bridges, sustainable agriculture, and safer chemical discovery. What today requires billions of dollars in exhaustive experimental searches and wet-lab experiments could be found, instead, through calculation on a quantum computer.
+
+Our path to useful quantum computing is clear. The foundational technology is proven, and we believe our architecture is scalable. Our new agreement with DARPA shows a commitment to relentless progress toward our goal: building a machine that can drive scientific discovery and solve problems that matter. Stay tuned for more updates on our journey.
+
+Stay informed of Microsoft’s advancements in quantum computing:
+
+Check out Dr. Chetan Nayak on the Microsoft Research Podcast as he explores these groundbreaking advances.
+
+Read our papers in Nature and on arXiv.
+
+Join us to become quantum ready.
+
+Read the Microsoft Source story about today’s news.
+
+Hear the Microsoft quantum team discuss these milestones:
+
+Learn about Microsoft’s quantum hardware
+
+[image: https://azure.microsoft.com/en-us/blog/quantum/wp-content/uploads/2020/08/Chetan-Nayak-bio-picture-250x250.jpg — not text]
+
+LinkedIn 
+
+Chetan Nayak 
+
+Technical Fellow and Corporate Vice President of Quantum Hardware 
+
+Chetan Nayak leads Microsoft’s efforts to build a scaled quantum computer based on topological qubits.
+
+See Chetan Nayak posts 
+
+Related posts
+
+[image: https://azure.microsoft.com/en-us/blog/quantum/wp-content/uploads/2025/08/CLO17_corporateOffice_001.jpg — not text]
+
+August 20, 2025 6 min read 
+
+Quantum-safe security: Progress towards next-generation cryptography 
+
+[image: https://azure.microsoft.com/en-us/blog/quantum/wp-content/uploads/2025/06/June19_QTM_HeroImage_1260x780_Larger-Font_Familyof-Novel.webp — not text]
+
+June 19, 2025 4 min read 
+
+Microsoft advances quantum error correction with a family of novel four-dimensional codes 
+
+[image: https://azure.microsoft.com/en-us/blog/quantum/wp-content/uploads/2025/05/1042849_MS_Azure_Build-2025_BlogHeader-4_1260x708-1.webp — not text]
+
+May 19, 2025 11 min read 
+
+Transforming R&D with agentic AI: Introducing Microsoft Discovery 
+
+Explore
+Microsoft Quantum applications
+
+Start building impactful quantum chemistry and materials science applications today.
+
+Learn more about Microsoft Quantum applications
+
+Connect with us on social
+
+X
+
+LinkedIn
+
+What is Azure? Get started with Azure Global infrastructure Datacenter regions Trust your cloud Azure Essentials Customer stories Products Azure pricing Free Azure services Flexible purchase options FinOps on Azure Maximize ROI from AI Solutions Resources for accelerating growth Solution architectures Support Azure demo and live Q&A 
+
+Software Development Companies Microsoft Marketplace Find a partner Documentation Blog Developer resources Students Events and Webinars Analyst reports, white papers, and e-books Videos What is cloud computing? What is multicloud? What is machine learning? What is deep learning? What is AIaaS? What are LLMs? What is a container? What is RAG? 
+
+English (United States) Your Privacy Choices Opt-Out Icon Your Privacy Choices Your Privacy Choices Opt-Out Icon Your Privacy Choices 
+
+Consumer Health Privacy Sitemap Contact Microsoft Privacy Manage cookies Terms of use Trademarks Safety & eco Recycling About our ads 
+
+[image: ? — not text]
+
+[image: ? — not text]
+
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com Retrieved 3176 objects (521 KB) from Redis using PhpRedis (v6.3.0).

@@ -1,0 +1,98 @@
+SOURCE: https://learn.microsoft.com/en-us/azure/confidential-computing/virtual-machine-options  (company-issued)
+NOTE: NOT a transcript — company document saved by hand 2026-10-17 for the ai_security_trusted_compute chain. Article text extracted from the page HTML; navigation and footer dropped (the visible wording is unchanged).
+# source label: Microsoft Learn: Azure Confidential VM options (06-24-2026)
+# Page title: Azure Confidential VM options | Microsoft Learn
+
+Azure Confidential VM options
+Feedback
+Summarize this article for me
+Azure offers a choice of Trusted Execution Environment (TEE) options from both AMD and Intel. These TEEs allow you to create Confidential VM environments with excellent price-to-performance ratios, all without requiring any code changes.
+For AMD-based Confidential VMs, the technology used is AMD SEV-SNP, which was introduced with 3rd Gen AMD EPYCTM processors. On the other hand, Intel-based Confidential VMs utilize Intel TDX, a technology introduced with 5th Gen Intel® Xeon® processors. Both technologies have different implementations, however both provide similar protections from the cloud infrastructure stack.
+Sizes
+We offer the following VM sizes:
+Size Family
+TEE
+Description
+DCasv5-series
+AMD SEV-SNP
+General purpose CVM with remote storage. No local temporary disk.
+DCadsv5-series
+AMD SEV-SNP
+General purpose CVM with local temporary disk.
+ECasv5-series
+AMD SEV-SNP
+Memory-optimized CVM with remote storage. No local temporary disk.
+ECadsv5-series
+AMD SEV-SNP
+Memory-optimized CVM with local temporary disk.
+DCasv6-series
+AMD SEV-SNP
+General purpose CVM with remote storage. No local temporary disk.
+DCadsv6-series
+AMD SEV-SNP
+General purpose CVM with local temporary disk.
+ECasv6-series
+AMD SEV-SNP
+Memory-optimized CVM with remote storage. No local temporary disk.
+ECadsv6-series
+AMD SEV-SNP
+Memory-optimized CVM with local temporary disk.
+DCesv6-series
+Intel TDX
+General purpose CVM with remote storage. No local temporary disk.
+DCedsv6-series
+Intel TDX
+General purpose CVM with local temporary disk.
+ECesv6-series
+Intel TDX
+Memory-optimized CVM with remote storage. No local temporary disk.
+ECedsv6-series
+Intel TDX
+Memory-optimized CVM with local temporary disk.
+NCCadsH100v5-series
+AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs
+CVM with Confidential GPU.
+Note
+Memory-optimized confidential VMs offer double the ratio of memory per vCPU count.
+Azure CLI commands
+You can use the Azure CLI with your confidential VMs.
+To see a list of confidential VM sizes, run the following command. Replace <vm-series> with the series you want to use. The output shows information about available regions and availability zones.
+vm_series='DCASv5'
+az vm list-skus \
+--size dc \
+--query "[?family=='standard${vm_series}Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" \
+--all \
+--output table
+For a more detailed list, run the following command instead:
+vm_series='DCASv5'
+az vm list-skus \
+--size dc \
+--query "[?family=='standard${vm_series}Family']"
+Deployment considerations
+Consider the following settings and choices before deploying confidential VMs.
+Azure subscription
+To deploy a confidential VM instance, consider a pay-as-you-go subscription or other purchase option. If you're using an Azure free account, the quota doesn't allow the appropriate number of Azure compute cores.
+You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes.
+To request a quota increase, open an online customer support request.
+If you have large-scale capacity needs, contact Azure Support. Azure quotas are credit limits, not capacity guarantees. You only incur charges for cores that you use.
+Pricing
+For pricing options, see the Linux Virtual Machines Pricing.
+Regional availability
+For availability information, see which VM products are available by Azure region.
+Resizing
+Confidential VMs run on specialized hardware, so you can only resize confidential VM instances to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv6-series instance.
+It's not possible to resize a non-confidential VM to a confidential VM.
+High availability and disaster recovery
+You're responsible for creating high availability and disaster recovery solutions for your confidential VMs. Planning for these scenarios helps minimize and avoid prolonged downtime.
+Deployment with ARM templates
+Azure Resource Manager is the deployment and management service for Azure. You can:
+Secure and organize your resources after deployment with the management features, like access control, locks, and tags.
+Create, update, and delete resources in your Azure subscription using the management layer.
+Use Azure Resource Manager templates (ARM templates) to deploy confidential VMs on AMD processors.
+Make sure to specify the following properties for your VM in the parameters section (parameters):
+VM size (vmSize). Choose from the different confidential VM families and sizes.
+OS image name (osImageName). Choose from the qualified OS images.
+Disk encryption type (securityType). Choose from VMGS-only encryption (VMGuestStateOnly) or full OS disk pre-encryption (DiskWithVMGuestState), which might result in longer provisioning times.
+Next steps
+Deploy a confidential VM from the Azure portal
+For more information see our Confidential VM FAQ.

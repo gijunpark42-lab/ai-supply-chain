@@ -1,0 +1,61 @@
+{
+  "source": "Hut 8 10-K (02-25-2026)",
+  "chains": {
+    "components/datacenter_construction_power.json": {
+      "players": [
+        {
+          "company": "Jacobs Solutions",
+          "domain": "power",
+          "sector": "Construction & EPC",
+          "sub_sector": null,
+          "product": "EPCM lead / general contractor for AI data-center campuses (Hut 8 River Bend and Beacon Point)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Hut 8",
+              "relationship": "EPCM / general contractor for River Bend and Beacon Point",
+              "contracts": [
+                {
+                  "source": "Hut 8 10-K (02-25-2026)",
+                  "signal": "Hut 8's 10-K: the initial phase of the River Bend partnership is supported by counterparties including Entergy, which will be providing power to the site, 'Vertiv, who is the power provider for the site, and Jacobs, who is serving as general contractor'. Jacobs: general contractor.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "general contractor (EPCM)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Vertiv",
+          "domain": "power",
+          "sector": "Datacenter Power",
+          "sub_sector": null,
+          "product": "MV/LV switchgear, UPS and battery systems for AI data centers; power provider for Hut 8 River Bend",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Hut 8",
+              "relationship": "power provider and co-developed AI data-center infrastructure for River Bend",
+              "contracts": [
+                {
+                  "source": "Hut 8 10-K (02-25-2026)",
+                  "signal": "Hut 8's 10-K: the initial phase of the River Bend partnership is supported by counterparties including Entergy, which will be providing power to the site, 'Vertiv, who is the power provider for the site, and Jacobs, who is serving as general contractor'. Vertiv: power provider for the site.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "power infrastructure supply",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

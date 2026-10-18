@@ -1,0 +1,53 @@
+SOURCE: https://azure.microsoft.com/en-us/blog/enforcing-trust-and-transparency-open-sourcing-the-azure-integrated-hsm/  (company-issued)
+NOTE: NOT a transcript — company document saved by hand 2026-10-17 for the ai_security_trusted_compute chain. Article text extracted from the page HTML; navigation and footer dropped (the visible wording is unchanged).
+# source label: Microsoft Azure blog: Open-sourcing the Azure Integrated HSM (04-30-2026)
+# Page title: Enforcing trust and transparency: Open-sourcing the Azure Integrated HSM | Microsoft Azure Blog
+
+April 30
+3 min read
+Enforcing trust and transparency: Open-sourcing the Azure Integrated HSM
+By Mark Russinovich, view all posts by this author and Saurabh Dighe, view all posts by this author
+Share
+Link copied to clipboard!
+Categories
+Security
+Tags
+Azure Integrated HSM
+Audience
+Business decision makers
+Content types
+Announcements
+Products
+Azure Security
+Tech Communities
+Azure Infrastructure Blog
+As cloud workloads become more agentic and AI systems increasingly handle mission‐critical data, trust must be engineered into the infrastructure at every layer. At Microsoft, security is designed into the foundation of our cloud infrastructure, from silicon to services. With the Azure Integrated Hardware Security Module (HSM), Microsoft is redefining how cryptographic trust is delivered in the cloud.
+Azure Integrated HSM is a tamper‐resistant, Microsoft‐built hardware security module integrated into every new Azure server, extending existing key management services by bringing hardware enforced protection directly to where workloads execute. Rather than relying solely on centralized services, this approach makes hardware-backed security a native property of the compute platform itself.
+Azure Integrated HSM is engineered to meet FIPS 140‐3 Level 3, the gold standard for hardware security modules used by governments and regulated industries worldwide. Level 3 requires strong tamper resistance, hardware-enforced isolation, and protection against physical and logical key extraction. By building these assurances directly into the platform, Azure makes the highest levels of compliance a default property of the cloud, rather than a specialized configuration or premium add‐on.
+Learn more about Azure Security
+Reinforcing transparency through trust with open-sourced designs
+Our approach to hardware security is grounded in a simple belief: transparency builds trust, and industry collaboration strengthens security. Openness strengthens trust by allowing customers, partners, and regulators to validate design choices and security boundaries.
+This week, at the Open Compute Project (OCP) EMEA Summit, we announced plans to open the Azure Integrated HSM to the broader open hardware ecosystem. Through OCP, we plan to release the Azure Integrated HSM firmware, driver, and software stack as open source, and launch an OCP workgroup to guide ongoing development—spanning architectural design, protocol specifications, firmware, and hardware. The Azure Integrated HSM firmware is now available through the Azure Integrated HSM GitHub repository, alongside independent validation artifacts such as the OCP SAFE audit report.
+This openness is particularly important for regulated industries and sovereign cloud scenarios, where independent validation of security controls is required. By making key components available for external review, Azure Integrated HSM enables customers, partners, and regulators to assess implementation details directly rather than relying solely on vendor assertions.
+This approach strengthens confidence in the platform and helps establish a more transparent and verifiable foundation for cloud security, while reducing reliance on proprietary vendor specific protocols. At a time when cryptographic trust underpins everything from AI inference to national digital infrastructure, open sourcing the HSM is a practical step toward interoperability, auditability, and customer confidence.
+A tiered approach to key management
+This design complements services like Azure Key Vault and Azure Managed HSM, which continue to provide centralized key lifecycle management, governance, and policy enforcement. Azure Integrated HSM adds a new layer; one that brings cryptographic protection down to the individual server, so that keys are protected not just when they are stored but while they are actively being used by workloads. The Azure Integrated HSM also supports industry standards such as TDISP, enabling secure binding between the HSM and confidential computing environments.
+In the coming weeks, Azure Integrated HSM will be available in Azure V7 virtual machines to all customers globally.
+Setting a new standard for server-local key protection at scale
+With Azure Integrated HSM, encryption keys are generated, stored, and used entirely within hardened hardware. Keys are designed to never appear in host memory, guest memory, or software processes even during active cryptographic operations. By keeping keys within the hardware boundary at all times, Azure Integrated HSM eliminates entire classes of key and credential exfiltration attacks that target memory or software layers.
+The result is true customer control enforced by silicon, not policy. Security is no longer dependent on operational discipline or complex isolation assumptions; it is enforced by hardware.
+Traditional cloud security models rely on centralized HSM services accessed over the network. While effective, these models introduce shared blast radius, scalability challenges, and performance constraints as workloads grow.
+By anchoring cryptographic protection directly to the server, security scales naturally with compute. There are no shared bottlenecks, no added network hops, and no need to trade performance for protection. As Azure scales, security scales with it.
+With hardware roots of trust, measured boot, and attestation, Azure Integrated HSM makes trust verifiable rather than contractual. Customers and regulators can cryptographically validate that approved hardware, firmware, and configurations are in place. This can be further verified by the open-source firmware. Trust is no longer something you accept; it is something you can prove.
+Together, these capabilities establish a new baseline for cloud security, one in which hardware-enforced, verifiable trust is the default for modern workloads, from core infrastructure services to the next generation of AI. When combined with confidential computing, open silicon roots of trust, Azure Boost, and datacenter-level secure control modules, the Azure Integrated HSM helps establish a vertically integrated chain of trust, from silicon to software.
+We invite customers, partners, and the broader open-source community to contribute to the architecture and help shape future standards. Together, we can build secure, sovereign, and open cloud infrastructure for the challenges ahead.
+For additional information, read the announcement blog and learn more about Azure Security.
+Azure Security
+Get a comprehensive look at the security available with Azure.
+Learn more
+Mark Russinovich
+Chief Technology Officer, Deputy Chief Information Security Officer, and Technical Fellow, Microsoft Azure
+See posts by this author
+Saurabh Dighe
+Corporate Vice President, Systems Planning and Architecture
+See posts by this author
