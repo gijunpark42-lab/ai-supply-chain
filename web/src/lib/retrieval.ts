@@ -534,6 +534,23 @@ const VOCAB: VocabRule[] = [
     re: /\b(drug discovery|biotech\w*|biopharma\w*|pharma\w*|genomics?|omics|sequencing|proteomics?|antibod\w*|molecules?|clinical trials?|precision medicine|protein\w*)\b/,
     chains: ["ai_bio"],
   },
+  {
+    // no bare "quantum": it would also catch NVIDIA Quantum-X InfiniBand and "quantum efficiency"
+    re: /\b(quantum comput\w*|quantum processors?|quantum chips?|quantum systems?|qubits?|qpus?|dilution refrigerators?|cryo ?cmos|trapped ions?|ion traps?|neutral atoms?|quantum annealing|annealing quantum|braket|azure quantum|cuda q|nvqlink|ionq|rigetti|d wave|quantinuum|pasqal|infleqtion|psiquantum|xanadu|quera|iqm)\b/,
+    chains: ["quantum_computing"],
+  },
+  {
+    re: /\b(orbital|orbit|in space|space based|satellites?|low earth orbit|leo satellites?|starlink|starmind|suncatcher|kuiper|amazon leo|starcloud|kepler communications|launch vehicles?|rockets?|new glenn|vulcan|ariane ?6|falcon ?9|starship|direct to (cell|device)|rad(iation)? hard\w*|radiation tolerant)\b/,
+    chains: ["space_ai_infrastructure"],
+  },
+  {
+    re: /\b(hsms?|hardware security modules?|roots? of trust|tpms?|trusted platform modules?|confidential (computing|compute|vms?|ai|gpus?)|trusted (compute|computing|execution)|caliptra|opentitan|attestation|post quantum|pqc|cybersecurity|ai security|crowdstrike|palo alto( networks)?|cloudflare|fortanix|utimaco|axiado|thales)\b/,
+    chains: ["ai_security_trusted_compute"],
+  },
+  {
+    re: /\b(data ?cent(er|re) (construction|build ?outs?|campus(es)?|developers?)|epcm?|general contractors?|electrical contractors?|construction|contractors?|colocation|powered land|hyperscale campus(es)?|substations?|behind the meter|on ?site power|gensets?|backup generators?|utilities? (deal|contract|agreement)s?)\b/,
+    chains: ["datacenter_construction_power"],
+  },
   { re: /\b(asics?|custom silicon|xpus?|custom accelerators?)\b/, chains: ["broadcom_custom_asic"] },
   { re: /\b(sold out|allocation|allocated|shortages?|tight|tightness|constrained|constraints?|lead times?)\b/, topics: ["supply_tightness"] },
   { re: /\b(launch\w*|ramp\w*|sampling|mass production|volume production|shipping)\b/, topics: ["product_launches"] },

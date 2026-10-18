@@ -93,7 +93,7 @@ from datetime import date
 #   NUMBER            -> the regex that defines what a "number" is ("27,800", "24.8", "1.6")
 #   KO_ALIASES        -> Korean spellings of the big counterparties ("SK Hynix" -> "SK하이닉스")
 #   is_media_source() -> is this a news-interview transcript (transcripts/media/, media_pull.py)?
-from verify_graph import load_documents, resolve_label, numbers_in, NUMBER, KO_ALIASES, is_media_source
+from verify_graph import load_documents, resolve_label, resolve_label_docs, numbers_in, NUMBER, KO_ALIASES, is_media_source
 from agent.corpus import list_documents
 
 GRAPH_PATH = "graph/merged_graph.json"
@@ -702,6 +702,18 @@ def build_evidence(graph=None, out_path=OUT_PATH, company=None, label=None):
         else:
             index = indexes[doc]
             status, span, via, unmatched = locate(index, lab, fields, extra)
+            if status != "found":
+                # A filing saved as companion files (edgar_pull's _customers / _supplychain pair) declares
+                # the same label in each header: the first companion that holds the entry wins. Only files
+                # that declare the label are tried, never a loose filename / event match.
+                for other in resolve_label_docs(lab, by_label, all_docs, filename_docs, resolve_cache):
+                    if other is doc or lab not in other.labels:
+                        continue
+                    result = locate(indexes[other], lab, fields, extra)
+                    if result[0] == "found":
+                        doc, index = other, indexes[other]
+                        status, span, via, unmatched = result
+                        break
             record = {"doc": index.path, "excerpt": None, "matched": None, "status": status, "via": via}
             if span:
                 record["excerpt"] = index.excerpt(*span)

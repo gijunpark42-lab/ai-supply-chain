@@ -1,0 +1,192 @@
+SOURCE: https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/release-notes  (company-issued)
+NOTE: NOT a transcript — company document saved by hand 2026-10-17 for the ai_security_trusted_compute chain. Article text extracted from the page HTML; navigation and footer dropped (the visible wording is unchanged).
+# source label: Google Cloud docs: Confidential VM release notes (07-31-2025)
+# Page title: Confidential VM release notes | Google Cloud Documentation
+
+Confidential VM release notes
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page documents production updates to Confidential VM. Check this page for
+announcements about new or updated features, bug fixes, known issues, and
+deprecated functionality.
+You can see the latest product updates for all of Google Cloud on the
+Google Cloud page, browse and filter all release notes in the
+Google Cloud console,
+or programmatically access release notes in
+BigQuery.
+To get the latest product updates delivered to you, add the URL of this page to your
+feed
+reader, or add the
+feed URL directly.
+September 23, 2026
+Feature
+Support for
+Intel TDX on c4-standard-* machine types
+is generally available
+(GA).
+September 02, 2026
+Feature
+Support for Intel TDX on
+c3-standard-*-lssd machine types
+is generally available (GA).
+August 11, 2026
+Security
+A vulnerability affecting Intel TDX firmware was discovered and is
+being addressed. For more information, see the
+GCP-2026-053 security bulletin.
+August 07, 2026
+Feature
+The accelerator-optimized
+g4-standard-48 machine type
+for securely running AI and ML workloads is generally available
+(GA), with the
+following specifications:
+5th Generation AMD EPYC Turin processor
+AMD SEV
+1 NVIDIA RTX PRO 6000 GPU
+July 31, 2026
+Security
+Support for Intel TDX on c4-standard-* machine types is
+available in Preview.
+July 29, 2026
+Feature
+Confidential VM instances with AMD SEV on C3D and C4D machine types now support
+configurations with more than 255 vCPUs.
+July 28, 2026
+Issue
+Starting August 2026, Confidential VM instances using AMD SEV-SNP might
+have longer boot times and performance changes due to a guest
+kernel migration and security updates. This issue is expected to be resolved
+by November 2026. Confidential VM instances using AMD SEV or Intel TDX aren't
+affected.
+June 26, 2026
+Feature
+Support for Intel TDX on
+c3-standard-*-lssd machine type
+is available in Preview.
+June 16, 2026
+Feature
+Support for the accelerator-optimized
+g4-standard-48 machine type
+for securely running AI and ML workloads is available in
+Preview, with the
+following specifications:
+5th Generation AMD EPYC Turin processor
+AMD SEV
+1 NVIDIA RTX PRO 6000 GPU
+April 14, 2026
+Security
+A vulnerability affecting AMD SEV-SNP Confidential VM instances was discovered
+and has been addressed. For more information, see the
+GCP-2026-021 security bulletin.
+April 07, 2026
+Feature
+Live migration
+is generally available
+(GA)
+on Confidential VM instances that meet the following configuration criteria:
+A C3D machine type
+AMD SEV Confidential Computing technology
+An operating system image that supports live migration
+February 10, 2026
+Security
+A vulnerability affecting Intel TDX firmware was discovered and is
+being addressed. For more information, see the
+GCP-2026-008 security bulletin.
+October 27, 2025
+Breaking
+Following a firmware update, Confidential VM instances with AMD SEV-SNP generate
+v4 attestation reports. Attestation report parsers that are designed for v3
+attestation reports might break.
+Customers using go-sev-guest to
+parse attestation reports can resolve attestation failures by updating to
+go-sev-guest v0.14.0 or above.
+If you're writing your own parser, the attestation report format is defined by
+the
+SEV Secure Nested Paging Firmware ABI Specification.
+October 20, 2025
+Security
+A vulnerability affecting AMD Zen 5 processors (Turin) was discovered and is
+being addressed. For more information, see the
+GCP-2025-058 security bulletin.
+July 31, 2025
+Feature
+Support for accelerator-optimized a3-highgpu-1g machine type for securely running AI and ML workloads is now generally available, with the following specifications:
+4th Generation Intel Xeon Scalable processor (Sapphire Rapids)
+Intel TDX
+1 NVIDIA H100 GPU
+July 14, 2025
+Issue
+As of June 20, 2025, Confidential VM instances using AMD SEV-SNP or Intel TDX do not support remote attestation when running the following guest OS images:
+SLES 15 SP7
+Ubuntu 25.04
+To restore remote attestation, use an earlier guest OS version such as SLES 15 SP6 or Ubuntu 24.04.
+June 13, 2025
+Feature
+Support for general purpose C4D machine types is now generally available, featuring:
+5th generation AMD EPYC processors (Turin) and Google Titanium
+AMD Secure Encrypted Virtualization (SEV) which can encrypt the memory of the VM to protect data in-use
+April 25, 2025
+Feature
+Support for accelerator-optimized a3-highgpu-1g machine type for securely running AI and ML workloads is now available in Preview, with the following specifications:
+4th Generation Intel Xeon Scalable processor (Sapphire Rapids)
+Intel TDX
+1 NVIDIA H100 GPU
+March 25, 2025
+Change
+On February 18, 2025, Google released a security fix for Confidential VM instances using AMD SEV-SNP on N2D machine types, which might result in performance degradation. The extent of the performance impact varies depending on the specific workload.
+September 27, 2024
+Feature
+Support for Intel TDX on c3-standard-* machine types is now released to General Availability.
+September 20, 2024
+Feature
+Support for AMD SEV on C3D machine types is now released to General Availability.
+August 05, 2024
+Security
+AMD has notified Google about 3 new (2 medium risk, 1 high risk) firmware vulnerabilities affecting SEV-SNP in AMD EPYC 3rd generation (Milan) and 4th generation (Genoa) CPUs (CVE-2023-31355, CVE-2024-21978, and CVE-2024-21980).
+For more information, see the GCP-2024-046 security bulletin.
+June 18, 2024
+Feature
+Support for AMD SEV-SNP on Confidential VM instances is now generally available. AMD SEV-SNP is supported on N2D machine types with AMD EPYC Milan CPU platforms.
+March 28, 2024
+Feature
+Support for Intel TDX on general purpose C3 standard machine types is now available in Preview .
+February 26, 2024
+Feature
+Live migration is now generally available on new Confidential VM instances that meet the following configuration criteria:
+An N2D machine type with AMD EPYC Milan CPU platform
+AMD SEV Confidential Computing technology
+An operating system image that supports live migration
+January 19, 2024
+Feature
+Support for AMD SEV-SNP on general purpose N2D machine types is now available in Preview .
+June 16, 2022
+Feature
+Support for compute-optimized C2D machine types is now generally available, featuring:
+3rd generation AMD EPYC Milan processors
+AMD Secure Encrypted Virtualization (SEV) which can encrypt the memory of the VM to protect data in-use
+Large VM sizes
+Optimized for high-performance computing (HPC)
+Feature
+Support for 3rd generation AMD EPYC Milan processors on general purpose N2D machine types is now generally available, featuring:
+AMD Secure Encrypted Virtualization (SEV) which can encrypt the memory of the VM to protect data in-use
+May 20, 2022
+Feature
+Support for 3rd generation AMD EPYC Milan processors on general purpose N2D machine types is now available in Preview, featuring:
+AMD Secure Encrypted Virtualization (SEV) which can encrypt the memory of the VM to protect data in-use
+Feature
+Support for compute-optimized C2D machine types is now available in Preview, featuring:
+3rd generation AMD EPYC Milan processors
+AMD Secure Encrypted Virtualization (SEV) which can encrypt the memory of the VM to protect data in-use
+Large VM sizes
+Optimized for high-performance computing (HPC)
+December 01, 2020
+Feature
+Confidential VM is now generally available on general purpose N2D machine types, which feature:
+2nd generation AMD EPYC Rome processors
+AMD Secure Encrypted Virtualization (SEV) which can encrypt the memory of the VM to protect data in-use
+July 14, 2020
+Feature
+Confidential VM is now available in Beta on general purpose N2D machine types, which feature:
+2nd generation AMD EPYC Rome processors
+AMD Secure Encrypted Virtualization (SEV) which can encrypt the memory of the VM to protect data in-use

@@ -1,0 +1,57 @@
+{
+  "source": "Google Cloud docs: Confidential VM release notes (07-31-2025)",
+  "chains": {
+    "components/ai_security_trusted_compute.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "NVIDIA Confidential Computing on H100 / Blackwell GPUs; Vera Rubin end-to-end confidential computing (Vera CPU + CX9 security processor); NIM / AI Enterprise for security vendors",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Google",
+              "relationship": "Blackwell and H100 GPUs with NVIDIA Confidential Computing for Google Cloud confidential VMs (A3)",
+              "contracts": [
+                {
+                  "source": "Google Cloud docs: Confidential VM release notes (07-31-2025)",
+                  "signal": "Google Cloud release note (July 31, 2025): the accelerator-optimized a3-highgpu-1g Confidential VM machine type for securely running AI and ML workloads is generally available, with 1 NVIDIA H100 GPU.",
+                  "units": "1 NVIDIA H100 GPU per a3-highgpu-1g Confidential VM",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "availability",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Intel",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "Xeon CPUs with Intel TDX (and SGX) confidential computing; Intel Tiber Trust Authority attestation",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Google",
+              "relationship": "Xeon with Intel TDX for Google Cloud Confidential VMs (C3; a3-highgpu-1g with one H100)",
+              "contracts": [
+                {
+                  "source": "Google Cloud docs: Confidential VM release notes (07-31-2025)",
+                  "signal": "Google Cloud release note (July 31, 2025): the a3-highgpu-1g Confidential VM for AI and ML workloads, now generally available, runs on Intel TDX; Intel TDX on c3-standard machine types was earlier released to General Availability.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "availability",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -78,8 +78,9 @@ DO_NOT_ADD -= {"HD Construction Equipment", "Xiaomi"}
 # contractors" folded on 2026-09-05 are grid / power contractors and may come back as nodes: Algihaz Contracting
 # Company (HD Hyundai Electric 380kV breakers and transformers), Semco Maritime (275kV transformers and reactors),
 # Burns & McDonnell (HICO America customer). Samsung E&C stays out (its deal is the Taylor FAB1 project = fab work);
-# HL D&I Halla (Pyeongtaek 345kV substation for Samsung's semiconductor campus) waits for the user's decision.
-DO_NOT_ADD -= {"Algihaz Contracting Company", "Semco Maritime", "Burns & McDonnell"}
+# HL D&I Halla (Pyeongtaek 345kV substation for Samsung's semiconductor campus) was lifted by the user on 2026-10-17
+# ("다 넣자", as a power-grid contractor in the data-center construction & power chain).
+DO_NOT_ADD -= {"Algihaz Contracting Company", "Semco Maritime", "Burns & McDonnell", "HL D&I Halla"}
 # ... and the semiconductor-FAB contractors rule B keeps out are never added (defined once in relations.py).
 from relations import FAB_CONTRACTORS  # noqa: E402
 DO_NOT_ADD |= FAB_CONTRACTORS

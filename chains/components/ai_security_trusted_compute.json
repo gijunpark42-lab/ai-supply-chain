@@ -1,0 +1,782 @@
+{
+  "company": "AI Security & Trusted Compute",
+  "chain_focus": "AI security and trusted compute: the silicon, appliances and services that protect AI models, data and infrastructure. Security silicon (TPMs, platform roots of trust, root-of-trust FPGAs, OpenTitan / Caliptra RoT and the IP behind them), hardware security modules inside hyperscale clouds, confidential computing on GPUs and CPUs (NVIDIA Confidential Computing, AMD SEV-SNP, Intel TDX) and the confidential-AI software built on it, through server makers, hyperscalers and neoclouds, up to cybersecurity platforms that are themselves consumers of AI compute (CrowdStrike, Palo Alto Networks, Cloudflare, Akamai).",
+  "flow": [
+    {
+      "layer": "application",
+      "sectors": [
+        {
+          "sector": "AI-Native Cybersecurity Platforms",
+          "players": [
+            {
+              "company": "CrowdStrike",
+              "product": "Falcon platform AI: Charlotte AI detection triage and SafeMind agentic security, run on rented AI compute (Cerebras inference, CoreWeave GPUs, NVIDIA NIM)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Palo Alto Networks",
+              "product": "Prisma AIRS AI security and AI copilots run on Google Cloud AI infrastructure (Vertex AI, Gemini LLMs)",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "cloud_infra",
+      "sectors": [
+        {
+          "sector": "Hyperscaler Cloud",
+          "players": [
+            {
+              "company": "Microsoft",
+              "product": "Azure confidential computing (NCCadsH100v5 confidential GPU VMs; AMD SEV-SNP and Intel TDX confidential VMs), cloud HSM services (Key Vault Managed HSM, Cloud HSM, Payment HSM v2, Dedicated HSM) and the in-house Azure Integrated HSM in every new server",
+              "connects_to": [
+                {
+                  "company": "Fortanix",
+                  "relationship": "Azure NCC H100 v5 confidential VMs host Fortanix Armet AI",
+                  "contracts": [
+                    {
+                      "source": "Fortanix press release: Fortanix Armet AI Enables Enterprises to Create Secure and (04-07-2025)",
+                      "signal": "Fortanix: Armet AI runs on Microsoft Azure's NCC H100 v5 confidential VMs with NVIDIA H100 Tensor Core GPUs; Microsoft Azure's CTO says Fortanix has been an early adopter of Azure Confidential Computing.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "cloud hosting",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Google",
+              "product": "Google Cloud Confidential VMs on A3 (Intel TDX + NVIDIA H100 Confidential Computing), Blackwell with confidential computing, Cloud HSM, OpenTitan silicon root of trust; Vertex AI / Gemini for security vendors",
+              "connects_to": [
+                {
+                  "company": "Palo Alto Networks",
+                  "relationship": "Google Cloud AI infrastructure, Vertex AI and Gemini LLMs for PANW copilots; multibillion-dollar workload-migration agreement",
+                  "contracts": [
+                    {
+                      "source": "Palo Alto Networks press release: Palo Alto Networks and Google Cloud Forge Landmark Agreement (12-19-2025)",
+                      "signal": "Palo Alto Networks: it is migrating key internal workloads to Google Cloud in a new multibillion-dollar agreement to run its security platforms on Google Cloud's AI infrastructure, and now uses Google Cloud's Vertex AI platform and Gemini LLMs to power its copilots.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "cloud and AI infrastructure agreement",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Amazon",
+              "product": "AWS Nitro System security under every GPU- and Trainium-based EC2 instance; Amazon CloudHSM",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Oracle",
+              "product": "OCI Key Management on Marvell LiquidSecurity HSMs (per Marvell's 03-04-2019 release; current status not re-confirmed)",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Neocloud (GPU-specialized)",
+          "players": [
+            {
+              "company": "CoreWeave",
+              "product": "GPU cloud for training and inference of CrowdStrike's SafeMind agentic security system",
+              "connects_to": [
+                {
+                  "company": "CrowdStrike",
+                  "relationship": "GPU cloud for training and inference of CrowdStrike's SafeMind agentic security system",
+                  "contracts": [
+                    {
+                      "source": "CoreWeave 8-K (09-17-2026)",
+                      "signal": "CoreWeave investor presentation (recent customer win): CoreWeave selected to power training and inference for CrowdStrike's new agentic AI cybersecurity system SafeMind.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "customer win",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "SharonAI",
+              "product": "Confidential AI hosting: VAST DataEnclave on its AI Factory platform, NVIDIA GPUs in Confidential Compute mode",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Edge / Distributed Cloud",
+          "players": [
+            {
+              "company": "Cloudflare",
+              "product": "Workers AI serverless GPU inference on its security / CDN edge network (GPUs in 180+ cities)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Akamai Technologies",
+              "product": "Akamai Inference Cloud GPU capacity alongside its security platform",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "system_integration",
+      "sectors": [
+        {
+          "sector": "Server / Rack OEM",
+          "players": [
+            {
+              "company": "HPE",
+              "product": "HPE AI Factory with NVIDIA Confidential Computing; ProLiant Gen13 with HPE Silicon Root of Trust and PQC-enabled protection",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Server ODM",
+          "players": [
+            {
+              "company": "Gigabyte",
+              "product": "XH23-VG0 and XL44-SX0 NVIDIA MGX servers integrating Axiado's TCU (joint demonstration, OCP Global Summit 2024)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Pegatron",
+              "product": "RA4401-72N1 rack-scale AI server (NVIDIA GB200 NVL72) integrating Axiado's TCU (joint demonstration, OCP Global Summit 2024)",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "compute_hardware",
+      "sectors": [
+        {
+          "sector": "Training GPU",
+          "players": [
+            {
+              "company": "NVIDIA",
+              "product": "NVIDIA Confidential Computing on H100 / Blackwell GPUs; Vera Rubin end-to-end confidential computing (Vera CPU + CX9 security processor); NIM / AI Enterprise for security vendors",
+              "connects_to": [
+                {
+                  "company": "Google",
+                  "relationship": "Blackwell and H100 GPUs with NVIDIA Confidential Computing for Google Cloud confidential VMs (A3)",
+                  "contracts": [
+                    {
+                      "source": "Google Cloud blog: Expanding confidential computing for AI workloads (04-10-2024)",
+                      "signal": "Google Cloud unveiled Confidential VMs on the A3 machine series with NVIDIA H100 Tensor Core GPUs (NVIDIA HGX Protected PCIe); 'NVIDIA Confidential Computing on H100 GPUs allows customers to secure data while in use'.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    },
+                    {
+                      "source": "Google Cloud docs: Confidential VM release notes (07-31-2025)",
+                      "signal": "Google Cloud release note (July 31, 2025): the accelerator-optimized a3-highgpu-1g Confidential VM machine type for securely running AI and ML workloads is generally available, with 1 NVIDIA H100 GPU.",
+                      "units": "1 NVIDIA H100 GPU per a3-highgpu-1g Confidential VM",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "availability",
+                      "topics": []
+                    },
+                    {
+                      "source": "NVIDIA Q1 FY2027 (05-20-2026)",
+                      "signal": "NVIDIA management (prepared remarks): 'At Google, Blackwell will be offered to customers in the cloud including confidential computing capability, a new foundation for secure high performance AI.'",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Microsoft",
+                  "relationship": "H100 GPUs in confidential mode for Azure NCCadsH100v5 confidential GPU VMs",
+                  "contracts": [
+                    {
+                      "source": "Microsoft Learn: Azure Confidential VM options (06-24-2026)",
+                      "signal": "Microsoft Learn: the NCCadsH100v5-series is Azure's confidential VM with a confidential GPU, built on AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    },
+                    {
+                      "source": "NVIDIA blog: Now in General Availability: NVIDIA H100 GPUs in Microsoft Azure Confidential VMs (09-24-2024)",
+                      "signal": "NVIDIA: H100 GPUs in Microsoft Azure confidential virtual machines (Azure NCC H100 v5 VMs) are now generally available.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "availability",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "HPE",
+                  "relationship": "NVIDIA Confidential Computing integrated into HPE AI Factory solutions",
+                  "contracts": [
+                    {
+                      "source": "HPE press release: HPE teams with NVIDIA to bring secure, governed agentic AI (09-28-2026)",
+                      "signal": "HPE: it is integrating NVIDIA Confidential Computing with HPE AI Factory solutions through HPE Services; NVIDIA Confidential Computing protects models and private data during execution for on-premises and sovereign deployments.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "integration",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "SharonAI",
+                  "relationship": "NVIDIA GPUs run in Confidential Compute mode for VAST DataEnclave on SharonAI's AI Factory",
+                  "contracts": [
+                    {
+                      "source": "SharonAI 8-K (09-23-2026)",
+                      "signal": "SharonAI 8-K (VAST DataEnclave release): proprietary models run inside confidential VMs on CPU trusted execution environments with NVIDIA GPUs operating in Confidential Compute mode, so guest memory, GPU memory and interconnect traffic stay encrypted.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Cloudflare",
+                  "relationship": "GPUs and Ethernet switches for Workers AI edge inference",
+                  "contracts": [
+                    {
+                      "source": "Cloudflare press release: Cloudflare Powers Hyper-Local AI Inference with NVIDIA (09-27-2023)",
+                      "signal": "Cloudflare (2023): its global network will deploy NVIDIA GPUs at the edge combined with NVIDIA Ethernet switches and NVIDIA inference software (TensorRT-LLM, Triton), with NVIDIA GPUs for inference in over 100 cities by the end of 2023 and nearly everywhere its network extends by the end of 2024.",
+                      "units": "NVIDIA GPUs in over 100 cities by the end of 2023 (plan stated in 2023)",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Akamai Technologies",
+                  "relationship": "GPUs for Akamai Inference Cloud capacity",
+                  "contracts": [
+                    {
+                      "source": "Akamai Technologies Q2 FY2026 (08-06-2026)",
+                      "signal": "CFO Ed McGowan: 'We're placing another order with NVIDIA for a significant chunk of additional GPUs, some to satisfy the new order'; the rest is based on the pipeline for additional GPU demand.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "purchase",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "CrowdStrike",
+                  "relationship": "NIM microservices (NVIDIA AI Enterprise) on GPUs for Charlotte AI detection triage",
+                  "contracts": [
+                    {
+                      "source": "CrowdStrike press release: CrowdStrike Collaborates with NVIDIA to Advance Agentic AI (03-18-2025)",
+                      "signal": "CrowdStrike: Charlotte AI Detection Triage, built on NVIDIA NIM microservices (part of NVIDIA AI Enterprise), processed detections 2x faster than its initial launch with 50% fewer GPUs; CrowdStrike is testing NVIDIA Llama Nemotron reasoning models.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "software and accelerated-computing collaboration",
+                      "topics": []
+                    },
+                    {
+                      "source": "NVIDIA Goldman Sachs conference 2026 (09-10-2026)",
+                      "signal": "CEO Jensen Huang: cybersecurity will be 'a fabulous opportunity for CrowdStrike, and we have a big partnership with them, using open models to create red teaming and blue teaming' with swarms of Nemotron models.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "partnership",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Server CPU",
+          "players": [
+            {
+              "company": "AMD",
+              "product": "EPYC CPUs with SEV-SNP confidential computing",
+              "connects_to": [
+                {
+                  "company": "Microsoft",
+                  "relationship": "EPYC CPUs with SEV-SNP for Azure confidential VMs, incl. the NCCadsH100v5 confidential GPU VMs",
+                  "contracts": [
+                    {
+                      "source": "Microsoft Learn: Azure Confidential VM options (06-24-2026)",
+                      "signal": "Microsoft Learn: AMD-based Azure confidential VMs use AMD SEV-SNP, introduced with 3rd Gen AMD EPYC processors (DCasv5 / DCadsv5 / ECasv5 / ECadsv5 and the v6 series, plus the NCCadsH100v5 confidential GPU series).",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Intel",
+              "product": "Xeon CPUs with Intel TDX (and SGX) confidential computing; Intel Tiber Trust Authority attestation",
+              "connects_to": [
+                {
+                  "company": "Microsoft",
+                  "relationship": "Xeon CPUs with Intel TDX for Azure DCesv6 / ECesv6 confidential VMs",
+                  "contracts": [
+                    {
+                      "source": "Microsoft Learn: Azure Confidential VM options (06-24-2026)",
+                      "signal": "Microsoft Learn: Intel-based Azure confidential VMs use Intel TDX, introduced with 5th Gen Intel Xeon processors (DCesv6 / DCedsv6 / ECesv6 / ECedsv6 series).",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Google",
+                  "relationship": "Xeon with Intel TDX for Google Cloud Confidential VMs (C3; a3-highgpu-1g with one H100)",
+                  "contracts": [
+                    {
+                      "source": "Google Cloud docs: Confidential VM release notes (07-31-2025)",
+                      "signal": "Google Cloud release note (July 31, 2025): the a3-highgpu-1g Confidential VM for AI and ML workloads, now generally available, runs on Intel TDX; Intel TDX on c3-standard machine types was earlier released to General Availability.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "availability",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Fortanix",
+                  "relationship": "Intel SGX / TDX and Intel Tiber Trust Authority attestation underpin Armet AI",
+                  "contracts": [
+                    {
+                      "source": "Fortanix press release: Fortanix Armet AI Enables Enterprises to Create Secure and (04-07-2025)",
+                      "signal": "Fortanix: Armet AI (public preview) is powered by Confidential Computing (Intel SGX and Intel TDX) and Intel Tiber Trust Authority.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "technology supply",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Arm Holdings",
+              "product": "Arm-based CPUs (Arm compute platform) across Cloudflare's network for traffic management, security and AI inference",
+              "connects_to": [
+                {
+                  "company": "Cloudflare",
+                  "relationship": "Arm-based CPUs (Arm compute platform) across Cloudflare's network for traffic management, security and AI inference",
+                  "contracts": [
+                    {
+                      "source": "Arm Holdings Q4 FY2026 (05-06-2026)",
+                      "signal": "Arm management (prepared remarks): 'Cloudflare will deploy Arm across its global network to support traffic management, security and AI inference closer to users.'",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    },
+                    {
+                      "source": "Arm Holdings Q1 FY2027 (07-29-2026)",
+                      "signal": "Arm management: Cloudflare, with Meta, is among the customers named at the Arm Everywhere event, 'around agentic applications, but also general purpose server'; management says the Arm AGI CPU is a very good fit for them.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "customer mention",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Fujitsu",
+              "product": "FUJITSU-MONAKA CPU with hardware-encrypted confidential computing",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Dedicated Inference Accelerators",
+          "players": [
+            {
+              "company": "Cerebras",
+              "product": "Cerebras fast inference (wafer-scale) for inline LLM-based security of enterprise traffic",
+              "connects_to": [
+                {
+                  "company": "CrowdStrike",
+                  "relationship": "fast inference for inline LLM-based security of enterprise traffic",
+                  "contracts": [
+                    {
+                      "source": "Cerebras 8-K (08-12-2026)",
+                      "signal": "Cerebras 8-K: 'Pioneered a new segment of the security market with CrowdStrike. Cerebras fast inference enables inline security using LLMs for a large portion of enterprise traffic.' CrowdStrike is named among the customers and partners Cerebras is growing with.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "customer win",
+                      "topics": []
+                    },
+                    {
+                      "source": "Cerebras Q2 FY2026 (08-12-2026)",
+                      "signal": "CEO Andrew Feldman: 'Our recent win with CrowdStrike is an application that only exists if AI is fast'; fast AI lets AI-based security devices sit in line with enterprise traffic and use LLMs to secure it.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "customer win",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "domains": [
+    {
+      "domain": "security",
+      "sectors": [
+        {
+          "sector": "Hardware Security Modules (HSM)",
+          "players": [
+            {
+              "company": "Marvell",
+              "product": "LiquidSecurity / LiquidSecurity 2 cloud HSM adapters",
+              "connects_to": [
+                {
+                  "company": "Microsoft",
+                  "relationship": "LiquidSecurity HSMs behind Azure Key Vault and Azure Key Vault Managed HSM, selected for Azure Cloud HSM (08-2025), and the HSM technology of Azure Payment HSM v2 with Utimaco's Atalla Payments Module (09-2026)",
+                  "contracts": [
+                    {
+                      "source": "Marvell press release: Marvell LiquidSecurity Selected for Microsoft Azure Cloud HSM (08-18-2025)",
+                      "signal": "Marvell: Microsoft selected the Marvell LiquidSecurity family of HSMs for Microsoft Azure Cloud HSM; LiquidSecurity HSMs currently power Azure Key Vault and Azure Key Vault Managed HSM.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "supply (design win)",
+                      "topics": []
+                    },
+                    {
+                      "source": "Marvell press release: Microsoft, Marvell and Utimaco to Deliver Industry-first (09-17-2026)",
+                      "signal": "Marvell: Azure Payment HSM v2 combines Marvell LiquidSecurity HSM technology, the Utimaco Atalla Payments Module and Microsoft Azure in a fully managed payments security service; public preview in Western U.S. and Western Europe.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "supply (cloud service launch)",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Amazon",
+                  "relationship": "LiquidSecurity HSM in Amazon CloudHSM (stated only in Marvell's 03-04-2019 release; current status not re-confirmed)",
+                  "contracts": [
+                    {
+                      "source": "Marvell press release: Marvell Enables Enterprise Data Center and Private Cloud (03-04-2019)",
+                      "signal": "Marvell (2019): the LiquidSecurity HSM already enables FIPS 140-2 level 3 security at public cloud providers such as Amazon CloudHSM; Marvell cites existing partnerships with Amazon, Google and Oracle. Not re-confirmed in a later source.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "supply (as stated in 2019)",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Google",
+                  "relationship": "LiquidSecurity HSM in Google Cloud Platform Cloud HSM (stated only in Marvell's 03-04-2019 release; current status not re-confirmed)",
+                  "contracts": [
+                    {
+                      "source": "Marvell press release: Marvell Enables Enterprise Data Center and Private Cloud (03-04-2019)",
+                      "signal": "Marvell (2019): the LiquidSecurity HSM already enables FIPS 140-2 level 3 security at Google Cloud Platform Cloud HSM. Not re-confirmed in a later source.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "supply (as stated in 2019)",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Oracle",
+                  "relationship": "LiquidSecurity HSM in Oracle Cloud Infrastructure Key Management (stated only in Marvell's 03-04-2019 release; current status not re-confirmed)",
+                  "contracts": [
+                    {
+                      "source": "Marvell press release: Marvell Enables Enterprise Data Center and Private Cloud (03-04-2019)",
+                      "signal": "Marvell (2019): the LiquidSecurity HSM already enables FIPS 140-2 level 3 security at Oracle Cloud Infrastructure Key Management. Not re-confirmed in a later source.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "supply (as stated in 2019)",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Thales",
+              "product": "Luna network HSMs (Luna 7 A790 behind Azure Dedicated HSM; Luna 8 PQC-ready HSM on a Thales-designed cryptographic processor)",
+              "connects_to": [
+                {
+                  "company": "Microsoft",
+                  "relationship": "Luna 7 HSM model A790 appliances behind Azure Dedicated HSM (service being retired: no new customer onboardings; Microsoft fully supports existing Dedicated HSM customers until 07-31-2028)",
+                  "contracts": [
+                    {
+                      "source": "Microsoft Learn: What is Dedicated HSM? (10-06-2026)",
+                      "signal": "Microsoft Learn: Microsoft delivers the Dedicated HSM service by using Thales Luna 7 HSM model A790 appliances; Azure Dedicated HSM is being retired (no new customer onboardings; existing customers fully supported until July 31, 2028) and Azure Cloud HSM is its successor.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "supply (appliances behind a cloud service)",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Utimaco",
+              "product": "Atalla Payments Module payment-HSM software on Marvell LiquidSecurity (Azure Payment HSM v2)",
+              "connects_to": [
+                {
+                  "company": "Microsoft",
+                  "relationship": "Atalla Payments Module payment-HSM software in Azure Payment HSM v2, running on Marvell LiquidSecurity HSMs",
+                  "contracts": [
+                    {
+                      "source": "Marvell press release: Microsoft, Marvell and Utimaco to Deliver Industry-first (09-17-2026)",
+                      "signal": "Utimaco: it positions its Atalla Payments Module in Microsoft's multi-vendor HSM infrastructure provided by Marvell, as part of Azure Payment HSM v2.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "software supply (cloud service launch)",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Hardware Root of Trust & TPM",
+          "players": [
+            {
+              "company": "Infineon",
+              "product": "OPTIGA TPM hardware security module (Jetson Thor integration)",
+              "connects_to": [
+                {
+                  "company": "NVIDIA",
+                  "relationship": "OPTIGA TPM integrated into Jetson Thor robotics / autonomous-system platforms",
+                  "contracts": [
+                    {
+                      "source": "Infineon Q3 FY2026 (08-05-2026)",
+                      "signal": "Infineon: it is integrating its OPTIGA TPM hardware security module into NVIDIA's Jetson Thor computing platforms for robotics and autonomous systems; the module secures cryptographic keys directly at the chip level.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "design-in",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Nuvoton",
+              "product": "First production OpenTitan silicon root of trust; TPMs; Arbel BMC with hardware root of trust",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "Google Open Source Blog: OpenTitan shipping in production (03-04-2026)",
+                  "signal": "Design partner Google: the first production OpenTitan silicon root of trust part is produced by Nuvoton and ships in commercially available Chromebooks; Google says bringup to deploy OpenTitan in Google's datacenters is underway and expected to land later this year (planned, not yet shipping to datacenters).",
+                  "figure": "no specific figure",
+                  "topics": [],
+                  "counterparty": "Google",
+                  "counterparty_role": "design partner"
+                }
+              ]
+            },
+            {
+              "company": "Lattice Semiconductor",
+              "product": "MachXO5D-NX root-of-trust control FPGAs + Lattice Sentry v5.0 PQC platform firmware resilience and attestation stack (with AMI)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Microchip Technology",
+              "product": "CEC1736 Trust Shield platform root-of-trust controllers; Switchtec PCIe switches with hardware root of trust",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Montage Technology",
+              "product": "Mont-TSSE data-protection and trusted-computing accelerator chip with hardware root of trust (TPM / TCM / TPCM compliant)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Axiado",
+              "product": "Trusted Control/Compute Unit (TCU) security SoCs AX3000 / AX2000 (BMC + root of trust + TPM on one chip) and OCP DC-SCM 2.0 modules SCM3002 / SCM3003 for AI and data-center servers",
+              "connects_to": [
+                {
+                  "company": "Gigabyte",
+                  "relationship": "TCU integrated with GIGABYTE (Giga Computing) XH23-VG0 (Arm) and XL44-SX0 (Intel Xeon 6) NVIDIA MGX servers: a joint demonstration at the OCP Global Summit 2024, not a supply contract",
+                  "contracts": [
+                    {
+                      "source": "Axiado press release: Axiado and GIGABYTE Partner to Elevate Platform Security (10-10-2024)",
+                      "signal": "Axiado: joint demonstration at the OCP Global Summit 2024 of Axiado's TCU integrated with GIGABYTE (Giga Computing) XH23-VG0 and XL44-SX0 NVIDIA MGX servers; a collaboration announcement, not a supply contract (no order, units or value stated).",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "joint demonstration (not a supply contract)",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Pegatron",
+                  "relationship": "TCU integrated with Pegatron's RA4401-72N1 rack-scale AI server (NVIDIA GB200 NVL72 architecture): a joint demonstration at the OCP Global Summit 2024, not a supply contract",
+                  "contracts": [
+                    {
+                      "source": "Axiado press release: Axiado and Pegatron Partner to Elevate Platform Security (10-14-2024)",
+                      "signal": "Axiado: joint demonstration at the OCP Global Summit 2024 of Axiado's TCU integrated with Pegatron's RA4401-72N1 rack-scale AI server built with the NVIDIA GB200 NVL72 architecture; a collaboration announcement, not a supply contract (no order, units or value stated).",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "joint demonstration (not a supply contract)",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Security IP & Firmware",
+          "players": [
+            {
+              "company": "Rambus",
+              "product": "CryptoManager Root of Trust IP supporting the Caliptra specification",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "eMemory",
+              "product": "PUFsecurity PUF-based root-of-trust and Caliptra security-subsystem IP (AI-data-center SSD, CXL, BMC, CPU chips)",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Confidential AI Software & Attestation",
+          "players": [
+            {
+              "company": "VAST Data",
+              "product": "VAST DataEnclave confidential AI runtime and cryptographic attestation service",
+              "connects_to": [
+                {
+                  "company": "SharonAI",
+                  "relationship": "VAST DataEnclave confidential AI runtime offered on SharonAI's AI Factory platform",
+                  "contracts": [
+                    {
+                      "source": "SharonAI 8-K (09-23-2026)",
+                      "signal": "SharonAI 8-K: Sharon AI will offer VAST DataEnclave, the confidential AI capability of the VAST DataEngine, as part of its AI Factory platform across Australia and Asia-Pacific.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "collaboration / offering",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Fortanix",
+              "product": "Armet AI confidential AI platform (NVIDIA Confidential Computing, Intel TDX/SGX); attestation and key brokering",
+              "connects_to": [
+                {
+                  "company": "SharonAI",
+                  "relationship": "on-premises attestation and key brokering for DataEnclave deployments",
+                  "contracts": [
+                    {
+                      "source": "SharonAI 8-K (09-23-2026)",
+                      "signal": "SharonAI 8-K: for fully air-gapped DataEnclave deployments, VAST and Fortanix enable on-premises attestation and key brokering for customers who cannot connect to external services.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "collaboration / offering",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

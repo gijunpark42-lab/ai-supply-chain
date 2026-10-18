@@ -1,0 +1,1141 @@
+{
+  "company": "Space AI Infrastructure",
+  "chain_focus": "AI compute and connectivity in and through space: orbital data centers (SpaceX Starmind, Google Project Suncatcher, Starcloud, Axiom Space, Sophia Space, Cowboy Space) built on space-grade AI compute (NVIDIA Space-1 Vera Rubin / IGX Thor / Jetson Orin, AMD XQR Versal) and radiation-hardened semiconductors, with AWS as the cloud for satellite data; the LEO connectivity and backhaul they depend on (Starlink, Amazon Leo, AST SpaceMobile, Kepler optical relay) with optical inter-satellite links, satellite RF / timing / connectivity components, RF foundries, RF test, PCBs and compound-semiconductor materials; satellite manufacturing and launch (Falcon 9 / Starship, New Glenn, Vulcan, Ariane 6, Electron / Neutron) with their booster, engine, propulsion-gas and cryogenic suppliers; and space solar power.",
+  "flow": [
+    {
+      "layer": "cloud_infra",
+      "sectors": [
+        {
+          "sector": "Orbital Data Centers (space-based AI compute)",
+          "players": [
+            {
+              "company": "SpaceX",
+              "product": "Starmind AI satellite - orbital compute built on an optimized NVIDIA Vera Rubin NVL72 on the Starlink V3 bus; first orbital compute satellites targeted for 2027",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Google",
+              "product": "Project Suncatcher - solar-powered satellite constellation carrying Google TPUs; two prototype satellites with Planet by early 2027",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "Google blog: Meet Project Suncatcher, a research moonshot to scale (11-04-2025)",
+                  "signal": "Google announced Project Suncatcher, a research moonshot to one day scale machine learning in space with an interconnected network of solar-powered satellites equipped with Google's TPU AI chips; its preprint describes constellation design, control and communication and initial learnings from radiation testing Google TPUs.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "product_launches"
+                  ]
+                }
+              ]
+            },
+            {
+              "company": "Starcloud",
+              "product": "purpose-built orbital data-center satellites (Starcloud-1 flew an NVIDIA H100; a Crusoe Cloud module launches late 2026)",
+              "connects_to": [
+                {
+                  "company": "Crusoe",
+                  "relationship": "orbital data-center satellite module hosting Crusoe Cloud (launch late 2026; limited GPU capacity from space by early 2027)",
+                  "contracts": [
+                    {
+                      "source": "Crusoe press release: Crusoe to Become First Cloud Operator in Space Through (10-22-2025)",
+                      "signal": "Crusoe partnership with Starcloud: Crusoe will deploy Crusoe Cloud on a Starcloud satellite scheduled to launch in late 2026 (a dedicated module running the Crusoe Cloud platform) and plans to offer limited GPU capacity from space by early 2027; the two have also aligned to power larger data centers in space over time.",
+                      "units": "one Crusoe Cloud module on a Starcloud satellite",
+                      "value": "no specific figure",
+                      "date_signed": "2025 (announced 10-22-2025)",
+                      "type": "partnership / deployment",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": [
+                {
+                  "quarter": "NVIDIA blog: How Starcloud Is Bringing Data Centers to Outer Space (10-15-2025)",
+                  "signal": "NVIDIA blog on Starcloud (NVIDIA Inception member based in Redmond, Washington): Starcloud plans a 5-gigawatt orbital data center with solar and cooling panels about 4 kilometers in width and length; the 60-kilogram Starcloud-1 is expected to offer 100x more powerful GPU compute than any previous space-based operation; Starcloud projects energy costs in space 10x cheaper than land-based options, even including launch.",
+                  "figure": "5-gigawatt plan; 100x GPU compute; 10x cheaper energy",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "Axiom Space",
+              "product": "orbital data center (ODC) nodes - first two launched to LEO on Jan 11, 2026 on Kepler's optical relay network; AxDCU-1 prototype on the ISS",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "Axiom Space product page: Orbital Data Centers (10-17-2026)",
+                  "signal": "Axiom Space deployed Data Center Unit-1 (AxDCU-1), a data processing prototype powered by Red Hat Device Edge, on the International Space Station in fall 2025 to demonstrate initial ODC capabilities (cloud computing, AI/ML, data fusion, space cybersecurity); Axiom plans to expand its ODC network from kilowatts to megawatts of processing power.",
+                  "figure": "no specific figure",
+                  "topics": [],
+                  "counterparty": "Red Hat",
+                  "counterparty_role": "supplier"
+                },
+                {
+                  "quarter": "Axiom Space press release: NASA Selects Axiom Space for Fifth Private Astronaut Mission (01-30-2026)",
+                  "signal": "NASA and Axiom Space signed a mission order for Axiom Mission 5 (Ax-5), Axiom's fifth private astronaut mission to the International Space Station, targeted to launch no earlier than January 2027 and to spend up to 14 days docked; Voyager Technologies joins as a teammate for payload integration.",
+                  "figure": "up to 14 days docked",
+                  "topics": [],
+                  "counterparty": "NASA",
+                  "counterparty_role": "customer"
+                }
+              ]
+            },
+            {
+              "company": "Sophia Space",
+              "product": "modular, passively cooled hosted orbital computing platforms (NVIDIA Jetson Orin)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Cowboy Space",
+              "product": "solar-powered orbital AI compute - megawatt-class data centers integrated into its launch vehicle's upper stage (formerly Aetherflux; NVIDIA Space-1 Vera Rubin Module)",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "Cowboy Space company page: Cowboy Space Corporation home page (10-17-2026)",
+                  "signal": "Cowboy Space Corp. (based in San Carlos, CA and Seattle, WA) is building an integrated system of satellites and rockets to haul high-performance compute and optical data transmission down from Low Earth Orbit; it integrates a megawatt-class data center into the upper stage of its launch vehicle - a 1-megawatt data center with active thermal management and integrated compute ('We own the launch, we own the infrastructure').",
+                  "figure": "1-megawatt data center",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sector": "Neocloud (GPU-specialized)",
+          "players": [
+            {
+              "company": "Crusoe",
+              "product": "Crusoe Cloud module on a Starcloud orbital data-center satellite - first public cloud workloads in space (limited GPU capacity from early 2027)",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Hyperscaler Cloud",
+          "players": [
+            {
+              "company": "Amazon",
+              "product": "AWS cloud storage, analytics and AI for data taken off the Amazon Leo satellite constellation by government and enterprise customers",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "system_integration",
+      "sectors": [
+        {
+          "sector": "Satellite Manufacturing (bus & payload)",
+          "players": [
+            {
+              "company": "Planet Labs",
+              "product": "two Project Suncatcher TPU prototype satellites for Google and Pelican satellites integrating NVIDIA IGX Thor on-orbit compute",
+              "connects_to": [
+                {
+                  "company": "Google",
+                  "relationship": "builds and flies two Project Suncatcher prototype satellites carrying Google TPUs (learning mission, launch by early 2027)",
+                  "contracts": [
+                    {
+                      "source": "Google blog: Meet Project Suncatcher, a research moonshot to scale (11-04-2025)",
+                      "signal": "Google: the next step of Project Suncatcher is a learning mission in partnership with Planet to launch two prototype satellites by early 2027 that will test Google's hardware in orbit.",
+                      "units": "two prototype satellites (launch by early 2027)",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "partnership (prototype satellite mission)",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": [
+                {
+                  "quarter": "Planet Labs 10-K (03-23-2026)",
+                  "signal": "Planet 10-K: in October 2025 Planet entered an agreement with Google (a related party) to provide research and development services testing the viability and performance of a payload integrated on prototype satellites (the Google R&D Services Agreement); Planet recognized $0.4 million of funding in the fiscal year ended January 31, 2026 and, as of that date, had received a total of $5.0 million of funding under the agreement.",
+                  "figure": "$5.0 million received",
+                  "topics": [],
+                  "counterparty": "Google",
+                  "counterparty_role": "customer"
+                },
+                {
+                  "quarter": "Planet Labs 10-K (03-23-2026)",
+                  "signal": "Planet 10-K: Planet recorded $26.0 million of expense in the fiscal year ended January 31, 2026 for hosting and other services provided by Google, and has minimum purchase commitments for Google hosting services through January 31, 2028 totaling $67,480 thousand.",
+                  "figure": "$26.0 million; $67,480 thousand",
+                  "topics": [],
+                  "counterparty": "Google",
+                  "counterparty_role": "supplier"
+                }
+              ]
+            },
+            {
+              "company": "Foxconn",
+              "product": "LEO satellite manufacturing services from ground equipment to satellite bodies (second-generation LEO satellite deployed)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Compal Electronics",
+              "product": "low-orbit satellite payloads and satellite ground equipment",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Launch Services",
+          "players": [
+            {
+              "company": "SpaceX",
+              "product": "Falcon 9 and Starship launch (~2,500 tons a year to orbit via Falcon; launches competing constellations)",
+              "connects_to": [
+                {
+                  "company": "Amazon",
+                  "relationship": "three Falcon 9 launches for the Amazon Leo (Project Kuiper) constellation",
+                  "contracts": [
+                    {
+                      "source": "Amazon press release: Amazon's Project Kuiper secures 3 launches with SpaceX (12-01-2023)",
+                      "signal": "Amazon signed a contract with SpaceX for three Falcon 9 launches to support Project Kuiper (now Amazon Leo) deployment, targeted to lift off beginning in mid-2025.",
+                      "units": "three Falcon 9 launches",
+                      "value": "no specific figure",
+                      "date_signed": "2023 (announced 12-01-2023)",
+                      "type": "launch services contract",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Kepler Communications",
+                  "relationship": "Falcon 9 launch of Kepler's Tranche 1 optical relay satellites carrying Axiom ODC nodes (Jan 11, 2026)",
+                  "contracts": [
+                    {
+                      "source": "Kepler Communications press release: Kepler Successfully Launches First Tranche of Optical Relay (01-11-2026)",
+                      "signal": "Kepler launched the first tranche of its optical relay satellites aboard a SpaceX Falcon 9 rocket from Vandenberg Space Force Base, California, on January 11, 2026.",
+                      "units": "10 satellites (Tranche 1)",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "launch service",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Blue Origin",
+              "product": "New Glenn heavy-lift launch and BE-4 booster engines",
+              "connects_to": [
+                {
+                  "company": "Amazon",
+                  "relationship": "12 New Glenn launches for Amazon Leo, with options for 15 more",
+                  "contracts": [
+                    {
+                      "source": "Amazon press release: Amazon makes historic launch investment to advance Project (04-05-2022)",
+                      "signal": "Amazon secured heavy-lift launches for Project Kuiper (now Amazon Leo) over a five-year period, including 12 launches on Blue Origin's New Glenn from Cape Canaveral Space Force Station; the sentence listing the three agreements adds 'with options for 15 additional launches'.",
+                      "units": "12 New Glenn launches (plus options for 15 additional launches)",
+                      "value": "no specific figure",
+                      "date_signed": "2022 (announced 04-05-2022)",
+                      "type": "launch services contract",
+                      "topics": []
+                    },
+                    {
+                      "source": "Blue Origin product page: New Glenn (10-17-2026)",
+                      "signal": "Blue Origin lists Amazon Leo among the partners already committed to New Glenn.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "launch services (committed customer)",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "AST SpaceMobile",
+                  "relationship": "New Glenn launch of BlueBird Block 2 satellites (New Glenn 3 carried BB7, Apr 19, 2026)",
+                  "contracts": [
+                    {
+                      "source": "Blue Origin product page: New Glenn (10-17-2026)",
+                      "signal": "Blue Origin lists AST SpaceMobile among the partners already committed to New Glenn.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "launch services (committed customer)",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "United Launch Alliance",
+                  "relationship": "BE-4 booster engines for the Vulcan Centaur rocket",
+                  "contracts": [
+                    {
+                      "source": "Blue Origin product page: New Glenn (10-17-2026)",
+                      "signal": "Blue Origin: two BE-4 engines drive the first stage of United Launch Alliance's Vulcan vehicle.",
+                      "units": "two BE-4 engines per Vulcan",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "engine supply",
+                      "topics": []
+                    },
+                    {
+                      "source": "United Launch Alliance product page: Vulcan Centaur (10-17-2026)",
+                      "signal": "ULA: Vulcan booster propulsion is provided by a pair of BE-4 engines manufactured by Blue Origin.",
+                      "units": "two BE-4 engines per Vulcan",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "engine supply",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": [
+                {
+                  "quarter": "Blue Origin product page: New Glenn (10-17-2026)",
+                  "signal": "Blue Origin's New Glenn: reusable first stage designed for a minimum of 25 flights, powered by seven BE-4 LOX/LNG engines of 640,000 lbf (2,846 kN) sea-level thrust each; seven-meter payload fairing; BE-3U hydrogen-powered upper stage for LEO, MEO and GEO missions; built, launched and refurbished at the Florida Space Coast (LC-36).",
+                  "figure": "25 flights; 640,000 lbf per BE-4",
+                  "topics": []
+                },
+                {
+                  "quarter": "NASA press release: NASA Selects Blue Origin as Second Artemis Lunar Lander (05-19-2023)",
+                  "signal": "NASA selected Blue Origin to develop a human landing system (Blue Moon lander) for the Artemis V mission; the contract includes one uncrewed demonstration mission before a crewed demo on Artemis V in 2029; total firm-fixed price award value $3.4 billion (NASA release).",
+                  "figure": "$3.4 billion",
+                  "topics": [],
+                  "counterparty": "NASA",
+                  "counterparty_role": "customer"
+                }
+              ]
+            },
+            {
+              "company": "United Launch Alliance",
+              "product": "Vulcan Centaur and Atlas V heavy-lift launch",
+              "connects_to": [
+                {
+                  "company": "Amazon",
+                  "relationship": "38 Vulcan Centaur launches plus 9 Atlas V launches for Amazon Leo",
+                  "contracts": [
+                    {
+                      "source": "Amazon press release: Amazon makes historic launch investment to advance Project (04-05-2022)",
+                      "signal": "Amazon: 38 launches on ULA's Vulcan Centaur rocket, in addition to an existing deal for nine Atlas V launches from ULA; the ULA contract also covers production and launch infrastructure at Cape Canaveral, including a new dedicated version of the Vulcan Launch Platform.",
+                      "units": "38 Vulcan Centaur launches + nine Atlas V launches",
+                      "value": "no specific figure",
+                      "date_signed": "2022 (announced 04-05-2022)",
+                      "type": "launch services contract",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "ArianeGroup",
+              "product": "Ariane 6 heavy-lift launcher (launch services through its Arianespace subsidiary)",
+              "connects_to": [
+                {
+                  "company": "Amazon",
+                  "relationship": "18 Ariane 6 launches for Amazon Leo (contracted through Arianespace)",
+                  "contracts": [
+                    {
+                      "source": "Amazon press release: Amazon makes historic launch investment to advance Project (04-05-2022)",
+                      "signal": "Amazon: 18 launches on Arianespace's Ariane 6 (ArianeGroup's launch-services subsidiary) out of the Guiana Space Center in French Guiana for Project Kuiper (now Amazon Leo).",
+                      "units": "18 Ariane 6 launches",
+                      "value": "no specific figure",
+                      "date_signed": "2022 (announced 04-05-2022)",
+                      "type": "launch services contract",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": [
+                {
+                  "quarter": "ArianeGroup product page: Ariane 6, a versatile launcher for all missions (10-17-2026)",
+                  "signal": "ArianeGroup developed Ariane 6 under a European Space Agency programme and is lead contractor and design authority for the launcher system; it oversees and coordinates over 600 industrial partners and suppliers in 13 European countries, and is developing a 200 kN thrust version of the Vinci engine under an ESA contract.",
+                  "figure": "over 600 partners in 13 countries; 200 kN",
+                  "topics": [],
+                  "counterparty": "European Space Agency",
+                  "counterparty_role": "customer"
+                }
+              ]
+            },
+            {
+              "company": "Rocket Lab",
+              "product": "Electron small launch and Neutron medium-lift launch vehicle (in development)",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "Rocket Lab 10-K (02-26-2026)",
+                  "signal": "Rocket Lab 10-K: on December 17, 2025 Rocket Lab agreed with the Space Development Agency to design, manufacture and provide operations and sustainment for 18 satellites for the Tracking Layer Tranche 3 program; total potential value $816 million ($806 million base plus $10 million options), final delivery expected in 2029.",
+                  "figure": "$816 million; 18 satellites",
+                  "topics": [],
+                  "counterparty": "U.S. Space Development Agency",
+                  "counterparty_role": "customer"
+                },
+                {
+                  "quarter": "Rocket Lab 10-K (02-26-2026)",
+                  "signal": "Rocket Lab 10-K: as of December 31, 2025 Electron had launched successfully 75 times and deployed over 200 spacecraft; Neutron qualification testing is ongoing, and an unanticipated failure during qualification testing of the first stage tank in January 2026 impacted the expected timing of Neutron's first launch.",
+                  "figure": "75 launches; over 200 spacecraft",
+                  "topics": []
+                },
+                {
+                  "quarter": "Rocket Lab 10-K (02-26-2026)",
+                  "signal": "Rocket Lab 10-K: the top five customers accounted for approximately 49% of 2025 revenue and the top five backlog customers for approximately 77% of backlog; a government customer accounted for 28% of 2025 revenue.",
+                  "figure": "49%; 77%; 28%",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "Northrop Grumman",
+              "product": "GEM 63 / GEM 63XL solid rocket boosters for the Atlas V and Vulcan launch vehicles",
+              "connects_to": [
+                {
+                  "company": "United Launch Alliance",
+                  "relationship": "up to six GEM 63XL solid rocket boosters per Vulcan Centaur rocket",
+                  "contracts": [
+                    {
+                      "source": "United Launch Alliance product page: Vulcan Centaur (10-17-2026)",
+                      "signal": "ULA: Vulcan integrates up to six Northrop Grumman Graphite Epoxy Motor (GEM) 63XL solid rocket boosters, offered in zero, two, four and six SRB configurations.",
+                      "units": "up to six GEM 63XL boosters per Vulcan",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "booster supply",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": [
+                {
+                  "quarter": "Northrop Grumman 10-K (01-27-2026)",
+                  "signal": "Northrop Grumman 10-K: Space Systems key programs include the 63-inch GEM 63 and extended GEM 63XL solid rocket boosters that provide lift capability for the Atlas V and Vulcan launch vehicles; 2025 Space Systems sales included a $168 million increase on GEM 63 as the program ramps.",
+                  "figure": "$168 million increase on GEM 63",
+                  "topics": []
+                },
+                {
+                  "quarter": "Northrop Grumman 10-K (01-27-2026)",
+                  "signal": "Northrop Grumman 10-K: its largest customer is the U.S. government, which accounted for 84 percent of 2025 sales (87 percent in 2024, 86 percent in 2023).",
+                  "figure": "84 percent of 2025 sales",
+                  "topics": [],
+                  "counterparty": "U.S. Government",
+                  "counterparty_role": "customer"
+                }
+              ]
+            },
+            {
+              "company": "L3Harris",
+              "product": "RL10C liquid-hydrogen engines powering the Vulcan Centaur second stage",
+              "connects_to": [
+                {
+                  "company": "United Launch Alliance",
+                  "relationship": "two RL10C engines powering the Vulcan Centaur second stage",
+                  "contracts": [
+                    {
+                      "source": "United Launch Alliance product page: Vulcan Centaur (10-17-2026)",
+                      "signal": "ULA: Vulcan relies on two RL10C engines, manufactured by L3Harris, to power its second stage; RL10 engines have logged over 500 successful flights and more than 800 firings in space.",
+                      "units": "two RL10C engines per Vulcan",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "engine supply",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": [
+                {
+                  "quarter": "L3Harris 10-K (02-12-2026)",
+                  "signal": "L3Harris 10-K: sales to U.S. Government customers, directly or through prime contractors (including foreign military sales funded through the U.S. Government), were 75% of fiscal 2025 revenue; no other customer accounted for more than 5%.",
+                  "figure": "75% of fiscal 2025 revenue",
+                  "topics": [],
+                  "counterparty": "U.S. Government",
+                  "counterparty_role": "customer"
+                },
+                {
+                  "quarter": "L3Harris 10-K (02-12-2026)",
+                  "signal": "L3Harris 10-K: the Aerojet Rocketdyne segment provides propulsion and power systems to the U.S. Government (including NASA) and major aerospace and defense prime contractors; fiscal 2025 Space Propulsion & Power revenue rose $56 million on higher volume on a NASA program.",
+                  "figure": "$56 million",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "compute_hardware",
+      "sectors": [
+        {
+          "sector": "Space AI Compute (orbital GPUs & adaptive SoCs)",
+          "players": [
+            {
+              "company": "NVIDIA",
+              "product": "Space-1 Vera Rubin Module (up to 25x H100 AI compute for space inferencing), IGX Thor and Jetson Orin for orbital data centers; optimized Vera Rubin NVL72 inside SpaceX's Starmind AI satellite",
+              "connects_to": [
+                {
+                  "company": "SpaceX",
+                  "relationship": "optimized Vera Rubin NVL72 system for the first-generation Starmind AI satellite",
+                  "contracts": [
+                    {
+                      "source": "NVIDIA press release: SpaceXAI Adopts NVIDIA Vera CPU to Accelerate Agentic AI at (08-24-2026)",
+                      "signal": "NVIDIA release: SpaceXAI plans to extend its use of NVIDIA accelerated computing into space, with the first-generation Starmind AI satellite based on an optimized NVIDIA Vera Rubin NVL72 system.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "supply (orbital compute system)",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Starcloud",
+                  "relationship": "NVIDIA H100 GPU flown on Starcloud-1 and NVIDIA accelerated computing for Starcloud orbital data centers",
+                  "contracts": [
+                    {
+                      "source": "NVIDIA blog: How Starcloud Is Bringing Data Centers to Outer Space (10-15-2025)",
+                      "signal": "NVIDIA blog: Starcloud's satellite launch planned for November 2025 marks the NVIDIA H100 GPU's debut in space - the first data center-class GPU in outer space; the silver module inside the 60-kilogram Starcloud-1 houses the H100. Starcloud CEO: NVIDIA GPUs are the most performant for training, fine-tuning and inference.",
+                      "units": "one NVIDIA H100 GPU on the 60-kilogram Starcloud-1 satellite",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "GPU supply (flight hardware)",
+                      "topics": [
+                        "product_launches"
+                      ]
+                    },
+                    {
+                      "source": "NVIDIA press release: NVIDIA Launches Space Computing, Rocketing AI Into Orbit (03-16-2026)",
+                      "signal": "NVIDIA release: Starcloud is among the companies using NVIDIA accelerated computing platforms to power space missions; Starcloud CEO Philip Johnston: 'Starcloud is building purpose-designed orbital data centers to deliver cloud and AI infrastructure directly in space.'",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "platform adoption",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Axiom Space",
+                  "relationship": "NVIDIA accelerated computing platforms for Axiom Space missions",
+                  "contracts": [
+                    {
+                      "source": "NVIDIA press release: NVIDIA Launches Space Computing, Rocketing AI Into Orbit (03-16-2026)",
+                      "signal": "NVIDIA release: Aetherflux, Axiom Space, Kepler Communications, Planet Labs PBC, Sophia Space and Starcloud are using NVIDIA accelerated computing platforms to power next-generation space missions.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "platform adoption",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Cowboy Space",
+                  "relationship": "NVIDIA Space-1 Vera Rubin Module for solar-powered AI compute in orbit",
+                  "contracts": [
+                    {
+                      "source": "NVIDIA product page: NVIDIA space computing (10-17-2026)",
+                      "signal": "NVIDIA space-computing page: Cowboy Space Corporation (formerly Aetherflux) is among the companies using NVIDIA accelerated computing platforms; it is bringing together the NVIDIA Space-1 Vera Rubin module, IGX Thor and Jetson Orin to orbit to power AI-driven geospatial intelligence and autonomous space operations.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "platform adoption",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Kepler Communications",
+                  "relationship": "40 NVIDIA Jetson Orin modules as distributed on-orbit compute across 10 Tranche 1 satellites",
+                  "contracts": [
+                    {
+                      "source": "NVIDIA press release: NVIDIA Launches Space Computing, Rocketing AI Into Orbit (03-16-2026)",
+                      "signal": "NVIDIA release, Kepler Communications CEO Mina Mitry: 'NVIDIA Jetson Orin brings advanced AI directly to our satellites', letting Kepler manage and route data across its constellation.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "platform adoption",
+                      "topics": []
+                    },
+                    {
+                      "source": "Kepler Communications press release: Kepler Deploys First Space-Based, Scalable Cloud (03-16-2026)",
+                      "signal": "Kepler: its introductory on-orbit compute capability is powered by 40 NVIDIA Jetson Orin modules deployed as distributed edge compute GPUs across 10 Tranche 1 satellites, interconnected through Kepler's optical network; Kepler plans to scale the on-orbit compute offering with each additional tranche.",
+                      "units": "40 NVIDIA Jetson Orin modules across 10 satellites",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Planet Labs",
+                  "relationship": "NVIDIA IGX Thor integrated on next-generation Pelican satellites; Blackwell GPUs for ground processing",
+                  "contracts": [
+                    {
+                      "source": "NVIDIA press release: NVIDIA Launches Space Computing, Rocketing AI Into Orbit (03-16-2026)",
+                      "signal": "NVIDIA release, Planet CEO Will Marshall: Planet is integrating NVIDIA's accelerated platform from space to ground and using NVIDIA CorrDiff AI models to move from raw pixels to actionable insights in near real time.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "platform adoption",
+                      "topics": []
+                    },
+                    {
+                      "source": "Planet Labs press release: Planet to Build World’s First GPU-Native AI Engine for (03-16-2026)",
+                      "signal": "Planet is leveraging NVIDIA Blackwell and NVIDIA IGX Thor platforms to turn raw pixels into analysis-ready insights in seconds instead of hours; Planet has tested the NVIDIA IGX Jetson Thor module for space use and is integrating the GPU on its next-generation Pelican satellites and the upcoming Owl constellation.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "GPU platform adoption",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Sophia Space",
+                  "relationship": "NVIDIA Jetson Orin embedded in Sophia Space hosted orbital computing platforms",
+                  "contracts": [
+                    {
+                      "source": "NVIDIA press release: NVIDIA Launches Space Computing, Rocketing AI Into Orbit (03-16-2026)",
+                      "signal": "NVIDIA release, Sophia Space CEO: Sophia builds modular, passively cooled, hosted computing platforms for running applications directly in space, and 'NVIDIA Jetson Orin enables us to embed AI capability into that infrastructure'.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "platform adoption",
+                      "topics": []
+                    },
+                    {
+                      "source": "Sophia Space blog: The Rise of Orbital AI: Sophia Space and NVIDIA Power (03-16-2026)",
+                      "signal": "Sophia Space: it integrates NVIDIA Jetson Orin into its modular, hosted computing platforms so customers can run AI applications in orbit, within strict size, weight and power constraints.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "platform adoption",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": [
+                {
+                  "quarter": "NVIDIA press release: NVIDIA Launches Space Computing, Rocketing AI Into Orbit (03-16-2026)",
+                  "signal": "NVIDIA release (GTC): NVIDIA Space-1 Vera Rubin Module is the latest part of NVIDIA's accelerated platform for space - compared with the H100 GPU, the Rubin GPU on the module delivers up to 25x more AI compute for space-based inferencing, for orbital data centers, geospatial intelligence and autonomous space operations; IGX Thor and Jetson Orin bring edge AI inference to orbit in a compact module. Availability: IGX Thor, Jetson Orin and the RTX PRO 6000 Blackwell Server Edition GPU are available today; the Space-1 Vera Rubin Module will be available at a later date.",
+                  "figure": "up to 25x more AI compute than H100",
+                  "topics": [
+                    "product_launches"
+                  ]
+                }
+              ]
+            },
+            {
+              "company": "AMD",
+              "product": "space-grade XQR Versal adaptive SoCs (flight-qualified) for on-board AI inference in space",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "AMD blog: Available for Order: Flight-Qualified AMD Versal Adaptive (03-17-2025)",
+                  "signal": "AMD: the Versal AI Edge XQR Series XQRVE2302 achieved Class B qualification (derived from MIL-PRF-38535) as the second radiation-tolerant space-grade XQR Versal device qualified for spaceflight; customers can begin placing orders, with shipments expected to begin in the fall; its AIE-ML engines offer 2X the INT8 and 16X the BFLOAT16 performance of first-generation AI Engines in a 23mm x 23mm package.",
+                  "figure": "2X INT8; 16X BFLOAT16",
+                  "topics": [
+                    "product_launches"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sector": "Radiation-Hardened & Space-Grade Semiconductors",
+          "players": [
+            {
+              "company": "Microchip Technology",
+              "product": "radiation-hardened / radiation-tolerant MCUs and MPUs (VORAGO, HARDSIL process) and the radiation-tolerant Space CSAC-SA65 chip-scale atomic clock for LEO satellites",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Infineon",
+              "product": "SONOS-based radiation-hardened memory solutions",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Renesas",
+              "product": "Intersil-brand radiation-hardened ICs for satellites (e.g. ISL72814SEH current driver for command and telemetry)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Texas Instruments",
+              "product": "space-grade radiation-hardened and radiation-tolerant GaN FET gate drivers (up to 200V) for LEO, MEO and GEO satellites",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Analog Devices",
+              "product": "space-qualified versions of standard ICs for LEO and geosynchronous satellites",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "interconnect",
+      "sectors": [
+        {
+          "sector": "Satellite Connectivity (LEO broadband & direct-to-device)",
+          "players": [
+            {
+              "company": "SpaceX",
+              "product": "Starlink V3 broadband satellites with laser inter-satellite links (~800 Tbps downlink from 9,600 broadband satellites) and Starlink Mobile direct-to-cell",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Amazon",
+              "product": "Amazon Leo LEO broadband constellation (~400 satellites in orbit; LEO Ultra enterprise terminal) paired with AWS for cloud storage, analytics and AI on satellite data",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "Amazon press release: Amazon makes historic launch investment to advance Project (04-05-2022)",
+                  "signal": "Amazon secured up to 83 heavy-lift launches from Arianespace, Blue Origin and United Launch Alliance for Project Kuiper (now Amazon Leo) over five years - enough capacity for the majority of the 3,236 satellites in the constellation; Amazon called it the largest commercial procurement of space launch services in history.",
+                  "figure": "up to 83 launches; 3,236 satellites",
+                  "topics": []
+                }
+              ]
+            },
+            {
+              "company": "AST SpaceMobile",
+              "product": "BlueBird Block 2 direct-to-cell satellites (custom AST5000 ASIC) and MNO gateway equipment",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "AST SpaceMobile 10-K (03-02-2026)",
+                  "signal": "AST 10-K: AST plans noncontinuous SpaceMobile Service in targeted markets with a total of 25 BlueBird satellites (five Block 1 and 20 Block 2) and will introduce its own AST5000 ASIC chip in the Block 2 BB satellites; products revenue is mainly gateway equipment, software and related services sold to MNOs.",
+                  "figure": "25 BB satellites (20 Block 2)",
+                  "topics": []
+                },
+                {
+                  "quarter": "AST SpaceMobile 10-K (03-02-2026)",
+                  "signal": "AST 10-K: definitive commercial agreements with AT&T, Verizon, STC and Vodafone plus approximately 50 preliminary agreements and understandings with other MNOs; revenue-sharing model with MNOs.",
+                  "figure": "about 50 preliminary MNO agreements",
+                  "topics": []
+                },
+                {
+                  "quarter": "AST SpaceMobile 10-K (03-02-2026)",
+                  "signal": "AST 10-K: U.S. government work - a contract with the U.S. Space Development Agency through a prime contractor with total expected revenue of $43.0 million for testing services on the initial BB satellites, a direct SDA agreement for the Europa Track 2 commercial solutions program worth approximately $30.0 million, and a SHIELD IDIQ award under the Missile Defense Agency's multi-award framework.",
+                  "figure": "$43.0 million; approximately $30.0 million",
+                  "topics": [],
+                  "counterparty": "U.S. Space Development Agency",
+                  "counterparty_role": "customer"
+                },
+                {
+                  "quarter": "AST SpaceMobile 10-K (03-02-2026)",
+                  "signal": "AST 10-K: under the Ligado Transaction (definitive agreements of March 22, 2025 for usage rights to mid-band spectrum) AST agreed to pay Ligado consideration totaling $550.0 million in cash.",
+                  "figure": "$550.0 million",
+                  "topics": [],
+                  "counterparty": "Ligado Networks",
+                  "counterparty_role": "supplier"
+                },
+                {
+                  "quarter": "AST SpaceMobile 10-K (03-02-2026)",
+                  "signal": "AST 10-K: contractual commitments of approximately $489.1 million as of December 31, 2025, primarily for R&D programs, operational services, capital improvements and procurement of BB satellite components.",
+                  "figure": "$489.1 million",
+                  "topics": []
+                },
+                {
+                  "quarter": "AST SpaceMobile 10-Q (08-10-2026)",
+                  "signal": "AST 10-Q: the first Block 2 BlueBird satellite (BB6) was successfully deployed in February 2026; on April 19, 2026, during the New Glenn 3 mission, BB7 was placed into a lower than planned orbit by the launch vehicle's upper stage and was de-orbited; AST maintained launch insurance coverage for this launch.",
+                  "figure": "one Block 2 satellite (BB7) lost",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sector": "Ground Backhaul for Satellite Networks",
+          "players": [
+            {
+              "company": "Lumen Technologies",
+              "product": "terrestrial fiber backhaul for satellite operators' traffic",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Optical Inter-Satellite Links & Space Data Relay",
+          "players": [
+            {
+              "company": "Kepler Communications",
+              "product": "Tranche 1 optical data relay constellation (SDA-compatible optical terminals) with on-orbit GPU compute and hosted payloads",
+              "connects_to": [
+                {
+                  "company": "Axiom Space",
+                  "relationship": "optical relay network and optical inter-satellite links carrying and connecting Axiom's first two orbital data center nodes (launched Jan 11, 2026)",
+                  "contracts": [
+                    {
+                      "source": "Axiom Space product page: Orbital Data Centers (10-17-2026)",
+                      "signal": "Axiom Space: its first two orbital data center nodes launched to low-Earth orbit on January 11, 2026 with the first tranche of Kepler Communications' optical relay network constellation, integrating optical inter-satellite links (2.5 gigabytes per second-capable optical links, compatible with SDA Tranche 1 optical communication standards).",
+                      "units": "two ODC nodes; 2.5 GB/s-capable optical links",
+                      "value": "no specific figure",
+                      "date_signed": "not stated (launched 01-11-2026)",
+                      "type": "network integration / hosted ODC nodes",
+                      "topics": []
+                    },
+                    {
+                      "source": "Kepler Communications press release: Kepler Successfully Launches First Tranche of Optical Relay (01-11-2026)",
+                      "signal": "Kepler: the mission supports customers including Earth-observation payloads hosted on Kepler's platform and Kepler's collaboration with Axiom Space, which will use the network to enable on-orbit data center nodes.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "collaboration (relay network for ODC nodes)",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": [
+                {
+                  "quarter": "Kepler Communications press release: Kepler Successfully Launches First Tranche of Optical Relay (01-11-2026)",
+                  "signal": "Kepler's Tranche 1 consists of 10 satellites of approximately 300 kilograms each, with high-capacity SDA-compatible optical terminals and multi-GPU on-orbit compute modules with terabytes of storage; future tranches add 100-gigabit optical technology. Kepler has launched 33 satellites to date.",
+                  "figure": "10 satellites of ~300 kg; 33 satellites launched to date",
+                  "topics": []
+                },
+                {
+                  "quarter": "Kepler Communications press release: Kepler Deploys First Space-Based, Scalable Cloud (03-16-2026)",
+                  "signal": "Kepler commissioned distributed on-orbit computing across its Tranche 1 optical data relay constellation (which Kepler calls the world's first commercially operational optical data relay network); the GPU-enabled platform supports multiple customers concurrently with isolated workloads, for on-orbit data centers, sensing and real-time alerting.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "product_launches"
+                  ]
+                }
+              ]
+            },
+            {
+              "company": "Rocket Lab",
+              "product": "Mynaric CONDOR laser optical communication terminals (Mynaric acquired Apr 14, 2026)",
+              "connects_to": [],
+              "quarterly_data": [
+                {
+                  "quarter": "Rocket Lab press release: Rocket Lab Completes Mynaric Acquisition, Adding Laser (04-14-2026)",
+                  "signal": "Rocket Lab completed the acquisition of Mynaric AG, a provider of laser optical communications terminals for air, space and mobile applications; Mynaric already supplied CONDOR Mk3 optical communication terminals for Rocket Lab's $1.3 billion prime contracts to produce 36 satellites for the Space Development Agency's Proliferated Warfighter Space Architecture.",
+                  "figure": "$1.3 billion SDA contracts; 36 satellites",
+                  "topics": [],
+                  "counterparty": "U.S. Space Development Agency",
+                  "counterparty_role": "customer"
+                }
+              ]
+            },
+            {
+              "company": "Coherent",
+              "product": "free-space optical communication components for SATCOM and space laser links",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "MACOM",
+              "product": "critical ICs for a next-generation satellite optical communication platform, plus LEO RF and ground-gateway linearization",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Materion",
+              "product": "optical filters and mirrors for laser communication systems and laser-communication ground stations; beryllium components for launch and satellites",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "MinebeaMitsumi",
+              "product": "precision bearings for laser communication terminals (LCT), satellites and launch-vehicle propulsion",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Satellite RF, Timing & Connectivity Components",
+          "players": [
+            {
+              "company": "Dover",
+              "product": "Microwave Products Group RF filters, amplifiers and switches for satellites; cryogenic vacuum-jacketed piping and valves for launch infrastructure",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "STMicroelectronics",
+              "product": "BiCMOS, FD-SOI and panel-level-packaging chips for LEO satellite communication (Starlink / SpaceX the main customer)",
+              "connects_to": [
+                {
+                  "company": "SpaceX",
+                  "relationship": "LEO satellite communication chips (BiCMOS, FD-SOI, panel-level packaging) for Starlink",
+                  "contracts": [
+                    {
+                      "source": "STMicroelectronics 20-F (02-26-2026)",
+                      "signal": "SpaceX is named among ST's major customers in its 20-F ('Our major customers include (in alphabetical order) Apple, Bosch, Continental, Denso, HP, Mobileye, Samsung, SpaceX, Tesla and Vitesco').",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "20-F customer list",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "TE Connectivity",
+              "product": "data, compute and power connectivity content on LEO satellites and launch vehicles",
+              "connects_to": [
+                {
+                  "company": "SpaceX",
+                  "relationship": "data, compute and power connectivity content on LEO satellites and launch vehicles",
+                  "contracts": [
+                    {
+                      "source": "TE Connectivity Citi’s Global TMT Conference 2026 (09-09-2026)",
+                      "signal": "TE management: space applications add content - 'Anything around a lower satellite, certainly the things that SpaceX does, Blue Origin does, we also have content on those', covering data, compute and power connectivity; TE expects aerospace and defense to grow double digit.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "content supply (named customer)",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Blue Origin",
+                  "relationship": "data, compute and power connectivity content on launch vehicles and LEO satellites",
+                  "contracts": [
+                    {
+                      "source": "TE Connectivity Citi’s Global TMT Conference 2026 (09-09-2026)",
+                      "signal": "TE management names Blue Origin, alongside SpaceX, as a space customer where TE has data, compute and power connectivity content.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "content supply (named customer)",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "SiTime",
+              "product": "MEMS timing for LEO satellites (up to $2,000 of SiTime content per satellite)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Walsin Technology",
+              "product": "LEO bandpass filters and high-isolation / TRX diplexers",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Sivers Semiconductors",
+              "product": "wireless beamformer RFICs for ALL.SPACE Hydra 4 multi-orbit satcom terminals (production order for 2027)",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "advanced_packaging",
+      "sectors": [
+        {
+          "sector": "RF / mmWave Test (LEO satellite chips)",
+          "players": [
+            {
+              "company": "Sigurd Microelectronics",
+              "product": "testing of 5G / LEO mmWave RFICs for LEO satellites",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "foundry",
+      "sectors": [
+        {
+          "sector": "RF / SATCOM Foundry (SiGe, RF-SOI, GaAs/GaN)",
+          "players": [
+            {
+              "company": "GlobalFoundries",
+              "product": "RF / SiGe / FD-SOI SATCOM silicon from ground terminals to satellites in orbit, incl. direct-to-cell satellite content (SATCOM revenue over $100M in 2025)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Tower Semiconductor",
+              "product": "U.S.-made high-power SiGe beamforming ICs for satellite communication",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Win Semiconductors",
+              "product": "GaAs / GaN RF foundry for LEO satellites (Ku/Ka-, E- and V-band satellite-gateway links; satellite-to-smartphone direct-to-cell)",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "equipment",
+      "sectors": [
+        {
+          "sector": "Satellite PCB & Space Solar Cell Equipment",
+          "players": [
+            {
+              "company": "MKS Instruments",
+              "product": "rigid-PCB laser drilling equipment for LEO satellite boards",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Veeco",
+              "product": "Lumina+ arsenide-phosphide MOCVD platforms for LEO space-grade solar cells",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layer": "materials",
+      "sectors": [
+        {
+          "sector": "Satellite PCBs",
+          "players": [
+            {
+              "company": "Compeq Manufacturing",
+              "product": "PCBs for satellites, ground equipment, user terminals and orbital data centers",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Meiko Electronics",
+              "product": "high-multilayer HDI PCBs for satellite communications",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Compound Semiconductor Epiwafers & Substrates",
+          "players": [
+            {
+              "company": "IQE",
+              "product": "GaN RF epiwafers with design wins on LEO satellite platforms",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "VPEC",
+              "product": "III-V epiwafers for LEO satellite solar cells (a 2027 outlook application)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "AXT",
+              "product": "compound semiconductor substrates for satellite solar cells",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Specialty Gases & Propellants",
+          "players": [
+            {
+              "company": "Air Liquide",
+              "product": "cryogenic equipment and propulsion gases for the Ariane 6 launcher",
+              "connects_to": [
+                {
+                  "company": "ArianeGroup",
+                  "relationship": "two contracts for the Ariane 6 operational phase: essential cryogenic equipment and propulsion gas",
+                  "contracts": []
+                }
+              ],
+              "quarterly_data": []
+            },
+            {
+              "company": "Element Solutions",
+              "product": "EFC high-purity specialty gases for satellite propulsion",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "domains": [
+    {
+      "domain": "power",
+      "sectors": [
+        {
+          "sector": "Space Solar Power",
+          "players": [
+            {
+              "company": "5N Plus",
+              "product": "AZUR SPACE III-V multi-junction space solar cells for LEO, MEO and GEO satellites",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Sino-American Silicon",
+              "product": "specialized solar cells for low-earth-orbit satellite applications (subsidiary Sustainable Sunrise)",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        },
+        {
+          "sector": "Satellite Terminal Power",
+          "players": [
+            {
+              "company": "Lite-On",
+              "product": "rugged power supplies for LEO satellite user terminals",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "security",
+      "sectors": [
+        {
+          "sector": "Hardware Root of Trust",
+          "players": [
+            {
+              "company": "eMemory",
+              "product": "radiation-tolerant OTP NVM IP providing a hardware root of trust and unique chip IDs for LEO satellite chips",
+              "connects_to": [],
+              "quarterly_data": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
