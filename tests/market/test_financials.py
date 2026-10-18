@@ -21,6 +21,9 @@ The cases the verification of 2026-10-17 fixed are pinned here: zero placeholder
 Korean Q4 EPS = FY - 9 months, and one share basis for Korean book value per share. Also pinned (2026-10-17): GAAP
 and adjusted EPS as separate series with their own QoQ / YoY, the adjusted history that outlives Yahoo's 4-quarter
 window (AdjustedEps, AdjustedHistoryRun), and a fiscal year's adjusted EPS = Yahoo's figure, else 4 quarters' sum.
+The adjusted EPS of past quarters from Yahoo's earnings calendar (2026-10-17: ReportQuarter, CalendarRows,
+CalendarRun): report date -> fiscal quarter (NVIDIA's January and Micron's August years too), the overlap check
+against the earningsChart, the currency skip, and no second split adjustment of figures that are split-adjusted.
 """
 import copy
 import json
@@ -863,7 +866,9 @@ class AdjustedHistoryRun(TempDataTestCase):
         cache = self.tmp / "cache"
         for module, name, value in ((fin, "CACHE", cache), (fs, "CACHE_DIR", cache / "sec"),
                                     (fd, "CACHE_DIR", cache / "dart"), (fs, "cached_cik_map", lambda: {}),
-                                    (fin, "refresh_filings", lambda *a, **k: {"sec": 0, "dart": 0, "errors": 0})):
+                                    (fin, "refresh_filings", lambda *a, **k: {"sec": 0, "dart": 0, "errors": 0}),
+                                    # yfinance talks through curl_cffi, which the tests' socket switch cannot stop
+                                    (fin, "fetch_calendar", lambda symbol: {"symbol": symbol, "reports": []})):
             patcher = mock.patch.object(module, name, value)
             patcher.start()
             self.addCleanup(patcher.stop)
@@ -895,6 +900,181 @@ class AdjustedHistoryRun(TempDataTestCase):
         self.assertEqual(q["Q4 26"]["eps_adjusted"], 33.42)                      # today's answer wins
         self.assertEqual(q["Q1 26"]["qoq"]["eps_adjusted"], 57.76)
         self.assertEqual(len(self.run_once()), 5)                                # ADD-only: a second run adds none
+
+
+# Yahoo's earnings calendar of the Micron-like company (report date, "Reported EPS"), newest first, as fetch_calendar
+# returns it: the four quarters of the earningsChart (ADJ_ACTUALS) and five older ones (Micron's real figures). The
+# oldest (Q4 24) is never used: the quarter before it is in range too and has no report of its own.
+CALENDAR = [["2026-12-23", None], ["2026-09-30", 33.42], ["2026-06-24", 25.11], ["2026-03-18", 12.2],
+            ["2025-12-17", 4.78], ["2025-09-23", 3.03], ["2025-06-25", 1.91], ["2025-03-20", 1.56],
+            ["2024-12-18", 1.79], ["2024-09-25", 1.18]]
+
+
+def calendar(reports=CALENDAR):
+    return {"symbol": "MU", "fetched": FIXED_TODAY, "reports": copy.deepcopy(reports)}
+
+
+class ReportQuarter(unittest.TestCase):
+    """A report belongs to the latest fiscal quarter that ended 7-120 days before it (month-end keys)."""
+
+    def label(self, date, fy_month):
+        key, _ = fin.report_quarter(date, fy_month)
+        return key, fin.quarter_label(*fin.fiscal_of(key, fy_month))
+
+    def test_non_calendar_fiscal_years(self):
+        # NVIDIA: the year ends in late January (key 01-31); 2026-08-26 reported Q2 FY27 (ended 2026-07-26)
+        self.assertEqual(self.label("2026-08-26", 1), ("2026-07-31", "Q2 27"))
+        self.assertEqual(self.label("2026-02-25", 1), ("2026-01-31", "Q4 26"))
+        self.assertEqual(self.label("2025-11-19", 1), ("2025-10-31", "Q3 26"))
+        # Micron: the year ends around the start of September (key 08-31)
+        self.assertEqual(self.label("2026-09-30", 8), ("2026-08-31", "Q4 26"))
+        self.assertEqual(self.label("2025-12-17", 8), ("2025-11-30", "Q1 26"))
+        # a calendar year (TSMC reports about two weeks after the quarter)
+        self.assertEqual(self.label("2026-10-15", 12), ("2026-09-30", "Q3 26"))
+
+    def test_too_soon_and_the_earlier_quarter(self):
+        self.assertEqual(fin.report_quarter("2026-10-05", 12), ("2026-06-30", None))   # 5 days: not Q3 yet
+        self.assertEqual(fin.report_quarter("2026-10-15", 12), ("2026-09-30", "2026-06-30"))   # 107 days: in range
+        self.assertEqual(fin.report_quarter("2026-11-20", 12), ("2026-09-30", None))   # June is 143 days back
+
+
+class CalendarRows(unittest.TestCase):
+    """calendar_rows: the quarters the earningsChart and the history do not have, on the earningsChart's basis."""
+
+    def rows(self, reports=CALENDAR, raw=None, known=()):
+        return fin.calendar_rows("Micron", raw or with_adjusted(RAW), calendar(reports), set(known), FIXED_TODAY)
+
+    def test_older_quarters_only_with_source_and_report_date(self):
+        rows, reason = self.rows()
+        self.assertIsNone(reason)
+        self.assertEqual([(r["end"], r["label"], r["eps_adjusted"], r["reported"]) for r in rows],
+                         [("2024-11-30", "Q1 25", 1.79, "2024-12-18"), ("2025-02-28", "Q2 25", 1.56, "2025-03-20"),
+                          ("2025-05-31", "Q3 25", 1.91, "2025-06-25"), ("2025-08-31", "Q4 25", 3.03, "2025-09-23")])
+        self.assertEqual({(r["seen"], r["company"], r["ticker"], r["period_type"], r["currency"], r["source"])
+                          for r in rows},
+                         {(FIXED_TODAY, "Micron", "MU", "quarterly", "USD", fin.CALENDAR_SOURCE_NAME)})
+        rows, _ = self.rows(known={"2025-08-31"})                       # already in the history: left alone
+        self.assertNotIn("2025-08-31", [r["end"] for r in rows])
+
+    def test_duplicates_and_ambiguous_reports(self):
+        rows, _ = self.rows(CALENDAR + [["2025-06-26", 2.5]])          # two Q3 25 reports that disagree
+        self.assertNotIn("2025-05-31", [r["end"] for r in rows])
+        rows, _ = self.rows(CALENDAR + [["2025-06-26", 1.91]])         # ...that agree: once, the first report
+        self.assertEqual([r["reported"] for r in rows if r["end"] == "2025-05-31"], ["2025-06-25"])
+        # without the Q2 25 report, the 2025-06-25 one could also be a late Q2 25 (117 days): not used
+        rows, _ = self.rows([r for r in CALENDAR if r[0] != "2025-03-20"])
+        self.assertEqual([r["end"] for r in rows], ["2024-11-30", "2025-08-31"])
+
+    def test_basis_check_against_the_earningschart(self):
+        reports = [[d, 26.0 if d == "2026-06-24" else v] for d, v in CALENDAR]
+        rows, reason = self.rows(reports)
+        self.assertEqual(rows, [])
+        self.assertIn("Q3 26 EPS 26 differs from the earningsChart's 25.11", reason)
+        reports = [[d, 25.115 if d == "2026-06-24" else v] for d, v in CALENDAR]
+        self.assertIsNone(self.rows(reports)[1])                        # within 0.01: the same figure
+        rows, reason = self.rows(raw=RAW)                               # no earningsChart actuals to check
+        self.assertEqual((rows, reason), ([], "only 0 quarter(s) to check against the earningsChart"))
+
+    def test_eps_in_another_currency_and_half_year_reports(self):
+        raw = with_adjusted(RAW)
+        for t in raw["summary"]["earningsTrend"]["trend"]:
+            t["earningsEstimate"]["earningsCurrency"] = "TWD"           # like 6805.TW / HYFT
+        rows, reason = self.rows(raw=raw)
+        self.assertEqual(rows, [])
+        self.assertIn("EPS is in TWD", reason)
+        half = with_adjusted(RAW)
+        half["timeseries"]["quarterly"] = {}                            # no 3-month statements...
+        h1 = [r for r in CALENDAR if r[0] in ("2026-09-30", "2026-03-18", "2025-09-23", "2025-03-20")]
+        rows, reason = self.rows(h1, raw=half)                          # ...and half-year reports
+        self.assertEqual(rows, [])
+        self.assertIn("half-year", reason)
+        rows, reason = self.rows(raw=half)                              # a quarterly calendar is enough (Japan)
+        self.assertIsNone(reason)
+        self.assertEqual(len(rows), 4)
+        # a quarter missing from Yahoo's calendar (Q2 26) does not stop the others (Q3 26 then is ambiguous)
+        rows, reason = self.rows([r for r in CALENDAR if r[0] != "2026-03-18"])
+        self.assertIsNone(reason)
+        self.assertEqual([r["end"] for r in rows], ["2024-11-30", "2025-02-28", "2025-05-31", "2025-08-31"])
+
+    def test_split_adjusted_figures_are_not_divided_again(self):
+        rows, _ = self.rows()
+        # a split before the day the calendar was read: its figures already are on the new basis
+        q, _, resplit = fin.adjusted_series({}, rows, "USD", [("2026-07-01", 2.0)])
+        self.assertEqual(q["2025-05-31"], 1.91)
+        self.assertEqual(resplit, set())
+        q, _, resplit = fin.adjusted_series({}, rows, "USD", [("2027-01-04", 2.0)])   # a later split: divided once
+        self.assertEqual(q["2025-05-31"], 0.955)
+        self.assertIn(("quarterly", "2025-05-31"), resplit)
+
+    def test_web_file_reaches_back_with_its_growth_and_the_year_sum(self):
+        rows, _ = self.rows()
+        data = fin.compose("Micron", with_adjusted(RAW), [], adj_rows=rows)
+        q, a = by_label(data["quarterly"]), by_label(data["annual"])
+        self.assertEqual(q["Q4 25"]["eps_adjusted"], 3.03)
+        self.assertEqual(q["Q3 26"]["yoy"]["eps_adjusted"], 1214.66)    # 25.11 vs the calendar's 1.91
+        self.assertEqual(a["FY25"]["eps_adjusted"], 8.29)               # 1.79 + 1.56 + 1.91 + 3.03, a sum
+        self.assertIn("eps_adjusted", a["FY25"]["derived"])
+        self.assertNotIn("eps_adjusted", q["Q4 25"]["derived"])         # as reported, not computed
+        self.assertTrue(any("earnings calendar" in n for n in data["notes"]))
+        self.assertIn(fin.CALENDAR_SOURCE_NAME, [s["name"] for s in data["sources"]])
+        plain = fin.compose("Micron", with_adjusted(RAW), [], adj_rows=[])
+        self.assertNotIn(fin.CALENDAR_SOURCE_NAME, [s["name"] for s in plain["sources"]])
+
+
+class CalendarRun(TempDataTestCase):
+    """The daily run reads the calendars of the due companies (resumable) and adds their rows ADD-only, after the
+    earningsChart's own."""
+    PATCHED_MODULES = (fin,)
+
+    def setUp(self):
+        super().setUp()
+        cache = self.tmp / "cache"
+        for module, name, value in ((fin, "CACHE", cache), (fs, "CACHE_DIR", cache / "sec"),
+                                    (fd, "CACHE_DIR", cache / "dart"), (fs, "cached_cik_map", lambda: {}),
+                                    (fin, "refresh_filings", lambda *a, **k: {"sec": 0, "dart": 0, "errors": 0}),
+                                    (fin, "fetch_calendar", lambda symbol: calendar()), (fin, "PAUSE", 0)):
+            patcher = mock.patch.object(module, name, value)
+            patcher.start()
+            self.addCleanup(patcher.stop)
+        nodes = [{"id": "Micron", "ticker": "MU", "exchange": "NASDAQ", "status": "public"}]
+        (self.graph / "merged_graph.json").write_text(json.dumps({"nodes": nodes, "edges": []}), encoding="utf-8")
+
+    def read_state(self):
+        return json.loads((self.history / fin.STATE_FILE_NAME).read_text(encoding="utf-8"))
+
+    def test_run_adds_calendar_rows_after_the_earningschart(self):
+        with mock.patch.object(fin, "fetch_company", lambda symbol: with_adjusted(RAW)):
+            self.assertTrue(quietly(fin.run, only=["Micron"]))
+        path = self.history / f"{fin.ADJ_DATASET}.jsonl"
+        rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        by_end = {r["end"]: r for r in rows if r["period_type"] == "quarterly"}
+        self.assertEqual(len(by_end), 8)
+        self.assertEqual((by_end["2025-08-31"]["source"], by_end["2025-08-31"]["reported"]),
+                         (fin.CALENDAR_SOURCE_NAME, "2025-09-23"))
+        self.assertNotIn("source", by_end["2026-05-31"])                # the earningsChart's row, not the calendar's
+        self.assertEqual(self.read_state()["Micron"]["eps_calendar"],
+                         {"read": FIXED_TODAY, "next": "2026-12-23", "added": 4})
+        q = by_label(self.read_graph("financials/micron.json")["quarterly"])
+        self.assertEqual(q["Q3 25"]["eps_adjusted"], 1.91)
+        self.assertEqual(q["Q3 26"]["yoy"]["eps_adjusted"], 1214.66)
+        with mock.patch.object(fin, "fetch_company", lambda symbol: with_adjusted(RAW)):
+            quietly(fin.run, only=["Micron"])
+        self.assertEqual(len(path.read_text(encoding="utf-8").splitlines()), len(rows))   # ADD-only
+
+    def test_due_order_and_budget(self):
+        fin.write_json(fin.cache_path("MU"), RAW)
+        tg = {k: {"degree": d} for k, d in (("A", 1), ("B", 5), ("C", 1), ("D", 1), ("E", 1), ("F", 1))}
+        ok = {"symbol": "MU", "ok": True}
+        state = {"A": dict(ok), "B": dict(ok),                                              # never read
+                 "C": dict(ok, eps_calendar={"read": "2026-10-01", "next": "2026-10-15"}),  # reported since
+                 "D": dict(ok, eps_calendar={"read": "2026-10-01", "next": "2026-11-15"}),  # not yet
+                 "E": dict(ok, eps_calendar={"read": FIXED_TODAY, "next": None}),           # read today
+                 "F": {"symbol": "MU", "ok": False}}                                        # no statements
+        self.assertEqual(fin.calendar_due(tg, state, FIXED_TODAY), ["C", "B", "A"])
+        self.assertEqual(set(fin.calendar_due(tg, state, FIXED_TODAY, every=True)), {"A", "B", "C", "D", "E"})
+        counts = quietly(fin.refresh_calendars, ["C", "B", "A"], state, FIXED_TODAY, 0)     # no time left
+        self.assertEqual((counts["read"], counts["waiting"]), (0, 3))
+        self.assertNotIn("eps_calendar", state["B"])                    # still due on the next run
 
 
 if __name__ == "__main__":

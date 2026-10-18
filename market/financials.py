@@ -94,12 +94,25 @@ Rules that make the numbers line up (each is said in the file's notes when it ap
     four fiscal quarters only when all four are known (listed in "derived"); otherwise null, never estimated. A
     listing whose Yahoo EPS is in another currency than its statements (6805.TW, HYFT: USD) gets no adjusted
     actuals.
+  - Adjusted EPS of past years (user, 2026-10-17: "혹시 다른 곳 찾아낼 수 없어? 조정 EPS 올리는 곳 많잖아"): Yahoo's earnings
+    calendar (yfinance get_earnings_dates, one request per company) lists the "Reported EPS" of up to 100 reports
+    (often back to the early 2000s) on the earningsChart's basis (verification 2026-10-17: 32 of 32 recent quarters of 8 US companies =
+    the non-GAAP diluted EPS of their 8-K earnings releases). calendar_rows maps each report to the latest fiscal
+    quarter that ended 7-120 days before it, skips ambiguous ones (the quarter before also in range without a
+    report of its own, two reports of one quarter that disagree), and uses a company's calendar only when its EPS
+    currency is the statements', its statements or its calendar are quarterly (not a half-year reporter) and it
+    agrees (0.01 or 1%) with the earningsChart on at least 2 shared quarters. The rows (last 10 years) go into the same ADD-only history with
+    "source" and "reported" (the report date), never over a recorded figure or Yahoo's current one. Their "seen" is
+    the day the calendar was read: the figures are already split-adjusted, so only a later split divides them.
 
 Schedule: daily (market/run_all.py), at most DAILY_MAX_MINUTES of Yahoo, then at most FILINGS_MAX_MINUTES of the
 same companies' filings. Refreshed each day: companies whose earnings date (graph/hyperscaler_cash.json calendar,
 or Yahoo's) was in the last 4 days or is in the next 10 days, companies never fetched (or whose last fetch failed),
 and a rotating 1/7 of the rest (each company at least weekly). --backfill fetches every company. Requests are
-paced (PAUSE seconds apart) and back off on HTTP 429 (the back-off counts against the time budget).
+paced (PAUSE seconds apart) and back off on HTTP 429 (the back-off counts against the time budget). After the
+statements, at most CALENDAR_MAX_MINUTES of earnings calendars (about 1.2 s each, so the first fill of all ~800
+companies takes about 4 runs; resumable): companies that reported since their last read first, then those never
+read, those whose read failed and those read more than CALENDAR_REFRESH_DAYS ago (calendar_due).
 
 Files:
   market/cache/financials/<symbol>.json   the latest raw Yahoo answers per company (gitignored); build() reads them,
@@ -107,13 +120,16 @@ Files:
                                           "format" 2 (2026-10-17) = the cash-flow rows were requested too; an
                                           older cache is fetched again even on the day it was written.
   market/cache/financials/sec/, dart/     the companies' filings as last read (gitignored, see the two modules).
+  market/cache/financials/calendar/       each company's Yahoo earnings calendar as last read (gitignored).
   market/history/financials_snapshots.jsonl  ADD-only: every reported period as first seen (key company + end +
                                           period_type), so a later restatement can be spotted; also fills quarters
                                           that have dropped out of Yahoo's 5-quarter window.
   market/history/financials_eps_adjusted.jsonl  ADD-only: Yahoo's adjusted EPS actuals as first seen (key company +
                                           period_type + end; with the fiscal label, the day seen and the EPS
-                                          currency), so the adjusted series outlives Yahoo's 4-quarter window.
-  market/history/financials_state.json    per company: symbol, last fetch date, ok, next earnings date.
+                                          currency), so the adjusted series outlives Yahoo's 4-quarter window;
+                                          rows from the earnings calendar add "source" and "reported".
+  market/history/financials_state.json    per company: symbol, last fetch date, ok, next earnings date,
+                                          "eps_calendar": {"read", "next", "added", "skipped" | "error"}.
 
 CLI:
   python -X utf8 -m market.financials                    daily run
@@ -121,6 +137,8 @@ CLI:
   python -X utf8 -m market.financials --build-only       rebuild the web files from the cache, no network
   python -X utf8 -m market.financials --only "Micron,NVIDIA" [--limit N] [--max-minutes M]
   python -X utf8 -m market.financials --filings-only [--workers 8]   SEC / DART caches of every company, rebuild
+  python -X utf8 -m market.financials --calendar-only [--only ...] [--limit N] [--max-minutes M]   earnings
+                                                         calendars of the due companies (all with --only), rebuild
 """
 import argparse
 import calendar
@@ -155,6 +173,15 @@ ROTATION_DAYS = 7
 EARNINGS_BEFORE_DAYS = 10   # refresh daily from 10 days before an earnings date...
 EARNINGS_AFTER_DAYS = 4     # ...to 4 days after it
 SOURCE = {"name": "Yahoo Finance", "url": "https://finance.yahoo.com"}
+# Yahoo's earnings calendar (2026-10-17): the "Reported EPS" of ~12+ years of reports, the earningsChart's basis
+CALENDAR_SOURCE_NAME = "Yahoo Finance earnings calendar"
+CALENDAR_URL = "https://finance.yahoo.com/calendar/earnings?symbol={s}"
+CALENDAR_MAX_MINUTES = 5    # a daily run reads at most this long of calendars (about 1.2 s each), then waits a day
+CALENDAR_REFRESH_DAYS = 92  # a calendar read this long ago is read again (a report the next-date check missed)
+REPORT_MIN_DAYS = 7         # a report belongs to the latest fiscal quarter that ended at least a week before it
+REPORT_MAX_DAYS = 120       # ...and at most 120 days before it
+CALENDAR_MIN_OVERLAP = 2    # quarters the calendar and the earningsChart must both list (and agree on)
+CALENDAR_YEARS = 10         # quarters that ended in the last 10 years are kept (the panel shows 8 quarters, 4 years)
 
 TIMESERIES_URL = "https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{s}"
 SUMMARY_URL = "https://query2.finance.yahoo.com/v10/finance/quoteSummary/{s}"
@@ -758,6 +785,126 @@ def annual_adjusted(quarterly, annual, year_ends):
             out[fy_end] = sum(values)
             summed.add(fy_end)
     return out, summed
+
+
+# ------------------------------------------------ adjusted EPS of past years: Yahoo's earnings calendar (2026-10-17)
+# The user (2026-10-17): "혹시 다른 곳 찾아낼 수 없어? 조정 EPS 올리는 곳 많잖아". The earningsChart holds ~4 quarters;
+# Yahoo's earnings calendar lists the "Reported EPS" of every report since about 2014 on the same analysts' basis
+# (NVIDIA 2026-08-26 2.22 and 2026-05-20 1.87 = the earningsChart actuals), already on today's share basis.
+
+def fetch_calendar(symbol):
+    """Yahoo's earnings calendar of one symbol (yfinance Ticker.get_earnings_dates: the table of
+    finance.yahoo.com/calendar/earnings, up to 100 reports), ONE request: {"symbol", "fetched", "reports":
+    [[report date (as Yahoo lists it, US Eastern), reported EPS or None (not reported yet)]]}, newest first."""
+    import yfinance
+    from yfinance.exceptions import YFRateLimitError
+    logging.getLogger("yfinance").setLevel(logging.CRITICAL)
+    try:
+        df = yfinance.Ticker(symbol).get_earnings_dates(limit=100)
+    except YFRateLimitError as e:
+        raise RateLimited(str(e))
+    reports = []
+    if df is not None and len(df):
+        if "Reported EPS" not in df.columns:
+            raise ValueError(f"calendar table without a Reported EPS column: {list(df.columns)}")
+        for ts, eps in zip(df.index, df["Reported EPS"]):
+            eps = num(eps)
+            reports.append([ts.date().isoformat(), None if eps is None or eps != eps else round(float(eps), 4)])
+    return {"symbol": symbol, "fetched": today(), "reports": reports}
+
+
+def calendar_cache_path(symbol):
+    return CACHE / "calendar" / cache_path(symbol).name
+
+
+def next_report(cal, now):
+    """The calendar's next report date (the oldest one on or after `now` without an EPS), or None."""
+    upcoming = [d for d, eps in (cal or {}).get("reports") or [] if eps is None and d >= now]
+    return min(upcoming) if upcoming else None
+
+
+def report_quarter(report_date, fy_month):
+    """The fiscal quarter a report on `report_date` is about: the month-end key of the latest fiscal quarter end (the
+    company's fiscal calendar: every 3 months from its fiscal year end month) that is at least REPORT_MIN_DAYS and at
+    most REPORT_MAX_DAYS before the report. Returns (key, earlier): earlier = the quarter before it when that one is
+    in the range too (a late report could be about it), else None. (None, None) when no quarter end is in range."""
+    d = dt.date.fromisoformat(report_date)
+    key = dt.date(d.year, d.month, calendar.monthrange(d.year, d.month)[1]).isoformat()
+    while (int(key[5:7]) - fy_month) % 3 or (d - dt.date.fromisoformat(key)).days < REPORT_MIN_DAYS:
+        key = add_months(key, -1)
+    if (d - dt.date.fromisoformat(key)).days > REPORT_MAX_DAYS:
+        return None, None
+    earlier = add_months(key, -3)
+    return key, (earlier if (d - dt.date.fromisoformat(earlier)).days <= REPORT_MAX_DAYS else None)
+
+
+def calendar_rows(node_id, raw, cal, known=(), seen=None):
+    """ADJ_DATASET rows of the quarters Yahoo's earnings calendar (fetch_calendar) has and the history does not:
+    (rows, None), or ([], reason) when the company's calendar is not used. Rules (2026-10-17):
+      - each reported EPS belongs to report_quarter() of its report date; skipped when the quarter before is in range
+        too and has no report of its own (a late report could be about either), and a quarter with two reports that
+        disagree is skipped; two that agree count once (the first report);
+      - quarters before the newest statement period off the current fiscal calendar (a company that moved its year
+        end) are not used;
+      - the whole company is skipped when Yahoo's EPS currency differs from its statements (6805.TW, HYFT: the
+        eps_currency rule), when neither Yahoo's statements have two consecutive quarters nor the calendar's newest
+        four quarters are consecutive (a half-year reporter; Japanese statements on Yahoo are often half-yearly while
+        the calendar is quarterly), or when the calendar and the earningsChart (Yahoo's current actuals) share fewer
+        than CALENDAR_MIN_OVERLAP quarters or differ on one by more than 0.01 and 1% (another basis);
+      - quarters the earningsChart lists or the history already has (`known`: month-end keys) are left alone, and
+        only quarters of the last CALENDAR_YEARS years are kept.
+    "seen" is the day the calendar was read: its figures are on that day's share basis (split-adjusted), so the split
+    rule of adjusted_series divides them only by a split after that day. Each row names the source and the report."""
+    summary = (raw or {}).get("summary") or {}
+    currency = reporting_currency(raw or {})
+    ccy = eps_currency(summary, currency)
+    if ccy != currency:
+        return [], f"Yahoo's EPS is in {ccy}, the statements in {currency}"
+    stats = summary.get("defaultKeyStatistics") or {}
+    stmt = statement_periods((raw or {}).get("timeseries"))
+    fy_month = fiscal_year_end_month(stmt["annual"].keys(), _iso(raw_value(stats.get("lastFiscalYearEnd"))))
+    off_grid = [k for k in list(stmt["quarterly"]) + list(stmt["annual"]) if (int(k[5:7]) - fy_month) % 3]
+    after = max(off_grid) if off_grid else ""
+    mapped = []                                           # (key, earlier, report date, eps)
+    for date, eps in (cal or {}).get("reports") or []:
+        if eps is None:
+            continue
+        key, earlier = report_quarter(date, fy_month)
+        if key and key > after:
+            mapped.append((key, earlier, date, eps))
+    reported = {k for k, _, _, _ in mapped}
+    by_key = {}
+    for key, earlier, date, eps in mapped:
+        by_key.setdefault(key, []).append((date, eps, bool(earlier and earlier not in reported)))
+    accepted = {}                                         # key -> (eps, report date)
+    for key, reports in by_key.items():
+        if any(ambiguous for _, _, ambiguous in reports):
+            continue
+        reports.sort()
+        if all(close(eps, reports[0][1], 0.01, 0.01) for _, eps, _ in reports):
+            accepted[key] = (reports[0][1], reports[0][0])
+    q_keys, newest = sorted(stmt["quarterly"]), sorted(accepted)[-4:]
+    if not any(add_months(a, 3) == b for a, b in zip(q_keys, q_keys[1:]))             and (len(newest) < 4 or any(add_months(a, 3) != b for a, b in zip(newest, newest[1:]))):
+        return [], "neither Yahoo's statements nor its calendar have consecutive quarters (a half-year reporter?)"
+    chart_q, _ = chart_actuals(summary)
+    overlap = sorted(k for k in accepted if k in chart_q)
+    for k in overlap:
+        if not close(accepted[k][0], chart_q[k], 0.01, 0.01):
+            return [], (f"the calendar's {quarter_label(*fiscal_of(k, fy_month))} EPS {accepted[k][0]:g} differs "
+                        f"from the earningsChart's {chart_q[k]:g} (another basis)")
+    if len(overlap) < CALENDAR_MIN_OVERLAP:
+        return [], f"only {len(overlap)} quarter(s) to check against the earningsChart"
+    seen = seen or today()
+    oldest = add_months(month_end(seen), -12 * CALENDAR_YEARS)
+    rows = []
+    for key in sorted(accepted):
+        if key in chart_q or key in known or key <= oldest:
+            continue
+        eps, date = accepted[key]
+        rows.append({"seen": seen, "company": node_id, "ticker": raw.get("symbol"), "period_type": "quarterly",
+                     "end": key, "label": quarter_label(*fiscal_of(key, fy_month)), "eps_adjusted": round(eps, 4),
+                     "currency": ccy, "source": CALENDAR_SOURCE_NAME, "reported": date})
+    return rows, None
 
 
 def fill_from_summary(periods, entries, derived, now=None):
@@ -1490,8 +1637,11 @@ def compose(node_id, raw, hist_rows=(), fx=None, filings=None, adj_rows=()):
     # 5b) adjusted EPS (Yahoo's analysts' basis, the basis of the (E) consensus), its own series: Yahoo's current
     #     answer, then the history for the quarters Yahoo no longer lists; a fiscal year = Yahoo's annual figure, else
     #     the sum of its four quarters when all four are known
-    adj_q, adj_y, resplit = adjusted_series(summary, [r for r in adj_rows if r.get("company") == node_id], currency,
-                                            splits)
+    own_adj = [r for r in adj_rows if r.get("company") == node_id]
+    adj_q, adj_y, resplit = adjusted_series(summary, own_adj, currency, splits)
+    chart_q = chart_actuals(summary)[0]
+    from_calendar = any(r.get("source") == CALENDAR_SOURCE_NAME and r.get("period_type") == "quarterly"
+                        and r.get("end") not in chart_q and adj_q.get(r.get("end")) is not None for r in own_adj)
     adj_y, summed = annual_adjusted(adj_q, adj_y, years)
     for scale, key in resplit:
         (derived if scale == "quarterly" else derived_y).setdefault(key, set()).add("eps_adjusted")
@@ -1647,6 +1797,12 @@ def compose(node_id, raw, hist_rows=(), fx=None, filings=None, adj_rows=()):
                      "(market/history/financials_eps_adjusted.jsonl), so older quarters stay. A fiscal year's "
                      "adjusted EPS is Yahoo's annual figure, else the sum of its four quarters when all four are "
                      "known (listed in \"derived\"), else blank.")
+    if from_calendar:
+        notes.append("Adjusted EPS of the quarters before the daily records is the \"Reported EPS\" of Yahoo's "
+                     "earnings calendar, the same basis (checked against Yahoo's current figures on the quarters both "
+                     "list) and already on today's share basis; each quarter is as first reported, so a later change "
+                     "of the company's adjusted-EPS definition is not restated.")
+        sources.append({"name": CALENDAR_SOURCE_NAME, "url": CALENDAR_URL.format(s=raw.get("symbol"))})
     if resplit:
         notes.append("Adjusted EPS recorded before a later stock split is shown on today's share basis (divided by "
                      "the split; listed in \"derived\").")
@@ -1946,6 +2102,92 @@ def build(only=None):
     return index
 
 
+# ------------------------------------------------ the earnings calendars (adjusted EPS of past quarters)
+
+def calendar_due(tg, state, now, every=False):
+    """Node ids whose Yahoo earnings calendar to read, most useful first: those that reported since the last read
+    (the next report date that read showed has passed), those never read, those whose read failed, then those read
+    more than CALENDAR_REFRESH_DAYS ago. Only companies with a cached Yahoo answer (calendar_rows checks against it);
+    a company is read at most once a day. every (--backfill / --only): all of them, in that order."""
+    today_d = dt.date.fromisoformat(now)
+    reported, never, failed, stale = [], [], [], []
+    for node_id in tg:
+        st = state.get(node_id) or {}
+        if not st.get("ok") or not st.get("symbol") or not cache_path(st["symbol"]).exists():
+            continue
+        cal = st.get("eps_calendar") or {}
+        read = cal.get("read")
+        if read == now and not every:
+            continue
+        if not read:
+            never.append(node_id)
+        elif cal.get("error"):
+            failed.append(node_id)
+        elif cal.get("next") and read <= cal["next"] < now:
+            reported.append(node_id)
+        elif every or (today_d - dt.date.fromisoformat(read)).days > CALENDAR_REFRESH_DAYS:
+            stale.append(node_id)
+
+    def degree_order(ids):
+        return sorted(ids, key=lambda i: (-tg[i]["degree"], i))
+
+    return degree_order(reported) + degree_order(never) + degree_order(failed) + degree_order(stale)
+
+
+def refresh_calendars(node_ids, state, now, max_minutes=None):
+    """Read the Yahoo earnings calendars of these companies, in this order, and add the adjusted EPS of the quarters
+    the history lacks (calendar_rows) to ADJ_DATASET (ADD-only). Stops after max_minutes, or for the day when Yahoo
+    rate-limits 3 companies in a row; the rest are due on the next run (resumable). Each company read gets
+    state[node]["eps_calendar"] = {"read", "next" (next report date), "added" (rows), "skipped" (why it was not
+    used) | "error"}. Returns {"read", "added", "skipped", "errors", "waiting"}."""
+    started = time.monotonic()
+    known = {}
+    for r in read_history(ADJ_DATASET):
+        if r.get("period_type") == "quarterly":
+            known.setdefault(r.get("company"), set()).add(r.get("end"))
+    counts = {"read": 0, "added": 0, "skipped": 0, "errors": 0, "waiting": 0}
+    rows, limited_in_a_row = [], 0
+    for i, node_id in enumerate(node_ids):
+        if max_minutes is not None and time.monotonic() - started > max_minutes * 60:
+            counts["waiting"] = len(node_ids) - i
+            log(f"eps calendar: time budget of {max_minutes} min reached; {len(node_ids) - i} companies wait")
+            break
+        st = state[node_id]
+        symbol = st["symbol"]
+        try:
+            cal = fetch_calendar(symbol)
+            limited_in_a_row = 0
+        except RateLimited:
+            limited_in_a_row += 1
+            if limited_in_a_row >= 3:
+                counts["waiting"] = len(node_ids) - i
+                log("WARNING eps calendar: Yahoo keeps rate-limiting; stopping for today")
+                break
+            time.sleep(30)
+            continue                                   # not recorded as read: due again next run
+        except Exception as e:
+            counts["errors"] += 1
+            st["eps_calendar"] = {"read": now, "error": f"{type(e).__name__}: {str(e)[:120]}"}
+            log(f"WARNING eps calendar {node_id} ({symbol}): {st['eps_calendar']['error']}")
+            time.sleep(PAUSE)
+            continue
+        time.sleep(PAUSE)
+        write_json(calendar_cache_path(symbol), cal)
+        new, reason = calendar_rows(node_id, read_json(cache_path(symbol)), cal, known.get(node_id, set()), now)
+        st["eps_calendar"] = {"read": now, "next": next_report(cal, now), "added": len(new)}
+        if reason:
+            st["eps_calendar"]["skipped"] = reason
+            counts["skipped"] += 1
+            log(f"eps calendar: {node_id} ({symbol}) not used: {reason}")
+        counts["read"] += 1
+        rows += new
+        if (i + 1) % 50 == 0:                          # a run killed half-way keeps what it has read
+            counts["added"] += append_history(ADJ_DATASET, rows, ADJ_KEY)
+            rows = []
+    counts["added"] += append_history(ADJ_DATASET, rows, ADJ_KEY)
+    return counts
+
+
 # ------------------------------------------------ the daily run
 
 def run(backfill=False, only=None, limit=None, max_minutes=None):
@@ -2064,6 +2306,14 @@ def run(backfill=False, only=None, limit=None, max_minutes=None):
     new_adj = append_history(ADJ_DATASET, adj_snapshots, ADJ_KEY)
     log(f"fetched {ok} companies, {nodata} without data on Yahoo, {failed} failed; {new_rows} new history rows "
         f"and {new_adj} new adjusted-EPS rows in the last batch")
+    # adjusted EPS of past quarters from Yahoo's earnings calendar: resumable, at most CALENDAR_MAX_MINUTES a day
+    # (companies that just reported first, then those never read), every selected company with --backfill / --only
+    cal_ids = calendar_due(tg, state, now, every=backfill or bool(only))
+    cal = refresh_calendars(cal_ids[:limit] if limit else cal_ids, state, now,
+                            None if backfill or only else CALENDAR_MAX_MINUTES)
+    write_json(state_path, state)
+    log(f"eps calendar: {cal['read']} calendars read ({cal['skipped']} not used, {cal['errors']} failed), "
+        f"{cal['added']} adjusted-EPS rows added, {cal['waiting']} companies wait for the next run")
     # the same companies' filings (SEC XBRL for US filers, DART for Korea): exact dates, depth, the newest filing
     counts = refresh_filings(fetched_ids, tg, None if backfill or only else FILINGS_MAX_MINUTES, DART_WORKERS)
     log(f"filings: SEC facts of {counts['sec']} companies, DART reports of {counts['dart']} "
@@ -2084,12 +2334,26 @@ def main(argv=None):
     p.add_argument("--only", help="comma-separated node ids, e.g. \"Micron,NVIDIA\"")
     p.add_argument("--limit", type=int, help="fetch at most this many companies")
     p.add_argument("--max-minutes", type=float, help="stop fetching after this many minutes")
+    p.add_argument("--calendar-only", action="store_true",
+                   help="read the Yahoo earnings calendars (adjusted EPS of past quarters) of the due companies (or "
+                        "every --only one), no statements, then rebuild")
     p.add_argument("--filings-only", action="store_true",
                    help="refresh the SEC / DART filings of every company (or --only), no Yahoo, then rebuild")
     p.add_argument("--workers", type=int, default=1, help="with --filings-only: DART companies read at once")
     args = p.parse_args(argv)
     only = [s.strip() for s in args.only.split(",") if s.strip()] if args.only else None
     if args.build_only:
+        build()
+        return 0
+    if args.calendar_only:
+        tg = {k: v for k, v in targets().items() if not only or k in only}
+        state_path = HISTORY / STATE_FILE_NAME
+        state = read_json(state_path, {}) or {}
+        ids = calendar_due(tg, state, today(), every=bool(only))
+        cal = refresh_calendars(ids[:args.limit] if args.limit else ids, state, today(), args.max_minutes)
+        write_json(state_path, state)
+        log(f"eps calendar: {cal['read']} calendars read ({cal['skipped']} not used, {cal['errors']} failed), "
+            f"{cal['added']} adjusted-EPS rows added, {cal['waiting']} companies wait")
         build()
         return 0
     if args.filings_only:
