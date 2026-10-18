@@ -574,7 +574,15 @@ def take_revenue(company, code, y, m, state):
     filed = min(date.today(), deadline)
     label = revenue_label(company, y, m, filed)
     path = OUT_DIR / f"{slug(company)}_{filed.isoformat()}_revenue_{y}{m:02d}.txt"
-    lines = [f"{REV_ROWS.get(k, k)} ({k}): {v}" for k, v in res["data"]]
+    # Most companies file one value per row (NT$ thousand). Foreign-registered "-KY" companies (Silergy,
+    # ShunSin …) file two: NT$ and their functional currency (e.g. USD). So every row's values are joined
+    # with " | ", and when there is more than one column the column names (from the response's titles)
+    # are written above the rows.
+    columns = [s["main"] for t in res.get("titles", [])[1:] for s in t.get("sub", [])]
+    lines = [f"{REV_ROWS.get(row[0], row[0])} ({row[0]}): {' | '.join(row[1:]).rstrip(' |')}" for row in res["data"]]
+    title = "Monthly net revenue (營業收入淨額), NT$ thousand:"
+    if len(columns) > 1:
+        title = f"Monthly net revenue (營業收入淨額), thousand; columns: {' | '.join(columns)}:"
     header = [
         f"SOURCE: {API}t05st10_ifrs  (POST companyId={code}, year={y - 1911}, month={m}; MOPS 每月營收 t05st10_ifrs)",
         f"MOPS ITEM: 每月營業收入 {code} {res.get('companyAbbreviation', '')} {res.get('marketKindName', '')} — month "
@@ -585,7 +593,7 @@ def take_revenue(company, code, y, m, state):
         "#       NT$ thousand). Write the figures as filed (no arithmetic); English only (enrich skill §2, §8).",
         f"# source label: {label}",
     ]
-    write_doc(path, header, "Monthly net revenue (營業收入淨額), NT$ thousand:\n" + "\n".join(lines))
+    write_doc(path, header, title + "\n" + "\n".join(lines))
     enqueue({"kind": "revenue", "company": company, "label": label, "file": path.relative_to(ROOT).as_posix(),
              "date": filed.isoformat(), "id": f"rev:{code}-{y}{m:02d}"})
     print(f"  saved {label}")

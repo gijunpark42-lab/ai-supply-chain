@@ -295,6 +295,9 @@ def sync(month=None):
         meta = {"company": r["name"], "date": str(r["date"]), "url": url, "title": title}
         out.with_suffix(".json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
         state["seen"][key] = "audio"
+    # Remember when this sync ran, even when it found nothing new, so the status board
+    # (enrich_status.py) does not keep asking for a sync that already happened.
+    state["last_sync"] = today.isoformat()
     _save(STATE, state)
     waiting = sorted(p for ext in ("m4a", "mp3", "mp4", "webm")
                      for p in AUDIO_DIR.glob(f"*.{ext}")) if AUDIO_DIR.exists() else []

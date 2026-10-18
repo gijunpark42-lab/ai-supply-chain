@@ -122,3 +122,26 @@ Corning (09-17, Contour Form Micro Cable launch, multicore fiber 4 cores, MMC/PR
 release on its newsroom or Cision — only an exhibitor listing (stand 2106) with no Sivers content; nothing added.
 Marvell (Xi Wang) and Lumentum (Rafik Ward) fireside chats were both 09-22 1:00-1:55 PM Market Focus Theater — check
 Investing.com later for transcripts. Schedule-only pages (Marvell event page, Lumentum speakers release) skipped.
+
+**Nightly `enrich us` 2026-10-06.** The 10-04 conference run walked 0 pages (failed silently, runs[] `pages: 0`) — read
+`pages` in the last runs[] entry, not just the date. Tonight's walk: 400 pages back to 2026-05-27, 25 new talks for our
+companies (mostly ai_bio pharma + the 10-04 US nodes), 23 US enriched (22 patches + the Vertex mis-match). **Vertex
+mis-match:** "Vertex at …" titles also catch Vertex Inc. (tax software) — check the `# speakers:` header before
+enriching (Goldman Communacopia 09-09 was Vertex Inc.; closed, board question). Multi-company panels (H.C. Wainwright
+09-14: CleanSpark + MARA files are two transcriptions of one panel) — only the filer's own executives are captured;
+other panelists' facts are a board question. A conference file can contain another company's whole session
+(Recursion BofA file holds Upstart lines ~278-404).
+
+**Nightly `enrich us` 2026-10-07.** Walk: 400 pages back to 2026-05-27 (~75 min — the walk always goes the full
+180-day window, so start it first and enrich IR meanwhile), 8 new talks, all US, all enriched: Generate Biomedicines x4
+(Cantor 09-10, MS 09-14, HCW 09-16, Bernstein 09-23; management gave different milestone/royalty numbers on different
+days — each kept under its own label), Eikon Cantor 09-10, BillionToOne Wells Fargo 09-09, Rockwell MS Laguna 09-16,
+Cipher Digital KBW AI Summit 10-06 (CFO only; financing terms dropped). Rolls-Royce (EU) and Lenovo (CN) left queued.
+
+**Nightly `enrich` 2026-10-15/16.** Walk: 400 pages back to 2026-06-08, 4 new talks, all enriched: Applied Materials
+SEMICON West 10-13 (investor breakfast: 2030 targets, capacity, segment SAMs; verifier trimmed restatements and
+deleted an AIX "contract" on the AMAT -> Micron process-tools edge — re-added as AMAT quarterly_data with counterparty
+Micron), Moderna Morgan Stanley 09-14 + Bernstein 09-23 (the Bernstein `# speakers:` header lists only Berman although
+CEO Bancel speaks throughout — investing.py speaker matching misses some speakers), AstraZeneca ASBMR 10-12 ("Meet the
+Management": only Dunoyer / Pirozzi captured, the outside investigator excluded). Outside / consensus estimates an
+executive quotes (industry size ranges, "markets believe" WFE) are left out, as for analyst numbers.
