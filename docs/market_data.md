@@ -221,6 +221,25 @@ What each web file holds:
     annual figure (the 0y estimate's year-ago EPS) where given, else the sum of its four fiscal quarters only when all
     four are known (listed in derived), else blank; nothing is estimated. A listing whose Yahoo EPS is in another
     currency than its statements (6805.TW, HYFT) gets no adjusted actuals.
+  - Adjusted EPS of past years (user, 2026-10-17: "혹시 다른 곳 찾아낼 수 없어? 조정 EPS 올리는 곳 많잖아"): Yahoo's
+    earnings calendar (`yfinance` `get_earnings_dates`, finance.yahoo.com/calendar/earnings, one request per
+    company) lists the "Reported EPS" of up to 100 past reports on the earningsChart's basis, already
+    split-adjusted. Each report belongs to the latest fiscal quarter (the company's own fiscal calendar) that ended
+    7-120 days before it; a report is skipped when the quarter before is in range too and has no report of its own
+    (a late report could be about either), and a quarter with two reports that disagree is skipped. A company's
+    calendar is used only when Yahoo's EPS currency is its statements' (not 6805.TW, HYFT), Yahoo's statements have
+    two consecutive quarters or the calendar's newest four quarters are consecutive (no half-year reporters) and it
+    agrees with the earningsChart (within 0.01 or 1%) on at least 2 quarters both list; otherwise the company is skipped and the reason logged (and kept in
+    `financials_state.json` → `eps_calendar.skipped`). The quarters of the last 10 years go into
+    `financials_eps_adjusted.jsonl` (same key, ADD-only, never over a recorded figure or Yahoo's current one) with
+    `"source": "Yahoo Finance earnings calendar"` and `"reported"` (the report date); their `seen` is the day the
+    calendar was read, so the split rule divides them only by a split after that day. The fiscal-year rule above
+    then fills the years from four known quarters. Each quarter is as first reported: when a company changes its
+    adjusted-EPS definition (NVIDIA no longer excludes stock-based compensation from Q1 FY27), older quarters keep
+    the old basis, as on Yahoo.
+    Verification (2026-10-17, once, not a pipeline): the calendar's last 4 quarters of NVIDIA, Micron, AMD,
+    Broadcom, Microsoft, Oracle, Marvell and Dell against the non-GAAP diluted EPS in each company's 8-K earnings
+    release (Exhibit 99.1, SEC EDGAR): 32 of 32 identical, each 8-K filed on Yahoo's report date.
   - Preliminary results (Korea): a 연결재무제표기준영업(잠정)실적(공정공시) filing for a quarter without its report yet
     becomes a "(P)" column (revenue, operating income and whatever else it gives, with QoQ / YoY).
   - Refresh: daily for companies 10 days before to 4 days after their earnings date (hyperscaler_cash's calendar
@@ -233,6 +252,11 @@ What each web file holds:
     without a cache keeps its published file. `financials_snapshots.jsonl` keeps
     every reported period as first seen (key company + end + period_type), to spot restatements and to keep
     quarters that dropped out of Yahoo's 5-quarter window.
+    Earnings calendars follow the statements, at most 5 minutes a day (about 1.2 s per company; the first fill of
+    all ~800 companies would take about 16 minutes, more than the collector's budget, so it is a resumable rotation
+    of about 4 runs): companies that reported since their last read first (the next report date the calendar
+    showed has passed), then those never read, those whose read failed and those read more than 92 days ago.
+    `--backfill` / `--only` read every selected company's calendar; `--calendar-only` reads only calendars.
 
 ## Licences and terms
 
@@ -254,7 +278,8 @@ What each web file holds:
   API keys.
 - **Alpha Vantage**: free key, 1 calendar call a day (the free tier allows 25). **Yahoo Finance via yfinance**:
   unofficial and personal-use: earnings dates (hyperscaler_cash, about 2 requests per second) and the
-  financial-statement table (financials: 3 requests per company, 0.6 s apart, backing off on HTTP 429).
+  financial-statement table (financials: 3 requests per company, 0.6 s apart, backing off on HTTP 429, plus one
+  earnings-calendar page per company and new report).
 
 ## Files
 
@@ -304,6 +329,7 @@ python -X utf8 -m market.financing                        # rebuild graph/financ
 python -X utf8 -m market.financials --only "Micron,NVIDIA" # refetch a few companies
 python -X utf8 -m market.financials --build-only          # rebuild graph/financials/ from the local cache
 python -X utf8 -m market.financials --filings-only --workers 8   # (re)fill the SEC / DART caches, then rebuild
+python -X utf8 -m market.financials --calendar-only        # due earnings calendars only (past adjusted EPS), rebuild
 ```
 
 Backfill per collector: `insiders_us` scans the last four SEC quarterly data sets; `insiders_asia` reads every
@@ -312,7 +338,8 @@ window; `gpu_prices` records every week GetDeploying still has; `memory_prices` 
 back 365 days (DRAMeXchange history is members-only, so spot prices start on the first run); `hyperscaler_cash`
 records every quarter XBRL can derive; `financials` fetches every public company (highest graph degree first, about
 35 minutes, then their SEC facts, about 4 minutes, and their DART reports, about an hour with 8 workers the first
-time); `ai_labs` forces a fresh download. Re-running a backfill adds no duplicates.
+time, plus about 16 minutes of earnings calendars); `ai_labs` forces a fresh download. Re-running a backfill adds no
+duplicates.
 
 After a manual run, `cd web && npm run sync` copies the new files for local viewing; the nightly PR publishes them.
 
