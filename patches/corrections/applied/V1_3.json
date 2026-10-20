@@ -1,0 +1,37 @@
+{
+ "reviewer": "V1",
+ "items": [
+  {
+   "kind": "quarterly_data",
+   "company": "AMD",
+   "target": null,
+   "label": "AMD 8-K (08-04-2026)",
+   "signal_prefix": "Q2 2026 record results: revenue $11.5B",
+   "action": "set",
+   "set": {
+    "signal": "Q2 2026 record results: revenue $11.5B, UP 50% year over year, with GAAP gross margin 54% (non-GAAP 56%), GAAP operating income $2.0B (non-GAAP $3.1B), GAAP net income $2.3B (non-GAAP $2.8B) and GAAP diluted EPS $1.38 (non-GAAP $1.66). DATA CENTER SEGMENT REVENUE $6.7 BILLION, UP 107% YEAR OVER YEAR — more than doubling on EPYC processors and Instinct GPUs — and now 58% OF TOTAL COMPANY REVENUE. Client and Gaming $3.8B (+6%; Client $3.1B +23% on Ryzen, Gaming $779M -31% on lower semi-custom); Embedded $977M (+19%). Q3 2026 GUIDANCE: revenue approximately $13 BILLION +/- $300M, representing roughly +41% year over year and +13% sequentially, with non-GAAP gross margin around 56%. CFO Jean Hu: 'We expect DATA CENTER SALES TO ACCELERATE IN THE SECOND HALF of 2026, driving stronger overall revenue growth and continued earnings expansion.' (Q2 2025 results included $800 million of inventory and related charges due to the US Government's export control on AMD Instinct MI308 data center GPU products.)"
+   },
+   "chains": [
+    "accelerators/amd_mi450_helios.json"
+   ],
+   "reason": "Relabelled to the 8-K under the 'Release facts under call labels' ruling, but the closing clause 'on the call, year-over-year comparisons exclude ... unless otherwise noted' is call wording that the 8-K does not contain; the release footnote states only the $800 million charge.",
+   "evidence": "(2) Q2’25 results included $800 million in inventory and related charges due to the U.S. Government's export control on AMD InstinctTM MI308 data center GPU products"
+  },
+  {
+   "kind": "contract",
+   "company": "AMD",
+   "target": "Anthropic",
+   "label": "AMD 8-K (08-04-2026)",
+   "signal_prefix": "Anthropic agreed 'to deploy UP TO 2 GIGAWATTS",
+   "action": "set",
+   "set": {
+    "signal": "Anthropic agreed 'to deploy UP TO 2 GIGAWATTS OF MI450 SERIES GPUs IN AMD HELIOS RACKS', alongside a MULTIYEAR COLLABORATION to optimise AMD Instinct GPUs and ROCm software development USING CLAUDE."
+   },
+   "chains": [
+    "accelerators/amd_mi450_helios.json"
+   ],
+   "reason": "The last sentence ('This makes Anthropic a named multi-gigawatt ... customer and pairs silicon supply with a software co-development loop ...') is interpretation the release does not state; removed, the sourced deal terms stay.",
+   "evidence": "Announced a strategic partnership with Anthropic to deploy up to 2 gigawatts of MI450 Series GPUs in AMD Helios racks and a multiyear collaboration to optimize AMD Instinct GPUs and ROCm software development using Claude."
+  }
+ ]
+}

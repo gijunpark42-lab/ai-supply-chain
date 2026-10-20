@@ -1,0 +1,68 @@
+{
+ "source": "Axe Compute 10-Q (08-14-2026)",
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Axe Compute",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "dedicated bare-metal AI infrastructure (GPU clusters) designed, deployed, owned and operated for enterprises; Axe Compute Build build-to-order program",
+     "quarterly_data": [
+      {
+       "quarter": "Axe Compute 10-Q (08-14-2026)",
+       "signal": "Axe Compute's 10-Q: the April Agreement (announced April 22, 2026) is a 36-month enterprise infrastructure contract with an aggregate contract value of approximately $260 million to deliver a dedicated cluster of 2,304 NVIDIA B300 GPUs and AI-focused high-speed storage from a single U.S. Tier 3 data center, maintaining NVIDIA reference architecture, with targeted deployment commencing in the third quarter of 2026 and options to renew.",
+       "figure": "approximately $260 million; 2,304 NVIDIA B300 GPUs; 36 months; deployment targeted in the third quarter of 2026",
+       "topics": []
+      },
+      {
+       "quarter": "Axe Compute 10-Q (08-14-2026)",
+       "signal": "Axe Compute's 10-Q customer concentration: Customer A accounted for 49% and Customer B for 27% of revenue in the three and six months ended June 30, 2026. Remaining performance obligations were $60.8 million at June 30, 2026, expected to be recognized $29,301,246 in the rest of 2026, $7,053,109 in 2027, $1,906,741 in 2028 and $22,493,576 in 2029. Compute Services and Treasury Management segment revenue was $3,207,345 in the quarter (Drug Discovery Services $7,647).",
+       "figure": "Customer A 49%, Customer B 27% of revenue; remaining performance obligations $60.8 million; compute segment revenue $3,207,345",
+       "topics": []
+      },
+      {
+       "quarter": "Axe Compute 10-Q (08-14-2026)",
+       "signal": "Axe Compute's 10-Q supply commitments: in the quarter it entered into several agreements with third-party vendors to reserve GPU compute capacity, storage, networking and support services, with upfront payments and monthly payments over 12 to 36 months - total contractual commitments of $262,575,515 ($16,757,954 for the rest of 2026, $107,744,100 in 2027, $99,220,630 in 2028 and $38,852,831 in 2029). Compute prepayments stood at $11,148,981 current and $22,946,761 non-current; property and equipment rose to $17,291,873 (from $223,128) as it began buying GPU hardware, with $17,121,106 of purchases in the first half.",
+       "figure": "third-party compute commitments $262,575,515; property and equipment $17,291,873; purchases $17,121,106 (H1 2026)",
+       "topics": []
+      },
+      {
+       "quarter": "Axe Compute 10-Q (08-14-2026)",
+       "signal": "Axe Compute's 10-Q: it historically pursued an asset-light model in which it did not own GPU hardware and provided access to GPU compute capacity primarily through infrastructure made available by the Aethir network; it has now expanded to purchase, own and operate GPU computing hardware, which it describes as substantially more capital-intensive. Its Strategic Compute Reserve is intended to create value by, among other things, deploying ATH to acquire compute capacity and reselling that capacity to customers.",
+       "figure": "no specific figure",
+       "topics": [],
+       "counterparty": "Aethir",
+       "counterparty_role": "supplier (GPU compute capacity through the Aethir network)"
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "product": "GB200 / GB300 / Vera Rubin GPU systems",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Axe Compute",
+       "relationship": "B300 / GB300 NVL72 GPUs and NVIDIA switching for Axe Compute GPU clusters",
+       "contracts": [
+        {
+         "source": "Axe Compute 10-Q (08-14-2026)",
+         "signal": "Axe Compute's 10-Q: it depends on a limited number of suppliers, primarily NVIDIA, for the GPUs and other hardware it purchases for its owned GPU infrastructure; disruption to NVIDIA GPU supply could delay deployments including its targeted third-quarter 2026 deployment.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "10-Q supplier disclosure",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

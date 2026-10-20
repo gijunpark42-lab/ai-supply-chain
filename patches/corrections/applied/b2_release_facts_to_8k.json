@@ -1,0 +1,109 @@
+{
+  "reviewer": "b2-board-2026-10-19",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Astera Labs",
+      "target": null,
+      "label": "Astera Labs Q2 FY2026 (08-04-2026)",
+      "signal_prefix": "RECORD Q2 AND A STEP-CHANGE GUIDE",
+      "action": "set",
+      "reason": "Before the relabel to the 8-K: '+~40% QoQ at the midpoint' is the CFO's call wording, not in the earnings release, so it leaves this release entry (it stays on the call's own guidance entry).",
+      "evidence": "At the midpoint, this represents 40% sequential growth",
+      "set": {
+        "signal": "RECORD Q2 AND A STEP-CHANGE GUIDE: revenue $392.4M, up 27% sequentially and 104% year over year, on 'diversified growth across AI FABRICS and SIGNAL CONDITIONING'. Q3 2026 guided to $540-560 MILLION, with ~72% gross margin (GAAP and non-GAAP), non-GAAP opex $156-160M and non-GAAP EPS $1.16-1.21; the inflection is explicitly 'driven by SCORPIO X-SERIES 320-LANE FABRIC SWITCH PRODUCTION RAMP'. Ecosystem: at Computex 2026 gave the first public demonstration of the Scorpio X-Series 320-lane Smart Fabric Switch plus ultra-low-latency optical connectivity, NVIDIA MGX-BASED REFERENCE DESIGNS, 200G/lane SerDes and COSMOS rack-level validation; expanded Taiwan operations and Cloud-Scale Interop Lab for closer coordination with AMD, Arm, Intel and NVIDIA.",
+        "figure": "Record $392.4M (+104% YoY); Q3 guide $540-560M on Scorpio X ramp; GM ~72%"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ]
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Astera Labs",
+      "target": null,
+      "label": "Astera Labs Q2 FY2026 (08-04-2026)",
+      "signal_prefix": "AMD-ecosystem depth demonstrated at AMD Advancing AI 2026",
+      "action": "relabel",
+      "reason": "Every fact in this entry (AMD Advancing AI joint architectures, Taiwan expansion, revenue / guide backdrop) is in the same-day earnings release (8-K Ex. 99.1); 'Advancing AI' is not in the verbatim call.",
+      "evidence": "AMD Advancing AI",
+      "new_label": "Astera Labs 8-K (08-04-2026)",
+      "chains": [
+        "accelerators/amd_mi450_helios.json"
+      ]
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Astera Labs",
+      "target": null,
+      "label": "Astera Labs Q2 FY2026 (08-04-2026)",
+      "signal_prefix": "RECORD Q2 AND A STEP-CHANGE GUIDE",
+      "action": "relabel",
+      "reason": "Entry is written from the earnings release (8-K Ex. 99.1): Computex demo, MGX reference designs, COSMOS, Taiwan Cloud-Scale Interop Lab and the quoted release sentences are not in the verbatim call; the call label keeps no other revenue_growth entry, so the 8-K entry is the newest one of that slot.",
+      "evidence": "Q3 revenue inflection to be driven by ScorpioTM X-Series 320-lane fabric switch production ramp",
+      "new_label": "Astera Labs 8-K (08-04-2026)",
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ]
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "AMD",
+      "target": null,
+      "label": "AMD Q2 FY2026 (08-04-2026)",
+      "signal_prefix": "ANTHROPIC COMMITS TO UP TO 2 GIGAWATTS OF MI450",
+      "action": "relabel",
+      "reason": "Release wording ('to deploy up to 2 gigawatts of MI450 Series GPUs in AMD Helios racks', 'multiyear collaboration', MI430X) is in AMD 8-K Ex. 99.1, not in the verbatim call (the call's own Anthropic detail stays on its separate contract).",
+      "evidence": "up to 2 gigawatts",
+      "new_label": "AMD 8-K (08-04-2026)",
+      "chains": [
+        "accelerators/amd_mi450_helios.json"
+      ]
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "AMD",
+      "target": null,
+      "label": "AMD Q2 FY2026 (08-04-2026)",
+      "signal_prefix": "Q2 2026 record results: revenue $11.5B",
+      "action": "relabel",
+      "reason": "GAAP gross margin 54%, GAAP net income $2.3B, GAAP EPS $1.38, the +/- $300M guidance band and CFO Jean Hu's 'accelerate in the second half' quote are only in the earnings release (8-K Ex. 99.1); the call label keeps no other revenue_growth entry.",
+      "evidence": "We expect data center sales to accelerate in the second half of 2026",
+      "new_label": "AMD 8-K (08-04-2026)",
+      "chains": [
+        "accelerators/amd_mi450_helios.json"
+      ]
+    },
+    {
+      "kind": "contract",
+      "company": "AMD",
+      "target": "Anthropic",
+      "label": "AMD Q2 FY2026 (08-04-2026)",
+      "signal_prefix": "Anthropic agreed 'to deploy UP TO 2 GIGAWATTS OF MI450",
+      "action": "relabel",
+      "reason": "The quoted agreement wording is the earnings release's (8-K Ex. 99.1); the call's own statement is the separate 'Call detail on the Anthropic deal' contract.",
+      "evidence": "to deploy up to 2 gigawatts of MI450 Series GPUs in AMD Helios racks",
+      "new_label": "AMD 8-K (08-04-2026)",
+      "chains": [
+        "accelerators/amd_mi450_helios.json"
+      ]
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Keysight",
+      "target": null,
+      "label": "Keysight Q3 FY2026 (08-18-2026)",
+      "signal_prefix": "Q3 FY2026 (quarter ended 07-31-2026) record results",
+      "action": "set",
+      "reason": "The parenthetical's GAAP $397M / $2.30 and non-GAAP $3.07 / prior-year figures come from the same-day earnings release, not the call; they move to a 'Keysight 8-K (08-18-2026)' entry (patch edgar_keys_8-k_2026-08-18_release_eps.json). The call says net income $531M and 'earnings per share grew 79%'.",
+      "evidence": "We delivered net income of $531 million and earnings per share of $3.7.",
+      "set": {
+        "signal": "Q3 FY2026 (quarter ended 07-31-2026) record results, above the high end of guidance on both revenue and EPS. Orders $2.091B, +56% reported (+52% core; acquisitions +5pp, FX -1pp) - the SECOND consecutive quarter above $2B. Revenue $1.846B, +36% reported (+31% core). Gross margin 69%; opex $661M; operating margin 33.2%, +820bps YoY and ABOVE the 31-32% long-term target; core operating margin 34.7% on a 66% incremental. Non-GAAP net income $531M; EPS grew 79% (the transcript renders the EPS amount as '$3.7'; the filed per-share figures are on the Keysight 8-K (08-18-2026) entry). Segments: CSG revenue $1.345B +43% reported (+36% core), GM 70.8%, OM 34%; within CSG commercial communications delivered its FIRST $1B QUARTER at $1.006B, +56%, and WIRELINE REVENUE EXCEEDED WIRELESS FOR THE FIRST TIME (also true year-to-date). Aerospace/defense/government $339M, +14%. EISG record $501M, +21%, GM 64.1%, OM 31%, with double-digit order growth in all three markets. Software and services ~33% of revenue (record in dollars, both growing double digits), ARR 24% of mix. Cash $2.605B; operating cash flow $437M; free cash flow $403M; ~640k shares repurchased at ~$326 average for $210M ($517M YTD). Gross margin described as sustainable in the 'upper 60s percent'.",
+        "figure": "Orders $2.091B (+56%), rev $1.846B (+36%), NG net income $531M, EPS +79%, OM 33.2%"
+      },
+      "chains": [
+        "components/optical_networking.json"
+      ]
+    }
+  ]
+}

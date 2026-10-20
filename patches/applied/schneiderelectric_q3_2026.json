@@ -1,0 +1,90 @@
+{
+ "source": "Schneider Electric Q3 FY2026 (10-16-2026)",
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Schneider Electric",
+     "domain": "power",
+     "sector": "Datacenter Power",
+     "product": "EcoStruxure UPS, PDU, prefab modular datacenter blocks",
+     "quarterly_data": [
+      {
+       "quarter": "Schneider Electric Q3 FY2026 (10-16-2026)",
+       "signal": "Q3 2026 revenue was a record EUR 11.5 billion for any quarter, up 17% organic (16.9%) and 17.9% reported (CFO Nathan Fast): Energy Management +19% organic to EUR 9.6 billion, Industrial Automation +8% organic to EUR 1.8 billion; products +17% organic, systems +22% (driven by data center, supported by infrastructure), software and services +7% (AVEVA ARR and Q3 organic sales both around 10%). Energy Management by region: North America +20% (U.S. data centers, prefabricated solutions and cooling), Europe +9% (data center and grid), China and East Asia +32%, South Asia and International +16%; China region up 26% in Q3 and 20% year to date. Industrial Automation: North America +16%, Europe +6%, China and East Asia +8%, South Asia and International +3%.",
+       "figure": "Q3 revenue EUR 11.5 billion (+17% organic, +17.9% reported); Energy Management EUR 9.6 billion (+19%); Industrial Automation EUR 1.8 billion (+8%); systems +22%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "Schneider Electric Q3 FY2026 (10-16-2026)",
+       "signal": "FY2026 guidance upgraded for the second time this year (CEO Olivier Blum): organic revenue growth of 12% to 14% (CFO: from 7%-10% in February) and adjusted EBITA margin up 100 to 120 bps organically, implying around 19.7% to 19.9%. CFO: if rates stay where they are, Forex impact of minus EUR 300 million to minus EUR 400 million on revenue and negligible on margin; Q4 trends largely unchanged from July, against the strongest quarter of 2025; China added alongside the U.S. and India as growth drivers; pricing expected to offset in value 2026 raw-material inflation and net tariff impact.",
+       "figure": "FY2026 organic growth 12% to 14%; adjusted EBITA margin +100 to 120 bps (around 19.7% to 19.9%); Forex minus EUR 300 million to minus EUR 400 million",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "Schneider Electric Q3 FY2026 (10-16-2026)",
+       "signal": "Data center demand (CFO Nathan Fast): another quarter of triple digit demand growth in Q3, three of the last four quarters, further improving visibility into 2027 and 2028, with much of the cadence falling into 2027 and 2028; prefabricated solutions have been the leading data center driver for four quarters, with European colos embracing prefab as a turnkey solution. Semiconductor demand is also sustained, linked to the AI build-out. Data center and networks were 30% of revenue at the end of last year (direct data center about four points less), and the concentration is expected to increase. CEO: Schneider is selective, working with customers that have strong interest in co-design and strong financial capabilities; CFO agreed its exposure to neoclouds is representative of the broader market.",
+       "figure": "triple digit data center demand growth in Q3; data center and networks 30% of revenue (end of last year)",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "Schneider Electric Q3 FY2026 (10-16-2026)",
+       "signal": "Capacity (CFO Nathan Fast): Schneider continues capacity investments across its regional hubs, specifically liquid cooling - expanded from North America (Motivair) to India, Italy and China (CEO: accelerating liquid-cooling manufacturing investment in China) - and with partners like Foxconn installs prefab capacity both internally and externally; the CFO says this should allow it to keep up with the triple digit demand.",
+       "figure": "no specific figure",
+       "topics": [
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "Schneider Electric Q3 FY2026 (10-16-2026)",
+       "signal": "Pricing (CFO Nathan Fast): Q3 product pricing was about the same in value as all of H1; the proactive price increases at the start of the year are at full run rate and supplementary actions are ramping. Rounds were taken in January (copper, silver and other inputs) and April (Middle East conflict hitting oil, transport and plastics); a next wave of inflation is coming in semiconductors, memory and copper, and Schneider will flex pricing into 2027 if inflationary pressure continues.",
+       "figure": "no specific figure",
+       "topics": [
+        "supply_tightness"
+       ]
+      },
+      {
+       "quarter": "Schneider Electric Q3 FY2026 (10-16-2026)",
+       "signal": "China and buildings (management): China growth is led by AI infrastructure, data centers and semiconductors, sold mostly through panel builders and equipment manufacturers rather than direct to end customers; Schneider benefits from its position with many hyperscalers there, and the CEO expects the demand to continue at least across 2027. Residential remains subdued, while EV chargers (a joint venture with a Chinese partner for Europe), heat pumps, retrofit and the new Foresight digital platform combining power and building management are growth opportunities.",
+       "figure": "no specific figure",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "Foxconn",
+     "layer": "system_integration",
+     "sector": "Server ODM",
+     "product": "integrated GB200 AI server racks",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Schneider Electric",
+       "relationship": "next-generation AI data center and green energy solutions partnership",
+       "contracts": [
+        {
+         "source": "Schneider Electric Q3 FY2026 (10-16-2026)",
+         "signal": "Schneider CFO Nathan Fast: Schneider continues to install capacity both internally and externally to deliver prefabricated data center solutions - 'We talked about the partnership with Foxconn there' - and with partners like Foxconn continues to expand capacity, including liquid cooling, to keep up with triple digit data center demand.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "manufacturing capacity partnership (prefab and liquid cooling)",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

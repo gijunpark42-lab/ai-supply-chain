@@ -1,0 +1,78 @@
+{
+ "source": "ChronoScale 10-Q (10-14-2026)",
+ "chains": {
+  "accelerators/nvda_b200.json": {
+   "players": [
+    {
+     "company": "ChronoScale",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "GPU cloud / AI compute capacity (NVIDIA GB300 NVL72)",
+     "quarterly_data": [
+      {
+       "quarter": "ChronoScale 10-Q (10-14-2026)",
+       "signal": "ChronoScale's 10-Q (quarter ended August 31, 2026): revenue $41,482 thousand, up 148% from $16,718 thousand; net loss from continuing operations $26,430 thousand; adjusted EBITDA $6,018 thousand. The Cloud Business was about 94.1% of revenue: 6,144 NVIDIA H100 GPUs deployed across Colorado, Minnesota and Utah with one GPU capacity customer, plus one-time AI hardware resale arrangements with one additional customer; Customer A was 56% and Customer B 44% of revenue. The Legacy Ekso business was sold after the quarter.",
+       "figure": "revenue $41,482 thousand (+148%); adjusted EBITDA $6,018 thousand; 6,144 H100 GPUs; Customer A 56%, Customer B 44%",
+       "topics": []
+      },
+      {
+       "quarter": "ChronoScale 10-Q (10-14-2026)",
+       "signal": "ChronoScale's 10-Q contracted pipeline: during the quarter it signed GPU services agreements with two customers, each with a three-year committed term, for aggregate contracted revenues of $2.7 billion, and is contractually committed to project-specific capital expenditures of approximately $2.3 billion over the next twelve months; purchase obligations for AI infrastructure were $2.0 billion at August 31, 2026, and it received $328.2 million of prepayments under existing customer contracts after the quarter. Deployments depend in part on obtaining financing.",
+       "figure": "$2.7 billion contracted revenues (two three-year agreements); approximately $2.3 billion committed capex; $2.0 billion purchase obligations; $328.2 million prepayments",
+       "topics": []
+      },
+      {
+       "quarter": "ChronoScale 10-Q (10-14-2026)",
+       "signal": "ChronoScale's 10-Q: on October 11, 2026 ChronoScale signed a term sheet with Applied Digital (related party) to provide a $50.0 million upfront advance for tenant fit-out costs at a third-party data center facility in Texas, where it expects to lease space from a joint venture being formed between Applied Digital and a third party with site control; the lease, still under negotiation, is expected to provide the compute capacity needed for the Microsoft deployment.",
+       "figure": "$50.0 million tenant fit-out advance (term sheet)",
+       "topics": [],
+       "counterparty": "Applied Digital",
+       "counterparty_role": "expected data center lessor (via a joint venture)"
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Microsoft",
+       "relationship": "50-MW AI compute deployment on NVIDIA GB300 NVL72 systems",
+       "contracts": [
+        {
+         "source": "ChronoScale 10-Q (10-14-2026)",
+         "signal": "ChronoScale's 10-Q: the Microsoft GPU Services Agreement (signed August 6, 2026, amended effective August 21, 2026) provides dedicated GPU services at a data center facility in Texas over an approximately three-year term supporting approximately 50 MW, in two tranches of NVIDIA GB300 GPUs expected in February and March of 2027 with roughly equal GPU quantity and contract value; neither party may terminate for convenience, and upfront payments are refundable on certain terminations.",
+         "units": "approximately 50 MW; two tranches of NVIDIA GB300 GPUs",
+         "value": "no specific figure",
+         "date_signed": "08-06-2026",
+         "type": "GPU services agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "product": "NVLink Switch, B200 GPU, GB200 superchip",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "ChronoScale",
+       "relationship": "NVIDIA GPUs (H100 clusters; GB300 NVL72 for the Microsoft deployment) for ChronoScale's GPU cloud",
+       "contracts": [
+        {
+         "source": "ChronoScale 10-Q (10-14-2026)",
+         "signal": "ChronoScale's 10-Q: its Microsoft deployment uses two tranches of NVIDIA GB300 GPUs, and its Cloud Business runs 6,144 NVIDIA H100 GPUs.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "10-Q supplier disclosure",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

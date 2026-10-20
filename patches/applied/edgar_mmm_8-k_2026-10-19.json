@@ -1,0 +1,55 @@
+{
+  "source": "3M 8-K (10-19-2026)",
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "3M",
+          "domain": "thermal",
+          "sector": "Coolants & Fluids",
+          "product": "Novec/fluorinated dielectric coolant fluids",
+          "quarterly_data": [
+            {
+              "quarter": "3M 8-K (10-19-2026)",
+              "signal": "3M entered into an expanded strategic commercial relationship with a wholly-owned subsidiary of Amazon on October 19, 2026 and issued a warrant to a separate Amazon subsidiary; 85% of the warrant shares vest subject to payments from Amazon for optical connectivity and other Data Center products, with full vesting once cumulative payments reach $6 billion, and the remaining warrant shares vest on event-based milestones (warrant share count and exercise price not recorded).",
+              "figure": "vesting of 85% of the warrant tied to Amazon payments for optical connectivity and other Data Center products; full vesting at $6 billion of cumulative payments",
+              "topics": [],
+              "slot": "backlog_or_b2b",
+              "counterparty": "Amazon",
+              "counterparty_role": "customer (optical connectivity and other Data Center products)"
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/optical_networking.json": {
+      "players": [
+        {
+          "company": "3M",
+          "layer": "interconnect",
+          "sector": "Components",
+          "product": "Expanded Beam Optical (EBO) fiber optic connectivity for data centers (EBO ferrules, co-packaged optics solutions)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Amazon",
+              "relationship": "optical connectivity and other data center products supplied to Amazon",
+              "contracts": [
+                {
+                  "source": "3M 8-K (10-19-2026)",
+                  "signal": "Item 7.01: on October 19, 2026 3M entered into an expanded strategic commercial relationship with a wholly-owned subsidiary of Amazon. A warrant issued to a separate Amazon subsidiary vests 85% subject to payments from Amazon for optical connectivity and other Data Center products, with full vesting once cumulative payments reach $6 billion; the remaining warrant shares vest on event-based milestones.",
+                  "units": "optical connectivity and other Data Center products",
+                  "value": "no specific figure (85% warrant tranche fully vests at $6 billion of cumulative Amazon payments)",
+                  "date_signed": "October 19, 2026",
+                  "type": "strategic commercial agreement (customer warrant tied to purchases)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,189 @@
+SOURCE: defeatbeta (Hugging Face mirror of Yahoo Finance transcripts) -- AGPU 2026Q2
+CALL DATE: 08-17-2026
+QUARTER: Q2 FY2026
+# source label: Axe Compute Q2 FY2026 (08-17-2026)
+# speaker turns: 91   characters: 35,249
+
+---
+
+Erin McMahon: Good morning, and welcome to Axe Compute's Q2 2026 earnings call and business update. I am Erin McMahon, Chief Marketing Officer and Head of Investor Relations at Axe Compute. Joining me today are Christopher Miglino, Chief Executive Officer, Jeremy Yaukey-Witter, Chief Financial Officer, and Kyle Okamoto, President. Today, we are hosting the call live from Columbus, Georgia, home to a data center that is the site of our NVIDIA B300 cluster build we announced back in April that is set to go live in the coming weeks. Before we begin, today's remarks include forward-looking statements as referenced on slide two. This presentation contains forward-looking statements within the meaning of safe harbor provisions of the Private Securities Litigation Reform Act of 1995, including statements regarding signed contracted value, anticipated customer prepayments, deployment timing, annualized run rate, expected margins and profitability, financing structures, potential future contract signing, and future performance.
+
+Erin McMahon: These statements are subject to uncertainties that could cause actual results to differ materially, including those described in the Risk Factors section of Axe Compute's most recent annual report on Form 10-K and subsequent quarterly reports on Form 10-Q filed with the U.S. Securities and Exchange Commission. Readers are cautioned not to place undue reliance on forward-looking statements which speak only as of the date of this presentation. Axe Compute undertakes no obligations to update them except as required by law. Financial figures. Quarterly financial figures presented are as reported in the Form 10-Q filed on August 14, 2026. Annualized run rate means annualized monthly recurring revenue upon full deployment of signed contracts. Total contract value, or TCV, is an operating metric representing the aggregate estimated contractual spend under signed customer contracts.
+
+Erin McMahon: ARR and TCV are operating metrics that may not represent revenue recognized in a particular period as separately determined in accordance with U.S. GAAP. Signed contracts are subject to deployment, customer acceptance, and other risks described in our SEC filings. Illustrated steady-state economics are models derived, blended across signed build contracts and do not constitute guidance. Non-GAAP measures. This presentation includes adjusted EBITDA, which is a Non-GAAP financial measure. The company defines adjusted EBITDA as net income loss adjusted to exclude interest expense income net, income tax expense benefit, depreciation and amortization, stock-based compensation expense, fair value adjustments on digital assets. Adjusted EBITDA is not a substitute for net income loss or any other measure of financial performance prepared in accordance with U.S. GAAP and may not be comparable to similarly titled measures used by other companies.
+
+Erin McMahon: Management believes adjusted EBITDA is useful to investors because it provides supplemental measure of the company's core operating performance by excluding the effects of capital structure decisions such as interest expense and fair value changes related to digital asset holdings, non-cash charges such as depreciation, amortization, and stock-based compensation, and tax impacts that can vary significantly between periods across companies. Management uses adjusted EBITDA to evaluate the company's performance, compare performance across periods, and assist in the allocation of resources. Investors are cautioned that adjusted EBITDA has limitations and is an analytical tool and should not be considered in isolation or as a substitute for analysis of the company's results as reported under U.S. GAAP. A reconciliation of adjusted EBITDA to the most direct comparables U.S. GAAP financial measures is included in this presentation.
+
+Erin McMahon: To the extent that the company provides forward-looking adjusted EBITDA guidance in connection with this release or related earnings fall, a reconciliation of such forward-looking Non-GAAP measures to the most direct comparable U.S. GAAP measure may not be available without unreasonable effort due to an inherent difficulty in forecasting and quantifying certain amounts, including, but not limited to, fair value adjustments on digital asset holdings, stock-based compensation expense, and other non-cash or non-recurring items, the timing and magnitude of which may be significant. No offer or solicitation. This presentation is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities of Axe Compute or any of its affiliates. No securities are being offered or sold in any jurisdiction where such offer or sale would be unlawful. Third-party information.
+
+Erin McMahon: Certain information contained in this presentation has been obtained from third-party sources. While Axe Compute believes such information to be reliable, it has not independently verified the accuracy or completeness of such information and makes no representation or warranty, expressed or implied, as to its accuracy or completeness. Please review these statements alongside our SEC filings available via investors.axecompute.com. With that, I'll hand it to our Chief Executive Officer, Chris Miglino.
+
+Christopher Miglino: Good morning, everybody. I'm Chris Miglino, and I'm the Chief Executive Officer of Axe Compute. We're here in Georgia. I'm excited to be here. We're getting ready to launch a very large cluster. For those that are new to the Axe Compute story, Axe Compute is an AI infrastructure platform with two growth engines. Build is our primary engine, which is part of what you're looking at here. We design, deploy, own, and operate dedicated GPU clusters for enterprises. Then we have Access. Access is the complementary recurring stream, fast access to GPU capacity across many different locations across the world. Think of it like a top of the funnel, where we meet companies that are interested in GPUs immediately, and then as they grow, we can help them, we can grow with them. What the market sees for Axe is a new AI infrastructure company.
+
+Christopher Miglino: What the market doesn't realize is that we've been in this business for the past couple of years, and our sales team has been selling to the off-takers for that entire time. Our supply team has been talking to data centers and engaging with power owners that entire time as well. While it seems like we're a new kid on the block that has all of a sudden signed all of these transactions, this has been an overnight success that's been in the making for the last two years. Before we get into the quarter, I want to spend a couple of minutes on the market we're operating in, because it's the single most important piece of context for everything that Jeremy and Kyle will be walking through later. It's no surprise that we're in the early innings of a generation build-out of compute.
+
+Christopher Miglino: You can't turn on the news without seeing some kind of news about data centers, the growth of data centers, the amount of money that's being attributed to data centers. In fact, McKinsey & Company says that through 2030, they're just going to be spending around $6.7 trillion, which I think is a low number even at this point. Of that, about $5.2 trillion is attributed specifically to AI-capable capacity. I want to be clear what that second number means. It's not a forecast of AI software revenue for OpenAI or Anthropic, but AI spending on infrastructure. It's the capital that's required for the physical, the power, the shells, the racks, the GPUs, and that's the market that we're in. That's the market that Axe Compute is in. The second thing that we want to point out is the shape of the demand, not just the size.
+
+Christopher Miglino: Customers are not asking for generic cloud. They're asking for dedicated capacity. They don't want to just be in a shared location with a lot of people. They want to own a cluster like the one that you see behind me, and they want to own that and be able to engage with it on their own without anybody else interacting with them. They'll do that on a long-term basis as well. That'll enable us to sign 5-year to 10-year transactions. They want a partner that can help them grow into that space. They want a partner that can help them acquire all the equipment, plan the network, design the network, deploy the network, and work with the appropriate data centers to get the right power and to get the right building ready for their compute needs.
+
+Christopher Miglino: That's where our build program comes in, and we help these off-takers do exactly that. We help them do everything that's necessary to get live inside the data center, and then we partner with the right data centers to execute. Not all data centers are made alike, and we do what we can to make sure that we have the right partners that are helping our clients. When you hear the numbers we're about to walk through, more than $3 billion in signed contracts, $696 million in expected annual run rate when we're at full deployment, and more than $500 million dollars in customer prepayments, and I encourage you to read them against the backdrop of massive demand. We're not creating demand. We're converting market where demand structurally exceeds the supply that's out there.
+
+Christopher Miglino: We're signing all these transactions on a take-or-pay basis with multi-year contracts. With that context, let's turn to what happened this quarter. We had an amazing quarter. If we could accomplish what we did this quarter every quarter, everybody on this phone call would be beyond ecstatic. As you can see, we're getting ready to launch the first cluster that we talked about a long time ago. This was the first deal that we told everybody about. This is getting ready to go live, and it's a beautiful piece of art that's there. Many, many hours of work have gone into bringing this to fruition. But we've really done an amazing job at signing around $3 billion, close to $3 billion worth of additional agreements when we had anticipated that for the quarter, we would be happy to sign an additional $1 billion worth of transactions.
+
+Christopher Miglino: It far exceeded what we had projected. It really did. We really thought that it would be a little bit of a slower ramp. I am going to let Kyle talk a little bit more about the pipeline in a little bit, but you will see that this momentum has not stopped at all. We went from signing all these transactions, doing all these deals, getting all of the ARR set up for next year. Next year, when these are all deployed, again, $696 million in ARR once they get deployed. Now we are in dual mode, we are in the execution mode. The team is working on putting these together and getting them up and running and managing them, making sure that we have all of the appropriate staff in place to manage these for our clients.
+
+Christopher Miglino: We are really excited about where we sit today from the momentum that we had this quarter. One question we get a lot, all the time basically, is how are our margin on these build projects? We wanted to give you a slide that would give investors some insight into what that looks like. These are forward-looking, but this is our modeling. It gives the best shot as to where we believe them to be. We think investors can take a look at these and can utilize them to help them model going forward. As you can see, the gross margins are between 28%-44%, and the EBITDA margins are 62%-76%. If you apply those against the $3 billion in announced transactions, you can see that the economics that we are going to be experiencing in 2027 are significant.
+
+Christopher Miglino: The only other question we get, more than the question about the margins on these deals that we are doing, is how are we going to fund these projects? I wanted to walk you through a little bit about how these projects are being funded and how we are working to fund these projects. You can see that each project has a down payment from the customer. Customer puts anywhere from 20%-45% of the project cost down upfront.
+
+Christopher Miglino: What we then do is we have the ability to go out and seek project financing for that revenue stream. When you have an A+ S&P credit client, and we are looking for financing for that revenue stream. There is a lot of lenders that are willing to lend against that, especially those lenders that understand the GPU market, which you can see from the news, there is a lot of them.
+
+Christopher Miglino: There is a lot of them that have come up, a lot of them that are executing, a lot of them that are investing into the space. Our goal is to get that prepayment, find the project financing for each project, similar to what happened here. Off balance sheet, we do not need to raise capital against it, and then execute and deploy the cluster itself. We think that when people understand that we can get these projects financed in this fashion, that is very favorable for the public company. In the instances where we are looking to invest equity into these transactions, we could do so at a point when the stock is at a price where we deem it to be a good location to actually do a transaction if we wanted to.
+
+Christopher Miglino: Otherwise, we can sit back and do project financings against each of these projects and leveraging the good credit of the clients that are building these things with us. We have two really big announcements today. The first is that we received the first prepayment of $317 million+ for our cluster that we are expanding. Then we have signed an agreement for an additional 55 MW over the course of a number of different locations with Duos Technologies. We are excited about both of these things. I think these will give you an idea of where the business is going.
+
+Christopher Miglino: In order to talk a little bit more about our partnership with Duos, we have asked the Chief Executive Officer of Duos, Doug Recker, to be with us here today so that we can give you a little bit of an insight of what our expansion will look like into that 55 MW. One of the most important things in building data centers is having a good partner, and I am here with Doug Recker from Duos Technologies, who has been a fantastic partner for us. Doug.
+
+Doug Recker: Thank you for having me.
+
+Christopher Miglino: No, thanks for being here. I have to say that very glad that we are doing business with Duos. You guys have literally been an amazing partner in this process. Wanted to thank you for that. I think today we are excited to announce that we have signed a deal to do an additional 55 MW over multiple locations with Duos. We appreciate that support and-
+
+Doug Recker: Great partnership. We are looking forward to it.
+
+Christopher Miglino: If this location where we are today is any indication of how everything else is going to go, I feel very confident in your hands that you will get everything done. So I appreciate your support. I mean, what you have accomplished here since we got going is just incredible.
+
+Doug Recker: It is incredible what we have done under what, 45 days?
+
+Christopher Miglino: Yeah.
+
+Doug Recker: If you could literally take the camera and walk around the facility, it is amazing how fast we have implemented this project. It is kind of an assessment of how we work as a company, right? We will tell you we can do it, and we will deliver. Now, we are not going to tell you we are going to do 100 MW in three weeks, right? We are not going to say that. But, as you can see from our product, this is all under 45 days.
+
+Christopher Miglino: Yeah. It's important that I think a lot of people that watch this that are very interested in the data center space, but they don't understand all the components that go in, and are involved in this process, right?
+
+Doug Recker: Right.
+
+Christopher Miglino: There's the data center owner, which is you guys. And you're also the operator of the building. Then there's all this stuff that we have to get in here.
+
+Doug Recker: Right.
+
+Christopher Miglino: That's our role, right?
+
+Doug Recker: Right.
+
+Christopher Miglino: Is to get this stuff in here, get it up and running, manage it, manage the install, manage the process.
+
+Doug Recker: Right.
+
+Christopher Miglino: But tell the people that are watching how your business works, what you guys do, and how that results for you guys, because you guys are also a public company.
+
+Doug Recker: Absolutely.
+
+Christopher Miglino: It's DUOT.
+
+Doug Recker: Duos Technologies. Yeah.
+
+Christopher Miglino: So explain how that works.
+
+Doug Recker: Yes
+
+Christopher Miglino: so that everybody understands.
+
+Doug Recker: Sure. What's great about our business is we've actually been in the business over 30 years. Myself, built many data centers, large data centers, and even the modular approach. What we're doing now in our partnership with Axe, and what our business model is basically deploying modularly. What we'll do is we'll find a facility like this, where there's the building and there's fiber to it, and we'll bring our modular approach to that, which basically is we build our eHouses, our chiller plants, everything modular. We'll build it off-site and deliver it, and then we can plug it in in a matter of 60 days, 90 days, even quicker sometimes, if you look at this environment. We've really mastered that approach. We've been doing it for about nine years. Now we're really just focused on basically the 5 MW-25 MW, 30 MW range.
+
+Doug Recker: We're not going to go out and build 100 MW in one day. We'll do it modularly, and we'll build with the client, kind of like what we're doing with you.
+
+Christopher Miglino: You guys, when you built this core here, you got everything ready for the next expansion.
+
+Doug Recker: Exactly right. That is going back to the modular approach. We have built a 10-MW, but we do the main infrastructure outside to be able to expand. Then we bring another 10-MW in of clusters, and we bring that in modular with our eHouses and our chiller plant and our electrical plant. All that plant and everything is done, and we build it and drop them as we go.
+
+Christopher Miglino: This is going to be interesting when we go to the expansion that is starting right now, is how loud it is going to be in here. It is going to be a whole different world
+
+Doug Recker: Yeah
+
+Christopher Miglino: for everybody that is working in here.
+
+Doug Recker: Right.
+
+Christopher Miglino: Because it is going to be screaming loud in here, and I think they are going to charge us a lot for putting that one together.
+
+Doug Recker: But it is just amazing, isn't it, to see that a great partnership works in several ways, right? We are the infrastructure side of this house, right? Without the infrastructure, you do not have the operating side. You are the operating partner, and to work together in how we worked in this program together has been amazing. The communication is key. You guys are masters at what you do, and we are good at what we do. You put those two minds together and it is unbelievable, and hence see what is going up now.
+
+Christopher Miglino: And I think another exciting thing that we are doing together, and we put this information out today, is our participation with DUOT in owning the data centers. So if there is anybody that you want to own a data center with, it is Doug and his team. So what we are bringing capital through SPV that is being invested into new buildings, new structures, where we know that there is power, we know that we can get natural gas if it is going to be off the grid. So in these MW that we have signed up, we are also participating in the ownership along with Doug.
+
+Christopher Miglino: That enables Doug to go a lot further in developing a lot more data centers with less capital, allows us to create an SPV that participates in financing the buildings so Doug can build more data centers without having to raise a lot of additional capital.
+
+Doug Recker: Equity. Yeah. It is a perfect partnership, and what that allows us to do is to grow quickly as well. What we are also good at, which we need to talk about, is the infrastructure side on the purchasing. The key to building at this speed is to make sure that you are ordering the right equipment and getting it in on time. We have a whole other division, the infrastructure division of our business, and that is what we do. We will buy our UPSes, our eHouses well in advance. We will buy our generators, and we basically work them in parallel. With the partnership, that allows us to buy the assets now, so when we are ready for the actual build, we do the Lego blocks immediately and we are in in 120 days, 90 days, 60 days, depending on what the build looks like.
+
+Doug Recker: When you come in at the 20-MW, 30-MW range, which is our sweet spot, the 10 MW-30 MW, you are actually in a good place. You can deploy quick, you can do it right, you are environmentally friendly, and also you are good for the community. We can move quicker at that scale.
+
+Christopher Miglino: Yeah. It does not require this two-year build.
+
+Doug Recker: That is right.
+
+Christopher Miglino: Like a lot of stuff that we're looking at now will be deployed by the end of the year into the beginning of the first quarter.
+
+Doug Recker: That's correct. Speed, what is key for your business and key for our business is revenue. When we procure this product, we want it installed. We want that thing producing revenue, and this is key to our business and your business. We have to get it out. We need that revenue to come in.
+
+Christopher Miglino: Everybody wants to be in the data center business right now. Right. I get calls all the time. People want to be in the data center business. The first thing I say to them is, "I know somebody that is in the data center business, and it is not as easy as you think.
+
+Doug Recker: No.
+
+Christopher Miglino: This is a very complex building process. What I've seen happen here is unbelievable. If you don't know what you're doing, you're losing.
+
+Doug Recker: Right.
+
+Christopher Miglino: It is not going to happen. If there's any business where you need to know every detail, it's this business.
+
+Doug Recker: Sure. Also in this business, you see this, it looks great, anybody can put a cabinet in and plug power to it. It's actually after it's up is where the expertise needs to come in. They need to be able to manage the facility, know what you're doing. Anybody can build. It's after the build is what is the most important part of the business.
+
+Christopher Miglino: Well, again, Doug, I really appreciate the partnership.
+
+Doug Recker: We look forward to it.
+
+Christopher Miglino: We're excited to build with you, and we're looking forward to the future partnership with you. Thank you very much. Appreciate it.
+
+Doug Recker: Thank you so much.
+
+Christopher Miglino: Thank you. Now I'd like to turn the call over to Jeremy. Jeremy's going to give us a breakdown of the financials for the quarter. Jeremy, take it away.
+
+Jeremy Yaukey-Witter: Thank you, Christopher. I will start by covering the second quarter results, then we will walk through the timeline for when the signed book is expected to translate to recognized revenue. Revenue for the second quarter was $3.2 million, our first full quarter of compute revenue, up from $35,000 in Q1. Bear in mind that all of our compute revenue this quarter came from the access model. Build revenue has not yet started. That begins at go live. Net loss was $17.2 million, driven by $13.1 million of losses on digital assets, primarily unrealized fair value changes on our Ether holdings that flow through the income statement each period as the token's market price moves. We generated $17.4 million positive operating cash flow for the first half of 2026, primarily driven by customer prepayments, which totaled $60.8 million at June 30th.
+
+Jeremy Yaukey-Witter: Both figures reflect the strength of our take or pay prepay first contract structure. On the balance sheet, we ended the quarter with $21.9 million in cash, up from $6.9 million at the end of Q1. Our digital assets, primarily comprising the Ether token, together with the current portion of our digital asset receivable, totaled approximately $18.8 million at quarter end. During the quarter, we also made a number of prepayments to third-party compute suppliers to reserve compute for signed customer contracts spanning terms of up to three years, which are reported on the balance sheet as compute prepayments. Contract liabilities dominate the other side of the balance sheet as of June 30th, including $33.6 million expected to be recognized as revenue within 12 months and another $27.1 million of long-term contract liabilities.
+
+Jeremy Yaukey-Witter: As a reminder, these contract liabilities represent prepayments made by customers to us in connection with executed contracts for compute. That brings me to adjusted EBITDA, which we are introducing this quarter. We believe adjusted EBITDA serves as a meaningful performance measure for investors to evaluate our operating performance and to compare the financial results between periods. I want to be specific about what that metric does and does not exclude. Adjusted EBITDA adds back interest, income taxes, depreciation, amortization, as well as stock-based compensation, standard EBITDA add backs. It also excludes the unrealized non-cash fair value adjustment on our digital assets. $11.8 million of the $13.1 million loss on digital assets this quarter. What it does not exclude is the realized portion, about $1.3 million, including ATH we actually used to pay for compute that we sold to customers.
+
+Jeremy Yaukey-Witter: On that basis, adjusted EBITDA was approximately -$4.9 million for the quarter. About $0.9 million of that amount related to our legacy drug discovery service segment. The takeaway, net loss this quarter is dominated by a non-cash change in the fair value of our digital asset holdings, which are subject to notable volatility. Adjusted EBITDA strips out that valuation adjustment and the other add backs noted, which management believes do not directly reflect our ongoing operating performance. Now, with the second quarter reviewed, let us turn to the quarters ahead and look at when our signed book is expected to begin recognizing revenue. Our business model involves both short and long-term contracts with customers.
+
+Jeremy Yaukey-Witter: Certain contracts, particularly under our access model, commence service delivery as quickly as 48 hours after contract execution. Others, particularly under our build model, do not reach ready for service milestones until about four months from contract signing. To model these contracts together, we utilize operating metrics including monthly run rate and annualized run rate. A contract only enters our run rate once it is deployed and billing, not when it is signed, and that is the story that this slide tells. Through the end of Q2, we had signed $317 million in total contract value. Our first full quarter of compute services, including the $260 million landmark contract we announced in April. Since then, in the first half of Q3, that is about six weeks, we have added an incremental $2.9 billion comprising the three build contracts announced in July.
+
+Jeremy Yaukey-Witter: Year to date through August, that is more than $3.2 billion in total contract value in under eight months. Here is what that means for run rate. Our exit run rate leaving Q2 was $37 million annualized. As the April cluster goes live in Q3, that climbs to roughly $139 million, including further growth to date under our access model. Once the full signed bulk is deployed, spanning Q4 into Q1 of next year, we expect an annualized run rate north of $696 million. Q2 is just the start of the ramp. Now that I have given you a glimpse of what is to come, Kyle will show you what is actually going to be deployed behind these numbers.
+
+Kyle Okamoto: Signing contracts is only half the story. Delivering them at this scale is the other half, and that is where Axe earns its margin and returns value to shareholders. Every cluster starts with NVIDIA's best silicon, eight B300 GPUs per node, 288 GB of HBM3E memory on every single one. For our largest builds, we go further. The GB300 NVL72, 72 GPUs, and 36 Grace CPUs fused into one rack scale.
+
+Kyle Okamoto: [Break]
+
+Kyle Okamoto: GPUs per node, 200. Every cluster starts with NVIDIA. The electricians, plumbers. It's definitely a very large effort, so we're going to walk through that today. As I mentioned, all of these computers and chips are all connected together. The way they do that is each pod or grouping of computers are all connected to an InfiniBand leaf architecture. It's a spine leaf architecture. These are the leaf switches that connect each of the pods together, and then these leaf switches ultimately all interconnect into a spine. They are replicated for each pod of GPUs. Depending on capacity and redundancy purposes, we can fit so many in each of these leafs and spines. Ultimately, those are all interconnected together. That allows each and every single GPU on this network to talk to each other as if they were physically connected to each other.
+
+Kyle Okamoto: It's about 6.4 terabits per second of communication between those GPUs, which is quite a lot of bandwidth. In addition to that, over here, we have high-speed storage. Forgive the background noise, as I mentioned. This high-speed storage is provided by our partner, WEKA, who's been a great partner. They have their signature purple façade here on these plates. This high-speed storage is connected to each and every single one of these GPUs. We can move very, very large amounts of data. This cluster is supporting over 20 PB of data, which is a lot of different iPhones. I can't do that math right now. Basically, it allows all of the GPUs in here to talk to this high-speed storage across that network that I mentioned before, on both the north-south faces. Now I'm going to walk you guys over to another part of the data center.
+
+Kyle Okamoto: We're walking through cold aisle containments right now that are being built. You'll see a very similar infrastructure. You'll see all of the different servers of the Blackwell B300s, all connected to the leaf architecture, all connected to the spine architecture. Over here, you'll see a bunch of management nodes. These allow us to do different things from automated provisioning, advanced monitoring, security hardening, setting up VPNs, managing different applications for our clients like Kubernetes or Slurm, et cetera. You'll see more purple boxes over here for even more high-speed storage. Ultimately, behind all of the cabling activity that's going on right now, you'll see some more traditional servers here. You'll see the Dell boxes here that we're using for some of our bridges and some of our management capabilities. Ultimately, what these components do, they each play their role.
+
+Kyle Okamoto: There's UFM nodes, there's OOB connectivity for different management capabilities. All of this ties together with what we call an Nvidia reference architecture or Nvidia reference design. Full Nvidia switching throughout, full Nvidia GPUs throughout, with accoutrements that allow us to add ancillary services to our clients. That's basically it. Thank you guys for coming with us to Columbus, Georgia. We've got a lot of work to do, from containment aisle finishing up tomorrow to all of the cabling happening now to get this cluster live as soon as possible. We look forward to the next one, as you can see behind me, and we fully intend to expand. This is the space that we are expanding this cluster into. It will be one contiguous single spine architecture, 3x the size.
+
+Kyle Okamoto: So while the cluster that I mentioned is already quite large and quite powerful, it will triple up in the next few months. Now, let's shift gears to what's coming ahead. As of this month, we are tracking $5.9 billion in active qualified pipeline, 98 open opportunities across our sales organization.
+
+Kyle Okamoto: That's nearly double the size of our current signed book, and every week it keeps growing as momentum continues to accelerate. By dollar value, roughly 2/3 of that demand is for Blackwell class GPUs or Vera Rubin. We're talking about B200s, B300s, GB200, and of course, the latest Vera Rubin chipset. Our customers aren't asking for yesterday's hardware. They're asking for the newest, fastest, most powerful silicon NVIDIA makes to really power their businesses for the future, not just for the current needs.
+
+Kyle Okamoto: Also worth noting, clients understand that securing AI infrastructure on a long-term basis is a vital and strategic imperative for their business, which aligns nicely with our equipment ownership model and long-term data center investments.
+
+Kyle Okamoto: Keep watching this space. We're already fielding significant early demand for NVIDIA's Vera Rubin, the next architecture, ahead of volume shipment. So our customers are already planning generations ahead, and so are we. A pipeline this size really isn't a hope, right? It's a queue. Our job for the rest of this year and beyond is pretty simple: convert that queue, contract that queue, and turn up additional clusters for our clients. So that's really the way we've converted the $3 billion that you just heard about, and as Chris has said to me multiple times, there's many more ahead. Shifting gears to the organization.
+
+Kyle Okamoto: None of this, the contracts, the technology, the pipeline, means anything without the people who build it, which are the most important part of Axe Compute. So let's talk about the team a little bit. Right now, we are actively adding more than 20 people to this organization. Every one of those hires is funded by a contract we've already signed. On deployment and operations, we're increasing our data center engineers, cluster commissioning specialists, our 24x7 operations staff, all in advance of standing up these clusters going live this quarter and next. That's all under dedicated VP-level deployment leadership. On the infrastructure engineering side, we're adding GPU, CPU, network fabric, storage specialists, the people who really make 5, 15, and 30-MW AI factories actually work across both our U.S. and European footprint.
+
+Kyle Okamoto: On customer support and commercial operations, we're really enhancing our technical account teams, our program management organization, and broadening our enterprise coverage behind those signed contracts and that multi-billion dollar pipeline. Behind our next objective, an additional $2 billion in new signings before the end of the year. Our philosophy is pretty simple. We don't staff up on hope. We scale fast to deliver on commitments, locked and loaded, and we hire experienced talent that can really deliver and execute on enterprise-grade support while still providing customers the choices that they deserve. Headcount follows committed revenue on a very disciplined and success basis. That discipline is pretty much what turns a hot pipeline into a durable, profitable company, and it's exactly where and why we're built to deliver on everything that you've just heard. I'll now pass it back to Christopher to close us out. Thank you.
+
+Christopher Miglino: Where do we go from here? Our objective is an additional $2 billion in signed contracts before the end of 2026. As you can see from what Kyle just presented, I do not think we are going to have a problem hitting that number. We are well on our way, and if things keep going the way that they did in this last quarter, we should exceed that goal. We are excited about that. Just to summarize the quarter. This is the first quarter that we had revenue from the compute business, and you are just going to see that acceleration continue to kick in as we bring more clusters live.
+
+Christopher Miglino: As this cluster goes live, you are going to start to see around $20 million, $21 million a quarter just from this location come in, and then as we bring on the other clusters into the end of Q4 and the beginning of Q1, you will start to see us grow up to the $696 million in ARR for the year. Our job for the balance of this year is to continue to sign more agreements, but also to make sure that we have the infrastructure in place to deploy really solid, amazing clusters globally. We appreciate you being with us here today to hear our story. We are excited about where we are. We are working really hard, and we think that we find ourselves in a really positive place. Thank you for being here and spending the time with us.
+
+Christopher Miglino: We look forward to continuing to have you as an investor. If you are new to our story, we look forward to having you join us on this journey. Thank you very much.

@@ -1,0 +1,264 @@
+SOURCE: Investing.com conference transcript -- https://www.investing.com/news/transcripts/palo-alto-networks-at-goldman-sachs-conference-ai-fuels-platform-push-93CH-4897082
+TITLE: Palo Alto Networks at Goldman Sachs conference: ai fuels platform push
+EVENT: Goldman Sachs conference 2026
+DATE: 09-10-2026  (article publish date = event day)
+# source label: Palo Alto Networks Goldman Sachs conference 2026 (09-10-2026)
+# speakers: Moderator, moderator; Nikesh Arora, CEO, Palo Alto Networks
+# paragraphs: 128   characters: 42,794
+
+---
+Moderator, moderator: Hey, good afternoon, folks. We are really excited to have Nikesh Arora on stage with us, hot off the plane from Geneva. Thank you for taking the time.
+
+Nikesh Arora, CEO, Palo Alto Networks: My pleasure.
+
+Moderator, moderator: to be with us today. Hey, Nikesh, there is a lot of noise in the market, as you can appreciate. When you read and look at some of the, fear-mongering may not be the right word, but some of them are.
+
+Nikesh Arora, CEO, Palo Alto Networks: I like fear-mongering.
+
+Moderator, moderator: There’s a little bit of a view that
+
+Nikesh Arora, CEO, Palo Alto Networks: I spent eight years trying to convince people cybersecurity is important. Dario did it in one week. Better than me, clearly. Mithos has been more useful for me as a marketing tool than anything I did for eight years. I hope they have new models which are more capable and scare the out of people.
+
+Moderator, moderator: Let’s talk about the flip side of the fear-mongering.
+
+Nikesh Arora, CEO, Palo Alto Networks: Right.
+
+Moderator, moderator: Let’s talk about the flip side of the fear-mongering.
+
+Nikesh Arora, CEO, Palo Alto Networks: The flip side of fear-mongering, yeah.
+
+Moderator, moderator: You have CEOs that call you and say, "I’m scared about X, Y, Z agentic threat.
+
+Nikesh Arora, CEO, Palo Alto Networks: By Palo Alto Networks.
+
+Moderator, moderator: Nikesh, please solve this for me. How do you solve that problem?
+
+Nikesh Arora, CEO, Palo Alto Networks: Well, first of all, lovely to see you guys. Thank you for staying in the room. I saw a lot of people leaving as I was walking in, so I figured nobody was interested in cybersecurity, or anything that needed to be said had already been said so far this conference. Or the bar is open. Any of those above. When CEOs call, more recently, since Mithos, I think we have talked to about 2,000 companies between CEOs, CIOs, and chief security officers. Obviously, they want to know, what is Mithos? How does it impact my life? What do I need to do about it? I think Mithos is the first incarnation of showing us the capabilities of AI and how it can find vulnerabilities in our organization’s technology stack.
+
+What would take us weeks or months or things we would not care to go look for, AI can do it pretty quickly. You are suddenly seeing this peak of vulnerability finds. We found 1,200 at Palo Alto when we first tested it, when Mithos came out. It took us three, four months of cleaning to understand which ones are real, which ones are not, and go fix them. Now we are back to a steady state. We find pretty much a few every month like we used to find before Mithos was out. We had to go through a huge learning curve and a discovery phase and fixing it. A lot of companies have not been through that, and what has happened now is Mithos has become available to defenders, so we have a service. We can go to customers and say, "You want us to test you?
+
+We will test you." What is interesting is, I would say 60% of what we found was through Mithos, 30-odd percent using OpenAI, and 10% using other models. We actually have to use a multi-model harness to find all the vulnerabilities that current AI will help you find, as opposed to using any one single model. That is what we are doing. Very quickly, that conversation evolves. That is great. What does this mean for the future? How do I make sure that I can respond to finding vulnerabilities quicker? What do I need to do to my tech stack to make sure that I can find attackers quickly in my infrastructure and fix it before the shit hits the fan? That is usually when the platform conversation begins and the SIEM conversations begin, and we start telling them, "Stop upgrading your stack in a multi-vendor solution.
+
+Try and consolidate, because you need the data to be able to stitch together and make it work.
+
+Moderator, moderator: Talk a little bit about that data advantage. What are some of the things that you can do now with AI, with your own roadmap, because you have visibility across the different pieces of the platform?
+
+Nikesh Arora, CEO, Palo Alto Networks: Well, look, it’s still true that every customer runs about 30 or 40 cybersecurity vendors in their stack. Cybersecurity, in my mind, can be simplified as you have to stop bad stuff at the perimeter. Anything bad shows up at the perimeter, if you know it’s bad, you’re going to stop it. It’s like stopping a bad guy wearing a mask and carrying a gun at the door. That’s easy to do if you know it’s bad. Most of cybersecurity’s problems are when you don’t know it’s bad and it gets into your infrastructure, you’ve got to find it quickly to stop it, because actually, you’re not a guy in a mask. A guy wearing a suit sitting in the conference is about to pull out a gun. Sorry, I’m using non-cybersecurity analogies because you guys probably heard about all the agentic harnesses that George is building.
+
+The challenge is, how can you find that bad actor as quickly as you can? To find that bad actor as quickly as you can, you need a seamless layer of data behind it which is consistent, which can talk to each other, and you understand the nuances. Take any attack. If an attack starts at your laptop and you’re running a SASE vendor in a laptop, then the attack migrates from a laptop, heads to your data center, hits your firewall in the data center. Now you’re running a different vendor in the data center. It goes from there to your database, which is sitting in Amazon Web Services. You’re under a different firewall in the Amazon Web Services.
+
+You’ve traversed four or five cybersecurity vendors, and all of them will give you an alert saying, "Go figure out something bad’s happening." But because they don’t have the context of the other vendor, they can’t stitch the data together and say, "Oh, shit, I found this thing. It went through these three different enforcement points. I control all enforcement points. I know what this bad thing is." Because somebody has to collect all the data, then go make sense of it. If you’re running one vendor through the entire lifecycle of that particular threat vector, you can solve the problem within that vendor’s data lake, or you can solve that problem using agents that that vendor runs. Otherwise, let’s assume that I saw something bad at the endpoint, but I don’t know what it’s going to do, or it did something bad or not. Take an example.
+
+You got an email. You clicked on the phishing link. You went to a bad website. The moment you left the email vendor, that email vendor has nothing they can do anymore. You’re out of the email vendor stack. They don’t have the data. You probably went through your corporate firewall that allowed you to go to a bad internet access. Now the firewall has the data, but they don’t have the email data that you clicked on an email. Somebody has to collect all the data in a SIEM and go make sense of it, which is done by SOC analysts. You have to be able to solve these problems in flight using agents.
+
+The only choice is if you don’t have a single vendor managing at least part of your stack, each agent has to talk to other agent, which means all of us to build agents that need to talk to each other. It’s just a complicated solve. You actually have to eventually start reducing your footprint of cyber vendors over time, and that’s where I think AI, the best way to say is AI is advantage incumbents with platform stacks.
+
+Moderator, moderator: Some of your products are relatively straightforward to consolidate up and displace vendors. Other things like network security and Cortex SOC, those are heavy lifts. To your point, when customers go on this modernization journey, do you already have visibility into multi-quarter, multi-year network transformation, SOC transformation type cycles?
+
+Nikesh Arora, CEO, Palo Alto Networks: SOC transformations are typically one shot. You can do a six-month engagement with a customer, and they’ll tell you we want to, and they’ll do a six-month engagement and replace somebody else. Network stack evolves over time. Literally, I was walking in here, and I hadn’t seen my email for the last four hours, and I saw two emails about two different customers wanting to replace a certain network vendor in their stack because they already have two out of the three pieces we do with them, and the third one is coming up for renewal for a third vendor. They said, "Well, we already have two out of three from Palo Alto. Let’s just go with Palo Alto and harmonize the stack." That typically takes the process of evolution.
+
+There’s nobody sitting there saying, "Let’s take useful things and rip them out." They wait for the evolution on certain stacks. The revolution is happening in the SIEM because of Mithos. The revolution is happening on the observability stack because of cost. The revolution will happen on AI security stacks that are going to be built, which are not fully built in the market. If anybody sat here and told you they can solve AI security, there’s a bunch of marketing going on, but I’m sure they’ve said it.
+
+Moderator, moderator: Let me ask you a derivative of that question, which is we had Jensen on stage earlier talking about the commercial opportunity that may exist for the frontier models in security.
+
+Nikesh Arora, CEO, Palo Alto Networks: What is that opportunity?
+
+Moderator, moderator: I would love to hear your thoughts and not elaborate.
+
+Nikesh Arora, CEO, Palo Alto Networks: I want to hear if Jensen told you something.
+
+Moderator, moderator: I’ll ask it from your industry perspective.
+
+Nikesh Arora, CEO, Palo Alto Networks: I’m very curious. Jensen is wonderful. He’s an amazing guy. He’s benefiting the entire AI industry and everybody associated with it.
+
+Moderator, moderator: Let me ask you what role you think frontier models play in security.
+
+Nikesh Arora, CEO, Palo Alto Networks: Look, the biggest value of AI over time is its reasoning capability. It can reason and try and look for different alternatives. All software is deterministic. It is designed as input and output. Traditionally, when we write software, we ask it a question, we expect the answer to come back in a certain format in a certain way, and it follows a certain process. If it is not doing that, either says, "I have no idea, bad entry," or says, "I have nothing in the back to give you. I have no output to give you." AI will actually reason through it. "Ah, I didn’t find anything here. Let me go look over there. Let me go look there. Let me go look there." It will exhaust every possibility a human being would have tried from the outset.
+
+You literally have to tell it the outcome you want, and AI has this capture-the-flag mentality. It tries every technique until eventually it gets to the answer or as close to the answer it can get. That makes it non-deterministic in the back. That is the value of AI. Anywhere where tremendous amounts of human time is spent interpreting things and looking for alternatives and analyzing things, AI is useful, right? Same thing. It did a wonderful job. That is one property. The second property is AI is not trained for the edge case. It is trained for the mainstream case, right? Just the way when you get in a Waymo, it does not have every edge case figured out. Somebody has to anticipate that edge case, train Waymo for that edge case to make sure that it performs the edge case. AI has the same property today.
+
+If you take those two capabilities and understand, the reason it has got so good at vulnerability management or vulnerability detection is what is the number one use case of AI? Coding, which means we are teaching it what good code looks like. Well, guess what? It has got figured out what bad code looks like because we have taught it a lot. Hundreds of billions of dollars of ARR of coding, now it has figured out what bad looks like. So it can tell you what bad code looks like, hence it determines a vulnerability because the code is not written the way it should be written, or it has vulnerabilities. It is great. It finds the 80% mainstream, but it does not understand the intent of the code.
+
+For example, if you look at Palo Alto code, you will find code in our company which is designed to attack people because we are testing people. But if it sees that outside the context of Palo Alto, it says, "That is bad code. Let us fix it." Dude, no, stay away. We got this. Do not fix it, right? It does not understand the false positive because it does not understand business context. So it needs some degree of context with it to make it useful. That is where harnesses, that is where domain knowledge comes into play. To the extent that it can assist us in getting through a lot of mundane tasks or reasoning tasks is very helpful, but you still need the edge case and the harnesses. That is one. Two, LLMs do not sit in enforcement points. You do not want it sitting in your laptop at the edge case.
+
+If you remember the CrowdStrike incident, do you really want OpenAI managing the endpoints and pushing updates at the endpoint? They haven’t built that product. I think the long-term answer is that all cyber companies will use some form of AI in their products because it’ll make it faster, it’ll look at edge cases, it’ll look at classification, whole bunch of stuff, and we’re all working on it, I’m sure. Different people will come talk about it. They’re all working on it. I don’t think the economics of frontier models make it useful for AI to work. For example, we sit on people’s endpoints, so does CrowdStrike, and so does SentinelOne, and so does Microsoft Defender. The average price in the industry is probably $30 to $40 an endpoint. On a day, about 160 megabytes of data goes through your laptop every day.
+
+If you put a frontier LLM to inspect 160 megabytes a day at the edge of your laptop, I suspect it’s going to cost you more than $40 a year. Now, if the customer wants to pay $4,000 a year to predict an endpoint, hallelujah, go for it. I’d like to be in that business, too. But if it’s 40 bucks, you want a cheap alternative. So you have to build a replacement product that not only is better than the product that is currently in the market, but it has to be cheaper than 40 bucks. I don’t think that it’s going to be a huge takeover by LLMs of the cybersecurity industry. I think it’ll work in certain categories where they’ll have to work with our enforcement points to make the enforcement points faster and smarter. That’s par for the course.
+
+We will all work with them together. We probably will become consumers of frontier LLMs, and we’ll do our part, and we’ll train edge cases, and they’ll power some of our models. At Palo Alto, we spend north of $1 billion on buying cloud. We don’t run our own cloud, don’t run our own data centers. Could I be spending a few hundred million dollars buying tokens? Sure, I could. I’ll buy them for all my customers and make their products much better over time.
+
+Moderator, moderator: Do you have a view on the right way to orchestrate tokens between leading edge and not leading edge?
+
+Nikesh Arora, CEO, Palo Alto Networks: There are two scenarios. One scenario is where I don’t need leading edge. If I need to run AI at your laptop, it needs to run on a 20-megabyte footprint. There’s no frontier LLM that runs on a 20-megabyte footprint. However, I can go get 5,000 models on Hugging Face, which can be shrunk to a 20-megabyte footprint and do a very specific task at the edge. Yes, I can use what I call small language models to do task-specific things in cybersecurity, which are much more efficient at doing it than using machine learning. That’s where I would use it, but I wouldn’t be orchestrating amongst different models. In the case of vulnerability management, I am orchestrating across five models because they all find different vulnerabilities.
+
+I’m literally running the same thing five times, so different models to see which one of them finds. I don’t know if, in the long term, we should be orchestrating across multiple models. I think it’s an economic argument. It’s an extremely complicated technical argument, and I don’t think the frontier LLMs are sleeping at the wheel. They understand where the industry wants to do, and they’re building interim modes, which are called instant memory. They’ll move stuff to instant memory, which is where you store it. You can’t actually arbitrate models over time. Eventually, I think what is going to happen is, I’ve said this differently, I think average intelligence will become free, but you will still have to pay for compute.
+
+What I mean by that is I can buy a model, run it on a laptop, train it for $5,000, and run it for free marginal cost on your compute. I think what will happen is older models will become cheaper and cheaper over time. We’ll use a lot more of them. But the hardest thing to find right now is compute. Even if you get yourself an open-source model, you want to run it for $1 billion a year, you have to go buy $1 billion of compute. It still costs you. I think people are mistaking that frontier LLMs come with compute plus intelligence. If you go find intelligence for free, you still have to go buy the compute, which eventually ends up costing you probably more or as much as you pay for from an LLM perspective.
+
+Some of these LLMs are way more efficient than what you find in open source. It costs you a lot more money to train them. They’re not as efficient, and the portability is not there. I don’t know if the economics are there in the market yet for frontier tasks to start arbitrating between models just yet. But people are trying, which is great.
+
+Moderator, moderator: Let’s talk about network security.
+
+Nikesh Arora, CEO, Palo Alto Networks: Sure. The saddest thing. These people want to talk about AI, but we should talk about-
+
+Moderator, moderator: We can talk about AI and network security.
+
+Nikesh Arora, CEO, Palo Alto Networks: Sure.
+
+Moderator, moderator: The hypothesis that we’re experimenting with is how an increase in network traffic impacts the firewall cycle, impacts throughput going through the firewall. I think there’s a bunch of different flavors. The data point you gave on the earnings call was agentic traffic on SASE was up nine times. Maybe if we just take a step back, this idea that more agentic traffic drives more network traffic, drives more firewall. Where would you push back on that, or when do you think we’ll start to see it?
+
+Nikesh Arora, CEO, Palo Alto Networks: I think it’s important to understand if we believe that $5 trillion will be spent in the next 5 years to build compute. In the end, at the most basic level, that means more traffic. Before we get into what the traffic is used for, more data flowing between pipes than trying to get to enterprise or end consumers. If we spend $5 trillion in the last 25 years and built traffic, today’s traffic is X, you expect the next 5 years’ traffic becomes 6X, right? If your traffic’s up 6X in the next 5 years, then all that traffic has to be inspected. SASE is a form of inspection. Software firewalls is a form of inspection. Hardware firewall is a form of inspection. Pretty much every enterprise bit is inspected today. You can’t run a bit in any enterprise without inspecting it.
+
+It doesn’t matter where you live. It could be in Google Cloud, it could be in Amazon Web Services, it could be in a data center. It’s inspected. The bits that are not getting fully inspected are coding bits right now, right? That’s the biggest kind of blind spot. If you say 100 plus billion dollars of AI is being generated in coding, most coding instances are not secured. We have to go fix that first. That hasn’t been fixed. Let’s assume that eventually, over the next 2 years, that all the traffic that’s going around the world is going to get inspected. It doesn’t matter if it’s human traffic or agentic traffic, it’s traffic. Right now, of course, the explosion is going to come from agents because humans cannot humanly consume that much traffic, so the traffic is coming from agents. That’s a second-order problem.
+
+The first-order problem is every bit still has to be inspected because it’s coming from somewhere. You should expect the network security has this constant tailwind as the traffic continues to go up, that some form of inspection will be applied. The gap right now in the market is not all AI traffic is being inspected because enough AI security tools don’t exist. Because you can’t do anything beyond inspection. You don’t have the tools to do it. The second layer post-inspection is I’m inspecting the traffic, I run value-added software. What do I do on top of it? What do I inspect it for? For example, I inspect traffic and do observability. Great. That’s a value-added service. I pay for observability on top of inspection.
+
+I take the traffic, and I run a SIEM on top of that, which means I get paid for running security analysis on top, for which I get value added Services. In network firewalls, I inspect the traffic, I get paid for various cloud services, whether on sandboxing, URL filtering, et cetera. The AI value of the service haven’t been built. They’re being built as we speak. No vendor, including us, has the full stack. Because if you tell me you have a full stack, Facebook announced Muse 2 days ago. Muse comes with totally different security architecture than any other agent that’s out there. They run the agentic action, they run Sentinel, which is an operating system, which does security. That’s a new architecture. To expect that all of us have built security products in anticipation is foolish.
+
+It’s going to take us three to six months to understand the hooks. In fact, most AI implementations don’t have security hooks on them. You can’t automatically secure Claude Code because you don’t have hooks that are available from Anthropic. You can’t secure Codex yet because they haven’t delivered the hooks to run inline security from an API perspective. They are saying, "We’re going to build a secure." That’s not going to work. Historically, no company is going to buy a technology product from company A and secure it using company A’s product. Typically, you will use company B’s product to secure company A’s technology. So that industry hasn’t been built. The whole entire AI secure industry has still to be built. The entire value of the service there is being built.
+
+There are 3,000 startups got funded last year with something to do with AI, of which 2,000 will not survive, but that’s a different order. This is the wrong audience. That’s the venture capital guys. So that stack is being built. We’re all rushing towards it. When that stack gets built, it’ll add a whole new TAM on top of existing TAMs in cybersecurity, which will be AI security TAM. We did $100 million in Prisma AIRS, which is real-time AI security. We intercept traffic and inspect it for prompt injection or let’s say model manipulation. But there’s a whole new stack going to be built for agentic security over time. And customers are not going to be able to stitch it themselves.
+
+They’re not going to buy agent identity from Okta and something else from somebody else, and something else from saying, "I’m going to stitch it all together." They’re going to wait for a stack that does the entire life cycle of the agent.
+
+Moderator, moderator: You gave a three to six-month data point in there on how long it takes to build the AI security.
+
+Nikesh Arora, CEO, Palo Alto Networks: At speed.
+
+Moderator, moderator: At speed. Okay.
+
+Nikesh Arora, CEO, Palo Alto Networks: If you get it right, because remember, 3,000 companies are using 3,000 different hypotheses
+
+Moderator, moderator: Right
+
+Nikesh Arora, CEO, Palo Alto Networks: where the world’s going to evolve. To anticipate the world and build it, some will get it right, many will get it wrong.
+
+Moderator, moderator: Walk us through when you think we get to some sort of steady state.
+
+Nikesh Arora, CEO, Palo Alto Networks: You tell me when AI hits steady state, and I will tell you when it is security steady state. Remember, we are trying to secure a technology that is in flux.
+
+Moderator, moderator: Yes.
+
+Nikesh Arora, CEO, Palo Alto Networks: Every three months, something new happens. We thought we had LLMs. That was cool. We had it figured out. Damn, these agents showed up. We had to go figure out agents. OpenAI couldn’t constrain their own agents. They let them off to Hugging Face. When that industry reaches some point of stability, we will give you a stable security architecture. I have this funny analogy. They didn’t invent TSA when they invented planes. TSA took a long time to torture us. It will take a while to get to torture the AI guys.
+
+Moderator, moderator: One of the stacks that is being built as we speak is the Neocloud infrastructure stack.
+
+Nikesh Arora, CEO, Palo Alto Networks: It’s beautiful. Yes.
+
+Moderator, moderator: Tell us a little bit about your opportunity securing some of the Neocloud infrastructure.
+
+Nikesh Arora, CEO, Palo Alto Networks: Well, Neocloud’s data centers. They’re just data centers. Data centers need firewalls, especially if you’re going to have multiple tenants. The ones you don’t get business from is single-tenant clouds. If somebody’s building a hyperscaler, it’s a single-purpose data center. It does one thing. It runs AI training and AI inference, and it runs usually as an extension of the hyperscaler stack. Hyperscalers, it’s inefficient for them to buy firewalls because we are a Swiss Army knife for what is a very single-purpose task. But if you’re going to run multiple tenants, and you do segmentation, and you do all those things, they need a firewall. I’m guessing. I don’t know the answer. I don’t think more than 10% or 15% of the business in the world of building data centers is multi-tenant. I think 80% to 90% is single tenant.
+
+Anthropic goes and buys the entire capacity for data centers, says, "This is mine." In which case, they don’t need to secure the firewalls because Anthropic will build a big pipe and run it between their multiple data centers themselves.
+
+Moderator, moderator: There is another piece to this, which is enterprises, I guess you would call it sovereign AI, where enterprises say, "We want to have our own data centers where we run our own AI." CoreWeave, for example, talks about Caterpillar doing this type of implementation.
+
+Nikesh Arora, CEO, Palo Alto Networks: Who?
+
+Moderator, moderator: CoreWeave.
+
+Nikesh Arora, CEO, Palo Alto Networks: No. Just who-
+
+Moderator, moderator: Caterpillar. My question for you is there an enterprise angle to this where enterprises build their own proprietary data centers to do single tenant?
+
+Nikesh Arora, CEO, Palo Alto Networks: Sure. I think the struggle right now is the people who understand AI really well and how to work with it are working at frontier labs. We have 9,000 engineers, and I suspect 5% to 8% are good enough to get a B+ grade in AI, and it is probably 1% or 2% will get an A grade in AI. That is great. I think 92% of the people will not get a It is like the teacher will have to rework their homework right now. I think in that environment, when things are moving so fast, it is dangerous to DIY. I think you have to wait for the industry to stabilize. Sure, I am sure there are examples of people trying different things. I think the industry is in too much of a state of flux, and things haven’t stabilized, or you might find these bets are wrong bets.
+
+I think, 2, 3 years from now, as I said, you should be able to get average intelligence for free. I should be able to do simple tasks or average tasks for no money. You can buy Instinct or Muse without spending any money, which means it is going to book me an airline ticket, find me a vintage card, or find me a clip of a video on the internet for $0. That is average intelligence. That is for free in the consumer use case. Why shouldn’t that average intelligence be free in enterprise use case if I have the ability to buy compute? As long as I pay for the cost of compute, I should be able to buy that intelligence for free. There is no value for me to pay a premium for that. I will pay premium for premium intelligence with harnesses and data training and for tasks.
+
+Now, that is a combination of an LLM and domain knowledge that is hopefully in the domain of an enterprise, unless the enterprise commoditized that by mistakenly training a public model, which also happened. You can solve Navier-Stokes by having mathematicians use free models.
+
+Moderator, moderator: You have been very consistent in talking about when there is a disruption in an existing security vector like network, like endpoint, like identity, Palo Alto takes advantage of that disruption and can actually sell something better and different into that market. Given that we are in a period of time where technology is in a period of flux-
+
+Nikesh Arora, CEO, Palo Alto Networks: Yes
+
+Moderator, moderator: How do you stop someone out Palo Alto Networking you?
+
+Nikesh Arora, CEO, Palo Alto Networks: You never used to have sleep this night. Now I think about this before I go to sleep. I still sleep.
+
+Moderator, moderator: When did that change?
+
+Nikesh Arora, CEO, Palo Alto Networks: It changed because every morning when I wake up, there’s new shit
+
+Moderator, moderator: Yeah
+
+Nikesh Arora, CEO, Palo Alto Networks: that I didn’t understand until yesterday, and I got to learn this. Literally, I learned about Muse and the new architecture on the plane back from Geneva. I had to read for half an hour, 20 different posts. Then I had to go ask Dr. Gemini, and I talked to ChatGPT saying, "What’s going on here? Why do they do this?" And try to understand it. Now, if that’s the level of knowledge you have to have, because remember, our jobs are hard. Our jobs are trying to figure out where is AI going to go. What does that mean for security? What do we need to build from a security perspective? What is that going to destroy structurally from a market perspective? How do you position the company over there?
+
+If you are going to get all these signals every day, which you are going to have to revisit your thesis every day or every week, it is hard. At this point in time, if leaders do not pay attention, understand where the market is going, you can get stuck in where you are because you have not thought about where the market go. You could try and knee-jerk too quickly and build your own data center and own Neocloud and start trying to control the outcome and say, "Oh my God, I went down the wrong path." You have to be nimble and be able to validate your thesis on a consistent basis. What do I know? I do believe that most software will get rewritten in the next 10 years. I think enterprise software will get rewritten.
+
+Unless you have ups to user moats, even then, our UI and our software at Palo Alto Networks is being rewritten as we speak. We are becoming more AI native. You will be able to talk to my software and have AI models behind them assist you in navigating my software and the findings of my software. That will become par for the course. Every piece of software will have to do that. The question is then, what moat do you have? People said system of record is a moat. I think that is a short-term moat. After a point in time, the system of record becomes just an unstructured database. It does not become a moat anymore because your UI has been modified over time. The moat is I am deployed 180 million sensors around the world.
+
+Somebody has to physically replace those 180 million endpoints of Palo Alto Networks from data centers, from firewalls, from endpoints. That is a moat. It will last for a while. Could I go acquire another 120 million endpoints in the meantime so I can build a bigger moat? Hopefully. That is my moat. My moat is I run 19 petabytes of data through Google Cloud every day. It requires a big fire hose for you to come and take that out and find somewhere else you can put 19 petabytes of data where you do not have compute. That is my moat. Within those moats, I have to keep building my business to make sure that what gets commoditized needs to be reinvented by my team. I have to protect my moats. That is what I have to do every day.
+
+I am sure somebody will out Palo Alto Networks, Palo Alto Networks, but not going to give up without trying to give them a run for their money.
+
+Moderator, moderator: What was it about the due diligence on, we could pick any one of your acquisitions. Chronosphere is actually my favorite. What was it about Chronosphere that made you think this asset has a moat that is not going to be disrupted by next-gen observability?
+
+Nikesh Arora, CEO, Palo Alto Networks: Look, if I want to be a bigger business in the next five or 10 years, I have to get in the token flow. If you believe the world is going to spend $5 trillion and they’re going to try and monetize that $5 trillion somehow in ARR using AI in some way, shape, or form, I’m a security business. Security is typically a 2%-5% attach to IT businesses. If I can find a way to just be that little parasite that sits on the back of the whale or wherever you sit and just suck out 2% of the money, I’m in a good place because you’re going to have a trillion dollars of ARR, 2% of a trillion I heard is a lot of money. It’s more than I make today. I just need to find something to get in the token flow.
+
+A proxy for token for me is data. If I’m the data flow, at least I’ll be in the data inspection business. What are the three largest businesses in data? Observability, SOC, and endpoint inspection. That’s why I own observability business, that’s why I live in the SOC world, and that’s why I have an endpoint moat. If I can just make sure my endpoint moats and my security data and my observability data allows me to be in the token flow, I’m in a good place. There’s more. There’s internal IT data, which also is interesting. That’s why Consul is interesting, because Consul actually builds on top of internal IT databases.
+
+If I can build Palo Alto in a place where I collect the data once and I analyze it for multiple use cases multiple times, I can optimize the cost for my customer, so they have to spend less money, and I can then charge for the intelligence feature that verticals over time. That’s what we’re trying to build.
+
+Moderator, moderator: Are there other markets that fit or other adjacencies that look like an observability or a Consul?
+
+Nikesh Arora, CEO, Palo Alto Networks: Should I just tell you the company I am going to buy next and make it easier?
+
+Moderator, moderator: I am not asking for a company.
+
+Nikesh Arora, CEO, Palo Alto Networks: Okay.
+
+Moderator, moderator: I am asking you an abstract philosophical question about how you think about the IT world.
+
+Nikesh Arora, CEO, Palo Alto Networks: When I was at Google in 2004, Larry Page came and told a story. Steve Jobs told him that the only thing Larry could do differently was he should focus like Apple does, because that is how you build a great product and you have a lot of people use it. Larry posited an alternative hypothesis saying, "If I have competent people and access to a lot of capital, I can have a lot of competent people try a lot of different things, and many of them will work." You can see both strategies work. We have tried the second strategy. We try and do multiple things. We try and see how many we can do well. We have access to capital, and we try and find the best people to do them.
+
+Sometimes the best people work for companies that are not ours, and we buy those companies, and they come work for us. When I started 8 years ago, we were a hardware firewall company. We were able to use our internal resources to build. The last product innovation Palo Alto Networks did before I got there in 2018 was in 2015. Today, we do 70 product deployments every year. We have changed our pace of innovation, and then we acquired 47 companies so far. That allows us to live where we live. We are constantly paranoid. We will keep looking at the market to see how do we get access to great people and great markets, and wait for markets to inflect. We have to be ready. 5 years ago, we run the SIEM business.
+
+We have a $700 million ARR SIEM business, which is now taking down most SIEMs in the market. We had no SASE business 7 years ago. Today, we are second in SASE, growing faster than the largest player and taking share from them. If you set your mind to it, over time, security markets commoditize. Customers start looking at each other and saying, "Your product looks very much like their product. Why should I buy yours?" Well, guess what? Mine works seamlessly with my hardware stack and software stack in SASE. Over time, as software commoditizes, platforms become more important. That is where we are trying to play. It has worked out so far. Hopefully, it keeps working.
+
+Moderator, moderator: I think it leads to a little bit of a question on industry structure. Tell us, with this view of the world where platformization, I think there is enough evidence at this point that suggests the largest cybersecurity companies are compounding at scale. The M&A is proving to be successful from a cross-sell, from a technology, from a moat standpoint. Do you think that the industry continues to concentrate in terms of profits over the next few years, or is there a part of the security stack that fragments?
+
+Nikesh Arora, CEO, Palo Alto Networks: Well, history should suggest so. In 2012, the market cap of cybersecurity was $40 billion, with Symantec had the largest share at that point in time at 30%. Today, the industry is $670 billion market cap, but we are close to 300 of it. It does seem like it does consolidate over time. You just have to make sure you do not sleep at the wheel. You have to be constantly paranoid to make sure your products are beating the top of the market. We have 20-plus Gartner Magic Quadrants who are at the top to the right, which is good. It is an arbitrary metric, but at least gives me comfort that in 20 categories, our products are as good as anybody else in the market, which is always a good sign. The idea is you do not want to become somebody who is not in the leading quadrant.
+
+Out of 27 categories we play in, 20 we are in the right. As long as I can keep aspiring to have the best products in the market, I am going to have heft. As long as I have a good sales force which keeps driving more value for customers, hence getting our customers to spend more is great. Then you have to run the business efficiently. I can run a $10 million or $15 million skunkworks project and not impact my P&L. Smaller companies cannot. We are doing tons of work on using AI to be more efficient. If we do that, we are probably going to run our business at a 500 to 600 basis point differential than smaller companies in the market. If you can run a profitable business at scale, it becomes a competitive advantage.
+
+Moderator, moderator: You gave us a couple of examples on how your day-to-day has changed with sleeping less and doing more research on AI.
+
+Nikesh Arora, CEO, Palo Alto Networks: It is just more emails to my team. I only have 12 people who work for me. Everybody else, it is like, literally, people get emails.
+
+Moderator, moderator: Any other wisdom you would leave us with as to how your day-to-day has changed and what we should be paying attention to? You spend more time on X as well.
+
+Nikesh Arora, CEO, Palo Alto Networks: Yes.
+
+Moderator, moderator: That’s a whole leadership avenue has changed.
+
+Nikesh Arora, CEO, Palo Alto Networks: Yes, that has changed because I went to do this podcast, and I told this guy, he’s building his own brand on the back of interviewing all of us and getting us to speak for an hour, and he does 20 a month or whatever he does, and he’s becoming more popular. I’m like, "Dude, this is unfair." He’s like, "Well, you’re stupid. I’m not." I said, "Why am I stupid?" He says, "You could build your own brand by tweeting once a day." Then, of course, I started tweeting once a day, and then Ali, Head of Communications, said, "That’s too much. Don’t do so much. You’d put your foot in your mouth." I said, "That doesn’t matter.
+
+I can do that once a week, and I can still put my foot in my mouth." I’m trying to balance putting my foot in my mouth once or twice a week and building.
+
+Moderator, moderator: How do you pick what to tweet about?
+
+Nikesh Arora, CEO, Palo Alto Networks: I do not really pick. I did not really want to say that you have to protect your IP because it looked like I have something to say about the Navier-Stokes thing, which I do not. I sort of made it more generic. That kind of inspired me just to talk about how people should secure their AI. I saw people getting all excited about Neocloud, so I kind of said Neocloud is going to trade at the same price two years from now than they are raising money at today. It was like I had all the Nebius lovers come after me quickly. That is a Neoscaler. That is not Neocloud. Then they got calmed down. I really watch out where I put my foot.
+
+Moderator, moderator: Well, you are one of the few CEOs that has an investing background.
+
+Nikesh Arora, CEO, Palo Alto Networks: Yeah, sometimes that works.
+
+Moderator, moderator: multiple perspectives.
+
+Nikesh Arora, CEO, Palo Alto Networks: I used to maintain my CFA, but then they started questioning shit. Never mind, not paying you $2,000 a year.
+
+Moderator, moderator: I don’t think you need your CFA to have an opinion on Neoclouds.
+
+Nikesh Arora, CEO, Palo Alto Networks: Well, honestly, they sent me a letter once saying, "Oh, we just saw in a public profile.
+
+Moderator, moderator: Yeah, it’s a membership. It’s a subscription model.
+
+Nikesh Arora, CEO, Palo Alto Networks: Yeah, I stopped paying for it because I didn’t use it, and then said, "Oh, somebody on your CV says you have a CFA. You owe us $2,000." So I send them $2,000, and now I can say I’m a CFA, and then they say, "Oh, you have to do this training to do professional services conduct or something." Like, shit, I don’t want to do all this. So I stopped paying. I tell everybody, do not write CFA in my CV anywhere. So now I’m gone. I’m good. I could say former CFA, I think. I wonder how that would go legally, but I could say former CFA.
+
+Moderator, moderator: I don’t know if that would give you more or less credibility with the Nebius people.
+
+Nikesh Arora, CEO, Palo Alto Networks: No, they’re very passionate. I think, look, Nebius with Neoscaler. Look, eventually, long-term data centers have an 18% IRR. So in the meantime, funding CapEx with equity is a bad economic decision, but you guys can tell me that. I don’t think so. But for now, it’s working.
+
+Moderator, moderator: I think that is all the time we have. Please join me in thanking Nikesh Arora for his time with us.
+
+Nikesh Arora, CEO, Palo Alto Networks: Thank you, guys. Have a wonderful rest of your week.

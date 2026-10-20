@@ -1,0 +1,74 @@
+{
+ "source": "Axe Compute Q2 FY2026 (08-17-2026)",
+ "new_nodes": {
+  "Duos Technologies": {
+   "ticker": "DUOT",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "status": "public",
+   "why": "Data-center owner / operator hosting AI GPU clusters: it owns and operates the Columbus, Georgia data center that houses Axe Compute's NVIDIA B300 cluster and signed an agreement for an additional 55 MW over multiple locations with Axe Compute, so its stock benefits directly from neocloud GPU-cluster build-out (same role as the Datacenter Colocation players in neocloud.json). Identity: the Axe Compute CEO gives the ticker as DUOT; SEC company_tickers.json maps DUOT to CIK 1396536 (the coordinator confirms the exchange and full company name before adding metadata). Not an existing node under another spelling (no Duos entry in company_metadata.json or the graph).",
+   "evidence": "Axe Compute Q2 FY2026 (08-17-2026), CEO Christopher Miglino: 'we have signed an agreement for an additional 55 MW over the course of a number of different locations with Duos Technologies'; 'There's the data center owner, which is you guys. And you're also the operator of the building.'; 'It's DUOT.'",
+   "approved": "opus verifier 2026-10-19: owner / operator of the Columbus, Georgia data center hosting Axe Compute's B300 cluster and signed for 55 MW more (CEO on the call; Axe 8-K 08-17-2026 names Duos Technologies Group, Nasdaq: DUOT, modular data center colocation) - a Datacenter Colocation participant like its neighbours; SEC CIK 1396536, Nasdaq, Florida, US; no existing node under another spelling"
+  },
+  "Axe Compute": {
+   "ticker": "AGPU",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "status": "public",
+   "why": "Existing node (neocloud.json, Neocloud) proposed for a second placement in components/nand_flash.json at cloud_infra / Neocloud (GPU-specialized) - the existing buyer sector where CoreWeave sits - so the WEKA -> Axe Compute storage relationship stated on the call can be an edge (skill section 6, cross-chain relationships: the missing party goes into the chain of the product supplied, here WEKA's storage).",
+   "evidence": "Axe Compute Q2 FY2026 (08-17-2026), President Kyle Okamoto: 'This high-speed storage is provided by our partner, WEKA, who's been a great partner.'",
+   "approved": "opus verifier 2026-10-19: second placement of an existing node (SKILL section 6 cross-chain rule) - WEKA sits only in nand_flash.json, the call states WEKA supplies the cluster's high-speed storage, so the buyer goes to the existing nand_flash cloud_infra / Neocloud (GPU-specialized) sector beside CoreWeave"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Duos Technologies",
+     "layer": "cloud_infra",
+     "sector": "Datacenter Colocation",
+     "product": "data center buildings owned and operated for GPU clusters (owner / operator of the Columbus, Georgia site hosting Axe Compute's B300 cluster)",
+     "quarterly_data": [
+      {
+       "quarter": "Axe Compute Q2 FY2026 (08-17-2026)",
+       "signal": "Duos CEO Doug Recker, speaking on Axe Compute's Q2 call about Duos' own business: Duos deploys data centers modularly - it builds its eHouses, chiller plants and electrical plant off-site and plugs them in within 60 days, 90 days, even quicker sometimes; it is focused on the 5 MW-25 MW, 30 MW range (the 10 MW-30 MW range is its sweet spot); at the Columbus, Georgia site it built 10-MW with the main infrastructure outside so further 10-MW modules can be added, and the project there was done in under 45 days. Its infrastructure division buys UPSes, eHouses and generators well in advance.",
+       "figure": "Columbus, Georgia: 10-MW built in under 45 days; modular plug-in in 60 days, 90 days; 10 MW-30 MW sweet spot",
+       "topics": [
+        "power_cooling"
+       ]
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Axe Compute",
+       "relationship": "data center capacity (owned and operated buildings) for Axe Compute GPU clusters",
+       "contracts": [
+        {
+         "source": "Axe Compute Q2 FY2026 (08-17-2026)",
+         "signal": "Axe Compute CEO Christopher Miglino: signed an agreement with Duos Technologies for an additional 55 MW over a number of different locations; Duos is the data center owner and operator of the building at the Columbus, Georgia site of Axe's NVIDIA B300 cluster, while Axe brings in, runs and manages the equipment. Axe also participates with Duos in owning the data centers through an SPV that invests in new buildings.",
+         "units": "additional 55 MW over multiple locations",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "data center capacity agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "components/nand_flash.json": {
+   "players": [
+    {
+     "company": "Axe Compute",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "dedicated bare-metal AI infrastructure (GPU clusters) designed, deployed, owned and operated for enterprises",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

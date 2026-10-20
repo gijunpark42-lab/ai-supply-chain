@@ -1,0 +1,28 @@
+{
+ "source": "eMemory press release: eMemory/PUFsecurity Showcases OCP S.A.F.E.-Approved PUFrt (10-19-2026)",
+ "new_nodes": {
+  "ASPEED": {
+   "ticker": "5274",
+   "exchange": "TWSE",
+   "country": "TW",
+   "status": "public",
+   "why": "Existing node (nvda_b200.json, Server Management BMC) proposed for a second placement in components/ai_security_trusted_compute.json at security / Hardware Root of Trust & TPM, so the eMemory -> ASPEED root-of-trust IP relationship stated in eMemory's release can be an edge (skill section 6, chain of the product supplied).",
+   "evidence": "eMemory press release 10-19-2026: 'PUFrt has already been successfully integrated into Caliptra products from ASPEED, a leading provider of server management chips (BMC/SMC)'",
+   "approved": "opus verifier 2026-10-19: second placement of an existing node (SKILL section 6) - eMemory's own release states its PUFrt root-of-trust IP is integrated into ASPEED's Caliptra BMC products (a design-in, not a demo); ASPEED sits only in nvda_b200.json, so the buyer joins the chain of the product supplied at the existing Hardware Root of Trust & TPM sector"
+  }
+ },
+ "chains": {
+  "components/ai_security_trusted_compute.json": {
+   "players": [
+    {
+     "company": "ASPEED",
+     "domain": "security",
+     "sector": "Hardware Root of Trust & TPM",
+     "product": "Caliptra-based root of trust in server management (BMC) chips",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "source": "ChronoScale 10-K (08-19-2026)",
+ "new_nodes": {
+  "ChronoScale": {
+   "ticker": "CHRN",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "status": "public",
+   "why": "Existing node (nvda_b200.json, Neocloud) proposed for a second placement in components/neocloud.json at cloud_infra / Neocloud (GPU-specialized), where Together AI already sits, so the ChronoScale -> Together AI supply relationship stated in its 10-K can be an edge (skill section 6, cross-chain relationships: fewest new placements).",
+   "evidence": "ChronoScale 10-K (08-19-2026): 'As of May 31, 2026, Cloud had one customer, Together AI, which utilizes GPU capacity across all three of our colocation centers ... we provide Together AI with access to dedicated NVIDIA H100 GPU infrastructure across multiple clusters totaling approximately 6,144 GPUs.'",
+   "approved": "opus verifier 2026-10-19: second placement of an existing node (SKILL section 6) - the 10-K names Together AI (neocloud.json Neocloud) as the only Cloud customer, renting dedicated H100 capacity; ChronoScale sits only in nvda_b200.json, and an H100 relationship belongs in the generation-neutral neocloud.json, where the buyer already sits"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "ChronoScale",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "dedicated NVIDIA H100 GPU cloud capacity (Colorado, Minnesota, Utah colocation sites)",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Together AI",
+       "relationship": "dedicated NVIDIA H100 GPU infrastructure (approximately 6,144 GPUs)",
+       "contracts": [
+        {
+         "source": "ChronoScale 10-K (08-19-2026)",
+         "signal": "ChronoScale's 10-K: Together AI, its only Cloud customer as of May 31, 2026, accounted for 100% of fiscal 2026 revenue, using dedicated NVIDIA H100 GPU infrastructure across multiple clusters totaling approximately 6,144 GPUs at all three colocation centers (Colorado, Minnesota, Utah) under a master terms of service agreement originally entered into in December 2023, most recently renewed effective March 1, 2026 for an initial term of twelve months and then automatically renewing for successive sixty-day periods; services are priced at a fixed, per-GPU per-hour rate billed and paid monthly.",
+         "units": "approximately 6,144 NVIDIA H100 GPUs",
+         "value": "no specific figure",
+         "date_signed": "December 2023 (renewed March 1, 2026)",
+         "type": "10-K customer concentration",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
