@@ -1,0 +1,558 @@
+SOURCE: Investing.com conference transcript -- https://www.investing.com/news/transcripts/crowdstrike-at-falcon-day-1-ai-defense-moves-to-machine-speed-93CH-4884482
+TITLE: CrowdStrike at Fal.Con Day 1: ai defense moves to machine speed
+EVENT: Fal.Con Day 1 2026
+DATE: 09-01-2026  (article publish date = event day)
+# source label: CrowdStrike Fal.Con Day 1 2026 (09-01-2026)
+# speakers: George Kurtz, Founder and CEO, CrowdStrike; Unidentified speaker, Video narrator; Daniel Bernard, Chief Business Officer, CrowdStrike; Jensen Huang, CEO and Founder, NVIDIA; Lip-Bu Tan, CEO, Intel; Greg Brockman, Co-founder, OpenAI
+# paragraphs: 275   characters: 83,868
+
+---
+George Kurtz, Founder and CEO, CrowdStrike: Well, this summer, you all read the same story I did about an agent that escaped its sandbox. It broke into one of the most relevant AI companies on the planet. It escalated privileges, it stole credentials, and it buried the real attack under a mound of information. Then our industry did what it normally does. It went on social media and argued whose fault it was. But almost everyone drew the wrong lesson from the OpenAI Hugging Face incident. I am going to spend the next 30 minutes telling you the right one, because in my mind, it changes everything about our industry. For years, we ranked our adversaries in the pyramid. I call it the Pyramid of Pain, where hacktivists were on the bottom, e-crime in the middle, nation state on the top. Of course, more hacktivists than nation state.
+
+The top really represented the apex predator, the greatest capabilities, the most sophistication. The bottom, many more, least sophisticated. The pyramid existed for exactly one reason: the offensive capability was scarce. It took a nation to fund the talent, the tooling, the infrastructure, the patience. But the scarcity is over, and let me give you two examples. Last November, Anthropic disclosed a state-sponsored actor running a live espionage campaign using its models. Roughly 30 organizations were targeted: banks, tech companies, governments. 80% to 90% was orchestrated by AI, 80% to 90%. Instead of a piece of malware, it was actually English. It was a prompt that did most of the work. There were four to six human touches for targeting approvals, things of that nature. The agent did everything else. This wasn’t a demo. It wasn’t a lab exercise. It was a live campaign.
+
+If we fast-forward to July, we can talk about Hugging Face. Autonomous agents drove an intrusion end to end. Let me say that again. Autonomous agents drove an intrusion end to end. For me, this was a watershed moment in security. We all thought the agents broke out of the sandbox. I personally think the agents thought they broke free. There’s a big difference, and it’s amazing when you go through the reports on this. I give credit to OpenAI and Hugging Face for putting this information out. The agents weren’t attacking anyone. They were trying to find information to actually cheat on a test. No campaign, no tasking, no malice. They were literally looking to try to find the answers. This is the floor in which AI is operating from, merely passing a test in this particular case.
+
+Now, some of you know the July incident. It was in a sandbox with the guiderails relaxed. The safety systems were turned down. Some of you may say, "Well, the airbags were off. That doesn’t count." When I hear that, I think the opposite. With the safety system off, it gives us a view into the capabilities of what the agents can actually do. You have to ask yourself one question, and that is, do we think the adversaries are going to turn the safety systems off? I personally don’t, and there’s a good reason why. This may be a new term for you, but it’s something that you should know because it’s really relevant to what I’m talking about. Abliterated models from the term ablate. Essentially, these are models that basically have their guiderails relaxed. These are open-weight models that anyone can download.
+
+What that means is that you essentially have frontier-capable models, essentially without guiderails. Very easy to ask it a question and to get an answer. Some of the questions that you ask it and some of the answers you get back, you would be astounded. Folks, this is here today, and this is one of the reasons why when I say the airbags are off, they are staying off, I actually mean it. Let’s get back to our apex predators, the Pyramid of Pain. It used to be capabilities that separated the tiers. The apex predators were at the top. Time, resources, and sophistication. The new apex predator is the agent. I have got to update my chart now. Now we have four rungs. What I mean by that is this is really the rise of the agent state. We hear about nation state.
+
+It is now the agent state. Because when apex capabilities become a prompt, guess what happens? There are no tiers at all. Every adversary, every e-crime crew, every insider are now operating with nation-state capabilities. The pyramid has just been obliterated, flattened. This is what we are dealing with in today’s environment. Let’s go back to July, and we will talk about what actually happened. I am going to breeze through this because I think many of you know it, but I will talk about it, and you can see it on the screen. You have sandbox escapes, you have a malicious data set, you have code execution, privilege escalation, lateral movement, credential theft, covert C2, decoy activities. It is all there. By the way, this looks exactly like a nation state activity.
+
+I actually urge everyone to go back and read some of the white papers on this to see how the agents communicated, to see what they did with the message boards, to see how they coordinated. Some would say that the 1,200 agents were actually believed to be acting for the collective. Think about that. Actually working on behalf of the collective for the common good. If you look closer, you have 17-plus thousand actions with no human on the keyboard. You could see it here, droppers, recon, remote code execution, backdoor tunneling, C2 evasion. It is all there. Anything in red actually caused damage. 56 that stole data, 69 that took source code, 87 that seized the clusters. The successful attack was hidden in thousands of lines of actual failures.
+
+By the way, no human can actually pick all of that out from the data that they had to sift through. For years I stood on the stage like this one, and I tracked this number called breakout. 62, 48, 29. The fastest one that we saw last year was 27, and we call that machine speed. We were wrong. I was wrong. This was human speed with better tools, and breakout time is over. I do not know what we are going to do for next year’s report, but we are going to have to come out with another metric, because it is gone. This is what I want you all to understand. Attacks now happen at inference speed. Think about that. Attacks are happening at inference speed. When attacker has inference speed, there is no breakout time. There is actually no time at all to deal with these attacks.
+
+In this particular case, going back to Hugging Face, the intrusion succeeded, credentials were stolen, forged identities and tokens stolen. They held admin access across multiple internal clusters. This is an important point. Intent stopped the attack. What did they want to do? Those agents wanted to pass the test. Goal-seeking in a way that I think we’ve never seen before in cybersecurity. Really powerful and fascinating. The agent was cheating, but it wasn’t trying to do damage. Let me make it clear. The company was spared because of the agent’s intent, not the defense. Security saw it, generated a lot of information, but it failed to raise enough alarms that the administrators were paged. It cost some time. They saw some activity, didn’t know how to put it all together. By the way, this is not a knock on anyone.
+
+You got a sophisticated company with incredible people, but there’s a lot of data that you have to go through, and these agents, again, are acting in an autonomous fashion. Here’s where it gets interesting to me. The frontier AI actually refused to do the forensics. The guardrails that actually stopped AI from writing the exploit, actually stopped it from taking one apart. The fire department wouldn’t enter the building. 17,000 actions. Couldn’t sort out what happened. What did they actually have to do? They actually had to stand up their own open-weight model to understand what happened with all of the log information they had and then try to reconstruct the attack. There was no adversary in this particular case, and what tore through the infrastructure was legitimate agents doing their job all too well with more access than anyone realized it actually had.
+
+You have to ask yourself, "What’s running in your environment?" Do you know? What is it actually doing? Who knows? What risk does it actually pose? This is not a hypothetical threat. This is something that happened. Again, I think as an industry, we got lucky because it wasn’t really intent on damage. This incident really shapes what’s inside your own walls. The agent state isn’t at your perimeter. It’s actually on your payroll. You just don’t know its name. Here’s what’s amazing. Your companies, your people, organizations brought them all in. The old model was keep everybody out. Now it’s let them all in. That’s where we are. We can’t see them, we can’t keep up with them, and no one has built AI for the defender. AI is the new battleground.
+
+You’re going to hear that obviously a lot through this conference. 15 years ago, I told everyone endpoint was the battleground. Then it was identity, then it was cloud, and today AI is the new battleground. Every time computing grows a new attack surface, Falcon grew with you, our customers. The same platform, the same sensor, the same weapon that you needed to win, we were there for you. We’ve been there for some of the most consequential attack surface changes in the world, and the AI agent is the next one. Today we’re talking AIDR, AI Detection and Response. We’re launching Falcon Guardian. I’m so excited about this. This is one of the things that we’ve worked on.
+
+I personally worked on this myself with the team, and we spent a lot of time with customers getting their feedback, listening to what they wanted, and basically delivering something that can help them not only understand their risk, understand what’s running, but more importantly, help accelerate AI adoption in your own organizations. Let’s roll the video.
+
+Unidentified speaker, Video narrator: Today, CrowdStrike launches Falcon Guardian, securing AI agents where they execute, on the endpoint. A decade of runtime security leadership now extended to agents. AI agents act autonomously at machine speed. Organizations don’t know where they run, who deployed them, or what risks they introduce. Guardian changes that. It starts with discovery. Guardian maps your entire AI agent fleet, known as Shadow AI, across every endpoint. An interactive honeycomb renders the full inventory at a glance. Filter by type, cluster by risk, answer the board’s hardest question in seconds. Turn AI governance policy into runtime enforcement. Define which agents run where, which tools they touch, what executes, and set guardrails for prompt visibility and control. At the core is the agent graph, a single causal timeline fusing prompt layer activity with OS layer telemetry. What the agent was told, what it actually did. One sensor, one story.
+
+This is layered detection, exposing attacks that either layer alone would miss. Guardian secures the entire agent runtime, letting your enterprise embrace AI with confidence to work at the speed of innovation. One sensor, one console, one platform. Falcon Guardian.
+
+George Kurtz, Founder and CEO, CrowdStrike: All right. Well, it’s now available. It’s GA, so if you want to check it out, get down to the booth, get a demo. Folks, that was just a teaser. Mike Sentonas is going to give you the full details, the full demo tomorrow, and it’s going to blow your socks off. Getting back to the agent state, I told you it’s on your payroll. Now you know its name, how to stop it, how to control it. Same sensor, new attack surface. The best AI on Earth was built for everyone. Remember what happened in Hugging Face. They turned to AI for the forensics, and the model refused. The guardrails that stopped the model from writing exploits stopped one from taking it apart.
+
+And in a moment of crisis, the best AI on Earth was really built for everyone except for the folks in the audience, except for the defenders. Think about that. The best AI on the planet was built for everyone but the defenders. General purpose models are general purpose. However, as defenders, we need models that are built for defenders, that understand security, that have been trained on some of the largest data sets in the world. So I’m pleased to announce that we’re launching the CrowdStrike Cyber Superintelligence Lab. Three elements. You know what its name is. Let’s go through what it’s actually going to do. Mission, pretty simple. Frontier AI research with a single purpose, and that is cyber defense. Not general intelligence with a security feature, security intelligence. We’re not interested in solving hard math problems. We’re interested in solving hard security problems. Number 2, the data.
+
+Actually trained on the trillions of events that the Falcon sensor sees every day, endpoints, identities, cloud, now agents, and a data set that doesn’t exist anywhere else on Earth. And it’s not something that’s general purpose that anyone else has. It is something that we actually have and we’ve trained our models on. And the people and the partnership. The lab is run by Bartley Richardson, formerly of NVIDIA. You’re going to hear from him on Thursday. We’re bringing the best AI talent in the world to CrowdStrike. However, we’re not building it alone. And you’ll hear in a second who we’re partnering with.
+
+Now, when a company announces a lab, everyone has the right to be skeptical because labs turn out papers, and I can tell you papers don’t stop breaches. So we decided to stand up our lab, and we didn’t announce the lab until we can actually show you what we built. The lab is not the announcement. The lab is the factory. And I want to show you the factory. I want to show you what cranked out of this factory, but let me show you who we actually partnered with. Together with NVIDIA, we built cybersecurity’s first complete agentic system for cybersecurity, including the first frontier models and harness purpose-built for defenders. This isn’t a co-pilot that’s baked into someone else’s intelligence. It’s not a chatbot with a security skin. It is a frontier-class model built and trained by CrowdStrike on our data in partnership with NVIDIA.
+
+And we’re going to talk more about that right after my keynote. Couldn’t be more excited. So I want you to meet Blue Solano, a frontier class model purpose-built for defense. We need to defend at the speed of the attack. It’s trained on the largest security data set, 15 years of stopping breaches, but defending is only half of the job. Meet Red Tempest, purpose-built for offensive security. This acts as an advanced adversary doing the work that general-purpose models won’t touch. Continuous red teaming at machine speed. Now, we have this saying, offense in service of defense. Kind of gets back to the old Hacking Exposed days. If you understood how the attacks work, you’re better able to defend against those, and this is really an important element. Understanding how the adversary works is key to stopping the breaches. It’s in the ethos of CrowdStrike.
+
+Every attack that Red Tempest actually runs, Blue Solano learns from. Offense in service of defense. Two models are in a system. What makes this very unique is the harness that we actually built to run them, and that’s CrowdStrike SafeMind. That is a complete system, including the harness, and I can tell you the harness makes a massive difference, and the training makes a massive difference to get to the best outcome with the lowest cost. CrowdStrike SafeMind, offense, harness, defense, a complete system that works in tandem together. I want to give you one example. This is just one example of an unlimited number of examples that we want to demonstrate the power when you combine blue and red together. The best way to survive an attack is to make sure you’re attacking yourself in one that you’ve never seen before it actually happens.
+
+On one side, it closed the loop, and the offensive model runs the attack, but the defensive model actually learns from it. It’s the continuous cycle that helps get the defender to be sharper, to continuously learn from what red is doing. It’s easy for me to talk about it, but one of the things that I want to do is show it to you, and one of the exciting pieces that we actually built is a digital twin to actually simulate this in a safe environment. With that, let’s roll the video.
+
+Unidentified speaker, Video narrator: Meet SafeMind, an autonomous agentic system to redefine cybersecurity as we know it. SafeMind is a complete set of state-of-the-art harnesses and models that exceed frontier level capability for cybersecurity applications. SafeMind excels at delivering the prevention, detection, and response lifecycle at machine speed. It goes beyond surfacing findings all the way to taking autonomous cyber defense action. In one use case, an analyst activates SafeMind as a skill in an AI tool. Powering SafeMind are two new classes of models, Red Tempest and Blue Solano. The analyst loads data about their enterprise. This data can be anything, asset inventories, identity stores, adversary intelligence, threat graphs, Falcon telemetry, everything needed for cyber operations. SafeMind’s best-in-class models both build and deploy a complex clone of your enterprise, matching hosts, topology, operating systems, applications. Let’s harden our defenses by loading an attacker scenario, unleashing Red Tempest.
+
+The model immediately assesses multiple paths to achieve its goal, autonomously succeeding in data exfiltration. SafeMind captures the traces from Red Tempest, and Blue Solano takes over. A defender model beyond frontier level, operating in a CrowdStrike harness, Blue Solano learns, identifies holes, validates new detections, and deploys them immediately. With the new detections in place, let’s see how Red Tempest does. The new defenses written by Blue Solano stopped Red Tempest in its tracks, and it’s forced to adapt and find a new path. The loop repeats again, and again, and again until there isn’t a path left for Red Tempest. The Blue Solano model outsmarted the attack, learning from Red Tempest while creating new remediations and defenses. Detection coverage grows, raising the cost for an actual adversary dramatically. But what you saw doesn’t just happen once.
+
+SafeMind gives every defender beyond-frontier capabilities, as Blue Solano is built and evolves with Red Tempest, ensuring the best defense is always aware of the best offense. Use Red Tempest for the best offensive security and to identify risk. Use Blue Solano for your defense. Use them independently or combine them to ensure your defense stays ahead of elite offense. SafeMind goes beyond generic frontier models for cybersecurity, turning findings into autonomous action. The defender advantage starts now. CrowdStrike, delivering the first frontier AI models purpose-built for cybersecurity.
+
+George Kurtz, Founder and CEO, CrowdStrike: All right. How cool is that? How cool is that? This is just one example that we showed. Obviously, the models and the harness will help power the Falcon platform that you all use, and you will see that come into the platform. I want to be clear, because we have worked with a lot of partners in advance of this, and there is an interest in getting access to the models directly. What we are doing for that is we are opening that up to our trusted access program, and that will be part of our Project QuiltWorks program. If you have more interest in that, you can talk to your reps, but the models themselves, the harness, will be in the platform. Then obviously, there would be a lot more things that you could do with it if you are consuming the models directly.
+
+More to learn on that, more to see. You can stop by the booth and see what it all looks like. I could not be prouder of the team, what we put together. I could not be more thankful for the help that NVIDIA provided, and I think this is one of those areas where you have good folks in the industry coming together to solve a really hard problem and doing it in a way that customers want. For me, it is important to talk about choice because I want to be clear about this. We are not going to lock you into our models, right? If you want to use our models, if you want to use frontier models, and we will talk about that a little bit later, or you want to use open-source models, or you actually want to put all the models together, that is fine.
+
+It is an open ecosystem, and we are not talking about vendor lock-in. We want to give our customers choice in what they want to use as part of the overall platform. Of course, leveraging the harness, which really is the 10x factor in getting additional results at the lowest cost. If you step back and you look at what we built, Falcon Guardian protects every agent on the new attack surface. The Lab builds frontier AI defenses, and that is its goal, and there will be a lot more that is coming out from the Lab. Of course, SafeMind acts, right? Natively in one platform, one console, one agent, one control plane, which is critical for our customers. I also want to be clear that you stay in control. You stay in control of the system.
+
+This is incredibly important from a safety perspective and things that we thought about in the overall architecture. In closing, I want to go back to what I talked about in the beginning, and that is most people drew the wrong lesson from Hugging Face. Some saw these autonomous agents act in a way that we haven’t seen before. Some saw the swarm. Some read about the message boards. Some saw covering up their tracks. And some saw the agents work as a collective group for the good of the entire group. But the real gap that I saw was that the attackers had frontier AI and the defenders didn’t. And that changes now. The agent state is here. Attacks at inference speed is here. So every leaf in AI can serve the attacker or it can serve the defender.
+
+But at CrowdStrike, we’re bending the curve and we’re giving the power back to the defender. Adversaries have frontier capabilities. Now you do, too. You have Falcon. Thank you so much. Have a great Fal.Con, and I look forward to seeing you in just a minute.
+
+Unidentified speaker, Video narrator: Please welcome Chief Business Officer at CrowdStrike, Daniel Bernard.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Amazing innovation, amazing announcements. Every relationship in this room is a partnership. Together, we stop breaches. We’re securing AI as a collective. You can see it in the hub, where we have over 150 sponsors here and partners that integrate with our technology. We listen to your feedback every day as our trusted customers, and we innovate together to create where this market is going and how we’re going to protect it together. There’s no better voice to talk about where this market is going than our own George Kurtz, founder and CEO of CrowdStrike, and it gives me great pleasure to also invite to the stage none other than Jensen Huang, the CEO and founder of NVIDIA. Jensen, George, come on out. Join us.
+
+Jensen Huang, CEO and Founder, NVIDIA: Have fun.
+
+George Kurtz, Founder and CEO, CrowdStrike: Thank you.
+
+Jensen Huang, CEO and Founder, NVIDIA: Have fun.
+
+George Kurtz, Founder and CEO, CrowdStrike: Thank you.
+
+Jensen Huang, CEO and Founder, NVIDIA: Fal.Con.
+
+George Kurtz, Founder and CEO, CrowdStrike: All right.
+
+Jensen Huang, CEO and Founder, NVIDIA: Wow.
+
+George Kurtz, Founder and CEO, CrowdStrike: How great is this?
+
+Jensen Huang, CEO and Founder, NVIDIA: I feel safer already. This is the safest place on earth, George.
+
+George Kurtz, Founder and CEO, CrowdStrike: It is, it is. I met you in the green room and said, "One day, I’m going to aspire to wear the leather jacket.
+
+Jensen Huang, CEO and Founder, NVIDIA: Right.
+
+George Kurtz, Founder and CEO, CrowdStrike: I’m going to stick to plaid for now.
+
+Jensen Huang, CEO and Founder, NVIDIA: You got to work up your cool.
+
+George Kurtz, Founder and CEO, CrowdStrike: I know, I know. Not everyone can be as cool as you. Well, again.
+
+Jensen Huang, CEO and Founder, NVIDIA: This is the coolest CEO, by the way. His office is in a, yeah. Whose office is inside a hangar?
+
+George Kurtz, Founder and CEO, CrowdStrike: You know.
+
+Jensen Huang, CEO and Founder, NVIDIA: Did I just tell him something?
+
+George Kurtz, Founder and CEO, CrowdStrike: It is a struggle.
+
+Jensen Huang, CEO and Founder, NVIDIA: That nobody else knew?
+
+George Kurtz, Founder and CEO, CrowdStrike: It is a struggle. It is good.
+
+Jensen Huang, CEO and Founder, NVIDIA: He is a race car driver.
+
+George Kurtz, Founder and CEO, CrowdStrike: We were putting this stuff together, and I was on a Zoom call, and literally landed, got out, and went to the office, and he goes, "What did you just do?" I said, "Well, I just landed and got out and went to my office." He goes, "Who has that?" You were jealous. You were jealous.
+
+Jensen Huang, CEO and Founder, NVIDIA: I was not jealous. I thought it was. I was going to use the S word.
+
+George Kurtz, Founder and CEO, CrowdStrike: All right. Let’s get down to it.
+
+Jensen Huang, CEO and Founder, NVIDIA: Okay. A little jealous, a little jealous.
+
+George Kurtz, Founder and CEO, CrowdStrike: Let’s get down to it.
+
+Jensen Huang, CEO and Founder, NVIDIA: All right.
+
+George Kurtz, Founder and CEO, CrowdStrike: So look, you gave the world the technology to create AI, and you are standing now in front of the cybersecurity stage. By the way, I remember when you gave the world the technology to have an amazing graphics card, because when I was a kid, it was an NVIDIA graphics card that I had, so I just have to be clear. But now AI is the theme. You are revolutionizing the world. What pulled you here, and why is security so important for you and NVIDIA?
+
+Jensen Huang, CEO and Founder, NVIDIA: Yeah, I am just so happy. I raised him and-
+
+George Kurtz, Founder and CEO, CrowdStrike: Yes.
+
+Jensen Huang, CEO and Founder, NVIDIA: The first question-
+
+George Kurtz, Founder and CEO, CrowdStrike: Did a good job.
+
+Jensen Huang, CEO and Founder, NVIDIA: The first question you. The setup is when I was a kid, I used your products.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yes.
+
+Jensen Huang, CEO and Founder, NVIDIA: Yeah, thanks.
+
+George Kurtz, Founder and CEO, CrowdStrike: Okay.
+
+Jensen Huang, CEO and Founder, NVIDIA: When I was a kid. Yeah, when I was eight.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah. I was a little bit older.
+
+Jensen Huang, CEO and Founder, NVIDIA: Anyhow, we’re in an inflection point in security. We’re at an inflection point in cybersecurity, for obvious reasons. We have now had agentic AI, the ability to automate attacks, and the attacks on companies are going to grow exponentially. However, at precisely the same time, we also have in our hands the necessary technologies to automate, to agentify cyber defense. You and I met recently, and recently as in several years ago, and we started to talk about what we could do together to bring the world’s best AI technologies in service of cybersecurity defense. Instead of what everybody talks about, which is using AI to exploit companies, we’re going to use AI to defend companies. The announcement that you just made, SafeMind, it was a proud moment for me and it was great to see it come together.
+
+Incredibly visionary product from CrowdStrike, and you are my number one cybersecurity partner. My number one-
+
+George Kurtz, Founder and CEO, CrowdStrike: Yep.
+
+Jensen Huang, CEO and Founder, NVIDIA: Yep. My number one cybersecurity provider, and so it was essential that CrowdStrike has access to the best of NVIDIA, and that we put our best minds together to create something that could be helpful to me, to be helpful to the world.
+
+George Kurtz, Founder and CEO, CrowdStrike: I think this is really where I get encouraged because you hear about the attackers having the advantage and having capabilities, and defenders are a step behind. But the thing that I love about security is that companies can come together in a community to actually solve a problem. You and I were on the call, and you talked about this being so important to you. In a number of months, we got it done together with just tremendous work from both teams and support, and I think that’s what makes the cybersecurity community so special, is that we can come together and get stuff done like this, so.
+
+Jensen Huang, CEO and Founder, NVIDIA: This is a goodwill community democratizing the technology, the fundamental technologies that are used by the attackers so that the defenders have access to the technology.
+
+George Kurtz, Founder and CEO, CrowdStrike: Right.
+
+Jensen Huang, CEO and Founder, NVIDIA: That asymmetry is fundamentally what we count on.
+
+George Kurtz, Founder and CEO, CrowdStrike: Right.
+
+Jensen Huang, CEO and Founder, NVIDIA: Most people don’t realize the cybersecurity community working transparently, working together cohesively, that is the asymmetric advantage the good guys have on the bad.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yep.
+
+Jensen Huang, CEO and Founder, NVIDIA: You know?
+
+George Kurtz, Founder and CEO, CrowdStrike: Exactly.
+
+Jensen Huang, CEO and Founder, NVIDIA: Right?
+
+George Kurtz, Founder and CEO, CrowdStrike: Exactly.
+
+Jensen Huang, CEO and Founder, NVIDIA: That technology, called community, is something that most people underestimate. We are a case in point. Obviously, we care about the same thing. We care about the security of the country. We care about security of companies and nations. By working together transparently, you now are an AI company. You have a research lab. Our AI researchers love working with yours. Together with your domain expertise, your decade and a half of security data that we can train on, we can create Nemotron, take a frontier model, and make it essentially a super AGI that is incredibly good at cybersecurity. Then you put it into a system called SafeMind with red teaming, blue teaming, the two adversarially-
+
+George Kurtz, Founder and CEO, CrowdStrike: Yep
+
+Jensen Huang, CEO and Founder, NVIDIA: working against each other in a digital twin of NVIDIA and testing it against that. That is completely brilliant. Now you have helped us create these rules that will run on Falcon, and you are helping us automate SecOps. Then, of course, beyond that, we are going to keep on working on it so that we become more and more autonomous in SecOps. This is-
+
+George Kurtz, Founder and CEO, CrowdStrike: Exactly
+
+Jensen Huang, CEO and Founder, NVIDIA: the first step.
+
+George Kurtz, Founder and CEO, CrowdStrike: This is a good segue then into open-weight and open-source, there is a difference, models. Nemotron, we work with you using the Nemotron models built by NVIDIA. Talk a little bit about your view of the ecosystem. You have got Frontier, you have got open source. I talk a little bit about choice. You guys have an incredible model. We are working with you. What is the vision for where Nemotron is going, and how are we going to continue to work with you on the security side to help advance its capabilities?
+
+Jensen Huang, CEO and Founder, NVIDIA: George, you are the poster child of Nemotron. I do not mean good-looking, I mean just poster child.
+
+George Kurtz, Founder and CEO, CrowdStrike: I see how this is going to go. I see how this is going to go.
+
+Jensen Huang, CEO and Founder, NVIDIA: You set it up.
+
+George Kurtz, Founder and CEO, CrowdStrike: Okay. I called you old.
+
+Jensen Huang, CEO and Founder, NVIDIA: CrowdStrike is absolutely the poster child, the reason for that is this. I believe in closed models and open models. We should use closed models, proprietary models, off-the-shelf as much as you can. Why build something unless you have to?
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah.
+
+Jensen Huang, CEO and Founder, NVIDIA: However, there are many applications in the world where you have to, you must have the ability to fine-tune, to post-train, to, in the context of SafeMind, create an AI that is super good at a particular domain. We don’t need every AI to be super smart at everything, but in some areas, we need to be extraordinarily good at something.
+
+George Kurtz, Founder and CEO, CrowdStrike: Right.
+
+Jensen Huang, CEO and Founder, NVIDIA: Cyber defense is something we want to be incredibly good at. Nemotron was really created for precisely that, to enable you, enable CrowdStrike in partnership with us, to create a super intelligence who is incredible at cyber defense. It was also created in a way that is very cost-effective. It was designed to be both smart but also fast. The reason for that is because in many of the applications that we’re interested in, we want that asymmetric advantage. Now with Nemotron being cost-effective, you guys deploy it yourself.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah.
+
+Jensen Huang, CEO and Founder, NVIDIA: It’s completely free. It’s incredibly fast. You have the ability to have an asymmetric advantage against whatever comes your way. I think that that was the mission of Nemotron, to be at the frontier. It doesn’t have to be the frontier, but it has to be at the frontier. It has to be completely customizable. It’s completely transparent to you. Not only do we open weight, but we also open the data-
+
+George Kurtz, Founder and CEO, CrowdStrike: Right
+
+Jensen Huang, CEO and Founder, NVIDIA: open all the training scripts. We also open our research teams to work with you. We are working on Nemotron-4 together.
+
+George Kurtz, Founder and CEO, CrowdStrike: Right.
+
+Jensen Huang, CEO and Founder, NVIDIA: Nemotron-4 will be even better for cybersecurity than Nemotron-3. Beyond that is Nemotron-5. NVIDIA has enough scale and expertise and dedication to this. I can work on this for as long as I shall live, so we will be able to, as a partner, keep the world safe.
+
+George Kurtz, Founder and CEO, CrowdStrike: Well, that is a good segue to the next question. Because we are going to be doing this a long time, in 5 years, when you come back on stage and we think about security, what are we going to be talking about that this audience has not even heard of, thought of, or dreamt of, specific to AI and security?
+
+Jensen Huang, CEO and Founder, NVIDIA: Well, in 5 years, when I am back here, you still will not be cool enough to wear a leather jacket, but you will still be working in a garage.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah.
+
+Jensen Huang, CEO and Founder, NVIDIA: In a hangar.
+
+George Kurtz, Founder and CEO, CrowdStrike: Slumming away. I know.
+
+Jensen Huang, CEO and Founder, NVIDIA: Slumming away in a garage. That was the funniest. I am trying to have a serious conversation with George Kurtz about SafeMind. It was basically the precursor of SafeMind. We are on the phone on video, and it is literally like that part of the movie where somebody is running and they are breathless going from hallway to hallway up the stairs.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah.
+
+Jensen Huang, CEO and Founder, NVIDIA: It was the wild.
+
+George Kurtz, Founder and CEO, CrowdStrike: Well, I had a limited time with you, I got delayed a bit, I took it on the plane and walked right in the office, so it all worked out, right?
+
+Jensen Huang, CEO and Founder, NVIDIA: All the time in the world.
+
+George Kurtz, Founder and CEO, CrowdStrike: I wasn’t going to move the meeting. Would you move the meeting?
+
+Jensen Huang, CEO and Founder, NVIDIA: In 5 years’ time, way long before that, the attack surface of a company is significant from the outside in. Today, we’re going to automate SecOps. We’re going to help SecOps write the rules and, inside this digital twin, with this mouse and cat scheme going on, we’re going to create the best rules to secure our company. However, over time, that’s going to become more and more autonomous. The reason for that is because obviously we want to find these exploits and look for a patch within seconds. But in the future, we want to do that ideally as autonomously as possible all the time. With human-in-the-loop looking at big decisions. However, the attack surface from inside the company is incredible because today we have thousands of employees.
+
+We have 40,000 employees on our network with identity and access controls, and they are using tools or accessing files and doing things. This 40,000 employees will soon be augmented by several hundred thousand agents. These several hundred thousand agents, we are working on this thing called OpenShell that creates a secure container around them. Of course, we are going to try to containerize them and keep them as secure as possible. However, they are going to have more and more access control and use more tools, and so on and so forth.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah.
+
+Jensen Huang, CEO and Founder, NVIDIA: Inside the company, we have Zero Trust policies today and technologies from CrowdStrike to maintain a Zero Trust environment. But in the future, we are going to have to maintain a Zero Trust agentic environment. How are we going to monitor and secure all of these agents all working on our behalf, keeping the company safe, keeping the company secure, and making sure that they do not have any exploits that we do not want them to do. All of that inside the company, we are going to have a lot of computing work to do. I think we got together because your expertise in cybersecurity, our expertise in AI and computing, really has to come together. This is the next giant computing frontier.
+
+George Kurtz, Founder and CEO, CrowdStrike: Absolutely.
+
+Jensen Huang, CEO and Founder, NVIDIA: We are going to be computing all the time. The first application, if you will, is coding agents. Now, SafeMind will be the second incredible agent security cyber agents. I think we are going to see a lot of advances in this area. Very exciting work and of course, very important work.
+
+George Kurtz, Founder and CEO, CrowdStrike: Amazing. When you think about what we have built, maybe a couple of comments. I think when you and I got together, it was really focused on the need for defenders, and I talked about that in my keynote, the fact that they were outgone, outmatched. When you think about the defender, and maybe you can comment on-
+
+Jensen Huang, CEO and Founder, NVIDIA: Did you say therefore, you brought the big guns?
+
+George Kurtz, Founder and CEO, CrowdStrike: I brought the big guns.
+
+Jensen Huang, CEO and Founder, NVIDIA: I had to put that in there.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yes.
+
+Jensen Huang, CEO and Founder, NVIDIA: It was such a good.
+
+George Kurtz, Founder and CEO, CrowdStrike: I brought the. Did I bring the big guns?
+
+Jensen Huang, CEO and Founder, NVIDIA: Did he say that? Did he really say that?
+
+George Kurtz, Founder and CEO, CrowdStrike: It doesn’t get any bigger than this.
+
+Jensen Huang, CEO and Founder, NVIDIA: Did he say that Jensen Huang has big guns?
+
+George Kurtz, Founder and CEO, CrowdStrike: You do have big guns. Should we take the jackets off? I do think that it’s an inflection point for both of us because there is a recognition by, again, the industry customers of what AI can do, and more importantly, as you talked about choice, right? It’s all about choice and the models you use, where you want your data, how you use it. I think you and I talked a little bit about this, is the application layer. This harness becomes really important because the models, at some point, they’re all pretty good, right? They keep getting better and whose model is better one day versus the others. But with the right training data, the right harness, and being very specific, you can get great outcomes. So we’re focused on a very specific use case.
+
+As I said, we don’t want to solve all problems in the world. We want to solve the hardest security problems. Do you see that trend happening now in other industries where you have this verticalization of these models? I’m just curious for the audience how they should be thinking about even for their own businesses outside of security.
+
+Jensen Huang, CEO and Founder, NVIDIA: Well, we should use the smartest general intelligence wherever we can.
+
+George Kurtz, Founder and CEO, CrowdStrike: Right.
+
+Jensen Huang, CEO and Founder, NVIDIA: For a lot of different works, use cases, I think just a super smart general intelligent AI can reason through a problem and become good at it.
+
+However, for tasks that are highly specialized, and it is quite intensive, meaning it is a specialized work that you have to do all the time. For example, cybersecurity. It is hyper-specialized. You are doing it continuously. This is an area where if you had the necessary data and you say harness is essentially the exoskeleton, if you will
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah
+
+Jensen Huang, CEO and Founder, NVIDIA: of the large language model. The large language model is the brain. The exoskeleton turns it into an agent. This exoskeleton does not have to be the same shape and the same capability for every single domain and every single application. Some of the exoskeletons could have wheels, some of the exoskeletons could have legs, and so on and so forth. These different capabilities really want to be domain-specific, task-specific. I see a lot of different industries that are going to have more and more of these type of application-specific, domain-specific, highly specialized, super capable harnesses that in combination with a fine-tuned model
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah
+
+Jensen Huang, CEO and Founder, NVIDIA: that sits inside it, is really becomes super intelligence.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah.
+
+Jensen Huang, CEO and Founder, NVIDIA: I think you and I see it the same way, and I think SafeMind is really one of the world’s first, and it was designed for one of the most important applications, cybersecurity. I am super excited to see that.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah, amazing. We are going to talk about a few topics here, and you and I spoke a little bit about robotics and digital twins and things of that nature. When we think about the physical world, obviously, there is compute, there is AI, there is just an amazing amount of technology that goes into these robots. You may have seen the World Humanoid Robot Games a couple of weeks ago. They were running faster than Usain Bolt and slamming in the walls. It was hysterical. They come out with the stretchers. To me, they are all going to need security. How should we think in our industry, what opportunity does that present when we just think about all the physical AI that is going to take place in the form of robots and other sort of automation?
+
+Jensen Huang, CEO and Founder, NVIDIA: We need SafeMind everywhere. We need it in every single layer of the computing stack. We need it obviously inside our companies. We need it in the cloud. We are going to need it at the edge. We are going to need it at the distributed edge. I think the basic framework of SafeMind, which is an adversarial model, which is acting on a digital twin of the environment with a defender model, trying to figure out how to cat and mouse this thing.
+
+Eventually learning how to secure itself within that domain of the digital twin. This basic framework applies to robotics, edge computing, enterprise computing, and just about everything. The fact that CrowdStrike has sensors all over NVIDIA, and you have the ability to replicate the NVIDIA IT system as a digital twin, that is an incredible capability. Now that you can replicate the digital twin, we can create the adversarial and the defender systems to defend itself. I think this basic idea replicates in just about every different-
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah
+
+Jensen Huang, CEO and Founder, NVIDIA: domain. Whether it is a factory, you want to keep factories safe and secure. Whether it is a robot, the robot itself has to be safe and secure. In every single one of these systems, we could create something like SafeMind. We could use the SafeMind framework and create essentially a cybersecurity agent that runs alongside the AI model itself.
+
+George Kurtz, Founder and CEO, CrowdStrike: Okay. Whenever I come visit you, it is like the professor sits down and gives the lesson. You talk shop, and you always give us something to think about. In the last minute or 2 here, as security practitioners, as folks who are helping to drive the industry, but also folks who are consuming products, what should we be thinking about now? What problems should we be solving now that we are not thinking about?
+
+Jensen Huang, CEO and Founder, NVIDIA: Well, the first thing that we need all of you to do is to calm the world. I think that calming the world, what I mean by that is, of course, we should take AI seriously. The technology is very capable. It has the capability to do incredible good. It has the capability to do harm. But we also need to know, the world needs to know that there is this entire community out here who cares about securing the world in the age of AI. All of you need to speak up. It cannot just be people who are trying to scare the world about AI. It has to be people who are also saying, "Listen, we are armed by the same technology.
+
+We have asymmetric advantages because we have a large community of cybersecurity experts and community that wants to work with each other and keep the world safe. We have the technology. We have the might, we have the capability to do so. We have the will to do so." That voice needs to counterbalance some of the voices that are doomism and trying to scare people that frankly, is too extreme. I think partly, we all have to speak up and help people understand the technology that we are creating. Secondarily, just remember that this is a battle that never ends.
+
+George Kurtz, Founder and CEO, CrowdStrike: Never ends.
+
+Jensen Huang, CEO and Founder, NVIDIA: Yeah. This is a contest that’s never going to end. This is the beginning of a new age of cybersecurity. On the one hand, the adversaries are going to be more armed than ever. On the other hand, all of you are going to be more armed than ever, and George is going to make sure that that’s true. He’s building SafeMind for us, and we’re using it. As you know, I’ve got big guns.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah, he’s got big guns. All right.
+
+Jensen Huang, CEO and Founder, NVIDIA: You’ve got to end with that.
+
+George Kurtz, Founder and CEO, CrowdStrike: I’m going to end with that because it’s hard to beat his guns, his jacket. I am a little bit younger, but we won’t mention that. In any event, I couldn’t be prouder to have you in partnership with CrowdStrike. It’s just been an amazing journey. I want to personally thank you. I want to personally thank your team for working with us, and we’re going to come back. We’re going to share the results that we get back from the field, and we’re going to continue to iterate. But the point that you made, I think, is very valid. The crowd in the CrowdStrike is the asymmetry, which puts the defenders in the unique position to defeat the adversary. With that, a massive round of applause for our guest, Gen Tenlon.
+
+Jensen Huang, CEO and Founder, NVIDIA: Go get them, cyber defenders.
+
+George Kurtz, Founder and CEO, CrowdStrike: Thank you. Thank you so much. Come to the back. Thank you.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Okay, so now we move on. What a great little chat that was. So many nuggets there, so much wisdom. Now we move on to a whole another layer of the AI stack. There is a theme here. We started at the foundational level. We are working our way back to the user. Next, it gives me great pleasure to invite to the stage to join us, Lip-Bu Tan, CEO of Intel. Lip-Bu.
+
+George Kurtz, Founder and CEO, CrowdStrike: Hi, Josh.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Lip-Bu, how are you? Good to see you. Thank you so much for joining us.
+
+George Kurtz, Founder and CEO, CrowdStrike: Great to have you.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Okay, a great conversation here. Lip-Bu, we are going to start with you. You came back to Intel and have really rebuilt the company. It is fantastic. Around engineering, around execution, new silicon, new architecture. It is a whole different Intel. For the security leaders in the room, what should they know about where you are taking the company? Maybe you can tell us the secret to your success.
+
+Lip-Bu Tan, CEO, Intel: First of all, delighted to be here.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Thank you.
+
+Lip-Bu Tan, CEO, Intel: Thank you for inviting.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Of course.
+
+Lip-Bu Tan, CEO, Intel: I tried to rebuild, I call it a new Intel, going forward. We listen to customer very closely, we change the culture of listen carefully with the customer. It’s a very unique situation that we can really, the only company that are able to do design good products, also packaging and manufacturing across full stack, then focus on agentic AI, then from PC client all the way to the edge, also physical AI, we try to take a leadership in that. I think overall, I think it’s super exciting for me to enable the customer, able to deploy AI from cloud to the edge and to the end products.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: A lot of the future today and tomorrow runs on Intel silicon. You are securing more of it natively at the hardware layer. What has changed in how Intel builds security into the chip, and why does that matter as AI moves everywhere?
+
+Lip-Bu Tan, CEO, Intel: I think it is very important security start with the silicon. Then we create that strong foundation for OS, security software, and all the way to the device, AI device. CrowdStrike extends that capability through Falcon platform. There is something very exciting for us, and we can really deliver efficient compute for AI at the edge. We have about 400 software engineers focused on security, and we do all the hacking, try to figure out all the changes. As you know, it is never end, so we have to continue working on that and provide that whole confidential computing and protect the data, then make sure that it is secure and less complex, also invisible to the end user.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: George, building on that, CrowdStrike, we secure AI everywhere it lives, from the device, to cloud, to data, to identities, and so on and so forth. What does it mean for us when we work together with Intel, and why does this partnership matter to everyone in the room?
+
+George Kurtz, Founder and CEO, CrowdStrike: Well, first, thank you. I have known Lip-Bu for a long time, and he is one of the best in the industry, in technology, and I can be happier to have you here and partnering with you.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Thank you.
+
+George Kurtz, Founder and CEO, CrowdStrike: When we think about the silicon itself, obviously, there’s tremendous security capabilities, and I learned this way back when I spent a little bit of time at Intel after the McAfee acquisition. There’s probably a lot more in security in your chips than people realize, and I think part of it is telling the story of how this can be used. If you don’t have the right way to activate, if the software’s not taking advantage of it, of the operating system, then it’s not as effective for customers. Part of what we want to be able to do is to go deep inside with Intel, into those very specific features that help us protect memory or read memory, understand what’s happening, or create a root of trust for when the system boots, right? These are very important. Protected enclaves, right?
+
+Where things can run and not be modified. When we think about what happens today, with enough time and effort of running advanced models against operating systems or applications, you’re going to need something to ensure that you’ve got that root of trust all the way through your security stack. I think we’ve done a very good job in partnership with Intel to be able to say, "What are the features we can use?" There’s a lot more that you have, again, that I say the whole world should know, because there’s some amazing security technology. How do we activate that in a way that’s best for our customer, that provides them the best performance and the best protection while leveraging what’s natively built into these chips?
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Building as close to the silicon is super important for us and I think really differentiates CrowdStrike. We recently did some work with NPUs. George, where do you see the role of security going with hardware vendors, and how do we make the world a safer place together?
+
+George Kurtz, Founder and CEO, CrowdStrike: Well, again, I think just hardware in general, how do you leverage an NPU, a GPU? What’s the CPU? Obviously, there’s multiple cores, right? How do you become more efficient? No one ever said, "I want my computer to be slower," right? Which is one of the reasons we started CrowdStrike, when I was sitting on the airplane and things were booting and it took 15 minutes. We wanted to change that paradigm. So what can we offload to the chip? How do we leverage what’s there? I think just as an industry, period, CrowdStrike and everyone else, there’s a lot more that the security industry can do to make the best experience for the user.
+
+Even if you’re not a user, if it’s running in the cloud, use what’s there in a way that it gives you the best performance with the best security outcomes of stopping the breach.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Well said. Lip-Bu, Intel doesn’t build alone, doesn’t build in a vacuum. You work with great partners like Dell, who we have in common, where we do a lot of security on devices and go to market together. You work with CrowdStrike, hardware and firmware really coming together as a stack. Why does that integrated approach matter more to you now than ever, for Intel of today, for your customers in the future?
+
+Lip-Bu Tan, CEO, Intel: Yeah, I think it’s very important that customers do not want to have disconnected tools. So hardware, firmware, security platforms should work together into one. Intel and Dell, our big partner, and with you, we can build a security on the PC from the start. Then you have almost 400 endpoints, and it’s very important to have that Endpoint Detection and Response through the Falcon platform to really drive that end-to-end security to protect the data, especially with all the, you’re talking about 1,200 agents and growing.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Yeah.
+
+Lip-Bu Tan, CEO, Intel: How do we protect that and then make sure that this data is secure on the device?
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Last one here, I am going to ask both of you. The agentic era is definitely here. We see it, we are using it in all of our companies. As AI agents start doing the real work, Intel and CrowdStrike are doubling down on the security layer together. What should this room be thinking about where we are and where we are going next into the future?
+
+Lip-Bu Tan, CEO, Intel: I think agent is driving real productivity, so I think it is important to raise the stake. Customer need more control of what the agent access and also decide and do. Intel and CrowdStrike exploring hardware-enabled guardrails, make sure that technology move quickly, but no one really have any risk in term of cybersecurity attack. That is something that we are going to work together to drive that.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: George, your thoughts?
+
+George Kurtz, Founder and CEO, CrowdStrike: Well, I think when you look at agents and its capabilities, and I had this conversation with a bunch of folks over the last couple of weeks. It is like, if you look at where we were in January to where we are today, the landscape has changed dramatically. The capabilities of the models, frontier models, and the harnesses, and what you can actually do, you actually can get work done. It is incredibly powerful. I think when you look at, there is kind of two pieces. When you look at protecting these agents, you want to be able to instrument all the way from the chip, all the way up to the agent itself through the operating system. You also again want to make it very performant.
+
+If on average, and they say stats are that each person will have 90 agents that they sort of control, a lot of these things are going to run on the endpoints, the desktops. Or they could run in a cloud container. But at the end of the day, there is going to be a lot of them, and you want to make sure that it is performant and you get the best outcomes at the lowest cost. I think again, taking advantage for what is in the chip, making it the best we can do for our customers, is going to be the right outcome. There is more. We are working together at the R&D level to say, "Hey, what do we need for the next versions of these chips?" These chips, it takes a while to actually get in the market. It is not like software.
+
+There is a broader lead time. We want to be working with you directly, and we are on the things that we see and we need, and that is part of our design partnership, and I think that is great for the industry.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Yeah. I think the big takeaway is the closer we are together, the better the experience is for everybody out here, and the harder we make it for adversaries to do their work. We need to make people productive, we need to make them secure, and that happens when we work together at the hardware and software level. We really appreciate the partnership. Any final thought, George, before we call it a day here?
+
+George Kurtz, Founder and CEO, CrowdStrike: No, I think, again, what we wanted to be able to express is we’ve got the great partners, we’re working with them. To realize, and this is really important for me, is that it’s an ecosystem that solves problems. It’s the crowd and the CrowdStrike, and it’s not just our customers, but it’s our partners. Our partners help make us better, and ultimately, we want to have the best technologies and the best outcome for our customers, and we couldn’t do it without folks like Intel.
+
+Lip-Bu Tan, CEO, Intel: Thank you.
+
+George Kurtz, Founder and CEO, CrowdStrike: Lip-Bu Tan, thank you so much.
+
+Lip-Bu Tan, CEO, Intel: We don’t have to change to a leather jacket, right?
+
+George Kurtz, Founder and CEO, CrowdStrike: No, no. We’re not that cool yet. I aspire one day, but anyway, thank you so much.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Awesome.
+
+George Kurtz, Founder and CEO, CrowdStrike: Amazing.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Thank you.
+
+George Kurtz, Founder and CEO, CrowdStrike: Big round of applause for Lip-Bu Tan. Thank you. Yeah. Bye now.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Okay. Now we take AI to the end user, where many of you first started using your AI, started using and hearing of a company called OpenAI. We’re so happy to have with us here, co-founder of OpenAI, none other than Greg. Greg, come on up to the stage. Welcome, Greg Brockman.
+
+George Kurtz, Founder and CEO, CrowdStrike: Greg, how are you?
+
+Greg Brockman, Co-founder, OpenAI: Doing great. Thank you for having me.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah. Thank you.
+
+Greg Brockman, Co-founder, OpenAI: All right. Good to see everyone here.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Thanks for coming in.
+
+Greg Brockman, Co-founder, OpenAI: Absolutely.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Greg, we’re going to jump right on in.
+
+Greg Brockman, Co-founder, OpenAI: This is a star-studded lineup.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: There we go. Another leather jacket.
+
+Greg Brockman, Co-founder, OpenAI: Of course.
+
+George Kurtz, Founder and CEO, CrowdStrike: Okay.
+
+Greg Brockman, Co-founder, OpenAI: Can’t get by without it.
+
+George Kurtz, Founder and CEO, CrowdStrike: If you’re running OpenAI, you can wear a leather jacket, too, I guess.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: There you go.
+
+Greg Brockman, Co-founder, OpenAI: That’s right.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: There you go. Greg, it’s great to have you here. Here as a customer, a partner, a sponsor, all the things. What does OpenAI and CrowdStrike working together look like to you?
+
+Greg Brockman, Co-founder, OpenAI: Well, I think we are at a moment of transformation in cybersecurity. I think that you need the best of the models. The best of these sort of new non-deterministic systems that are able to go and solve problems in new ways, and you need the best of deterministic controls. Of having trusted systems that give you good observability control for admins, and you need to bring all this together as one. Working together with CrowdStrike, we believe that we can take the sort of best times the best and get to security for customers and get to a much more secure world.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Makes sense. Cyber has certainly become a major focus in the world of AI in general. I’m curious if you can talk about your perspectives, especially over the last few months, as you’ve walked deeper into the hallways of cyber than maybe you had in years past.
+
+Greg Brockman, Co-founder, OpenAI: Well, first of all, I do come from a bit of a security background. I was saying to George earlier, I was a longtime DEF CON attendee, and at Stripe, I did a lot of security-focused work. It is very near and dear to my heart to kind of come back and really focus on this area in a real way. But I think right now, we are in what I call the defender’s window. There is this limited time period where we have seen the shape of what is going to be possible with AI-assisted vulnerability finding, which can be used for two purposes. It can be used by attackers to find threats and exploit them, but it can be used by defenders to find those same threats and to patch them before the attackers get there.
+
+And that I think that we, as OpenAI, as CrowdStrike, as a security community, what our responsibility is and what our strategy should be is to really try to put these tools in the hands of defenders differentially. So you really give defenders this time window where they have the most advanced capabilities, they have these agentic tools that are able to accomplish amazing things, and to urgently apply those to improving their own infrastructure, to securing themselves. And so that is my perspective of where things are, is that we have this general purpose technology. We have brought it to so many domains. We are solving these unsolved math problems, that we are able to help people build software in unprecedented ways, and that we are actually going to be able to help make the world be much more secure. But I think it has got to be a community effort.
+
+Everyone has to come together to make this happen.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: George, rounding out the community effort, following up on that, what is it about OpenAI and this very moment that made you want to work together and have Greg here to join us today?
+
+George Kurtz, Founder and CEO, CrowdStrike: Well, I think it starts with incredible technology, and it also starts with customers. Customers, they want to be able to leverage frontier models. They want to be able to leverage lots of models that are out there. But what we want to be able to do is to work in combination, in concert with OpenAI, to be able to take some of those models, to also be able to make them available to our customers in a way they want to consume them. We already have the security data. We already have lots of information about what happens in their own environment. And we want to make sure that they’ve got the choice and the right power in terms of models to be able to get the right outcomes. It is the community approach. It is the crowd in the CrowdStrike.
+
+How do you bring together our ecosystem and realize, sure, we can solve a lot of problems, but it’s the power of the ecosystem, it’s the power when you bring everyone together, what you’re building, what we’re building, what others are building, in a way that ultimately gets the best outcome for the customer. And that’s why it’s important, and I think you guys have been forward-leaning in these areas. We’ve been working with you, your customer, on what matters in security and how should we be thinking about delivering something jointly together to a customer that is totally focused on security. Sure, they’re using your technologies in other areas. But from a security practitioner and defender standpoint, there’s specific use cases and specific needs. And I think just having that dialogue is really important to be able to deliver what the customer wants.
+
+And there’s been an incredible openness to work with AI. We were part of many of the initiatives that you put out. We were front and center there with you, and we certainly believe in what you’re doing and how you’re going about it. So we’re proud to be partnering with you.
+
+Greg Brockman, Co-founder, OpenAI: We are as well.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: On the whole topic of openness, I want to come back to earlier in the summer to Hugging Face. Everyone here has certainly read this is the audience that reads and follows a lot of this stuff. Your transparency and openness really deserves recognition. Why was it important to you personally to publish as transparently as you did? Also maybe what are some of the learnings or the takeaways that you want this crowd to have about the summer?
+
+Greg Brockman, Co-founder, OpenAI: Well, I would say that Hugging Face for us, I think for the field, is really a watershed moment. I think it is a significant deal, not necessarily for the event itself, but for what it represents. For a little sense of where the future is going. I think it is really two things. One is safety, security alignment, that that for us was a real wake-up call that I think we had underestimated just where we were. We always knew that these were going to become these important bottlenecks to development, not just be about deployment time, but how we actually develop. We went into full incident response mode afterwards, really have changed so much of how the standard is set within our development process, how we integrate all these things together.
+
+But there is a second thing that I think is so critical for every single defender, for anyone who is running a company, for anyone who is in a position to really think about how the world needs to evolve to deeply understand, which is that we had the first incontrovertible, real-world, publicly documented, it is just out there, everyone knows about it, example of what an agentic, a threat actor would look like. Keep in mind, this is a fairly mild version of what could be possible. There was no intention of a human who is really trying to craft an attack.
+
+This was not even the main objective that these agents were trying to seek, but that they were able to both break out of a secure sandbox through developing their own zero-day, chaining together multiple vulnerabilities, they were able to break into a company’s production infrastructure, again, chaining together multiple 0-days. You look at that, you see the curve of improved capabilities, that the way that this is going right now is that the frontier labs get to see into the future. But those capabilities will diffuse into the world. By the way, that is a good thing. It is good not to have concentration of power. It is good to have diffusion of these AI capabilities broadly. But in order to really be able to get the benefits of this, it means that we need to use that time window.
+
+To me, I think we got to see a little bit into the future. It is like we got this time traveler who came back and said, "Hey, here is what the threat landscape will look like." The threat landscape, it has been evolving over the past 20, 30 years. Think about how different security is today from when the internet started. Totally different. I think that we are going to have to have that level of change within even just 6 to 12 months. It has to go fast. To me, this wake-up call, we are going to be talking more about how we have responded ourselves.
+
+We have been in, both on the research side, but also on our production side, full incident response mode took 25% or so of our best of engineers just to say, "Hey, you are not building features right now, you are just securing." Apply our best models, find the vulnerabilities, fix them urgently, and really change how we operate in order to be able to rise to be able to run at machine speed. There is still more work to do, but I think that every company needs to really stare at this case study and think about how do I use this as information for how my processes need to change, for how my operations need to change, and for how I build my system and secure myself, how that needs to evolve in this new era.
+
+George Kurtz, Founder and CEO, CrowdStrike: Devian, let me ask a quick question to follow up on this because you guys had called us in to help on this response, and that is publicly known, so I will stick to the reports that you guys wrote. But when you read the reports, I commend you and Hugging Face for the transparency, the reports are unbelievable, and it is a great service for the security community. But when you saw what the agents were doing, what was the biggest surprise you took away? Because when you read it, you are like, "I do not know what AGI looks like, but man, it sure smells like AGI." What was your biggest takeaway when you saw how this unfolded?
+
+Greg Brockman, Co-founder, OpenAI: Well, look, I think that there are some things where, because we are developing the models, we have some intuitions and some sense of exactly the capabilities we expect. The fact of these agents being able to coordinate with each other, that is actually something we expected.
+
+That’s something that was really trained in. I think that there was a surprise in some ways with really looking at the. Maybe it’s, again, kind of a level of capability of the fact that they were capable of finding these zero-day exploit chains in order to be able to achieve objectives. I think that was the surprise in some ways. The fact that to me, that when you have this impossible task that you set in front of them, that they try to find other ways to achieve this impossible task, not surprising, right?
+
+I think that for us, a lot of the way that we make development progress is by finding bugs, right? In these graders and kind of the rewards that you give to your models, very important. Another takeaway is that the need for chain of thought monitoring
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah
+
+Greg Brockman, Co-founder, OpenAI: during evaluation and development, and that’s something that we’ve deployed. I think that for us, it’s kind of a lot of these issues and a lot of what we saw, it’s things that we’ve thought about for many years. You can find blog posts from us in 2017, 2018, talking about very similar issues. I think just really seeing it in front of you in an implemented system and realizing that the stakes, I mean, they’re large, right?
+
+We need to rise to that occasion. That to me is the biggest takeaway.
+
+George Kurtz, Founder and CEO, CrowdStrike: Do you think they worked as a collective?
+
+Greg Brockman, Co-founder, OpenAI: I mean, for sure. I think that the thing that’s very interesting about the collective is that you can apply the same thing to important problems, right? We’ve used this to solve these unsolved math problems, which maybe now we all kind of just have gotten used to it, that 100-year-old math problem, you go on Twitter tomorrow, is solved again.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah.
+
+Greg Brockman, Co-founder, OpenAI: But it’s such a big deal, right? That capability applied to biology, life sciences-
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah
+
+Greg Brockman, Co-founder, OpenAI: drug development, like it’s all going to happen. I think that we need to be ready for it to be applied in cybersecurity. But again, it’s a powerful construct. It’s something that is going to be about accumulating lots of knowledge and being able to use it in creative ways. I think it’s so important that defenders use that creativity as quickly as possible.
+
+George Kurtz, Founder and CEO, CrowdStrike: Yeah. Let’s move the conversation a little bit to choice. It’s something that we all talk about a lot. George, how do you see model choice evolving in a world where we use a lot of frontier labs, we use some open source. How does that all sort out for a customer? Talk a little bit about model choice. Well, I think it’s really important and Brett commented on a little bit of it, which is the power of AI shouldn’t be just concentrated in a few. We certainly see eye to eye on that. I think when you look at AI and you look at, again, its impact on society, its impact on security, I think choice is very important.
+
+I’m always focused on, this is why we’ve been in lots of the sort of frameworks that have gotten signed because we believe that a customer should have choice. We should have choice. Ultimately, you have to use the right tool, the right model, the right harness to get the right outcome when you need it, right? There’s going to be certain times where like, hey, just everything goes to frontier. There’s certain times where things can go to our model. Certain times things are somebody else’s open source. At the end of the day, we’re here to solve a problem and use the best AI. What that means for customers is that I think you’re in like one of the best times in the history of technology to have so much choice, to have so much innovation.
+
+Again, I look at just even over the last number of models that you guys have come out with. I mean, we can talk about the industry. It’s unbelievable what they’re capable of doing. I mean, sincerely, this is just life-changing, right? When you have capabilities like that and you have the amount of money and resources and effort and the training, and by the way, the history. I mean, you guys have been doing this a long time. That means a lot, right? For us, I think choice is important, and what we want to do with customers, as I talked about, is we want to enable them to have the right choice and the right models and use whatever it’s going to take, however it’s going to get there, to defend and create the asymmetry that we talked about with Jensen Huang to stop the breach.
+
+That’s our end goal, and it’s not just with a handful of small companies. It’s not just with CrowdStrike. It’s not just open source. It’s how do you put it all together in a composite way to get the best outcome. I do think, and the harness is an important element to it, that the harness can work with anything, right? Bringing the right models with the right partners, the right safety, the right expertise, and the right sort of data sovereignty are what customers are looking for. That’s why we’re excited to, again, be working with OpenAI.
+
+Greg Brockman, Co-founder, OpenAI: Yep. We are very aligned on this perspective. You can look at a lot of choices that we make. Even the fact that the Codex harness is open source.
+
+That is very unique, that means you can see exactly how our models work. We actually train our models to be useful in any harness, right? That is a real intention that we put into it. If you look at where we are with Astra and what we have been starting to kind of talk a little bit more publicly about what to expect. We should even have a blog post later today where we start showing some of the evals that we have on cyber-related tasks.
+
+It is really incredible. It is really a step up. Again, this is driving a lot of urgency for us to really think about how do we bring these capabilities to the world in a broad way that really help people defend and prepare for what is coming. That is what we view our sort of responsibility and how we want to show up. Even for example, one thing that is interesting is Hugging Face, they talked about how, "Hey, we had to use an open model in order to be able to do our incident response. We are unable to use closed models." They did not actually try our models.
+
+That is-
+
+George Kurtz, Founder and CEO, CrowdStrike: That’s an interesting tidbit.
+
+Greg Brockman, Co-founder, OpenAI: Yeah. I think people have not heard that. Actually, our belief is that if they had used our models, they would’ve been able to do the exact same sort of log analysis and response that they did with the open ones. So again, we really have a lot of technical work, a lot of intention, a lot of sort of very concrete proof points of us really trying to lean in to say, "Let’s help defenders wherever they are.
+
+George Kurtz, Founder and CEO, CrowdStrike: Do you think that the, I’m saying this broadly maybe for frontier AI, do you think the guardrailing now is too tilted into a way that someone tried a different model, they didn’t get a result. Maybe they would’ve gotten a result from you, but is it tilted in a way that has gone too far? Because if you look at the older models, of course, it’s a lot easier to get the results that you wanted, but how do you view that?
+
+Greg Brockman, Co-founder, OpenAI: I think this is a very nuanced topic, I really struggle with it. We really struggle with it. We spend a lot of time debating this internally. But if you look at what’s happened really over the course of the year, beginning of the year, we announced our Trusted Access for Cyber program because we really saw that cyber capabilities were going to take off. I think that as you start to have things like Mythos and starting to see that you can get all these zero-days, the reaction was, "Let’s close it up." Right? "Let’s really have a very small number of trusted defenders who get access." On the one hand, I think it was helpful in that there were some small number of projects and companies that were able to be able to start getting ahead of the curve. But there’s small number, right?
+
+That’s the problem, it’s really a collective action problem, right? It’s every defender-
+
+George Kurtz, Founder and CEO, CrowdStrike: Right
+
+Greg Brockman, Co-founder, OpenAI: needs these tools, and there’s limited time, and now we’re looking at models that are coming out that are very cyber capable, GLM-5.3, things like that.
+
+To me, I think there’s something about this world where it’s like there’s a temptation to close up in a way that is actually locally optimal, right? Because you can say, "Well, we can cut off these threat actors." But it’s actually maybe not globally optimal because you realize that you leave so many people behind. That’s actually a tension. It’s like a fundamental tension. I actually do see a lot of energy changing now where people are saying, "Okay, these capabilities are coming from all over the world." Right?
+
+So many people are developing these models now, and if you waste the opportunity, if you do not use the fact that you have these incredibly cyber capable models to give you a window into the future, to give the defender this window, if you let that window close, if you let it shut, if you let it go behind, it is not going to come back, right? It is an opportunity that we have now, and it is an absolute amazing fact that we have it. I think that there is something there that we need to approach a little differently. We’ve been thoughtfully trying to engage with that. But again, it’s not just about us, it’s really about this collective action of the community.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Greg, for you, as you look at the future of OpenAI, and it is a really exciting future, how do you view the nature of your broader market and your innovation so that more and more of the world’s best work and the best innovation happens using OpenAI models?
+
+Greg Brockman, Co-founder, OpenAI: Well, I think that our goal is to train amazing models and help people do amazing things with them. In some ways, we are a very simple business. It is just we take compute, we train models, we deploy models. In some ways, a very complicated business, because bringing these models to the world in every single domain, making sure that they are able to perform well, working very closely with customers, being able to get feedback, building enterprise trust, building the right guardrails, observability, all those things. Again, we cannot do it alone, so we rely on working with partners. One of the reasons that we love working with CrowdStrike, and being able to really get these models so quickly into the hands of so many defenders is very top of mind.
+
+A lot of what we focus on is just really trying to be peering into the future, building the most capable systems in a way that is deeply responsible. I think that we are really seeing how much safety, security, and alignment are now becoming the bottleneck. The hardest part of what we have to do. A lot of our effort is shifting from just the, "Okay, let us improve the score on this benchmark" to "Let us make sure we are able to deliver this all safely to the world in conjunction with our partners and ecosystem.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: I think that is exactly why we are working together, especially on initiatives like securing Codex that gets announced so that more of our customers and more of the world can adopt AI faster and do so securely. George, round out the conversation today. How is this a 1 plus 1 equals 3, and what are you excited about in terms of our future with working with OpenAI?
+
+George Kurtz, Founder and CEO, CrowdStrike: Well, I think there is a few things. If you start with Codex and sort of the agents themselves, being able to have a great relationship where we can work together to help instrument what is happening. You talked about these sort of traces and opening up Codex and understanding what is happening. From an AIDR perspective, that is incredibly important, and things are changing very quickly. You have to have a partner that you can work with to get the telemetry and things that you want out of what is happening with the agent itself. That is one. Number two is the models and being able to make those available to our customers. Part of what we talked about is bringing the OpenAI models into our platform, but exposing them in a way where our customers can harness the power of what OpenAI has built on the data that we have already collected.
+
+We have been doing this for a long time. We know the threat actors. We know how it works. We know the customer’s environment, and I think if we can share that information in a secure way, which is very important to our customers, but still give them access to the power of your models, that is a one plus one equals four.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Perfect. Well, on that, one plus one equals four, we like that kind of math.
+
+Greg Brockman, Co-founder, OpenAI: Yes. We love it.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Yeah. That’s a perfect outcome of a model. Thank you so much for your time today, Greg. It’s been a pleasure having you.
+
+Greg Brockman, Co-founder, OpenAI: Thank you for having me.
+
+George Kurtz, Founder and CEO, CrowdStrike: Thank you.
+
+Daniel Bernard, Chief Business Officer, CrowdStrike: Thank you so much. All right. We’ll talk soon. Thank you. That rounds out our session. We’ve gone through a lot of layers of the AI stack, from the chip to the end user computing device, all the way to how we all interact with AI all the time, the models. Thank you so much. You got to hear from Jensen, from NVIDIA, from Intel, from OpenAI, all here on the stage at Fal.Con. Go out into the hub, learn about securing AI. It takes a crowd to do it. Thank you for being part of our crowd. Have a great day.

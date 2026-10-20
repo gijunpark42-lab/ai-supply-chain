@@ -1,0 +1,48 @@
+{
+ "source": "Axe Compute 10-K (03-31-2026)",
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Axe Compute",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "dedicated bare-metal AI infrastructure (GPU clusters) designed, deployed, owned and operated for enterprises; Axe Compute Build build-to-order program",
+     "quarterly_data": [
+      {
+       "quarter": "Axe Compute 10-K (03-31-2026)",
+       "signal": "Axe Compute's 10-K (fiscal 2025) describes its compute business as asset-light - it did not own or operate physical data centers - with revenue from Compute Services generated primarily through reserved GPU capacity contracts under which customers commit to capacity on a prepaid basis, typically under 12- to 36-month terms, priced per GPU per hour, plus ancillary storage and CPU services; it works with hardware and infrastructure providers across a network of over 200 locations. Fiscal 2025 revenue of $125,284 came entirely from the Drug Discovery Services segment (the Compute Services and Treasury Management segment had no revenue); net loss was $233,095,203, including $152,490,550 of losses on digital assets and a $52,735,000 loss on derivative instruments.",
+       "figure": "2025 revenue $125,284; net loss $233,095,203; losses on digital assets $152,490,550; over 200 locations; 12- to 36-month prepaid terms",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "product": "GB200 / GB300 / Vera Rubin GPU systems",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Axe Compute",
+       "relationship": "B300 / GB300 NVL72 GPUs and NVIDIA switching for Axe Compute GPU clusters",
+       "contracts": [
+        {
+         "source": "Axe Compute 10-K (03-31-2026)",
+         "signal": "Axe Compute's 10-K: it sources GPU hardware primarily from NVIDIA Corporation and does not manufacture any hardware itself; the loss of or significant disruption to its access to NVIDIA GPU supply could materially delay its ability to fulfill customer orders.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "10-K supplier disclosure",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

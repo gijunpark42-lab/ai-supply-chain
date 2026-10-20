@@ -17,6 +17,15 @@
    "skipped": 1,
    "later": 0,
    "seen": 5
+  },
+  {
+   "at": "2026-10-19 22:10",
+   "since": "per company (latest call)",
+   "company": "all",
+   "saved": 1,
+   "skipped": 4,
+   "later": 0,
+   "seen": 79
   }
  ],
  "seen": {
@@ -98,13 +107,19 @@
   "https://www.entergylouisiana.com/wp-content/uploads/ELL-Bayou-Power-Station-COMPLETE-Public-Version.pdf": "skip:before the window (file last modified 2025-06-26 < 2026-07-29)",
   "https://www.entergylouisiana.com/wp-content/uploads/Resilience-filing-12-19-2022.pdf": "skip:topic outside data-center load",
   "https://www.investor.nexteraenergy.com/~/media/Files/N/NEE-IR/FPL%202026-2035%20TYSP.pdf": "enriched:2026-10-01",
-  "https://www.entergylouisiana.com/wp-content/uploads/2027-IRP-Potential-Study-Stakeholder-Meeting_03062026.pdf": "skip:topic outside data-center load"
+  "https://www.entergylouisiana.com/wp-content/uploads/2027-IRP-Potential-Study-Stakeholder-Meeting_03062026.pdf": "skip:topic outside data-center load",
+  "https://cdn-dominionenergy-prd-001.azureedge.net/-/media/content/about/our-company/irp/pdfs/2026-integrated-resource-plan-update.pdf": "enriched:2026-10-20",
+  "gapsc:229182": "skip:data request / response",
+  "gapsc:229161": "skip:not a plan / load report / large-load tariff (title)",
+  "gapsc:229165": "skip:data request / response",
+  "gapsc:229166": "skip:data request / response"
  },
  "hashes": {
   "eae4045aa76ea4f4b35e151ef72339622cad6deee33737a7321a13a8c8746979": "https://cdn-dominionenergy-prd-001.azureedge.net/-/media/content/about/our-company/irp/pdfs/2025-integrated-resource-plan-update.pdf",
   "7f5ba8f547dbbc24ebbf8182f783048e1e1d8e29a96a240dca3608336488be32": "gapsc:227753",
   "87a4ef9534dce87727271c68e18ab0c179ce08140d7148c9debbf5d83394d88c": "gapsc:227753",
-  "d7d2ecfb3605e76a78f85dd4f7c1d94d5ca750a53b812955a775d81ad42536f0": "https://www.investor.nexteraenergy.com/~/media/Files/N/NEE-IR/FPL%202026-2035%20TYSP.pdf"
+  "d7d2ecfb3605e76a78f85dd4f7c1d94d5ca750a53b812955a775d81ad42536f0": "https://www.investor.nexteraenergy.com/~/media/Files/N/NEE-IR/FPL%202026-2035%20TYSP.pdf",
+  "18bceec10f41683e72ef8d08cbfd770b5d173948719e1bcf29722674e0eb433a": "https://cdn-dominionenergy-prd-001.azureedge.net/-/media/content/about/our-company/irp/pdfs/2026-integrated-resource-plan-update.pdf"
  },
  "docs": {
   "https://cdn-dominionenergy-prd-001.azureedge.net/-/media/content/about/our-company/irp/pdfs/2025-integrated-resource-plan-update.pdf": {
@@ -130,6 +145,14 @@
    "url": "https://www.investor.nexteraenergy.com/~/media/Files/N/NEE-IR/FPL%202026-2035%20TYSP.pdf",
    "file": "transcripts/utility_filings/nexteraenergy_2026-04-01_fpl20262035tenyearpowerplantsiteplan_load.txt",
    "status": "enriched:2026-10-01"
+  },
+  "https://cdn-dominionenergy-prd-001.azureedge.net/-/media/content/about/our-company/irp/pdfs/2026-integrated-resource-plan-update.pdf": {
+   "company": "Dominion Energy",
+   "label": "Dominion Energy regulatory filing: 2026 Integrated Resource Plan Update (10-15-2026)",
+   "date": "2026-10-15",
+   "url": "https://cdn-dominionenergy-prd-001.azureedge.net/-/media/content/about/our-company/irp/pdfs/2026-integrated-resource-plan-update.pdf?rev=22c87cd8027d4db69b4e31945e488103",
+   "file": "transcripts/utility_filings/dominionenergy_2026-10-15_2026integratedresourceplanupdate_load.txt",
+   "status": "enriched:2026-10-20"
   }
  },
  "skipped": {
@@ -512,7 +535,27 @@
    "company": "Entergy",
    "title": "ICF Draft Results - EE, DR, and DER Potential Study",
    "why": "topic outside data-center load"
+  },
+  "gapsc:229182": {
+   "company": "Southern Company",
+   "title": "STF-PIA-23 Data Request Responses",
+   "why": "data request / response"
+  },
+  "gapsc:229161": {
+   "company": "Southern Company",
+   "title": "Annual DERMS Report",
+   "why": "not a plan / load report / large-load tariff (title)"
+  },
+  "gapsc:229165": {
+   "company": "Southern Company",
+   "title": "STF-DEA-8 Data Request Responses",
+   "why": "data request / response"
+  },
+  "gapsc:229166": {
+   "company": "Southern Company",
+   "title": "STF-PIA-22 Data Request Responses",
+   "why": "data request / response"
   }
  },
- "last_sync": "2026-10-01"
+ "last_sync": "2026-10-19"
 }

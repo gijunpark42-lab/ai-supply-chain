@@ -1,0 +1,84 @@
+{
+ "source": "ChronoScale 10-K (08-19-2026)",
+ "chains": {
+  "accelerators/nvda_b200.json": {
+   "players": [
+    {
+     "company": "ChronoScale",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "GPU cloud / AI compute capacity (NVIDIA GB300 NVL72)",
+     "quarterly_data": [
+      {
+       "quarter": "ChronoScale 10-K (08-19-2026)",
+       "signal": "ChronoScale's 10-K (fiscal year ended May 31, 2026): revenue $71,604 thousand, down 15% from $84,376 thousand; cost of revenues $88,691 thousand; operating loss $37,497 thousand; net loss $50,320 thousand. The Cloud Business (formerly Applied Digital Cloud) was about 99.5% of revenue; it rents space at third-party colocation centers in Colorado, Minnesota and Utah and runs company-owned GPU equipment, with additional deployable capacity at each site to be offered as GPU-as-a-Service and through its Token Factory managed inference offering; it also offers ChronoScale Foundry, an enterprise agentic-AI platform. Purchase obligations for AI infrastructure were $3,757 thousand at May 31, 2026.",
+       "figure": "FY2026 revenue $71,604 thousand (-15%); net loss $50,320 thousand; Cloud about 99.5% of revenue",
+       "topics": []
+      },
+      {
+       "quarter": "ChronoScale 10-K (08-19-2026)",
+       "signal": "ChronoScale's 10-K customer concentration: one customer accounted for 100% of fiscal 2026 revenue (fiscal year ended May 31, 2026), versus Customer A 77% and Customer B 23% in fiscal 2025; the company expects one or a limited number of customers to continue to account for a high percentage of its revenue for the foreseeable future.",
+       "figure": "one customer 100% of FY2026 revenue; FY2025 Customer A 77%, Customer B 23%",
+       "topics": []
+      },
+      {
+       "quarter": "ChronoScale 10-K (08-19-2026)",
+       "signal": "ChronoScale's 10-K corporate structure: on May 5, 2026 Ekso Bionics Holdings combined with Applied Digital Cloud Corporation in a reverse acquisition (renamed ChronoScale), after which Applied Digital and its subsidiary held approximately 97% of the common stock and legacy Ekso holders about 3%. A holding company, ChronoScale Holdings, became the listed parent on July 1, 2026, and the board committed on May 29, 2026 to divest the Legacy Ekso exoskeleton business (held for sale).",
+       "figure": "Applied Digital approximately 97% ownership after the May 5, 2026 combination",
+       "topics": []
+      },
+      {
+       "quarter": "ChronoScale 10-K (08-19-2026)",
+       "signal": "ChronoScale's 10-K: in August 2026 ChronoScale announced a strategic partnership with Nutanix, Inc. to jointly deliver enterprise AI infrastructure - extending Nutanix on-premises environments into ChronoScale GPU-as-a-Service capacity, Token Factory prepaid inference and ChronoScale Foundry - with joint go-to-market, solution development and technical integration, to be implemented through one or more definitive agreements.",
+       "figure": "no specific figure",
+       "topics": [],
+       "counterparty": "Nutanix",
+       "counterparty_role": "partner (enterprise AI infrastructure framework)"
+      }
+     ],
+     "connects_to": [
+      {
+       "company": "Microsoft",
+       "relationship": "50-MW AI compute deployment on NVIDIA GB300 NVL72 systems",
+       "contracts": [
+        {
+         "source": "ChronoScale 10-K (08-19-2026)",
+         "signal": "ChronoScale's 10-K: on August 6, 2026 ChronoScale entered a two-year GPU services agreement (strategic partnership) with Microsoft for a planned deployment of approximately 50 megawatts of AI compute capacity on NVIDIA GB300 systems with liquid cooling at a dedicated data center facility, with projected completion in the first calendar quarter of 2027; GPU capacity is delivered in tranches on a fixed schedule with daily delay credits, tranche or contract termination rights and refunds of upfront payments, and the deployment depends on ChronoScale obtaining financing.",
+         "units": "approximately 50 megawatts (NVIDIA GB300)",
+         "value": "no specific figure",
+         "date_signed": "08-06-2026",
+         "type": "GPU services agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "product": "NVLink Switch, B200 GPU, GB200 superchip",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "ChronoScale",
+       "relationship": "NVIDIA GPUs (H100 clusters; GB300 NVL72 for the Microsoft deployment) for ChronoScale's GPU cloud",
+       "contracts": [
+        {
+         "source": "ChronoScale 10-K (08-19-2026)",
+         "signal": "ChronoScale's 10-K: it currently relies on Nvidia (and plans to rely on AMD) for the GPU chips it offers customers; its H100 clusters are NVIDIA GPUs, and the Microsoft deployment relies on a sole-source GPU supplier for NVIDIA GB300 clusters.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "10-K supplier disclosure",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

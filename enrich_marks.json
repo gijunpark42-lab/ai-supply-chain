@@ -58,6 +58,14 @@
    "recheck": "2027-01-03"
   },
   {
+   "company": "ChronoScale",
+   "source": "call",
+   "status": "no_source",
+   "why": "no transcribed call (checked 2026-10-19): defeatbeta CHRN holds only the predecessor Ekso Bionics Q2 2025 call (wrong company, file removed); Alpha Vantage lists the 10-14-2026 results as 'transcript not posted'; its own 10-K / 10-Q / 8-Ks were enriched via edgar instead",
+   "at": "2026-10-20",
+   "recheck": "2026-11-20"
+  },
+  {
    "company": "Dai Nippon Printing",
    "source": "call",
    "status": "no_source",
@@ -256,6 +264,14 @@
    "why": "no recent call transcript: defeatbeta's newest IESC transcript is Q1 FY2009 (02-10-2009) and Alpha Vantage's sync saved none (checked 2026-10-18)",
    "at": "2026-10-19",
    "recheck": "2027-01-17"
+  },
+  {
+   "company": "Indosat",
+   "source": "call",
+   "status": "no_source",
+   "why": "Q2 2026 call not on Investing.com (newest there is Q1 2026, enriched 10-20); ioh.co.id investor pages are a JavaScript app that Jina Reader cannot read, so no H1 release / info memo was found (checked 2026-10-20)",
+   "at": "2026-10-20",
+   "recheck": "2026-11-15"
   },
   {
    "company": "Inventec",
@@ -1000,6 +1016,22 @@
    "why": "KONEX-listed: dart.py covers KRX/KOSPI/KOSDAQ only, and KONEX filers are exempt from half-year / quarterly reports; its latest periodic report (FY2025 business report, 03-31-2026) is already enriched from transcripts/non_transcript_sources (checked 2026-10-12)",
    "at": "2026-10-12",
    "recheck": "2027-04-15"
+  },
+  {
+   "company": "ASADA",
+   "source": "logo",
+   "status": "no_source",
+   "why": "no reliable logo (checked 2026-10-19): metadata lists ASADA as private with no ticker, so identity cannot be ticker-proven; companieslogo, Wikidata and Yahoo return nothing; earlier logo passes found only person / building photos",
+   "at": "2026-10-19",
+   "recheck": "2027-01-17"
+  },
+  {
+   "company": "Anhui Tongguan Copper Foil",
+   "source": "logo",
+   "status": "no_source",
+   "why": "no reliable logo (checked 2026-10-19): cninfo confirms 301217 and homepage www.ahtgtb.com, but the site times out on http and https; companieslogo and Wikidata have no entry",
+   "at": "2026-10-19",
+   "recheck": "2027-01-17"
   }
  ],
  "notes": [
@@ -1132,6 +1164,21 @@
    "at": "2026-10-19 21:24",
    "market": "US",
    "text": "Flex: when Axiom Solutions International (Flex's Cloud and Power Infrastructure segment, planned listing Q1 CY2027) files its registration / lists, add Axiom as a node per SKILL.md section 6 'Corporate changes' (board question 49, 2026-10-19)."
+  },
+  {
+   "at": "2026-10-19 23:14",
+   "market": "all",
+   "text": "2026-10-19 nightly: utils/check_relations.py flags 3 COMMITTED rows it now refuses (left untouched, rows are ADD-only): relations/lumen-technologies.json row 0 and relations/palo-alto-networks.json row 5 cite transcripts/optical/lumen_q2_2026.txt, which today's superseded-file move (edits/move_superseded.py) moved to transcripts_superseded/optical/ - both quotes are verbatim in the replacement transcripts/av/lumentechnologies_q2_2026.txt, so the fix is a one-time source repoint by hand; relations/spacex.json row 1 writes 'NTT Docomo' where the node is 'NTT DOCOMO' (node added 2026-10-17). graph_build is not blocked by them."
+  },
+  {
+   "at": "2026-10-20 01:04",
+   "market": "US",
+   "text": "2026-10-20 nightly (0a70d1c6): EDGAR queue has 165 rows left, mostly the first 10-K / 10-Q / 8-K pulls of the space / quantum / defense / security / DC-construction companies (AST SpaceMobile, Planet Labs, Rocket Lab, ArcelorMittal, L3Harris, Northrop, Honeywell + Honeywell Aerospace, Quantinuum, Primoris, IQM, MasTec, IES, Rigetti, Xanadu, Horizon Quantum, Infleqtion, IonQ, MYR, Cloudflare, Amgen, IBM, Pfizer, Jacobs, QCI, D-Wave, CrowdStrike, Palo Alto, Mastercard, Fluor, Pasqal, Unisys); take them company by company, newest first. 19 conference talks wait (CrowdStrike x6, Pfizer x2, L3Harris x2, Honeywell x2, Honeywell Aerospace x2, Northrop, Mastercard, Palo Alto, Amgen, Cloudflare). AI relationships the relations backfill found but did not patch (both parties are nodes): Moderna 10-K (ChatGPT Enterprise from OpenAI), Sanofi 20-F (OpenAI collaboration), IBM 10-K (Anthropic partnership), Rockwell / HPE access to Anthropic Project Glasswing."
+  },
+  {
+   "at": "2026-10-20 01:04",
+   "market": "TW",
+   "text": "2026-10-20 nightly: WinWay Technology's backfill saved 3 older MOPS rows (decks 03-09 and 05-14, material 6515-20260225-5) left in mops/pending; its 05-26 deck is enriched, so they add only what that deck lacks."
   }
  ],
  "questions": [],
@@ -2426,6 +2473,33 @@
    "at": "2026-10-19",
    "answer": "Claude decision 2026-10-19 (user delegated): As JOB 3 verifier I approved four, each identified and named by a universe company in a stated AI-chain role: Axe Compute (NASDAQ AGPU neocloud; Penguin -> Axe Compute), Zealand Pharma (OMX Copenhagen ZEAL; Generate -> Zealand), insitro (private, US; insitro -> AstraZeneca), Monarch Quantum (private, US; Monarch -> Quantinuum, photonic components). The filers' entries stay; the edges get their own contracts. Sungrow (onsemi BESS) and Venture Global (Baker Hughes LNG power islands): non-AI, relations/ rows exist, no node (section 2).",
    "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Verily Health / Pfizer (IR 10-19)",
+   "question": "PacBio-Verily multi-year collaboration and Tempus AI's NSCLC pre-screening study with Pfizer: new node / edge?",
+   "label": "Pacific Biosciences press release: PacBio and Verily Health Announce Multi-Year Strategic (10-19-2026)",
+   "at": "2026-10-19",
+   "answer": "Claude decision 2026-10-19 (user delegated): no node, no edge. Verily is a private former Alphabet affiliate named only in a strategic collaboration, not a stated supply or customer relationship; Pfizer appears only as a study collaborator and shares no chain with Tempus AI. Both stay as counterparty keys on the filers' nodes (JOB 3 / JOB 4).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Asetek",
+   "question": "Asetek's own IR site shows the takeover by CQXA Holdings Pte. Ltd. and 'Nasdaq Copenhagen A/S approves request for delisting of Asetek's shares' (04-24-2026); its feed now returns a bot challenge. Change its status?",
+   "label": null,
+   "at": "2026-10-19",
+   "answer": "Claude decision 2026-10-19 (SKILL section 6 Corporate changes): Asetek stays a node with all its entries and edges; company_metadata.json now has ticker / exchange null and status 'private', which takes it off the market pipelines and the board. Its 2025 Annual Report (ir.asetek.com/files/doc_financials/2025/ar/Annual_Report_2025.pdf) is the newest company document and can still fill the no-own-data gap on a later night.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "New placements 2026-10-19 nightly",
+   "question": "Tonight's sources proposed one new node and four second placements (SKILL JOB 3 / section 6).",
+   "label": null,
+   "at": "2026-10-20",
+   "answer": "Claude decision 2026-10-19 (independent Opus verifier, user delegated): approved (1) Duos Technologies (NASDAQ DUOT) new node in neocloud.json cloud_infra / Datacenter Colocation, edge Duos -> Axe Compute (Columbus GA site, +55 MW; Axe call + 8-Ks); (2) Axe Compute second placement in nand_flash.json Neocloud for WEKA -> Axe Compute storage; (3) 3M placement in optical_networking.json interconnect / Components for GSEO -> 3M (EBO ferrules / CPO manufacturing partner) and 3M -> Amazon (warrant vesting on optical-connectivity purchases); (4) ChronoScale second placement in neocloud.json for ChronoScale -> Together AI (10-K: sole Cloud customer, H100); (5) ASPEED second placement in ai_security_trusted_compute.json for eMemory -> ASPEED (PUFrt in ASPEED Caliptra products). Rejected: Aethir (token network), Nutanix (framework only), Verily / Pfizer (collaborations), Supermicro -> Axe (servers came with the Duos SPV).",
+   "answered": "2026-10-20",
    "by": "claude"
   }
  ]

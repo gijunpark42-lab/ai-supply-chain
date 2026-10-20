@@ -1,0 +1,51 @@
+{
+ "source": "Axe Compute 8-K (10-05-2026)",
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Axe Compute",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "dedicated bare-metal AI infrastructure (GPU clusters) designed, deployed, owned and operated for enterprises; Axe Compute Build build-to-order program",
+     "quarterly_data": [
+      {
+       "quarter": "Axe Compute 8-K (10-05-2026)",
+       "signal": "Axe Compute 8-K: on September 30, 2026 Axe acquired 100% of Duos Edge AI - GPUaaS, LLC, the SPV owning its Columbus, Georgia cluster of 288 Supermicro B300 servers (2,304 GPUs) and networking equipment, from Duos Technologies Group. The Georgia cluster customer agreement was extended from three years to five years, running through 2031 with renewal options, and Axe expects approximately $364.6 million of revenue over the life of the customer agreement with a significant expected improvement in estimated contract gross margin. Under a separate agreement Duos covers the facility's colocation and energy costs for the full five-year term and continues to own and operate the Georgia facility.",
+       "figure": "approximately $364.6 million revenue over the customer agreement; five years through 2031; 288 servers, 2,304 B300 GPUs",
+       "topics": [],
+       "slot": "backlog_or_b2b",
+       "counterparty": "Duos Technologies",
+       "counterparty_role": "data center owner / operator (colocation and energy for the Georgia cluster)"
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "Duos Technologies",
+     "layer": "cloud_infra",
+     "sector": "Datacenter Colocation",
+     "product": "data center buildings owned and operated for GPU clusters (owner / operator of the Columbus, Georgia site hosting Axe Compute's B300 cluster)",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Axe Compute",
+       "relationship": "data center capacity (owned and operated buildings) for Axe Compute GPU clusters",
+       "contracts": [
+        {
+         "source": "Axe Compute 8-K (10-05-2026)",
+         "signal": "Axe Compute 8-K: under a separate agreement Duos covers the Columbus, Georgia facility's colocation and energy costs for the full five-year term of the extended Georgia cluster customer agreement (running through 2031), so the cluster's power and facility costs are fixed for the life of the customer contract; Duos continues to own and operate the Georgia facility. Axe acquired from Duos 100% of the SPV owning the cluster (288 servers, 2,304 NVIDIA B300 GPUs) on September 30, 2026.",
+         "units": "Columbus, Georgia facility; five-year term through 2031",
+         "value": "no specific figure",
+         "date_signed": "September 30, 2026 (acquisition closing); colocation agreement date not stated",
+         "type": "colocation and energy agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
