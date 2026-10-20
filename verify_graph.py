@@ -114,6 +114,7 @@ CJK = re.compile(r"[가-힣一-鿿ぁ-ヿ]")                # Hangul, kanji/hanz
 # evidence.py reads this table too, so the shape stays  node name -> [alias, alias, ...].
 KO_ALIASES = {
     # --- Korean nodes -----------------------------------------------------------------
+    "Mobilint": ["모빌린트"],
     "AD Technology": ["에이디테크놀로지", "AD테크놀로지"],
     "Daeduck Electronics": ["대덕전자", "Daeduck"],
     "Dongjin Semichem": ["동진쎄미켐", "동진세미켐", "Dongjin"],
@@ -278,6 +279,7 @@ CN_ALIASES = {
     "TSMC": ["台积电", "台湾积体电路"], "SMIC": ["中芯国际"], "UMC": ["联华电子", "联电"],
     "Hua Hong Semiconductor": ["华虹半导体", "华虹宏力", "华虹"], "Foxconn": ["富士康", "鸿海"],
     "Kingsemi": ["芯源微"], "Alibaba": ["阿里巴巴", "阿里云", "阿里"], "Baidu": ["百度"], "Tencent": ["腾讯"],
+    "Huawei": ["华为技术", "华为"], "GDS Holdings": ["万国数据"],
     "Silicon Motion": ["慧荣科技", "慧荣"], "Maxio Technology": ["联芸科技", "联芸"],
     "CXMT": ["长鑫存储", "长鑫科技", "长鑫"], "Shengyi Technology": ["生益科技"], "Fujikura": ["藤仓"], "YOFC": ["长飞光纤", "长飞"],
     "Innolight": ["中际旭创"], "Eoptolink": ["新易盛"], "Hengtong Optic-Electric": ["亨通光电"],

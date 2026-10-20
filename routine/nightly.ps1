@@ -3,8 +3,13 @@ Nightly enrich routine (user, 2026-09-26: run it every night at 23:00 on THIS co
 
 Windows Task Scheduler starts this script every night at 23:00. It starts ONE background Claude Code session
 in this repo, on the user's own Claude login (subscription usage, never the pay-per-use API), that runs
-`enrich` every night: the status board's whole Run next list, every market that is due, EDGAR included
-(user, 2026-10-14: "야간 enrich들 앞으로 그냥 모든 enrich로"; before that it was `enrich us` Mon-Sat and `enrich` on Sunday).
+`enrich all` every night: every market (US, Korea, Taiwan, Japan, Europe, China, other) and every source, EDGAR,
+conferences, IR, the waitlist, news interviews, the relations backfill and the gap fill, due or not (user, 2026-10-19:
+"모든나라 그냥 다 한번에 시켜야해 매일 11시마다"; before that bare `enrich` since 10-14, `enrich us` Mon-Sat before that).
+The session sizes its worker pool from the free memory (utils/agent_budget.py) and reuses the same workers all night,
+recording their progress in utils/work_ledger.py's ledger (user, 2026-10-19); it decides open judgments itself.
+If the session stops blocked at graph_build.py (killed for low memory inside Claude Code), this script runs
+graph_build.py --sync once more outside the session and publishes when that build succeeds.
 The session shows up in `claude agents` like any background job. Attach in the morning to read its report.
 
 Publishing (user, 2026-10-14: "푸시및머지까지 하게시키자"): when the session finishes as done, THIS SCRIPT (not the
@@ -29,7 +34,7 @@ Test the plumbing (a tiny session that only writes .claude/nightly_test.txt, no 
 Register once (current user, runs while logged on, wakes the laptop, catches up after a missed night):
     $a = New-ScheduledTaskAction -Execute powershell.exe -Argument '-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Users\calif\Desktop\earnings-ai\routine\nightly.ps1"'
     $t = New-ScheduledTaskTrigger -Daily -At 11pm
-    $s = New-ScheduledTaskSettingsSet -StartWhenAvailable -WakeToRun -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Hours 9)
+    $s = New-ScheduledTaskSettingsSet -StartWhenAvailable -WakeToRun -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Hours 12)
     Register-ScheduledTask -TaskName "earnings-ai nightly enrich" -Action $a -Trigger $t -Settings $s
 Run tonight's job now:  Start-ScheduledTask -TaskName "earnings-ai nightly enrich"
 Stop the routine:       Unregister-ScheduledTask -TaskName "earnings-ai nightly enrich" -Confirm:$false
@@ -191,6 +196,7 @@ if ($PublishOnly) { exit 0 }
 $python = Join-Path $env:LOCALAPPDATA "Python\bin\python.exe"     # the same Python the session is told to use
 if (-not (Test-Path $python)) { $found = Get-Command python -ErrorAction SilentlyContinue; if ($found) { $python = $found.Source } }
 function Invoke-DataStep($step, [string[]]$arguments, [int]$minutes) {
+    $script:stepExit = -1                                        # the step's exit code once it ends (-1 = failed / timed out)
     $out = Join-Path $repo (".claude\" + $step + ".log")
     $err = Join-Path $repo (".claude\" + $step + ".err.log")     # Start-Process needs a separate file for stderr
     try {
@@ -209,6 +215,7 @@ function Invoke-DataStep($step, [string[]]$arguments, [int]$minutes) {
     }
     $last = Get-Content $out -Tail 1 -Encoding UTF8 -ErrorAction SilentlyContinue
     if (-not $last) { $last = "(no output; see " + $err + ")" }
+    $script:stepExit = $p.ExitCode
     Write-Log ("{0} exit {1}: {2}" -f $step, $p.ExitCode, $last)
 }
 # Since 2026-10-17 the 22:00 task (routine/market_data.ps1) runs these steps an hour earlier, even on a night this
@@ -268,13 +275,16 @@ if (-not $Test) {
 }
 
 # 2. Tonight's command and the prompt that carries the unattended rules.
-if ($Test) { $command = "test" } else { $command = "enrich" }
+if ($Test) { $command = "test" } else { $command = "enrich all" }
 
 if ($Test) {
     $prompt = 'Routine plumbing test started by routine/nightly.ps1. Use the Write tool to create .claude/nightly_test.txt containing the word OK (this checks that the routine can write in place), then reply with one line: OK plus the first item of the Run next list in ENRICH_STATUS.md. Touch nothing else and run nothing else.'
 } else {
-    $prompt = 'Nightly routine started by routine/nightly.ps1 while nobody is watching. Run `' + $command + '` exactly as the enrich skill says: status board first and last (with media_status.py: the news-interview transcripts it lists are enriched every night like any other source, enrich skill section 11), parallel enricher agents, check_patch, the relations backfill (relations.py next, relations/ rows, utils/check_relations.py until clean, relations.py done), graph_build.py --sync, verification. Unattended rules: never stop to wait for an answer - record a judgment the rules do not settle with enrich_status.py ask and carry on; do not commit, push or merge yourself - routine/nightly.ps1 publishes the data (branch, PR, merge into main) after you stop, and only if you finish with result:, so end with needs input: if graph_build.py --sync or verification did not complete; leave alone any uncommitted edits you did not make. Run Python scripts by the literal path, e.g. `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 apply_corrections.py --check` - never through a shell variable such as P=...; $P, because the permission allow rules match the literal command. End with a short report in Korean: what was enriched, new companies, open questions, and the board Run next block. Its last line is `result:` plus a one-line summary - board questions are not a reason to wait. Write `needs input:` instead only when a step could not run (permission denied, usage limit, a source down that the rules cannot work around), naming the step.'
+    $prompt = 'Nightly routine started by routine/nightly.ps1 while nobody is watching. Run `' + $command + '` exactly as the enrich skill says (section 1): every market and every source tonight, due or not - US, Korea, Taiwan, Japan, Europe, China, other, EDGAR, conferences, IR, the waitlist - then the news interviews (media_status.py, section 11), the relations backfill (relations.py next 15, relations/ rows, utils/check_relations.py until clean, relations.py done), the gap fill batch on the board (section 12: fill or mark every gap), graph_build.py --sync, verification and translation; status board first and last. Worker pool (section 7.4): run utils/agent_budget.py first and never have more agents alive than its agents: number (re-run it before graph_build.py); spawn the pool once and give every next batch to the same idle worker with SendMessage instead of spawning new agents; run utils/work_ledger.py start first and hand out its carried-over items first, and record every batch with work_ledger.py assign and done. Before graph_build.py, make sure no agent or tool process of yours is still running - the build needs the memory. Unattended rules: never stop to wait for an answer - a judgment the rules do not settle is decided by an independent Opus verifier from the rules and the user earlier answers (enrich_marks.json answered), applied, and recorded with enrich_status.py decide --no-board (section 0.3); do not commit, push or merge yourself - routine/nightly.ps1 publishes the data (branch, PR, merge into main) after you stop, and only if you finish with result:, so end with needs input: if graph_build.py --sync or verification did not complete; leave alone any uncommitted edits you did not make. Run Python scripts by the literal path, e.g. `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 apply_corrections.py --check` - never through a shell variable such as P=...; $P, because the permission allow rules match the literal command. End with a short report in Korean: what was enriched per market, the gap fill (filled / marked), new companies, the decisions you made, and the board Run next block. Its last line is `result:` plus a one-line summary. Write `needs input:` instead only when a step could not run (permission denied, usage limit, a source down that the rules cannot work around), naming the step; when graph_build.py was killed, name graph_build in that line and do not restart it - the script reruns it outside the session.'
 }
+
+# The memory the session starts with and the agent ceiling it will get from utils/agent_budget.py (user, 2026-10-19).
+if (-not $Test) { Write-Log ("memory at start: " + (& $python -X utf8 (Join-Path $repo "utils\agent_budget.py") | Out-String).Trim()) }
 
 # 3. Start the background session. `claude --bg` prints the session id and returns at once.
 $name = "nightly $command " + $runDate
@@ -287,12 +297,12 @@ if (-not $match.Success) {
 $id = $match.Value
 Write-Log ("started {0} as {1}" -f $command, $id)
 
-# 4. Keep the laptop from idle-sleeping until the session stops working (at most 8 hours after this script started:
-#    the data steps of 1b can take up to 70 minutes, and Task Scheduler stops the script at 9 hours, so counting from
-#    the script start leaves Publish-Run about an hour instead of a few minutes).
+# 4. Keep the laptop from idle-sleeping until the session stops working (at most 10.5 hours after this script started:
+#    `enrich all` covers every market every night, Task Scheduler stops the script at 12 hours (2026-10-19; it was 9),
+#    and counting from the script start leaves the rebuild of 4b and Publish-Run about 90 minutes).
 Add-Type -Namespace Win32 -Name Power -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint flags);'
 [Win32.Power]::SetThreadExecutionState([uint32]2147483649) | Out-Null   # 0x80000001 = ES_CONTINUOUS | ES_SYSTEM_REQUIRED
-$deadline = $scriptStart.AddHours(8)
+$deadline = $scriptStart.AddHours(10.5)
 do {
     Start-Sleep -Seconds 60
     $job = Get-Sessions | Where-Object { $_.id -eq $id }
@@ -306,6 +316,20 @@ if (Test-Path $stateFile) {
     if ($detail) { $state = "{0} - {1}" -f $state, $detail }
 }
 Write-Log ("{0} stopped working: {1}" -f $id, $state)
+
+# 4b. Safety net (user, 2026-10-19): inside Claude Code a big graph_build.py can be killed for low memory, and the session
+#     then stops blocked naming graph_build. Run the build once more here, outside the session (no such guard), and treat
+#     the night as done when it exits 0 and every label applied tonight passes verify_graph (utils/verify_since.py: the
+#     rebuild itself has nothing left to apply, so it verifies nothing). A run blocked anywhere else is never published
+#     (its unapplied patches may not have been verified yet).
+if (-not $Test -and $state -notlike "done*" -and $state -match "graph_build") {
+    Write-Log "rebuilding outside the session: graph_build.py --sync"
+    Invoke-DataStep "graph_build" @("-X", "utf8", "graph_build.py", "--sync") 60
+    $built = $script:stepExit
+    if ($built -eq 0) { Invoke-DataStep "verify_since" @("-X", "utf8", "utils/verify_since.py", ('"{0}"' -f $scriptStart.ToString("yyyy-MM-dd HH:mm"))) 40 }   # quoted: Start-Process joins arguments with spaces
+    if ($built -eq 0 -and $script:stepExit -eq 0) { $state = "done - graph_build.py --sync rerun by nightly.ps1 after: " + $state }
+    else { Write-Log ("rebuild did not settle it (build exit {0}, verify exit {1}); the next night rebuilds" -f $built, $script:stepExit) }
+}
 
 # 5. Publish the run (user, 2026-10-14). Only a run that finished as done; a blocked run is rebuilt and published next night.
 if (-not $Test) {

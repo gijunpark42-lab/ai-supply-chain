@@ -258,7 +258,7 @@ analyst opinion (enrich skill §2). The system:
      (enrich skill JOB 3 — the user delegated this approval to Claude on 2026-09-26); every addition is reported.
      Banks, lenders, distributors, semiconductor-fab contractors and the like are rejected without asking
      (data-center and power-grid contractors are allowed — rule B, Core philosophy 4); genuinely ambiguous
-     cases are asked to the user (`enrich_status.py ask`, shown on the status board).
+     cases are decided by Claude in the same run (`enrich_status.py decide`, user 2026-10-19; shown on the board for 7 days).
    - record the company's NON-AI relationships too, in `relations/` (Core philosophy 6, enrich skill §2).
    - ADD a new edge ONLY IF the transcript states a real relationship (e.g. "AWS supports
      Anthropic compute") → add/extend that `connects_to` entry.
@@ -272,8 +272,8 @@ Re-build only on explicit "update" command, never automatically.
 runs even when the computer is off. Do NOT build the scheduler until the core loop is solid.
 
 **Nightly routine (user, 2026-09-26 — on this computer only, no API, no cloud):** Windows Task Scheduler task
-"earnings-ai nightly enrich" runs `routine/nightly.ps1` at 23:00. Since 2026-10-14 it runs bare `enrich` (the whole board)
-every night (user: "야간 enrich들 앞으로 그냥 모든 enrich로"). Each run is one background Claude session named `nightly enrich MM-DD`,
+"earnings-ai nightly enrich" runs `routine/nightly.ps1` at 23:00. Since 2026-10-19 it runs `enrich all` — every market and every source,
+due or not, plus the gap fill (user: "모든나라 그냥 다 한번에 시켜야해 매일 11시마다"), with one worker pool sized by free memory. Each run is one background Claude session named `nightly enrich MM-DD`,
 visible in `claude agents`, on the user's own login. The session itself never commits. When it finishes as done, the script
 publishes the run's data files only (transcripts, patches, chains, graph, web/public, collector state, status board) on a
 `nightly-enrich-<date>` branch, pushes, opens a PR and merges it into main (user: "푸시및머지까지"), then returns the checkout to
@@ -385,7 +385,7 @@ earnings-ai/
 ├── enrich_marks.json         # "no source exists" marks + coordinator notes (written only via enrich_status.py mark/note) — commit it
 ├── utils/check_patch.py      # pre-flight check of ANY patch before graph_build (numbers, English only, slot rules, one fact one node)
 ├── enrich_log.json           # APPEND-ONLY run record written by enrich_status.py (one row per day+pipeline when counts change) — commit it
-├── routine/nightly.ps1       # NIGHTLY ROUTINE (Task Scheduler, 23:00): Mon–Sat `enrich us`, Sunday `enrich`, as one background Claude session;
+├── routine/nightly.ps1       # NIGHTLY ROUTINE (Task Scheduler, 23:00): `enrich all` (every market, every source) as one background Claude session;
 │                             #   never commits; `-Test` checks the plumbing; one line per event in .claude/nightly.log
 ├── timelines/                # hand-curated BASELINE tables — INPUT to derive.py, never auto-written
 ├── company_metrics.json      # hand-curated screener BASELINE — input, never auto-written
@@ -493,9 +493,11 @@ Nothing was dropped when these moved out of this file — each skill holds the o
 - Follow FIXED layer/domain slugs and the `{company, product, connects_to, quarterly_data}` player shape (nested under layer→sector).
 - Apply the litmus test before adding any company; during enrichment a new company needs an independent Claude
   verifier's approval (enrich skill JOB 3) and is always named in the report.
-- When a rule does not settle a judgment, ask the user instead of guessing: record it with
-  `python -X utf8 enrich_status.py ask "<subject>" --question "…"` (it shows on the status board / web Status tab).
-- Enrichment runs as parallel `enricher` agents by default (up to 20, fewer for small queues; split by company).
+- When a rule does not settle a judgment, Claude decides it (user, 2026-10-19: "질문은 니가 알아서 다 처리"): an independent
+  Opus judge decides from the rules and the user's earlier answers, the run applies it, and the coordinator records it with
+  `python -X utf8 enrich_status.py decide "<subject>" --answer "…"` (shown on the status board for 7 days).
+- Enrichment runs as ONE fixed pool of `enricher` agents, as many as `utils/agent_budget.py` allows from the free memory,
+  reused through SendMessage with progress in `utils/work_ledger.py` (enrich skill §7.4; split by company).
 - Every enrich run starts by reading `ENRICH_STATUS.md` and ends with the board rebuilt (graph_build.py does it;
   otherwise `python -X utf8 enrich_status.py`). The enrich skill's common rules (§0–§8) win over older notes.
 - Tag every new `quarterly_data` / `contracts` entry with `topics` (plus `slot` / `capex` where relevant) —

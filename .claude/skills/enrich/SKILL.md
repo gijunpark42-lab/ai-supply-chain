@@ -21,21 +21,25 @@ or a reference file disagrees, this file wins). The source-specific steps live i
    - a source that does not exist: `python -X utf8 enrich_status.py mark "<Company>" ["<Company>" …] --source call|dart|ir|conference|edgar --why "<what was checked>" [--recheck YYYY-MM-DD]`
      (default recheck in 90 days; a marked company leaves the board's missing lists until then);
    - where a run stopped or what the next run must know: `python -X utf8 enrich_status.py note <US|KR|TW|JP|EU|CN|all> "<text>"`;
-   - **a judgment these rules do not settle — ask the user, do not guess** (user, 2026-09-26): a new company whose
-     role is ambiguous, an unclear placement, whether a fact is material. Record it with
-     `python -X utf8 enrich_status.py ask "<subject>" --question "<…>" [--label "<source label>"]`, keep the data
-     safe meanwhile (ADD-only, on the filer's node), and list the open questions at the top of the report (a live
-     session may also ask them directly). The user's answer closes it: `enrich_status.py resolve "<subject>" --answer "<…>"`.
+   - **a judgment these rules do not settle — Claude decides it in the same run, never waits for the user**
+     (user, 2026-10-19: "질문은 니가 알아서 다 처리"; replaces the 2026-09-26 ask-the-user rule): a new company whose
+     role is ambiguous, an unclear placement, whether a fact is material. An independent Opus judge (a pool verifier,
+     §7.4) decides it from these rules and the user's earlier answers (`enrich_marks.json` → `answered` is the
+     precedent), the run applies the decision, and the coordinator records it with
+     `python -X utf8 enrich_status.py decide "<subject>" --question "<…>" --answer "<what was decided and done>" [--label "<source label>"] --no-board`
+     (`--no-board` skips the 10-minute board rebuild; the final build rebuilds it). The board shows Claude's decisions
+     for 7 days so the user can overrule one; list them at the top of the report. `ask` is no longer used.
 
 ## 1. Commands
 
 | The user says | What runs |
 |---|---|
+| `enrich all` | **The nightly run** (user, 2026-10-19: every country, every source, every night at 23:00): every market command (`enrich us`, `korea`, `taiwan`, `japan`, `europe`, `china`, `intl`) with each of its collectors, `enrich edgar`, `enrich conference`, `enrich ir`, `enrich waitlist`, the news interviews (§11), the relations backfill, the gap fill (§12) and Claude's decisions on any open judgment (§0.3) — whether or not the board calls them due. One fixed worker pool sized by free memory does all of it (§7.4). |
 | `enrich` | The board's **Run next** list, top to bottom (refresh the board first). |
-| `enrich us` | Every US gap except SEC filings — calls (+ defeatbeta fallback), overdue / never-enriched companies, conference talks, IR releases; monthly also the utilities' own regulatory filings (`utility_filings.py`). Meant to run daily. |
+| `enrich us` | Every US gap except SEC filings — calls (+ defeatbeta fallback), overdue / never-enriched companies, conference talks, IR releases; also the utilities' own regulatory filings (`utility_filings.py`). Meant to run daily. |
 | `enrich korea` | DART filings (+ backfill of Korean companies with no filing enriched), IR presentations and Samsung's official call script (`kind.py`: KRX KIND library + six large-cap IR sites), conference talks, IR releases. |
 | `enrich taiwan` / `enrich japan` / `enrich europe` / `enrich china` | That market's calls (Investing.com; Taiwan Chinese-language calls via tw.py), conference talks, IR releases; Taiwan also its MOPS filings (`mops.py`: 法說會 decks, important 重大訊息, monthly revenue); China also the A-share IR activity records and investor Q&A answers (`cninfo.py`) and their periodic reports (`cninfo.py reports`: top-5 customers / suppliers, capacity, construction in progress, R&D, MD&A); Japan also its TDnet timely disclosures (`tdnet.py`: results, forecast revisions, capex, plans, agreements, M&A) and its EDINET annual / semi-annual securities reports (`edinet.py`: major customers, capex, R&D, MD&A). |
-| `enrich edgar` | SEC 8-K / 10-K / 10-Q, foreign issuers' 6-K / 20-F / 40-F, recent listings' prospectus (weekly; not part of `enrich us`). |
+| `enrich edgar` | SEC 8-K / 10-K / 10-Q, foreign issuers' 6-K / 20-F / 40-F, recent listings' prospectus (not part of `enrich us`; `enrich all` runs it every night). |
 | `enrich waitlist` / `enrich waitlist <market>` | Onboard the user-pre-approved new companies queued in `enrich_waitlist.json`, each market by its own rules (`references/waitlist.md`). |
 | `enrich us calls` · `enrich dart` · `enrich kind` · `enrich tdnet` · `enrich intl` · `enrich tw` · `enrich conference` · `enrich ir` | One source, across every market it covers (reference table below). |
 | a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py`; others: the market's source) and state the call date before enriching. |
@@ -67,11 +71,16 @@ to it, even if not AI-related)**
   (10-K / 20-F customer or supplier note, company release, IR page). Never model memory, never third-party
   articles; lenders, banks and investors are financing, not relationships (below). A row with a `figure` must cite
   a saved file (save the page first); `check_relations.py` lists every URL row as a WARN for a human check.
+- A capacity entitlement in, or wafer purchases from, a joint-venture fab that the filer's own document states is a
+  supply relationship from the JV's operating majority owner (when it is a graph node) to the filer — a chain edge when
+  that capacity feeds an AI chain, otherwise a relations/ row (`customer_of`); ownership shares and investment amounts
+  stay out (Claude decision 2026-10-19, user delegated).
 - **New companies get their full relationships now:** the run that adds a node (JOB 3, `enrich waitlist`, a new
   chain) also writes its `relations/<company>.json` from the same documents, then records it with
   `python -X utf8 relations.py done "<Company>"`.
-- **Companies already on the map are backfilled, ~5 per night:** every bare `enrich` run (the nightly) takes
-  `python -X utf8 relations.py next` (the next 5 pending in `relations_backfill.json`, most-connected first),
+- **Companies already on the map are backfilled, ~15 per night** (5 until 2026-10-19; raised with the daily gap fill, §12):
+  every `enrich all` run (the nightly) takes `python -X utf8 relations.py next 15` (the next 15 pending in
+  `relations_backfill.json`, most-connected first),
   reads each company's latest annual report (10-K / 20-F / 사업보고서 / 有価証券報告書 / 年度报告) customer and supplier
   notes and its own releases for named relationships, writes the AI ones as patch edges and the rest as
   `relations/` rows, and closes each with `relations.py done "<Company>"` — also when its documents name nobody
@@ -85,7 +94,20 @@ to it, even if not AI-related)**
 electrical / mechanical builders of data centers, substations and transmission — ARE supply-chain participants and
 may be added as nodes. Semiconductor-FAB contractors stay excluded: United Integrated Services, Acter, Marketech,
 Hanyang Eng — never a node and never a `relations/` counterparty; their facility contracts stay on the client's
-`quarterly_data` with counterparty keys, as before.
+`quarterly_data` with counterparty keys, as before. Rule B excludes companies, not projects: the four named firms and
+any other contractor whose business is semiconductor-fab facility / cleanroom construction. A general engineering /
+EPC / construction firm that also designs or builds fabs (Bechtel, Jacobs Solutions, Gilbane, Fluor) is not a fab
+contractor: its fab work is a relations/ row with scope "other" (Claude decision 2026-10-19, user delegated).
+**Government customers and software users** (Claude decision 2026-10-19, user delegated): a government agency or public body named as a paying
+customer of the company's product is a relations/ row (scope "other", the counterparty as the source names it); JOB 3
+still never makes it a node, and grants or incentives the company receives are not customer relationships. Named
+users of the company's product, paid or free (open-source software, SDKs, open models), are `supplies` rows when the
+source says they use it, `partner` rows when it states joint development or integration; an illustrative "such as"
+mention is not a row.
+**Platform integrations** (Claude decision 2026-10-19, user delegated): app-integration ("connector") lists and content-availability lists on a
+platform are not relations rows; a partnership in which the partner supplies a named part of the company's product or
+service (payments, checkout, co-produced content, device design) is a `partner` row. A counterparty is written as the
+source names it; a business unit is folded into its parent only when the naming rules map it (AWS -> Amazon).
 
 **Do not capture**
 - Analyst or moderator questions, estimates, opinions, ratings or price targets. When management confirms an
@@ -94,11 +116,54 @@ Hanyang Eng — never a node and never a `relations/` counterparty; their facili
   find the company's own document and enrich from that, or leave the gap.
 - Financing terms (offerings, notes, convertibles, credit lines, conversion prices, use of proceeds), governance,
   executive pay, personnel changes, awards and rankings, CSR, event / webcast / trade-show schedules.
-  Not financing (user, 2026-10-13): a bitcoin miner's bitcoin production, holdings and sales (its inventory), and a
-  data-center developer's land / site purchases (capex) — keep them; a pledge of bitcoin as collateral for a credit
+  Not financing (user, 2026-10-13): a bitcoin miner's bitcoin production, holdings and sales (its inventory), bitcoin
+  it lends out (2026-10-19: the BTC loaned and the interest income the company reports on it are part of its holdings),
+  and a data-center developer's land / site purchases (capex) — keep them; a pledge of bitcoin as collateral for a credit
   facility stays out with the facility.
   A financing release can still carry operating facts ("12-inch capacity fully loaded", "the Texas fab passed
-  Tier-1 customer qualification"): keep those, drop the deal terms.
+  Tier-1 customer qualification"): keep those, drop the deal terms. This includes the operating program a financing or
+  government-funding commitment would pay for (new production lines, capacity build-outs, technology programs): keep it
+  on the company's node as its stated plan, hedged as conditional when the commitment is; the loan / grant terms go to
+  market/history/financing_manual.jsonl (§10c) (Claude decision 2026-10-19, user delegated).
+  An award or ranking release is read the same way (Claude decision 2026-10-19, user delegated): the award, ranking, score and the awarding body's
+  assessment yield nothing, but operating facts the company states about itself in it (a plant's delivery performance,
+  backlog cleared, growth, revenue mix) are kept; a number already on the node for that period is a restatement (§6).
+  **Where financing ends (Claude decision 2026-10-19, user delegated):**
+  - Government money a company RECEIVES: a grant, subsidy, incentive, tax credit or R&D / program award (CHIPS Act, EU
+    Chips Act, NSF, DOE, a national strategic fund) is a company fact — the amount, the program, what it funds and its
+    status as the company states it (awarded, definitive agreement, letter of intent, preliminary terms, "in final
+    discussions"), hedges kept, on the recipient's node; the agency never becomes a node. When the government takes
+    equity or warrants in return, keep the award and say so, without the share count, price and stake terms. A
+    government LOAN or loan guarantee is financing like any credit facility (§10c log): keep only the program it funds.
+    A government agency that PAYS for a named contract is a customer (unchanged).
+  - Cash: the company's stated cash, cash equivalents, investments or liquidity at a date — including a pro forma figure
+    that counts money already raised — is a balance-sheet fact and is kept; how it was raised (offering size, price,
+    coupon, conversion terms, use of proceeds) stays out.
+  - Ownership between operating companies: when an operating company (not a bank, fund or other financial investor)
+    buys or sells a stake of 20% or more, a stake that is or becomes a subsidiary, JV or equity-method affiliate, or
+    control, record it on the node of the company whose document it is: the parties as named (with the affiliation
+    stated), shares and stake before / after, the accounting status, the date and any operating cooperation the
+    agreements state — never the price, proceeds, gain or loss, or security terms. Share trades by funds and banks,
+    index changes, buybacks, insider dealings and IPO / listing filings (a subsidiary's draft registration too) stay out.
+    A change in consolidation scope (a subsidiary becoming an equity-method affiliate or the reverse) is recorded once on
+    the company-wide node with its effective date, because it changes the reported revenue base (SUMCO / FST).
+  - Strategic equity investments: an operating company's investment in a customer, supplier or partner that the filing
+    ties to a commercial relationship (NVIDIA -> Coherent / Marvell, Teradyne -> FormFactor) is a relationship fact —
+    investor, amount and stake as stated and the commercial tie, on the existing edge (contract type `strategic equity
+    investment`) or else on the filer's node with counterparty keys; security terms stay out. The same money from a
+    bank or fund is financing.
+  - Licences and disposals: a licence or collaboration deal is a contract, not an acquisition — its stated upfront
+    payment, milestones ("up to"), royalties and fees are captured like a supply contract's value; only the purchase
+    price of a company, business, shares, land or buildings is a deal price. A sale of assets, plants, capacity or a
+    business is recorded like an acquisition: what was sold (MW, sites, products, the stake), the buyer as named, the
+    dates — never the price, proceeds or gain.
+  - Legal proceedings the company itself discloses (legal-proceedings / contingencies note, Item 3, a release or timely
+    disclosure) are company facts: parties, court or forum, claim, filing date and stage, every amount the company
+    states and its own position, attributed. Boilerplate yields nothing; a lawsuit known only from news is never
+    captured. The fact goes on the filer's node; other parties are named in the signal, without keys or edges.
+  - Government designations: a listing that names the company (DoD 1260H Chinese Military Companies list, the Entity
+    List or another export-control listing, sanctions) or its removal, disclosed in the company's own filing or
+    release — the designation, the stated effect and the company's response, on its node, no screener slot.
 
 **Where the facts may come from**
 1. Transcripts (earnings calls, investor-conference talks): read every line, prepared remarks and the full Q&A;
@@ -106,7 +171,11 @@ Hanyang Eng — never a node and never a `relations/` counterparty; their facili
    as a full verbatim transcript (user, 2026-10-05). **Japan exception (user, 2026-10-13):** when a Japanese company's
    call has no full transcript, the Q&A summary of the results briefing that the company itself publishes (its own IR
    site / TDnet, never a third party's) is used instead — answers attributed as the summary words them; label it as
-   the company document it is (e.g. `[Company] results briefing Q&A: <title> (MM-DD-YYYY)`).
+   the company document it is (e.g. `[Company] results briefing Q&A: <title> (MM-DD-YYYY)`). **logmi** (Claude decision 2026-10-19, user delegated): a
+   full results-briefing transcript (presentation + Q&A) on logmi Finance (finance.logmi.jp) that the company itself
+   provides (the article says 提供：<company>) or that its own IR page links counts as the company's record of the call:
+   enrich it as the call (`[Company] Q[N] FY[YYYY] (MM-DD-YYYY)`, dated the briefing), saved verbatim with SOURCE = the
+   logmi URL and the IR page that links it. It ranks above a Q&A summary; other logmi articles stay pointers.
 2. No transcript: company-issued documents only — SEC / DART filings, IR press releases, company decks,
    fetched from the official source and saved verbatim (`transcripts/ir/` via `ir_pull.py`, or
    `transcripts/non_transcript_sources/` with a NOT-a-transcript NOTE and a `# source label:` header).
@@ -125,10 +194,15 @@ Hanyang Eng — never a node and never a `relations/` counterparty; their facili
    skips the clear notices by headline: dividends, buybacks, event and results-date notices, personnel, awards,
    CSR, trade-show exhibit notices, columns and surveys.)
 4. Product and event releases: "first" / "leading" are the company's claims (attribute them); a demo is a demo,
-   never "shipping"; no edges or contracts from joint demonstrations.
+   never "shipping"; no edges or contracts from joint demonstrations. A company's own lab proof-of-concept or
+   demonstration of a technology transition (Trane's 800 V DC chiller) IS one node entry on that company, worded as a
+   demonstration with its stated results: no screener slot, no edge or contract, collaborators named in the signal only
+   (Claude decision 2026-10-19, user delegated).
 
 Add nothing the source does not state: no background knowledge, no inferred ownership, dates or customers, and no
 arithmetic in `figure` / `units` / `value` (write the numbers as stated; verify flags derived ones).
+A source that refers to counterparties without naming them ("all three major memory suppliers", "five hyperscalers")
+puts the fact on the speaker's node only; it is never copied onto nodes picked from background knowledge (Claude decision 2026-10-19, user delegated).
 
 ## 3. Patch format — ADD-only, never a direct edit of chains/
 
@@ -182,6 +256,10 @@ A filed "customer X is n% of revenue" fact uses `type` `customer share` (DART), 
 concentration` (EDGAR) or `annual securities report customer share` / `semi-annual report customer
 share` (EDINET) or `annual report customer share` / `half-year report customer share` (China, `cninfo.py reports`)
 — the Exposure tab reads exactly these.
+A named deal recorded as an edge contract ALSO gets one node entry on the filer's company-wide placement when it
+qualifies for a screener slot (contracts carry no slot); that pair is the only allowed repeat of a fact. When a
+counterparty becomes a node, an unslotted counterparty entry that holds only that deal moves onto the new edge
+(correction delete + patch add); a slotted one stays (Claude decision 2026-10-19, user delegated).
 
 **JOB 3 — New companies: added with an independent Claude approval** (user decision 2026-09-26: Claude
 approves, not the user). When a source names a company that is not in the chain and passes the litmus test
@@ -203,16 +281,18 @@ supply chain, AI or not, since 2026-10-12):
      semiconductor-fab contractors (rule B, §2 — data-center and power-grid contractors are allowed), generic end
      customers, divisions, sub-brands, product names, and the do-not-add
      list (the 2026-09-05 cleanup removals, Core42, AES, Nanjing Casela).
-   - **ask the user** when it is genuinely ambiguous — its role in this product is indirect or unclear, a
-     borderline litmus case, a private company, an affiliate or JV, no sector fits. It writes
-     `"ask_user": "<the question>"`.
+   - **decide, never ask** (user, 2026-10-19: "질문은 니가 알아서 다 처리") when it is genuinely ambiguous — its role
+     in this product is indirect or unclear, a borderline litmus case, a private company, an affiliate or JV, no sector
+     fits: it settles it from these rules and the user's earlier answers (`enrich_marks.json` → `answered`) and writes
+     `"approved": …` or its rejection reason, marked as a judgment call.
 3. The coordinator adds each approved company's `company_metadata.json` entry (ticker, exchange, country,
-   status), then applies. Rejected or asked → the player comes out of the patch and the deal goes on the node of
-   the company whose document it is, as `quarterly_data` with `counterparty` / `counterparty_role` keys
-   ("Customer X: …" / "Supplier X: …"), so no fact waits for the answer. An open question is recorded —
-   `python -X utf8 enrich_status.py ask "<Company>" --question "<…>" --label "<source label>"` — and shows on the
-   status board and the web Status tab under "Needs a decision" until the user answers; then the coordinator adds
-   the node (or not) and closes it with `enrich_status.py resolve "<Company>" --answer "<the decision>"`.
+   status), then applies. Rejected → the player comes out of the patch and the deal goes on the node of the
+   company whose document it is, as `quarterly_data` with `counterparty` / `counterparty_role` keys
+   ("Customer X: …" / "Supplier X: …"). Every judgment call is recorded —
+   `python -X utf8 enrich_status.py decide "<Company>" --question "<…>" --answer "<the decision>" --label "<source label>" --no-board`
+   — and shows on the status board for 7 days so the user can overrule it. When a counterparty becomes a node, the
+   filer's existing counterparty entry stays where it is and the new edge gets its own contract worded for the
+   relationship (Tempus AI -> Moderna / Merck & Co. precedent, 2026-10-12).
 4. Every added node is named in the run report and the HANDOFF log — structure never changes silently.
    `utils/check_patch.py` refuses a new node without `approved`, without its metadata entry, or under a removed /
    duplicate name.
@@ -236,6 +316,18 @@ contract per source ("X is named among the company's customers in its <source>")
 figure". Names that are not players stay on the filer's quarterly_data with `counterparty` keys.
 A customer or supplier the filing identifies by relationship ("Customer A, relation: Parent Company", a named affiliate in the related-party note) that is a company in the universe ALSO gets the edge, with the customer-share contract (user, 2026-10-06; e.g. Airoha Technology -> MediaTek, 16.14% of 2025 sales).
 Existing edges may point outside the chain file (edges merge across chains by name).
+A company named only as an example of a category ("leading labs such as X", "e.g.") is not a stated relationship:
+no edge and no node proposal; it stays on the filer's node with counterparty keys. A list the company introduces as
+its own customers ("workloads for customers, including A, B, C") is a customer list (rule above) (Claude decision 2026-10-19, user delegated).
+One edge per supplier -> customer pair in a chain file: a new contract for another product of the same relationship
+goes on the existing edge, and when the edge's `relationship` no longer covers it the coordinator widens the label
+with an `apply_corrections.py` item of kind `edge` — never a second edge. A named pilot or trial deployment at a
+customer's live site is a deployment (contract type `pilot deployment`; a new edge under the conditions above); a lab
+demonstration or proof of concept stays a demo (Claude decision 2026-10-19, user delegated).
+A relationship that runs opposite to an existing edge (Arm licenses Neoverse to Microsoft; Microsoft sells Cobalt VMs
+to Arm; NVIDIA supplies GPUs to SharonAI) gets its own reverse-direction edge only when the source states a DIFFERENT
+product flowing that way, named in its `relationship`; never the same relationship twice, and an existing edge in
+that direction in another chain file is used first (Claude decision 2026-10-19, user delegated).
 
 **JOB 5 — Tag every new entry for the derived views (Timelines / Screener / Capex):**
 The Timelines, Screener and Capex tabs are GENERATED from the graph by `derive.py` (run by `graph_build.py`) and
@@ -249,7 +341,9 @@ never hand-maintained. The generator only knows where an entry belongs through t
 - `topics` ids = the filenames in `timelines/`: `cpo`, `cpu`, `foundry`, `hbm`, `nand_storage`, `ocs`,
   `optical_speed`, `packaging_substrate`, `power_cooling`, `product_launches`, `silicon_photonics`,
   `supply_tightness`, `transitions`. Always write the key (on contracts too) — `[]` opts out of the keyword
-  fallback that covers untagged legacy entries. Tag a topic only where it is the entry's subject.
+  fallback that covers untagged legacy entries. Tag a topic only where it is the entry's subject. `power_cooling`
+  covers the whole power and thermal domain — generation, grid / transmission, storage, data-center power delivery
+  and cooling — whether or not a data center is named (Claude decision 2026-10-19, user delegated).
 - `capex` (hyperscalers / neoclouds only): `field` ∈ `capex_q` | `capex_year` | `backlog` | `signal`;
   `busd` + `display` (+ `period` for capex_year, `metric`/`growth` for backlog) drive the bar charts.
 - Rules the generator enforces: the graph keeps full history; every derived view is REPLACE-WITH-LATEST per
@@ -314,6 +408,10 @@ with a filing label of the same quarter. (5) Take the label from the saved file'
 verbatim; do not rename or merge events by hand (two spellings of one event are harmless, a wrong merge is not).
 (6) A DART report shares the call label shape on purpose (history and the pipelines' "latest label + 1" quarter
 logic depend on it); tools that must tell them apart use the source file's folder, as `enrich_status.py` does.
+(7) A call label's date is the call date the company's own documents give (results release "conference call today",
+6-K / 8-K notice). A label found to carry a wrong or approximate date is relabelled everywhere in one session: every
+entry through apply_corrections `relabel` items, the `# source label:` / CALL DATE header of every transcript file of
+that call and any curated timelines/*.json source string (Claude decision 2026-10-19, user delegated).
 
 ## 6. Placement, duplicates and depth
 
@@ -324,21 +422,53 @@ logic depend on it); tools that must tell them apart use the source file's folde
 - **Edge meaning must match.** A contract goes on an edge only if it describes that edge's relationship in that
   direction; otherwise on the correct-direction edge (when both companies are players in the chain) or on the
   filer's `quarterly_data` naming the counterparty.
+- **Cross-chain relationships and second placements** (Claude decision 2026-10-19, user delegated). When a company document states an AI-chain supply /
+  customer relationship between two nodes that share no chain file, add ONE placement so they do: the missing party goes
+  into a chain where the other already sits, at an existing sector that fits the role the document gives it (a buyer at
+  cloud_infra / system_integration, a supplier at the matching supplier sector), choosing the chain of the product
+  supplied when both ways fit and otherwise the fewest new placements; it goes through the patch's `new_nodes` block as
+  an existing company new in this chain, with the verifier's approval, and then the edge is made. A relationship that is
+  not AI, or whose AI part is unclear, is a `relations/` row and adds no placement. A second placement is never added
+  only to hold facts: another business line's facts stay on the company-wide placement without a slot (user 2026-10-12).
 - **AI chain or `relations/` (decision C, §2).** A relationship that belongs to an AI chain (the product feeds
   that chain's supply path) goes on the chain edge through the patch; any other goes in `relations/<filer>.json`
   with scope "other" — the filer's own document fills the filer's file (`from` = the filer; `customer_of` when the
   filer is the buyer). Never write one fact both ways. An "other" row between two companies that already share
   an AI edge must describe a DIFFERENT relationship (`utils/check_relations.py` warns). When it is unclear whether
   a relationship is AI, record it as "other" (shown only on demand, so the call is harmless) and say so in the
-  report. The row records THAT the relationship exists; a non-AI deal's figures stay facts on the filer's
+  report — but a clearly-AI relationship whose counterparty is not a graph node is never a relations/ row: it stays on
+  the filer's quarterly_data with `counterparty` / `counterparty_role` keys and the counterparty is proposed under JOB 3
+  when it passes the litmus test (Claude decision 2026-10-19, user delegated). The row records THAT the relationship exists; a non-AI deal's figures stay facts on the filer's
   `quarterly_data` with counterparty keys (a row's optional `figure` only repeats what its quote states).
+  Between two Biopharma End Customers in ai_bio.json a chain edge is used only when its product is a program the
+  chain's AI suppliers feed (Moderna -> Merck & Co. for intismeran); any other pharma collaboration is a relations/
+  row. Chain edges created before decision C (2026-10-17) stay where they are (Claude decision 2026-10-19, user delegated).
 - **The earnings call is the primary source.** Every later source — conference talk, IR release, 8-K, the DART
   periodic report after the preliminary results — adds only what the company's node does not already state for
   that period: new or changed numbers, newly named customers / partners, transitions and constraints the call did
   not mention. A restatement yields no entry (report it as `restates <label>`). So calls run first (§1 order).
-- **Same-day release and 8-K:** the daily `enrich us` takes the IR release; the weekly `enrich edgar` then skips
-  facts the same-day release already put on the node (the 8-K exhibit is usually that release).
-- Exact duplicates inside one chain file may be removed (integrity rule); everything else is ADD-only.
+- **Call figure vs filed figure** (Claude decision 2026-10-19, user delegated). When a call transcript's number differs from the company's own same-day
+  release, deck or filing for the same metric and the gap looks like a transcription error (a dropped or misheard
+  digit, comparison figures that match the filing, another speaker repeating the filed number), the call entry keeps
+  its words but loses the number ("garbled in the call transcript; the filed figure is on the <filing label> entry")
+  and the filed number is recorded under the filing's own label. A clear spoken misstatement stays as spoken, flagged
+  ("as spoken on the call; the filed release prints a different figure"), and any screener slot moves to the filed
+  entry (precedent: edgar_r3_call_figure_fixes, 2026-09-11).
+- **Same-day release and 8-K:** `enrich us` takes the IR release first; `enrich edgar` (after it, in the same `enrich all` night) then skips
+  facts the same-day release already put on the node (the 8-K exhibit is usually that release). A fact that only the
+  same-day earnings release states goes under the release's own label (`[Company] 8-K (MM-DD-YYYY)` or its
+  press-release label), never under the call label; an entry that mixes both is split (Claude decision 2026-10-19, user delegated).
+- Exact duplicates inside one chain file may be removed (integrity rule); everything else is ADD-only. Two players of
+  one company at the same locator with different products (die vs finished module, Trainium NPU vs UltraServer) are
+  intentional flow stages, not duplicates: never merge them. An edge a correction leaves with no contracts is removed
+  in the same pass (user 2026-10-05); skeleton edges with empty contracts are kept (Claude decision 2026-10-19, user delegated).
+- **Corporate changes (2026-10-19).** A company taken private, delisted or turned into a wholly owned subsidiary stays a
+  node with all its entries and edges; only its `company_metadata.json` row changes (ticker / exchange null, status
+  `private` or `subsidiary`), which takes it off the market pipelines and the board. A completed merger adds no placement
+  by itself (a placement needs a company document tying a product to a chain). A spun-off or separated business becomes
+  its own node only once it is listed (its own registration statement or first filing), through JOB 3, placed where the
+  parent's placement describes that business; the parent keeps every existing placement, entry and edge, and from the
+  separation date each fact goes to the node of the company whose document states it.
 
 ## 7. Checks and verification — one model for every source
 
@@ -360,9 +490,22 @@ logic depend on it); tools that must tell them apart use the source file's folde
    guest's or the title's** (re-read the lines around the `[mm:ss]`); it corrects or deletes
    entries (corrections go through a patch in `patches/corrections/`), lists facts it believes were missed in its
    report (the coordinator decides; it does not add them), and the verified rows move to `verified`.
-4. **Parallel by default (user, 2026-09-26): up to 20 `enricher` agents at once** (`subagent_type: "enricher"`,
-   pinned Opus, effort high), fewer when the work is small (about one agent per 2–5 sources; one source = one
-   agent). Splitting never costs accuracy because: all of one company's sources go to the same agent (the depth
+4. **One fixed worker pool, sized by free memory, reused all run** (user, 2026-10-19: "메모리 로스안나게
+   에이전트최대갯수 매일루프에서조정" and "똑같은 에이전트한테 계속 시키면 안돼? 에이전트 갯수만 늘어나고 서로 어디까지
+   했는지 기억을 못해"; replaces the fixed "up to 20 at once"):
+   - **Size:** run `python -X utf8 utils/agent_budget.py` first. Its `agents:` number (free RAM minus a 3 GB
+     reserve, 0.75 GB per agent, 1–20) is the most agents alive at once — enrichers and verifiers together (about
+     one verifier per three enrichers). Re-run it before graph_build.py and before adding a worker; never exceed it.
+   - **Spawn once, then reuse:** start the pool's workers once (`enricher` agents named W1…Wn, verifiers V1…Vm)
+     and give every next batch to an idle worker of the right kind with **SendMessage** — its context, including
+     what it already did tonight, stays. Never spawn a new agent while a pool worker of that kind is idle; replace a
+     worker only when it died or its context is full, and then brief the new one from the ledger.
+   - **Ledger:** `python -X utf8 utils/work_ledger.py start` at the beginning of the night (it carries over what the
+     last night left unfinished — hand that out first); `work_ledger.py assign <worker> <item…>` when you hand out
+     work and `work_ledger.py done <worker> <item…>` when it comes back; `work_ledger.py show` after a context
+     compaction or a restart tells you where every worker stands.
+   - **Splitting:** about 2–5 sources per batch; all of one company's sources go to the same worker. Splitting
+     never costs accuracy because: all of one company's sources go to the same agent (the depth
    rule stays consistent); each agent writes only its own patch files — never chains/, `company_metadata.json`,
    queues, `verify_queue.json`, `enrich_marks.json` or `media/enriched.jsonl`; the coordinator alone runs `utils/check_patch.py` over every
    patch, sends new-node proposals to a separate verifier, dedupes proposals two agents made for the same company,
@@ -402,6 +545,9 @@ a. **Transcript quality.** Read `graph/transcript_quality.json` (`flagged`: path
    each flagged file fetch a verbatim, speaker-labelled replacement (US: `utils/defeatbeta_fetch.py "<Name>" <TICKER>
    --fy <FY> --q <Q>`; otherwise the market's own transcript source), save it under the same source label, and
    re-enrich that label ADD-only. If no better copy exists yet, leave the file as it is and say so in the report.
+   Once the verbatim replacement is saved and the label re-checked, move the old file out of transcripts/ to
+   transcripts_superseded/<same sub-folder>/ with a `# SUPERSEDED <date>` first line naming the verbatim file; the
+   label's same-day `_earnings_release` companion stays (Claude decision 2026-10-19, user delegated).
 b. **AI-lab deals.** Newly reported AI-lab compute deals, GW commitments and contract terms in the day's sources
    (calls, filings, company releases) → append a row to `market/ai_lab_deals.json` `rows` (fields in its `_about`:
    date, lab, counterparty, what, gw, value_usd, source, url, url_or_path, quotes, added, added_by). `url` is the
@@ -465,6 +611,20 @@ f. **Nothing of the video or the transcript goes on the site**: the file is an e
    the short quote in the signal, with the video URL. `evidence.py` gives a news-interview entry no excerpt and no
    file path, and `enrich_status.py` lists the files by label only. The §7 checks apply as for every source.
 
+## 12. Gap fill — every night (user, 2026-10-19: "부족한것들도 매일도는루프에서찾으면 채우는형식으로")
+
+The board lists everything the map still lacks under **Gap fill — tonight's batch** (the whole list:
+`graph/enrich_status.json` → `board` → `gaps`), most important first: companies with no data from their own
+documents, nodes with no logo, Korean companies with no DART filing enriched, companies with no IR feed, companies
+that never had a call enriched, calls overdue. `enrich all` hands the batch to the pool after the queues are done (at least the listed
+batch; more if the night has time), and every gap ends in one of two ways — never left half done:
+- **filled:** fetch the company's own source through its pipeline (`dart.py fetch`, `ir_pull.py discover` → a new
+  entry in `ir/feeds.json`, `utils/defeatbeta_fetch.py` / `av.py` for a missed call, the market's IR site, the
+  company's own deck or filing) and enrich it under every rule above; a missing logo is fetched as JOB 3 step 5 says;
+- **marked:** nothing exists — `enrich_status.py mark "<Company>" --source <call|dart|ir|conference|edgar|logo> --why
+  "<what was checked>" --no-board` (back on the list at its recheck date, 90 days by default).
+So the list only shrinks, and the next night starts where this one stopped. The report gives filled / marked counts.
+
 ---
 
 ## Source-specific pipelines — read the matching reference file
@@ -486,7 +646,7 @@ These build ON TOP of everything above. When a command fires, read its reference
 | `enrich ir` | Company-issued IR press releases via each company's own feed (`ir_pull.py`); important releases only, facts only | `references/ir.md` |
 | `enrich china` (step 1b) | China A-share names — IR activity records (投资者关系活动记录表) from cninfo / SSE e互动 and the company's answers on SZSE 互动易 / SSE e互动 (`cninfo.py`); management Q&A, answers only | `references/cninfo.md` |
 | `enrich china` (step 1d) | China A-share names — 年度报告 / 半年度报告 / 季度报告 from cninfo (`cninfo.py reports`; full text + `_extract`): top-5 customers / suppliers, capacity, construction in progress, R&D, MD&A | `references/cninfo.md` ("China A-share periodic reports") |
-| `enrich us` (monthly step) | US utilities' own IRPs, large-load reports and data-center tariffs (`utility_filings.py`; full text + `_load` extract) | `references/utility_filings.md` |
+| `enrich us` (utility step) | US utilities' own IRPs, large-load reports and data-center tariffs (`utility_filings.py`; full text + `_load` extract) | `references/utility_filings.md` |
 | `enrich japan` (step 1c) | Japanese listed names — FSA EDINET 有価証券報告書 / 半期報告書 (`edinet.py`; full text + `_extract`): major customers with % of sales, production / orders / sales, capex and new-facility plans, R&D, MD&A | `references/edinet.md` |
 | `enrich waitlist` | New companies queued in `enrich_waitlist.json` (user pre-approved 2026-09-28) — metadata first, then each market's collectors, first patch adds the node | `references/waitlist.md` |
 

@@ -39,6 +39,7 @@ Needs EDGAR_USER_AGENT in .env (a contact e-mail; quote it if it contains spaces
 Library: edgartools (pip install edgartools), MIT, no API key.
 """
 import argparse
+import io
 import json
 import os
 import re
@@ -183,7 +184,7 @@ def document_text(doc):
         elif hasattr(doc, "download"):
             raw = doc.download()
             if isinstance(raw, bytes) and raw[:5] == b"%PDF-":
-                html = None                          # a PDF exhibit is binary: never parse it as HTML
+                return pdf_text(raw)                 # a PDF exhibit (HK interim / annual report with a 6-K): its text layer
             else:
                 html = raw.decode("utf-8", "replace") if isinstance(raw, bytes) else raw
     except Exception:
@@ -192,9 +193,31 @@ def document_text(doc):
     if any(tag in head for tag in ("<html", "<body", "<div", "<p", "<table", "<font")):
         return html_to_text(html)
     try:
-        return doc.text() or ""
+        text = doc.text() or ""
     except Exception:
-        return ""
+        text = ""
+    if text or not hasattr(doc, "attachments"):
+        return text
+    # edgartools' Filing.html() raises when its primary-document lookup returns None (Micron 10-K 10-09-2026 and
+    # ~57 recent 8-Ks, nightly 2026-10-14): read the attachment whose document type equals the form instead.
+    # (Was utils/edgar_pull_fallback.py; folded in by the 2026-10-19 board decision.)
+    form = str(getattr(doc, "form", "")).upper()
+    for a in doc.attachments:
+        if str(getattr(a, "document_type", "")).upper() == form:
+            print(f"  fallback: primary document {a.document} ({form})")
+            return document_text(a)
+    return text
+
+
+def pdf_text(raw):
+    """Text layer of a PDF exhibit, page by page (pypdf, as ir_pull.py and mops.py use). A page with no text layer
+    leaves '[page N: image only - not text]', like the HTML renderer's [image: ...] marks."""
+    from pypdf import PdfReader                        # pip install pypdf (requirements.txt)
+    pages = []
+    for n, page in enumerate(PdfReader(io.BytesIO(raw)).pages, 1):
+        t = (page.extract_text() or "").strip()
+        pages.append(t or f"[page {n}: image only - not text]")
+    return "\n\n".join(pages)
 
 
 def paragraphs(text):

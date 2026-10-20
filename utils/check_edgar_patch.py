@@ -34,6 +34,7 @@ TOPICS = {os.path.splitext(os.path.basename(p))[0] for p in glob.glob("timelines
 SLOTS = {"revenue_growth", "guidance", "backlog_or_b2b", "supply_status", "next_catalyst"}
 CAPEX_FIELDS = {"capex_q", "capex_year", "backlog", "signal"}
 QD_KEYS = {"quarter", "signal", "figure", "topics"}
+QD_OPTIONAL = {"slot", "capex", "counterparty", "counterparty_role"}   # the same set as utils/check_patch.py (skill JOB 3 / JOB 4)
 CT_KEYS = {"source", "signal", "units", "value", "date_signed", "type", "topics"}
 
 problems = 0
@@ -120,8 +121,8 @@ def check(patch_path):
             for i, q in enumerate(p.get("quarterly_data", [])):
                 n_qd += 1
                 w = f"{where} qd[{i}]"
-                if set(q) - QD_KEYS - {"slot", "capex"} or not QD_KEYS <= set(q):
-                    say("ERROR", f"{w}: keys {sorted(q)} (need {sorted(QD_KEYS)} [+ slot/capex])")
+                if set(q) - QD_KEYS - QD_OPTIONAL or not QD_KEYS <= set(q):
+                    say("ERROR", f"{w}: keys {sorted(q)} (need {sorted(QD_KEYS)} [+ {sorted(QD_OPTIONAL)}])")
                 if q.get("quarter") != label:
                     say("ERROR", f"{w}: quarter {q.get('quarter')!r} != label")
                 if (q.get("quarter"), q.get("signal")) in have_qd:
@@ -137,8 +138,12 @@ def check(patch_path):
                     continue
                 if target not in edges:
                     reverse = any(x.get("company") == company for s in placements[target] for x in s[4].get("connects_to", []))
-                    if reverse:
-                        say("ERROR", f"{w}: NEW edge but the REVERSE edge already exists — check which one the fact describes")
+                    if reverse and not str(e.get("relationship") or "").strip():
+                        say("ERROR", f"{w}: NEW edge but the REVERSE edge already exists — check which one the fact describes "
+                                     f"(a real opposite-direction relationship needs its own `relationship` naming its product)")
+                    elif reverse:
+                        say("WARN", f"{w}: NEW edge opposite to an existing one — allowed only for a different product flowing "
+                                    f"this way (board decision 2026-10-19); confirm `relationship` names it")
                     else:
                         say("WARN", f"{w}: NEW edge (confirm the filing states the relationship explicitly)")
                 have_ct = {(c.get("source"), c.get("signal")) for c in edges.get(target, {}).get("contracts", [])}
