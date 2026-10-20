@@ -375,6 +375,8 @@ earnings-ai/
 ├── relations/                # one ADD-only file per company: its non-AI customers / suppliers / partners (scope "other")
 ├── relations_backfill.json   # companies on the map before 2026-10-17, most-connected first: pending / done + date (~5 per night)
 ├── utils/check_relations.py  # pre-flight check of relations files (source + verbatim quote, names, rule B, ADD-only vs git HEAD)
+├── nodus42_mcp.py            # the enriched map (graph/) as a READ-ONLY MCP server for Claude Desktop: company profiles,
+│                             #   entries with source labels, relationships, supply chain, verbatim excerpts (2026-10-19)
 ├── verify_graph.py           # AUDIT (read-only): every quarterly_data/contract re-checked against its source file → graph/verification.json
 ├── derive.py                 # graph → Timelines / Screener / Capex views (graph/timelines.bundle.json, graph/company_metrics.json, graph/capex_backlog.json)
 ├── enrich_status.py          # per-PIPELINE dashboard (enrich us/edgar/dart/intl/tw/conference/manual): last sync, source date range,
