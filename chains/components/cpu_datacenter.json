@@ -11,7 +11,23 @@
             {
               "company": "OpenAI",
               "product": "GPT frontier model training and inference",
-              "connects_to": [],
+              "connects_to": [
+                {
+                  "company": "Microsoft",
+                  "relationship": "rights to OpenAI's intellectual property (models and infrastructure) licensed to Microsoft for integration into its products",
+                  "contracts": [
+                    {
+                      "source": "Microsoft 10-K (07-29-2026)",
+                      "signal": "Microsoft's 10-K: under its long-term strategic partnership with OpenAI (originally established in 2019, extended in October 2025 and April 2026), 'We hold rights to OpenAI’s intellectual property, including models and infrastructure, for integration into our products.'",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2019 (extended October 2025 and April 2026)",
+                      "type": "IP licence (models and infrastructure)",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
               "quarterly_data": []
             },
             {
@@ -89,6 +105,23 @@
                       "date_signed": "Q2 FY2026 (contract signed in Q2)",
                       "type": "multiyear Azure compute commitment",
                       "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Arm Holdings",
+                  "relationship": "Azure Cobalt VMs (Arm-based Cobalt CPU cloud instances) running Arm's workloads",
+                  "contracts": [
+                    {
+                      "source": "Microsoft Q4 FY2026 (07-29-2026)",
+                      "signal": "CEO Satya Nadella: 'Our Cobalt VMs are powering both our own first-party workloads as well as workloads for customers, including Adobe, Arm, Elastic, OpenAI, Sprinklr, and TomTom.' Arm is named among the customers of Microsoft's Cobalt VMs in its Q4 FY2026 call (the opposite direction to the Arm -> Microsoft Neoverse CSS licence edge).",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "customer (named in the company's customer list)",
+                      "topics": [
+                        "cpu"
+                      ]
                     }
                   ]
                 }
@@ -345,6 +378,12 @@
                   "quarter": "Baidu 6-K (08-18-2026)",
                   "signal": "Q2 2026 results release (Exhibit 99.1), operations: Apollo Go's global footprint has reached 28 cities and its fleets have accumulated over 350 million autonomous kilometers, including over 240 million fully driverless autonomous kilometers. Apollo Go signed a Memorandum of Understanding with Kazakhstan's Turlov Private Holding Ltd. to jointly explore autonomous ride-hailing services in that country. Baidu launched an enterprise edition of DuMate, its general-purpose agent for everyday productivity, in June 2026, and Baidu App's monthly active users reached 644 million in June 2026.",
                   "figure": "Apollo Go in 28 cities; over 350 million autonomous km (over 240 million fully driverless); Baidu App MAU 644 million",
+                  "topics": []
+                },
+                {
+                  "quarter": "Baidu 6-K (06-09-2026)",
+                  "signal": "Baidu's announcement (6-K Exhibit 99.1, 'Baidu Responds to Inclusion on U.S. CMC List'): the U.S. Department of Defense published a notice designating Chinese Military Companies, and the Deputy Secretary of Defense included Baidu on the Department's list of Chinese Military Companies (the CMC List). The company says it is neither a Chinese military company nor a military-civil fusion contributor to the Chinese defense industrial base and believes there is no justification for its inclusion; it says the CMC List is not a sanctions list, the U.S. government procurement limitations tied to the list will not impact its business, and the list does not restrict transacting in the company's securities.",
+                  "figure": "no specific figure",
                   "topics": []
                 }
               ]
@@ -2026,6 +2065,12 @@
                   "topics": []
                 }
               ]
+            },
+            {
+              "company": "Huawei",
+              "product": "Servers and communications equipment (named by Huafeng Technology among leading domestic server and communications-equipment makers; Huafeng's largest customer)",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         },
@@ -2898,6 +2943,23 @@
                   "company": "TSMC",
                   "relationship": "EPYC chiplet wafers and CoWoS/SoIC packaging order",
                   "contracts": []
+                },
+                {
+                  "company": "Cerebras",
+                  "relationship": "EPYC server CPUs that manage the software running on Cerebras clusters",
+                  "contracts": [
+                    {
+                      "source": "Cerebras Supernova 2026 (08-19-2026)",
+                      "signal": "Cerebras CEO Andrew Feldman at Supernova: 'we use AMD CPUs to manage the software that runs on the cluster'; when AMD's EPYC CPU server line was described on stage, he said 'We use those in our cluster.'",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "CPU supply",
+                      "topics": [
+                        "cpu"
+                      ]
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -4173,6 +4235,12 @@
                   "figure": "no specific figure"
                 }
               ]
+            },
+            {
+              "company": "Cerebras",
+              "product": "wafer-scale inference clusters (cluster software run on AMD CPUs, Arista networking)",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         },
@@ -4784,6 +4852,15 @@
                   "signal": "CEO Luc Seraphin on new module architectures: Rambus has complete chipsets for MRDIMM and LPDDR5X SOCAMM2 and remains 'on track to intercept the market as these architectures gain adoption'. 'I wouldn't say that the industry is shifting to LPDDR. I think LPDDR is actually an incremental opportunity for servers': DDR will remain dominant where server-grade scale, capacity, reliability and serviceability are required, LPDDR and SOCAMM where power efficiency matters ('We see this as complementary'). SOCAMM2 'gives us a seat at the table'; its short-run revenue outlook is modest, 'but the strategic importance is really high for us'. MRDIMM: Rambus continues to ship to customers for early system buildups and 'will not overcall the adoption curve' before the platforms ramp; for GPU head nodes, MRDIMM-type solutions 'close to the GPU's HBM' could be an option.",
                   "figure": "no specific figure",
                   "topics": []
+                },
+                {
+                  "quarter": "Rambus press release: Rambus Advances Power-Efficient AI Infrastructure with (10-13-2026)",
+                  "signal": "Rambus announced a Power Management IC (PMIC) designed for the upcoming LPDDR6 SOCAMM2 server memory modules (LPDDR6 SOCAMM2 is 'in development now'), which it calls industry-leading; it is currently sampling to lead customers. Developed in technical cooperation with customers and ecosystem partners, the PMIC, together with the Rambus SPD Hub, extends the company's LPDDR-based module roadmap beyond its complete LPDDR5X SOCAMM2 chipset for the current generation, providing module-level power conversion, sequencing, telemetry and fault protection. SVP and GM of Memory Interface Chips Rami Sethi: the PMIC 'builds on our leadership in server-memory power management.'",
+                  "figure": "LPDDR6 SOCAMM2 PMIC sampling to lead customers",
+                  "topics": [
+                    "product_launches"
+                  ],
+                  "slot": "next_catalyst"
                 }
               ]
             },
@@ -5219,6 +5296,21 @@
                       "topics": []
                     }
                   ]
+                },
+                {
+                  "company": "Cerebras",
+                  "relationship": "networking that ties Cerebras clusters together",
+                  "contracts": [
+                    {
+                      "source": "Cerebras Supernova 2026 (08-19-2026)",
+                      "signal": "Cerebras CEO Andrew Feldman at Supernova: 'We use Arista to tie everything together', and to Arista CEO Jayshree Ullal on stage: 'Jayshree Ullal supported us when we weren't buying very much at all, and now we're buying a fair bit.'",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "networking supply",
+                      "topics": []
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -5310,7 +5402,42 @@
             {
               "company": "Lotes",
               "product": "server CPU LGA sockets and high-speed connectors",
-              "connects_to": [],
+              "connects_to": [
+                {
+                  "company": "AMD",
+                  "relationship": "LGA CPU sockets for AMD EPYC server platforms (Milan, Genoa, Venice SP7 / SP8)",
+                  "contracts": [
+                    {
+                      "source": "Lotes IR presentation: MOPS 353320260514E003 (06-05-2026)",
+                      "signal": "Lotes' product roadmap slide lists LOTES among the CPU socket vendors for AMD Server platforms: LOTES, FIT (Milan); LOTES, FIT, Amphenol (Genoa); LOTES, FIT, TE (Venice, SP7(7536) / SP8(5572)). The slide notes that products with color unfilled are still under development or time to market unknown.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "CPU socket vendor (company product roadmap)",
+                      "topics": [
+                        "cpu"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "company": "Intel",
+                  "relationship": "LGA CPU sockets for Intel server platforms",
+                  "contracts": [
+                    {
+                      "source": "Lotes IR presentation: MOPS 353320260514E003 (06-05-2026)",
+                      "signal": "Lotes' product roadmap slide lists LOTES among the CPU socket vendors for Intel Server platforms: LOTES, FIT, TE. The slide notes that products with color unfilled are still under development or time to market unknown.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "CPU socket vendor (company product roadmap)",
+                      "topics": [
+                        "cpu"
+                      ]
+                    }
+                  ]
+                }
+              ],
               "quarterly_data": [
                 {
                   "quarter": "Lotes IR presentation: MOPS 353320260514E003 (06-05-2026)",
@@ -5541,6 +5668,30 @@
                     {
                       "source": "Huafeng Technology half-year report: 2026 Half-Year Report (08-29-2026)",
                       "signal": "Sugon is named among Huafeng Technology's customers in its 2026 half-year report: in its communications business the company says it continues to serve top domestic server and communications-equipment makers such as Huawei, Inspur, xFusion and Sugon on a long-term, stable basis.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "customer list mention",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Huawei",
+                  "relationship": "high-speed backplane connectors and cable modules for servers and communications equipment (Huafeng's largest customer)",
+                  "contracts": [
+                    {
+                      "source": "Huafeng Technology annual report: 2025 Annual Report (04-15-2026)",
+                      "signal": "2025 annual report: Huawei Technologies Co., Ltd. was the company's largest customer, with sales of RMB 152,973.27 ten-thousand, 60.52% of total 2025 sales; the company flags its high dependence on Huawei as a risk.",
+                      "units": "60.52% of 2025 sales",
+                      "value": "RMB 152,973.27 ten-thousand",
+                      "date_signed": "FY2025",
+                      "type": "annual report customer share",
+                      "topics": []
+                    },
+                    {
+                      "source": "Huafeng Technology half-year report: 2026 Half-Year Report (08-29-2026)",
+                      "signal": "Huawei is named among the company's customers in its 2026 half-year report: it has long and stably served leading domestic server and communications-equipment makers Huawei, Inspur, xFusion and Sugon, and says its business has extended from traditional communications-equipment supply to large data centers, AI server clusters and base stations.",
                       "units": "no specific figure",
                       "value": "no specific figure",
                       "date_signed": "not stated",
@@ -6469,8 +6620,8 @@
                 },
                 {
                   "quarter": "ASE Group Q2 FY2026 (07-30-2026)",
-                  "signal": "GENERAL-MARKET OSAT OUTLOOK RAISED (COO Dr. Tien Wu): the non-LEAP/general segment is now expected to grow 30% YoY in 2026 versus the previous guidance of 13%, with very strong demand in INDUSTRIAL, POWER, CONNECTIVITY and STORAGE devices; Dr. Wu believes ASE will outperform the general semiconductor market on its association with AI infrastructure and its fully automated lines. Non-LEAP capacity is tight — wire bond and traditional advanced packaging were tight in Q2 — and the assembly business has shown even stronger than expected growth, 'especially as it relates to legacy wire bond services', so management now believes assembly and test will grow at similar rates in 2026, versus the start-of-year view that wafer-sort-led test would outpace assembly. Blended utilization 80-85%, with capacities outside lines being placed into service generally very close to full; CFO Joseph Tung: ASE also needs to add capacity for mainstream advanced packaging and testing to support general market demand. Record ATM revenue NTD 126.1B (+36% YoY) with ATM gross margin 27.3%.",
-                  "figure": "general segment +30% YoY (was 13%); wire bond tight; assembly and test to grow at similar rates"
+                  "signal": "GENERAL-MARKET OSAT OUTLOOK RAISED (COO Dr. Tien Wu): the non-LEAP/general segment's 2026 growth outlook was raised from the previous guidance of 13% (the growth figure in the call transcript conflicts with the company's filed deck; the filed figure is on the ASE Group 6-K (07-30-2026) entry), with very strong demand in INDUSTRIAL, POWER, CONNECTIVITY and STORAGE devices; Dr. Wu believes ASE will outperform the general semiconductor market on its association with AI infrastructure and its fully automated lines. Non-LEAP capacity is tight — wire bond and traditional advanced packaging were tight in Q2 — and the assembly business has shown even stronger than expected growth, 'especially as it relates to legacy wire bond services', so management now believes assembly and test will grow at similar rates in 2026, versus the start-of-year view that wafer-sort-led test would outpace assembly. Blended utilization 80-85%, with capacities outside lines being placed into service generally very close to full; CFO Joseph Tung: ASE also needs to add capacity for mainstream advanced packaging and testing to support general market demand. Record ATM revenue NTD 126.1B (+36% YoY) with ATM gross margin 27.3%.",
+                  "figure": "general segment outlook raised from 13% (filed figure on the deck entry); wire bond tight; assembly and test to grow at similar rates"
                 },
                 {
                   "quarter": "ASE Group Q4 FY2025 (02-05-2026)",

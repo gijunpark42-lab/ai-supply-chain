@@ -1,0 +1,43 @@
+{
+  "source": "Applied Digital Q1 FY2027 (10-07-2026)",
+  "new_nodes": {
+    "ChronoScale": {
+      "ticker": "CHRN",
+      "exchange": "NASDAQ",
+      "country": "US",
+      "why": "Separately listed GPU cloud (neocloud) company - SEC registrant ChronoScale Holdings Corp (CIK 1549084, ticker CHRN), about 96% owned and consolidated by Applied Digital; it rents NVIDIA GB300 NVL72 AI compute to Microsoft, so its stock benefits directly from Blackwell-generation AI compute being deployed. Placed in nvda_b200.json cloud_infra / Neocloud (GPU-specialized) beside CoreWeave, where Microsoft is a player.",
+      "evidence": "Applied Digital Q1 FY2027 (10-07-2026), CEO Wes Cummins: 'Now to ChronoScale, in which we have an approximately 96% ownership stake. ... During the quarter, ChronoScale announced plans with Microsoft for a 50-MW AI compute deployment in North America, featuring NVIDIA GB300 NVL72 systems.'",
+      "approved": "opus verifier 2026-10-19 (board question 52, user-delegated decision): approve - a separately listed company (precedent 2026-10-01: separately listed group companies are separate nodes, a group fact stays on the filer's node), a clear neocloud litmus pass, a management-stated customer relationship with Microsoft, no existing node under another spelling (Applied Digital's own node is its data-center business), existing sector."
+    }
+  },
+  "chains": {
+    "accelerators/nvda_b200.json": {
+      "players": [
+        {
+          "company": "ChronoScale",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "GPU cloud / AI compute capacity (NVIDIA GB300 NVL72)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Microsoft",
+              "relationship": "50-MW AI compute deployment on NVIDIA GB300 NVL72 systems",
+              "contracts": [
+                {
+                  "source": "Applied Digital Q1 FY2027 (10-07-2026)",
+                  "signal": "Applied Digital CEO Wes Cummins: during the quarter ChronoScale (about 96% owned by Applied Digital) announced plans with Microsoft for a 50-MW AI compute deployment in North America featuring NVIDIA GB300 NVL72 systems; the deployment is expected to significantly expand ChronoScale's existing business with a tier-one investment-grade customer. He called it 'the first Microsoft site of 50 MW' and said ChronoScale secures such 50-MW to 100-MW grid-tied sites outside the large-scale Applied Digital campuses.",
+                  "units": "50-MW AI compute deployment (NVIDIA GB300 NVL72 systems)",
+                  "value": "no specific figure",
+                  "date_signed": "fiscal Q1 2027 (quarter ended August 31, 2026)",
+                  "type": "AI compute deployment",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

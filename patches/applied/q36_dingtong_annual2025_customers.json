@@ -1,0 +1,59 @@
+{
+ "source": "Dingtong Technology annual report: 2025 Annual Report (03-31-2026)",
+ "note": "Claude decision 2026-10-19 (user delegated: '질문은 니가 알아서 다 처리'), board question 'Dingtong Technology': Dingtong gets one placement beside its customers Luxshare and TE Connectivity (interconnect / Components), as LG Innotek was placed where its counterparty's sector lives; the Amphenol edge stays in optical_networking.json.",
+ "new_nodes": {
+  "Dingtong Technology": {
+   "ticker": "688668.SS",
+   "exchange": "SSE",
+   "country": "CN",
+   "why": "Existing node (optical_networking.json interconnect / Components), new in nvidia_vera_rubin.json: supplies high-speed I/O connector cages and components to the connector makers that sit in this chain's Components sector.",
+   "evidence": "Dingtong 2025 annual report: top-5 customer 5 = new customer Luxshare (立讯精密), RMB 1,738.04 ten-thousand, 1.09% of sales; '公司主要客户为安费诺、莫仕、泰科电子、中航光电和立讯精密等行业内知名的连接器厂商'",
+   "approved": "Claude verifier 2026-10-19 (user delegated): existing company, new in this chain at the existing interconnect / Components sector where its named customers Luxshare and TE Connectivity sit; the filer's own statutory report states both relationships (one with a filed customer share for the Exposure tab); one placement instead of two new customer placements in optical_networking.json (Luxshare is on the 2026-09-05 fold list, which check_patch would refuse there)."
+  }
+ },
+ "chains": {
+  "accelerators/nvidia_vera_rubin.json": {
+   "players": [
+    {
+     "company": "Dingtong Technology",
+     "layer": "interconnect",
+     "sector": "Components",
+     "product": "112G / 224G high-speed I/O connector cages (QSFP-DD / OSFP) and connector components, plus air- and liquid-cooled cage heat-sink modules for AI servers and switches",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Luxshare",
+       "relationship": "high-speed I/O connector cages and connector components for Luxshare's connector modules",
+       "contracts": [
+        {
+         "source": "Dingtong Technology annual report: 2025 Annual Report (03-31-2026)",
+         "signal": "2025 annual report: Luxshare was customer 5 and new to the top five customers, because strong communications-connector market demand gradually raised its orders; sales RMB 1,738.04 ten-thousand, 1.09% of 2025 sales.",
+         "units": "1.09% of 2025 sales",
+         "value": "RMB 1,738.04 ten-thousand",
+         "date_signed": "FY2025",
+         "type": "annual report customer share",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "TE Connectivity",
+       "relationship": "high-speed I/O connector cages and connector components for TE Connectivity's connector modules",
+       "contracts": [
+        {
+         "source": "Dingtong Technology annual report: 2025 Annual Report (03-31-2026)",
+         "signal": "TE Connectivity is named among the company's main customers in its 2025 annual report: its main customers are well-known connector makers Amphenol, Molex, TE Connectivity, AVIC Jonhon and Luxshare, and its Malaysian plant serves the overseas manufacturing bases of Molex, Amphenol and TE Connectivity.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer list mention",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

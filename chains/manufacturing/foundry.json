@@ -2303,6 +2303,12 @@
                   "signal": "CEO: robotics was 6% of Artery's 2025 revenue and rose to 8% in H1 2026, with robotics revenue nearly doubling YoY. Artery is designed into more than ten humanoid-robot models (volumes still small); a dexterous hand needs nearly 20 MCUs and a humanoid 50 to 70; a drone needs one MCU per rotor (four for four rotors) plus flight control and gimbal. Artery also sells into mowing, window-cleaning (selling very well), floor-cleaning, educational, companion and industrial robots. High oil prices have lifted demand for light electric vehicles (e-bikes, scooters, electric motorcycles) and energy-storage equipment. Robots, drones and 3D printers need high-end MCUs that 8-bit parts cannot serve.",
                   "figure": "robotics 6% of Artery 2025 revenue -> 8% in H1 2026; 10+ humanoid models; ~20 MCUs per dexterous hand, 50 to 70 per humanoid",
                   "topics": []
+                },
+                {
+                  "quarter": "Faraday Technology press release: Faraday Powers Intelligent Sensing with New 14nm MIPI C/D (10-13-2026)",
+                  "signal": "Faraday announced the availability of its silicon-proven MIPI C/D Combo PHY IP on UMC's 14nm FinFET process, for vision AI, machine vision, smart imaging and other SoCs needing camera and sensor interfaces: it supports MIPI C-PHY v2.0 at up to 3.0 Gsps per trio and D-PHY v2.5 at up to 4.5 Gbps per lane, and the shared combo architecture reduces IP die area by more than 30%; built-in self-test for both protocols and an Alternate Low Power mode. COO Flash Lin: edge AI and automotive smart sensing are driving the need for high-performance, power-efficient video connectivity.",
+                  "figure": "C-PHY v2.0 up to 3.0 Gsps per trio; D-PHY v2.5 up to 4.5 Gbps per lane; IP die area reduced by more than 30%",
+                  "topics": []
                 }
               ]
             },
@@ -2605,7 +2611,38 @@
             {
               "company": "SemiFive",
               "product": "custom SoC / AI ASIC design platform and turnkey ASIC services (Samsung Foundry DSP; GlobalFoundries platinum partner)",
-              "connects_to": [],
+              "connects_to": [
+                {
+                  "company": "HyperAccel",
+                  "relationship": "turnkey design and mass-production supply of the Bertha LLM inference accelerator",
+                  "contracts": [
+                    {
+                      "source": "SemiFive press release: SEMIFIVE Commences Mass Production of HyperAccel's LLM AI (09-08-2026)",
+                      "signal": "SemiFive's release: after securing an initial mass production contract, SemiFive began mass production of HyperAccel's data-center LLM inference accelerator 'Bertha' on Samsung Foundry's 4nm process as a complete turnkey solution (front-end design and verification through packaging, testing and volume manufacturing supply); volumes are projected to expand through follow-on purchase orders as HyperAccel's service rollout expands.",
+                      "units": "die more than 500 mm2",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "turnkey ASIC design and mass-production supply",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Mobilint",
+                  "relationship": "robotics AI semiconductor design and development (turnkey ASIC services)",
+                  "contracts": [
+                    {
+                      "source": "SemiFive DART supply contract (10-01-2026)",
+                      "signal": "SemiFive's DART supply-contract disclosure: a robotics AI semiconductor design and development contract with Mobilint, signed 09-30-2026 for the term 07-27-2026 to 04-30-2029; the amount is withheld at Mobilint's request until 04-30-2029, and SemiFive has performed similar contracts with Mobilint in the past three years.",
+                      "units": "no specific figure",
+                      "value": "not disclosed (withheld at the counterparty's request)",
+                      "date_signed": "09-30-2026",
+                      "type": "design and development contract",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
               "quarterly_data": [
                 {
                   "quarter": "SemiFive Q2 FY2026 (08-14-2026)",
@@ -2746,6 +2783,21 @@
                       "value": "no specific figure",
                       "date_signed": "not stated",
                       "type": "development contract",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Mobilint",
+                  "relationship": "ASIC design services",
+                  "contracts": [
+                    {
+                      "source": "ASICLand Q2 FY2026 (08-14-2026)",
+                      "signal": "ASICLand's H1 2026 DART report lists Mobilint among its publicly disclosed contracts: a design contract of KRW 15,431M.",
+                      "units": "no specific figure",
+                      "value": "KRW 15,431M",
+                      "date_signed": "not stated",
+                      "type": "design contract",
                       "topics": []
                     }
                   ]
@@ -3133,6 +3185,39 @@
                   "topics": [],
                   "counterparty": "Klarna",
                   "counterparty_role": "partner"
+                },
+                {
+                  "signal": "Apple announced the next generation of Apple TV 4K (4th generation) on October 13, 2026. Its A19 chip 'delivers up to 50 percent faster CPU performance and up to 2x faster GPU performance than the previous generation' and includes a new, dedicated AV1 decoder; the device adds three far-field microphones for hands-free Siri and brings Siri AI (beta), with Siri requests using on-device processing or Private Cloud Compute. Pre-orders started October 13 in the U.S. and 29 other countries and regions, with availability in stores beginning November 13, at $299 (U.S.). Bob Borchers, Apple's vice president of Worldwide Product Marketing: 'The new Apple TV 4K is our most immersive home theater experience yet.'",
+                  "figure": "A19: up to 50 percent faster CPU and up to 2x faster GPU than the previous generation; available November 13; $299",
+                  "topics": [
+                    "product_launches"
+                  ],
+                  "quarter": "Apple press release: Apple unveils the new Apple TV 4K, supercharged by Siri AI (10-13-2026)"
+                },
+                {
+                  "signal": "Apple introduced Apple HomeView on October 13, 2026: a home device with a 7-inch Liquid Retina display (a tabletop model on a domed speaker base and a separate wall-mounted model) featuring Siri AI, recognition of up to six users by face, music, FaceTime and smart home control; HomeView and its A18 chip include Secure Exclaves, and Siri requests can use on-device processing or Private Cloud Compute. Pre-orders started October 13 in Australia, Canada, India, New Zealand, the UK and the U.S. at $299 (U.S.) for both models (Singapore from October 15), with availability beginning November 13. 'Apple HomeView is not available for sale in the European Union, as Siri AI is currently unavailable in iOS in the EU. Apple is working constructively with the EU in an attempt to find a path forward.' The wall-mounted model uses three purpose-built mounts from Schneider Home (Power Mount PoE Wired available starting in early 2027 for $129.95). Greg Joswiak, Apple's senior vice president of Worldwide Marketing: 'it’s powered by Apple Intelligence with Siri AI at its core'.",
+                  "figure": "7-inch display; A18 chip; $299; available November 13; not sold in the EU",
+                  "topics": [
+                    "product_launches"
+                  ],
+                  "slot": "next_catalyst",
+                  "quarter": "Apple press release: Meet Apple HomeView, a new way to enjoy entertainment and (10-13-2026)"
+                },
+                {
+                  "signal": "Apple announced HomePod mini 2 on October 13, 2026, powered by the Apple S10 chip; Siri AI is coming to HomePod mini 2 'in a future software update' (English, in the U.S., Australia, Canada, India, New Zealand, Singapore, South Africa and the UK), and with the new Apple TV 4K (4th generation) users can create a four-speaker surround sound setup for the first time. Pre-orders started October 13 in the U.S. and more than 23 other countries and regions, with availability in stores beginning October 30, at $149 (U.S.).",
+                  "figure": "S10 chip; available October 30; $149",
+                  "topics": [
+                    "product_launches"
+                  ],
+                  "quarter": "Apple press release: Apple announces the next generation of HomePod mini (10-13-2026)"
+                },
+                {
+                  "signal": "Apple announced Apple Home Collection on October 13, 2026: smart home accessories (indoor and outdoor cameras, thermostats, temperature sensors, a video doorbell and a door lock) designed in collaboration with LG Electronics and Schneider Electric and managed through the Apple Home app. The lineup includes LG's four cameras (up to 2.5K video), the LG Smart Deadbolt Lock (Ultra Wideband, Matter, Aliro), an LG Smart Thermostat and temperature sensor, and the Schneider Home Smart Thermostat and Room Sensor. 'Availability for all products begins in December, with select accessories available starting early 2027', sold at apple.com/store, in the Apple Store app and at Apple Store locations; the LG Temperature Sensor and Schneider Home Room Sensor start at $39.95 and the LG Floodlight Cam starts at $399.95 (U.S.). Apple Retail now offers third-party installation from ADT in the U.S. starting this fall. Matthew Costello, Apple's vice president of Hardware Engineering: 'Working closely with industry leaders LG Electronics and Schneider Electric, we designed every accessory to work seamlessly with Apple Home'.",
+                  "figure": "available from December, select accessories early 2027; sensors from $39.95; LG Floodlight Cam from $399.95",
+                  "topics": [
+                    "product_launches"
+                  ],
+                  "quarter": "Apple press release: Introducing Apple Home Collection, a new lineup of smart (10-13-2026)"
                 }
               ]
             },
@@ -3230,6 +3315,18 @@
             {
               "company": "FuriosaAI",
               "product": "RNGD (Renegade) tensor-contraction inference accelerator",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "HyperAccel",
+              "product": "'Bertha' data-center LLM inference accelerator (Samsung 4nm, die over 500 mm2)",
+              "connects_to": [],
+              "quarterly_data": []
+            },
+            {
+              "company": "Mobilint",
+              "product": "AI semiconductor (NPU) developer; robotics AI chip designed with SemiFive, design contract with ASICLand",
               "connects_to": [],
               "quarterly_data": []
             }
@@ -4031,6 +4128,12 @@
                   "topics": [
                     "foundry"
                   ]
+                },
+                {
+                  "quarter": "TSMC press release: TSMC Reports Third Quarter EPS of NT$29.43 (10-15-2026)",
+                  "signal": "Q3 2026 results release, figures the call entries do not state: consolidated revenue of NT$1,494.24 billion and net income of NT$763.06 billion; diluted EPS NT$29.43 (US$4.60 per ADR unit). Year over year, revenue increased 50.9% while net income and diluted EPS both increased 68.7%; versus Q2 2026, net income increased 8.0%. In US dollars, revenue of $46.72 billion increased 41.2% year over year. Net profit margin was 51.1%.",
+                  "figure": "Q3 2026 revenue NT$1,494.24 billion (+50.9% YoY); net income NT$763.06 billion (+68.7% YoY, +8.0% QoQ); US$46.72 billion revenue (+41.2% YoY); net profit margin 51.1%",
+                  "topics": []
                 }
               ]
             },
@@ -4885,23 +4988,6 @@
                   "signal": "AI-related revenue (CEO Jason Wang): UMC's AI-related business is driven by specialty solutions - power management, connectivity, FPGA - plus the growing advanced packaging and silicon photonics business, and has begun to become an important contributor to growth in 2026. AI-related revenue is projected to be close to approximately USD 300 million this year, and UMC expects it to exceed USD 1 billion in three years. Silicon photonics and advanced packaging, still at an early stage, have the highest CAGR; connectivity and power management are major contributors. In the near term UMC sees upside in silicon photonics, power and FPGA-related products, particularly in 40nm and 65nm technologies.",
                   "figure": "AI-related revenue close to approximately USD 300 million in 2026; expected to exceed USD 1 billion in three years",
                   "topics": []
-                },
-                {
-                  "quarter": "UMC Q2 FY2026 (07-29-2026)",
-                  "signal": "Silicon photonics (CEO Jason Wang): earlier this month UMC announced its first mass production delivery of a 12-inch photonics IC to a customer, which it calls a major milestone demonstrating high-volume silicon photonics manufacturing on 12-inch wafers; the silicon photonics platform is to be available for general customer use in 2027. UMC says it is the first to offer a 12-inch solution, with better process control and performance than 8-inch competitors (lower propagation loss and better yield, demonstrated to customers). In TFLN, UMC says it has the world's first TFLN modulator in production and is developing 40G per lane and beyond, supporting beyond-400G use cases. TFLN components can be combined with UMC's silicon photonics PICs through advanced packaging: UMC can offer optical I/O interposers with PICs and provide TFLN components for CPO solutions.",
-                  "figure": "first mass-production delivery of a 12-inch photonics IC; platform general availability 2027; TFLN 40G per lane in development, beyond 400G",
-                  "topics": [
-                    "silicon_photonics"
-                  ],
-                  "slot": "next_catalyst"
-                },
-                {
-                  "quarter": "UMC Q2 FY2026 (07-29-2026)",
-                  "signal": "Advanced packaging (CEO Jason Wang): UMC started with interposer solutions and RF SOI 3D IC and chiplet solutions and now offers more, and projects its addressable market to more than double by 2030 as it expands from 2.5D interposers with DTC and discrete DTC to wafer-to-wafer stacking and memory-to-memory stacking. More than ten active customers and over 35 new products are in discussion, with expected tape-outs in 2026 and early 2027; a high percentage of those products are DTC, which is a significant portion. UMC has entered production for 3D wafer-to-wafer hybrid bonding, bridge die and discrete DTC. It is not positioning as a direct CoWoS alternative, and works across the entire ecosystem rather than with a single partner. CEO: 'We believe we are ahead of our peers in advanced packaging, which is leading to share gains and many new opportunities.'",
-                  "figure": "addressable market to more than double by 2030; more than ten active customers; over 35 new products in discussion; tape-outs 2026 and early 2027",
-                  "topics": [
-                    "packaging_substrate"
-                  ]
                 },
                 {
                   "quarter": "UMC Q2 FY2026 (07-29-2026)",
@@ -6855,6 +6941,12 @@
                   "signal": "Output innovation and EPIC: CEO said Applied has multiple output innovation products (more wafers processed per square foot of clean room space) in qualification at customer sites that will provide significant increases in output per unit area. EPIC Center in Silicon Valley: 'We will move the first R&D tool into the clean room next week, and we are on track to start operations in the coming months.'",
                   "figure": "no specific figure",
                   "topics": []
+                },
+                {
+                  "quarter": "Applied Materials press release: Applied Materials Set to Outperform as AI Drives Sustained (10-13-2026)",
+                  "signal": "SEMICON West investor breakfast release, details the presentation entries do not state: the company says it expects wafer fab equipment (WFE) spending to grow faster through 2030 than over the past decade, and that its eBeam equipment portfolio 'is expected to generate $2 billion in revenue in calendar year 2026'. CEO Gary Dickerson: 'The global buildout of AI infrastructure is driving a new era of growth for wafer fab equipment.'",
+                  "figure": "eBeam equipment portfolio expected to generate $2 billion in revenue in calendar year 2026",
+                  "topics": []
                 }
               ]
             },
@@ -7837,6 +7929,14 @@
                     "foundry",
                     "product_launches",
                     "transitions"
+                  ]
+                },
+                {
+                  "quarter": "Advanced Energy press release: Advanced Energy Unveils Centra Smart Hub for Improved (10-13-2026)",
+                  "signal": "Advanced Energy launched the Centra Smart Hub at SEMICON West: a centralized hub supporting up to eight of its new Remote Smart Sensors (RSS) for non-contact wafer-temperature measurement and real-time temperature control in lamp-heated Si and SiC thermal processes such as rapid thermal annealing (RTA) and epitaxial (Epi) growth in semiconductor equipment. The company claims industry-leading performance with up to a 40% improvement in accuracy over other standard solutions when measuring at 3.3 um or 5.2 um and at temperatures up to 1700°C; the hub has embedded ECAT and Ethernet protocols, and the RSS mount directly on the chamber in ambient temperatures up to 60°C. EVP Plasma Power Juergen Braun: the hub 'enables temperature measurement for Si and SiC processes to help fabs improve wafer-to-wafer repeatability and thermal uniformity for higher yields.'",
+                  "figure": "up to eight sensors per hub; up to a 40% improvement in accuracy (company claim); measurement at 3.3 um or 5.2 um; temperatures up to 1700°C",
+                  "topics": [
+                    "product_launches"
                   ]
                 }
               ]
@@ -13195,6 +13295,21 @@
                       "topics": []
                     }
                   ]
+                },
+                {
+                  "company": "UMC",
+                  "relationship": "silicon wafer supply (through its subsidiary Shin-Etsu Handotai; UMC 20-F names it among the principal makers of UMC wafers)",
+                  "contracts": [
+                    {
+                      "source": "UMC 20-F (04-30-2026)",
+                      "signal": "UMC 20-F supplier disclosure: UMC says it purchased a majority of its silicon wafers from Shin-Etsu Handotai Corporation, GlobalWafers, Sumco Group and Soitec, the principal makers of its wafers, and that it has signed long-term supply contracts with its suppliers to obtain sufficient quantities of acceptable quality raw materials.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "20-F supplier disclosure",
+                      "topics": []
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -13475,6 +13590,12 @@
                   "quarter": "SUMCO annual securities report: FY2025 (03-26-2026)",
                   "signal": "Capex and facilities (annual securities report): FY2025 capex totaled JPY 79,957 million, mainly investment to expand capacity for high-precision wafers for leading-edge 300mm semiconductors. As of December 31, 2025 the company reported no plans for significant new facilities or major renovations. 300mm wafers are made in Imari and Kohoku (Saga), Yonezawa (Yamagata), Omura (Nagasaki) and Taiwan; polysilicon for semiconductors in Yokkaichi (Mie) and the US. Book value of main facilities as of December 31, 2025: Kyushu Imari plant (Saga) JPY 342,182 million; Formosa Sumco (Yunlin, Taiwan) JPY 208,663 million.",
                   "figure": "FY2025 capex JPY 79,957 million; no significant new facility plans as of Dec 31, 2025",
+                  "topics": []
+                },
+                {
+                  "quarter": "SUMCO press release: Notice Concerning Completion of Reclassification of a (08-27-2026)",
+                  "signal": "SUMCO's notice: FORMOSA SUMCO TECHNOLOGY CORPORATION (FST) was reclassified from a consolidated subsidiary to an equity-method affiliate after the SUMCO group completed the sale of part of its FST shares on the Taiwan securities market on August 20, 2026, cutting its voting rights ratio in FST from 43.2% to 38.0%; FST will be accounted for as an equity-method affiliate with September 30, 2026 (the end of Q3 of the fiscal year ending December 31, 2026) as the deemed reclassification date. SUMCO says FST remains an important production and sales base for the group and that the impact on its 2026 consolidated results is under review.",
+                  "figure": "voting rights in FST 43.2% -> 38.0%; equity-method affiliate from the deemed date September 30, 2026",
                   "topics": []
                 }
               ]
@@ -14777,6 +14898,20 @@
                   "signal": "CFO Higuchi and FUJIFILM Business Innovation President Hama: the company will begin evaluating strategic options for the Business Innovation segment, including a partial spin-off with a view to implementing it in two to three years, after which FUJIFILM Holdings would retain less than a 20% stake; Business Innovation posted a Q1 operating loss of JPY1.4 billion partly because tight server availability delayed server installations and deferred service revenues (timing, not lost business); it plans a 10% price increase from September, expects structural reforms to yield around JPY10.0 billion of benefits next year, targets a 10% operating margin in FY2030 and expects to return to profit for the full year",
                   "figure": "Business Innovation Q1 operating loss JPY1.4 billion; around JPY10.0 billion reform benefits next year; 10% price increase from September",
                   "topics": []
+                },
+                {
+                  "quarter": "Fujifilm press release: Fujifilm to Expand CMP Slurry Production Capacity in the (10-14-2026)",
+                  "signal": "FUJIFILM Corporation will invest a total of $18 million USD (approximately JPY 3 billion) at the FUJIFILM Electronic Materials U.S.A. production site in Mesa, Arizona to expand capacity for copper interconnect CMP slurries used in BEOL processes and to establish new production facilities capable of multi-product manufacturing of CMP slurries for FEOL, MOL and advanced packaging applications, including hybrid bonding; the new facilities are to bridge product development at the Arizona site's global CMP slurry R&D center and mass production. The expanded production line is scheduled to begin operations in 2027. The company says demand for copper interconnect CMP slurry, a product for which it claims a leading global market share, is increasing in advanced logic and memory, and that major semiconductor manufacturers continue to invest in new and expanded production facilities in the United States. Brian O'Donnelly (president & CEO, FUJIFILM Electronic Materials U.S.A.): 'The advanced semiconductor market has entered a period of significant growth, driven by the rapid expansion of demand related to artificial intelligence.'",
+                  "figure": "$18 million USD (approximately JPY 3 billion) Mesa, Arizona CMP slurry expansion; operations scheduled to begin in 2027",
+                  "topics": [],
+                  "slot": "next_catalyst"
+                },
+                {
+                  "quarter": "Fujifilm press release: Fujifilm Completes New Production Facility for Advanced (08-21-2026)",
+                  "signal": "Fujifilm completed a new production building for post-CMP cleaners at the Oita Factory of FUJIFILM Electronic Materials Co., Ltd. (FFEM); the facility began operations in August and triples production capacity at the Oita Factory, for post-CMP cleaners used in manufacturing advanced semiconductors including those for AI applications. The company says demand for its post-CMP cleaners is expected to more than double in terms of sales by FY2030 compared with FY2024 (company fiscal-year naming), driven by miniaturization and 3D stacking for AI semiconductors, and is expanding sales particularly among customers in North America, Europe and key manufacturing hubs in Asia. The company states its semiconductor materials business achieved an average annual sales growth rate of approximately 20% from FY2021 through FY2025, and that it invested more than 100 billion yen from FY2021 to FY2024 (CMP slurry capacity in Japan, the United States and Taiwan; polyimide capacity in Japan and Belgium), with demand for its photosensitive dielectric materials for advanced packaging, including ZEMATES, growing rapidly.",
+                  "figure": "Oita post-CMP cleaner production capacity tripled (operations began in August); post-CMP cleaner demand expected to more than double in sales terms by FY2030 vs FY2024; semiconductor materials average annual sales growth approximately 20% FY2021-FY2025",
+                  "topics": [],
+                  "slot": "supply_status"
                 }
               ]
             },
@@ -15090,6 +15225,14 @@
                   "topics": [],
                   "slot": "guidance",
                   "quarter": "Osaka Organic Chemical Industry TDnet: Revisions to Financial Results Forecasts and Dividend (10-09-2026)"
+                },
+                {
+                  "quarter": "Osaka Organic Chemical Industry TDnet: Consolidated Financial Results for the Nine Months Ended (10-09-2026)",
+                  "signal": "Nine-month results summary (to 08-31-2026), change in the scope of the equity method: SANBO CHEMICAL IND. CO., LTD. (written SAMBO CHEMICAL IND. CO., LTD. in the results overview, where it is named as Osaka Organic's capital and business alliance partner in semiconductor and electronic materials) became an equity-method affiliate after Osaka Organic acquired its shares in the third quarter; the allocation of the acquisition cost is still provisional.",
+                  "figure": "no specific figure",
+                  "topics": [],
+                  "counterparty": "SANBO CHEMICAL IND. CO., LTD.",
+                  "counterparty_role": "equity-method affiliate"
                 }
               ]
             },
@@ -16445,6 +16588,15 @@
                   "signal": "Hard disk media targets: JX Advanced Metals decided to further expand production capacity for magnetic sputtering targets used in hard disk media (HD media) for HDDs, following the investment announced on June 11, 2026 (a plan to expand capacity gradually beginning in the second half of fiscal 2026). Through continuous capacity expansion over the next three years, including the previously announced increase, it will raise production capacity to 1.5 times the 2025 level by mid-2029. The company cites HDD demand expected to keep growing over the medium to long term as generative AI and cloud services accelerate data-center data volumes, and the shift in HDD recording from PMR to HAMR bringing new materials into HD media.",
                   "figure": "production capacity 1.5 times the 2025 level by mid-2029",
                   "topics": []
+                },
+                {
+                  "quarter": "JX Advanced Metals press release: Further Expansion of Production Capacity for Liquid Leakage (10-09-2026)",
+                  "signal": "Liquid leakage detection systems (Sensor Business of group company TATSUTA Electric Wire and Cable): TATSUTA will make capital investments to further expand production capacity for liquid leakage detection systems used in AI data centers and other applications at its Kyoto Works (Fukuchiyama City, Kyoto Prefecture); the capacity enhancement will be implemented in phases, with production capacity expected to reach approximately 2.5 times the level at the end of 2026 by September 2027. The release says that after the expansion announced in August 2026 demand has continued to exceed expectations, driven by the spread of liquid cooling in AI data centers, and that the company is also considering further investments.",
+                  "figure": "approximately 2.5 times the level at the end of 2026 by September 2027",
+                  "topics": [
+                    "power_cooling"
+                  ],
+                  "slot": "supply_status"
                 }
               ]
             },
@@ -16665,12 +16817,20 @@
                   "counterparty": "Photronics, Shinko Electric",
                   "counterparty_role": "affiliate (equity method)",
                   "topics": []
+                },
+                {
+                  "quarter": "Dai Nippon Printing press release: DNP, NEXEL and CMIC Pharma Science Establish Joint Venture (10-09-2026)",
+                  "signal": "Health care / drug-discovery support: on October 9, 2026 DNP established TriNebula Cell Tech Co., Ltd. as a joint venture with NEXEL Co., Ltd. (Seoul; develops and manufactures cell products derived from iPS cells) and CMIC Pharma Science Co., Ltd. (non-clinical testing services) to focus on the global marketing and commercialization of human iPS cell-derived products, including cardiomyocytes, proposed to pharmaceutical companies, chemical and cosmetics manufacturers, CROs, universities and research institutions. Under a licensing agreement with NEXEL, DNP will manufacture cardiomyocytes and aims to establish a global manufacturing and sales structure based on the market and customer needs identified through TriNebula's marketing activities.",
+                  "figure": "no specific figure",
+                  "counterparty": "NEXEL",
+                  "counterparty_role": "licensing partner and joint-venture partner",
+                  "topics": []
                 }
               ]
             },
             {
               "company": "Toppan",
-              "product": "merchant photomasks",
+              "product": "photomask business held through Tekscend Photomask, an equity-method affiliate listed in October 2025 (Toppan's company-wide placement; FC-BGA substrates on its packaging_substrate placement)",
               "connects_to": [],
               "quarterly_data": [
                 {
@@ -16744,33 +16904,6 @@
                   "signal": "Other R&D, year ended March 2026 (annual securities report): TOPPAN Digital (now TOPPAN) implemented post-quantum cryptography (PQC) in its Edge Safe secure element and its Secure Activate Service, protecting IoT devices from authentication through communication; TOPPAN began verifying an LLM-based next-generation automatic simultaneous interpretation system; TOPPAN Edge (now TOPPAN) was certified as Japan's first vLEI issuer and its vLEI service was adopted for a working-group trial on site certification in the semiconductor supply chain; a transmissive decorative film for solar panels targets mass production during the company's fiscal 2026 (the year ending March 2027); Toppan and OOYOO developed mass-production technology for a CO2 separation membrane, began a joint demonstration (100 kg/day) in October 2025 and aim to start the business by 2030.",
                   "figure": "no specific figure",
                   "topics": []
-                },
-                {
-                  "quarter": "Toppan results briefing Q&A: Q&A for Fiscal 2026 First Quarter Results Briefing (08-12-2026)",
-                  "signal": "Management (results briefing Q&A, Q1 of the company's fiscal 2026, three months ended June 30, 2026): FC-BGA substrates - a new production line launched last fiscal year improved takt time faster than anticipated and the company has already achieved near-full capacity in Q1, which let it secure AI-switch-related business and improved profit margins. Based on customer forecasts received during contract discussions, the schedule for this fiscal year is already fully booked, including the increased capacity from takt-time improvement; a significant portion of capacity is currently occupied by network switches. There will be no capacity expansion this fiscal year. Management believes the FC-BGA profit margin can be maintained and expects levels in Q2 and beyond to remain at the Q1 level.",
-                  "figure": "FC-BGA near-full capacity in Q1; this fiscal year's schedule fully booked",
-                  "topics": [
-                    "packaging_substrate",
-                    "supply_tightness"
-                  ],
-                  "slot": "supply_status"
-                },
-                {
-                  "quarter": "Toppan results briefing Q&A: Q&A for Fiscal 2026 First Quarter Results Briefing (08-12-2026)",
-                  "signal": "Management (results briefing Q&A): the next period in which FC-BGA sales are looked to grow is 2027, when the new production line in Singapore comes online; forecasts for next year's Singapore capacity are expected soon. AI ASIC qualification is proceeding as scheduled - some production begins in Q2 and will gradually increase, but volumes are not expected to reach significant levels this fiscal year.",
-                  "figure": "Singapore FC-BGA line online in 2027; AI ASIC production from Q2",
-                  "topics": [
-                    "packaging_substrate"
-                  ],
-                  "slot": "next_catalyst"
-                },
-                {
-                  "quarter": "Toppan results briefing Q&A: Q&A for Fiscal 2026 First Quarter Results Briefing (08-12-2026)",
-                  "signal": "Management (results briefing Q&A) on FC-BGA pricing: in principle the company operates based on market prices; there are discussions, but no further price increases are incorporated into the plan - if accepted they would be an upside. Orders were originally secured at an appropriate price and pricing is discussed within the context of long-term contracts; the company will keep monitoring and negotiate appropriately.",
-                  "figure": "no specific figure",
-                  "topics": [
-                    "packaging_substrate"
-                  ]
                 },
                 {
                   "quarter": "Toppan results briefing Q&A: Q&A for Fiscal 2026 First Quarter Results Briefing (08-12-2026)",
@@ -17360,6 +17493,15 @@
                   "signal": "R&D: in June 2026 AGC set up a co-creation research laboratory inside Tohoku University to support the cutting-edge electronics industry.",
                   "figure": "no specific figure",
                   "topics": []
+                },
+                {
+                  "quarter": "AGC press release: AGC Biologics to Support Development and Manufacturing of (10-19-2026)",
+                  "signal": "Customer Flen Health (Belgian biopharmaceutical company): AGC Biologics, the AGC Group's biopharmaceutical CDMO, entered an agreement to provide process development and GMP manufacturing services for the recombinant enzymes lactoperoxidase and glucose oxidase for Flen Health's next-generation diabetic foot ulcer therapy, at its Heidelberg site in Germany. The work supports Flen Health's planned U.S. IND application and Phase II trial; it extends a feasibility program begun in July 2025 to process development, scale-up and GMP manufacturing, with AGC Biologics planning to manufacture at the 100-liter and 1,000-liter scales.",
+                  "figure": "100-liter and 1,000-liter manufacturing scales",
+                  "topics": [],
+                  "slot": "backlog_or_b2b",
+                  "counterparty": "Flen Health",
+                  "counterparty_role": "customer"
                 }
               ]
             },

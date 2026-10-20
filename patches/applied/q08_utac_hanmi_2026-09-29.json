@@ -1,0 +1,51 @@
+{
+ "source": "Hanmi Semiconductor DART supply contract (09-29-2026)",
+ "new_nodes": {
+  "UTAC": {
+   "ticker": null,
+   "exchange": null,
+   "country": "SG",
+   "why": "OSAT (assembly & test) buying Hanmi packaging equipment through UTAC Thai Limited - the same role as the OSAT equipment-buyer nodes JCET, Huatian, TFME, Powertech, SFA and Signetics in this chain; also an OSAT leadframe customer of HaeSung DS (its DART report).",
+   "evidence": "Hanmi Semiconductor DART supply contract (09-29-2026): order from UTAC Thai Limited for 'micro SAW & VISION PLACEMENT (MSVP)' equipment, KRW 7,874,048,000, delivery by 12-31-2026, Thailand.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): named in Hanmi's own DART filing as the buyer (stated customer relationship); UTAC Thai Limited collapsed to the group name UTAC (naming rules: subsidiaries collapse to the parent); no existing node or removed name; private (UTAC Holdings), SG"
+  }
+ },
+ "chains": {
+  "components/hbm_memory.json": {
+   "players": [
+    {
+     "company": "UTAC",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "product": "OSAT assembly & test (UTAC Thai Limited buys Hanmi micro SAW & vision placement equipment)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "Hanmi Semiconductor",
+     "layer": "equipment",
+     "sector": "Advanced Packaging Equipment",
+     "product": "TC bonders for HBM stacking (DUAL TC Bonder)",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "UTAC",
+       "relationship": "micro SAW & VISION PLACEMENT (MSVP) packaging equipment",
+       "contracts": [
+        {
+         "source": "Hanmi Semiconductor DART supply contract (09-29-2026)",
+         "signal": "Hanmi Semiconductor's DART supply-contract disclosure: UTAC Thai Limited ordered 'micro SAW & VISION PLACEMENT (MSVP)' semiconductor manufacturing equipment for Thailand, KRW 7,874,048,000 (1.37% of 2025 consolidated revenue), ordered 09-28-2026 with the contract term ending 12-31-2026 (the delivery date).",
+         "units": "MSVP semiconductor manufacturing equipment",
+         "value": "KRW 7,874,048,000",
+         "date_signed": "09-28-2026",
+         "type": "equipment purchase order",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,48 @@
+SOURCE: eMemory official press release -- https://www.ememory.com.tw/en-US/News/News?guid=26101415412040
+TITLE: Trusted AI Agents Must Be Anchored in Silicon
+DATE: 10-14-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-18.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: eMemory press release: Trusted AI Agents Must Be Anchored in Silicon (10-14-2026)
+
+---
+Trusted AI Agents Must Be Anchored in Silicon
+
+SAN JOSE, Calif. — October 8, 2026 — The first wave of generative AI answered questions. The next wave acts on them. AI agents like Meta's Muse now book travel, send email, and make purchases on a user's behalf [1]. When a chatbot is misled, you get a bad answer. When an agent is misled, it can act with your credentials before you have a chance to check. PUFsecurity, a subsidiary of eMemory Technology, today released a technical perspective, "Building Trusted AI Agents from the Silicon Root of Trust," on why software isolation alone is not enough to secure this shift.
+
+From Software Isolation to Silicon Proof
+
+According to Meta, Muse runs each agent inside its own isolated cloud VM, with a dedicated Sentinel agent controlling all outside connections [2]. To further protect user privacy, Meta plans a Confidential VM where the entire environment is encrypted with a key only the user holds [1]. That design raises a critical question: how do you safely release a user's key? Only to a platform that can cryptographically prove it is genuine and is running the correct software. That proof must be rooted in hardware.
+
+PUFrt in the Security Foundation of Arm AGI CPU
+
+PUFsecurity and Arm have collaborated for years. In 2022, Arm selected PUFrt for the secure subsystem in its reference implementation of the Armv9 Confidential Compute Architecture [3]. Today, PUFrt is part of the Runtime Security Engine (RSE) in Arm Neoverse CSS V3, the compute subsystem on which Arm AGI CPU is built [5]. AGI CPU, Arm's new data-center processor for agentic AI, was co-developed with Meta [4], and its RSE serves as the chip's Root of Trust [5].
+
+PUFrt gives each chip a unique, unclonable device fingerprint derived directly from the silicon itself. No root key needs to be injected in the factory. This device fingerprint anchors a hardware-bound identity for remote attestation, proving what the chip is and what it booted before any secret is released.
+
+In short, as AI agents move into confidential computing, the guarantee that protects a user's key has to begin in silicon, and PUFsecurity's Root of Trust is part of that foundation in Arm's newest data-center CPU.
+
+The full article, “Building Trusted AI Agents from the Silicon Root of Trust,” is available here .
+
+References
+
+1. Meta, "Introducing Muse: The World's First Personal AI Agent Built for Everyone," Sept. 8, 2026. Source
+
+2. Meta AI Research, "How We Built Safety Into Muse," Sept. 8, 2026. Source
+
+3. PUFsecurity and eMemory, "PUFsecurity and eMemory Launch Next-Gen PUF-based Hardware Root of Trust IP for Future Computing," Feb. 7, 2022. Source
+
+4. Arm, "Arm expands compute platform to silicon products in historic company first," Mar. 24, 2026. Source
+
+5. S. Pradhan and D. Goel, Arm, "Arm AGI: A Disaggregated, Chiplet-Based Server SoC for Scalable Coherency and Memory Bandwidth in the Terabyte/s Era," Hot Chips 2026, Aug. 24, 2026. Source
+
+Previous page
+
+Back to list
+
+Next page
+
+Newsletter
+
+-->

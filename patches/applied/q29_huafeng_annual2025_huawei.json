@@ -1,0 +1,52 @@
+{
+ "source": "Huafeng Technology annual report: 2025 Annual Report (04-15-2026)",
+ "note": "Claude decision 2026-10-19 (user delegated: '질문은 니가 알아서 다 처리'), board question 'Huawei Technologies'. APPLY ORDER: first run `python utils/merge_company.py --from \"Huawei Cloud\" --into \"Huawei\"` (naming rules: a division collapses to its parent - Naver Cloud -> Naver, Samsung Foundry -> Samsung; it renames the metadata row, which then gets country CN / status private as before), then this patch adds Huawei's server placement in cpu_datacenter.json and the Huafeng -> Huawei customer-share edge (Exposure tab).",
+ "new_nodes": {
+  "Huawei": {
+   "ticker": null,
+   "exchange": null,
+   "country": "CN",
+   "why": "Server and communications-equipment maker; largest customer of Huafeng Technology (60.52% of 2025 sales) and named in the customer lists of Hengtong Optic-Electric (MPO cabling in its data centers), Envicool (telecom-cabinet cooling) and POCO Holding. Canonical name 'Huawei' (Dell / Samsung / Naver pattern), into which the existing 'Huawei Cloud' node is merged first.",
+   "evidence": "Huafeng Technology 2025 annual report: '华为技术有限公司本期销售额152,973.27 万元，占年度销售总额比例的60.52%。'; 2026 half-year report: '长期稳定服务华为、浪潮、超聚变、曙光等国内顶尖服务器及通讯设备制造商 ... 从传统通讯设备配套，成功延伸至大型数据中心、AI 服务器集群、基站等高端应用场景'",
+   "approved": "Claude verifier 2026-10-19 (user delegated; private company, judged instead of asked): a real AI-server / communications-equipment maker named by the filer as its largest customer with a filed share; placed beside Inspur, Sugon and ZTE at system_integration / Server / Rack OEM (the same customer list already made Huafeng -> Inspur / Sugon edges here); approval is conditional on merging the 'Huawei Cloud' division node into 'Huawei' first so no duplicate exists; logo + zh local name (华为) to be added by the coordinator."
+  }
+ },
+ "chains": {
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "Huawei",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "Servers and communications equipment (named by Huafeng Technology among leading domestic server and communications-equipment makers; Huafeng's largest customer)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "Huafeng Technology",
+     "layer": "interconnect",
+     "sector": "Components",
+     "product": "112G / 224G high-speed backplane cable modules and backplane connectors, CPU sockets for AI servers",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Huawei",
+       "relationship": "high-speed backplane connectors and cable modules for servers and communications equipment (Huafeng's largest customer)",
+       "contracts": [
+        {
+         "source": "Huafeng Technology annual report: 2025 Annual Report (04-15-2026)",
+         "signal": "2025 annual report: Huawei Technologies Co., Ltd. was the company's largest customer, with sales of RMB 152,973.27 ten-thousand, 60.52% of total 2025 sales; the company flags its high dependence on Huawei as a risk.",
+         "units": "60.52% of 2025 sales",
+         "value": "RMB 152,973.27 ten-thousand",
+         "date_signed": "FY2025",
+         "type": "annual report customer share",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

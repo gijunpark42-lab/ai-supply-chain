@@ -1,0 +1,51 @@
+{
+ "source": "HPE press release: HPE secures its first AMD Helios order in $1.2 billion deal (09-30-2026)",
+ "new_nodes": {
+  "Vultr": {
+   "ticker": null,
+   "exchange": null,
+   "country": "US",
+   "why": "Privately held GPU / cloud infrastructure provider buying AMD Helios racks: its business directly depends on the Helios platform being built and sold (same role as the private neoclouds Lambda, Crusoe, Fluidstack, Together AI).",
+   "evidence": "HPE release 09-30-2026: 'a $1.2 billion order from Vultr, the world's largest privately-held cloud infrastructure company, to deploy AMD Helios AI Rack by HPE systems at Vultr's cloud data center locations in the United States'; AMD 8-K 08-04-2026 also names Vultr among the cloud providers deploying Helios.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): named by HPE management as the buyer of HPE's first Helios order (stated customer of a universe company); identifiable (HPE names it and its U.S. data centers); no existing node or removed name; private, US"
+  }
+ },
+ "chains": {
+  "accelerators/amd_mi450_helios.json": {
+   "players": [
+    {
+     "company": "Vultr",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "GPU cloud infrastructure (AMD Instinct / Helios AI Rack by HPE deployments at its U.S. data centers)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "HPE",
+     "layer": "interconnect",
+     "sector": "Scale-up",
+     "product": "scale-up Ethernet switch for AMD Helios rack-scale (fall 2026)",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Vultr",
+       "relationship": "AMD Helios AI Rack by HPE systems for Vultr's U.S. cloud data centers",
+       "contracts": [
+        {
+         "source": "HPE press release: HPE secures its first AMD Helios order in $1.2 billion deal (09-30-2026)",
+         "signal": "HPE's release: Vultr placed a $1.2 billion order - HPE's first order for the AMD Helios AI Rack by HPE - to deploy Helios racks (72 AMD Instinct MI455X GPUs and six HPE Juniper Networking QFX5252 scale-up switch trays per rack) at Vultr's cloud data center locations in the United States; the order builds on nearly three years of collaboration between Vultr and Juniper Networks.",
+         "units": "Helios racks of 72 AMD Instinct MI455X GPUs each (rack count not stated)",
+         "value": "$1.2 billion",
+         "date_signed": "not stated (announced 09-30-2026)",
+         "type": "purchase order",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

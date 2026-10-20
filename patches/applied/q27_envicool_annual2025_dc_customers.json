@@ -1,0 +1,114 @@
+{
+ "source": "Envicool annual report: 2025 Annual Report (04-21-2026)",
+ "note": "Claude decision 2026-10-19 (user delegated: '질문은 니가 알아서 다 처리'), board question 'Envicool'. Buyer placements for Alibaba, Tencent and GDS Holdings in power_cooling.json; the Huawei / ZTE telecom-cabinet cooling relationship is non-AI and goes to relations/envicool.json.",
+ "new_nodes": {
+  "Alibaba": {
+   "ticker": "BABA",
+   "exchange": "NYSE",
+   "country": "CN",
+   "why": "Data-center owner buying Envicool's cooling systems (existing node in cpu_datacenter.json).",
+   "evidence": "Envicool 2025 annual report: '历年来公司已为字节跳动、腾讯、阿里巴巴、秦淮数据、万国数据、数据港、中国移动、中国电信等用户的大型数据中心提供了大量高效节能的制冷产品及系统' (products go to them directly or through system integrators)",
+   "approved": "Claude verifier 2026-10-19 (user delegated): existing company, new in power_cooling.json at an existing buyer sector (cloud_infra), beside the hyperscaler / colocation customers already there (FlaktGroup -> Microsoft / Amazon pattern); the filer's own statutory report names it as a data-center user of its cooling systems; data-center cooling is this chain's product (AI scope, decision C); no duplicate name."
+  },
+  "Tencent": {
+   "ticker": "0700.HK",
+   "exchange": "HKEX",
+   "country": "CN",
+   "why": "Data-center owner buying Envicool's cooling systems (existing node in cpu_datacenter.json).",
+   "evidence": "Envicool 2025 annual report: '历年来公司已为字节跳动、腾讯、阿里巴巴、秦淮数据、万国数据、数据港、中国移动、中国电信等用户的大型数据中心提供了大量高效节能的制冷产品及系统' (products go to them directly or through system integrators)",
+   "approved": "Claude verifier 2026-10-19 (user delegated): existing company, new in power_cooling.json at an existing buyer sector (cloud_infra), beside the hyperscaler / colocation customers already there (FlaktGroup -> Microsoft / Amazon pattern); the filer's own statutory report names it as a data-center user of its cooling systems; data-center cooling is this chain's product (AI scope, decision C); no duplicate name."
+  },
+  "GDS Holdings": {
+   "ticker": "GDS",
+   "exchange": "NASDAQ",
+   "country": "CN",
+   "why": "Colocation data-center operator buying Envicool's cooling systems (existing node in neocloud.json).",
+   "evidence": "Envicool 2025 annual report: '历年来公司已为字节跳动、腾讯、阿里巴巴、秦淮数据、万国数据、数据港、中国移动、中国电信等用户的大型数据中心提供了大量高效节能的制冷产品及系统' (products go to them directly or through system integrators)",
+   "approved": "Claude verifier 2026-10-19 (user delegated): existing company, new in power_cooling.json at an existing buyer sector (cloud_infra), beside the hyperscaler / colocation customers already there (FlaktGroup -> Microsoft / Amazon pattern); the filer's own statutory report names it as a data-center user of its cooling systems; data-center cooling is this chain's product (AI scope, decision C); no duplicate name."
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "Alibaba",
+     "layer": "cloud_infra",
+     "sector": "Hyperscaler Cloud",
+     "product": "Alibaba Cloud hyperscale data centers (buyer of data-center cooling systems; Envicool customer)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "Tencent",
+     "layer": "cloud_infra",
+     "sector": "Hyperscaler Cloud",
+     "product": "Tencent hyperscale data centers (buyer of data-center cooling systems; Envicool customer)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "GDS Holdings",
+     "layer": "cloud_infra",
+     "sector": "Datacenter Colocation",
+     "product": "Hyperscale colocation data centers in China (buyer of data-center cooling systems; Envicool customer)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "Envicool",
+     "domain": "thermal",
+     "sector": "Direct-to-Chip Liquid",
+     "product": "Coolinside full-chain liquid cooling for AI servers and data centers (cold plates, UQD/MQD quick disconnects, manifolds, CDUs, coolant) plus data-center room and cabinet cooling",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Alibaba",
+       "relationship": "data-center cooling products and systems for its large data centers",
+       "contracts": [
+        {
+         "source": "Envicool annual report: 2025 Annual Report (04-21-2026)",
+         "signal": "Alibaba is named among the users whose large data centers the company has supplied with large quantities of energy-efficient cooling products and systems, in its 2025 annual report (named: ByteDance, Tencent, Alibaba, Qinhuai Data, GDS, AtHub, China Mobile, China Telecom); its products go to data-center owners, IDC operators, internet companies and carriers directly or through system integrators.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer list mention",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "Tencent",
+       "relationship": "data-center cooling products and systems for its large data centers",
+       "contracts": [
+        {
+         "source": "Envicool annual report: 2025 Annual Report (04-21-2026)",
+         "signal": "Tencent is named among the users whose large data centers the company has supplied with large quantities of energy-efficient cooling products and systems, in its 2025 annual report (named: ByteDance, Tencent, Alibaba, Qinhuai Data, GDS, AtHub, China Mobile, China Telecom); its products go to data-center owners, IDC operators, internet companies and carriers directly or through system integrators.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer list mention",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "GDS Holdings",
+       "relationship": "data-center cooling products and systems for its large data centers",
+       "contracts": [
+        {
+         "source": "Envicool annual report: 2025 Annual Report (04-21-2026)",
+         "signal": "GDS Holdings (GDS) is named among the users whose large data centers the company has supplied with large quantities of energy-efficient cooling products and systems, in its 2025 annual report (named: ByteDance, Tencent, Alibaba, Qinhuai Data, GDS, AtHub, China Mobile, China Telecom); its products go to data-center owners, IDC operators, internet companies and carriers directly or through system integrators.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer list mention",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

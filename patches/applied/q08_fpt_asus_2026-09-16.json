@@ -1,0 +1,51 @@
+{
+ "source": "ASUS press release: From AI Pilots to AI Factories: Building the Infrastructure (09-16-2026)",
+ "new_nodes": {
+  "FPT Corporation": {
+   "ticker": "FPT",
+   "exchange": "HOSE",
+   "country": "VN",
+   "why": "Vietnamese IT company operating the FPT AI factory (NVIDIA Cloud Partner per NAVER's release) on ASUS ESC N8-E11 GPU servers - a GPU-cloud operator like the other Neocloud nodes.",
+   "evidence": "ASUS blog / press page 09-16-2026: 'The FPT AI factory is one example, with ASUS ESC N8-E11 servers integrated into an infrastructure designed to support AI workloads at scale.' NAVER release 10-12-2026: 'FPT, Vietnam's leading IT company and an NVIDIA Cloud Partner'.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): named by ASUS as a deployment of its ESC N8-E11 servers (stated customer of a universe company, a specific deployment, not an 'e.g.' category list); listed (HOSE: FPT); no existing node or removed name"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "FPT Corporation",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "FPT AI factory GPU cloud (Vietnam) built on ASUS ESC N8-E11 servers",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "ASUS",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "ESC AI servers and GB200 / GB300 NVL72 racks",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "FPT Corporation",
+       "relationship": "ASUS ESC N8-E11 AI servers for the FPT AI factory",
+       "contracts": [
+        {
+         "source": "ASUS press release: From AI Pilots to AI Factories: Building the Infrastructure (09-16-2026)",
+         "signal": "ASUS's blog: the FPT AI factory in Vietnam has ASUS ESC N8-E11 servers integrated into an infrastructure designed to support AI workloads at scale. No volumes or values are stated.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "server supply (deployment)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

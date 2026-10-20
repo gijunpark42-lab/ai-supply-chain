@@ -1,0 +1,52 @@
+{
+ "source": "Penguin Solutions press release: Axe Compute Signs Penguin Solutions as Strategic Partner to (10-14-2026)",
+ "new_nodes": {
+  "Axe Compute": {
+   "ticker": "AGPU",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "status": "public",
+   "why": "Listed neocloud: the release describes Axe Compute Inc. (NASDAQ: AGPU) as 'the neocloud that designs, deploys, owns, and operates dedicated, bare-metal AI infrastructure for enterprises worldwide' (datelined Pittsburgh). It consumes GPU clusters and Penguin Solutions' deployment / operations services, so its stock rides on AI-infrastructure build-out - the same role as the Neocloud (GPU-specialized) players in neocloud.json. Identity: SEC company_tickers.json - 'Axe Compute Inc.', CIK 1446159, ticker AGPU. Not an existing node under another spelling.",
+   "evidence": "Penguin Solutions press release 10-14-2026: 'Axe Compute Inc. ( NASDAQ: AGPU ), the neocloud that designs, deploys, owns, and operates dedicated, bare-metal AI infrastructure for enterprises worldwide, today announced a strategic partnership with Penguin Solutions (NASDAQ: PENG ) ... accelerating Axe Compute Build, the company's build-to-order program'; Axe Compute has selected Penguin for multiple sites, including large GPU clusters.",
+   "approved": "opus verifier 2026-10-19 (user-delegated board decision, question 'Node candidates named tonight'): approve - a listed neocloud named in a stated customer relationship with a universe company (Penguin Solutions deploys and operates its GPU-cluster sites); litmus passes; existing sector cloud_infra / Neocloud (GPU-specialized); metadata to add: AGPU, NASDAQ, US, public"
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Penguin Solutions",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "AI cluster design/integration & managed services (plus Smart Modular memory)",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Axe Compute",
+       "relationship": "GPU-cluster deployment and operational services (ClusterWareAI, 24x7 NOC) for Axe Compute Build sites",
+       "contracts": [
+        {
+         "source": "Penguin Solutions press release: Axe Compute Signs Penguin Solutions as Strategic Partner to (10-14-2026)",
+         "signal": "Multi-year strategic partnership: Axe Compute selected Penguin Solutions for multiple sites, including large GPU clusters, under its Axe Compute Build build-to-order program for AI infrastructure Axe Compute designs, owns and operates; Penguin adds expert-led deployment and operational services for specified GPU cluster sites, including its ClusterWareAI operating system software and 24x7 network operations center coverage.",
+         "units": "multiple sites, including large GPU clusters",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "multi-year strategic partnership (GPU-cluster deployment and operations services)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "Axe Compute",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "dedicated bare-metal AI infrastructure (GPU clusters) designed, deployed, owned and operated for enterprises; Axe Compute Build build-to-order program",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

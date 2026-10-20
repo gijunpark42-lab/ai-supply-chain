@@ -1,0 +1,52 @@
+{
+ "source": "Generate Biomedicines press release: Generate Biomedicines and Zealand Pharma Enter (10-13-2026)",
+ "new_nodes": {
+  "Zealand Pharma": {
+   "ticker": "ZEAL",
+   "exchange": "OMX Copenhagen",
+   "country": "DK",
+   "status": "public",
+   "why": "Biopharma customer of Generate Biomedicines' AI drug-design platform: Generate designs multispecific protein therapeutics for obesity and metabolic diseases with The Generate Platform (generative AI) and Zealand takes clinical development, regulatory filings and worldwide commercialization. Same role as the existing Biopharma End Customers in ai_bio.json (e.g. Moderna / Merck & Co. added 2026-10-12 as Tempus AI customers). Identity: the release names 'Zealand Pharma A/S (Nasdaq: ZEAL)' (Nasdaq Copenhagen; SEC company_tickers lists its ADR 'Zealand Pharma A/S/ADR', CIK 2068427, OTC ZLDPF). Not an existing node under another spelling.",
+   "evidence": "Generate Biomedicines press release 10-13-2026: 'Generate Biomedicines Inc. (Nasdaq: GENB) (“Generate”) today announced a multi-target strategic collaboration with Zealand Pharma A/S (Nasdaq: ZEAL) ... the companies intend to design and develop multispecific protein therapeutics for obesity and other metabolic diseases using The Generate Platform, which integrates generative AI with high-throughput experimental validation.'",
+   "approved": "opus verifier 2026-10-19 (user-delegated board decision, question 'Node candidates named tonight'): approve - a listed biopharma named as the licensee / customer of a universe AI-drug-discovery platform in that company's own release; existing sector application / Biopharma End Customers; metadata to add: ZEAL, OMX Copenhagen, DK, public"
+  }
+ },
+ "chains": {
+  "applications/ai_bio.json": {
+   "players": [
+    {
+     "company": "Generate Biomedicines",
+     "layer": "ai_models",
+     "sector": "AI-Native Drug Discovery",
+     "product": "The Generate Platform (machine-learning generative biology; computational design integrated with large-scale biological experimentation) and AI-engineered protein therapeutics such as GB-0895",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Zealand Pharma",
+       "relationship": "generative-AI design of multispecific protein therapeutics (The Generate Platform) under a multi-target collaboration and license agreement",
+       "contracts": [
+        {
+         "source": "Generate Biomedicines press release: Generate Biomedicines and Zealand Pharma Enter (10-13-2026)",
+         "signal": "Multi-target strategic collaboration and license agreement with Zealand Pharma A/S to design and develop multispecific protein therapeutics for obesity and other metabolic diseases using The Generate Platform: Generate leads research through lead-candidate selection; Zealand Pharma assumes subsequent clinical development, regulatory submissions and worldwide commercialization.",
+         "units": "two initial programs, with an option to add a third",
+         "value": "$30 million upfront; up to $35 million in early preclinical milestones; total milestones of nearly $1.2 billion plus tiered royalties",
+         "date_signed": "not stated",
+         "type": "collaboration and license agreement (AI drug design)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "Zealand Pharma",
+     "layer": "application",
+     "sector": "Biopharma End Customers",
+     "product": "obesity and metabolic-disease therapeutics; multispecific protein therapeutics designed with The Generate Platform",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

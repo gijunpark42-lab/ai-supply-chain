@@ -1,0 +1,51 @@
+{
+ "source": "CoreWeave press release: CoreWeave Delivers NVIDIA Vera Rubin NVL72 Performance at (09-30-2026)",
+ "new_nodes": {
+  "Cognition": {
+   "ticker": null,
+   "exchange": null,
+   "country": "US",
+   "why": "Applied AI lab behind the Devin coding agent; it trains, runs reinforcement learning and serves production inference on rented GPU cloud (thousands of GPUs, first production Vera Rubin NVL72 customer) - same role as the private AI-native app nodes Cursor and Perplexity in this chain.",
+   "evidence": "CoreWeave release 09-30-2026: 'Cognition, the applied AI lab behind Devin, runs training, reinforcement learning and production inference for Devin on CoreWeave. The company scaled from bridge capacity to thousands of GPUs for training and inference in less than nine months.'",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): named by CoreWeave as its first Vera Rubin NVL72 production customer (stated customer of a universe company), with an executive (SVP Silas Alberti) quoted; identifiable; no existing node or removed name; private, US"
+  }
+ },
+ "chains": {
+  "accelerators/nvidia_vera_rubin.json": {
+   "players": [
+    {
+     "company": "Cognition",
+     "layer": "application",
+     "sector": "AI-Native Vertical Apps",
+     "product": "Devin AI software-engineering agent (applied AI lab; training, RL and inference on CoreWeave GPU cloud)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "CoreWeave",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "GPU-cloud capacity rental",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Cognition",
+       "relationship": "GPU cloud capacity (Vera Rubin NVL72, GB200 / GB300 NVL72) for Devin training, RL and inference",
+       "contracts": [
+        {
+         "source": "CoreWeave press release: CoreWeave Delivers NVIDIA Vera Rubin NVL72 Performance at (09-30-2026)",
+         "signal": "CoreWeave's release: Cognition, the applied AI lab behind Devin, runs training, reinforcement learning and production inference for Devin on CoreWeave and is what CoreWeave calls the first customer anywhere running production workloads on NVIDIA Vera Rubin NVL72; Cognition scaled from bridge capacity to thousands of GPUs for training and inference in less than nine months and worked with CoreWeave to stand up a Vera Rubin NVL72 cluster in early September.",
+         "units": "thousands of GPUs; a Vera Rubin NVL72 cluster",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "GPU cloud capacity (customer)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

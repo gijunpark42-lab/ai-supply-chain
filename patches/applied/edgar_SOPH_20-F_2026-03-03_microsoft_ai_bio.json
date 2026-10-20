@@ -1,0 +1,43 @@
+{
+  "source": "SOPHiA GENETICS 20-F (03-03-2026)",
+  "new_nodes": {
+    "Microsoft": {
+      "ticker": "MSFT",
+      "exchange": "NASDAQ",
+      "country": "US",
+      "why": "Existing graph node, new placement in ai_bio.json cloud_infra / Scientific AI Cloud beside Google and Amazon: Microsoft Azure hosts the production environment of SOPHiA GENETICS' SOPHiA DDM precision-medicine AI platform under a multi-year agreement with a purchase commitment, so Azure revenue grows with the platform.",
+      "evidence": "SOPHiA GENETICS 20-F (03-03-2026): 'Our platform production environment currently runs on Microsoft Azure.' ... 'we committed to buy products and services from the Microsoft Azure suite of offerings for an aggregate amount of approximately $80.9 million over a seven-year period ending October 31, 2029'",
+      "approved": "opus verifier 2026-10-19 (board question 37, user-delegated decision): approve - the filer names Microsoft Azure as the platform's production cloud under a signed multi-year commitment (same shape as the existing Amazon -> BillionToOne / Caris Life Sciences AWS-hosting edges, unlike the 'such as AWS' example the user rejected for Generate Biomedicines); existing node under its canonical name; existing chain sector Scientific AI Cloud."
+    }
+  },
+  "chains": {
+    "applications/ai_bio.json": {
+      "players": [
+        {
+          "company": "Microsoft",
+          "layer": "cloud_infra",
+          "sector": "Scientific AI Cloud",
+          "product": "Microsoft Azure cloud (computing, storage, data processing and networking for clinical and genomic AI platforms)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SOPHiA GENETICS",
+              "relationship": "Azure cloud hosting of the SOPHiA DDM platform production environment (multi-year strategic partnership)",
+              "contracts": [
+                {
+                  "source": "SOPHiA GENETICS 20-F (03-03-2026)",
+                  "signal": "20-F supplier disclosure: SOPHiA's platform production environment runs on Microsoft Azure, which it uses for a substantial portion of its computing, storage, data processing and networking. Under its multi-year integrated strategic partnership agreement with Microsoft (amendments effective November 1, 2022 and October 10, 2025) SOPHiA committed to buy products and services from the Microsoft Azure suite for an aggregate of approximately $80.9 million over a seven-year period ending October 31, 2029 (with an additional one-year grace period), in exchange for discounted pricing, a twelve-month Azure credit of approximately $1.8 million and about $1.3 million of Microsoft consulting and product support at no cost.",
+                  "units": "no specific figure",
+                  "value": "approximately $80.9 million Azure purchase commitment over a seven-year period ending October 31, 2029",
+                  "date_signed": "amendments effective November 1, 2022 and October 10, 2025",
+                  "type": "20-F supplier disclosure",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

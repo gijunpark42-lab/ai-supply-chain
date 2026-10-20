@@ -1,0 +1,51 @@
+{
+ "source": "ASICLand Q2 FY2026 (08-14-2026)",
+ "new_nodes": {
+  "Mobilint": {
+   "ticker": null,
+   "exchange": null,
+   "country": "KR",
+   "why": "Korean AI-semiconductor developer whose chips are designed and supplied through two universe ASIC houses (SemiFive, ASICLand) - the same role as the private NPU nodes Rebellions and FuriosaAI.",
+   "evidence": "SemiFive DART supply contract (10-01-2026): robotics AI semiconductor design and development contract with Mobilint (business: AI semiconductor development and sales), 07-27-2026 to 04-30-2029; ASICLand H1 2026 DART report: Mobilint design contract KRW 15,431M.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): named in two filers' own DART filings as a contracted customer (stated customer relationship); identifiable (DART states its business); no existing node or removed name; private, KR"
+  }
+ },
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "Mobilint",
+     "layer": "compute_hardware",
+     "sector": "Dedicated Inference Accelerators",
+     "product": "AI semiconductor (NPU) developer; robotics AI chip designed with SemiFive, design contract with ASICLand",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "ASICLand",
+     "layer": "compute_hardware",
+     "sector": "Custom AI ASIC (hyperscaler silicon)",
+     "product": "TSMC-ecosystem (VCA) turnkey ASIC design and wafer supply, incl. AI accelerator and memory-controller SoCs",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Mobilint",
+       "relationship": "ASIC design services",
+       "contracts": [
+        {
+         "source": "ASICLand Q2 FY2026 (08-14-2026)",
+         "signal": "ASICLand's H1 2026 DART report lists Mobilint among its publicly disclosed contracts: a design contract of KRW 15,431M.",
+         "units": "no specific figure",
+         "value": "KRW 15,431M",
+         "date_signed": "not stated",
+         "type": "design contract",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

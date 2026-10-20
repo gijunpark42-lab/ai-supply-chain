@@ -138,6 +138,12 @@
               "product": "Llama training/inference storage infrastructure",
               "connects_to": [],
               "quarterly_data": []
+            },
+            {
+              "company": "Oracle",
+              "product": "Oracle Cloud Infrastructure (OCI) cloud storage incl. the planned OCI NetApp Storage Service",
+              "connects_to": [],
+              "quarterly_data": []
             }
           ]
         },
@@ -293,6 +299,21 @@
                   "company": "Meta",
                   "relationship": "AI servers to hyperscale cloud",
                   "contracts": []
+                },
+                {
+                  "company": "NetApp",
+                  "relationship": "qualified Supermicro servers for NetApp Novus Data Director and NetApp AIPod with Supermicro",
+                  "contracts": [
+                    {
+                      "source": "NetApp press release: NetApp and Supermicro Collaborate to Power AI at Any Scale (09-29-2026)",
+                      "signal": "NetApp announced a strategic collaboration with Supermicro to deliver jointly validated AI infrastructure solutions spanning large-scale AI factories, enterprise deployments, neoclouds, and sovereign AI initiatives, combining Supermicro's AI-optimized compute and rack-scale systems with the NetApp Platform. As the initial implementation, NetApp and Supermicro will deliver NetApp Novus Data Director software running on qualified Supermicro servers with NetApp AFF A90 systems as the high-performance ONTAP data layer, which NetApp calls 'the first step in a broader collaboration to co-engineer integrated infrastructure solutions'. The companies are also collaborating on NetApp AIPod with Supermicro, a NetApp-validated converged infrastructure architecture based on the NVIDIA Reference Architecture guidance, delivered through NetApp's channel partners, for AI training, inference, and agentic workloads 'from dozens to hundreds of GPUs'.",
+                      "units": "AIPod with Supermicro: from dozens to hundreds of GPUs",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "qualified server hardware in NetApp's orderable Novus / AIPod solutions (strategic collaboration)",
+                      "topics": []
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -768,6 +789,23 @@
                       "topics": []
                     }
                   ]
+                },
+                {
+                  "company": "Oracle",
+                  "relationship": "OCI NetApp Storage Service - NetApp ONTAP as a fully managed OCI-native storage service (planned)",
+                  "contracts": [
+                    {
+                      "source": "NetApp press release: NetApp and Oracle to Launch Fully Managed Cloud Storage (09-29-2026)",
+                      "signal": "NetApp and Oracle announced Oracle Cloud Infrastructure NetApp Storage Service, a fully managed OCI-native storage service bringing NetApp ONTAP data management capabilities to OCI, managed through the OCI Console and SDKs, ONTAP APIs and familiar operational workflows, for databases, enterprise applications, virtualized environments, EDA/HPC, regulated applications, and AI data pipelines. Release: 'OCI NetApp Storage Service is planned for general availability within the next 12 months.' Planned, not yet available.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated (announced 09-29-2026; general availability planned within the next 12 months)",
+                      "type": "first-party cloud storage service (planned)",
+                      "topics": [
+                        "product_launches"
+                      ]
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -1182,24 +1220,6 @@
                   "quarter": "NetApp press release: NetApp Removes Storage Bottleneck for AI Factories (09-29-2026)",
                   "signal": "NetApp announced NetApp Novus, which it calls 'the fastest storage on the planet' (company claim), designed for AI infrastructure providers operating large GPU environments (neoclouds and GPU-as-a-Service providers). The initial Novus release combines NetApp Novus Data Director, the metadata software, running on qualified Supermicro infrastructure with NetApp ONTAP data services delivered through AFF A90 systems; the disaggregated architecture separates metadata from the data path under a single namespace using industry-standard NFS, is 'built to exceed throughput of 100TB per second and support high utilization of hundreds of thousands of GPUs', 'is orderable today', and provides a path to software-defined deployments over time. Chief Product Officer Syam Nair: 'Novus delivers 100 TB/s of unlimited scale-out performance' and 'We’ve just delivered the fastest storage on the planet'.",
                   "figure": "architected for up to 100 TB per second aggregate throughput; hundreds of thousands of GPUs; orderable today",
-                  "topics": [
-                    "product_launches"
-                  ]
-                },
-                {
-                  "quarter": "NetApp press release: NetApp and Supermicro Collaborate to Power AI at Any Scale (09-29-2026)",
-                  "signal": "NetApp announced a strategic collaboration with Supermicro to deliver jointly validated AI infrastructure solutions spanning large-scale AI factories, enterprise deployments, neoclouds, and sovereign AI initiatives, combining Supermicro's AI-optimized compute and rack-scale systems with the NetApp Platform. As the initial implementation, NetApp and Supermicro will deliver NetApp Novus Data Director software running on qualified Supermicro servers with NetApp AFF A90 systems as the high-performance ONTAP data layer, which NetApp calls 'the first step in a broader collaboration to co-engineer integrated infrastructure solutions'. The companies are also collaborating on NetApp AIPod with Supermicro, a NetApp-validated converged infrastructure architecture based on the NVIDIA Reference Architecture guidance, delivered through NetApp's channel partners, for AI training, inference, and agentic workloads 'from dozens to hundreds of GPUs'.",
-                  "figure": "AIPod with Supermicro: from dozens to hundreds of GPUs",
-                  "counterparty": "Supermicro",
-                  "counterparty_role": "partner (jointly validated AI infrastructure; qualified servers for Novus Data Director)",
-                  "topics": []
-                },
-                {
-                  "quarter": "NetApp press release: NetApp and Oracle to Launch Fully Managed Cloud Storage (09-29-2026)",
-                  "signal": "NetApp and Oracle announced Oracle Cloud Infrastructure NetApp Storage Service, a fully managed OCI-native storage service bringing NetApp ONTAP data management capabilities to OCI, managed through the OCI Console and SDKs, ONTAP APIs and familiar operational workflows, for databases, enterprise applications, virtualized environments, EDA/HPC, regulated applications, and AI data pipelines. Release: 'OCI NetApp Storage Service is planned for general availability within the next 12 months.' Planned, not yet available.",
-                  "figure": "general availability planned within the next 12 months",
-                  "counterparty": "Oracle",
-                  "counterparty_role": "partner (first-party cloud storage service on OCI)",
                   "topics": [
                     "product_launches"
                   ]

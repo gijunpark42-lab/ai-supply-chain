@@ -1,0 +1,67 @@
+{
+ "source": "Hengtong Optic-Electric annual report: 2025 Annual Report (04-25-2026)",
+ "note": "Claude decision 2026-10-19 (user delegated: '질문은 니가 알아서 다 처리'), board question 'Hengtong Optic-Electric'. APPLY ORDER: after `utils/merge_company.py --from \"Huawei Cloud\" --into \"Huawei\"` (board question 'Huawei Technologies'), so Huawei is a player in optical_networking.json. Alibaba gets a buyer placement at cloud_infra / Hyperscaler Cloud (the sector Huawei Cloud already uses here).",
+ "new_nodes": {
+  "Alibaba": {
+   "ticker": "BABA",
+   "exchange": "NYSE",
+   "country": "CN",
+   "why": "Existing node (cpu_datacenter.json Server CPU), new in optical_networking.json as a hyperscaler data-center buyer: Hengtong's own annual report states its MPO data-center cabling was used in Alibaba data centers.",
+   "evidence": "Hengtong Optic-Electric 2025 annual report: '报告期内，公司MPO 系列产品用于华为、阿里等数据中心。' (MPO series products were used in the data centers of Huawei, Alibaba and others)",
+   "approved": "Claude verifier 2026-10-19 (user delegated): existing company, new in this chain at an existing sector (cloud_infra / Hyperscaler Cloud, beside Huawei Cloud); the filer's own statutory report names the relationship; data-center optical cabling for a hyperscaler is this chain's supply path (AI scope, decision C); one placement only, no duplicate name."
+  }
+ },
+ "chains": {
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "Alibaba",
+     "layer": "cloud_infra",
+     "sector": "Hyperscaler Cloud",
+     "product": "Alibaba Cloud hyperscale data centers (buyer of data-center optical cabling; Hengtong Optic-Electric's MPO cabling is used there)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "Hengtong Optic-Electric",
+     "layer": "interconnect",
+     "sector": "Components",
+     "product": "Optical fiber preform, fiber and cable (G.657 bend-insensitive, G.654.E ultra-low-loss, OM4/OM5 multimode, multi-core and hollow-core fiber), MPO data-center cabling, optical transceivers and AOCs up to 800G, submarine optical cable systems",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Alibaba",
+       "relationship": "MPO high-density data-center cabling used in Alibaba data centers",
+       "contracts": [
+        {
+         "source": "Hengtong Optic-Electric annual report: 2025 Annual Report (04-25-2026)",
+         "signal": "Alibaba is named in the company's 2025 annual report as a data-center user of its products: in the reporting period its MPO series products (high-density MPO cables and assemblies designed for data-center cabling) were used in the data centers of Huawei, Alibaba and others.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "2025",
+         "type": "deployment (annual report)",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "Huawei",
+       "relationship": "MPO high-density data-center cabling used in Huawei data centers",
+       "contracts": [
+        {
+         "source": "Hengtong Optic-Electric annual report: 2025 Annual Report (04-25-2026)",
+         "signal": "Huawei is named in the company's 2025 annual report as a data-center user of its products: in the reporting period its MPO series products (high-density MPO cables and assemblies designed for data-center cabling) were used in the data centers of Huawei, Alibaba and others.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "2025",
+         "type": "deployment (annual report)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

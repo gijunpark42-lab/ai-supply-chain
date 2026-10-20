@@ -1,0 +1,43 @@
+{
+ "source": "Absci 10-K (03-24-2026)",
+ "new_nodes": {
+  "Oracle": {
+   "ticker": "ORCL",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Oracle Cloud Infrastructure supplies compute capacity to Absci's AI antibody-discovery platform through early 2028 - the same cloud-compute supplier role as Amazon and Google in ai_bio cloud_infra / Scientific AI Cloud.",
+   "evidence": "Absci 10-K (03-24-2026): 'Absci has access to compute capacity and other services through an agreement with Oracle Cloud Infrastructure (OCI) through early 2028'; remaining commitments $4.6 million / $8.3 million / $2.3 million for 2026-2028.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): second placement of an existing node (ai_bio cloud_infra / Scientific AI Cloud), like Amazon -> Tempus AI (Tempus 10-K); not a new company"
+  }
+ },
+ "chains": {
+  "applications/ai_bio.json": {
+   "players": [
+    {
+     "company": "Oracle",
+     "layer": "cloud_infra",
+     "sector": "Scientific AI Cloud",
+     "product": "Oracle Cloud Infrastructure (OCI) compute capacity for AI drug discovery",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Absci",
+       "relationship": "OCI compute capacity and other services (agreement through early 2028)",
+       "contracts": [
+        {
+         "source": "Absci 10-K (03-24-2026)",
+         "signal": "10-K compute supply: Absci has access to compute capacity and other services through an agreement with Oracle Cloud Infrastructure (OCI) through early 2028; the remaining financial commitments for 2026, 2027 and 2028 are $4.6 million, $8.3 million and $2.3 million, respectively. Absci manages its applications and data on a combination of on-site systems and cloud-based data centers.",
+         "units": "OCI compute capacity through early 2028",
+         "value": "remaining commitments $4.6 million (2026), $8.3 million (2027), $2.3 million (2028)",
+         "date_signed": "not stated",
+         "type": "cloud compute agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

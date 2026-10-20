@@ -1,0 +1,51 @@
+{
+ "source": "AMD 8-K (08-04-2026)",
+ "new_nodes": {
+  "Vultr": {
+   "ticker": null,
+   "exchange": null,
+   "country": "US",
+   "why": "Privately held GPU / cloud infrastructure provider buying AMD Helios racks: its business directly depends on the Helios platform being built and sold (same role as the private neoclouds Lambda, Crusoe, Fluidstack, Together AI).",
+   "evidence": "HPE release 09-30-2026: 'a $1.2 billion order from Vultr, the world's largest privately-held cloud infrastructure company, to deploy AMD Helios AI Rack by HPE systems at Vultr's cloud data center locations in the United States'; AMD 8-K 08-04-2026 also names Vultr among the cloud providers deploying Helios.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): named by HPE management as the buyer of HPE's first Helios order (stated customer of a universe company); identifiable (HPE names it and its U.S. data centers); no existing node or removed name; private, US"
+  }
+ },
+ "chains": {
+  "accelerators/amd_mi450_helios.json": {
+   "players": [
+    {
+     "company": "Vultr",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "product": "GPU cloud infrastructure (AMD Instinct / Helios AI Rack by HPE deployments at its U.S. data centers)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "AMD",
+     "layer": "interconnect",
+     "sector": "Scale-up",
+     "product": "Helios rack-scale platform (Instinct + EPYC, Infinity Fabric / UALink scale-up)",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Vultr",
+       "relationship": "AMD Helios rack-scale deployment",
+       "contracts": [
+        {
+         "source": "AMD 8-K (08-04-2026)",
+         "signal": "AMD's Q2 2026 earnings release (8-K Exhibit 99.1) names Vultr among the leading AI labs and cloud providers deploying the AMD Helios rackscale solution: 'AMD Helios delivers leadership inference tokens per dollar and is being deployed by leading AI labs and cloud providers including Anthropic, Cirrascale, HUMAIN, Meta, Microsoft, OpenAI, Oracle, Tensorwave, Vultr and others.'",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "deployment",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
