@@ -465,6 +465,10 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
     logos = read_json("static/logos/manifest.json", {})
     gaps += [{"company": n, "gap": "no logo (docs/memory/logo_fetching.md)", "source": "logo"}
              for n in companies if n not in logos and (n, "logo") not in marked_pairs]
+    # News interviews (§11) count only for officials on the roster; an empty list = no official found in the documents.
+    roster = read_json("media/executives.json", {}).get("companies", {})
+    gaps += [{"company": n, "gap": "no executive on the news-interview roster (media/roster_additions.json)", "source": "media"}
+             for n in companies if n in roster and not roster[n] and (n, "media") not in marked_pairs]
     for m in markets:
         gaps += [{"company": n, "gap": "no DART filing enriched", "source": "dart"} for n in m["dart_never"]]
     for m in markets:
@@ -823,7 +827,7 @@ if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser(description="Rebuild the enrichment status (no arguments), or record a fact for the board.")
     sub = ap.add_subparsers(dest="cmd")
-    SOURCES = ["call", "dart", "ir", "conference", "edgar", "logo"]
+    SOURCES = ["call", "dart", "ir", "conference", "edgar", "logo", "media"]
     mk = sub.add_parser("mark", help="record that a source does not exist for these companies (until --recheck)")
     mk.add_argument("companies", nargs="+")
     mk.add_argument("--source", required=True, choices=SOURCES)

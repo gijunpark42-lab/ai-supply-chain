@@ -268,7 +268,8 @@ if (-not $Test) {
         # the 22:00 run and a catch-up when that task did not run or skipped it for time. Either way the session below
         # reads today's interviews (enrich skill section 11).
         if (Test-Path (Join-Path $repo "media_pull.py")) {
-            Invoke-DataStep "media_pull" @("-X", "utf8", "media_pull.py", "--days", "2") 20
+            Invoke-DataStep "media_roster" @("-X", "utf8", "media_roster.py") 3      # executives found in today's documents
+            Invoke-DataStep "media_pull" @("-X", "utf8", "media_pull.py", "--days", "3") 20
         }
         $lock.ReleaseMutex()
     }

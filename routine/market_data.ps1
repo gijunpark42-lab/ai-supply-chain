@@ -11,7 +11,8 @@ used the same day. Then these steps, in this order, each one time-boxed:
                                     (writes market/selftest_result.json)                                  10 min
     b) market/run_all.py            every market-data collector, one line each in market/run_log.jsonl    45 min
     c) utils/transcript_quality.py  writes graph/transcript_quality.json for the enrich session            10 min
-    c2) media_pull.py --days 2      news-outlet interviews in which a named company executive speaks, saved
+    c2) media_roster.py, then       the executive roster rebuilt from today's documents (2026-10-19), then
+        media_pull.py --days 3      news-outlet interviews in which a named company executive speaks, saved
                                     in transcripts/media for the enrich session (enrich skill section 11,
                                     docs/media_interviews.md); starts only when at most 75 min have passed  20 min
     d) market/health.py             reads market/run_log.jsonl and the selftest result, sends the phone
@@ -168,9 +169,12 @@ if (-not $haveLock) {
     #     Skipped like every step when its script does not exist (Invoke-PythonStep checks that).
     $elapsed = ((Get-Date) - $scriptStart).TotalMinutes
     if ($elapsed -le 75) {
-        Invoke-PythonStep "media_pull" "media_pull.py" 20 @("--days", "2")
+        # The roster first (under a minute), so executives found in today's documents and the gap fill's
+        # media/roster_additions.json count in the same pull; the last 3 days (user, 2026-10-19: "최근 3일 정도까지만").
+        Invoke-PythonStep "media_roster" "media_roster.py" 3
+        Invoke-PythonStep "media_pull" "media_pull.py" 20 @("--days", "3")
     } else {
-        Write-Log ("media_pull skipped: {0} min have passed, its 20 min would not fit in the 2-hour task limit (the next run's --days 2 catches up)" -f [math]::Round($elapsed))
+        Write-Log ("media_pull skipped: {0} min have passed, its 20 min would not fit in the 2-hour task limit (the next run's --days 3 catches up)" -f [math]::Round($elapsed))
     }
 }
 

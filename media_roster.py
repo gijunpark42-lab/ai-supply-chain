@@ -1106,7 +1106,7 @@ def build_roster(observations, chosen):
             sightings[(p["node"], p["entry"]["name"])] = p["obs"]
 
     # 4. the hand-checked officials
-    for node, entries in HAND_ADD.items():
+    for node, entries in hand_added(chosen).items():
         for entry in entries:
             key = person_key(entry["name"])
             companies[node] = [e for e in companies[node] if person_key(e["name"]) != key]
@@ -1127,6 +1127,31 @@ def collect(node_ids, matcher):
             continue
         observations.extend(read_document(path, rel, node_ids, matcher))
     return observations, len(files)
+
+
+# Officials the nightly gap fill adds (enrich skill section 12, 2026-10-19) for companies whose documents name nobody the
+# mining can read (most Korean / Japanese / Chinese names): media/roster_additions.json, the same shape as HAND_ADD,
+# each entry citing the company document that states the title. It is data, so the nightly can add to it without
+# touching this file; a HAND_ADD entry for the same person wins.
+ADDITIONS_FILE = os.path.join(MEDIA_DIR, "roster_additions.json")
+
+
+def hand_added(node_ids):
+    """HAND_ADD plus media/roster_additions.json (graph nodes only), one list per node."""
+    merged = {}
+    if os.path.exists(ADDITIONS_FILE):
+        with open(ADDITIONS_FILE, encoding="utf-8") as f:
+            for node, entries in json.load(f).items():
+                if node.startswith("_"):
+                    continue                            # "_about"
+                if node not in node_ids:
+                    print(f"roster_additions.json: {node!r} is not a graph node -- skipped")
+                    continue
+                merged[node] = list(entries)
+    for node, entries in HAND_ADD.items():
+        keys = {person_key(e["name"]) for e in entries}
+        merged[node] = [e for e in merged.get(node, []) if person_key(e["name"]) not in keys] + list(entries)
+    return merged
 
 
 def write_json(path, data):
@@ -1187,6 +1212,13 @@ def build(show=None):
         "updated": date.today().isoformat(),
         "companies": ordered,
     }
+    # The roster is rebuilt before every daily pull (2026-10-19). media_pull.py re-decides its stamped skips whenever
+    # "updated" changes, so the date moves only when the roster itself changed.
+    if os.path.exists(EXECUTIVES_FILE):
+        with open(EXECUTIVES_FILE, encoding="utf-8") as f:
+            before = json.load(f)
+        if before.get("companies") == ordered:
+            out["updated"] = before.get("updated", out["updated"])
     write_json(EXECUTIVES_FILE, out)
 
     covered = [n for n in ordered if ordered[n]]
