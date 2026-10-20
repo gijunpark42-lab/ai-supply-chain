@@ -302,9 +302,12 @@ class ResolverIntegrationTest(unittest.TestCase):
                          ["transcripts/memory/samsung_q1_2026.txt", "transcripts/kind/samsung_2026-04-30_q1_2026_site.txt"])
 
     def test_quarter_never_contradicts_label(self):
-        self.need("transcripts/non_transcript_sources/apld_q4_fy2026_earnings_release.txt", "transcripts/bigtech/applied_digital_q3_2026.txt")
+        # The Q3 call file must never answer for the Q4 label; since 2026-10-17 the verbatim Q4 call (av) and
+        # its same-day release are the label's documents.
+        self.need("transcripts/av/applieddigital_q4_2026.txt", "transcripts/non_transcript_sources/apld_q4_fy2026_earnings_release.txt",
+                  "transcripts/bigtech/applied_digital_q3_2026.txt")
         self.assertEqual(self.docs("Applied Digital Q4 FY2026 (07-27-2026)"),
-                         ["transcripts/non_transcript_sources/apld_q4_fy2026_earnings_release.txt"])
+                         ["transcripts/av/applieddigital_q4_2026.txt", "transcripts/non_transcript_sources/apld_q4_fy2026_earnings_release.txt"])
 
     def test_companions(self):
         self.need("transcripts/av/lamresearch_q4_2026.txt")
