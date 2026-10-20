@@ -566,7 +566,9 @@ c. **Financing the scripts miss.** Credit-rating actions and financing events (o
 ## 11. News interviews (`transcripts/media/`, user 2026-10-17)
 
 User: "찌라시면 시그널이면 안 돼. 무조건 뉴스여야 함. 회사 관계자가 직접 얘기한 거여야 해" — a rumor is never a signal; only
-news, and only what a company official said directly. `media_pull.py` (daily in `routine/market_data.ps1`; details in
+news, and only what a company official said directly. `media_pull.py` (daily in `routine/market_data.ps1`, the last 3
+days — user, 2026-10-19; `media_roster.py` rebuilds the roster from that day's documents and
+`media/roster_additions.json` right before it; details in
 `docs/media_interviews.md`) saves the transcripts of interviews on the allowlisted news channels (`media/channels.json`:
 CNBC, CNBC International, Bloomberg, Yahoo Finance, Fox Business) in which an executive on the company's roster
 (`media/executives.json`) is named and speaks on camera: `transcripts/media/<node-slug>_<YYYY-MM-DD>_<video id>.txt`,
@@ -615,13 +617,18 @@ f. **Nothing of the video or the transcript goes on the site**: the file is an e
 
 The board lists everything the map still lacks under **Gap fill — tonight's batch** (the whole list:
 `graph/enrich_status.json` → `board` → `gaps`), most important first: companies with no data from their own
-documents, nodes with no logo, Korean companies with no DART filing enriched, companies with no IR feed, companies
+documents, nodes with no logo, companies with no executive on the news-interview roster, Korean companies with no
+DART filing enriched, companies with no IR feed, companies
 that never had a call enriched, calls overdue. `enrich all` hands the batch to the pool after the queues are done (at least the listed
 batch; more if the night has time), and every gap ends in one of two ways — never left half done:
 - **filled:** fetch the company's own source through its pipeline (`dart.py fetch`, `ir_pull.py discover` → a new
   entry in `ir/feeds.json`, `utils/defeatbeta_fetch.py` / `av.py` for a missed call, the market's IR site, the
   company's own deck or filing) and enrich it under every rule above; a missing logo is fetched as JOB 3 step 5 says;
-- **marked:** nothing exists — `enrich_status.py mark "<Company>" --source <call|dart|ir|conference|edgar|logo> --why
+  an empty news roster gets the company's CEO / CFO (and IR head) appended to `media/roster_additions.json` —
+  `{"<node>": [{"name", "title", "aliases": [], "source": "<label | path or URL of the company document stating the
+  title>"}]}`, only from the company's own IR leadership page, annual report or release (saved first) — and the next
+  daily pull watches for them; a company that never had a call may also get its own channel's results video (§2.2);
+- **marked:** nothing exists — `enrich_status.py mark "<Company>" --source <call|dart|ir|conference|edgar|logo|media> --why
   "<what was checked>" --no-board` (back on the list at its recheck date, 90 days by default).
 So the list only shrinks, and the next night starts where this one stopped. The report gives filled / marked counts.
 
