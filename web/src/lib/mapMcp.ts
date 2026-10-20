@@ -316,9 +316,15 @@ export function mapStatus() {
       if (d > newest) newest = d;
     }
   const deals = g.edges.reduce((sum, e) => sum + (e.contracts || []).length, 0);
-  const built = fs.statSync(path.join(DATA, "merged_graph.json")).mtime.toISOString().slice(0, 16).replace("T", " ");
+  // The build date written into evidence.json by graph_build.py ({"generated":"YYYY-MM-DD", ...}). File times are no
+  // use here: Vercel gives every deployed file the same fixed old timestamp. Only the first bytes are read.
+  const head = Buffer.alloc(64);
+  const fd = fs.openSync(path.join(DATA, "evidence.json"), "r");
+  fs.readSync(fd, head, 0, 64, 0);
+  fs.closeSync(fd);
+  const built = /"generated"\s*:\s*"([\d-]+)"/.exec(head.toString("utf8"))?.[1] ?? "";
   return {
     companies: g.nodes.length, ai_edges: g.edges.length, other_relationships: (g.other_edges || []).length,
-    company_facts: facts, edge_deals: deals, newest_source_date: newest, data_file_time_utc: built,
+    company_facts: facts, edge_deals: deals, newest_source_date: newest, graph_built: built,
   };
 }
