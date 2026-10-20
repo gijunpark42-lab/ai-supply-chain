@@ -42,7 +42,7 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 | `enrich edgar` | SEC 8-K / 10-K / 10-Q, foreign issuers' 6-K / 20-F / 40-F, recent listings' prospectus (not part of `enrich us`; `enrich all` runs it every night). |
 | `enrich waitlist` / `enrich waitlist <market>` | Onboard the user-pre-approved new companies queued in `enrich_waitlist.json`, each market by its own rules (`references/waitlist.md`). |
 | `enrich us calls` · `enrich dart` · `enrich kind` · `enrich tdnet` · `enrich intl` · `enrich tw` · `enrich conference` · `enrich ir` | One source, across every market it covers (reference table below). |
-| a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py`; others: the market's source) and state the call date before enriching. |
+| a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance in Chrome, references/us.md; others: the market's source, then Perplexity Finance) and state the call date before enriching. |
 
 The step-by-step market procedures are in `references/markets.md`.
 
@@ -622,7 +622,8 @@ DART filing enriched, companies with no IR feed, companies
 that never had a call enriched, calls overdue. `enrich all` hands the batch to the pool after the queues are done (at least the listed
 batch; more if the night has time), and every gap ends in one of two ways — never left half done:
 - **filled:** fetch the company's own source through its pipeline (`dart.py fetch`, `ir_pull.py discover` → a new
-  entry in `ir/feeds.json`, `utils/defeatbeta_fetch.py` / `av.py` for a missed call, the market's IR site, the
+  entry in `ir/feeds.json`, `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance (references/us.md) for a missed
+  call, the market's IR site, the
   company's own deck or filing) and enrich it under every rule above; a missing logo is fetched as JOB 3 step 5 says;
   an empty news roster gets the company's CEO / CFO (and IR head) appended to `media/roster_additions.json` —
   `{"<node>": [{"name", "title", "aliases": [], "source": "<label | path or URL of the company document stating the
@@ -644,7 +645,7 @@ These build ON TOP of everything above. When a command fires, read its reference
 | `enrich dart` | Korean listed names — DART filings (정기보고서 / 잠정실적 / 공급계약) | `references/dart.md` |
 | `enrich kind` | Korean listed names — IR presentations from the KRX KIND IR library (`kind.py`) | `references/kind.md` |
 | `enrich tdnet` | Japanese listed names — TSE TDnet timely disclosures (決算短信, forecast revisions, capex, plans, agreements, M&A; English version preferred; only 31 days online) (`tdnet.py`) | `references/tdnet.md` |
-| `enrich us calls` | US-listed names — Alpha Vantage full call transcripts (`av.py`), defeatbeta fallback | `references/us.md` |
+| `enrich us calls` | US-listed names — Alpha Vantage full call transcripts (`av.py`), defeatbeta fallback, then Perplexity Finance in Chrome | `references/us.md` |
 | `enrich intl` | Taiwan / Japan / Europe / HK / China — Investing.com (`investing.py`) | `references/intl.md` |
 | `enrich tw` | Taiwan Chinese-language 法說會 — video + whisper (`tw.py`) | `references/tw.md` |
 | `enrich taiwan` (MOPS step) | Taiwan listed names — 法說會 decks, important 重大訊息, monthly revenue from MOPS (`mops.py`) | `references/mops.md` |

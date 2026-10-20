@@ -32,9 +32,10 @@ what the call did not say — and rebuilds the graph and the board once. A compa
 ## `enrich us` — daily. SEC filings are NOT part of it: `enrich edgar` (also every night inside `enrich all`).
 1. Calls: `python av.py sync` → `python av.py pending` → enrich every row (references/us.md). A call Alpha
    Vantage has not posted (`waiting`) or a `QUOTA` stop: `python utils/defeatbeta_fetch.py "<Canonical Name>" <TICKER>`
-   (same file format and label, no quota).
-2. Board gaps: every US company overdue for a call or never enriched → `utils/defeatbeta_fetch.py`; nothing there
-   → mark it (`--why "not on Alpha Vantage or defeatbeta (checked <date>)"`).
+   (same file format and label, no quota); not there either: Perplexity Finance in Chrome (references/us.md step 1).
+2. Board gaps: every US company overdue for a call or never enriched → `utils/defeatbeta_fetch.py`, then Perplexity
+   Finance (references/us.md step 1); nothing there → mark it (`--why "not on Alpha Vantage, defeatbeta or Perplexity
+   Finance (checked <date>)"`).
 3. Conference talks: `python investing.py pending --kind conference --market US` → references/conferences.md.
 4. IR releases: `python ir_pull.py pending --market US` → references/ir.md (important releases only).
 4b. Utility regulatory filings — every run (daily since 2026-10-19; the sync fetches only what is new): `python utility_filings.py sync` → `python utility_filings.py pending` → enrich each `_load`
