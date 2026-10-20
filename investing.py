@@ -103,6 +103,12 @@ EXCLUDE = {
 }
 # Listed Indian subsidiaries of European parents report separately; never ours.
 EXCLUDE_ANY = [r"\bIndia\b"]
+# Same short name, different listed company, and the conference TITLE cannot tell them apart ("Vertex at ..." is used
+# for Vertex Pharmaceuticals and for Vertex Inc., the tax-software company): a conference article for one of these names
+# is ours only when a labelled speaker's affiliation contains the text (board question, 2026-10-19).
+SPEAKER_REQUIRE = {
+    "Vertex": ["Vertex Pharmaceuticals"],
+}
 
 
 # ---------------------------------------------------------------- universe
@@ -478,6 +484,11 @@ def fetch_conference(url, uni, published=None, title=None, overwrite=False):
     paras, verbatim = transcript_part(paras)
     if len(paras) < 10:
         raise RuntimeError(f"only {len(paras)} transcript paragraphs -- page not fully rendered?")
+    need = SPEAKER_REQUIRE.get(name)
+    if need:
+        affiliations = {m.group(2) for m in (re.match(r"^([A-Z][A-Za-z.\-' ]{2,40}), ([^:]{2,60}):", p) for p in paras) if m}
+        if not any(n in a for a in affiliations for n in need):
+            raise Skip(f"no speaker from {need[0]} - another company named {name}")
     path = CONF_DIR / f"{slug(name)}_{slug(conf)[:40]}_{published.isoformat()}.txt"
     if path.exists() and not overwrite:
         raise Skip(f"{path.name} already saved")

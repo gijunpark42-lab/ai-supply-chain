@@ -60,6 +60,8 @@ If nothing survives the rule, write NO patch; list the file in the report as
 not management's unless management confirms it. Only management speakers are sources
 (`Name, CEO/CFO/…, Company:` paragraphs); nothing from the article's own summary (it is not saved).
 
+**Multi-company panels (2026-10-19):** when one panel is saved under two or more companies' files (two transcriptions of the same event), enrich it once, from the first file in the queue: every panelist that is a graph node gets its own executives' statements on its own node under that file's label (depth rule against that company's own latest call), the other copy adds nothing already taken (`restates <label>`), and panelists that are not nodes are skipped.
+
 **Label:** the `# source label:` line verbatim — the enrich skill's Event format
 `[Company] [Conference] [YYYY] (MM-DD-YYYY)`, e.g. `Credo Goldman Sachs conference 2026 (09-10-2026)`.
 The date is the article publish date, which is the event day. `[Company]` is the canonical node name.
@@ -84,4 +86,4 @@ transcripts URL is routed here automatically).
 
 **Coverage reality:** titles name the company the way Investing.com writes it (`Supermicro`,
 `Credo`, `Arista`); `match_company` uses the same spellings/aliases as `enrich intl`, so a company
-that keeps being missed needs an `ALIASES` entry in `investing.py`, not a hand paste.
+that keeps being missed needs an `ALIASES` entry in `investing.py`, not a hand paste. A title cannot separate two companies with the same short name (Vertex Pharmaceuticals vs Vertex Inc.): `SPEAKER_REQUIRE` in `investing.py` keeps such a conference only when a labelled speaker's affiliation names our company; a file that still slips through is closed without enrichment and its name gets a `SPEAKER_REQUIRE` line (2026-10-19).

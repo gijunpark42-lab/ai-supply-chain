@@ -66,6 +66,9 @@ segment / revenue / capex / backlog / RPO / customer / end-market / capacity tab
 a cell never breaks the row (found 2026-09-11: the first HTML re-pull filtered tables row by row and silently dropped
 them — segment revenue, segment EBITDA, capex and backlog tables vanished from 117 of 135 10-K supplychain files; only a
 verify failure on old entries revealed it). Pages filed as pictures leave `[image: <src> — not text]` where they sit.
+A PDF exhibit (an HK interim or annual report furnished with a 6-K) is saved as its text layer; a page without one
+leaves `[page N: image only - not text]`. Such a report is a results document: read it once in the triage pass for
+facts the call and the results 6-K did not state; an ESG / sustainability report is CSR and yields nothing (Claude decision 2026-10-19, user delegated).
 XBRL percentages are printed with one decimal as filed (before 2026-09-10 they were rounded to whole numbers, so a
 filed 9.6% read "10%"); dollar facts are shown in $M / $B with the filed value rounded to two decimals.
 A 20-F reports in its own currency: non-USD facts are written with the currency code (`EUR 8.19B`, `TWD 3,272.55B`),
@@ -130,7 +133,9 @@ own patches; one verifier per batch starts when its enricher finishes; only the 
 - **XBRL sections** (`## XBRL customer concentration`, `## XBRL segment revenue`) are machine-read facts, copied as
   filed — authoritative over the prose, BUT check for mis-tags before using them: receivables tagged as revenue, "RPO"
   lines that carry segment revenue, a percentage that cannot be true next to the filing's other figures. Mis-tagged →
-  omit, never guess.
+  omit, never guess. The reader can shift member names (Medpace 10-K 02-10-2026 / 10-Q 07-23-2026 printed
+  therapeutic-area names one row off): match every `## XBRL segment revenue` line to the printed segment table first;
+  any name or value disagreement = mis-tag → use the printed table only (Claude decision 2026-10-19, user delegated).
   - Concentration lines: use the *revenue* lines; accounts-receivable lines are context only.
   - Segment lines → one `quarterly_data` entry per relevant segment (data center / AI / networking / optical /
     semiconductor / equipment / power generation & grid / cooling / cloud); skip consumer, automotive, geography-only
@@ -156,7 +161,8 @@ own patches; one verifier per batch starts when its enricher finishes; only the 
 
 - **Edge meaning must match.** A contract goes on an edge only if the fact describes that edge's `relationship` in
   that direction. The opposite flow → the correct-direction edge when both companies are players in that chain, else
-  `quarterly_data` on the filer with the counterparty named.
+  `quarterly_data` on the filer with the counterparty named, as `counterparty` / `counterparty_role` keys (skill JOB 3 /
+  JOB 4; check_edgar_patch.py accepts them since 2026-10-19).
 - **Existing edges may target companies outside the chain file** (edges merge across chains by name) — contracts on
   them are valid. A NEW edge needs both companies as players in that chain.
 - **Placement.** Company-wide facts (total revenue, concentration, company guidance) → the placement that holds the

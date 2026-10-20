@@ -38,6 +38,13 @@ entry per chain file; the same entry may legitimately live in several chain file
 figure copied into two chains) -- then it is corrected in all of them, unless the item lists
 `chains`: then only those files are touched, and each of them must hold the entry.
 
+Edge labels (added 2026-10-19, board question 13): an item with "kind": "edge" changes ONLY the
+`relationship` text of the edge company -> target, e.g. when a new contract on the same
+supplier -> customer pair is a product the old label does not cover (one edge per pair, never a second):
+    {"kind": "edge", "company": "Infineon", "target": "Eaton", "action": "set",
+     "set": {"relationship": "..."}, "chains": ["components/power_cooling.json"], "reason": "...", "evidence": "..."}
+No label / signal_prefix; the pair must match exactly one edge per chain file it is in.
+
 Usage
 -----
     python apply_corrections.py --check          # validate every pending proposal, write nothing
@@ -77,9 +84,14 @@ def locate(chain, item):
     """Return a list of (container_list, index, entry) for every entry in `chain` that matches
     the item's locator. Empty list = not in this chain."""
     hits = []
-    prefix = item["signal_prefix"]
+    prefix = item.get("signal_prefix", "")
     for player, *_rest in iter_players(chain):
         if player["company"] != item["company"]:
+            continue
+        if item["kind"] == "edge":                      # the edge object itself (relationship label)
+            for i, edge in enumerate(player.get("connects_to", [])):
+                if edge["company"] == item.get("target"):
+                    hits.append((player["connects_to"], i, edge))
             continue
         if item["kind"] == "quarterly_data":
             for i, q in enumerate(player.get("quarterly_data", [])):
@@ -97,6 +109,16 @@ def locate(chain, item):
 
 def validate(item, path):
     problems = []
+    if item.get("kind") == "edge":
+        for key in ("company", "target", "reason"):
+            if not item.get(key):
+                problems.append(f"missing {key}")
+        new = item.get("set") or {}
+        if item.get("action") != "set" or set(new) != {"relationship"} or not new.get("relationship"):
+            problems.append('edge items take only action "set" with {"relationship": "<new label>"}')
+        if "chains" in item and (not isinstance(item["chains"], list) or not item["chains"]):
+            problems.append("chains must be a non-empty list of chain files (relative to chains/)")
+        return problems
     for key in ("kind", "company", "label", "signal_prefix", "action", "reason"):
         if not item.get(key):
             problems.append(f"missing {key}")
@@ -155,23 +177,23 @@ def run(files, apply):
             where = [(f, h) for f, h in where if h]
             missing = scope - {chain_rel(f) for f, _h in where}
             if missing:
-                print(f"  [error] item {n} not in the listed chains {sorted(missing)}: {item['company']} | {item['signal_prefix'][:50]}")
+                print(f"  [error] item {n} not in the listed chains {sorted(missing)}: {item['company']} | {item.get('signal_prefix', '')[:50]}")
                 total["errors"] += 1
                 file_ok = False
                 continue
             if not where:
-                print(f"  [error] item {n} not found: {item['kind']} {item['company']} -> {item.get('target')} | {item['label']} | {item['signal_prefix'][:50]}")
+                print(f"  [error] item {n} not found: {item['kind']} {item['company']} -> {item.get('target')} | {item.get('label', 'edge label')} | {item.get('signal_prefix', '')[:50]}")
                 total["errors"] += 1
                 file_ok = False
                 continue
             if any(len(h) > 1 for _f, h in where):
-                print(f"  [error] item {n} ambiguous (matches several entries in one chain): {item['company']} | {item['signal_prefix'][:50]}")
+                print(f"  [error] item {n} ambiguous (matches several entries in one chain): {item['company']} | {item.get('signal_prefix', '')[:50]}")
                 total["errors"] += 1
                 file_ok = False
                 continue
             act = item["action"]
             files_txt = ", ".join(os.path.relpath(f, CHAINS_DIR).replace("\\", "/") for f, _h in where)
-            print(f"  [{act:7s}] {item['company']}{' -> ' + item['target'] if item.get('target') else ''} | {item['label']} | {files_txt}")
+            print(f"  [{act:7s}] {item['company']}{' -> ' + item['target'] if item.get('target') else ''} | {item.get('label', 'edge label')} | {files_txt}")
             if not apply or act == "keep":
                 total[act] += 1
                 continue

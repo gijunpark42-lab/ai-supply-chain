@@ -19,6 +19,8 @@ Company names MUST be spelled identically across all chain files. Different spel
 | Use this | NOT this |
 |----------|----------|
 | `Amazon` (since 2026-08-27; was `Amazon Web Services` — renamed repo-wide 2026-08-27 on user request "change aws to amazon, name and brand logo": 101 literal replacements over chains/company_metadata/company_metrics/quant/capex_backlog/reports + source labels `Amazon Web Services Q1 FY2026 (...)`→`Amazon Q1 FY2026 (...)`; utils/fix_names.py's map was updated to point at the new name, not used to do it) | `AWS`, `AWS Annapurna`, `Amazon Web Services` |
+| `Huawei` (since 2026-10-19, board decision: the `Huawei Cloud` division node merged into it; private, CN) | `Huawei Cloud`, `Huawei Technologies` |
+| `Shin-Etsu Chemical` (Shin-Etsu Handotai / SEH is its 100%-owned consolidated subsidiary for semiconductor silicon — Shin-Etsu Chemical annual securities report FY2026; a relationship a source states for SEH goes on the Shin-Etsu Chemical node, the signal may still say "Shin-Etsu Handotai") | `Shin-Etsu Handotai`, `SEH` |
 | `Naver` (since 2026-09-25; was `Naver Cloud`, a 100% subsidiary. Metadata ticker 035420.KS is NAVER Corp's; DART files are NAVER's) | `Naver Cloud`, `NAVER` |
 | `Everpure` (since 2026-09-10; was `Pure Storage`: the company renamed itself Everpure, Inc., NYSE ticker PSTG -> P; its own calls already open with "Welcome to Everpure") | `Pure Storage`, `Pure` |
 | `Yuanjie` (since 2026-09-25; was `YJ Semi`, a Goldman-note abbreviation of 源杰科技, STAR 688498.SS — user: "YJ Semi는 Yuanjie로 합쳐". Signal text quoting the note still says "YJ Semi" on purpose) | `YJ Semi`, `Yuanjie Semiconductor` |

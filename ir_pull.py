@@ -399,6 +399,18 @@ def is_pdf(url):
     return u.path.lower().endswith(".pdf") or bool(re.search(r"\.pdf(?:$|&)", u.query.lower()))
 
 
+def linked_pdfs(page, base):
+    """Same-site PDF links on a release page, in page order, without repeats. For feeds whose release page is only a
+    notice pointing at the company's own PDF (ir/feeds.json "follow_pdf": true; board decision 2026-10-19)."""
+    site = urlparse(base).netloc.split(".", 1)[-1]          # corporate.murata.com -> murata.com
+    out = []
+    for href in re.findall(r'href\s*=\s*["\']([^"\']+)["\']', page, re.I):
+        u = urljoin(base, html.unescape(href))
+        if is_pdf(u) and urlparse(u).netloc.endswith(site) and u not in out:
+            out.append(u)
+    return out
+
+
 def pdf_lines(url):
     """A release published only as a PDF (common for Japanese / Taiwanese IR): its text, line by line.
     The whole document is kept -- there is no web-page navigation to cut away."""
@@ -806,7 +818,7 @@ def already_on_disk(url):
     return None
 
 
-def take(company, item, state, force=False):
+def take(company, item, state, force=False, feed=None):
     """Save one feed item if it is new, dated, and not noise. Returns 'saved' / 'skip' / 'fail' / 'seen'."""
     url, title, d = item["link"], item["title"], item["date"]
     seen = state.setdefault("seen", {})
@@ -841,6 +853,13 @@ def take(company, item, state, force=False):
             body = pdf_lines(url)
         else:
             body = release_body(page, title) if page else []
+            # a notice whose content is the company's own linked PDF (results, forecast revision, deck): keep the
+            # notice text and append each linked PDF's text layer (at most 3) -- ir/feeds.json "follow_pdf": true
+            if page and (feed or {}).get("follow_pdf"):
+                for pdf in linked_pdfs(page, url)[:3]:
+                    lines = pdf_lines(pdf)
+                    if lines:
+                        body = body + ["", "## PDF " + pdf, ""] + lines
     # Not the article (only a headline, or only menus / related links)? Then try the full text the
     # RSS item itself carries. Japanese/Chinese/Korean text packs ~3x the meaning per character, so
     # prose_ok's length floor is lower there.
@@ -921,7 +940,7 @@ def sync(since=None, company=None):
         for item in items:
             if item["date"] and item["date"] < start:
                 continue
-            r = take(name, item, state)
+            r = take(name, item, state, feed=feeds[name])
             counts[r] += 1
             mine[r] += 1
             time.sleep(0.5)

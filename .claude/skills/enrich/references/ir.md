@@ -74,6 +74,11 @@ reads each company's own IR RSS feed (free, no key) and saves the release verbat
 4. Releases without an important fact (schedule-only line-ups, "to showcase at" booth lists, marketing) yield no
    entries — remove the row: `python ir_pull.py done --label "<label>" --why "no material facts"`. After enriching
    a row, the same `done --label` (it stamps `enriched:<date>`). Never `done --all` unless every row was handled.
+   **Notice pages that point at a PDF** (Claude decision 2026-10-19, user delegated): when a release page is only a notice linking the company's own
+   PDF (results, forecast revision, deck), the PDF is the release. Feeds with `"follow_pdf": true` in ir/feeds.json
+   save its text with the notice; for any other feed save the PDF text as a companion file under the notice's label
+   (transcripts/ir/<notice stem>_pdf.txt, same header, SOURCE = the PDF URL) before enriching. Never close a row as
+   "PDF not saved".
 5. Pre-flight each patch (`python -X utf8 utils/check_patch.py <patch>` until clean), then
    `python graph_build.py --sync`; append the labels to `verify_queue.json` (the Opus verifier runs
    automatically at 5+ pending).

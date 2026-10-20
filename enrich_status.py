@@ -37,6 +37,7 @@ import glob
 import json
 import os
 import re
+import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 
@@ -198,19 +199,17 @@ MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan"
 MARKET_COLLECTORS = {"US": ["us", "utility"], "KR": ["dart", "kind"], "TW": ["intl", "tw", "mops"],
                      "JP": ["intl", "tdnet", "edinet"],
                      "EU": ["intl"], "CN": ["intl", "cninfo", "cnreports"], "other": ["intl"]}
-SYNC_EVERY = {"us": 1, "dart": 2, "intl": 7, "tw": 7, "edgar": 7, "ir": 3, "conference": 7, "kind": 3,
-              "tdnet": 3,   # TDnet keeps only 31 days
-              "edinet": 7,  # days (edinet.py: EDINET keeps 10 years of lists, so a gap loses nothing)
-              "cninfo": 7,  # days (SSE e互动 shows only about one month, so never let it slip past ~3 weeks)
-              "cnreports": 7,  # days (cninfo.py reports: cheap when nothing is new; one `enrich china` runs both)
-              "utility": 30,   # days (utility_filings.py: monthly — IRPs and large-load reports change slowly)
-              "mops": 3}
+# Every collector runs every night (user, 2026-10-19: "모든걸 매일돌게"; the nightly `enrich all` runs them all):
+# 0 days = due unless it already ran today. The collectors only fetch what is new, so a daily run costs little.
+SYNC_EVERY = {pid: 0 for pid in ("us", "dart", "intl", "tw", "edgar", "ir", "conference", "kind", "tdnet",
+                                 "edinet", "cninfo", "cnreports", "utility", "mops")}
+GAP_BATCH = 30       # gaps the nightly gap fill takes per night (§12 of the enrich skill), first ones first
 COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", "kind": "KIND IR deck sync (kind.py)",
                    "tdnet": "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days)",
                    "edinet": "EDINET annual / semi-annual report sync (edinet.py)",
                    "cninfo": "China IR record / Q&A sync (cninfo.py)",
                    "cnreports": "China periodic-report sync (cninfo.py reports)",
-                   "utility": "utility regulatory-filing sync (utility_filings.py, monthly)",
+                   "utility": "utility regulatory-filing sync (utility_filings.py)",
                    "mops": "MOPS sync (mops.py)",
                    "intl": "Investing.com call sync (investing.py)", "tw": "Taiwan Chinese-call sync (tw.py)",
                    "edgar": "EDGAR pull (edgar_pull.py)", "ir": "IR feed sync (ir_pull.py)",
@@ -384,7 +383,7 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
             days, day = age("edgar")
             queued = len(by_id.get("edgar", {}).get("pending", []))
             if days is None or days > SYNC_EVERY["edgar"]:
-                reasons.append("last pulled %s (weekly)" % ("%d days ago, %s" % (days, day) if day else "never"))
+                reasons.append("last pulled %s" % ("%d days ago, %s" % (days, day) if day else "never"))
             if queued:
                 reasons.append("%d filings queued" % queued)
             if reasons:
@@ -454,8 +453,32 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
         shared[pid] = {"last_sync": day, "days": days, "due": days is None or days > SYNC_EVERY[pid]}
     shared["ir"]["feeds"] = len(feeds)
     notes = sorted(marks["notes"], key=lambda r: r.get("at", ""), reverse=True)[:10]
+
+    # ── Gap fill (user, 2026-10-19: "부족한것들도 매일도는루프에서찾으면 채우는형식으로") ──────────
+    # Everything the map still lacks, most important first. The nightly takes the first GAP_BATCH and ends
+    # each one by filling it or by `mark … --source <s>` (no source exists; it comes back at its recheck date),
+    # so the list only shrinks and the next night starts where this one stopped.
+    marked_pairs = set(marked)
+    gaps = []
+    for m in markets:
+        gaps += [{"company": n, "gap": "no own data", "source": "any"} for n in m["nothing"]]
+    logos = read_json("static/logos/manifest.json", {})
+    gaps += [{"company": n, "gap": "no logo (docs/memory/logo_fetching.md)", "source": "logo"}
+             for n in companies if n not in logos and (n, "logo") not in marked_pairs]
+    for m in markets:
+        gaps += [{"company": n, "gap": "no DART filing enriched", "source": "dart"} for n in m["dart_never"]]
+    for m in markets:
+        gaps += [{"company": n, "gap": "no IR feed (find the newsroom: ir_pull.py discover)", "source": "ir"}
+                 for n in companies if market_of_company(n) == m["id"] and n not in feeds and (n, "ir") not in marked_pairs]
+    for m in markets:
+        gaps += [{"company": n, "gap": "never had a call enriched", "source": "call"} for n in m["never"]]
+        gaps += [{"company": r["company"], "gap": "call overdue (last %s)" % r["last_call"], "source": "call"}
+                 for r in m["overdue"]]
+    decided = [q for q in marks["answered"] if q.get("by") == "claude"
+               and days_between(q.get("answered") or today, today) <= 7]
     return {"today": today, "markets": markets, "next_actions": actions, "setup": setup,
-            "questions": marks["questions"], "shared": shared, "verify_pending": len(vq), "notes": notes}
+            "questions": marks["questions"], "shared": shared, "verify_pending": len(vq), "notes": notes,
+            "gaps": gaps, "gap_batch": gaps[:GAP_BATCH], "decided": decided}
 
 
 def short_list(items, n=LIST_MAX):
@@ -484,6 +507,20 @@ def write_board(board, pipelines, generated):
               sh["ir"]["last_sync"] or "never", sh["ir"]["feeds"], " — due" if sh["ir"]["due"] else "",
               sh["conference"]["last_sync"] or "never", " — due" if sh["conference"]["due"] else ""),
           "Opus verification queue: %d label(s) waiting (runs at 5+)." % board["verify_pending"], ""]
+    gaps = board.get("gaps", [])
+    L += ["## Gap fill — tonight's batch (%d of %d gaps)" % (len(board.get("gap_batch", [])), len(gaps)), "",
+          "The nightly `enrich all` takes these, in order, and ends each one by filling it or by "
+          "`enrich_status.py mark \"<Company>\" --source <source> --why \"…\"` (no source exists; back at its recheck "
+          "date). Full list: `graph/enrich_status.json` → `board` → `gaps`.", ""]
+    L += ["%d. %s — %s (source: %s)" % (i, g["company"], g["gap"], g["source"])
+          for i, g in enumerate(board.get("gap_batch", []), 1)] or ["Nothing missing."]
+    L.append("")
+    if board.get("decided"):
+        L += ["## Decided by Claude (last 7 days)", "",
+              "The user delegated these judgments on 2026-10-19 (\"질문은 니가 알아서 다 처리\"). To overrule one, say so; "
+              "the run that changes it records the new answer the same way.", ""]
+        L += ["- **%s** (%s): %s" % (q["subject"], q.get("answered", ""), q.get("answer", "")) for q in board["decided"]]
+        L.append("")
     if board["questions"] or board["setup"]:
         L += ["## Needs a decision or setup", ""]
         L += ["- **Question for the user — %s:** %s%s (asked %s; answer, then `enrich_status.py resolve \"%s\" --answer \"…\"`)"
@@ -732,9 +769,9 @@ def record(args):
     """`mark` / `unmark` / `note`: the coordinator's hand-written facts, kept in enrich_marks.json."""
     data = load_marks()
     data["_rule"] = ("Facts no script can infer, recorded ONLY by the coordinator of an enrich run through "
-                     "`python enrich_status.py mark / unmark / note / ask / resolve` (parallel agents report, never "
-                     "write). A mark keeps a company out of the board's missing lists until its recheck date; a "
-                     "question waits under 'Needs a decision' until the user answers it.")
+                     "`python enrich_status.py mark / unmark / note / decide / ask / resolve` (parallel agents report, "
+                     "never write). A mark keeps a company out of the board's missing lists until its recheck date; "
+                     "judgments are decided by Claude (`decide`, user 2026-10-19) and kept in 'answered'.")
     now = datetime.now()
     if args.cmd == "mark":
         recheck = args.recheck or (now + timedelta(days=90)).strftime("%Y-%m-%d")
@@ -767,6 +804,15 @@ def record(args):
         for q in hit:                         # keep the decision as history
             data["answered"].append(dict(q, answer=args.answer, answered=now.strftime("%Y-%m-%d")))
         print("resolved %d question(s) for %s" % (len(hit), args.subject))
+    elif args.cmd == "decide":
+        # Claude's own decision (user, 2026-10-19: "질문은 니가 알아서 다 처리"): goes straight into the history,
+        # closes an open question on the same subject, and shows on the board for 7 days.
+        hit = [q for q in data["questions"] if q["subject"] == args.subject]
+        data["questions"] = [q for q in data["questions"] if q["subject"] != args.subject]
+        asked = hit[0] if hit else {"subject": args.subject, "question": args.question, "label": args.label,
+                                    "at": now.strftime("%Y-%m-%d")}
+        data["answered"].append(dict(asked, answer=args.answer, answered=now.strftime("%Y-%m-%d"), by="claude"))
+        print("decided: %s" % args.subject)
     data["marks"].sort(key=lambda m: (m["source"], m["company"]))
     with open(MARKS_FILE, "w", encoding="utf-8") as f:
         json.dump({"_rule": data["_rule"], "marks": data["marks"], "notes": data["notes"],
@@ -777,7 +823,7 @@ if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser(description="Rebuild the enrichment status (no arguments), or record a fact for the board.")
     sub = ap.add_subparsers(dest="cmd")
-    SOURCES = ["call", "dart", "ir", "conference", "edgar"]
+    SOURCES = ["call", "dart", "ir", "conference", "edgar", "logo"]
     mk = sub.add_parser("mark", help="record that a source does not exist for these companies (until --recheck)")
     mk.add_argument("companies", nargs="+")
     mk.add_argument("--source", required=True, choices=SOURCES)
@@ -796,7 +842,16 @@ if __name__ == "__main__":
     rs = sub.add_parser("resolve", help="close a question with the user's answer (kept as history)")
     rs.add_argument("subject")
     rs.add_argument("--answer", required=True)
+    dc = sub.add_parser("decide", help="record Claude's own decision on a judgment (no waiting for the user)")
+    dc.add_argument("subject", help="a company name or a short topic")
+    dc.add_argument("--answer", required=True, help="what was decided and done")
+    dc.add_argument("--question", default="", help="the judgment, when no open question has this subject")
+    dc.add_argument("--label", help="the source label it comes from")
+    for p in (mk, um, nt, ak, rs, dc):       # many records in a row: rebuild the board once, at the end
+        p.add_argument("--no-board", action="store_true", help="record only; skip the ~10-minute board rebuild")
     args = ap.parse_args()
     if args.cmd:
         record(args)
+        if args.no_board:
+            sys.exit(0)
     build_enrich_status()

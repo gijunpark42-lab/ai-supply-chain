@@ -307,12 +307,11 @@ class ResolverIntegrationTest(unittest.TestCase):
                          ["transcripts/non_transcript_sources/apld_q4_fy2026_earnings_release.txt"])
 
     def test_companions(self):
-        self.need("transcripts/equipment/lam_research_q4_2026.txt", "transcripts/equipment/lam_research_q4_2026_call.txt")
-        self.assertEqual(set(self.docs("Lam Research Q4 FY2026 (07-29-2026)")),
-                         {"transcripts/equipment/lam_research_q4_2026_call.txt", "transcripts/equipment/lam_research_q4_2026.txt"})
-        self.need("transcripts/bigtech/amazon_q2_2026.txt", "transcripts/non_transcript_sources/amazon_aws_q2_2026_earnings_release.txt")
+        self.need("transcripts/av/lamresearch_q4_2026.txt")
+        self.assertEqual(self.docs("Lam Research Q4 FY2026 (07-29-2026)"), ["transcripts/av/lamresearch_q4_2026.txt"])
+        self.need("transcripts/av/amazon_q2_2026.txt", "transcripts/non_transcript_sources/amazon_aws_q2_2026_earnings_release.txt")
         self.assertEqual(self.docs("Amazon Q2 FY2026 (07-30-2026)"),
-                         ["transcripts/bigtech/amazon_q2_2026.txt", "transcripts/non_transcript_sources/amazon_aws_q2_2026_earnings_release.txt"])
+                         ["transcripts/av/amazon_q2_2026.txt", "transcripts/non_transcript_sources/amazon_aws_q2_2026_earnings_release.txt"])
 
     def test_fy_files_are_q4(self):
         self.need("transcripts/equipment/tel_fy2026.txt", "transcripts/non_transcript_sources/sumitomo_bakelite_fy2026.txt")
@@ -342,9 +341,9 @@ class ResolverIntegrationTest(unittest.TestCase):
         self.assertEqual(self.docs("Goldman Sachs optical note (04-17-2026)"), ["transcripts/optical/gs_optical_networking_apr2026.txt"])
 
     def test_resolve_label_keeps_returning_one_doc(self):
-        self.need("transcripts/equipment/lam_research_q4_2026_call.txt")
+        self.need("transcripts/av/lamresearch_q4_2026.txt")
         one = v.resolve_label("Lam Research Q4 FY2026 (07-29-2026)", self.by_label, self.all_docs, None, self.cache)
-        self.assertEqual(one.path, "transcripts/equipment/lam_research_q4_2026_call.txt")
+        self.assertEqual(one.path, "transcripts/av/lamresearch_q4_2026.txt")
         self.assertIsNone(v.resolve_label("Nan Ya PCB Q2 FY2026 (07-10-2026)", self.by_label, self.all_docs, None, self.cache))
 
 

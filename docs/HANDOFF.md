@@ -1272,3 +1272,38 @@ Also refresh §3 and §4 above, and `docs/memory/` if a rule or preference chang
   suppliers by inference, OpenAI -> Microsoft, government / free-software relations rows, Synopsys -> Microsoft empty edge,
   superseded call files). Stray untracked file to delete by hand: transcripts/av/arm_q1_2027.txt (wrong label "Arm Q1
   FY2027"; the agent's rm was blocked; the correct copy is armholdings_q1_2027.txt).
+- **2026-10-18/19 (Claude, nightly routine `enrich`, session "nightly enrich 10-18", 1ffca053)** — board (refreshed 23:00)
+  Run next: `enrich us` (3 calls waiting + 32 US companies from the 10-17 chains never had a call) and `enrich korea`
+  (HL D&I Halla, no DART filing). Work: (1) av.py sync saved Amgen, AST SpaceMobile and a WRONG CrowdStrike file (Alpha
+  Vantage "2026Q3" = the Dec-2025 call, dated 08-26-2026; deleted, the real Q2 FY2027 call fetched from defeatbeta);
+  defeatbeta saved 28 more first calls; IES Holdings has none (newest Q1 FY2009) -> marked call no_source. 11 enricher +
+  11 pre-apply Opus verifier batches over 31 calls (quantum 18, space 5, security 3, DC construction 5). (2) dart.py
+  fetch HL D&I Halla H1 FY2026 report -> 11 entries + 30 relations rows. (3) ir_pull sync (due): 157 saved / 129 failed;
+  156 rows -> 18 IR batches + 8 verifiers: 65 enriched, 8 restates, 3 relations-only, 80 no material facts (rows
+  closed). Lumentum Fox Business interview: 3 entries. (4) relations backfill night 2: Amazon 52, Google 27, AMD 3, Micron
+  11, Meta 5 rows (+ Google / AMD patches; Micron training-center patch deleted by the verifier); relations.py done, plus
+  the 65 plain-name rows the 10-17 chain session had marked done under names ending in a carriage return. New edges:
+  Infineon -> Quantinuum, GlobalFoundries -> Quantinuum, Rocket Lab -> Kepler Communications, AMD -> Oracle (Helios),
+  NiSource -> Microsoft, Broadcom -> Supermicro, Marvell -> Amphenol, eMemory -> Arm Holdings, Doosan Enerbility -> SpaceX.
+  No new nodes. Financing log (skill 10c): Cipher Digital $850M converts, Kioxia S&P BBB, POSCO $700M IDB facility.
+  Foxconn 10-16 release file: TITLE header held the whole body (pushed the label past the 3,000-char header window) -
+  trimmed to the headline. 100 patches (579 entries) applied; **graph_build.py --sync was reaped for low memory after
+  apply / merge / derive** (verify_graph, board, web/public sync, i18n not run) -> next session: `graph_build.py --sync`
+  then i18n. 5 new board questions (government funding as financing, rule B and fab EPC rows, node candidates, AI
+  relations with non-node counterparties, app-integration partners).
+- **2026-10-19 evening (Claude, interactive) — nightly loop audit + fixes.** User: "모든걸 매일돌게", "질문은 니가 알아서 다 처리",
+  "에이전트최대갯수 매일루프에서조정", "똑같은 에이전트한테 계속 시키면 안돼?", "모든나라 다 한번에 매일 11시마다". Findings: 3 of the 5
+  nights since 10-14 died in graph_build.py (10-14, 10-17, 10-18) — evidence.py indexed all ~400 MB of transcripts at once
+  (~6.8 GB peak) and Claude Code's low-memory guard killed it; 10-18's 579 entries were never published; 92 board
+  questions open since 09-29. Fixes (branch fix/nightly-memory-daily): evidence.py counts DF in one pass and keeps only
+  64 document indexes open (peak 2.35 GB, output byte-identical to the old code on a reduced corpus); nightly runs
+  `enrich all` (every market + every source, due or not; enrich skill §1); one worker pool sized by
+  utils/agent_budget.py and reused through SendMessage, progress in utils/work_ledger.py (§7.4); gap fill §12 (board
+  "Gap fill — tonight's batch": no own data, no logo, no DART, no IR feed, never a call, overdue; fill or mark); every
+  collector daily (SYNC_EVERY 0); `enrich_status.py decide` (Claude decides, never asks; board shows 7 days); relations
+  backfill 15 a night; nightly.ps1 reruns graph_build.py --sync outside the session when it was killed, then
+  utils/verify_since.py, and publishes; Task Scheduler limit 12 h. All 92 questions decided by 6 agents (rules in
+  SKILL.md §2 "Where financing ends", JOB 3/4, §5 (7), §6; code: apply_corrections kind "edge", reverse-edge WARN,
+  investing.py SPEAKER_REQUIRE, ir_pull follow_pdf, edgar_pull PDF exhibits + fallback folded in, CN/KO aliases;
+  Huawei Cloud merged into Huawei; 14 new nodes incl. ChronoScale, Vultr, Cognition, Rehlko, Axe Compute). PR #6 (Tower
+  Korean search) merged. Fortanix patches from the earnings-ai-chains worktree applied in main.

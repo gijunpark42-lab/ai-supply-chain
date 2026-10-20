@@ -6,6 +6,7 @@ RENAMES = {
     "Amazon AWS":        "Amazon",
     "Amkor":             "Amkor Technology",
     "Google Cloud":      "Google",
+    "Huawei Cloud":      "Huawei",
     "Microsoft Azure":   "Microsoft",
     "Thinking Machines": "Thinking Machines Lab",
     "StacyX AI":         "SpaceX",

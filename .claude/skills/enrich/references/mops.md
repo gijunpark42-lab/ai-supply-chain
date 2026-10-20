@@ -52,6 +52,11 @@ no filing time for monthly revenue: its label is dated the day `sync` first saw 
    MOPS rows, calls and IR releases go to the same agent):
    - Company filings, NOT transcripts: facts, company guidance and targets; attribute claims; nothing inferred from a
      chart without printed numbers. Everything in English (§8): "NT$1,484 million", "THB 250 million".
+   - Image-only pages (tables or charts filed as pictures; mops.py keeps only their titles) are never OCR'd: a deck
+     yields only its text layer. When the pictures hold the quarter's financial statements, save the company's
+     statutory quarterly / half-year consolidated statements (text PDF from its own IR site) in
+     transcripts/non_transcript_sources/ as `[Company] financial report: Q[N] [YYYY] Consolidated Financial Statements
+     (MM-DD-YYYY)` and enrich the numbers from it (Claude decision 2026-10-19, user delegated).
    - `material`: what was acquired / ordered / decided, the counterparty when named (no new node unless JOB 3 approves),
      the stated purpose ("for future business development", "capacity expansion"), dates. Never financing terms, and
      never the price of an acquisition (§2) — the asset's own scale (area, capacity, units) is a fact; a capex budget

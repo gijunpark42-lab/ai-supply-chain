@@ -343,8 +343,12 @@ def check(patch_path):
                     continue
                 if target not in edges:
                     reverse = any(x.get("company") == company for s in placements[target] for x in s[4].get("connects_to", []))
-                    if reverse:
-                        say("ERROR", f"{w}: NEW edge but the REVERSE edge already exists — check which one the fact describes")
+                    if reverse and not str(e.get("relationship") or "").strip():
+                        say("ERROR", f"{w}: NEW edge but the REVERSE edge already exists — check which one the fact describes "
+                                     f"(a real opposite-direction relationship needs its own `relationship` naming its product)")
+                    elif reverse:
+                        say("WARN", f"{w}: NEW edge opposite to an existing one — allowed only for a different product flowing "
+                                    f"this way (board decision 2026-10-19); confirm `relationship` names it")
                     else:
                         say("WARN", f"{w}: NEW edge (confirm the source states the relationship explicitly)")
                 have_ct = {(c.get("source"), c.get("signal")) for c in edges.get(target, {}).get("contracts", [])}

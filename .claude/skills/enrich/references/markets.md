@@ -29,7 +29,7 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    Run next block into the report. Too much for one run (earnings season)? Newest first, stop cleanly, note it —
    the board carries the rest to the next run.
 
-## `enrich us` — daily. SEC filings are NOT part of it: `enrich edgar`, weekly.
+## `enrich us` — daily. SEC filings are NOT part of it: `enrich edgar` (also every night inside `enrich all`).
 1. Calls: `python av.py sync` → `python av.py pending` → enrich every row (references/us.md). A call Alpha
    Vantage has not posted (`waiting`) or a `QUOTA` stop: `python utils/defeatbeta_fetch.py "<Canonical Name>" <TICKER>`
    (same file format and label, no quota).
@@ -37,8 +37,7 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    → mark it (`--why "not on Alpha Vantage or defeatbeta (checked <date>)"`).
 3. Conference talks: `python investing.py pending --kind conference --market US` → references/conferences.md.
 4. IR releases: `python ir_pull.py pending --market US` → references/ir.md (important releases only).
-4b. Utility regulatory filings — MONTHLY, only when the board lists "utility regulatory-filing sync" as due or
-   rows are waiting: `python utility_filings.py sync` → `python utility_filings.py pending` → enrich each `_load`
+4b. Utility regulatory filings — every run (daily since 2026-10-19; the sync fetches only what is new): `python utility_filings.py sync` → `python utility_filings.py pending` → enrich each `_load`
    file (references/utility_filings.md: IRPs, large-load reports and data-center tariffs the utilities filed
    themselves; Dominion, Southern / Georgia Power, AEP / I&M, Entergy Louisiana, NextEra / FPL).
 5. `python graph_build.py --sync`, then `python av.py done`, `python investing.py done --kind conference --market US`,
@@ -88,15 +87,14 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    capex and plant notices, results decks, mid-term plans, agreements, M&A operating facts; English version when TSE
    lists one; entries in English) — after the calls, so a 決算短信 adds only what the call did not say.
 1c. Japan only — EDINET statutory reports (needs `EDINET_API_KEY` in .env; without it the board shows a setup line and
-   this step is skipped): `python edinet.py sync` (weekly is enough — EDINET keeps 10 years) → `python edinet.py pending`
+   this step is skipped): `python edinet.py sync` (every run) → `python edinet.py pending`
    → enrich every row (references/edinet.md: 有価証券報告書 / 半期報告書 — major customers with % of sales, production /
    orders / sales, capex and new-facility plans, R&D, management's analysis; read the `_extract`, entries in English) —
    after the calls and TDnet, adding only what they did not say. New Japanese node: `python edinet.py fetch "<Company>"`.
 1b. China only — management Q&A of the A-share names (SZSE / SSE): `python cninfo.py sync` → `python cninfo.py pending`
    → enrich every row (references/cninfo.md): IR activity records (投资者关系活动记录表, `record` rows) and the company's
    answers on SZSE 互动易 / SSE e互动 (`qa` rows), both treated like a conference talk (answers = the company,
-   questions = context only), entries in English → `python cninfo.py done --label "<label>"` each. Run the sync at
-   least weekly: SSE e互动 shows only about one month. Hong Kong-only names (ASMPT, Lenovo, Innoscience) are out of its scope.
+   questions = context only), entries in English → `python cninfo.py done --label "<label>"` each. Run the sync every run: SSE e互动 shows only about one month. Hong Kong-only names (ASMPT, Lenovo, Innoscience) are out of its scope.
 1d. China only — periodic reports of the same A-share names: `python cninfo.py reports` (in the same run as
    `cninfo.py sync`; the board asks after 7 days) → `python cninfo.py pending` (`report` rows) → enrich every row
    (references/cninfo.md, "China A-share periodic reports": 年度报告 / 半年度报告 / 季度报告 — read the `_extract`; top-5

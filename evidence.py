@@ -271,7 +271,7 @@ class DocIndex:
                 and as a float (for the rounding match).
     """
 
-    def __init__(self, doc):
+    def __init__(self, doc, count_df=True):
         self.path = doc.path
         self.disp = WS.sub(" ", body_of(doc.text)).strip()
 
@@ -289,8 +289,9 @@ class DocIndex:
             pos += len(w) + 1
         self.search = " ".join(parts)
         self.words = set(parts)                     # quick "could this phrase be here at all?"
-        for sid in set(self.sids):
-            DF[sid] += 1
+        if count_df:                                # build_evidence counts DF in its own pass (count_stems)
+            for sid in set(self.sids):
+                DF[sid] += 1
 
         self.by_bare = defaultdict(list)   # "24.8" -> [(start, end), ...]  (commas removed)
         self.by_run = defaultdict(list)    # "1898" -> spans  (digit runs of 3+ digits)
@@ -658,6 +659,35 @@ def iter_entries(graph):
                    (edge["source"], edge["target"]))
 
 
+OPEN_INDEXES = 64     # documents kept indexed at once; entries come label by label, so a few dozen is plenty
+
+
+def count_stems(doc):
+    """DocIndex's word pass alone: gives every word its stem id (in the same order as
+    DocIndex does) and counts the document once per stem in DF, without keeping an index."""
+    disp = WS.sub(" ", body_of(doc.text)).strip()
+    DF.update({sid_of(m.group().lower()) for m in WORD.finditer(disp)})
+
+
+class IndexCache:
+    """indexes[doc] -> that document's DocIndex, built on first use. Only the `size` most
+    recently used stay in memory; an evicted one is simply rebuilt when needed again (the
+    same document always gives the same index, because DF and the stem ids are fixed by then)."""
+
+    def __init__(self, size):
+        self.size = size
+        self.open = {}                     # dicts keep insertion order: oldest use first
+
+    def __getitem__(self, doc):
+        index = self.open.pop(doc, None)
+        if index is None:
+            index = DocIndex(doc, count_df=False)
+        self.open[doc] = index             # (re)inserted last = most recently used
+        if len(self.open) > self.size:
+            del self.open[next(iter(self.open))]
+        return index
+
+
 def build_evidence(graph=None, out_path=OUT_PATH, company=None, label=None):
     """Build the evidence map. Writes `out_path` unless a company/label filter is given
     (then the matching records are printed instead). Returns the records dict."""
@@ -666,11 +696,15 @@ def build_evidence(graph=None, out_path=OUT_PATH, company=None, label=None):
         with open(GRAPH_PATH, encoding="utf-8") as f:
             graph = json.load(f)
 
-    # Corpus: every document, indexed up front so IDF covers the whole corpus.
+    # Corpus: every document is counted up front so IDF covers the whole corpus, but only the
+    # OPEN_INDEXES most recently used ones stay indexed. Indexing all of them at once peaked at
+    # ~6.8 GB (400 MB of transcripts) and the nightly build was killed for low memory.
     STEM_ID.clear(), DF.clear(), IDF.clear()
     by_label, all_docs = load_documents()
     filename_docs = list_documents()
-    indexes = {doc: DocIndex(doc) for doc in all_docs}
+    for doc in all_docs:
+        count_stems(doc)
+    indexes = IndexCache(OPEN_INDEXES)
     n_docs = len(all_docs)
     # Weight = IDF minus a floor of 0.75: a word must occur in fewer than ~half the documents
     # before it counts at all. Without the floor, a long signal full of ordinary finance words
