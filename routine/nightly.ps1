@@ -338,6 +338,11 @@ if (-not $Test) {
         $gitLock = Enter-GitLock 20                   # the 22:00 market-data publish may be running right now
         if ($gitLock) { Publish-Run $runDate; $gitLock.ReleaseMutex() }
         else { Write-Log "not published: another git job (a publish) still held the git lock after 20 min; the next done night publishes this data" }
+        # The map over MCP (user, 2026-10-20): nodus42_mcp.py and the site's /api/mcp read the built data, so the
+        # publish updates them; this waits for the site's deploy and logs whether the remote MCP serves the new map.
+        if (Test-Path (Join-Path $repo "utils\mcp_check.py")) {
+            Invoke-DataStep "mcp_check" @("-X", "utf8", "utils/mcp_check.py", "--minutes", "15") 20
+        }
     }
     else { Write-Log "not published: the session did not finish as done" }
 }

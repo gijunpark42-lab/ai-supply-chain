@@ -27,6 +27,14 @@ const nextConfig = {
       "/api/filings": NEWS_DATA,
       "/api/top": NEWS_DATA,
       "/api/news/ingest": NEWS_DATA,
+      // The remote MCP server (lib/mapMcp.ts) answers from the graph, the screener, the Korean names and the
+      // evidence excerpts (user, 2026-10-20: the enriched map from the phone).
+      "/api/mcp": [
+        "./public/data/merged_graph.json",
+        "./public/data/company_metrics.json",
+        "./public/data/company_ko.json",
+        "./public/data/evidence.json",
+      ],
     },
   },
   // Browser cache for logo images: a returning visitor reuses them for 7 days
