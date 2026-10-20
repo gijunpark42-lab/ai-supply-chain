@@ -376,7 +376,10 @@ earnings-ai/
 ├── relations_backfill.json   # companies on the map before 2026-10-17, most-connected first: pending / done + date (~5 per night)
 ├── utils/check_relations.py  # pre-flight check of relations files (source + verbatim quote, names, rule B, ADD-only vs git HEAD)
 ├── nodus42_mcp.py            # the enriched map (graph/) as a READ-ONLY MCP server for Claude Desktop: company profiles,
-│                             #   entries with source labels, relationships, supply chain, verbatim excerpts (2026-10-19)
+│                             #   entries with source labels, relationships, supply chain, verbatim excerpts (2026-10-19);
+│                             #   the same nine tools run remotely at https://nodus42.com/api/mcp (web/src/app/api/mcp/route.ts +
+│                             #   web/src/lib/mapMcp.ts, public/data) for the Claude apps on phone / web (2026-10-20)
+├── utils/mcp_check.py        # after each nightly publish: waits for the site's deploy, then checks that the remote MCP serves the new map
 ├── verify_graph.py           # AUDIT (read-only): every quarterly_data/contract re-checked against its source file → graph/verification.json
 ├── derive.py                 # graph → Timelines / Screener / Capex views (graph/timelines.bundle.json, graph/company_metrics.json, graph/capex_backlog.json)
 ├── enrich_status.py          # per-PIPELINE dashboard (enrich us/edgar/dart/intl/tw/conference/manual): last sync, source date range,
@@ -504,6 +507,11 @@ Nothing was dropped when these moved out of this file — each skill holds the o
   otherwise `python -X utf8 enrich_status.py`). The enrich skill's common rules (§0–§8) win over older notes.
 - Tag every new `quarterly_data` / `contracts` entry with `topics` (plus `slot` / `capex` where relevant) —
   the Timelines, Screener and Capex tabs are derived from these tags (Workflow 2, JOB 5). Never hand-edit `graph/`.
+- The map is served over MCP twice (user, 2026-10-20): `nodus42_mcp.py` (local, Claude Desktop) and `/api/mcp` on the
+  site (remote, Claude on the phone). Both read the BUILT data, so every publish updates them with no extra step;
+  a change to the shape of `graph/merged_graph.json` / `company_metrics.json` / `evidence.json` must update both
+  (`nodus42_mcp.py` and `web/src/lib/mapMcp.ts` keep the same tools and answers). `routine/nightly.ps1` logs
+  `utils/mcp_check.py` after each publish.
 - Keep new Python explicit and commented; explain new concepts to the builder.
 - Don't build future phases (scheduler, graph-merge, web) until the current phase is solid.
 - Return strict JSON when asked for chain data — no markdown code fences, no prose around it.
