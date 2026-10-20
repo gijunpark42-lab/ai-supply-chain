@@ -1,0 +1,52 @@
+{
+ "source": "INNIO 8-K (07-28-2026)",
+ "new_nodes": {
+  "Rehlko": {
+   "ticker": null,
+   "exchange": null,
+   "country": "US",
+   "status": "private",
+   "why": "Power-generation systems maker (formerly Kohler Energy; generator sets, engines, UPS, Clarke Energy gas-engine power plants) whose own site lists Data Center Solutions for hyperscale, colocation and enterprise / edge data centers. It buys INNIO gas-engine capacity for its power systems, so its business grows with the data-center power build-out INNIO's power_cooling node serves. Same role as Caterpillar, Cummins and ERock in power / Generation. Private (no listing); identity: rehlko.com (read via r.jina.ai 2026-10-19: 'Data Center Solutions: Hyperscale, Colocation, Enterprise & Edge'; 'embracing our future as an independent company with the new Rehlko brand'). Not an existing node under another spelling; not on the do-not-add list.",
+   "evidence": "INNIO 8-K (07-28-2026), Q2 results release: 'Multi-year strategic framework agreement with Rehlko, securing supply of approximately 1.25 GW of gas engine capacity over three years – expanding Rehlko’s existing 700-megawatt (MW) firm reservation.' and 'The increase in Equipment Order Backlog was driven, amongst other factors, by ... the multi-year strategic framework agreement with Rehlko.' INNIO Q2 FY2026 call, CEO Olaf Berlien: 'we announced the Greco [Rehlko, as transcribed] one was 1.25 GW ... a long-term contract delivering engines Type four, Type six.'",
+   "approved": "opus verifier 2026-10-19 (user-delegated board decision, question 'Rehlko'): approve - INNIO's own filing names Rehlko as the counterparty of a multi-year ~1.25 GW gas-engine supply framework (a stated customer of a universe company); Rehlko's own site shows a data-center power business, so it passes the litmus test like the private TerraPower / LS Cable & System nodes the user added; placed on the existing power / Generation sector of power_cooling.json; metadata to add: ticker null, exchange null, country US, status private"
+  }
+ },
+ "chains": {
+  "components/power_cooling.json": {
+   "players": [
+    {
+     "company": "INNIO",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "Jenbacher gas engines and gensets (Type 6 / J624 platform; containerized 5 MW units and multi-pack configurations) for behind-the-meter prime and backup power at AI data centers; Jenbacher power-solutions gensets (utility, peaker, biogas); Waukesha gas compression engines; lifecycle services",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Rehlko",
+       "relationship": "Jenbacher gas-engine capacity supplied to Rehlko's power systems under a multi-year strategic framework agreement (~1.25 GW over three years)",
+       "contracts": [
+        {
+         "source": "INNIO 8-K (07-28-2026)",
+         "signal": "INNIO's Q2 2026 results release (8-K exhibit) reports a multi-year strategic framework agreement with Rehlko securing supply of approximately 1.25 GW of gas engine capacity over three years, expanding Rehlko's existing 700-megawatt (MW) firm reservation; the release names the Rehlko agreement among the drivers of the increase in INNIO's equipment order backlog.",
+         "units": "approximately 1.25 GW of gas engine capacity over three years; existing 700 MW firm reservation",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "multi-year strategic framework agreement (gas-engine capacity supply)",
+         "topics": ["power_cooling"]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "Rehlko",
+     "domain": "power",
+     "sector": "Generation",
+     "product": "power-generation systems (generator sets and gas-engine power plants) incl. data-center power solutions for hyperscale, colocation and edge sites",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "source": "TSMC Q3 FY2026 (10-15-2026)",
+ "new_nodes": {
+  "GlobalFoundries": {
+   "ticker": "GFS",
+   "exchange": "NASDAQ",
+   "country": "US",
+   "why": "Existing node (optical_networking, power_semiconductor, quantum and space chains), NEW placement in packaging_substrate.json advanced_packaging / 'Wafer-Level Packaging (CoWoS, SoIC)': GF's own 10-08-2026 release says it will provide manufacturing service to TSMC, establishing a U.S.-based supply of silicon interposers for TSMC's CoWoS advanced packaging ecosystem (Malta, New York; volume ramp from H1 2028). The existing GF -> TSMC interposer edge sits under GF's silicon-photonics PIC placement in optical_networking.json, whose product does not match; this placement puts the interposer role in the CoWoS chain.",
+   "evidence": "TSMC Q3 FY2026 call, CEO C.C. Wei: 'We designed a deal with GlobalFoundries, and this is part of our overall strategy in the back-end supply ... Definitely, we have a little bit shortage on the back end, and we would like to work with our so-called partner with GlobalFoundries so that both TSMC and GlobalFoundries can support TSMC's customer for their product to be introduced with enough support on the capacity.'",
+   "approved": "opus verifier 2026-10-19 (user-delegated board decision, question 'GlobalFoundries -> TSMC (back-end)'): approve the second placement - a company document (GF release 10-08-2026) and TSMC management both tie GF's interposer manufacturing to TSMC's CoWoS back-end supply; existing company and metadata, existing sector, same pattern as the user-approved second placements (Korea Zinc, LG Innotek, Emerson)"
+  }
+ },
+ "chains": {
+  "manufacturing/packaging_substrate.json": {
+   "players": [
+    {
+     "company": "GlobalFoundries",
+     "layer": "advanced_packaging",
+     "sector": "Wafer-Level Packaging (CoWoS, SoIC)",
+     "product": "silicon interposers (incl. embedded deep-trench capacitor components) manufactured for TSMC's CoWoS advanced packaging (U.S.-based supply, Malta, New York)",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "TSMC",
+       "relationship": "silicon interposer manufacturing service for TSMC's CoWoS back-end supply",
+       "contracts": [
+        {
+         "source": "TSMC Q3 FY2026 (10-15-2026)",
+         "signal": "TSMC CEO C.C. Wei on the GlobalFoundries interposer deal: 'We designed a deal with GlobalFoundries, and this is part of our overall strategy in the back-end supply'; TSMC wants its customers 'fully supported by all the supply, including the front end and back end' and, with 'a little bit shortage on the back end', will work with its 'so-called partner' GlobalFoundries so that both TSMC and GlobalFoundries can support TSMC's customers with enough capacity.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "back-end supply partnership (silicon interposer capacity)",
+         "topics": ["packaging_substrate", "supply_tightness"]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

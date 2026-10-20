@@ -1,0 +1,51 @@
+{
+ "source": "Recursion 10-K (02-25-2026)",
+ "new_nodes": {
+  "Merck KGaA": {
+   "ticker": "MRK.DE",
+   "exchange": "XETRA",
+   "country": "DE",
+   "why": "Biopharma customer of Recursion's AI drug-discovery platform (oncology and immunology collaboration, $20 million upfront) - the same role as Sanofi, Bayer and Roche-Genentech in ai_bio Biopharma End Customers.",
+   "evidence": "Recursion 10-K (02-25-2026): 'In September 2023, we entered into a collaboration with Merck KGaA, Darmstadt, Germany. This multi-year collaboration utilizes our AI-driven precision drug design and discovery capabilities'; $20 million upfront, up to $674 million in milestones.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): second placement of an existing node (ai_bio application / Biopharma End Customers), as done for Moderna / Merck & Co. on 2026-10-12; a stated customer in Recursion's own filing; not a new company"
+  }
+ },
+ "chains": {
+  "applications/ai_bio.json": {
+   "players": [
+    {
+     "company": "Merck KGaA",
+     "layer": "application",
+     "sector": "Biopharma End Customers",
+     "product": "oncology and immunology drug-discovery programs with Recursion's AI-driven design platform (healthcare business)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "Recursion",
+     "layer": "ai_models",
+     "sector": "AI-Native Drug Discovery",
+     "product": "Recursion OS, biological foundation models, and Lab-in-the-Loop drug engine",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Merck KGaA",
+       "relationship": "AI-driven precision drug design and discovery collaboration (oncology and immunology)",
+       "contracts": [
+        {
+         "source": "Recursion 10-K (02-25-2026)",
+         "signal": "Customer Merck KGaA, Darmstadt, Germany: under the September 2023 Research Collaboration Agreement, Recursion leads AI-driven design, translational and early non-clinical studies to discover development candidates against initially agreed oncology and immunology targets; Merck KGaA paid a $20 million upfront and Recursion remains eligible for up to $674 million in discovery, development, regulatory and sales-based milestones for the three initial programs (up to $113 million in the discovery phase), plus royalties ranging from mid-single-digits to low-double-digits.",
+         "units": "three initial oncology and immunology programs",
+         "value": "$20 million upfront; up to $674 million in milestones (up to $113 million discovery-phase)",
+         "date_signed": "September 2023",
+         "type": "AI drug-discovery research collaboration",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

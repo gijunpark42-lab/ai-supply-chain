@@ -1,0 +1,89 @@
+{
+  "source": "Supermicro press release: Supermicro Expands Integrated Open Compute Project (10-13-2026)",
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "Supermicro",
+          "layer": "system_integration",
+          "sector": "Server / Rack OEM",
+          "product": "liquid-cooled GPU server racks",
+          "quarterly_data": [
+            {
+              "quarter": "Supermicro press release: Supermicro Expands Integrated Open Compute Project (10-13-2026)",
+              "signal": "Supermicro announced an expanded portfolio of Open Compute Project Accepted systems, racks and rear door heat exchangers (RDHx), integrated through its Data Center Building Block Solutions (DCBBS), and says its OCP solutions are now available. Specs stated: a 4U in-rack CDU with up to 250 kW cooling capacity supporting 45°C warm-water cooling; six rack-mounted RDHx models with 10 kW to 120 kW cooling capacity (AC and DC power options); ORv3 chiller door with 20-100 kW and ORW chiller door with 60 kW cooling capacity; OCP ORv3 44OU and 48OU 21-inch racks with integrated busbars and a 5,000 lb. certified static load capacity; DCBBS Coolants DLC-1 and DLC-2 aligned with the OCP PG25 Base Spec; power shelves (1 OU) and battery backup units (2 OU) for OCP racks. CEO Charles Liang: 'Supermicro is leading this transformation with DCBBS' (company claim).",
+              "figure": "in-rack CDU up to 250 kW in 4U; RDHx 10 kW to 120 kW; chiller doors 20-100 kW and 60 kW; ORv3 racks 44OU and 48OU, 5,000 lb. static load",
+              "topics": [
+                "power_cooling",
+                "product_launches"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "components/optical_networking.json": {
+      "players": [
+        {
+          "company": "Supermicro",
+          "layer": "system_integration",
+          "sector": "Networking Systems",
+          "product": "1.6T high-speed data switch and DCBBS networking systems",
+          "quarterly_data": [
+            {
+              "quarter": "Supermicro press release: Supermicro Expands Integrated Open Compute Project (10-13-2026)",
+              "signal": "Supermicro's DCBBS AI networking portfolio ranges from air and liquid-cooled 800G and 1.6T Ethernet switches including next-generation Co-Packaged Optics (CPO) platforms built on Broadcom Tomahawk 6 switching silicon, with its Enterprise Advanced SONiC operating system. Its 2 OU CPO switch for OCP ORv3 racks (40-60 VDC busbar power, blind-mate QD08 liquid cooling) delivers 102.4 Tbps across 128 × 800G ports. Supermicro says DCBBS will also include NVIDIA Spectrum-X Ethernet Photonics switch systems built on the 102.4 Tb/s NVIDIA Spectrum-6 Ethernet ASIC.",
+              "figure": "2 OU CPO switch: 102.4 Tbps across 128 × 800G ports",
+              "topics": [
+                "cpo"
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Broadcom",
+          "layer": "compute_hardware",
+          "sector": "Networking ASIC",
+          "product": "Tomahawk 5 switch ASIC and PAM4 DSP",
+          "connects_to": [
+            {
+              "company": "Supermicro",
+              "relationship": "Tomahawk 6 switching silicon for Supermicro Ethernet / CPO switch platforms",
+              "contracts": [
+                {
+                  "source": "Supermicro press release: Supermicro Expands Integrated Open Compute Project (10-13-2026)",
+                  "signal": "Supermicro states its AI networking portfolio includes next-generation Co-Packaged Optics (CPO) switch platforms built on Broadcom Tomahawk 6 switching silicon.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "component supply (switch silicon)",
+                  "topics": [
+                    "cpo"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "accelerators/nvda_b200.json": {
+      "players": [
+        {
+          "company": "Supermicro",
+          "layer": "system_integration",
+          "sector": "Server / Rack OEM",
+          "product": "B200/GB200 GPU server systems",
+          "quarterly_data": [
+            {
+              "quarter": "Supermicro press release: Supermicro Expands Integrated Open Compute Project (10-13-2026)",
+              "signal": "Supermicro's OCP portfolio includes a 2 OU NVIDIA HGX B300 system built to the OCP ORv3 specification with liquid cooling: each 8-GPU node fits into 21-inch racks, enabling up to 18 nodes and 144 total GPUs per rack.",
+              "figure": "up to 18 nodes and 144 total GPUs per rack",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

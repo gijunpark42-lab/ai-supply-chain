@@ -1,0 +1,44 @@
+{
+ "source": "Akamai Technologies 8-K (09-24-2026)",
+ "note": "Claude decision 2026-10-19 (user delegated: '질문은 니가 알아서 다 처리'), board question 'Jabil': Jabil gets a placement in neocloud.json beside Akamai's other hardware supplier from the same 8-K (Lenovo -> Akamai Technologies, Server / Rack OEM); sector Server ODM = Jabil's sector in every other chain (new to this file, as Xiaomi's sector was).",
+ "new_nodes": {
+  "Jabil": {
+   "ticker": "JBL",
+   "exchange": "NYSE",
+   "country": "US",
+   "why": "Existing node (Server ODM in power_cooling / mlcc / TPU v7 chains), new in neocloud.json: contract manufacturer of Akamai's customized server hardware for its cloud build-out.",
+   "evidence": "Akamai 8-K (09-24-2026), Item 1.01 'Jabil Agreement': Build Request under the 2019 Master Services Agreement, 'pursuant to which Jabil provides the Company with contract manufacturing and related services, including the manufacture of customized server hardware'; Akamai 'has authorized Jabil to purchase approximately $1.7 billion of memory components'.",
+   "approved": "Claude verifier 2026-10-19 (user delegated): existing company, new in this chain at system_integration / Server ODM (its sector everywhere else); the counterparty's own 8-K states the supply relationship as a material definitive agreement filed with the Anthropic capacity deal and the Lenovo hardware agreement (Lenovo -> Akamai already an edge here); no duplicate name."
+  }
+ },
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Jabil",
+     "layer": "system_integration",
+     "sector": "Server ODM",
+     "product": "Contract manufacturing of customized server hardware (plus warranty, spare parts and repair services) for Akamai's cloud build-out",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Akamai Technologies",
+       "relationship": "contract manufacturing of customized server hardware (Master Services Agreement, 2019)",
+       "contracts": [
+        {
+         "source": "Akamai Technologies 8-K (09-24-2026)",
+         "signal": "Akamai 8-K: on September 24, 2026 Akamai and Jabil entered into a Build Request under their existing Master Services Agreement (May 23, 2019), under which Jabil provides Akamai contract manufacturing and related services including the manufacture of customized server hardware; Akamai authorized Jabil to purchase approximately $1.7 billion of memory components, paying Jabil the supplier invoice amounts on receipt, with Jabil holding the components on consignment as bailee and repurchasing them at cost as they are used. Akamai filed the Jabil Agreement as a material definitive agreement (Item 1.01).",
+         "units": "memory components held on consignment",
+         "value": "approximately $1.7 billion of memory components",
+         "date_signed": "09-24-2026",
+         "type": "supply agreement (build request under master services agreement)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

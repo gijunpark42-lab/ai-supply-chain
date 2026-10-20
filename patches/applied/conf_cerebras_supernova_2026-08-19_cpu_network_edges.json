@@ -1,0 +1,73 @@
+{
+  "source": "Cerebras Supernova 2026 (08-19-2026)",
+  "new_nodes": {
+    "Cerebras": {
+      "ticker": "CBRS",
+      "exchange": "NASDAQ",
+      "country": "US",
+      "why": "Existing graph node, new placement in cpu_datacenter.json compute_hardware / Dedicated Inference Accelerators (beside SambaNova): Cerebras' inference clusters use AMD server CPUs to run the cluster software and Arista networking to tie the systems together, so it is a buyer in the data-center CPU / networking chain. The placement carries the AMD (EPYC) and Arista supply edges; its Helios edge stays in amd_mi450_helios.json.",
+      "evidence": "Cerebras Supernova 2026 (08-19-2026), CEO Andrew Feldman: 'we use AMD CPUs to manage the software that runs on the cluster' ... 'We use Arista to tie everything together.' ... 'Jayshree Ullal supported us when we weren't buying very much at all, and now we're buying a fair bit.'",
+      "approved": "opus verifier 2026-10-19 (board question 50, user-delegated decision): approve - Cerebras management names AMD CPUs and Arista networking in its own clusters (stated supplier relationships, not a demo); existing node under its canonical name; existing sector; a separate chain edge keeps the EPYC supply from mixing with the Helios-rack meaning of AMD -> Cerebras in amd_mi450_helios.json (same split as AMD -> Microsoft, whose EPYC edge sits in cpu_datacenter.json)."
+    }
+  },
+  "chains": {
+    "components/cpu_datacenter.json": {
+      "players": [
+        {
+          "company": "Cerebras",
+          "layer": "compute_hardware",
+          "sector": "Dedicated Inference Accelerators",
+          "product": "wafer-scale inference clusters (cluster software run on AMD CPUs, Arista networking)",
+          "quarterly_data": [],
+          "connects_to": []
+        },
+        {
+          "company": "AMD",
+          "layer": "compute_hardware",
+          "sector": "Server CPU",
+          "product": "EPYC server CPUs",
+          "connects_to": [
+            {
+              "company": "Cerebras",
+              "relationship": "EPYC server CPUs that manage the software running on Cerebras clusters",
+              "contracts": [
+                {
+                  "source": "Cerebras Supernova 2026 (08-19-2026)",
+                  "signal": "Cerebras CEO Andrew Feldman at Supernova: 'we use AMD CPUs to manage the software that runs on the cluster'; when AMD's EPYC CPU server line was described on stage, he said 'We use those in our cluster.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "CPU supply",
+                  "topics": ["cpu"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Arista",
+          "layer": "interconnect",
+          "sector": "Scale-out",
+          "product": "AI Ethernet switching",
+          "connects_to": [
+            {
+              "company": "Cerebras",
+              "relationship": "networking that ties Cerebras clusters together",
+              "contracts": [
+                {
+                  "source": "Cerebras Supernova 2026 (08-19-2026)",
+                  "signal": "Cerebras CEO Andrew Feldman at Supernova: 'We use Arista to tie everything together', and to Arista CEO Jayshree Ullal on stage: 'Jayshree Ullal supported us when we weren't buying very much at all, and now we're buying a fair bit.'",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "networking supply",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

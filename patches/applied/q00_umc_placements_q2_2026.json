@@ -1,0 +1,58 @@
+{
+ "source": "UMC Q2 FY2026 (07-29-2026)",
+ "new_nodes": {
+  "UMC": {
+   "ticker": "UMC",
+   "exchange": "NYSE",
+   "country": "TW",
+   "why": "UMC's own call describes (1) a silicon-photonics foundry business (first mass-production delivery of a 12-inch photonics IC, imec-licensed 12-inch platform, TFLN modulators in production, optical I/O interposers) - the same role as GlobalFoundries / Tower in optical_networking interconnect / Components - and (2) an advanced-packaging business in production (interposers with DTC, discrete DTC, bridge die, 3D wafer-to-wafer hybrid bonding; more than ten active customers) - the role of the Wafer-Level Packaging players in packaging_substrate.",
+   "evidence": "UMC Q2 FY2026 call, CEO Jason Wang: 'we announced the company's first mass production delivery of a 12-inch photonics IC to a customer'; 'For TFLN, we have the world's first TFLN modulator in production already'; 'We have entered production for 3D wafer-to-wafer hybrid bonding, bridge die and discrete DTC'; 'more than ten active customers'.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): two new placements of an existing node - optical_networking interconnect / Components and packaging_substrate advanced_packaging / Wafer-Level Packaging (CoWoS, SoIC); the company's own call ties each product line to that chain (2026-10-01 rule for second placements); not a new company"
+  }
+ },
+ "chains": {
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "UMC",
+     "layer": "interconnect",
+     "sector": "Components",
+     "product": "12-inch silicon photonics PICs (imec-licensed platform), 8-inch TFLN modulators and optical I/O interposers (foundry)",
+     "quarterly_data": [
+      {
+       "quarter": "UMC Q2 FY2026 (07-29-2026)",
+       "signal": "Silicon photonics (CEO Jason Wang): earlier this month UMC announced its first mass production delivery of a 12-inch photonics IC to a customer, which it calls a major milestone demonstrating high-volume silicon photonics manufacturing on 12-inch wafers; the silicon photonics platform is to be available for general customer use in 2027. UMC says it is the first to offer a 12-inch solution, with better process control and performance than 8-inch competitors (lower propagation loss and better yield, demonstrated to customers). In TFLN, UMC says it has the world's first TFLN modulator in production and is developing 40G per lane and beyond, supporting beyond-400G use cases. TFLN components can be combined with UMC's silicon photonics PICs through advanced packaging: UMC can offer optical I/O interposers with PICs and provide TFLN components for CPO solutions.",
+       "figure": "first mass-production delivery of a 12-inch photonics IC; platform general availability 2027; TFLN 40G per lane in development, beyond 400G",
+       "topics": [
+        "silicon_photonics"
+       ],
+       "slot": "next_catalyst"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "manufacturing/packaging_substrate.json": {
+   "players": [
+    {
+     "company": "UMC",
+     "layer": "advanced_packaging",
+     "sector": "Wafer-Level Packaging (CoWoS, SoIC)",
+     "product": "2.5D silicon interposers with deep-trench capacitors (DTC), discrete DTC, bridge die, wafer-to-wafer hybrid bonding and memory stacking",
+     "quarterly_data": [
+      {
+       "quarter": "UMC Q2 FY2026 (07-29-2026)",
+       "signal": "Advanced packaging (CEO Jason Wang): UMC started with interposer solutions and RF SOI 3D IC and chiplet solutions and now offers more, and projects its addressable market to more than double by 2030 as it expands from 2.5D interposers with DTC and discrete DTC to wafer-to-wafer stacking and memory-to-memory stacking. More than ten active customers and over 35 new products are in discussion, with expected tape-outs in 2026 and early 2027; a high percentage of those products are DTC, which is a significant portion. UMC has entered production for 3D wafer-to-wafer hybrid bonding, bridge die and discrete DTC. It is not positioning as a direct CoWoS alternative, and works across the entire ecosystem rather than with a single partner. CEO: 'We believe we are ahead of our peers in advanced packaging, which is leading to share gains and many new opportunities.'",
+       "figure": "addressable market to more than double by 2030; more than ten active customers; over 35 new products in discussion; tape-outs 2026 and early 2027",
+       "topics": [
+        "packaging_substrate"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

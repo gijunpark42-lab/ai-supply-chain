@@ -1,0 +1,34 @@
+{
+ "source": "UMC 20-F (04-30-2026)",
+ "note": "Claude decision 2026-10-19 (user delegated: '질문은 니가 알아서 다 처리'), board question 'Shin-Etsu Handotai': SEH is Shin-Etsu Chemical's 100%-owned consolidated subsidiary (Shin-Etsu Chemical annual securities report FY2026, related-companies table: 信越半導体㈱ 100.0%), so UMC's named wafer supplier maps to the Shin-Etsu Chemical node (naming rule proposed in decisions.json). Same sentence that made SUMCO -> UMC and Formosa Sumco -> UMC.",
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "Shin-Etsu Chemical",
+     "layer": "materials",
+     "sector": "Silicon Wafers (300mm)",
+     "product": "300mm silicon wafers & EUV photoresist",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "UMC",
+       "relationship": "silicon wafer supply (through its subsidiary Shin-Etsu Handotai; UMC 20-F names it among the principal makers of UMC wafers)",
+       "contracts": [
+        {
+         "source": "UMC 20-F (04-30-2026)",
+         "signal": "UMC 20-F supplier disclosure: UMC says it purchased a majority of its silicon wafers from Shin-Etsu Handotai Corporation, GlobalWafers, Sumco Group and Soitec, the principal makers of its wafers, and that it has signed long-term supply contracts with its suppliers to obtain sufficient quantities of acceptable quality raw materials.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "20-F supplier disclosure",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

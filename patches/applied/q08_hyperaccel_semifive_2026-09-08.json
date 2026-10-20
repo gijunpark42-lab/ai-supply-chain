@@ -1,0 +1,51 @@
+{
+ "source": "SemiFive press release: SEMIFIVE Commences Mass Production of HyperAccel's LLM AI (09-08-2026)",
+ "new_nodes": {
+  "HyperAccel": {
+   "ticker": null,
+   "exchange": null,
+   "country": "KR",
+   "why": "Korean developer of the data-center LLM inference accelerator 'Bertha' (Samsung 4nm, in mass production through SemiFive) - a dedicated inference-accelerator vendor like Rebellions, FuriosaAI, Etched, d-Matrix.",
+   "evidence": "SemiFive release 09-08-2026: SemiFive 'has begun mass production of HyperAccel's data center LLM AI inference accelerator Bertha on Samsung Foundry's 4nm process ... after securing an initial mass production contract'.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): named by SemiFive as the customer of an initial mass-production contract (stated customer relationship); identifiable; no existing node or removed name; private, KR"
+  }
+ },
+ "chains": {
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "HyperAccel",
+     "layer": "compute_hardware",
+     "sector": "Dedicated Inference Accelerators",
+     "product": "'Bertha' data-center LLM inference accelerator (Samsung 4nm, die over 500 mm2)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "SemiFive",
+     "layer": "compute_hardware",
+     "sector": "Custom AI ASIC (hyperscaler silicon)",
+     "product": "custom SoC / AI ASIC design platform and turnkey ASIC services (Samsung Foundry DSP; GlobalFoundries platinum partner)",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "HyperAccel",
+       "relationship": "turnkey design and mass-production supply of the Bertha LLM inference accelerator",
+       "contracts": [
+        {
+         "source": "SemiFive press release: SEMIFIVE Commences Mass Production of HyperAccel's LLM AI (09-08-2026)",
+         "signal": "SemiFive's release: after securing an initial mass production contract, SemiFive began mass production of HyperAccel's data-center LLM inference accelerator 'Bertha' on Samsung Foundry's 4nm process as a complete turnkey solution (front-end design and verification through packaging, testing and volume manufacturing supply); volumes are projected to expand through follow-on purchase orders as HyperAccel's service rollout expands.",
+         "units": "die more than 500 mm2",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "turnkey ASIC design and mass-production supply",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

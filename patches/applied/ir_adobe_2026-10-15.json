@@ -1,0 +1,48 @@
+{
+  "source": "Adobe press release: Adobe and NVIDIA Expand Collaboration to Speed Agentic (10-15-2026)",
+  "chains": {
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "Adobe",
+          "layer": "application",
+          "sector": "AI-Native Vertical Apps",
+          "product": "Firefly / Acrobat AI Assistant / GenStudio AI creative and marketing applications",
+          "quarterly_data": [
+            {
+              "quarter": "Adobe press release: Adobe and NVIDIA Expand Collaboration to Speed Agentic (10-15-2026)",
+              "signal": "Adobe and NVIDIA expanded their partnership on October 15, 2026 (building on the strategic partnership announced in March): Adobe Photoshop, Premiere and Substance 3D are optimized for the NVIDIA RTX Spark superchip, which NVIDIA launched 'earlier this month', delivering 'up to 2x faster AI processing, editing, color and effects', and Adobe rearchitected Photoshop around GPU-accelerated compositing. Adobe Brand Concierge has been optimized with NVIDIA Nemotron open models; 'This version will be available to enterprise customers later this year.' NVIDIA has also selected Brand Concierge to drive personalized conversational experiences on its website. Deepa Subramaniam, Adobe vice president of product marketing, creative professionals: 'By partnering with NVIDIA to optimize Photoshop, Premiere and Substance 3D for RTX Spark and accelerating Frame.io in the cloud, we’re delivering the performance creatives need to bring their ideas to life.'",
+              "figure": "up to 2x faster AI processing on RTX Spark; Nemotron-optimized Brand Concierge available to enterprise customers later this year",
+              "topics": [],
+              "counterparty": "NVIDIA",
+              "counterparty_role": "partner; customer of Brand Concierge"
+            }
+          ]
+        },
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "Vera Rubin platform (Rubin GPU, Vera CPU, NVLink switch, Spectrum-X / Quantum-X networking)",
+          "connects_to": [
+            {
+              "company": "Adobe",
+              "relationship": "Accelerated computing for Adobe Firefly Foundry custom model training",
+              "contracts": [
+                {
+                  "source": "Adobe press release: Adobe and NVIDIA Expand Collaboration to Speed Agentic (10-15-2026)",
+                  "signal": "Adobe is using NVIDIA accelerated computing to speed cloud media processing and content discovery for Adobe Frame.io: the updated pipeline uses NVIDIA NVDEC for hardware-accelerated decoding and NVIDIA TensorRT with CUDA for content preprocessing and embedding generation, moving video decoding, preprocessing and embedding generation onto NVIDIA GPUs. Early results from selected Frame.io transcode and search workloads: approximately 5x faster embedding generation, 4-5x improvement in P95 processing latency and an approximately 80% smaller search proxy.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "announced October 15, 2026",
+                  "type": "deployment (NVIDIA GPUs and CUDA-X software in the Frame.io cloud pipeline)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

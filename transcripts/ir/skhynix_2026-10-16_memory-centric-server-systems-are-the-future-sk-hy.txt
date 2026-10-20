@@ -1,0 +1,300 @@
+SOURCE: SK Hynix official press release -- https://news.skhynix.com/en/ocp-global-summit-2026/
+TITLE: "Memory-Centric Server Systems Are the Future": SK hynix Presents Its Next-Generation AI Infrastructure Vision at OCP Global Summit 2026
+DATE: 10-16-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-18.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: SK Hynix press release: "Memory-Centric Server Systems Are the Future": SK hynix (10-16-2026)
+
+---
+“Memory-Centric Server Systems Are the Future”: SK hynix Presents Its Next-Generation AI Infrastructure Vision at OCP Global Summit 2026 – SK hynix Newsroom
+
+SK hynix Newsroom | “Memory-Centric Server Systems Are the Future”: SK hynix Presents Its Next-Generation AI Infrastructure Vision at OCP Global Summit 2026
+
+Skip to the content
+
+TECH&AI
+
+“Memory-Centric Server Systems Are the Future”: SK hynix Presents Its Next-Generation AI Infrastructure Vision at OCP Global Summit 2026
+
+As the volume of data handled by AI grows explosively, data bottlenecks have emerged as a new challenge. Can next-generation memory technology offer the solution? There is now an opportunity to hear SK hynix’s answer to this question.
+
+SK hynix took part in OCP Global Summit 2026, held from the 12th to the 15th in San Jose, California, where it unveiled a wide range of next-generation memory solutions and presented the direction memory technology should take in the AI era.
+
+OCP Global Summit is a technology conference for sharing and standardizing the design and specifications of data center hardware. This year, with the infrastructure technologies that will underpin the advancement of AI emerging as a central theme, the new server system proposed by SK hynix drew considerable attention. SK hynix demonstrated the next-generation solutions it is preparing for servers at the actual system level, proving their feasibility and once again affirming its technological leadership.
+
+Proposing a Next-Generation Server System Based on ‘CXL Pooled Memory’… Confirming the Benefits Through Live Demos
+
+▲ SK hynix’s exhibition booth
+
+With a booth concept that balanced a sturdy gray frame with neon-blue lighting, SK hynix gave visual form to ‘reliability’ and ‘efficiency’—the core values of its next-generation memory solutions. The exhibition space was divided into front and rear sections. At the front, a ‘Memory Section’ showcasing the company’s current flagship products captured visitors’ attention, while the spacious ‘System Demo’ section at the rear allowed visitors to take a closer look at the SK hynix memory solutions that will make up the next-generation server ecosystem.
+
+▲ Visitors touring the ‘System Demo’ section
+
+The ‘System Demo’ section introduced three solutions in sequence, from left to right: CMM-DDR5, MARS, and CMM-Ax. CMM (CXL* Memory Module)-DDR5 is a memory solution that improves resource utilization efficiency by having multiple servers share a memory pool and use as much of it as they need, based on the CXL interface standard. At this exhibition, SK hynix unveiled its second-generation product (256GB), optimized for AI workloads and based on CXL 3.2. Compared with the previous generation, the product more than doubles bandwidth (80GB/s) and improves energy efficiency by about 30%. With CXL Pooled functionality also applied, it is drawing attention as a next-generation memory product that will effectively resolve bottlenecks in data-intensive, high-load environments.
+
+* CXL (Compute eXpress Link): A next-generation solution that efficiently connects CPUs, GPUs, memory, and other components within a computing system to support large-capacity, ultra-high-speed computation. Based on the PCIe interface, it offers fast data transfer and provides a pooling function that uses memory efficiently.
+
+▲ Visitors examining the CMM-DDR5 product
+
+In September last year, SK hynix signed a business agreement with NAVER Cloud and has since been working jointly to resolve bottlenecks in cloud AI services using CXL-based memory solutions. At this demo, the company presented the results of validating—at the PoC* level—whether a KV cache*-sharing solution in an agentic AI* environment and an embedding-sharing solution in ‘OmniServe’, an omni-modal* service, actually work. Having analyzed real customer systems and workloads to confirm the applicability of its CXL-based solutions, SK hynix has laid the groundwork for a full-scale expansion of these solutions.
+
+* Agentic AI: AI that sets its own goals and carries out multi-step tasks without user instructions.
+
+* KV Cache (Key Value Cache): Temporary memory that stores previously computed results when a large language model-based AI agent generates text. It grows exponentially the longer a conversation becomes and the more tasks there are to process, so the ability to store and process it efficiently has a major impact on an AI agent’s performance.
+
+* Omni-Modal: An approach that processes multiple forms of data—such as text, images, and voice—together within a single model.
+
+* PoC (Proof of Concept): A stage that verifies whether a new technology or concept actually works.
+
+▲ Visitors reviewing information about MARS
+
+MARS (Memory Centric AI Rack System) is a next-generation system that maximizes efficiency by integrating partners’ solutions into a single rack*, with memory at its core. At this exhibition, SK hynix presented three demos together with several partners.
+
+* Rack: A standard-sized frame used in data centers to stack servers, storage, network equipment, and other devices in layers. Because equipment is managed in rack units, the rack serves as the basic building block of data center infrastructure.
+
+▲ A demonstration of AI agent serving technology using CXL pooled memory
+
+In the AI agent serving demo, SK hynix—together with Arcee, Liqid, and Marvell—demonstrated a system that connects multiple servers and GPUs using pooled memory*. Through this, the company proved that transferring or reusing a KV cache based on CXL pooled memory significantly improves system performance compared with conventional methods that rely on network communication.
+
+* Pooled Memory: Technology that groups multiple CXL memory units into a pool and raises overall memory utilization by allowing several hosts to effectively share its capacity.
+
+▲ A demonstration of AI agent serving technology using CXL hybrid memory
+
+In a demo conducted with AMD, Penguin, Xcena, and Arcee, SK hynix showed the effectiveness of a memory rack using CXL memory and CXL hybrid memory*. The results confirmed that the memory rack can efficiently store and rapidly reuse the large-scale KV caches that are continuously generated. In particular, the demo clearly showed two capabilities: quickly predicting which KV caches will be needed based on prior conversation and task history, and loading the required KV caches into DRAM in advance for fast processing. It also proved that, by storing the full KV cache on an SSD, the rack can deliver both fast read performance and high-capacity storage at the same time.
+
+* CXL Hybrid Memory: A CXL-based hybrid memory solution that combines DRAM and SSD.
+
+▲ A demonstration of technology that reduces service response latency using pooled memory
+
+With Pickle, a personal AI agent service provider, SK hynix carried out a demo that reduces service response latency using pooled memory. The demonstration confirmed that streaming based on pooled memory can accelerate the data transfers between the multiple AI models essential to a personal AI agent, so that final results reach users more quickly.
+
+▲ A demonstration of Efficient Long Context LLM Serving technology
+
+CMM-Ax is a next-generation memory solution that combines computation functions with memory. By performing computations directly inside the memory, without moving data, it can reduce the power and cost burden on data centers. At this exhibition, through a demo of its next-generation AI inference system, ‘Efficient Long Context* LLM* Serving’, SK hynix showed that CMM-Ax can efficiently accelerate the long contexts that have been difficult to process on conventional GPU-based systems. The research behind these achievements was also officially recognized for its technical excellence, having been published to ‘MICRO 2026’, the most prestigious academic conference in the field of computer architecture.
+
+* Long Context: The range of text that AI can process at once is defined as its context. The longer the context, the more information AI can reference at once to generate refined answers—but this also requires more memory capacity.
+
+* LLM (Large Language Model): An AI model that learns from big data to generate and understand natural, human-like sentences. By greatly increasing the scale of its parameters, it acquires advanced language-processing capabilities such as complex context comprehension, reasoning, and translation.
+
+Sharing Its Product Portfolio from HBM to HBF, … The Present and Future of Memory Technology in One Place
+
+The Memory Section was arranged so that visitors could see the flagship products with which SK hynix is currently leading the memory market. In the product portfolio exhibition space at the far left, a lineup of products for AI infrastructure—spanning eSSDs and server DRAM—was on display.
+
+▲ SK hynix’s main eSSD products
+
+▲ SK hynix’s main server DRAM products
+
+The eSSD lineup presented products with different uses tailored to diverse customer needs, organized by form factor: the high-performance ‘PS1010 U.2’; the high-performance ‘PS1110 E3.S’ and high-capacity ‘PS1101 E3.S’ currently under sequential development; and the ‘PEB210 E1.S’ and ‘PEB210 M.2 2280’, which support Direct Liquid Cooling (DLC) and are drawing attention as eSSDs for data centers.
+
+For server DRAM, SK hynix introduced a DDR5 RDIMM lineup in a range of capacities—led by the ‘256GB 3DS* RDIMM*’, which delivers the industry’s largest capacity for AI workloads, and extending to 96GB and 64GB. Alongside the 128GB DDR5 MRDIMM*, it also exhibited the ‘192GB SOCAMM*2’, which improves power and space efficiency with a new form factor.
+
+* 3DS (3D Stacked Memory): High-performance memory that connects two or more DRAM chips with TSVs (through-silicon vias).
+
+* RDIMM (Registered Dual In-line Memory Module): A server module that combines multiple DRAM chips.
+
+* MRDIMM (Multiplexed Rank Dual In-line Memory Module): A product in which two ranks—the basic operating unit of a module—operate simultaneously, dramatically improving speed.
+
+* SOCAMM (Small Outline Compression Attached Memory Module): A low-power DRAM-based memory module specialized for AI servers.
+
+▲ A touchscreen where visitors can check product information
+
+SK hynix also set up a touchscreen model resembling an actual server, allowing visitors to check detailed product information.
+
+▲ A visitor mounting SK hynix’s HBM4 product onto NVIDIA’s Vera Rubin model
+
+The HBM* exhibition space in the center was designed so that visitors could take in both SK hynix’s HBM technology leadership and its solid partnership with NVIDIA at a glance. On the left side of the display, a model of NVIDIA’s Vera Rubin superchip highlighted the partnership between the two companies, while visitors could mount HBM4 and SOCAMM2 onto a server model themselves. On the right stood an HBM model magnified one million times, with an accompanying monitor playing a video on TSV* and Advanced MR-MUF*—the core technologies behind HBM. Between the two models, the actual HBM4E, HBM4, and HBM3 products were placed so that visitors could see firsthand how HBM products have evolved from generation to generation.
+
+* HBM (High Bandwidth Memory): A high-value-added, high-performance product that connects multiple DRAM chips vertically to increase capacity and dramatically raise data processing speed. HBM has been developed in the following order: 1st generation (HBM) – 2nd generation (HBM2) – 3rd generation (HBM2E) – 4th generation (HBM3) – 5th generation (HBM3E) – 6th generation (HBM4) – 7th generation (HBM4E).
+
+* TSV (Through Silicon Via): Technology that connects chips vertically through electrodes that pass straight through the silicon substrate.
+
+* Advanced MR-MUF: A next-generation MR-MUF technology that applies warpage control—a chip-control technology that stacks chips 40% thinner than conventional chips without bending—and also improves heat dissipation.
+
+▲ A model showing the structure of HBF
+
+HBF (High Bandwidth Flash) is a next-generation NAND solution that, like HBM, applies TSV technology to combine the high capacity of conventional storage with high bandwidth. As the inference-centric agentic AI era unfolds, it is drawing attention as a key technology for efficiently handling the surging data usage of AI. On the left side of the display stood a model showing the structure of HBF, with a banner introducing its detailed specifications to its right. On an accompanying monitor and tablet, SK hynix introduced the key features of HBF, along with the respective strengths of HBM and HBF across different AI inference service environments, through videos and performance graphs based on internal simulations. It showed that HBM’s high-speed processing can be leveraged in environments where fast response times are critical, while HBF’s high-capacity characteristics can be leveraged in environments that require large-capacity memory to serve many users.
+
+▲ A graphic conveying SK hynix’s vision, located on the outer wall of the booth
+
+Meanwhile, a graphic conveying the company’s vision of providing optimized solutions across the entire memory hierarchy was displayed on the right wall of the booth. Beneath the journey from developing the world’s first HBM in 2013 to achieving its current technological leadership, the latest products and technology development status in each of the HBM, DRAM, and NAND fields were also introduced.
+
+“We Will Break Through Technological Limits with a Memory-Centric, Next-Generation AI Rack System”
+
+▲ Vice President Hosik Kim, head of the Memory Systems Research department, during his presentation
+
+Alongside the exhibition, the presentation sessions also heightened expectations for memory-centric server systems. First, in the ‘Executive’ session held on the afternoon of the first day, Vice President Hosik Kim, head of the Memory Systems Research, took the stage as a speaker and gave a presentation titled ‘Introduction to Memory-centric AI Rack Systems (MARS)’.
+
+Vice President Kim first noted that, as generative AI and hyperscale data centers grow rapidly, conventional CPU- and GPU-centric architectures face a bottleneck known as the ‘memory wall’ along with sharply rising power consumption. He then presented a ‘memory-centric AI rack system’ as the solution.
+
+“This system implements rack-level memory pooling and dynamic zero-copy data sharing by connecting CPUs and GPUs with next-generation CXL technology,” he explained, “and it is structured to significantly increase the speed of data movement in high-load workloads.” He added, “By leveraging this, we can improve the KV cache reuse efficiency of collaborative agentic AI, accelerate the response speed of the multimodal omni model in personal agentic AI services, and solve the irregular memory access problems that arise in large-scale GNN* training.”
+
+* GNN (Graph Neural Network): An AI model that learns from graph-structured data connected by nodes and edges. It is used in fields where the relationships between data are important, such as social networks, molecular structures, and recommendation systems.
+
+▲ Vice President Youngpyo Joo, head of the System Architecture department, taking part in the panel discussion
+
+In addition, Vice President Youngpyo Joo, head of the System Architecture, took part in a panel discussion held on the afternoon of the third day. Conducted under the theme of “Integrating SW frameworks and APIs across companies for PIM/PNM,” the panel discussed the importance of the SW framework that connects customers and products within an ecosystem where multiple companies are intertwined in both competition and cooperation, and it also addressed the need for standardization in this area.
+
+▲ Team Leader Jongryool Kim of AI System Infra during his presentation
+
+▲ Technical Leader Younghoon Min of AI System Infra during his presentation
+
+▲ Technical Leader Juhee Lee of AI Platform SW during her presentation
+
+In the ‘Breakout’ session held the same day, the engineers directly involved in development took the stage and gave detailed accounts of the need for key memory technologies, the background to their development, and the actual development journey and current status.
+
+First, Team Leader Jongryool Kim of AI System Infra spoke on “Agentic AI Serving System with Computational Shared Memory Pool”—shared-memory-based technologies that enhance agentic AI service performance—explaining that token sharing accelerates CPU-based tokenization, while KV cache sharing improves response speed and resource efficiency. He also highlighted the potential to further improve performance by offloading tokenization and real-time KV cache importance analysis to computational shared memory.
+
+Technical Leader Younghoon Min of AI System Infra, together with Professor Kiwan Maeng of Pennsylvania State University, spoke on “A System Architecture using Computational Memory for Differentially Private Training”—a system architecture that uses computation-equipped memory to make AI training with differential privacy more efficient—introducing a core technology that reduces the additional computational burden and data movement of the training process used to protect personal information, thereby improving training speed and energy efficiency.
+
+Finally, Technical Leader Juhee Lee of AI Platform SW gave a presentation on “Storage as a Performance Tier for LLM Serving.”
+
+SK hynix said, “At this OCP Global Summit, it was especially meaningful that we could show how our next-generation memory solutions work in real systems,” adding, “We will continue to pursue technological innovation so that AI technology can keep advancing with memory at its core.”
+
+Related content
+
+[Inside the Research] In the AI era, NAND moves beyond storage to computing… 3D FeNAND co-optimization at IEEE
+
+October 14, 2026
+
+TECH&AI
+
+3D Fe-NAND
+
+3D NAND
+
+A-CiM
+
+AI
+
+CiM
+
+CTN
+
+Ferroelectric
+
+[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance
+
+October 2, 2026
+
+TECH&AI
+
+Agentic AI
+
+CXL
+
+GPU
+
+HBM
+
+[AI infrastructure insight] Why power and cooling have become the next challenge for AI data centers
+
+September 30, 2026
+
+TECH&AI
+
+AI
+
+AI data center
+
+AI Infrastructure
+
+“Behind AI’s Rapid Growth Lies Memory” — SK hynix Shares Its Next-Generation Memory Portfolio at the TSMC OIP Conference
+
+September 28, 2026
+
+TECH&AI
+
+AI Semiconductor
+
+eSSD
+
+HBF
+
+HBM
+
+SOCAMM2
+
+SSD
+
+TSMC OIP
+
+[Inside the Research] In the AI era, NAND moves beyond storage to computing… 3D FeNAND co-optimization at IEEE
+
+October 14, 2026
+
+TECH&AI
+
+3D Fe-NAND
+
+3D NAND
+
+A-CiM
+
+AI
+
+CiM
+
+CTN
+
+Ferroelectric
+
+[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance
+
+October 2, 2026
+
+TECH&AI
+
+Agentic AI
+
+CXL
+
+GPU
+
+HBM
+
+[AI infrastructure insight] Why power and cooling have become the next challenge for AI data centers
+
+September 30, 2026
+
+TECH&AI
+
+AI
+
+AI data center
+
+AI Infrastructure
+
+“Behind AI’s Rapid Growth Lies Memory” — SK hynix Shares Its Next-Generation Memory Portfolio at the TSMC OIP Conference
+
+September 28, 2026
+
+TECH&AI
+
+AI Semiconductor
+
+eSSD
+
+HBF
+
+HBM
+
+SOCAMM2
+
+SSD
+
+TSMC OIP
+
+Homepage
+
+INSTAGRAM
+
+YOUTUBE
+
+Heritage
+
+Media Library
+
+Toggle Menu
+
+Back to Top

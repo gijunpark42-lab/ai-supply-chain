@@ -1,0 +1,21 @@
+{
+ "reviewer": "b6-board-2026-10-19",
+ "items": [
+  {
+   "kind": "quarterly_data",
+   "company": "Kingsoft Cloud",
+   "target": null,
+   "label": "Kingsoft Cloud Q2 FY2026 (08-19-2026)",
+   "signal_prefix": "Q2 2026 profitability (CFO Li Yi): adjusted gross profit RMB 472 milli",
+   "action": "set",
+   "set": {
+    "signal": "Q2 2026 profitability (CFO Li Yi): adjusted gross profit RMB 472 million, adjusted gross margin 15.4% (13% last quarter, 14.1% a year ago), driven by higher public cloud margins on strong AI demand; adjusted operating profit RMB 124 million, adjusted operating margin 4.0% - operating profit turned positive for the first time (versus -7.1% a year ago); adjusted net loss garbled in the call transcript (a dropped digit; the filed non-GAAP net loss is on the Kingsoft Cloud 6-K (08-19-2026) entry); non-GAAP EBITDA RMB 1,100 million, up 171%. Depreciation and amortization rose 75% YoY to RMB 964 million on newly acquired and leased AI servers and network equipment; IDC costs rose 23% to RMB 990 million. Cash and cash equivalents RMB 4,674 million as of June 30, 2026."
+   },
+   "chains": [
+    "components/neocloud.json"
+   ],
+   "reason": "Transcript render error: the call gives 'adjusted net loss RMB 6 million, down from RMB 300 million ... and RMB 237 million'; the same-day 6-K release prints Non-GAAP net loss RMB59.8 million vs RMB300.5 million and RMB237.1 million (the comparison figures match, so the '6' is a dropped digit). Same handling as the Vicor / Ultra Clean fixes (edgar_r3_call_figure_fixes): the number leaves the call entry, the filed figure goes on the 6-K entry (patch edgar_kc_6-k_2026-08-19_nongaap_net_loss).",
+   "evidence": "Call: 'Our adjusted net loss was RMB 6 million, down from RMB 300 million in the same quarter last year and RMB 237 million in previous quarters.' | 6-K EX-99.1: 'Non-GAAP net loss6 was RMB59.8 million (US$8.8 million), compared with RMB300.5 million in the same quarter of 2025 and RMB237.1 million last quarter.'"
+  }
+ ]
+}

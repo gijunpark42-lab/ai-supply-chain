@@ -1,0 +1,59 @@
+{
+ "source": "POCO Holding annual report: 2025 Annual Report (04-23-2026)",
+ "note": "Claude decision 2026-10-19 (user delegated: '질문은 니가 알아서 다 처리'), board question 'POCO Holding': one POCO placement in power_semiconductor.json, where both named chip-inductor customers (Monolithic Power Systems, Flex) are players.",
+ "new_nodes": {
+  "POCO Holding": {
+   "ticker": "300811.SZ",
+   "exchange": "SZSE",
+   "country": "CN",
+   "why": "Existing node (mlcc.json Passive Component Materials), new in power_semiconductor.json: its chip inductors supply power conversion for AI-server processors and are bought by MPS and Flex.",
+   "evidence": "POCO 2025 annual report: '公司芯片电感产品除了与 MPS 等现有客户不断深化合作外，报告期内还与伟创力（Flex）等多家全球知名厂商建立了合作关系' and chip inductors reached mass production in ASIC and optical-module uses",
+   "approved": "Claude verifier 2026-10-19 (user delegated): existing company, new in this chain at power / Power Semiconductors (the taxonomy's home for passives, as Murata / TDK sit in mlcc.json); the filer's own statutory report names both customers for this product; no duplicate name."
+  }
+ },
+ "chains": {
+  "components/power_semiconductor.json": {
+   "players": [
+    {
+     "company": "POCO Holding",
+     "domain": "power",
+     "sector": "Power Semiconductors",
+     "product": "Chip inductors (incl. modular inductors for vertical power delivery) on in-house metal soft-magnetic powder for GPU / ASIC / CPU power conversion",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Monolithic Power Systems",
+       "relationship": "chip inductors (existing chip-inductor customer)",
+       "contracts": [
+        {
+         "source": "POCO Holding annual report: 2025 Annual Report (04-23-2026)",
+         "signal": "2025 annual report: in chip inductors the company kept deepening cooperation with existing customers such as MPS (Monolithic Power Systems) and in 2025 established cooperation with Flex and several other well-known global makers; chip inductors reached mass-production breakthroughs in ASIC and optical-module applications.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "customer relationship (annual report)",
+         "topics": []
+        }
+       ]
+      },
+      {
+       "company": "Flex",
+       "relationship": "chip inductors (new chip-inductor cooperation in 2025)",
+       "contracts": [
+        {
+         "source": "POCO Holding annual report: 2025 Annual Report (04-23-2026)",
+         "signal": "Flex is named as a new chip-inductor partner in the company's 2025 annual report: besides deepening cooperation with existing customers such as MPS, it established cooperation with Flex and several other well-known global makers in 2025 as part of its customer expansion.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "2025",
+         "type": "customer relationship (annual report)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

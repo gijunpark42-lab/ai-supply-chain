@@ -1,0 +1,56 @@
+SOURCE: eMemory official press release -- https://www.ememory.com.tw/en-US/News/News?guid=26101314002510
+TITLE: At GAITA, PUFsecurity Shows How PUFrt and PUF-Based HSMs Give Agentic and Physical AI a Verifiable Root of Trust
+DATE: 10-13-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-18.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: eMemory press release: At GAITA, PUFsecurity Shows How PUFrt and PUF-Based HSMs (10-13-2026)
+
+---
+At GAITA, PUFsecurity Shows How PUFrt and PUF-Based HSMs Give Agentic and Physical AI a Verifiable Root of Trust
+
+HSINCHU, Taiwan – October 12, 2026 — Artificial intelligence is moving from answering questions to taking action. AI agents now act on people’s behalf online, and robots and drones act in the physical world. That raises a question every business, insurer and regulator will ask: who, or what, did this, and can it be proven? At the GAITA (Global Artificial Intelligence and Technology Alliance) international forum in the Netherlands, PUFsecurity and its ecosystem partners showed an answer that starts inside the chip.
+
+Frank Lin, President of SecuX Technology and Chief Operating Officer of iMQ Technology, delivered the invited keynote, “NeoPUF-Rooted Security: Safeguarding the AI World in the Post-Quantum Era.” He spoke for an ecosystem that spans the full security supply chain: eMemory (Silicon IP), PUFsecurity (Crypto IP), iMQ Technology (Secure Element chips) and SecuX Technology (Turnkey Security Devices), working with international provenance platform TripleID.
+
+GAITA’s goal is to standardize a verifiable AI trust chain (VAITC) that enables accountability computing. GAITA Executive Director Benjamin May said the ecosystem’s work is the first reference implementation across different ecosystem players to show how such a trust chain can be established from silicon to AI.
+
+The accountability gap
+
+Lin pointed to two threats arriving together. AI agents can write weaponized code and breach defenses “at machine speed,” and quantum computers could eventually derive private keys from public keys. Regulators led by NIST plan to phase out RSA and ECC between 2030 and 2035 in favor of post-quantum cryptography (PQC).
+
+A third challenge is accountability. As agents and robots act for people, systems must be able to tell a human from an AI agent, and a genuine device from an impostor. Software alone cannot provide that proof: once compromised, it “cannot reliably verify its own integrity.” Trust has to start in hardware.
+
+PUFrt and the PUF Server: trust from chip to system
+
+Every security system depends on a secret key. NeoPUF, developed by eMemory, creates that key from the chip itself: tiny random variations in its memory cells, formed by quantum tunneling, give each chip a fingerprint no one can copy, so no key is ever loaded in from outside.
+
+PUFsecurity builds this into PUFrt, a hardware root of trust that pairs NeoPUF with a true random number generator and protected NVM storage, giving each chip a permanent identity and keys. PUFcc adds a crypto coprocessor that uses those keys to encrypt and sign at hardware speed, and PUF-PQC upgrades that cryptography to quantum-resistant algorithms validated by NIST for FIPS 203, 204 and 205.
+
+SecuX’s PUF Server, a PUF-based hardware security module (HSM), carries PUF-rooted iMQ Secure Elements on PCIe cards and acts as a root certificate authority (Root CA), issuing and managing the certificates that prove each device’s identity. Because its keys are born in silicon, it needs no traditional key ceremony, scales by adding cards and is ready for post-quantum algorithms. The SecuX PUF Dongle extends the same chain to individuals.
+
+Securing AI, from agents to machines
+
+From AI agents in the cloud to robots on the factory floor, the chain provides security in three areas.
+
+The hardware: In AI data centers, PUFrt anchors Caliptra, the open-source root of trust, so the CPUs, GPUs, DPUs, BMCs and SSDs that agents run on can prove they are authentic and running authorized firmware. For robots, drones and other autonomous machines, PUF-rooted Machine Passports give each one a globally verifiable identity, while each nation anchors those identities in its own Root CA.
+
+The human: When a person approves an agent or machines’ action with a PUF Dongle, the signature shows the decision was theirs, not the agent or machines’ alone.
+
+The record: An agent's prompts, responses and actions can be signed as tamper-evident evidence. In the physical world, an evidence black box signs a machine's commands, decisions, action logs and video, and cameras with secure elements sign footage at the moment of capture, proving it is real and not AI-generated. When incidents occur, insurers, regulators and courts can settle disputes with proof.
+
+Whether the actor is software or a machine, the pattern is the same: identity starts in the chip and is vouched for by the HSM.
+
+“In this converging era of AI and quantum computing, security can no longer rest on software alone,” Lin concluded. “A hardware root of trust gives software a foundation it can verify, from the operating system up to the AI applications built on top. We will continue working with partners across hardware and software to ensure that every piece of data, every AI decision and every autonomous machine can be authenticated and audited with confidence.”
+
+For PUFsecurity, the story shows how one root of trust, a fingerprint built into every chip, can extend from a single processor to the AI agents and robots that act on our behalf. The ecosystem invited industry partners to launch proof-of-concept projects for a world where “every identity, action, and transaction is authentic, verifiable, and accountable.”
+
+Previous page
+
+Back to list
+
+Next page
+
+Newsletter
+
+-->

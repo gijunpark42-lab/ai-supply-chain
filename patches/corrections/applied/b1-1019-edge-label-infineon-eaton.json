@@ -1,0 +1,17 @@
+{
+ "reviewer": "b1-1019 (Claude decision on board question 13; user delegated 2026-10-19) - NEEDS the apply_corrections.py 'edge' kind (diff in b1/decisions.json, question 13) before it can be checked or applied",
+ "items": [
+  {
+   "kind": "edge",
+   "company": "Infineon",
+   "target": "Eaton",
+   "action": "set",
+   "set": {
+    "relationship": "power semiconductors for UPS and silicon carbide (SiC) power devices for medium-voltage solid-state transformers"
+   },
+   "chains": ["components/power_cooling.json"],
+   "reason": "Question 13 (2026-10-19): one edge per supplier -> customer pair; the edge's only contract (09-29-2026 release) is SiC devices for Eaton's MVSST 2.0 platform, which the old label 'power semiconductors for UPS' does not cover - the label is widened, no second edge.",
+   "evidence": "Infineon Technologies AG (FSE: IFX / OTCQX: IFNNY) will deliver silicon carbide (SiC) power devices to Eaton, an intelligent power management company, for use in its medium-voltage solid-state transformer (MVSST) 2.0 platform"
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+  "source": "American Electric Power press release: AEP Advances Innovative Energy Solution for Google with (10-14-2026)",
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "American Electric Power",
+          "domain": "power",
+          "sector": "Utilities & Grid Operators",
+          "product": "765kV UHV transformers buyer — US utility",
+          "quarterly_data": [
+            {
+              "quarter": "American Electric Power press release: AEP Advances Innovative Energy Solution for Google with (10-14-2026)",
+              "signal": "Customer Google: AEP plans to invest approximately $4 billion to advance a new 702-megawatt fuel cell generation project near Cheyenne, Wyoming, under a long-term 20-year power purchase agreement (PPA) with Google. Under the PPA, Google will acquire power from Cheyenne Fuel Cell, LLC. AEP and its partners plan to start construction in 2026, and the facility is expected to be fully operational by the end of 2028. The planned facility uses fuel cell technology developed by Bloom Energy that generates electricity without combustion of natural gas, and the project includes plans to integrate carbon capture technology; it follows agreements reached between Google and Black Hills Corp., effective Sept. 30. CEO Bill Fehrman: the project 'demonstrates how we are creating new opportunities to meet evolving energy needs for customers both within and beyond our traditional service territory.'",
+              "figure": "approximately $4 billion investment; 702 MW; 20-year PPA; construction start 2026; fully operational by the end of 2028",
+              "topics": [
+                "power_cooling"
+              ],
+              "slot": "backlog_or_b2b",
+              "counterparty": "Google",
+              "counterparty_role": "customer (20-year PPA offtaker)"
+            }
+          ],
+          "connects_to": []
+        },
+        {
+          "company": "Bloom Energy",
+          "domain": "power",
+          "sector": "Generation",
+          "product": "solid-oxide fuel cells for data-center onsite power",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "American Electric Power",
+              "relationship": "on-site fuel cells supplied as bridging power for AEP large-load customers",
+              "contracts": [
+                {
+                  "source": "American Electric Power press release: AEP Advances Innovative Energy Solution for Google with (10-14-2026)",
+                  "signal": "AEP's release: the planned 702-megawatt fuel cell generation facility near Cheyenne, Wyoming, which AEP is developing and constructing under a 20-year PPA with Google, uses advanced fuel cell technology developed by Bloom Energy that AEP says can be deployed rapidly and provide reliable, on-demand power to meet the needs of large-load customers (release headline: '702MW of Bloom Fuel Cells').",
+                  "units": "702MW of Bloom fuel cells",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "deployment",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

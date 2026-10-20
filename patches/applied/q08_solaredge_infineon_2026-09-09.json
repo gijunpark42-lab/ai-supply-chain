@@ -1,0 +1,53 @@
+{
+ "source": "Infineon press release: Infineon extends collaboration with SolarEdge to enable (09-09-2026)",
+ "new_nodes": {
+  "SolarEdge": {
+   "ticker": "SEDG",
+   "exchange": "NASDAQ",
+   "country": "IL",
+   "why": "Designs the solid-state transformer (13.8-34.5 kV to 800-1500 VDC) and the solid-state circuit breaker for 800 VDC AI data-center power distribution built on Infineon SiC devices - a data-center power-equipment maker beside Eaton, Vertiv, Delta in Datacenter Power.",
+   "evidence": "Infineon release 09-09-2026: 'SolarEdge is leading the design of the SSCB solution, with Infineon providing its silicon carbide (SiC) JFET technology at the core of the protection devices'; 'SolarEdge's SST platform with Infineon SiC components'; SolarEdge CEO Shuki Nir quoted on 800 VDC AI infrastructure.",
+   "approved": "opus verifier 2026-10-19 (Claude, user-delegated board decision b3): named by Infineon management as the maker of the SST / SSCB that uses Infineon SiC (stated component-supply relationship, development stage - not a demo); its own CEO states the data-center role (unlike Tigo 2026-10-06); listed (NASDAQ: SEDG); no existing node or removed name"
+  }
+ },
+ "chains": {
+  "components/power_semiconductor.json": {
+   "players": [
+    {
+     "company": "SolarEdge",
+     "domain": "power",
+     "sector": "Datacenter Power",
+     "product": "solid-state transformer (13.8-34.5 kV to 800-1500 VDC) and solid-state circuit breakers for 800 VDC AI data centers (in development, Infineon SiC inside)",
+     "quarterly_data": [],
+     "connects_to": []
+    },
+    {
+     "company": "Infineon",
+     "domain": "power",
+     "sector": "Power Semiconductors",
+     "product": "OptiMOS MOSFETs, SiC modules, gate drivers",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "SolarEdge",
+       "relationship": "CoolSiC SiC JFET / SiC components for SolarEdge's solid-state transformer and solid-state circuit breaker (800 VDC)",
+       "contracts": [
+        {
+         "source": "Infineon press release: Infineon extends collaboration with SolarEdge to enable (09-09-2026)",
+         "signal": "Infineon and SolarEdge extended their collaboration to solid-state circuit breaker (SSCB) technology for high-voltage DC distribution in AI and hyperscale data centers (800 VDC architecture): SolarEdge leads the SSCB design, with Infineon providing its CoolSiC silicon carbide JFET technology at the core of the protection devices; the SSCBs are designed to interrupt faults within a few microseconds. It builds on SolarEdge's solid-state transformer (SST) platform with Infineon SiC components, first announced in November 2025, designed for direct medium-voltage (13.8-34.5 kV) to 800-1500 VDC conversion at over 99 percent efficiency.",
+         "units": "SST: 13.8-34.5 kV to 800-1500 VDC at over 99% efficiency (design target)",
+         "value": "no specific figure",
+         "date_signed": "not stated (extension announced 09-09-2026; SST collaboration first announced November 2025)",
+         "type": "SiC component supply for SolarEdge SST / SSCB (development collaboration)",
+         "topics": [
+          "power_cooling"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,5 +1,5 @@
 {
- "_rule": "Facts no script can infer, recorded ONLY by the coordinator of an enrich run through `python enrich_status.py mark / unmark / note / ask / resolve` (parallel agents report, never write). A mark keeps a company out of the board's missing lists until its recheck date; a question waits under 'Needs a decision' until the user answers it.",
+ "_rule": "Facts no script can infer, recorded ONLY by the coordinator of an enrich run through `python enrich_status.py mark / unmark / note / decide / ask / resolve` (parallel agents report, never write). A mark keeps a company out of the board's missing lists until its recheck date; judgments are decided by Claude (`decide`, user 2026-10-19) and kept in 'answered'.",
  "marks": [
   {
    "company": "ADEKA",
@@ -248,6 +248,14 @@
    "why": "no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13)",
    "at": "2026-10-13",
    "recheck": "2027-01-20"
+  },
+  {
+   "company": "IES Holdings",
+   "source": "call",
+   "status": "no_source",
+   "why": "no recent call transcript: defeatbeta's newest IESC transcript is Q1 FY2009 (02-10-2009) and Alpha Vantage's sync saved none (checked 2026-10-18)",
+   "at": "2026-10-19",
+   "recheck": "2027-01-17"
   },
   {
    "company": "Inventec",
@@ -1114,532 +1122,19 @@
    "at": "2026-10-18 02:01",
    "market": "all",
    "text": "2026-10-18 02:05: the pending graph_build.py --sync finished cleanly at 01:58 (run from another session); web/public has the DART + KLA changes, i18n 0 untranslated. Nothing left from the 10-17/18 nightly except the IR feed sync (due) and the open questions."
+  },
+  {
+   "at": "2026-10-19 00:32",
+   "market": "all",
+   "text": "2026-10-19 00:25 nightly 1ffca053: graph_build.py --sync was stopped by Claude Code's low-memory guard after apply_patches + merge + derive (all 100 tonight's patches are in chains/, merged_graph / timelines / screener / exposure rebuilt). NOT run: verify_graph on tonight's 100 labels, evidence / board rebuild, web/public sync, i18n. Next session: run `python graph_build.py --sync` first (nothing pending, it only rebuilds), read the verify lines, then i18n pending -> translate -> merge -> build. Queues were closed (av, ir, media) because the data is in chains/."
+  },
+  {
+   "at": "2026-10-19 21:24",
+   "market": "US",
+   "text": "Flex: when Axiom Solutions International (Flex's Cloud and Power Infrastructure segment, planned listing Q1 CY2027) files its registration / lists, add Axiom as a node per SKILL.md section 6 'Corporate changes' (board question 49, 2026-10-19)."
   }
  ],
- "questions": [
-  {
-   "subject": "UMC",
-   "question": "UMC's Q2 FY2026 call reports its own silicon photonics (12-inch photonics IC in mass production, TFLN modulators, CPO parts) and advanced packaging (interposers, hybrid bonding, DTC; 10+ customers). UMC sits only in foundry.json. Add placements in optical_networking.json (interconnect/Components, like GlobalFoundries) and packaging_substrate.json? All facts are on the foundry node meanwhile.",
-   "label": "UMC Q2 FY2026 (07-29-2026)",
-   "at": "2026-09-29"
-  },
-  {
-   "subject": "Vultr",
-   "question": "HPE's 09-30 release names Vultr (private, 'largest privately-held cloud infrastructure company') as buyer of HPE's first AMD Helios order ($1.2B, US data centers). Add Vultr as a neocloud node (neocloud.json, cloud_infra / Neocloud (GPU-specialized)) like the private Fluidstack / Lambda nodes, plus an HPE -> Vultr edge? Meanwhile the order sits on HPE's Helios node with counterparty Vultr.",
-   "label": "HPE press release: HPE secures its first AMD Helios order in $1.2 billion deal (09-30-2026)",
-   "at": "2026-09-30"
-  },
-  {
-   "subject": "Cognition",
-   "question": "CoreWeave's 09-30 release names Cognition (private, maker of Devin) as the first production customer of CoreWeave's Vera Rubin NVL72; it already appears as a customer in earlier entries. Add as a node (ai_models), or keep as counterparty only? Same question for Blackfuel (private inference platform, Digital Realty BCN1, 09-30 release).",
-   "label": "CoreWeave press release: CoreWeave Delivers NVIDIA Vera Rubin NVL72 Performance at (09-30-2026)",
-   "at": "2026-09-30"
-  },
-  {
-   "subject": "Toppan",
-   "question": "Broadcom's 09-29 release (AST JV, Singapore FC-BGA substrate plant) says Broadcom is TOPPAN Holdings' largest FC-BGA substrate customer. Toppan sits only in foundry.json (materials / Photomask), and its product text describes the photomask business now spun out as Tekscend. Add a Toppan placement in packaging_substrate.json (advanced_packaging / FC-BGA Substrate) with a Toppan -> Broadcom edge? And should the photomask node be renamed/split to Tekscend? Meanwhile the fact is on Broadcom's node with counterparty TOPPAN Holdings.",
-   "label": "Broadcom press release: AST Completes Singapore's First High-End FC-BGA Substrate (09-29-2026)",
-   "at": "2026-09-30"
-  },
-  {
-   "subject": "10x Genomics",
-   "question": "10x Genomics' Sentira release (09-29) says it is 'collaborating with NVIDIA': NVIDIA accelerated computing runs Atera on-instrument processing and Sentira analysis, rapids-singlecell integrated. Make it an NVIDIA -> 10x Genomics edge in ai_bio (like NVIDIA -> Simulations Plus), or keep it as a counterparty entry on 10x (current)?",
-   "label": "10x Genomics press release: 10x Genomics Announces Sentira, a New Computational (09-29-2026)",
-   "at": "2026-09-30"
-  },
-  {
-   "subject": "NetApp",
-   "question": "NetApp INSIGHT releases (09-29): (1) Novus' first, orderable release runs on 'qualified Supermicro servers' — collaboration wording, both are players in nand_flash.json: add a Supermicro -> NetApp edge? (2) Oracle OCI NetApp Storage Service — Oracle is not a player in nand_flash.json, so no NetApp -> Oracle edge (NetApp has edges to Amazon/Microsoft/Google for the same service type). Add Oracle there? Both facts are on NetApp's node with counterparty keys meanwhile.",
-   "label": "NetApp press release: NetApp and Supermicro Collaborate to Power AI at Any Scale (09-29-2026)",
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Trane Technologies",
-   "question": "Trane's 09-30 release: lab proof-of-concept of an 800-volt DC chiller with Eaton and Danfoss — skipped under 'demos never count'. It is a direct 800 V DC data-center transition signal. Record such power/thermal proof-of-concepts as attributed 'demonstration' entries with no slot, or keep excluding them?",
-   "label": "Trane Technologies press release: Trane Technologies Demonstrates Industry-First 800-Volt (09-30-2026)",
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Synopsys",
-   "question": "Synopsys investor day (09-30): new Synopsys -> Amazon ($1B+ multi-year IP deal, Amazon = lead application-optimized IP customer) and Synopsys -> OpenAI (EDA licence) edges were placed in nvidia_vera_rubin.json, Synopsys' company-wide placement. Should Synopsys get a placement in aws_trainium3 / cpu_datacenter so the Amazon custom-silicon IP edge sits nearer Trainium/Graviton?",
-   "label": "Synopsys press release: Synopsys and Amazon Announce Strategic, Multi-year IP (09-30-2026)",
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Private customers as nodes (2026-10-01 run)",
-   "question": "Several releases name private/unlisted companies in a stated supply or customer role; all are kept as counterparty keys on the filer's node for now. Add any as nodes? Mobilint and HyperAccel (Korean AI chip startups, SemiFive design customers), UTAC (private OSAT, Hanmi equipment buyer), FPT Corp (HOSE: FPT, AI factory on ASUS servers - listed), Shinwa Controls (Wiwynn liquid-cooling partner), SolarEdge (NASDAQ, Infineon SiC SSCB/SST collaboration - listed).",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Operating facts inside award releases",
-   "question": "Award releases sometimes restate operating facts: Schneider WEF Lighthouse (El Paso on-time delivery 61% -> 97%, USD 43M backorders cleared amid data-center demand); Lenovo TIME/Fast Company (AI revenue 33-35% of group). Rule says awards yield nothing. Keep operating facts from award releases the way they are kept from financing releases?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Wiwynn -> Amazon edge",
-   "question": "Wiwynn 09-10 release: it manufactures and integrates server systems and racks for Amazon (Annapurna custom hardware). New edge placed in nvda_b200.json where Amazon is a player. Keep there, or add Wiwynn to an aws_trainium chain and move it?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "SUMCO - Formosa Sumco deconsolidation",
-   "question": "SUMCO cut FST voting rights 43.2% -> 38.0% (08-20); FST becomes an equity-method affiliate from 09-30-2026 and leaves SUMCO consolidated sales from Q4 2026. Recorded nothing (ownership notice). Record it on the SUMCO node or the SUMCO-FST edge?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Sumitomo Bakelite sector",
-   "question": "Sumitomo Bakelite sits under packaging_substrate 'Substrate Materials (ABF/BT)' but its product is epoxy molding compound / encapsulant. Move it to a packaging/encapsulant materials sector?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Edge labels vs new contract types",
-   "question": "Infineon -> Eaton edge is labelled 'power semiconductors for UPS' but the new contract is SiC for Eaton's MVSST solid-state transformer; Schneider's Equinix MV-switchgear pilot is a counterparty entry, not an edge. Widen the Infineon->Eaton label, and should named pilot deployments become edge contracts?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Company decks behind IR notices",
-   "question": "Some IR rows only link to a company deck/PDF that was not saved: Global Standard Technology Q2 deck, Sakai Chemical IR Fair 2026 deck, Murata / Sumitomo Metal Mining / Panasonic / Legrand results and guidance PDFs. Fetch and enrich these PDFs (and fix ir_pull to save PDF bodies for these sites)?",
-   "label": null,
-   "at": "2026-10-01"
-  },
-  {
-   "subject": "Tempus AI",
-   "question": "Tempus 10-K and Recursion filings state Tempus licenses de-identified oncology data to Recursion (up to $160M; amended to 6 years, $14M fees yrs 3-5), but check_patch blocks a Tempus AI -> Recursion edge because Recursion -> Tempus AI (TxFM licence) exists. Allow a second, reverse-direction edge? Meanwhile the data-licence facts sit on Tempus AI's and Recursion's quarterly_data.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Merck KGaA",
-   "question": "Recursion's 10-K: Merck KGaA collaboration ($20M upfront, up to $674M milestones). Merck KGaA is a node (foundry.json materials) but not a player in ai_bio.json. Add an ai_bio placement (Biopharma End Customers) so it becomes a Recursion -> Merck KGaA edge? Meanwhile it is quarterly_data on Recursion.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "NXP",
-   "question": "NXP 10-K: NXP holds 10% of TSMC-majority ESMC (capacity entitlement, production 2028) and co-owns SSMC with TSMC. Recorded on NXP's node naming TSMC; no TSMC -> NXP edge created. Should JV capacity entitlements become foundry edges?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Oracle",
-   "question": "Absci 10-K names an Oracle Cloud Infrastructure compute agreement through early 2028 ($4.6M / $8.3M / $2.3M commitments). Oracle is not a player in ai_bio.json, so no Oracle -> Absci edge; the fact is on Absci's node. Add Oracle to ai_bio (cloud_infra)?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Generac",
-   "question": "Generac 8-K (09-16): $2.4B Amazon generator supply deal sits as a contract on the new Generac -> Amazon edge; contracts cannot carry a screener slot, so Generac's backlog column still shows its Q2 call. Should such deals also get a slotted node entry (backlog_or_b2b), accepting a duplicate fact?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Recursion",
-   "question": "Recursion 8-K (08-05) release and deck say $216 million received to date from Roche/Genentech; the applied call entry 'Recursion Q2 FY2026 (08-05-2026)' says 'more than $260 million', matching the Alpha Vantage transcript (possible STT error). Correct the call entry to the filed $216M, or keep it as its own source states?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Image-only MOPS decks",
-   "question": "Fositek (2 decks) and King Slide keep their financial tables as images, so mops.py extracts only slide titles and the rows gave nothing. Add OCR for image-only deck pages in mops.py?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Lotes",
-   "question": "Lotes MOPS decks list LOTES as a CPU socket vendor for AMD Venice (SP7/SP8) and Intel Server (alongside FIT, TE, Amphenol), with 'some products still under development'. Make Lotes -> AMD / Lotes -> Intel edges in cpu_datacenter.json, or keep it on Lotes' node with counterparty keys (current)?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "check_edgar_patch counterparty keys",
-   "question": "utils/check_edgar_patch.py rejects counterparty / counterparty_role keys on quarterly_data, while SKILL.md JOB 3 and check_patch.py use them; EDGAR agents named counterparties only in the signal text. Allow the keys in the EDGAR checker (tool change)?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Hengtong Optic-Electric",
-   "question": "Hengtong 2025 annual report: \"MPO series products were used in the data centres of Huawei, Alibaba and others\". Make Hengtong -> Alibaba (Alibaba is in cpu_datacenter.json, not optical_networking.json) and/or Hengtong -> Huawei Cloud (report says only \"Huawei\") edges? Meanwhile on Hengtong's quarterly_data without counterparty key.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Megmeet",
-   "question": "Megmeet 2025 annual / 2026 H1 reports name Ericsson, Cisco, Juniper, Arista and Accton (plus \"a North American AI major customer\") as network / data-center power customers winning project demands and orders. Make Megmeet -> Cisco / Arista / Accton Technology edges (Ericsson, Juniper are not nodes)? Also: Megmeet says it is one of NVIDIA's designated recommended data-center power providers (110kW Vera Rubin power shelf, expects over RMB 10 hundred million sales) — add a Megmeet placement in nvidia_vera_rubin.json or a Megmeet -> NVIDIA edge? Meanwhile all on Megmeet's power_cooling node as text.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Grace Fabric Technology",
-   "question": "The applied Grace 2026 half-year patch (08-14-2026) turned the source's bare \"Nan Ya\" into an edge Grace Fabric Technology -> Nan Ya Plastics; Grace's 2025 annual report spells the customer as Nanya New Material (688519.SS, an A-share CCL maker, not a node), not Nan Ya Plastics. Remove / relabel that Nan Ya Plastics edge?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Envicool",
-   "question": "Envicool 2025 annual report: long-standing data-center customers ByteDance, Tencent, Alibaba, Qinhuai Data, GDS, AtHub, China Mobile, China Telecom (Huawei, ZTE in telecom cabinets). Make Envicool -> Alibaba / GDS Holdings edges from such a customer list (other names are not nodes)? Meanwhile one quarterly_data entry, no counterparty key.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Sugon",
-   "question": "Sugon (new node, cpu_datacenter system_integration) also runs a liquid-cooling business (subsidiary 'Sugon Shuchuang', C8000/C7000 systems, 1650MW delivered). Add a thermal placement in power_cooling.json? Meanwhile all liquid-cooling facts sit on the server node.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Huawei Technologies",
-   "question": "Huawei Technologies (equipment / AI servers / Ascend) is the largest customer of several Chinese suppliers (Huafeng Technology 60.52% of 2025 sales; others name Huawei in customer lists), but the graph has only \"Huawei Cloud\" (cloud_infra). Add a Huawei Technologies node so these concentrations can sit on edges? Meanwhile quarterly_data with counterparty \"Huawei\".",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Woer Heat-Shrinkable Material",
-   "question": "Woer (new node, copper cable in optical_networking) also has PTFE corrugated liquid-cooling tubing for liquid-cooled servers in customer testing/validation (Q&A 09-09..09-17, H1 report). Add a thermal placement now or only after a qualification/order? Nothing captured on it meanwhile.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Gaolan",
-   "question": "Gaolan (new node, thermal / Direct-to-Chip Liquid) has HVDC converter-valve cooling as its largest segment (Saudi Central-South contract RMB 317,340,381.28). Add a power-domain placement (power / Grid) for that role? Meanwhile those facts sit on the thermal node.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "ZTE",
-   "question": "ZTE (new node): switches placed in optical_networking interconnect / Scale-out next to Arista (alternative: system_integration / Networking Systems). Also its 800G coherent DSP / OTN 800G DCO business would fit interconnect / Scale-across (beside FiberHome, Ciena) — add that placement later? Not captured meanwhile.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Lightelligence",
-   "question": "Lightelligence (new node, optical_networking interconnect / Scale-up) also has an optical-computing segment (PACE 2 / LightCube / PACE 3; RMB 19.08M of RMB 79.78M H1 revenue). Give it another placement (e.g. edge_ai / quantum & parallel compute) or keep it to company-wide totals? Meanwhile one entry on the Scale-up node.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Fuso Chemical",
-   "question": "Fuso Chemical (new node) deck: 'Adopted for TSMC N2-generation nodes / confirmation of requirements for A16/A14' -> onboarding made a Fuso Chemical -> TSMC edge (contract 'process adoption (design win)'). Fuso's colloidal silica most likely reaches TSMC through CMP-slurry makers. Keep a direct edge, or make it quarterly_data with counterparty TSMC?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Tencent",
-   "question": "Tencent (new node, cpu_datacenter cloud_infra / Hyperscaler Cloud next to Baidu) — also add an ai_models / Foundation Models placement for the Hy (Hunyuan) models? Also its Q2 capex RMB52,784 million is tagged capex_q without busd (no FX arithmetic), so the Capex tab draws no bar — add a curated capex_backlog.json row?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Dingtong Technology",
-   "question": "Dingtong Technology (new node, optical_networking interconnect / Components) names Luxshare as top-5 customer 5 (1.09% of 2025 sales) and TE Connectivity as a main customer; both sit only in nvidia_vera_rubin.json. Add a Dingtong placement in nvidia_vera_rubin.json (interconnect / Components) so those become edges (Luxshare as an Exposure-readable customer-share contract)? Meanwhile counterparty keys on Dingtong's quarterly_data.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Microsoft in ai_bio",
-   "question": "SOPHiA GENETICS 20-F: its platform runs on Microsoft Azure with a ~$80.9M minimum commitment through 10-31-2029. Microsoft is not a player in ai_bio.json, so no Microsoft -> SOPHiA GENETICS edge; the fact is on SOPHiA's node. Add Microsoft to ai_bio (cloud_infra / Scientific AI Cloud, next to Google and Amazon)? (Same shape as the open Oracle-in-ai_bio question.)",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "SharonAI",
-   "question": "NVIDIA supplies SharonAI's GPUs (10-K: 'substantially dependent on NVIDIA as a supplier of GPUs'), while SharonAI -> NVIDIA (the $4.88B capacity deal) already exists; check_edgar_patch rejects a new edge whose reverse exists, so the GPU-supply fact sits on SharonAI's quarterly_data. Allow a second, reverse-direction NVIDIA -> SharonAI 'GPU supply' edge? (Same question as the open Tempus AI <-> Recursion one.)",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Power Solutions International",
-   "question": "PSI Q2 FY2026 call entry says industrial sales fell '$3.7 million' (matches the AV transcript, CFO speech), but the 8-K release and 10-Q say $3.0 million (29,874 -> 26,846). Correct the call entry to the filed $3.0M, or keep it as its own source states? (Same shape as the open Recursion Roche figure question.)",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Jabil",
-   "question": "Akamai 8-K (09-24-2026): ~$1.7 billion Jabil Build Request (memory components on consignment) for the Anthropic build-out. Jabil is a node only in power_cooling (Server ODM), not in neocloud.json, so the fact sits on Akamai's quarterly_data. Add Jabil as a player in neocloud.json (system_integration) so a Jabil -> Akamai Technologies edge can carry it?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "POCO Holding",
-   "question": "POCO Holding 2025 annual report names MPS (existing chip-inductor customer) and Flex (new 2025 cooperation) as chip-inductor customers; both are nodes but only in power_semiconductor / power_cooling (MPS also nvidia_vera_rubin), not in mlcc.json where POCO sits. Add a POCO placement in power_semiconductor.json so POCO -> Monolithic Power Systems / Flex edges can exist? Meanwhile counterparty keys on POCO's quarterly_data.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Shin-Etsu Handotai",
-   "question": "UMC's 20-F (and Soitec's call) name Shin-Etsu Handotai (SEH) as a wafer supplier; the repo does not record SEH as part of the Shin-Etsu Chemical node (an earlier Soitec patch did put SEH on the Shin-Etsu Chemical -> Soitec edge). Map SEH to Shin-Etsu Chemical (add a naming rule) so a Shin-Etsu Chemical -> UMC '20-F supplier disclosure' edge can be added? Meanwhile it is named only in UMC's supplier entry.",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Tower Semiconductor",
-   "question": "The call label 'Tower Semiconductor Q2 FY2026 (08-06-2026)' is probably dated wrong: transcripts/foundry/tower_q2_2026.txt says its call date is approximate, and Tower's own 6-K of 08-04-2026 says the call was held 'today, Tuesday, August 4, 2026'. Relabel to (08-04-2026) across the applied entries and the transcript header?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "Xiaomi",
-   "question": "Xiaomi is Kingsoft Cloud's largest named customer (an affiliate and shareholder): 20-F related-party revenue — Xiaomi Group public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand (2025). Xiaomi is not a node. Add it (e.g. as a cloud customer in neocloud.json) so a Kingsoft Cloud -> Xiaomi edge can carry this, or keep it as text on Kingsoft Cloud's node?",
-   "label": null,
-   "at": "2026-10-04"
-  },
-  {
-   "subject": "DigitalOcean",
-   "question": "At Citi (09-10) the CFO said 'From a GPU standpoint, we have tremendous relationships with both NVIDIA and AMD' and named Equinix, DataBank and QTS as its tier-1 data-center providers. Kept as counterparty entries on DigitalOcean's node (as the Q2 call patch did). Create NVIDIA -> DigitalOcean and AMD -> DigitalOcean edges in neocloud.json? Equinix / QTS sit only in power_cooling.json, where DigitalOcean is not a player - add cross-chain edges?",
-   "label": "DigitalOcean Citi’s Global TMT Conference 2026 (09-10-2026)",
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "H.C. Wainwright panel (09-14-2026)",
-   "question": "The CleanSpark and MARA 'H.C. Wainwright' conference files are two transcriptions of one multi-company panel. Other panelists made material statements (Core Scientific: ~500 MW with AMD, next 2,000 MW at Hunt County / Pecos / Muskogee, $125 MRC triple-net / $145 modified gross over 15 years; Bitdeer: 121 MW Volta lease in Norway, Malaysia GPU-as-a-service sites; WhiteFiber: $865M Nscale contract). Only CleanSpark's and MARA's own executives were captured. Capture other panelists that are nodes (their entries would carry a CleanSpark/MARA-prefixed label), or skip them?",
-   "label": "CleanSpark H.C. Wainwright conference 2026 (09-14-2026)",
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "Vertex conference mis-match",
-   "question": "investing.py matched 'Vertex at Goldman Sachs Communacopia + Technology Conference' (09-09-2026) to our Vertex (Pharmaceuticals) node, but the speakers are Vertex Inc. (tax software). The row was closed without enrichment; the file stays in transcripts/conferences/. Titles alone cannot tell the two apart. Add a speaker-based exclusion to investing.py, or keep closing such rows by hand?",
-   "label": "Vertex Goldman Sachs Communacopia + Technology Conference 2026 (09-09-2026)",
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "Skyworks Solutions",
-   "question": "Skyworks completed its combination with Qorvo on 10-05 (continues as Skyworks / SWKS). Qorvo was never a node. The release says the combined company spans RF GaN, low-voltage power, wired broadband, data center / networking, defense and automotive; Skyworks sits only in interconnect / Components and power / Power Semiconductors. Give the combined company extra placements (e.g. RF GaN under compound semiconductors), or leave the structure as is? The operating facts are on its company-wide node.",
-   "label": "Skyworks Solutions press release: Skyworks Completes Combination with Qorvo (10-05-2026)",
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "Flex",
-   "question": "Flex plans to separate its Cloud and Power Infrastructure segment as a listed company, Axiom Solutions International ('Axiom'), in Q1 calendar 2027 (10-05 release). Flex's power_cooling / power_semiconductor placements mostly describe that business. When Axiom lists, should it become its own node, with Flex's placements staying, moving or split?",
-   "label": "Flex press release: Flex Announces $2.0 Billion Convertible Preferred (10-05-2026)",
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "Cerebras",
-   "question": "At Supernova (08-19) the CEO said Cerebras uses AMD EPYC CPUs in its clusters and is 'buying a fair bit' of Arista networking. Both kept as counterparty entries on Cerebras. The existing AMD -> Cerebras edge is described as 'Helios rack systems', so an EPYC contract there would mix meanings; Arista is not a player in Cerebras' chain. Add the EPYC supply as a contract / second relationship, and an Arista -> Cerebras edge?",
-   "label": "Cerebras Supernova 2026 (08-19-2026)",
-   "at": "2026-10-06"
-  },
-  {
-   "subject": "Simulations Plus",
-   "question": "Simulations Plus completed its take-private by Altaris affiliates on 10-06-2026 (being combined with Chemical Computing Group); its stock no longer trades on Nasdaq. Keep the ai_bio node as a private company (status change in company_metadata.json), or remove it from the universe? The completion fact is on the node meanwhile.",
-   "label": "Simulations Plus press release: Simulations Plus Announces Completion of Acquisition by (10-06-2026)",
-   "at": "2026-10-07"
-  },
-  {
-   "subject": "ChronoScale",
-   "question": "Applied Digital's Q1 FY2027 call (10-07-2026) says its consolidated subsidiary ChronoScale (reported as Nasdaq CHRN, ~96% owned) runs a GPU cloud: Q1 revenue $41.5M, a 50 MW GB300 NVL72 deployment for Microsoft, target $1B ARR in 2027. Should ChronoScale become its own neocloud node (cloud_infra) with edges ChronoScale -> Microsoft, or stay as counterparty facts on Applied Digital's node (current handling, same as the Q4 FY2026 patch)?",
-   "label": "Applied Digital Q1 FY2027 (10-07-2026)",
-   "at": "2026-10-07"
-  },
-  {
-   "subject": "HD Construction Equipment",
-   "question": "ERock's 10-07-2026 release names 'HD Construction Equipment, a subsidiary of Hyundai' as its multi-year supplier of natural-gas engine long blocks for RockBlock data-center gensets (supply through 2028). Should HD Hyundai Construction Equipment (KRX-listed) become a supplier node in power / Generation with an edge to ERock, or stay as a counterparty fact on ERock's node (current handling)? Data-center engines are a small part of its business, so the litmus case is borderline.",
-   "label": "ERock press release: ERock, HD Construction Equipment Sign Multi-Year Engine (10-07-2026)",
-   "at": "2026-10-08"
-  },
-  {
-   "subject": "logmi transcripts linked from company IR pages",
-   "question": "Micronics Japan, Ferrotec, Sakura Internet and Sumitomo Osaka Cement publish no Q&A summary of their own, but their official IR pages link the full results-briefing transcript (presentation + Q&A) hosted on logmi Finance (finance.logmi.jp, a third-party transcription service; e.g. Micronics Q2 FY2026 08-13-2026 finance.logmi.jp/articles/385573). Count a logmi transcript that the company's own IR page links as its official record as company-published (enrich it as the call), or keep logmi excluded?",
-   "label": null,
-   "at": "2026-10-13"
-  },
-  {
-   "subject": "Toho Titanium",
-   "question": "Toho Titanium's own 05-08-2026 results release says it was delisted on 2026-05-28 (share exchange effective 2026-06-01), but company_metadata.json still lists it as public. Change it to private (keep the node) or remove it from the universe? (Same shape as the open Simulations Plus question.)",
-   "label": null,
-   "at": "2026-10-13"
-  },
-  {
-   "subject": "Government subsidy amounts",
-   "question": "X-Fab Erfurt cleanroom release (10-05-2026) names EUR 127.4 million of EU Chips Act funding. Left out as financing-like. Should a public subsidy / grant amount for a capacity project be captured as a capex fact (keep), or stay out with financing terms?",
-   "label": null,
-   "at": "2026-10-13"
-  },
-  {
-   "subject": "Equity-stake purchases and sales",
-   "question": "Verifiers deleted (a) Foxconn selling 5,544,000 Zhen Ding shares, an equity-method investee (gain NT$2.68B, 26.47% kept), MOPS 10-12-2026, and (b) Osaka Organic buying shares that made SANBO Chemical an equity-method affiliate, TDnet 10-09-2026, under the equity-investment exclusion. Keep ownership changes between supply-chain companies as company facts (no price), or keep excluding them?",
-   "label": "Foxconn MOPS material information: release 2317-20261012-1 (10-12-2026)",
-   "at": "2026-10-13"
-  },
-  {
-   "subject": "Material litigation",
-   "question": "Capture material legal proceedings or not? Tonight: Micron 10-K (10-09-2026) DRAM price-fixing class action (06-25-2026, vs Micron / Samsung / SK hynix) was skipped; Moderna 10-K / 10-Q patent suits (Bayer/Monsanto; Sanofi subsidiaries) were captured; Rorze's semi-annual report patent-settlement payment (JPY 9,587 million) was captured. The rules list litigation neither way.",
-   "label": "Micron 10-K (10-09-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "DoD Chinese Military Company designations",
-   "question": "Alibaba 6-K (06-09-2026): the DoD added Alibaba to its 1260H Chinese Military Companies list; captured with the company's own response (data kept safe). Baidu's 6-K the same day (same designation) was skipped. Capture such designations (then add Baidu next run) or remove Alibaba's entry?",
-   "label": "Alibaba 6-K (06-09-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "Strategic equity investments by partners",
-   "question": "Teradyne's $300 million strategic equity investment in FormFactor (8-K 10-13-2026, tied by Teradyne's CEO to the collaboration) was kept on FormFactor's node by the verifier, citing the NVIDIA -> Coherent / Marvell and MACOM -> IQE precedents. Keep such partner investments as relationship facts, or drop them as financing?",
-   "label": "FormFactor 8-K (10-13-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "Strategic ownership changes",
-   "question": "A CATL-affiliated vehicle (Lochpine Capital via PJ Millennium) closed a ~38.1% stake in VNET (6-K 09-21-2026) with a 'computing-power-electricity coordination' support clause; Westinghouse confidentially filed a draft IPO registration (Brookfield Renewable 6-K 07-31-2026). Both were left out as governance / financing. Record large strategic ownership changes or subsidiary IPO filings?",
-   "label": "VNET Group 6-K (09-21-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "Licence and disposal values",
-   "question": "(1) In-licence upfront / milestone values (AstraZeneca H1 2026: Dizal $600m + up to $900m, CTTQ $200m + up to $1.9bn, CSPC $1.2bn + up to $3.5bn) were left out as deal price, while partner milestones (Daiichi Sankyo $25M / $100M) are captured - capture licence values? (2) Capacity SOLD (MW only, no proceeds; e.g. Brookfield Renewable Q2 2026: ~570 MW Europe, ~2,100 MW to Northview, 25% of 403 MW Maine hydro, Colombian 218 / 39 MW): the rules keep acquisitions' operating facts but say nothing on disposals - capture?",
-   "label": "AstraZeneca 6-K (07-27-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "Bitcoin lending",
-   "question": "MARA 8-K (08-06-2026): '4,742 BTC loaned, ~$4.3M interest income' was removed by the verifier as treasury / financial-yield activity (the 2026-10-13 rule keeps a miner's production, holdings and sales; pledges are financing). Count lent BTC as holdings and keep it, or exclude?",
-   "label": "MARA Holdings 8-K (08-06-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "Wolfspeed",
-   "question": "Wolfspeed 8-K (10-07-2026), a conditional US Department of War loan commitment: deal terms dropped, one entry kept on the operating program the commitment would require (domestic SiC wafer / power-device and GaN production, GaN-on-SiC RF epi, rad-hardening), hedged as conditional. Does a program described in a financing filing count as an operating fact?",
-   "label": "Wolfspeed 8-K (10-07-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "TeraWulf",
-   "question": "TeraWulf's Muskie site is supplied by Kentucky Power (an AEP company), now 1 GW. AEP is only in power_cooling.json and TeraWulf only in neocloud.json, so no AEP -> TeraWulf edge can exist (the fact sits on TeraWulf's node). Add a TeraWulf placement in power_cooling.json for that edge?",
-   "label": "TeraWulf 8-K (10-05-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "Rehlko",
-   "question": "INNIO 8-K (07-28-2026): multi-year framework with Rehlko (private) securing ~1.25 GW of gas-engine capacity over three years, expanding Rehlko's 700 MW firm reservation. Add Rehlko as a node with an INNIO -> Rehlko edge, or keep it as counterparty text on INNIO (current)? Also: the applied INNIO Q2 FY2026 call entry has 'Greco [as transcribed]' for this customer - correct it to Rehlko via patches/corrections?",
-   "label": "INNIO 8-K (07-28-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "Kingsoft Cloud",
-   "question": "The applied call entry 'Kingsoft Cloud Q2 FY2026' says adjusted net loss 'RMB 6 million'; the Q2 release (6-K 08-19-2026) prints non-GAAP net loss RMB59.8 million (likely a transcript error). Correct the call entry to the filed figure, or keep it as its own source states? (same shape as the open Recursion / Power Solutions International questions)",
-   "label": "Kingsoft Cloud 6-K (08-19-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "ASE Group",
-   "question": "The applied call entries 'ASE Group Q2 FY2026 (07-30-2026)' (cpu_datacenter.json and packaging_substrate.json) say the general segment grows ~30% YoY (was 13%); the company's filed deck (6-K 07-30-2026) says 20% vs the previous 13%, and the pasted transcript's 30% looks like a transcription error. Correct the call entries to 20%, or keep them as the transcript states?",
-   "label": "ASE Group 6-K (07-30-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "Moderna -> Merck & Co. edge",
-   "question": "Created tonight from Moderna's 10-K (02-20-2026) and confirmed by the verifier: Moderna designs and manufactures intismeran and provides manufacturing capacity under the PCV collaboration ($200M upfront, ASC 606). Merck co-develops the product and the 10-K words the duties partly in the past tense. Keep collaboration-partner edges between two Biopharma End Customers like this one (also Moderna -> Vertex, CF mRNA manufacturing)?",
-   "label": "Moderna 10-K (02-20-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "EDGAR pipeline gaps",
-   "question": "Tonight's SEC pull found: (1) edgartools Filing.html() fails for many recent filings (primary-document lookup None), so edgar_pull saved nothing for them (Micron 10-K 10-09, ~57 recent 8-Ks); recovered with utils/edgar_pull_fallback.py (new, uncommitted). Fold that fallback into edgar_pull.document_text()? (2) Exhibits not saved (PDF / separate documents): Baidu 6-K 09-17 and Kingsoft Cloud 6-K 09-21 '2026 Interim Report', GDS 6-K 09-04 HK Interim Report, Alibaba 6-K 06-18 HK annual / ESG reports, SharonAI 8-K 08-07 EX-99.1 Q2 release; QumulusAI 8-K 09-22 deck is images only. Fetch these? (3) The XBRL segment reader mis-assigns Medpace therapeutic-area names (10-K 02-10, 10-Q 07-23; printed tables used). (4) Canaan's monthly production updates come only via 6-K - add an IR feed for Canaan?",
-   "label": "Micron 10-K (10-09-2026)",
-   "at": "2026-10-15"
-  },
-  {
-   "subject": "power_cooling topic scope",
-   "question": "The power_cooling timeline is described as 'AI datacenter power delivery & cooling', but in practice the tag sits on every grid / generation equipment contract (21 of 25 DART supply-contract entries in power_cooling.json, e.g. Taihan Cable's North America HV cable order and BHI's LNG power-plant equipment, which never mention data centers). Should power_cooling cover the whole power domain (keep tagging all power equipment) or only data-center power and cooling (then new grid / generation entries get topics [] and a verifier pass trims the old tags)?",
-   "label": "Taihan Cable DART supply contract (10-15-2026)",
-   "at": "2026-10-16"
-  },
-  {
-   "subject": "GlobalFoundries -> TSMC (back-end)",
-   "question": "TSMC's Q3 call (10-15): IR head Jeff Su cited 'the recent announcement with GlobalFoundries on interposers'; CEO C.C. Wei: the GlobalFoundries deal 'is part of our overall strategy in the back-end supply', 'we have a little bit shortage on the back end', and TSMC will work with 'our so-called partner' GlobalFoundries to support TSMC's customers. GlobalFoundries is a node but not a player in packaging_substrate.json (TSMC's CoWoS placement). Add a GlobalFoundries placement there (advanced_packaging, interposers) with a GlobalFoundries -> TSMC edge? Meanwhile the fact is on TSMC's packaging node with counterparty GlobalFoundries, counterparty_role 'supplier' (management's own word was 'partner'; change the role to 'partner' if you prefer).",
-   "label": "TSMC Q3 FY2026 (10-15-2026)",
-   "at": "2026-10-17"
-  },
-  {
-   "subject": "Ineffable Intelligence",
-   "question": "Google's Q2 call (07-22, verbatim): CEO Sundar Pichai: 'We are seeing strong growth and demand for our AI infrastructure offerings from leading labs such as Ineffable Intelligence'. Private AI lab, country not stated. Add it as a node (accelerators/nvidia_vera_rubin.json, ai_models / Foundation Models, beside World Labs and Thinking Machines Lab) with a Google -> Ineffable Intelligence edge, or keep it as a counterparty on Google's node (current)?",
-   "label": "Google Q2 FY2026 (07-22-2026)",
-   "at": "2026-10-17"
-  },
-  {
-   "subject": "EssilorLuxottica",
-   "question": "Meta's Q2 call (07-29, verbatim): AI glasses made with EssilorLuxottica, early sales above expectations. No chain has an AR/VR / smart-glasses sector (edge_ai lists AR/VR). Add EssilorLuxottica as a node (edge_ai) with a Meta edge, or keep it as a counterparty on Meta's node (current)?",
-   "label": "Meta Q2 FY2026 (07-29-2026)",
-   "at": "2026-10-17"
-  },
-  {
-   "subject": "Microsoft -> Arm Holdings (Cobalt VM customer)",
-   "question": "Microsoft's Q4 FY2026 call (07-29, verbatim) names Arm as a customer of Cobalt VMs. A Microsoft -> Arm Holdings edge in cpu_datacenter.json would run opposite to the existing Arm -> Microsoft (Neoverse licence) edge. Allow a second, reverse-direction edge (same shape as the open Tempus AI and SharonAI questions), or keep the fact on the Cobalt entry (current)?",
-   "label": "Microsoft Q4 FY2026 (07-29-2026)",
-   "at": "2026-10-17"
-  },
-  {
-   "subject": "Curated capex_backlog.json fixes (big tech)",
-   "question": "The verbatim pass found curated capex_backlog.json text the calls do not support: Amazon backlog 'RPO ~2.5x (year-ago)' is an analyst's figure (and vs Q3 2025); Nebius 'USD 27B 5-yr Meta' is not on the Q2 call; the Google rows are named 'Alphabet' / 'Google Cloud' (not the node 'Google', so the Capex tab shows a second, derived 'Google' bar) and mention a '$49.6B equity raise' (financing). Only the user edits that file: fix these rows?",
-   "label": null,
-   "at": "2026-10-17"
-  },
-  {
-   "subject": "Condensed call files labelled FULL",
-   "question": "transcripts/bigtech/{microsoft_q4_fy2026, alphabet_q2_2026, amazon_q2_2026, meta_q2_2026}.txt are ~8-9 KB condensed notes whose headers say 'User-pasted FULL earnings call transcript' (amazon's also declares the label 'Amazon Web Services Q2 FY2026 ...'). The verbatim calls now sit beside them in transcripts/av/ under the same labels and the entries were corrected from them (2026-10-17). Change those headers to say 'condensed notes, NOT verbatim' (and move them out of the label's sources), or leave them as they are?",
-   "label": null,
-   "at": "2026-10-17"
-  },
-  {
-   "subject": "Google Q2 entry on NVIDIA's node",
-   "question": "chains/accelerators/google_tpu_v7_ironwood.json holds an entry on the NVIDIA player under the label 'Google Q2 FY2026 (07-22-2026)' (signal starts 'GOOGLE CLOUD ACCELERATED SHARPLY ON AI INFRASTRUCTURE DEMAND'): Google company-wide facts on NVIDIA's node (one fact, one node), partly restating Google's own entries, and quoting 'a meaningful acceleration in growth', which is in Google's 8-K release, not the call. Delete it, or relabel it to the 8-K and move it to Google's node, in a corrections pass?",
-   "label": "Google Q2 FY2026 (07-22-2026)",
-   "at": "2026-10-17"
-  },
-  {
-   "subject": "Amazon duplicate player in aws_trainium3",
-   "question": "chains/accelerators/aws_trainium3.json has two Amazon players under the same locator compute_hardware / 'Custom AI ASIC (hyperscaler silicon)': 'Trainium3 NPU (Annapurna Labs design)' (holds the company-wide entries) and 'Trainium UltraServer' (holds only a legacy Goldman note). Merge the second into the first?",
-   "label": null,
-   "at": "2026-10-17"
-  },
-  {
-   "subject": "Eaton Q2 FY2026 label date",
-   "question": "The verbatim Eaton Q2 call fetched tonight (transcripts/av/eaton_q2_2026.txt, defeatbeta) gives a report date of 07-31-2026, but the graph label is 'Eaton Q2 FY2026 (08-05-2026)' (the old pasted notes said the date was approximate). The new file was pinned to the existing label so nothing split. Relabel all Eaton Q2 entries and both transcript headers to (07-31-2026)? Same open issue as the Tower Semiconductor 08-06 vs 08-04 question, which defeatbeta also dates 08-04.",
-   "label": "Eaton Q2 FY2026 (08-05-2026)",
-   "at": "2026-10-18"
-  },
-  {
-   "subject": "Release facts under call labels (Astera Labs, AMD, Keysight)",
-   "question": "Tonight's verbatim re-fetch showed that some entries under call labels hold facts that are only in the same-day earnings release: Astera Labs Q2 FY2026 (08-04-2026) - an amd_mi450_helios entry (AMD Advancing AI joint architectures) and the nvidia_vera_rubin revenue_growth entry (Computex demo, MGX reference designs, Taiwan expansion, '320-lane production ramp' quote); AMD Q2 FY2026 (08-04-2026) - entries with GAAP margin / net income / EPS, Jean Hu's 'accelerate in the second half', MI430X/MI455X and the Anthropic 'up to 2 gigawatts' wording (verbatim in transcripts/edgar/AMD_8-K_2026-08-04.txt); Keysight Q3 FY2026 (08-18-2026) - non-GAAP $531M / $3.07 and GAAP $397M / $2.30 (in transcripts/edgar/KEYS_8-K_2026-08-18.txt). They were kept, unchanged. Relabel them to the 8-K labels ('Astera Labs 8-K (08-04-2026)', 'AMD 8-K (08-04-2026)', 'Keysight 8-K (08-18-2026)') with apply_corrections relabel items?",
-   "label": "AMD Q2 FY2026 (08-04-2026)",
-   "at": "2026-10-18"
-  },
-  {
-   "subject": "NVIDIA memory suppliers named by inference",
-   "question": "On the verbatim NVIDIA Q2 FY2027 call (08-26-2026) NVIDIA says only 'all three major memory suppliers'; it never names them. Existing entries under that label name them anyway: 6 quarterly_data (SK Hynix, Micron, Samsung in nvidia_vera_rubin.json - signal 'NVIDIA: 'extreme pricing conditions in memory' - price increases exceeded...'; the same three in hbm_memory.json - 'NVIDIA Q2 FY2027: 'extreme pricing conditions in memory' - increases exceeded...') and 3 contracts (SK Hynix -> NVIDIA, Samsung -> NVIDIA, Micron -> NVIDIA in hbm_memory.json - 'NVIDIA: longstanding deep relationships with all three major memory suppliers...'). The names are background knowledge (skill section 2). Delete them (the fact stays on NVIDIA's own node), reword them to the call's words, or keep them?",
-   "label": "NVIDIA Q2 FY2027 (08-26-2026)",
-   "at": "2026-10-18"
-  },
-  {
-   "subject": "OpenAI -> Microsoft edge (IP rights)",
-   "question": "Microsoft's 10-K (07-29-2026): 'We hold rights to OpenAI's intellectual property, including models and infrastructure, for integration into our products.' That is an AI relationship in the OpenAI -> Microsoft direction; OpenAI has no outgoing edges and Microsoft sits only in cloud_infra, so the edge would point down the stack. Not created. Add an OpenAI -> Microsoft 'model / IP licence' edge?",
-   "label": "Microsoft 10-K (07-29-2026)",
-   "at": "2026-10-18"
-  },
-  {
-   "subject": "Relations rows: government customers and free-software users",
-   "question": "Decision C relations rows (2026-10-17): (1) Oracle's verbatim Q4 FY2026 call names government customers - US Department of Veterans Affairs (EHR), US Office of Personnel Management (Fusion HCM), UK NHS Shared Business Services, Wright County Sheriff's Office (Public Safety Suite). JOB 3 bars governments as NODES; should they be relations counterparties (Oracle supplies X)? Left out for now; relations/oracle.json has the 8 company customers. (2) relations/nvidia.json records 11 CUDA-Q quantum companies as 'supplies' / 'partner' although CUDA-Q is open-source software they use for free - keep 'supplies', change to 'partner', or drop such rows?",
-   "label": "Oracle Q4 FY2026 (06-10-2026)",
-   "at": "2026-10-18"
-  },
-  {
-   "subject": "Synopsys -> Microsoft edge left empty",
-   "question": "The verbatim Synopsys Q3 FY2026 call (08-26-2026) calls the Microsoft Discovery workflow 'a demonstration', so tonight's correction deleted the only contract on the Synopsys -> Microsoft edge in nvidia_vera_rubin.json (no contracts from joint demos, skill section 2.4). The edge now has no contracts; under the 2026-10-05 decision empty edges are dropped, but removing an edge is structural. Remove the edge? Also the Synopsys -> AMD edge's relationship text still reads 'joint autonomous EDA workflow work with AMD and Microsoft' - reword to its remaining 3DIC Compiler / MI455X contract?",
-   "label": "Synopsys Q3 FY2026 (08-26-2026)",
-   "at": "2026-10-18"
-  },
-  {
-   "subject": "Superseded call transcripts (verbatim re-fetch 10-17b)",
-   "question": "Tonight 46 call labels got a verbatim, speaker-labelled copy in transcripts/av/ under the SAME label (Intel, Arista, KLA, Lam, Teradyne, Rambus, Amphenol, Corning, Navitas, onsemi, Astera Labs, Eaton, Tower, Oracle, Cisco, Coherent, Supermicro, Lumentum, Sandisk, Western Digital, Viavi, Applied Optoelectronics, Constellation Energy, Vistra, Fabrinet, Semtech, NVIDIA Q2 FY2027, AMD, Synopsys, Applied Materials, Fluence, Onto, Keysight, Wolfspeed, Qualcomm, Arm Holdings, Celestica, Jabil, Amkor, FormFactor, Lumen, ASE Q1/Q2, Nova, Camtek, STMicroelectronics). The old condensed / unlabelled files stay beside them and still count as sources for the label (verify_graph reads every file of a label). Mark the old files superseded (header line) or move them to an archive folder so evidence links and quality scans use only the verbatim copy? (Extends the open 'Condensed call files labelled FULL' question.) Also: the old file transcripts/accelerators/arm_q1_2027.txt header says 'Arm Q1 FY2027' but the graph label is 'Arm Holdings Q1 FY2027 (07-29-2026)'.",
-   "label": null,
-   "at": "2026-10-18"
-  }
- ],
+ "questions": [],
  "answered": [
   {
    "subject": "Alpha and Omega Semiconductor",
@@ -2104,6 +1599,834 @@
    "at": "2026-10-12",
    "answer": "User 2026-10-13: both are operating facts - a miner's bitcoin production / holdings / sales and a developer's land / site purchases are kept (collateral pledges stay out with the credit facility); SKILL.md section 2. Restored: Riot 10-K / 10-Q bitcoin sales and holdings, CleanSpark custodian line and Texas site purchases.",
    "answered": "2026-10-13"
+  },
+  {
+   "subject": "Operating facts inside award releases",
+   "question": "Award releases sometimes restate operating facts: Schneider WEF Lighthouse (El Paso on-time delivery 61% -> 97%, USD 43M backorders cleared amid data-center demand); Lenovo TIME/Fast Company (AI revenue 33-35% of group). Rule says awards yield nothing. Keep operating facts from award releases the way they are kept from financing releases?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): Award and ranking releases are treated like financing releases: the award, ranking, score and the awarding body's view yield nothing, but operating facts the company states about itself are kept. Added: Schneider El Paso (on-time delivery 61% to 97%, lead times -35%, $43M backorders cleared amid data-center demand; Beijing +30%) and Lenovo FY25/26 (revenue US$83.1B, AI-related revenue doubled to 33% of group). Lenovo's Q1 35% (Fast Company release) restates the Q1 FY2027 call, so no entry. ir_pull's headline filter stays as it is.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Edge labels vs new contract types",
+   "question": "Infineon -> Eaton edge is labelled 'power semiconductors for UPS' but the new contract is SiC for Eaton's MVSST solid-state transformer; Schneider's Equinix MV-switchgear pilot is a counterparty entry, not an edge. Widen the Infineon->Eaton label, and should named pilot deployments become edge contracts?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): One edge per supplier -> customer pair: another product of the same relationship goes on the existing edge and the label is widened. Infineon -> Eaton (power_cooling.json) becomes 'power semiconductors for UPS and silicon carbide (SiC) power devices for medium-voltage solid-state transformers' via a new correction kind 'edge' (code diff below). A named pilot at a customer's live site is a deployment: Schneider -> Equinix with that pilot contract already exists (datacenter_construction_power.json), so that part is resolved. Lab demos stay demos.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Government subsidy amounts",
+   "question": "X-Fab Erfurt cleanroom release (10-05-2026) names EUR 127.4 million of EU Chips Act funding. Left out as financing-like. Should a public subsidy / grant amount for a capacity project be captured as a capex fact (keep), or stay out with financing terms?",
+   "label": null,
+   "at": "2026-10-13",
+   "answer": "Claude decision 2026-10-19 (user delegated): Captured. Grants, subsidies and incentives a company receives are company facts (Micron's CHIPS incentives were already on its node), unlike loans, offerings and credit lines. The X-Fab Erfurt entry (10-05-2026) now states EUR 127.4 million of EU Chips Act funding from the German federal government and the Free State of Thuringia, through a set correction on the existing entry. Rule bullet shared with question 88.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Equity-stake purchases and sales",
+   "question": "Verifiers deleted (a) Foxconn selling 5,544,000 Zhen Ding shares, an equity-method investee (gain NT$2.68B, 26.47% kept), MOPS 10-12-2026, and (b) Osaka Organic buying shares that made SANBO Chemical an equity-method affiliate, TDnet 10-09-2026, under the equity-investment exclusion. Keep ownership changes between supply-chain companies as company facts (no price), or keep excluding them?",
+   "label": "Foxconn MOPS material information: release 2317-20261012-1 (10-12-2026)",
+   "at": "2026-10-13",
+   "answer": "Claude decision 2026-10-19 (user delegated): Kept. An operating company buying or selling a stake that is or becomes a subsidiary, JV or equity-method affiliate is a structural fact, not financing; price, proceeds and gain stay out as deal terms. Re-added: Foxconn sold 5,544,000 Zhen Ding shares, 299,971,627 shares (26.47%) kept (MOPS 10-12-2026, no NT$ figures); Osaka Organic: SANBO CHEMICAL IND. became an equity-method affiliate after a Q3 share purchase (TDnet 10-09-2026; the alliance itself restates the H1 entry, so it is not repeated). Both labels need a new verifier pass.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Material litigation",
+   "question": "Capture material legal proceedings or not? Tonight: Micron 10-K (10-09-2026) DRAM price-fixing class action (06-25-2026, vs Micron / Samsung / SK hynix) was skipped; Moderna 10-K / 10-Q patent suits (Bayer/Monsanto; Sanofi subsidiaries) were captured; Rorze's semi-annual report patent-settlement payment (JPY 9,587 million) was captured. The rules list litigation neither way.",
+   "label": "Micron 10-K (10-09-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Captured, matching what is already kept (Moderna patent suits, Rorze JPY 9,587M settlement, AstraZeneca's H1 disputes incl. the $220m Sheffield settlement). Added from Micron's 10-K (10-09-2026): the DRAM price-fixing putative class action (N.D. Cal., 06-25-2026, vs Micron / Samsung / SK hynix; similar Hawaii complaint 07-17-2026) and the pending YMTC patent suits (N.D. Cal. and Beijing / Shanghai IP courts). Boilerplate and news-only lawsuits yield nothing; the fact stays on the filer's node, without edges.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "DoD Chinese Military Company designations",
+   "question": "Alibaba 6-K (06-09-2026): the DoD added Alibaba to its 1260H Chinese Military Companies list; captured with the company's own response (data kept safe). Baidu's 6-K the same day (same designation) was skipped. Capture such designations (then add Baidu next run) or remove Alibaba's entry?",
+   "label": "Alibaba 6-K (06-09-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Captured. A government listing that names the company (DoD 1260H Chinese Military Companies list, Entity List / export-control listings, sanctions) or its removal is a material company fact when the company's own filing or release discloses it, with the stated effect and the company's response attributed. Alibaba's 6-K entry stays; Baidu's 6-K (06-09-2026, 'Baidu Responds to Inclusion on U.S. CMC List') is added now from the saved file instead of waiting for the next run.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Strategic equity investments by partners",
+   "question": "Teradyne's $300 million strategic equity investment in FormFactor (8-K 10-13-2026, tied by Teradyne's CEO to the collaboration) was kept on FormFactor's node by the verifier, citing the NVIDIA -> Coherent / Marvell and MACOM -> IQE precedents. Keep such partner investments as relationship facts, or drop them as financing?",
+   "label": "FormFactor 8-K (10-13-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Kept - the verifier's call stands. An operating company's investment in a customer, supplier or partner that the filing ties to a commercial relationship (NVIDIA -> Coherent / Marvell, MACOM -> IQE, Teradyne -> FormFactor $300M) is a relationship fact: investor, amount and stake as stated plus the commercial tie; security terms (price per share, warrants, conversion, lock-up, registration rights) stay out, and the same money from a bank or fund is financing. No data change: FormFactor 8-K (10-13-2026) entry already holds it.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Strategic ownership changes",
+   "question": "A CATL-affiliated vehicle (Lochpine Capital via PJ Millennium) closed a ~38.1% stake in VNET (6-K 09-21-2026) with a 'computing-power-electricity coordination' support clause; Westinghouse confidentially filed a draft IPO registration (Brookfield Renewable 6-K 07-31-2026). Both were left out as governance / financing. Record large strategic ownership changes or subsidiary IPO filings?",
+   "label": "VNET Group 6-K (09-21-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): VNET: recorded - a ~38.1% stake (650,424,192 Class A shares) bought by PJ Millennium I / II, whose GP is a Lochpine Capital subsidiary, an affiliate of CATL per the release, plus the investor-rights clause that VNET supports the buyers' computing-power-electricity coordination strategy and AIDC know-how (6-K 09-21-2026); no price. Westinghouse's confidential draft IPO registration is an offering: no map entry, one row for the section 10c financing log is provided. Rule bullet shared with question 57.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Licence and disposal values",
+   "question": "(1) In-licence upfront / milestone values (AstraZeneca H1 2026: Dizal $600m + up to $900m, CTTQ $200m + up to $1.9bn, CSPC $1.2bn + up to $3.5bn) were left out as deal price, while partner milestones (Daiichi Sankyo $25M / $100M) are captured - capture licence values? (2) Capacity SOLD (MW only, no proceeds; e.g. Brookfield Renewable Q2 2026: ~570 MW Europe, ~2,100 MW to Northview, 25% of 403 MW Maine hydro, Colombian 218 / 39 MW): the rules keep acquisitions' operating facts but say nothing on disposals - capture?",
+   "label": "AstraZeneca 6-K (07-27-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): (1) Captured: a licence is a contract, not an acquisition, so stated upfront, 'up to' milestones and royalties are kept like a supply contract's value (AZ-insitro $40M / $1.46B was already kept). Added from AZ's 6-K (07-27-2026): Dizal $600m + up to $900m, CTTQ $200m + up to $1.9bn, CSPC $1.2bn + up to $3.5bn. (2) Captured: disposals mirror acquisitions - what was sold, stake, buyer; never price, proceeds or gain. Added Brookfield Renewable's Q2 sales (~570 MW Europe, ~2,100 MW Northview, 25% of 403 MW hydro, Colombia 218 / 39 MW, 33% of 2.1 GW).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Bitcoin lending",
+   "question": "MARA 8-K (08-06-2026): '4,742 BTC loaned, ~$4.3M interest income' was removed by the verifier as treasury / financial-yield activity (the 2026-10-13 rule keeps a miner's production, holdings and sales; pledges are financing). Count lent BTC as holdings and keep it, or exclude?",
+   "label": "MARA Holdings 8-K (08-06-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Kept. Bitcoin a miner lends out is still its holdings (MARA reports the 4,742 loaned BTC inside its 35,577 BTC); lending is not the company raising money, so the 2026-10-13 financing exclusion does not reach it. The loaned BTC and the interest income the company reports from it are kept; BTC pledged as collateral and the facility it secures stay out. Re-added from MARA's 8-K (08-06-2026): 4,742 BTC loaned, ~$4.3 million interest income in Q2.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Government funding commitments",
+   "question": "The 10-18 nightly verifiers treated government funding the company RECEIVES as financing (skill section 2) and stripped it from tonight's first-call patches: Infleqtion and Rigetti U.S. Department of Commerce letters of intent (up to $100M each; Rigetti's for an equity stake), IBM's ~$1B CHIPS incentives for its quantum plan, Quantinuum's up-to-$100M CHIPS R&D letter of intent, D-Wave's ~$1.57M NSF award, Xanadu's Project OPTIMISM funding 'in final discussions', and Rigetti's NSF-funded PSC system note, AST SpaceMobile's J-LEO 'up to ~USD 1B non-dilutive government capital' (the Rakuten award itself kept), Unisys' 'partially funded by the U.K. government'. They also stripped cash balances that include equity / convertible proceeds (AST pro forma cash > $3.7B, Planet $865M, Rocket Lab ~$2.4B). Government agencies as PAYING customers of named contracts (DARPA Stage B revenue, Space Force / Navy / NASA contracts) were kept. Should grants, incentives and funding LOIs stay out as financing, or be captured as material facts on the company's node (the sources are saved, so they can be re-added)? And should cash balances that include raised money stay out too?",
+   "label": "IBM Q2 FY2026 (07-22-2026)",
+   "at": "2026-10-19",
+   "answer": "Claude decision 2026-10-19 (user delegated): Grants, incentives, R&D awards and funding LOIs are company facts (amount, program, status, hedge); if the government takes equity the award stays, stake terms out; government loans stay financing (program kept). Cash balances, incl. pro forma, are kept without raise terms. Restored: Infleqtion / Rigetti DoC LOIs, Quantinuum CHIPS LOI, IBM $1B CHIPS incentives, D-Wave NSF ~$1.57M, AST J-LEO ~$1B, Unisys and Rigetti/PSC funding clauses, Xanadu CAD $195M (6-K); cash for AST, Planet, Rocket Lab, Infleqtion, Rigetti, Quantinuum, Xanadu.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Company decks behind IR notices",
+   "question": "Some IR rows only link to a company deck/PDF that was not saved: Global Standard Technology Q2 deck, Sakai Chemical IR Fair 2026 deck, Murata / Sumitomo Metal Mining / Panasonic / Legrand results and guidance PDFs. Fetch and enrich these PDFs (and fix ir_pull to save PDF bodies for these sites)?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): fetched the PDFs whose facts the nodes lack: SMM's 08-10 forecast revision and Q1 results summary, and GST's English Q2 2026 IR deck (customer pipeline, immersion-cooling deliveries, capex plan, named major customers). Patches, sources and 12 GST relations rows are ready. The Murata, Panasonic and Legrand results PDFs only restate the calls and H1 release already on those nodes. Sakai's retail-investor IR Fair deck is not linked from its notice and was not fetched. ir_pull gets a per-feed follow_pdf flag that saves a linked PDF with its notice.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Image-only MOPS decks",
+   "question": "Fositek (2 decks) and King Slide keep their financial tables as images, so mops.py extracts only slide titles and the rows gave nothing. Add OCR for image-only deck pages in mops.py?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): no OCR in mops.py. OCR text cannot be checked against a text layer, and these decks' tables (Fositek H1'26 results, King Slide) are the CPA-reviewed figures both companies also publish as text in their Q2 2026 consolidated financial statements, which fill any slot (10-01 ruling). Rule added for mops.md. The next enrich taiwan saves and enriches those statements and closes the deck rows. King Slide's has a text layer: kingslide.com/skin/frontend/base/default/uploads/financial/monthly/2026_2_sum-IFRSs.pdf (38 pages).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "check_edgar_patch counterparty keys",
+   "question": "utils/check_edgar_patch.py rejects counterparty / counterparty_role keys on quarterly_data, while SKILL.md JOB 3 and check_patch.py use them; EDGAR agents named counterparties only in the signal text. Allow the keys in the EDGAR checker (tool change)?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): allowed. SKILL.md JOB 3 / JOB 4 put every non-player counterparty on the filer's quarterly_data with counterparty / counterparty_role keys, derive.py reads them for the Exposure tab, and check_patch.py already accepts them; only the EDGAR checker still refused them, which pushed EDGAR agents to hide counterparties in signal text. The two-line change below gives check_edgar_patch.py the same optional-key set; edgar.md says so.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "logmi transcripts linked from company IR pages",
+   "question": "Micronics Japan, Ferrotec, Sakura Internet and Sumitomo Osaka Cement publish no Q&A summary of their own, but their official IR pages link the full results-briefing transcript (presentation + Q&A) hosted on logmi Finance (finance.logmi.jp, a third-party transcription service; e.g. Micronics Q2 FY2026 08-13-2026 finance.logmi.jp/articles/385573). Count a logmi transcript that the company's own IR page links as its official record as company-published (enrich it as the call), or keep logmi excluded?",
+   "label": null,
+   "at": "2026-10-13",
+   "answer": "Claude decision 2026-10-19 (user delegated): counted as the call. The logmi page for Micronics Japan Q2 FY2026 (08-13-2026) is the full presentation plus 11 Q&A sections and says 提供：株式会社日本マイクロニクス, i.e. the company commissions and publishes it. A full transcript ranks above the company Q&A summary the 10-13 Japan exception already allows, and the full-transcript rule already accepts third-party transcription (Investing.com, AV). Rule sentence below. The next enrich japan unmarks the four companies and enriches their latest briefings.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "EDGAR pipeline gaps",
+   "question": "Tonight's SEC pull found: (1) edgartools Filing.html() fails for many recent filings (primary-document lookup None), so edgar_pull saved nothing for them (Micron 10-K 10-09, ~57 recent 8-Ks); recovered with utils/edgar_pull_fallback.py (new, uncommitted). Fold that fallback into edgar_pull.document_text()? (2) Exhibits not saved (PDF / separate documents): Baidu 6-K 09-17 and Kingsoft Cloud 6-K 09-21 '2026 Interim Report', GDS 6-K 09-04 HK Interim Report, Alibaba 6-K 06-18 HK annual / ESG reports, SharonAI 8-K 08-07 EX-99.1 Q2 release; QumulusAI 8-K 09-22 deck is images only. Fetch these? (3) The XBRL segment reader mis-assigns Medpace therapeutic-area names (10-K 02-10, 10-Q 07-23; printed tables used). (4) Canaan's monthly production updates come only via 6-K - add an IR feed for Canaan?",
+   "label": "Micron 10-K (10-09-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): (1) folded utils/edgar_pull_fallback.py into edgar_pull.document_text() (diff). (2) PDF exhibits are saved as their text layer. Baidu, Kingsoft Cloud and GDS interim reports and SharonAI's 08-07 EX-99.1 are re-pulled under rule 2 and triaged for facts their calls did not state. Alibaba's HK annual report restates its 20-F and the ESG report is CSR: no fetch. QumulusAI's image deck yields nothing (no OCR). (3) Medpace: printed table used, rule added. (4) Canaan, a node since 10-13, gets an IR feed; 6-K stays the backup.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "power_cooling topic scope",
+   "question": "The power_cooling timeline is described as 'AI datacenter power delivery & cooling', but in practice the tag sits on every grid / generation equipment contract (21 of 25 DART supply-contract entries in power_cooling.json, e.g. Taihan Cable's North America HV cable order and BHI's LNG power-plant equipment, which never mention data centers). Should power_cooling cover the whole power domain (keep tagging all power equipment) or only data-center power and cooling (then new grid / generation entries get topics [] and a verifier pass trims the old tags)?",
+   "label": "Taihan Cable DART supply contract (10-15-2026)",
+   "at": "2026-10-16",
+   "answer": "Claude decision 2026-10-19 (user delegated): power_cooling covers the whole power and thermal domain, data-center-named or not, so the existing tags stay and no verifier pass trims them. This matches derive.py's own keyword fallback (grid transformers, substation, switchgear, nuclear, gas turbine, PPA, GW / MW all map to power_cooling) and the 10-12 terminal goal, under which the user kept non-data-center power edges (WEC wind offtakes, gas-pipeline customers). The timeline note is reworded (edits/curated_fixes.py) and JOB 5 gets one sentence.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Curated capex_backlog.json fixes (big tech)",
+   "question": "The verbatim pass found curated capex_backlog.json text the calls do not support: Amazon backlog 'RPO ~2.5x (year-ago)' is an analyst's figure (and vs Q3 2025); Nebius 'USD 27B 5-yr Meta' is not on the Q2 call; the Google rows are named 'Alphabet' / 'Google Cloud' (not the node 'Google', so the Capex tab shows a second, derived 'Google' bar) and mention a '$49.6B equity raise' (financing). Only the user edits that file: fix these rows?",
+   "label": null,
+   "at": "2026-10-17",
+   "answer": "Claude decision 2026-10-19 (user delegated): fixed, checked against the verbatim calls. Amazon's 'RPO ~2.5x' is an analyst's question, so it goes; the call's $496B backlog and five-year-term remark stay. Nebius' '$27B 5-yr Meta' is not on the Q2 call and its $775M SOFR+250 facility is financing, so both go; '>$40B committed backlog' stays. The Google bars are named 'Google' and the AWS bar 'Amazon (AWS)', which ends the duplicate derived bars ('Google' x2 and a stale $244B 'Amazon'). The $49.6B equity raise and debt line go, also from the power timeline table.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Condensed call files labelled FULL",
+   "question": "transcripts/bigtech/{microsoft_q4_fy2026, alphabet_q2_2026, amazon_q2_2026, meta_q2_2026}.txt are ~8-9 KB condensed notes whose headers say 'User-pasted FULL earnings call transcript' (amazon's also declares the label 'Amazon Web Services Q2 FY2026 ...'). The verbatim calls now sit beside them in transcripts/av/ under the same labels and the entries were corrected from them (2026-10-17). Change those headers to say 'condensed notes, NOT verbatim' (and move them out of the label's sources), or leave them as they are?",
+   "label": null,
+   "at": "2026-10-17",
+   "answer": "Claude decision 2026-10-19 (user delegated): the four bigtech notes leave transcripts/ with the 49 other superseded call files (decision on 'Superseded call transcripts'): edits/move_superseded.py moves them to transcripts_superseded/<same folder>/ and puts a '# SUPERSEDED 2026-10-19 ... condensed notes, NOT verbatim' line on top. They are kept, not deleted. Every entry of the four labels still verifies against the verbatim call plus the release companion. Amazon's stray 'Amazon Web Services Q2 FY2026' header label is used by no entry.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Release facts under call labels (Astera Labs, AMD, Keysight)",
+   "question": "Tonight's verbatim re-fetch showed that some entries under call labels hold facts that are only in the same-day earnings release: Astera Labs Q2 FY2026 (08-04-2026) - an amd_mi450_helios entry (AMD Advancing AI joint architectures) and the nvidia_vera_rubin revenue_growth entry (Computex demo, MGX reference designs, Taiwan expansion, '320-lane production ramp' quote); AMD Q2 FY2026 (08-04-2026) - entries with GAAP margin / net income / EPS, Jean Hu's 'accelerate in the second half', MI430X/MI455X and the Anthropic 'up to 2 gigawatts' wording (verbatim in transcripts/edgar/AMD_8-K_2026-08-04.txt); Keysight Q3 FY2026 (08-18-2026) - non-GAAP $531M / $3.07 and GAAP $397M / $2.30 (in transcripts/edgar/KEYS_8-K_2026-08-18.txt). They were kept, unchanged. Relabel them to the 8-K labels ('Astera Labs 8-K (08-04-2026)', 'AMD 8-K (08-04-2026)', 'Keysight 8-K (08-18-2026)') with apply_corrections relabel items?",
+   "label": "AMD Q2 FY2026 (08-04-2026)",
+   "at": "2026-10-18",
+   "answer": "Claude decision 2026-10-19 (user delegated): relabelled to the 8-K labels the 5 entries written from the earnings release: Astera Labs x2 (Advancing AI, Computex/MGX/Taiwan; the call's '~40% QoQ' first taken out) and AMD x3 (GAAP results + Jean Hu quote, Anthropic 'up to 2 GW' wording + MI430X, the Anthropic contract). Their slots stay valid: the call labels keep no other revenue_growth / backlog_or_b2b entry. Keysight's entry is mostly call content, so it keeps its label; its release-only GAAP / non-GAAP per-share clause moves to a new Keysight 8-K entry. All re-verify.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Relations rows: government customers and free-software users",
+   "question": "Decision C relations rows (2026-10-17): (1) Oracle's verbatim Q4 FY2026 call names government customers - US Department of Veterans Affairs (EHR), US Office of Personnel Management (Fusion HCM), UK NHS Shared Business Services, Wright County Sheriff's Office (Public Safety Suite). JOB 3 bars governments as NODES; should they be relations counterparties (Oracle supplies X)? Left out for now; relations/oracle.json has the 8 company customers. (2) relations/nvidia.json records 11 CUDA-Q quantum companies as 'supplies' / 'partner' although CUDA-Q is open-source software they use for free - keep 'supplies', change to 'partner', or drop such rows?",
+   "label": "Oracle Q4 FY2026 (06-10-2026)",
+   "at": "2026-10-18",
+   "answer": "Claude decision 2026-10-19 (user delegated): (1) a government agency that pays for a product is a real customer; JOB 3 only keeps it from being a node. Added Oracle supplies U.S. Department of Veterans Affairs (EHR, 14 VA medical centers), U.S. Office of Personnel Management (Fusion HCM award) and Wright County Sheriff's Office (Public Safety Suite), all quoted from the verbatim Q4 FY2026 call. NHS SBS is left out because the call cuts that sentence off before any product. (2) NVIDIA's 11 rows stay: price does not decide 'supplies', and the rows already split users from co-developers.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Superseded call transcripts (verbatim re-fetch 10-17b)",
+   "question": "Tonight 46 call labels got a verbatim, speaker-labelled copy in transcripts/av/ under the SAME label (Intel, Arista, KLA, Lam, Teradyne, Rambus, Amphenol, Corning, Navitas, onsemi, Astera Labs, Eaton, Tower, Oracle, Cisco, Coherent, Supermicro, Lumentum, Sandisk, Western Digital, Viavi, Applied Optoelectronics, Constellation Energy, Vistra, Fabrinet, Semtech, NVIDIA Q2 FY2027, AMD, Synopsys, Applied Materials, Fluence, Onto, Keysight, Wolfspeed, Qualcomm, Arm Holdings, Celestica, Jabil, Amkor, FormFactor, Lumen, ASE Q1/Q2, Nova, Camtek, STMicroelectronics). The old condensed / unlabelled files stay beside them and still count as sources for the label (verify_graph reads every file of a label). Mark the old files superseded (header line) or move them to an archive folder so evidence links and quality scans use only the verbatim copy? (Extends the open 'Condensed call files labelled FULL' question.) Also: the old file transcripts/accelerators/arm_q1_2027.txt header says 'Arm Q1 FY2027' but the graph label is 'Arm Holdings Q1 FY2027 (07-29-2026)'.",
+   "label": null,
+   "at": "2026-10-18",
+   "answer": "Claude decision 2026-10-19 (user delegated): the 53 old call files of the 52 re-fetched labels move out of transcripts/ to transcripts_superseded/ with a SUPERSEDED first line (edits/move_superseded.py), so evidence links, Ask and quality scans read only the verbatim call. Nothing is deleted. I re-checked every entry of those labels against the verbatim call plus the same-day _earnings_release companions, which stay: only Cisco's 'Acacia >850k 400G' loses its number, and a correction rewords it. Arm's header mismatch disappears with the file. Two verify tests are repointed.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Relations rows for app-integration and content partners",
+   "question": "Meta's Connect 2026 talk (09-24) names partners for its Muse agent and Quest headsets. The relations backfill recorded only those Meta explicitly calls a partnership: Stripe (payments for agentic shopping), Shopify (catalog + Shop Pay checkout) and ESPN (immersive live games on Quest, ESPN is a Disney business, kept under the name Meta used). It skipped the long integration and content lists (Spotify, OpenTable, Plaid, Ticketmaster, PayPal, Walmart, Best Buy, Expedia, Instacart, Notion ... and Disney+, Peacock, HBO Max, YouTube, MLB, UFC, Xbox Cloud Gaming ...). Do app-integration and content partners count as 'partners in a supply role' for relations/ rows (add the lists), or should even the Stripe / Shopify / ESPN rows go? And should a business unit like ESPN be recorded under its parent (Disney)?",
+   "label": "Meta connect 2026 (09-24-2026)",
+   "at": "2026-10-18",
+   "answer": "Claude decision 2026-10-19 (user delegated): the rows stay as recorded. Stripe (Link payments), Shopify (catalog + Shop Pay checkout), ESPN (live-game content for Quest) and EssilorLuxottica each supply a named part of Meta's product. The 'partners like Spotify, OpenTable, Plaid, Ticketmaster' connector list and the Disney+ / Peacock / YouTube app line-up are platform integrations and app availability, not a supply role, so they get no rows. ESPN stays under the name Meta used: the skill bars inferred ownership, and Disney is not a node.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Rule B and fab design / construction relationships",
+   "question": "Rule B keeps semiconductor-FAB contractors out (United Integrated Services, Acter, Marketech, Hanyang Eng: never a node, never a relations counterparty). Tonight's relations rows include general EPC / engineering firms on chip fabs: Micron -> Bechtel (EPC of the first New York fab), Micron -> Jacobs Solutions (architecture / engineering design), Micron -> Gilbane (preconstruction / site infrastructure), and Jacobs Solutions -> Intel ('engineer of record for Intel for a couple of decades', call 08-04-2026); the committed jacobs-solutions.json already had a Jacobs -> Intel Fab 52 design row. Kept for now. Does rule B exclude only the four named specialist fab contractors, or every fab design / construction relationship (then these rows go)?",
+   "label": "Micron press release: Micron Accelerates U.S. Investments, Pours First Concrete (07-09-2026)",
+   "at": "2026-10-19",
+   "answer": "Claude decision 2026-10-19 (user delegated): rule B is a company-level exclusion. It covers the four named firms and any other contractor whose business is fab facility or cleanroom construction, which the user kept off the map entirely. Bechtel, Jacobs Solutions and Gilbane are general engineering / EPC firms, and Jacobs and Fluor are nodes as data-center contractors, so their fab work is a real relationship like any other. Kept as relations rows (scope other): Micron -> Bechtel / Jacobs Solutions / Gilbane Building Company and both Jacobs -> Intel rows. Rule B gets one clarifying sentence.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "AI relationships with a counterparty that is not a node",
+   "question": "Decision C puts AI relationships on chain edges and everything else in relations/ (scope \"other\"). An AI relationship whose counterparty is NOT a graph node fits neither: tonight's verifiers removed two such relations rows (Penguin Solutions -> Axe Compute GPU-cluster deployment; DigitalOcean -> Bright Data agent-data integration) and kept the facts only as counterparty keys on the filer's node, while other agents recorded similar ones as \"other\" rows under the when-unclear rule (MHI -> Ingeteam data-center power conversion MOU, NiSource -> AGP Group battery tolling, Tecogen -> Cloudsmart data-center unit). Should a clearly-AI relationship with a non-node counterparty get a relations/ row (scope \"other\"), or stay only as counterparty keys until the counterparty becomes a node?",
+   "label": "Penguin Solutions press release: Axe Compute Signs Penguin Solutions as Strategic Partner to (10-14-2026)",
+   "at": "2026-10-19",
+   "answer": "Claude decision 2026-10-19 (user delegated): no relations row: scope 'other' means non-AI and the site lists those rows as non-AI. A clearly-AI relationship with a non-node counterparty stays on the filer's quarterly_data with counterparty keys (JOB 4), and the counterparty goes to JOB 3 when it passes the litmus test (Axe Compute: see 'Node candidates named tonight'). The 10-18 nightly, never published, added two such rows: MHI -> Ingeteam and Tecogen -> Cloudsmart. Both facts are already on the filers' nodes, so the rows go. NiSource -> AGP stays as 'other' because its AI link is unclear.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "UMC",
+   "question": "UMC's Q2 FY2026 call reports its own silicon photonics (12-inch photonics IC in mass production, TFLN modulators, CPO parts) and advanced packaging (interposers, hybrid bonding, DTC; 10+ customers). UMC sits only in foundry.json. Add placements in optical_networking.json (interconnect/Components, like GlobalFoundries) and packaging_substrate.json? All facts are on the foundry node meanwhile.",
+   "label": "UMC Q2 FY2026 (07-29-2026)",
+   "at": "2026-09-29",
+   "answer": "Claude decision 2026-10-19 (user delegated): added. UMC's own Q2 call ties its silicon photonics (12-inch photonics IC in mass production, TFLN modulators, optical I/O interposers) and advanced packaging (interposers + DTC, hybrid bonding, bridge die; 10+ customers) to those chains, which meets the 2026-10-01 second-placement rule. New placements: optical_networking interconnect / Components and packaging_substrate advanced_packaging / Wafer-Level Packaging (CoWoS, SoIC). The two segment entries move there (one fact, one node). Company-wide entries stay on foundry.json.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Vultr",
+   "question": "HPE's 09-30 release names Vultr (private, 'largest privately-held cloud infrastructure company') as buyer of HPE's first AMD Helios order ($1.2B, US data centers). Add Vultr as a neocloud node (neocloud.json, cloud_infra / Neocloud (GPU-specialized)) like the private Fluidstack / Lambda nodes, plus an HPE -> Vultr edge? Meanwhile the order sits on HPE's Helios node with counterparty Vultr.",
+   "label": "HPE press release: HPE secures its first AMD Helios order in $1.2 billion deal (09-30-2026)",
+   "at": "2026-09-30",
+   "answer": "Claude decision 2026-10-19 (user delegated): added as a private node. HPE names it as the buyer of its first Helios order, so it is a real GPU-cloud participant like Lambda / Crusoe / Fluidstack. It goes in amd_mi450_helios.json cloud_infra / Neocloud (GPU-specialized) (new sector in that file), not neocloud.json, because HPE is not a player in neocloud.json and the order is a Helios order. New edges: HPE -> Vultr ($1.2B order) and AMD -> Vultr (AMD 8-K Helios deployer list, same sentence as the existing AMD -> Oracle edge). HPE's slotted entry stays (Q19 rule).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Cognition",
+   "question": "CoreWeave's 09-30 release names Cognition (private, maker of Devin) as the first production customer of CoreWeave's Vera Rubin NVL72; it already appears as a customer in earlier entries. Add as a node (ai_models), or keep as counterparty only? Same question for Blackfuel (private inference platform, Digital Realty BCN1, 09-30 release).",
+   "label": "CoreWeave press release: CoreWeave Delivers NVIDIA Vera Rubin NVL72 Performance at (09-30-2026)",
+   "at": "2026-09-30",
+   "answer": "Claude decision 2026-10-19 (user delegated): Cognition added as a private node in nvidia_vera_rubin.json application / AI-Native Vertical Apps (beside Cursor and Perplexity), with a CoreWeave -> Cognition edge. CoreWeave's release names it as the first Vera Rubin NVL72 production customer, running training, RL and inference on thousands of GPUs. CoreWeave's slotted entry stays. Blackfuel is not added: the Digital Realty release gives only the name (no country, executive or company details), so it cannot be identified (Lead Wealth / TIGSTOR precedent). It stays as Digital Realty's counterparty.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Toppan",
+   "question": "Broadcom's 09-29 release (AST JV, Singapore FC-BGA substrate plant) says Broadcom is TOPPAN Holdings' largest FC-BGA substrate customer. Toppan sits only in foundry.json (materials / Photomask), and its product text describes the photomask business now spun out as Tekscend. Add a Toppan placement in packaging_substrate.json (advanced_packaging / FC-BGA Substrate) with a Toppan -> Broadcom edge? And should the photomask node be renamed/split to Tekscend? Meanwhile the fact is on Broadcom's node with counterparty TOPPAN Holdings.",
+   "label": "Broadcom press release: AST Completes Singapore's First High-End FC-BGA Substrate (09-29-2026)",
+   "at": "2026-09-30",
+   "answer": "Claude decision 2026-10-19 (user delegated): added a Toppan placement at packaging_substrate advanced_packaging / FC-BGA Substrate with a Toppan -> Broadcom edge. Broadcom's release says it is TOPPAN's largest FC-BGA customer. The three FC-BGA-only entries from Toppan's Q1 briefing Q&A move there. The rename/split part is already done: Tekscend Photomask is its own node, so no rename. Toppan's foundry.json product text still says 'merchant photomasks'. It gets a description-only edit by hand, like the Solus precedent; its placement stays.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "10x Genomics",
+   "question": "10x Genomics' Sentira release (09-29) says it is 'collaborating with NVIDIA': NVIDIA accelerated computing runs Atera on-instrument processing and Sentira analysis, rapids-singlecell integrated. Make it an NVIDIA -> 10x Genomics edge in ai_bio (like NVIDIA -> Simulations Plus), or keep it as a counterparty entry on 10x (current)?",
+   "label": "10x Genomics press release: 10x Genomics Announces Sentira, a New Computational (09-29-2026)",
+   "at": "2026-09-30",
+   "answer": "Claude decision 2026-10-19 (user delegated): made it an edge, NVIDIA -> 10x Genomics in ai_bio.json. 10x's release says NVIDIA accelerated computing runs real-time processing on its Atera instrument and its Sentira Spatial analysis, with rapids-singlecell integrated, in a product with a stated launch. That is a product integration, not a demo, and matches the existing NVIDIA -> Simulations Plus and NVIDIA -> Schrodinger edges. The counterparty entry on 10x moves onto the edge.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "NetApp",
+   "question": "NetApp INSIGHT releases (09-29): (1) Novus' first, orderable release runs on 'qualified Supermicro servers' — collaboration wording, both are players in nand_flash.json: add a Supermicro -> NetApp edge? (2) Oracle OCI NetApp Storage Service — Oracle is not a player in nand_flash.json, so no NetApp -> Oracle edge (NetApp has edges to Amazon/Microsoft/Google for the same service type). Add Oracle there? Both facts are on NetApp's node with counterparty keys meanwhile.",
+   "label": "NetApp press release: NetApp and Supermicro Collaborate to Power AI at Any Scale (09-29-2026)",
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): (1) Supermicro -> NetApp edge added in nand_flash.json. The orderable Novus release runs on qualified Supermicro servers, and AIPod with Supermicro is a sold product, so Supermicro hardware sits inside NetApp's offering. That is the same integration bar as the NetApp -> NVIDIA edge. (2) Oracle gets a nand_flash cloud_infra / Hyperscaler Cloud placement and a NetApp -> Oracle edge (OCI NetApp Storage Service, planned GA within 12 months), beside the Amazon / Microsoft / Google storage-service edges. Both counterparty entries move onto the edges.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Trane Technologies",
+   "question": "Trane's 09-30 release: lab proof-of-concept of an 800-volt DC chiller with Eaton and Danfoss — skipped under 'demos never count'. It is a direct 800 V DC data-center transition signal. Record such power/thermal proof-of-concepts as attributed 'demonstration' entries with no slot, or keep excluding them?",
+   "label": "Trane Technologies press release: Trane Technologies Demonstrates Industry-First 800-Volt (09-30-2026)",
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): record them. SKILL 2.4 bars calling a demo 'shipping' and bars edges and contracts from joint demos. It does not bar a node entry. A company's own lab proof-of-concept of a technology transition is a material fact for a terminal. Added one attributed entry on Trane: 800 V DC chiller PoC with Eaton and Danfoss, over 3.5 MW, up to 2% efficiency. It is worded as a demonstration, has no slot, and adds no edge to Eaton or Danfoss. Rule sentence proposed for SKILL 2.4.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Synopsys",
+   "question": "Synopsys investor day (09-30): new Synopsys -> Amazon ($1B+ multi-year IP deal, Amazon = lead application-optimized IP customer) and Synopsys -> OpenAI (EDA licence) edges were placed in nvidia_vera_rubin.json, Synopsys' company-wide placement. Should Synopsys get a placement in aws_trainium3 / cpu_datacenter so the Amazon custom-silicon IP edge sits nearer Trainium/Graviton?",
+   "label": "Synopsys press release: Synopsys and Amazon Announce Strategic, Multi-year IP (09-30-2026)",
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): no new placement. The release ties the $1B+ IP deal to Amazon's custom-silicon portfolio as a whole (Nitro, Graviton, Trainium) and names no generation. A Trainium3 or Graviton placement would infer a product the source does not state, and generation separation needs a stated generation. The 2026-10-01 rule adds a second placement only when a company document ties that product to that chain. Edges merge by name, so Synopsys -> Amazon already reaches the Amazon hub. Revisit when a document names the Trainium / Graviton generation.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Private customers as nodes (2026-10-01 run)",
+   "question": "Several releases name private/unlisted companies in a stated supply or customer role; all are kept as counterparty keys on the filer's node for now. Add any as nodes? Mobilint and HyperAccel (Korean AI chip startups, SemiFive design customers), UTAC (private OSAT, Hanmi equipment buyer), FPT Corp (HOSE: FPT, AI factory on ASUS servers - listed), Shinwa Controls (Wiwynn liquid-cooling partner), SolarEdge (NASDAQ, Infineon SiC SSCB/SST collaboration - listed).",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): Added: Mobilint and HyperAccel (private KR AI-chip developers, like Rebellions / FuriosaAI) with SemiFive -> both and ASICLand -> Mobilint. UTAC (private OSAT) with Hanmi -> UTAC, like JCET / TFME. FPT Corporation (HOSE: FPT, neocloud) with ASUS -> FPT. SolarEdge (NASDAQ: SEDG; SST/SSCB for 800 VDC data centres, its CEO quoted) with Infineon -> SolarEdge. Each is identifiable and named in a stated supply or customer role. Not added: Shinwa Controls, whose release states only co-development with Wiwynn, no sale; it stays as Wiwynn's counterparty.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Wiwynn -> Amazon edge",
+   "question": "Wiwynn 09-10 release: it manufactures and integrates server systems and racks for Amazon (Annapurna custom hardware). New edge placed in nvda_b200.json where Amazon is a player. Keep there, or add Wiwynn to an aws_trainium chain and move it?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): keep it where it is. The 09-10 release says Wiwynn manufactures and integrates server systems and racks for Amazon (custom hardware) but never names Trainium or any accelerator generation. Moving it to an aws_trainium chain would infer the product, and generation separation needs a stated generation. Wiwynn's nvda_b200 placement is its hyperscale direct-ODM placement, and edges merge by name into the one Amazon hub. Revisit when a Wiwynn or Amazon document names Trainium racks.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "SUMCO - Formosa Sumco deconsolidation",
+   "question": "SUMCO cut FST voting rights 43.2% -> 38.0% (08-20); FST becomes an equity-method affiliate from 09-30-2026 and leaves SUMCO consolidated sales from Q4 2026. Recorded nothing (ownership notice). Record it on the SUMCO node or the SUMCO-FST edge?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): record it on SUMCO's company-wide node, foundry.json Silicon Wafers. A change in consolidation scope changes SUMCO's reported revenue base, and the Toppan/Tekscend reclassification is already recorded the same way. The entry, from SUMCO's 08-27 completion notice: FST sale completed 08-20, voting rights 43.2% to 38.0%, equity-method affiliate from deemed date 09-30-2026, FST still a key production and sales base, impact under review. No sale proceeds, no slot, no edge change (an edge is supply, not ownership).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Sumitomo Bakelite sector",
+   "question": "Sumitomo Bakelite sits under packaging_substrate 'Substrate Materials (ABF/BT)' but its product is epoxy molding compound / encapsulant. Move it to a packaging/encapsulant materials sector?",
+   "label": null,
+   "at": "2026-10-01",
+   "answer": "Claude decision 2026-10-19 (user delegated): keep it. The 2026-10-01 delegated ruling was no new sectors, with molding compounds and fillers (Novoray, Nagase) staying in the nearest existing home. Its product text already says epoxy molding compound / encapsulant, so the map does not mislead. The gap now holds Sumitomo Bakelite, Novoray, Eternal Materials and Resonac's encapsulant in packaging_substrate, plus Nagase in hbm_memory. If the user wants a 'Molding Compounds & Encapsulants' sector, that is a by-hand move of those nodes; not done.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Tempus AI",
+   "question": "Tempus 10-K and Recursion filings state Tempus licenses de-identified oncology data to Recursion (up to $160M; amended to 6 years, $14M fees yrs 3-5), but check_patch blocks a Tempus AI -> Recursion edge because Recursion -> Tempus AI (TxFM licence) exists. Allow a second, reverse-direction edge? Meanwhile the data-licence facts sit on Tempus AI's and Recursion's quarterly_data.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): allowed. Two edges between the same pair are fine when each carries a different product: Recursion -> Tempus AI is the TxFM model licence, Tempus AI -> Recursion is the de-identified oncology data licence. The Tempus 10-K entry and Recursion's 09-21 8-K amendment entry move onto the new edge. The patches carry a reverse_edges block. check_patch / check_edgar_patch need the small change below, otherwise they ERROR. This decides batch b4 #38 (SharonAI) and b6 #75 (Microsoft -> Arm) the same way.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Merck KGaA",
+   "question": "Recursion's 10-K: Merck KGaA collaboration ($20M upfront, up to $674M milestones). Merck KGaA is a node (foundry.json materials) but not a player in ai_bio.json. Add an ai_bio placement (Biopharma End Customers) so it becomes a Recursion -> Merck KGaA edge? Meanwhile it is quarterly_data on Recursion.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): added. Merck KGaA gets an ai_bio.json application / Biopharma End Customers placement, as Moderna and Merck & Co. did on 2026-10-12. Recursion's 10-K states the AI drug-discovery collaboration ($20M upfront, up to $674M in milestones), so the 'Customer Merck KGaA' entry moves onto a new Recursion -> Merck KGaA edge. Its foundry.json materials placement is unchanged; the two placements merge into one Merck KGaA hub.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "NXP",
+   "question": "NXP 10-K: NXP holds 10% of TSMC-majority ESMC (capacity entitlement, production 2028) and co-owns SSMC with TSMC. Recorded on NXP's node naming TSMC; no TSMC -> NXP edge created. Should JV capacity entitlements become foundry edges?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): a JV capacity entitlement stated in the filer's own 10-K is a real supply relationship, from the JV's operating majority owner to the filer. The existing VIS -> NXP (VSMC) edge already treats it that way. ESMC's mature-node automotive and industrial capacity does not feed an AI chain, so under decision C it is a relations/ row (NXP customer_of TSMC, 10% of ESMC capacity, production 2028), not a chain edge. SSMC is NXP's own fab co-owned with TSMC, which is ownership, not supply, so no row. The 10-K entry stays on NXP.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Oracle",
+   "question": "Absci 10-K names an Oracle Cloud Infrastructure compute agreement through early 2028 ($4.6M / $8.3M / $2.3M commitments). Oracle is not a player in ai_bio.json, so no Oracle -> Absci edge; the fact is on Absci's node. Add Oracle to ai_bio (cloud_infra)?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): added. Oracle gets an ai_bio.json cloud_infra / Scientific AI Cloud placement beside Amazon and Google, and Absci's 10-K OCI compute agreement moves onto a new Oracle -> Absci edge (through early 2028; $4.6M / $8.3M / $2.3M remaining commitments). This follows the Amazon -> Tempus AI precedent, which was also built from a 10-K. It decides batch b5 #37 (Microsoft -> SOPHiA GENETICS) the same way.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Generac",
+   "question": "Generac 8-K (09-16): $2.4B Amazon generator supply deal sits as a contract on the new Generac -> Amazon edge; contracts cannot carry a screener slot, so Generac's backlog column still shows its Q2 call. Should such deals also get a slotted node entry (backlog_or_b2b), accepting a duplicate fact?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): yes. Contracts cannot carry a slot, so a deal that lives only on an edge never reaches the screener. A named deal on an edge also gets one node entry on the filer's company-wide placement with the slot it qualifies for. That is the one allowed repeat of a fact, and 13 existing releases already do it (e.g. Synopsys / Amazon, Akamai / Anthropic). Added for Generac: 8-K entry, $2.4B initial Amazon deliveries in 2027-28, backlog_or_b2b; it is newer than the Q2 call, so the 8-K slot rule holds.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Recursion",
+   "question": "Recursion 8-K (08-05) release and deck say $216 million received to date from Roche/Genentech; the applied call entry 'Recursion Q2 FY2026 (08-05-2026)' says 'more than $260 million', matching the Alpha Vantage transcript (possible STT error). Correct the call entry to the filed $216M, or keep it as its own source states?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): keep the call contract as its own transcript states, more than $260 million, and do not rewrite it to the 8-K number: the call is its own source, and its verified text matches the transcript. The signal and value now say the to-date figure is as transcribed and that the same-day filed release and deck print a different figure, pointing to the Recursion 8-K (08-05-2026) contract on the same edge, which already carries $216M. This is the 2026-09-11 call-figure precedent (edgar_r3_call_figure_fixes); no slot is involved.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Lotes",
+   "question": "Lotes MOPS decks list LOTES as a CPU socket vendor for AMD Venice (SP7/SP8) and Intel Server (alongside FIT, TE, Amphenol), with 'some products still under development'. Make Lotes -> AMD / Lotes -> Intel edges in cpu_datacenter.json, or keep it on Lotes' node with counterparty keys (current)?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): made both edges in cpu_datacenter.json. Lotes' own deck lists LOTES as a CPU socket vendor on AMD Server platforms (Milan, Genoa, Venice SP7/SP8) and Intel Server: a company document stating its socket supply for those CPUs, stronger than an 'e.g.' list. Each contract keeps the slide's caveat that unfilled products are still in development. The relationship says 'socket vendor for the platform' because board makers do the buying. The roadmap entry stays on Lotes' node, since it also covers desktop and Ampere platforms.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Hengtong Optic-Electric",
+   "question": "Hengtong 2025 annual report: \"MPO series products were used in the data centres of Huawei, Alibaba and others\". Make Hengtong -> Alibaba (Alibaba is in cpu_datacenter.json, not optical_networking.json) and/or Hengtong -> Huawei Cloud (report says only \"Huawei\") edges? Meanwhile on Hengtong's quarterly_data without counterparty key.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): yes, both. The 2025 annual report says Hengtong's MPO data-center cabling was used in Huawei and Alibaba data centers: a filer-stated relationship in this chain's product (hyperscaler data-center optical cabling = AI scope, decision C). Alibaba gets one buyer placement in optical_networking.json (cloud_infra / Hyperscaler Cloud); Huawei is a player there once Huawei Cloud is merged into Huawei (Huawei Technologies question). Patch q24 holds both edges; apply after that merge.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Megmeet",
+   "question": "Megmeet 2025 annual / 2026 H1 reports name Ericsson, Cisco, Juniper, Arista and Accton (plus \"a North American AI major customer\") as network / data-center power customers winning project demands and orders. Make Megmeet -> Cisco / Arista / Accton Technology edges (Ericsson, Juniper are not nodes)? Also: Megmeet says it is one of NVIDIA's designated recommended data-center power providers (110kW Vera Rubin power shelf, expects over RMB 10 hundred million sales) — add a Megmeet placement in nvidia_vera_rubin.json or a Megmeet -> NVIDIA edge? Meanwhile all on Megmeet's power_cooling node as text.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): NVIDIA is already a player in power_cooling.json, so a Megmeet -> NVIDIA edge (NVIDIA-designated recommended data-center power provider; Blackwell / Vera Rubin power shelves, 110kW Vera Rubin shelf in validation) is added from the 2025 annual and H1 2026 reports, like Eaton / Vertiv -> NVIDIA; no Vera Rubin placement. The Ericsson / Cisco / Juniper / Arista / Accton orders are network and telecom power not tied to AI products, so they are scope 'other' rows in relations/megmeet.json, no placements.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Grace Fabric Technology",
+   "question": "The applied Grace 2026 half-year patch (08-14-2026) turned the source's bare \"Nan Ya\" into an edge Grace Fabric Technology -> Nan Ya Plastics; Grace's 2025 annual report spells the customer as Nanya New Material (688519.SS, an A-share CCL maker, not a node), not Nan Ya Plastics. Remove / relabel that Nan Ya Plastics edge?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): already resolved. The user deleted the empty Grace Fabric Technology -> Nan Ya Plastics edge on 2026-10-05 (answered question 'Grace Fabric -> Nan Ya Plastics edge (wrong company)'); packaging_substrate.json has no such edge today, and the customer sits on Grace's quarterly_data as 'Nanya New Material' with counterparty keys (not a node). Nothing to change.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Envicool",
+   "question": "Envicool 2025 annual report: long-standing data-center customers ByteDance, Tencent, Alibaba, Qinhuai Data, GDS, AtHub, China Mobile, China Telecom (Huawei, ZTE in telecom cabinets). Make Envicool -> Alibaba / GDS Holdings edges from such a customer list (other names are not nodes)? Meanwhile one quarterly_data entry, no counterparty key.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): yes. Envicool's 2025 annual report names Tencent, Alibaba and GDS among the large data centers it supplied with cooling systems; data-center cooling for hyperscalers is this chain (FlaktGroup -> Microsoft pattern). Alibaba, Tencent (Hyperscaler Cloud) and GDS Holdings (Datacenter Colocation) get buyer placements in power_cooling.json with Envicool -> each edge. Huawei / ZTE telecom-cabinet cooling is non-AI: relations/envicool.json. Non-node names stay on the node (board question on non-node AI counterparties).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Sugon",
+   "question": "Sugon (new node, cpu_datacenter system_integration) also runs a liquid-cooling business (subsidiary 'Sugon Shuchuang', C8000/C7000 systems, 1650MW delivered). Add a thermal placement in power_cooling.json? Meanwhile all liquid-cooling facts sit on the server node.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): no thermal placement now. Under the user's 2026-10-12 rulings (Granopt, HDD media: facts stay on the company-wide node, no new placement) a second placement is added only to carry a company-stated relationship that needs it; Sugon's liquid-cooling facts (Sugon Shuchuang, C8000 / C7000, 1650MW) stay on its server node without a slot. Revisit when a Sugon document names a liquid-cooling customer or supplier that sits in power_cooling.json.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Huawei Technologies",
+   "question": "Huawei Technologies (equipment / AI servers / Ascend) is the largest customer of several Chinese suppliers (Huafeng Technology 60.52% of 2025 sales; others name Huawei in customer lists), but the graph has only \"Huawei Cloud\" (cloud_infra). Add a Huawei Technologies node so these concentrations can sit on edges? Meanwhile quarterly_data with counterparty \"Huawei\".",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): add it, named 'Huawei' (Dell / Samsung naming). First merge the existing 'Huawei Cloud' division node into it (utils/merge_company.py; Naver Cloud -> Naver precedent), then patch q29 places Huawei at cpu_datacenter.json Server / Rack OEM beside Inspur, Sugon and ZTE with Huafeng -> Huawei: 60.52% of 2025 sales (annual report customer share, Exposure tab) plus the H1 2026 customer-list contract. A private node, approved by Claude as verifier (LS Cable / TerraPower precedent).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Woer Heat-Shrinkable Material",
+   "question": "Woer (new node, copper cable in optical_networking) also has PTFE corrugated liquid-cooling tubing for liquid-cooled servers in customer testing/validation (Q&A 09-09..09-17, H1 report). Add a thermal placement now or only after a qualification/order? Nothing captured on it meanwhile.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): no thermal placement, not even after qualification unless a stated customer relationship then needs an edge. The facts are captured now on Woer's company-wide node without a slot: the H1 2026 report (PTFE corrugated liquid-cooling piping developed, in customer testing and validation) and the 09-09 Q&A answer (aimed at coolant piping for data-center liquid-cooled servers; passing validation uncertain). The 09-03 / 09-10 / 09-11 / 09-17 answers only restate.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Gaolan",
+   "question": "Gaolan (new node, thermal / Direct-to-Chip Liquid) has HVDC converter-valve cooling as its largest segment (Saudi Central-South contract RMB 317,340,381.28). Add a power-domain placement (power / Grid) for that role? Meanwhile those facts sit on the thermal node.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): no power placement. HVDC converter-valve cooling is a cooling product, so its facts belong on Gaolan's thermal node, where they already sit (user 2026-10-12 facts-stay rule). Its grid relationships (China qualified supplier of Hitachi Energy, GE, Siemens; the Saudi HVDC contract) are non-AI and belong in relations/gaolan.json in the nightly relations backfill, not chain edges. Follow-up for that run: its customer list also names Vertiv, Alibaba, Tencent, GDS (power_cooling players after the Envicool decision).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "ZTE",
+   "question": "ZTE (new node): switches placed in optical_networking interconnect / Scale-out next to Arista (alternative: system_integration / Networking Systems). Also its 800G coherent DSP / OTN 800G DCO business would fit interconnect / Scale-across (beside FiberHome, Ciena) — add that placement later? Not captured meanwhile.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): keep the switches at optical_networking interconnect / Scale-out beside Arista (servers stay in cpu_datacenter). No Scale-across placement: the 800G coherent DSP chip is already captured on ZTE's company-wide node from the 2025 annual and H1 2026 reports, and the 'OTN 800G pluggable DCO ports No. 1 for 8 quarters' line is an Omdia ranking (excluded). Add a Scale-across placement only when a ZTE document names an optical customer or supplier that needs an edge.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Lightelligence",
+   "question": "Lightelligence (new node, optical_networking interconnect / Scale-up) also has an optical-computing segment (PACE 2 / LightCube / PACE 3; RMB 19.08M of RMB 79.78M H1 revenue). Give it another placement (e.g. edge_ai / quantum & parallel compute) or keep it to company-wide totals? Meanwhile one entry on the Scale-up node.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): no second placement. The optical-computing segment (PACE 2 / LightCube / PACE 3; RMB 19.08M of RMB 79.78M H1 revenue) stays as company-wide facts on the Scale-up node, per the user's 2026-10-12 rule that another business line's facts stay on the company-wide placement without a slot. Add an edge_ai placement only if a Lightelligence document names a customer or supplier for that product that needs an edge.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Fuso Chemical",
+   "question": "Fuso Chemical (new node) deck: 'Adopted for TSMC N2-generation nodes / confirmation of requirements for A16/A14' -> onboarding made a Fuso Chemical -> TSMC edge (contract 'process adoption (design win)'). Fuso's colloidal silica most likely reaches TSMC through CMP-slurry makers. Keep a direct edge, or make it quarterly_data with counterparty TSMC?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): keep the direct Fuso Chemical -> TSMC edge. Fuso's own results deck says its colloidal silica was 'Adopted for TSMC N2-generation nodes' with A16 / A14 requirements confirmed: a named design win at TSMC, and the edge text already says adoption, not a direct sale. Routing it through slurry makers would be our inference, which the rules forbid. No change; the Fuso -> Fujifilm edge keeps the slurry-maker path.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Tencent",
+   "question": "Tencent (new node, cpu_datacenter cloud_infra / Hyperscaler Cloud next to Baidu) — also add an ai_models / Foundation Models placement for the Hy (Hunyuan) models? Also its Q2 capex RMB52,784 million is tagged capex_q without busd (no FX arithmetic), so the Capex tab draws no bar — add a curated capex_backlog.json row?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): no ai_models placement: the Hy models are in its product text, Alibaba and Baidu also have one cloud placement, and a placement is added only when a relationship needs it. Capex: yes, a curated Tencent row in capex_backlog.json 'Hyperscalers' so derive.py fills its capex_q cell from the tagged RMB52,784 million entry; no bar and no FX conversion (busd is never computed from RMB). Exact row in the action.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Dingtong Technology",
+   "question": "Dingtong Technology (new node, optical_networking interconnect / Components) names Luxshare as top-5 customer 5 (1.09% of 2025 sales) and TE Connectivity as a main customer; both sit only in nvidia_vera_rubin.json. Add a Dingtong placement in nvidia_vera_rubin.json (interconnect / Components) so those become edges (Luxshare as an Exposure-readable customer-share contract)? Meanwhile counterparty keys on Dingtong's quarterly_data.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): yes. Dingtong gets one placement in nvidia_vera_rubin.json interconnect / Components beside its customers (LG Innotek precedent: placed where the counterparty sits), with Dingtong -> Luxshare (customer 5, 1.09% of 2025 sales, annual report customer share for the Exposure tab) and Dingtong -> TE Connectivity (main-customer list). Placing Luxshare in optical_networking instead would hit check_patch's 2026-09-05 fold list. Patch q36; the Amphenol edge stays in optical_networking.json.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "SharonAI",
+   "question": "NVIDIA supplies SharonAI's GPUs (10-K: 'substantially dependent on NVIDIA as a supplier of GPUs'), while SharonAI -> NVIDIA (the $4.88B capacity deal) already exists; check_edgar_patch rejects a new edge whose reverse exists, so the GPU-supply fact sits on SharonAI's quarterly_data. Allow a second, reverse-direction NVIDIA -> SharonAI 'GPU supply' edge? (Same question as the open Tempus AI <-> Recursion one.)",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): resolved without a new edge: an NVIDIA -> SharonAI edge now exists (ai_security_trusted_compute.json), so the 10-K 'substantially dependent on NVIDIA as a supplier of GPUs' fact goes there as a 10-K supplier disclosure contract (patch q38). Rule (shared with the Tempus AI and Microsoft -> Arm questions): an opposite-direction edge is allowed when a company document states a different relationship in that direction, never the same fact twice; an existing edge in that direction is used first.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Power Solutions International",
+   "question": "PSI Q2 FY2026 call entry says industrial sales fell '$3.7 million' (matches the AV transcript, CFO speech), but the 8-K release and 10-Q say $3.0 million (29,874 -> 26,846). Correct the call entry to the filed $3.0M, or keep it as its own source states? (Same shape as the open Recursion Roche figure question.)",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): keep the call entry as spoken and flag it, as in the Eversource $4.52 / $4.57 fix: a correction appends 'the $3.7 million industrial decrease is as spoken on the call; the filed release prints a different figure (see the 8-K entry)', and a new 'Power Solutions International 8-K (08-06-2026)' entry carries the filed $34.6M / $3.0M / $1.7M end-market decreases. The revenue_growth slot ($152.5M) is unaffected. Same rule for the Recursion, Kingsoft Cloud and ASE figure questions.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Jabil",
+   "question": "Akamai 8-K (09-24-2026): ~$1.7 billion Jabil Build Request (memory components on consignment) for the Anthropic build-out. Jabil is a node only in power_cooling (Server ODM), not in neocloud.json, so the fact sits on Akamai's quarterly_data. Add Jabil as a player in neocloud.json (system_integration) so a Jabil -> Akamai Technologies edge can carry it?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): yes. Jabil gets a placement in neocloud.json at system_integration / Server ODM (its sector in every other chain), beside Lenovo, which the same Akamai 8-K already made an Akamai supplier; edge Jabil -> Akamai Technologies carries the 09-24-2026 Build Request (customized server hardware under the 2019 MSA; about $1.7 billion of memory components held on consignment). The Akamai quarterly_data entry stays. Patch q40.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "POCO Holding",
+   "question": "POCO Holding 2025 annual report names MPS (existing chip-inductor customer) and Flex (new 2025 cooperation) as chip-inductor customers; both are nodes but only in power_semiconductor / power_cooling (MPS also nvidia_vera_rubin), not in mlcc.json where POCO sits. Add a POCO placement in power_semiconductor.json so POCO -> Monolithic Power Systems / Flex edges can exist? Meanwhile counterparty keys on POCO's quarterly_data.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): yes. POCO gets one placement in power_semiconductor.json at power / Power Semiconductors (the taxonomy's home for passives), where both named chip-inductor customers are players; edges POCO -> Monolithic Power Systems (existing customer) and POCO -> Flex (new 2025 cooperation) from the 2025 annual report, patch q41. The counterparty entries on POCO's mlcc node stay.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Shin-Etsu Handotai",
+   "question": "UMC's 20-F (and Soitec's call) name Shin-Etsu Handotai (SEH) as a wafer supplier; the repo does not record SEH as part of the Shin-Etsu Chemical node (an earlier Soitec patch did put SEH on the Shin-Etsu Chemical -> Soitec edge). Map SEH to Shin-Etsu Chemical (add a naming rule) so a Shin-Etsu Chemical -> UMC '20-F supplier disclosure' edge can be added? Meanwhile it is named only in UMC's supplier entry.",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): yes. Shin-Etsu Chemical's own FY2026 annual securities report lists Shin-Etsu Handotai as a 100%-owned consolidated subsidiary (semiconductor silicon), so SEH maps to the Shin-Etsu Chemical node (naming rule in the action; Naver Cloud -> Naver pattern). Patch q42 adds Shin-Etsu Chemical -> UMC in foundry.json with the 20-F supplier disclosure, matching the SUMCO / Formosa Sumco -> UMC edges from the same sentence.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Tower Semiconductor",
+   "question": "The call label 'Tower Semiconductor Q2 FY2026 (08-06-2026)' is probably dated wrong: transcripts/foundry/tower_q2_2026.txt says its call date is approximate, and Tower's own 6-K of 08-04-2026 says the call was held 'today, Tuesday, August 4, 2026'. Relabel to (08-04-2026) across the applied entries and the transcript header?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): relabel to 'Tower Semiconductor Q2 FY2026 (08-04-2026)'. Tower's own 6-K says the call was held 'today, Tuesday, August 4, 2026', and a label carries the call date (SKILL section 5); 08-06 came from an approximate pasted header. corrections/q43 relabels all 12 entries (9 node entries, 3 edge contracts); the coordinator changes the two transcript headers and the timelines/silicon_photonics.json source string. Same rule for the Eaton label-date question.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Xiaomi",
+   "question": "Xiaomi is Kingsoft Cloud's largest named customer (an affiliate and shareholder): 20-F related-party revenue — Xiaomi Group public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand (2025). Xiaomi is not a node. Add it (e.g. as a cloud customer in neocloud.json) so a Kingsoft Cloud -> Xiaomi edge can carry this, or keep it as text on Kingsoft Cloud's node?",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): already resolved. The user answered on 2026-10-13 ('add both', question 'Do-not-add list vs the 2026-10-12 rule'): Xiaomi is a node in neocloud.json (application / AI-Native Vertical Apps) and the Kingsoft Cloud -> Xiaomi edge carries the 20-F related-party revenue (public cloud RMB 1,853,124 thousand + enterprise cloud RMB 382,438 thousand). Nothing to change.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Microsoft in ai_bio",
+   "question": "SOPHiA GENETICS 20-F: its platform runs on Microsoft Azure with a ~$80.9M minimum commitment through 10-31-2029. Microsoft is not a player in ai_bio.json, so no Microsoft -> SOPHiA GENETICS edge; the fact is on SOPHiA's node. Add Microsoft to ai_bio (cloud_infra / Scientific AI Cloud, next to Google and Amazon)? (Same shape as the open Oracle-in-ai_bio question.)",
+   "label": null,
+   "at": "2026-10-04",
+   "answer": "Claude decision 2026-10-19 (user delegated): add. SOPHiA's 20-F names Microsoft Azure as the production cloud of its SOPHiA DDM platform under a signed ~$80.9M commitment through 10-31-2029 - the shape of the existing Amazon -> BillionToOne / Caris AWS-hosting edges (a named agreement, not a 'such as' example). Patch adds Microsoft (existing node, verifier-approved) in ai_bio cloud_infra / Scientific AI Cloud with the Microsoft -> SOPHiA GENETICS edge and the 20-F contract; SOPHiA's counterparty entry stays. The Oracle question (#18) should get the same answer.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "DigitalOcean",
+   "question": "At Citi (09-10) the CFO said 'From a GPU standpoint, we have tremendous relationships with both NVIDIA and AMD' and named Equinix, DataBank and QTS as its tier-1 data-center providers. Kept as counterparty entries on DigitalOcean's node (as the Q2 call patch did). Create NVIDIA -> DigitalOcean and AMD -> DigitalOcean edges in neocloud.json? Equinix / QTS sit only in power_cooling.json, where DigitalOcean is not a player - add cross-chain edges?",
+   "label": "DigitalOcean Citi’s Global TMT Conference 2026 (09-10-2026)",
+   "at": "2026-10-06",
+   "answer": "Claude decision 2026-10-19 (user delegated): GPU edges yes, data-center providers as relations rows. The CFO's 'From a GPU standpoint, we have tremendous relationships with both NVIDIA and AMD' is management naming its GPU suppliers, and both are players in neocloud.json, so the patch creates NVIDIA -> DigitalOcean and AMD -> DigitalOcean. Equinix, DataBank and QTS host DigitalOcean's whole cloud, not only AI, so under decision C (unclear -> 'other') they are customer_of rows in relations/digitalocean.json, not cross-chain placements. The counterparty entry stays.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "H.C. Wainwright panel (09-14-2026)",
+   "question": "The CleanSpark and MARA 'H.C. Wainwright' conference files are two transcriptions of one multi-company panel. Other panelists made material statements (Core Scientific: ~500 MW with AMD, next 2,000 MW at Hunt County / Pecos / Muskogee, $125 MRC triple-net / $145 modified gross over 15 years; Bitdeer: 121 MW Volta lease in Norway, Malaysia GPU-as-a-service sites; WhiteFiber: $865M Nscale contract). Only CleanSpark's and MARA's own executives were captured. Capture other panelists that are nodes (their entries would carry a CleanSpark/MARA-prefixed label), or skip them?",
+   "label": "CleanSpark H.C. Wainwright conference 2026 (09-14-2026)",
+   "at": "2026-10-06",
+   "answer": "Claude decision 2026-10-19 (user delegated): capture. A panelist's own executive speaking about his company is management, so his facts go on his company's node under the saved file's label (CleanSpark's copy; MARA's copy adds nothing twice). Only what the nodes lacked: Core Scientific build cost $4.5M -> $12-13M/MW, labor, demand view, AMD lease 125/145 MRC x 15 yrs + next 2,000 MW, CoreWeave $5B NRC / $100 MRC; Bitdeer customer prepayments (>=50% of GPU cost), $800M for the first 10 MW; WhiteFiber MTL-1 20 customers, NC-1 50 MW online billing Nscale. Soluna, Bit Digital (not nodes) skipped.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Vertex conference mis-match",
+   "question": "investing.py matched 'Vertex at Goldman Sachs Communacopia + Technology Conference' (09-09-2026) to our Vertex (Pharmaceuticals) node, but the speakers are Vertex Inc. (tax software). The row was closed without enrichment; the file stays in transcripts/conferences/. Titles alone cannot tell the two apart. Add a speaker-based exclusion to investing.py, or keep closing such rows by hand?",
+   "label": "Vertex Goldman Sachs Communacopia + Technology Conference 2026 (09-09-2026)",
+   "at": "2026-10-06",
+   "answer": "Claude decision 2026-10-19 (user delegated): add a speaker check to investing.py instead of closing rows by hand. A SPEAKER_REQUIRE map ('Vertex': ['Vertex Pharmaceuticals']) makes fetch_conference skip an article whose labelled speakers never carry that affiliation; tested on the four saved Vertex files: Goldman 09-09 ('CEO, Vertex' = Vertex Inc.) -> skip, the three healthcare talks -> keep. The mismatched file stays in transcripts/conferences/ unenriched (row already closed). Any future homonym gets one line in the map.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Skyworks Solutions",
+   "question": "Skyworks completed its combination with Qorvo on 10-05 (continues as Skyworks / SWKS). Qorvo was never a node. The release says the combined company spans RF GaN, low-voltage power, wired broadband, data center / networking, defense and automotive; Skyworks sits only in interconnect / Components and power / Power Semiconductors. Give the combined company extra placements (e.g. RF GaN under compound semiconductors), or leave the structure as is? The operating facts are on its company-wide node.",
+   "label": "Skyworks Solutions press release: Skyworks Completes Combination with Qorvo (10-05-2026)",
+   "at": "2026-10-06",
+   "answer": "Claude decision 2026-10-19 (user delegated): leave the structure as is. A completed merger is not by itself a reason for a placement (10-01: a second placement only when a company document ties a product to a chain; 10-12: out-of-chain facts stay on the company-wide node, as for Granopt and the HDD media releases). The combination facts sit on Skyworks' company-wide node. A placement such as RF GaN under compound semiconductors comes when a Skyworks document names a chain customer or supply relationship for a former Qorvo product.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Flex",
+   "question": "Flex plans to separate its Cloud and Power Infrastructure segment as a listed company, Axiom Solutions International ('Axiom'), in Q1 calendar 2027 (10-05 release). Flex's power_cooling / power_semiconductor placements mostly describe that business. When Axiom lists, should it become its own node, with Flex's placements staying, moving or split?",
+   "label": "Flex press release: Flex Announces $2.0 Billion Convertible Preferred (10-05-2026)",
+   "at": "2026-10-06",
+   "answer": "Claude decision 2026-10-19 (user delegated): nothing changes before the separation. When Axiom Solutions International lists (own registration / first SEC filing) it becomes its own node through JOB 3, placed where Flex's placements describe the Cloud and Power Infrastructure business (power_cooling Server ODM rack systems; power / Datacenter Power if Axiom's documents include FlexPower). Flex keeps every placement, entry and edge; from the separation date each fact goes to the company whose document states it, and Axiom's edges come from Axiom's own documents.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Cerebras",
+   "question": "At Supernova (08-19) the CEO said Cerebras uses AMD EPYC CPUs in its clusters and is 'buying a fair bit' of Arista networking. Both kept as counterparty entries on Cerebras. The existing AMD -> Cerebras edge is described as 'Helios rack systems', so an EPYC contract there would mix meanings; Arista is not a player in Cerebras' chain. Add the EPYC supply as a contract / second relationship, and an Arista -> Cerebras edge?",
+   "label": "Cerebras Supernova 2026 (08-19-2026)",
+   "at": "2026-10-06",
+   "answer": "Claude decision 2026-10-19 (user delegated): add both as their own edges. The CEO's 'we use AMD CPUs to manage the software that runs on the cluster' and 'We use Arista to tie everything together ... now we're buying a fair bit' are stated supplier relationships. To keep AMD -> Cerebras (Helios racks, amd_mi450_helios.json) single-meaning, the patch places Cerebras in cpu_datacenter.json (Dedicated Inference Accelerators) with AMD -> Cerebras (EPYC CPUs) and Arista -> Cerebras (networking) - the same split as AMD -> Microsoft, whose EPYC edge sits there.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Simulations Plus",
+   "question": "Simulations Plus completed its take-private by Altaris affiliates on 10-06-2026 (being combined with Chemical Computing Group); its stock no longer trades on Nasdaq. Keep the ai_bio node as a private company (status change in company_metadata.json), or remove it from the universe? The completion fact is on the node meanwhile.",
+   "label": "Simulations Plus press release: Simulations Plus Announces Completion of Acquisition by (10-06-2026)",
+   "at": "2026-10-07",
+   "answer": "Claude decision 2026-10-19 (user delegated): keep the node as a private company. The take-private (Altaris, 10-06-2026) does not change its role - software supplier to Recursion, with AWS and NVIDIA edges - its entries are verified company-document facts, and private nodes are normal (TerraPower, Anthropic). AES (removed 10-01) differed: it was added that day with nothing enriched. company_metadata.json: ticker / exchange null, status 'private' (off EDGAR, calls, conferences, prices and the board); its IR feed keeps syncing (it still issues releases, e.g. 10-08).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "ChronoScale",
+   "question": "Applied Digital's Q1 FY2027 call (10-07-2026) says its consolidated subsidiary ChronoScale (reported as Nasdaq CHRN, ~96% owned) runs a GPU cloud: Q1 revenue $41.5M, a 50 MW GB300 NVL72 deployment for Microsoft, target $1B ARR in 2027. Should ChronoScale become its own neocloud node (cloud_infra) with edges ChronoScale -> Microsoft, or stay as counterparty facts on Applied Digital's node (current handling, same as the Q4 FY2026 patch)?",
+   "label": "Applied Digital Q1 FY2027 (10-07-2026)",
+   "at": "2026-10-07",
+   "answer": "Claude decision 2026-10-19 (user delegated): own node. ChronoScale Holdings (Nasdaq CHRN, SEC CIK 1549084) is separately listed and ~96% owned by Applied Digital; the 10-01 ruling makes separately listed group companies separate nodes, with group facts staying on the filer's node. Patch adds ChronoScale (verifier-approved) in nvda_b200.json cloud_infra / Neocloud (GB300 NVL72 = Blackwell), where Microsoft is a player, with ChronoScale -> Microsoft carrying the 50-MW deployment from the call; Applied Digital's entries stay. Its own filings fill it via enrich edgar.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "HD Construction Equipment",
+   "question": "ERock's 10-07-2026 release names 'HD Construction Equipment, a subsidiary of Hyundai' as its multi-year supplier of natural-gas engine long blocks for RockBlock data-center gensets (supply through 2028). Should HD Hyundai Construction Equipment (KRX-listed) become a supplier node in power / Generation with an edge to ERock, or stay as a counterparty fact on ERock's node (current handling)? Data-center engines are a small part of its business, so the litmus case is borderline.",
+   "label": "ERock press release: ERock, HD Construction Equipment Sign Multi-Year Engine (10-07-2026)",
+   "at": "2026-10-08",
+   "answer": "Claude decision 2026-10-19 (user delegated): already resolved. The user answered this on 2026-10-13 ('HD건설기계랑 샤오미 둘 다 추가해'): HD Construction Equipment is now a node in power_cooling.json power / Generation with the HD Construction Equipment -> ERock edge (engine long blocks, ERock release 10-07-2026) and HD Hyundai Electric -> HD Construction Equipment; it was lifted from the check_patch do-not-add list. Nothing left to do; close the question.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Toho Titanium",
+   "question": "Toho Titanium's own 05-08-2026 results release says it was delisted on 2026-05-28 (share exchange effective 2026-06-01), but company_metadata.json still lists it as public. Change it to private (keep the node) or remove it from the universe? (Same shape as the open Simulations Plus question.)",
+   "label": null,
+   "at": "2026-10-13",
+   "answer": "Claude decision 2026-10-19 (user delegated): keep the node, status 'subsidiary'. Toho Titanium became a wholly owned subsidiary of JX Advanced Metals (a node) on 06-01-2026, as JX's FY2026 annual securities report states (delisted 05-28-2026). Its role - ultra-fine nickel powder for MLCC electrodes, Chigasaki expansion from 2027 - and its verified entries are unchanged, and unlisted subsidiaries are normal nodes (SPIL, SK Siltron, Hitachi Energy). company_metadata.json: ticker / exchange null, status 'subsidiary'. Later facts go on the node of the company whose document states them.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Wolfspeed",
+   "question": "Wolfspeed 8-K (10-07-2026), a conditional US Department of War loan commitment: deal terms dropped, one entry kept on the operating program the commitment would require (domestic SiC wafer / power-device and GaN production, GaN-on-SiC RF epi, rad-hardening), hedged as conditional. Does a program described in a financing filing count as an operating fact?",
+   "label": "Wolfspeed 8-K (10-07-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Yes. SKILL section 2 keeps operating facts from a financing filing and drops the deal terms. The kept entry describes the multi-year program Wolfspeed itself says it would undertake (SiC wafer / device build-out, GaN production, GaN-on-SiC RF epi, rad-hardening), attributed and hedged as conditional; it matches Exhibit 99.1. Loan amount, tranches, rate and maturity stay off the map and go to market/history/financing_manual.jsonl (the scripts missed this 8-K). Funding amounts in general are b1's question #88; this covers only the program.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "TeraWulf",
+   "question": "TeraWulf's Muskie site is supplied by Kentucky Power (an AEP company), now 1 GW. AEP is only in power_cooling.json and TeraWulf only in neocloud.json, so no AEP -> TeraWulf edge can exist (the fact sits on TeraWulf's node). Add a TeraWulf placement in power_cooling.json for that edge?",
+   "label": "TeraWulf 8-K (10-05-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Already resolved; no power_cooling.json placement needed. The newer data-center construction & power chain (datacenter_construction_power.json) holds American Electric Power (Utilities & Grid Operators, product naming Kentucky Power's 1 GW for TeraWulf's Muskie campus) and TeraWulf (Datacenter Colocation) with an American Electric Power -> TeraWulf edge carrying two contracts (AEP release 10-05-2026, TeraWulf Q2 call). The TeraWulf 8-K of 10-05 restates its same-day release (already on TeraWulf's node), so nothing is added.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Rehlko",
+   "question": "INNIO 8-K (07-28-2026): multi-year framework with Rehlko (private) securing ~1.25 GW of gas-engine capacity over three years, expanding Rehlko's 700 MW firm reservation. Add Rehlko as a node with an INNIO -> Rehlko edge, or keep it as counterparty text on INNIO (current)? Also: the applied INNIO Q2 FY2026 call entry has 'Greco [as transcribed]' for this customer - correct it to Rehlko via patches/corrections?",
+   "label": "INNIO 8-K (07-28-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Rehlko becomes a private node in power_cooling.json power / Generation (gensets; its own site lists data-center solutions), with INNIO -> Rehlko carrying the 8-K's ~1.25 GW framework (approved as JOB 3 verifier; precedent TerraPower / LS Cable). The INNIO 8-K counterparty entry stays. The call entry keeps the transcript's word but now reads 'Greco [as transcribed; INNIO's same-day release names ... Rehlko]': it is the company's own document for the same 1.25 GW deal, not an inference like the Aggreko link the verifier removed.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Kingsoft Cloud",
+   "question": "The applied call entry 'Kingsoft Cloud Q2 FY2026' says adjusted net loss 'RMB 6 million'; the Q2 release (6-K 08-19-2026) prints non-GAAP net loss RMB59.8 million (likely a transcript error). Correct the call entry to the filed figure, or keep it as its own source states? (same shape as the open Recursion / Power Solutions International questions)",
+   "label": "Kingsoft Cloud 6-K (08-19-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Correct it. The call's comparison figures (RMB 300M, RMB 237M) match the release's RMB300.5M / RMB237.1M, so 'RMB 6 million' is a dropped digit of the filed non-GAAP net loss RMB59.8M (the same transcript also garbles total revenue and the EBITDA margins). Same handling as the Vicor / Ultra Clean fixes of 09-11: the call entry keeps its words but loses the number and points to the 6-K entry; a new 6-K entry carries the filed RMB59.8M. Rule written for this family (also Recursion #20 and PSI #39 in other batches).",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "ASE Group",
+   "question": "The applied call entries 'ASE Group Q2 FY2026 (07-30-2026)' (cpu_datacenter.json and packaging_substrate.json) say the general segment grows ~30% YoY (was 13%); the company's filed deck (6-K 07-30-2026) says 20% vs the previous 13%, and the pasted transcript's 30% looks like a transcription error. Correct the call entries to 20%, or keep them as the transcript states?",
+   "label": "ASE Group 6-K (07-30-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Correct it, by the same rule as Kingsoft Cloud. ASE's filed Q2 deck (6-K 07-30-2026) says the general segment grows 20% vs the previous 13%, and an analyst on the same call repeats 'close to 20% ... from ... 13% previously' without correction, so the transcript's 30% is a transcription error. Both call entries (cpu_datacenter.json, packaging_substrate.json) keep the raised-outlook statement but lose the 30% in signal and figure and point to the 6-K deck entry, which already carries the 20% - no new entry needed.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Moderna -> Merck & Co. edge",
+   "question": "Created tonight from Moderna's 10-K (02-20-2026) and confirmed by the verifier: Moderna designs and manufactures intismeran and provides manufacturing capacity under the PCV collaboration ($200M upfront, ASC 606). Merck co-develops the product and the 10-K words the duties partly in the past tense. Keep collaboration-partner edges between two Biopharma End Customers like this one (also Moderna -> Vertex, CF mRNA manufacturing)?",
+   "label": "Moderna 10-K (02-20-2026)",
+   "at": "2026-10-15",
+   "answer": "Claude decision 2026-10-19 (user delegated): Keep both. They are real supply roles stated in Moderna's own 10-K (Moderna designs and manufactures intismeran and provides capacity for Merck; it exclusively manufactures the CF mRNA for Vertex), and Moderna's Q2 call and Bernstein talk confirm the intismeran work is current (dedicated manufacturing site, 50-50 virtual JV). Intismeran is also the program Tempus AI's NGS edges feed. Pre-decision-C chain edges stay (WEC, Williams, Shell precedent); from now on a non-AI pharma collaboration between two end customers goes to relations/.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "GlobalFoundries -> TSMC (back-end)",
+   "question": "TSMC's Q3 call (10-15): IR head Jeff Su cited 'the recent announcement with GlobalFoundries on interposers'; CEO C.C. Wei: the GlobalFoundries deal 'is part of our overall strategy in the back-end supply', 'we have a little bit shortage on the back end', and TSMC will work with 'our so-called partner' GlobalFoundries to support TSMC's customers. GlobalFoundries is a node but not a player in packaging_substrate.json (TSMC's CoWoS placement). Add a GlobalFoundries placement there (advanced_packaging, interposers) with a GlobalFoundries -> TSMC edge? Meanwhile the fact is on TSMC's packaging node with counterparty GlobalFoundries, counterparty_role 'supplier' (management's own word was 'partner'; change the role to 'partner' if you prefer).",
+   "label": "TSMC Q3 FY2026 (10-15-2026)",
+   "at": "2026-10-17",
+   "answer": "Claude decision 2026-10-19 (user delegated): Add it. GF's own 10-08 release (US interposer supply for TSMC's CoWoS, Malta NY) and TSMC's CEO on the Q3 call both tie GF's interposers to TSMC's CoWoS back-end, so GF gets a second placement at advanced_packaging / Wafer-Level Packaging (CoWoS, SoIC) with a GF -> TSMC edge carrying the CEO's statement (approved as a JOB 3 second placement; user precedent Korea Zinc / LG Innotek / Emerson). The optical_networking GF -> TSMC edge and TSMC's own entry stay. counterparty_role 'supplier' stays: GF provides manufacturing service to TSMC.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Ineffable Intelligence",
+   "question": "Google's Q2 call (07-22, verbatim): CEO Sundar Pichai: 'We are seeing strong growth and demand for our AI infrastructure offerings from leading labs such as Ineffable Intelligence'. Private AI lab, country not stated. Add it as a node (accelerators/nvidia_vera_rubin.json, ai_models / Foundation Models, beside World Labs and Thinking Machines Lab) with a Google -> Ineffable Intelligence edge, or keep it as a counterparty on Google's node (current)?",
+   "label": "Google Q2 FY2026 (07-22-2026)",
+   "at": "2026-10-17",
+   "answer": "Claude decision 2026-10-19 (user delegated): Keep it as a counterparty on Google's node; no node, no edge. Pichai names Ineffable Intelligence only as an example ('leading labs such as Ineffable Intelligence'), and an 'e.g. / such as' mention is not an edge (user rule, Amazon -> Generate Biomedicines precedent of 2026-10-06). Without an edge a private lab with no stated country gets no node. If Google or the lab later states a named compute agreement in a company document, a run can propose it under JOB 3.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "EssilorLuxottica",
+   "question": "Meta's Q2 call (07-29, verbatim): AI glasses made with EssilorLuxottica, early sales above expectations. No chain has an AR/VR / smart-glasses sector (edge_ai lists AR/VR). Add EssilorLuxottica as a node (edge_ai) with a Meta edge, or keep it as a counterparty on Meta's node (current)?",
+   "label": "Meta Q2 FY2026 (07-29-2026)",
+   "at": "2026-10-17",
+   "answer": "Claude decision 2026-10-19 (user delegated): No node now. Meta's words describe a design collaboration ('in collaboration with EssilorLuxottica', 'our partners at EssilorLuxottica to design the right pair of glasses'), not a supply or customer relationship with a direction, so JOB 4 gives no edge, and no chain has an AR/VR sector. The relationship is already in the graph: the 10-18 relations backfill wrote two Meta -> EssilorLuxottica 'partner' rows (Q2 call, Connect 2026) in relations/meta.json, and the facts stay on Meta's node. Revisit if a company filing states who supplies whom.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Microsoft -> Arm Holdings (Cobalt VM customer)",
+   "question": "Microsoft's Q4 FY2026 call (07-29, verbatim) names Arm as a customer of Cobalt VMs. A Microsoft -> Arm Holdings edge in cpu_datacenter.json would run opposite to the existing Arm -> Microsoft (Neoverse licence) edge. Allow a second, reverse-direction edge (same shape as the open Tempus AI and SharonAI questions), or keep the fact on the Cobalt entry (current)?",
+   "label": "Microsoft Q4 FY2026 (07-29-2026)",
+   "at": "2026-10-17",
+   "answer": "Claude decision 2026-10-19 (user delegated): Allow it. Microsoft's call names Arm in its own customer list for Cobalt VMs ('workloads for customers, including Adobe, Arm, ...'), a customer-list edge under the 10-05 rule, and the product (Cobalt cloud VMs) differs from the Arm -> Microsoft Neoverse licence, so both directions are real. The graph already holds 27 such pairs (e.g. Microsoft <-> TSMC in cpu_datacenter). Rule: a reverse edge is allowed when it names a different product; check_patch's reverse-edge ERROR becomes a WARN. Same question as Tempus AI #15 / SharonAI #38 in other batches.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Google Q2 entry on NVIDIA's node",
+   "question": "chains/accelerators/google_tpu_v7_ironwood.json holds an entry on the NVIDIA player under the label 'Google Q2 FY2026 (07-22-2026)' (signal starts 'GOOGLE CLOUD ACCELERATED SHARPLY ON AI INFRASTRUCTURE DEMAND'): Google company-wide facts on NVIDIA's node (one fact, one node), partly restating Google's own entries, and quoting 'a meaningful acceleration in growth', which is in Google's 8-K release, not the call. Delete it, or relabel it to the 8-K and move it to Google's node, in a corrections pass?",
+   "label": "Google Q2 FY2026 (07-22-2026)",
+   "at": "2026-10-17",
+   "answer": "Claude decision 2026-10-19 (user delegated): Delete it. It puts Alphabet company-wide results on NVIDIA's node (one fact, one node), every figure in it is already on Google's own entries under the same label in google_tpu_v7_ironwood.json (revenue $119.8B +24%, operating margin 34%, Cloud $24.8B +82%, capex $44.9B, FY guide $195-205B, Gemini Enterprise adoption), and its quoted 'a meaningful acceleration in growth' is the 8-K release's wording, not the call's. Relabel-and-move would only duplicate Google's entries, so nothing is moved.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Amazon duplicate player in aws_trainium3",
+   "question": "chains/accelerators/aws_trainium3.json has two Amazon players under the same locator compute_hardware / 'Custom AI ASIC (hyperscaler silicon)': 'Trainium3 NPU (Annapurna Labs design)' (holds the company-wide entries) and 'Trainium UltraServer' (holds only a legacy Goldman note). Merge the second into the first?",
+   "label": null,
+   "at": "2026-10-17",
+   "answer": "Claude decision 2026-10-19 (user delegated): Do not merge. The two Amazon players are the curated die-vs-system split: 'Trainium3 NPU' holds the die -> TSMC packaging edge and company-wide entries, 'Trainium UltraServer' holds the Amazon -> Anthropic edge (Q1 FY2026 call contract) plus the legacy Goldman note - so it is not just a legacy note. aws_trainium2 has the same pair, and so do Broadcom (XPU design / finished XPU), AMD (EPYC design / finished CPUs) and the NAND makers (wafers / SSDs). apply_patches.find_player handles them by product; the graph merges both into one Amazon node.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Eaton Q2 FY2026 label date",
+   "question": "The verbatim Eaton Q2 call fetched tonight (transcripts/av/eaton_q2_2026.txt, defeatbeta) gives a report date of 07-31-2026, but the graph label is 'Eaton Q2 FY2026 (08-05-2026)' (the old pasted notes said the date was approximate). The new file was pinned to the existing label so nothing split. Relabel all Eaton Q2 entries and both transcript headers to (07-31-2026)? Same open issue as the Tower Semiconductor 08-06 vs 08-04 question, which defeatbeta also dates 08-04.",
+   "label": "Eaton Q2 FY2026 (08-05-2026)",
+   "at": "2026-10-18",
+   "answer": "Claude decision 2026-10-19 (user delegated): Relabel. Eaton's own Q2 results 8-K of 07-31-2026 says the conference call was held 'today' at 11 a.m. ET, and the label date is the call date (section 5 rule 2); 08-05 came from pasted notes that called it approximate. All 8 entries (power_cooling.json, no contracts) move to 'Eaton Q2 FY2026 (07-31-2026)' through apply_corrections relabel items, and both transcript headers change in the same session. The 8-K entries of 07-31 carry no slot, so no same-date slot clash. Tower Semiconductor (#43, other batch) falls under the same rule.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "NVIDIA memory suppliers named by inference",
+   "question": "On the verbatim NVIDIA Q2 FY2027 call (08-26-2026) NVIDIA says only 'all three major memory suppliers'; it never names them. Existing entries under that label name them anyway: 6 quarterly_data (SK Hynix, Micron, Samsung in nvidia_vera_rubin.json - signal 'NVIDIA: 'extreme pricing conditions in memory' - price increases exceeded...'; the same three in hbm_memory.json - 'NVIDIA Q2 FY2027: 'extreme pricing conditions in memory' - increases exceeded...') and 3 contracts (SK Hynix -> NVIDIA, Samsung -> NVIDIA, Micron -> NVIDIA in hbm_memory.json - 'NVIDIA: longstanding deep relationships with all three major memory suppliers...'). The names are background knowledge (skill section 2). Delete them (the fact stays on NVIDIA's own node), reword them to the call's words, or keep them?",
+   "label": "NVIDIA Q2 FY2027 (08-26-2026)",
+   "at": "2026-10-18",
+   "answer": "Claude decision 2026-10-19 (user delegated): Delete them. The verbatim call says only 'all three major memory suppliers'; writing the statement onto SK Hynix, Micron and Samsung (6 quarterly_data in nvidia_vera_rubin.json and hbm_memory.json) and onto their edges to NVIDIA (3 contracts) names counterparties from background knowledge, which section 2 forbids; rewording would keep the same guess. NVIDIA's own entry already carries the fact ('Working closely with all three major memory suppliers ...', guidance slot). The three edges keep their other contracts, so none is emptied.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "OpenAI -> Microsoft edge (IP rights)",
+   "question": "Microsoft's 10-K (07-29-2026): 'We hold rights to OpenAI's intellectual property, including models and infrastructure, for integration into our products.' That is an AI relationship in the OpenAI -> Microsoft direction; OpenAI has no outgoing edges and Microsoft sits only in cloud_infra, so the edge would point down the stack. Not created. Add an OpenAI -> Microsoft 'model / IP licence' edge?",
+   "label": "Microsoft 10-K (07-29-2026)",
+   "at": "2026-10-18",
+   "answer": "Claude decision 2026-10-19 (user delegated): Add it. Microsoft's own 10-K states 'We hold rights to OpenAI's intellectual property, including models and infrastructure, for integration into our products' - an IP licence, the same kind of stated relationship as the Arm and Rambus licence edges, and an AI one (decision C). It goes in cpu_datacenter.json beside Microsoft's 10-K OpenAI contract; pointing down the stack is fine for a real flow (SharonAI -> NVIDIA). It is a reverse edge to Microsoft -> OpenAI (compute), so it uses the rule of #75. Investor wording stays out.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Synopsys -> Microsoft edge left empty",
+   "question": "The verbatim Synopsys Q3 FY2026 call (08-26-2026) calls the Microsoft Discovery workflow 'a demonstration', so tonight's correction deleted the only contract on the Synopsys -> Microsoft edge in nvidia_vera_rubin.json (no contracts from joint demos, skill section 2.4). The edge now has no contracts; under the 2026-10-05 decision empty edges are dropped, but removing an edge is structural. Remove the edge? Also the Synopsys -> AMD edge's relationship text still reads 'joint autonomous EDA workflow work with AMD and Microsoft' - reword to its remaining 3DIC Compiler / MI455X contract?",
+   "label": "Synopsys Q3 FY2026 (08-26-2026)",
+   "at": "2026-10-18",
+   "answer": "Claude decision 2026-10-19 (user delegated): Remove it. The edge was created by enrichment from the Microsoft Discovery workflow, which the CEO calls 'a demonstration'; the verbatim correction deleted its only contract, and under the user's 2026-10-05 rule empty edges a delete leaves behind are removed (skeleton edges are not). The Synopsys -> AMD relationship text drops 'joint autonomous EDA workflow work with AMD and Microsoft' and now names its remaining contract: the 3DIC Compiler platform used to deliver the MI455X. The demo stays as a fact on Synopsys' AGENTIC AI entry.",
+   "answered": "2026-10-19",
+   "by": "claude"
+  },
+  {
+   "subject": "Node candidates named tonight",
+   "question": "Tonight's sources named companies that are not on the map; the enrichers kept each on the filer's node with counterparty keys (plus a relations/ row where noted) and proposed none. Add any as a node? Axe Compute (NASDAQ: AGPU, neocloud; multi-site GPU-cluster deployment deal with Penguin Solutions, 10-14 release), Zealand Pharma (Generate Biomedicines AI drug-discovery deal, 10-13 release), Sungrow (onsemi EliteSiC design win for PowerTitan 3.0, 10-14 release), Venture Global (Baker Hughes power-island frame agreement with GE Vernova, 10-15 release), Monarch Quantum (private; Quantinuum's photonic-components supply partner, Quantinuum Q2 call), insitro (private; AstraZeneca AI discovery deal, 10-15 release).",
+   "label": "Penguin Solutions press release: Axe Compute Signs Penguin Solutions as Strategic Partner to (10-14-2026)",
+   "at": "2026-10-19",
+   "answer": "Claude decision 2026-10-19 (user delegated): As JOB 3 verifier I approved four, each identified and named by a universe company in a stated AI-chain role: Axe Compute (NASDAQ AGPU neocloud; Penguin -> Axe Compute), Zealand Pharma (OMX Copenhagen ZEAL; Generate -> Zealand), insitro (private, US; insitro -> AstraZeneca), Monarch Quantum (private, US; Monarch -> Quantinuum, photonic components). The filers' entries stay; the edges get their own contracts. Sungrow (onsemi BESS) and Venture Global (Baker Hughes LNG power islands): non-AI, relations/ rows exist, no node (section 2).",
+   "answered": "2026-10-19",
+   "by": "claude"
   }
  ]
 }

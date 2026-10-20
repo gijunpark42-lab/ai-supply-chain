@@ -1,0 +1,39 @@
+{
+ "reviewer": "b6-board-2026-10-19",
+ "items": [
+  {
+   "kind": "quarterly_data",
+   "company": "ASE Group",
+   "target": null,
+   "label": "ASE Group Q2 FY2026 (07-30-2026)",
+   "signal_prefix": "GENERAL-MARKET OSAT OUTLOOK RAISED (COO Dr. Tien Wu): the non-LEAP/gen",
+   "action": "set",
+   "set": {
+    "signal": "GENERAL-MARKET OSAT OUTLOOK RAISED (COO Dr. Tien Wu): the non-LEAP/general segment's 2026 growth outlook was raised from the previous guidance of 13% (the growth figure in the call transcript conflicts with the company's filed deck; the filed figure is on the ASE Group 6-K (07-30-2026) entry), with very strong demand in INDUSTRIAL, POWER, CONNECTIVITY and STORAGE devices; Dr. Wu believes ASE will outperform the general semiconductor market on its association with AI infrastructure and its fully automated lines. Non-LEAP capacity is tight — wire bond and traditional advanced packaging were tight in Q2 — and the assembly business has shown even stronger than expected growth, 'especially as it relates to legacy wire bond services', so management now believes assembly and test will grow at similar rates in 2026, versus the start-of-year view that wafer-sort-led test would outpace assembly. Blended utilization 80-85%, with capacities outside lines being placed into service generally very close to full; CFO Joseph Tung: ASE also needs to add capacity for mainstream advanced packaging and testing to support general market demand. Record ATM revenue NTD 126.1B (+36% YoY) with ATM gross margin 27.3%.",
+    "figure": "general segment outlook raised from 13% (filed figure on the deck entry); wire bond tight; assembly and test to grow at similar rates"
+   },
+   "chains": [
+    "components/cpu_datacenter.json"
+   ],
+   "reason": "Transcript figure vs filed figure: the transcript has the general segment growing 30% YoY (was 13%); the company's own Q2 earnings-release deck (6-K 07-30-2026) says 20% vs the previous estimate of 13%, and an analyst on the same call repeats 'close to 20% ... from ... 13% previously' without correction - a transcription error. The number leaves the call entries; the deck's 20% already sits on the ASE Group 6-K (07-30-2026) entry in packaging_substrate.json.",
+   "evidence": "Call: 'general segment expected to grow by 30% year-over-year versus previous guidance of 13%' | 6-K deck: 'the general segment is expected to grow by 20% YoY versus previous estimate of 13%'"
+  },
+  {
+   "kind": "quarterly_data",
+   "company": "ASE Group",
+   "target": null,
+   "label": "ASE Group Q2 FY2026 (07-30-2026)",
+   "signal_prefix": "Full-year 2026 outlook (COO Dr. Tien Wu, US dollar terms): ATM revenue",
+   "action": "set",
+   "set": {
+    "signal": "Full-year 2026 outlook (COO Dr. Tien Wu, US dollar terms): ATM revenue expected to grow 35% (H1 ATM +35% YoY, consolidated +24%); LEAP services revenue tracking ahead of the prior USD 3.5B guidance — CFO Joseph Tung: 'I think we will be adding another $200 million worth of revenue coming out of this year'; the GENERAL/mainstream segment's growth outlook raised from the previous guidance of 13% (the call transcript's growth figure conflicts with the filed deck; the filed figure is on the ASE Group 6-K (07-30-2026) entry) on very strong demand in INDUSTRIAL, POWER, CONNECTIVITY and STORAGE devices — Dr. Wu: for devices going into electric vehicles, AI data centers or other high-risk applications, 'chances are they will use our fully automated line'. 2027: aiming to DOUBLE LEAP revenue; Dr. Wu cites clear line of sight on 'who needs what' and on the buildings and machines being added: 'The business demand is not a concern. It's our own capability to execute'.",
+    "figure": "FY26 ATM +35%; LEAP ~USD 200M ahead of the USD 3.5B guide; general segment outlook raised from 13% (filed figure on the deck entry); LEAP to DOUBLE in 2027"
+   },
+   "chains": [
+    "manufacturing/packaging_substrate.json"
+   ],
+   "reason": "Transcript figure vs filed figure: the transcript has the general segment growing 30% YoY (was 13%); the company's own Q2 earnings-release deck (6-K 07-30-2026) says 20% vs the previous estimate of 13%, and an analyst on the same call repeats 'close to 20% ... from ... 13% previously' without correction - a transcription error. The number leaves the call entries; the deck's 20% already sits on the ASE Group 6-K (07-30-2026) entry in packaging_substrate.json.",
+   "evidence": "Call: 'general segment expected to grow by 30% year-over-year versus previous guidance of 13%' | 6-K deck: 'the general segment is expected to grow by 20% YoY versus previous estimate of 13%'"
+  }
+ ]
+}
