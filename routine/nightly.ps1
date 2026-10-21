@@ -404,4 +404,8 @@ if (-not $Test) {
         }
     }
     else { Write-Log "not published: the session did not finish as done" }
+    # Free the session's memory right away (2026-10-21: the morning run's finished session stayed loaded until the next
+    # night, ~350 MB, while the fintweet slots and the next run ran short). `claude stop` keeps the conversation:
+    # `claude attach <id>` reopens it for the report.
+    if ($job -or (Get-Sessions | Where-Object { $_.id -eq $id })) { & $claude stop $id 2>&1 | Out-Null; Write-Log ("stopped {0} to free its memory (claude attach {0} reopens it)" -f $id) }
 }
