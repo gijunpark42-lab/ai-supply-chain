@@ -601,7 +601,7 @@ def build_enrich_status(graph=None):
     if graph is None:
         graph = read_json(GRAPH_FILE, {"nodes": [], "edges": []})
     labels = graph_labels(graph)
-    by_label, all_docs = load_documents()
+    by_label, all_docs = load_documents(head_only=True)      # labels + filenames only: the board never reads the text
     cache = {}
 
     # 1) Attribute every graph label to a pipeline through the file it resolves to.
