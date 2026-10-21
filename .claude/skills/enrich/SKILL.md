@@ -27,7 +27,7 @@ or a reference file disagrees, this file wins). The source-specific steps live i
      §7.4) decides it from these rules and the user's earlier answers (`enrich_marks.json` → `answered` is the
      precedent), the run applies the decision, and the coordinator records it with
      `python -X utf8 enrich_status.py decide "<subject>" --question "<…>" --answer "<what was decided and done>" [--label "<source label>"] --no-board`
-     (`--no-board` skips the 10-minute board rebuild; the final build rebuilds it). The board shows Claude's decisions
+     (records never rebuild the board since 2026-10-21; the next build does). The board shows Claude's decisions
      for 7 days so the user can overrule one; list them at the top of the report. `ask` is no longer used.
 
 ## 1. Commands
@@ -496,6 +496,8 @@ that call and any curated timelines/*.json source string (Claude decision 2026-1
    - **Size:** run `python -X utf8 utils/agent_budget.py` first. Its `agents:` number (free RAM minus a 3 GB
      reserve, 0.75 GB per agent, 1–20) is the most agents alive at once — enrichers and verifiers together (about
      one verifier per three enrichers). Re-run it before graph_build.py and before adding a worker; never exceed it.
+     **Before every graph_build.py stop all pool workers** (TaskStop): an idle worker still holds its process (~350 MB),
+     and on 2026-10-20 the build was killed with 21 claude processes holding 4 GB. Restart from the ledger if work remains.
    - **Spawn once, then reuse:** start the pool's workers once (`enricher` agents named W1…Wn, verifiers V1…Vm)
      and give every next batch to an idle worker of the right kind with **SendMessage** — its context, including
      what it already did tonight, stays. Never spawn a new agent while a pool worker of that kind is idle; replace a
