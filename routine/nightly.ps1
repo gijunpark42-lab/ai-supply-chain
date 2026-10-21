@@ -326,11 +326,52 @@ $deadline = $scriptStart.AddHours(10.5)
 #     every conversation), waits until 3.5 GB is free (30 min at most) and resumes the same conversation with
 #     `claude --bg --resume`, which carries its whole history and ledger. At most 3 resumes, and none in the last
 #     45 minutes before the deadline; after that the safety net of 4b and the next night take over.
+function Get-FreeGb {
+    return [double]((& $python -X utf8 (Join-Path $repo "utils\agent_budget.py") --json | Out-String) | ConvertFrom-Json).free_gb
+}
+function Get-SessionId($jobId) {
+    $file = Join-Path $env:USERPROFILE ".claude\jobs\$jobId\state.json"
+    if (Test-Path $file) { return (Get-Content $file -Raw -Encoding UTF8 | ConvertFrom-Json).sessionId }
+    return $null
+}
+# Resume a stopped conversation as a new background job (it carries the whole history); returns the new job id or $null.
+function Resume-Session($sessionId, $text) {
+    $out = & $claude --bg --resume $sessionId --permission-mode auto -n $name $text 2>&1 | Out-String
+    $hint = [regex]::Matches($out, "claude logs ([0-9a-f]{8})")
+    if ($hint.Count -gt 0) { return $hint[$hint.Count - 1].Groups[1].Value }
+    $m = [regex]::Match($out, "\b[0-9a-f]{8}\b")
+    if ($m.Success) { return $m.Value }
+    Write-Log ("resume FAILED: {0}" -f $out.Trim())
+    return $null
+}
+function Get-Tweeting { return @(Get-Sessions | Where-Object { $_.name -like "fintweet *" -and $_.state -eq "working" }) }
+
 $resumes = 0
+$yields = 0
 while ($true) {
     do {
         Start-Sleep -Seconds 60
         $job = Get-Sessions | Where-Object { $_.id -eq $id }
+        # 4a'. Fintweet first (user, 2026-10-21: "핀트윗 전까지 그냥 계속 enrich"): an enrich run may work through the day.
+        #      When a fintweet slot is working while less than 2.5 GB is free, the enrich session is stopped
+        #      (`claude stop` keeps the conversation), the slot finishes, and the same conversation is resumed.
+        #      With enough memory both simply run. At most 6 yields a run.
+        if ($job -and $job.state -eq "working" -and $yields -lt 6 -and (Get-Tweeting).Count -gt 0) {
+            $free = Get-FreeGb
+            if ($free -lt 2.5) {
+                $yields++
+                $sid = Get-SessionId $id
+                & $claude stop $id 2>&1 | Out-Null
+                Write-Log ("yield to fintweet {0}: stopped {1} ({2} GB free while {3} works)" -f $yields, $id, $free, (Get-Tweeting)[0].name)
+                $until = (Get-Date).AddHours(2)
+                do { Start-Sleep -Seconds 60 } while ((Get-Tweeting).Count -gt 0 -and (Get-Date) -lt $until)
+                $text = 'routine/nightly.ps1 paused you for a fintweet slot (user, 2026-10-21: fintweet goes first when memory is short) and resumed you now. Continue the same enrich all run from where it stopped: run utils/agent_budget.py and keep the pool within its number, read utils/work_ledger.py show for what is left, rerun the step that was interrupted (heavy scripts through utils/build_outside.py), then finish exactly as your first instructions say, ending with result: or needs input: as before.'
+                $newId = $null
+                if ($sid) { $newId = Resume-Session $sid $text }
+                if ($newId) { $id = $newId; Write-Log ("yield to fintweet {0}: resumed as {1}" -f $yields, $id) }
+                $job = Get-Sessions | Where-Object { $_.id -eq $id }
+            }
+        }
     } while ($job -and $job.state -eq "working" -and (Get-Date) -lt $deadline)
 
     if ($job) { $state = $job.state } else { $state = "finished (no longer listed)" }
@@ -364,11 +405,8 @@ while ($true) {
     } while ((Get-Date) -lt $waitUntil)
     Write-Log ("memory stop {0} of 3: stopped {1} finished session(s), {2} GB free; resuming the conversation" -f $resumes, $others.Count, $free)
     $resumePrompt = 'routine/nightly.ps1 resumed you after a stop for low memory (resume ' + $resumes + ' of 3; user, 2026-10-21: a memory stop is handled, never left). Continue the same enrich all run from where it stopped: run utils/agent_budget.py and keep the pool within its number, read utils/work_ledger.py show for what is left, rerun the step that was stopped (heavy scripts through utils/build_outside.py), then finish the night exactly as your first instructions say, ending with result: or needs input: as before.'
-    $out = & $claude --bg --resume $sessionId --permission-mode auto -n $name $resumePrompt 2>&1 | Out-String
-    $hint = [regex]::Matches($out, "claude logs ([0-9a-f]{8})")
-    if ($hint.Count -gt 0) { $newId = $hint[$hint.Count - 1].Groups[1].Value }
-    else { $m = [regex]::Match($out, "\b[0-9a-f]{8}\b"); if ($m.Success) { $newId = $m.Value } else { $newId = $null } }
-    if (-not $newId) { Write-Log ("memory stop: resume FAILED: {0}" -f $out.Trim()); break }
+    $newId = Resume-Session $sessionId $resumePrompt
+    if (-not $newId) { Write-Log "memory stop: resume FAILED"; break }
     $id = $newId
     Write-Log ("memory stop: resumed as {0}" -f $id)
 }
