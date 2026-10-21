@@ -641,6 +641,9 @@ batch; more if the night has time), and every gap ends in one of two ways — ne
   `{"<node>": [{"name", "title", "aliases": [], "source": "<label | path or URL of the company document stating the
   title>"}]}`, only from the company's own IR leadership page, annual report or release (saved first) — and the next
   daily pull watches for them; a company that never had a call may also get its own channel's results video (§2.2);
+- **deferred:** the only source needs a login, an account or a paid subscription (user, 2026-10-21: "로그인 필요한
+  거는 미루고") — never sign in or create an account; mark it like a missing source with `--why "login wall:
+  <site>"` and move on, never stop the run for it;
 - **marked:** nothing exists — `enrich_status.py mark "<Company>" --source <call|dart|ir|conference|edgar|logo|media> --why
   "<what was checked>" --no-board` (back on the list at its recheck date, 90 days by default).
 So the list only shrinks, and the next night starts where this one stopped. The report gives filled / marked counts.
