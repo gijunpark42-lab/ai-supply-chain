@@ -339,6 +339,9 @@ earnings-ai/
 ├── cninfo/sync_state.json    # cninfo.py: per-company last sync, every item id handled (saved / skip:<why>), filter rules; cninfo/pending.json = queue
 ├── cninfo/reports_state.json # `cninfo.py reports`: A-share 年度 / 半年度 / 季度报告 → transcripts/cninfo_reports/*.txt (whole) + *_extract.txt
 │                             #   (top-5 customers / suppliers, capacity, 在建工程, R&D, MD&A); queued in cninfo/pending.json as `report` rows
+├── hkex.py                   # Hong Kong-listed nodes: HKEXnews filings (results, annual / interim reports + _extract, updates,
+│                             #   inside information, connected transactions) → transcripts/hkex/*.txt; hkex/sync_state.json +
+│                             #   pending.json (step 1e of `enrich china`, references/hkex.md)
 ├── tdnet.py                  # Japanese timely disclosures from TSE TDnet (決算短信, forecast revisions, capex, plans, deals, M&A;
 │                             #   English version preferred; TDnet keeps only 31 days) → transcripts/tdnet/*.txt (`enrich tdnet`, part of `enrich japan`)
 ├── tdnet/sync_state.json     # tdnet.py: last sync, runs (skip reasons), every doc id seen with its status; tdnet/pending.json = filings not yet enriched

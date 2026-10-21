@@ -669,6 +669,7 @@ export const UI: Record<string, Row> = {
   "TDnet filing": ["TDnet 공시", "TDnet 公告", "TDnet 開示"],
   "EDINET report": ["EDINET 보고서", "EDINET 报告", "EDINET 報告書"],
   "MOPS filing": ["MOPS 공시", "MOPS 公告", "MOPS 開示"],
+  "HKEX filing": ["HKEX 공시", "港交所公告", "HKEX 開示"],
   "Run next": ["다음 실행", "下一步运行", "次に実行"],
   "Nothing is due. Every market is current and no queue holds work.": ["처리할 항목이 없습니다. 모든 시장이 최신 상태이며 대기열도 비어 있습니다.", "没有待办事项。所有市场均为最新，队列中没有任务。", "対応が必要なものはありません。すべての市場が最新で、キューも空です。"],
   "Copy \"{cmd}\"": ["\"{cmd}\" 복사", "复制 \"{cmd}\"", "\"{cmd}\" をコピー"],

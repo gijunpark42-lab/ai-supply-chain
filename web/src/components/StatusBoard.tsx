@@ -53,6 +53,8 @@ const WAITING_NAMES: Record<string, string> = {
   tdnet: "TDnet filing",
   edinet: "EDINET report",
   mops: "MOPS filing",
+  hkex: "HKEX filing",
+  pplx: "call",
 };
 
 const waitingText = (w: Record<string, number>) =>

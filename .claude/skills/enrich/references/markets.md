@@ -101,7 +101,7 @@ what the call did not say — and rebuilds the graph and the board once. A compa
 1b. China only — management Q&A of the A-share names (SZSE / SSE): `python cninfo.py sync` → `python cninfo.py pending`
    → enrich every row (references/cninfo.md): IR activity records (投资者关系活动记录表, `record` rows) and the company's
    answers on SZSE 互动易 / SSE e互动 (`qa` rows), both treated like a conference talk (answers = the company,
-   questions = context only), entries in English → `python cninfo.py done --label "<label>"` each. Run the sync every run: SSE e互动 shows only about one month. Hong Kong-only names (ASMPT, Lenovo, Innoscience) are out of its scope.
+   questions = context only), entries in English → `python cninfo.py done --label "<label>"` each. Run the sync every run: SSE e互动 shows only about one month. Hong Kong-listed names (ASMPT, Lenovo, Innoscience …) are step 1e.
 1d. China only — periodic reports of the same A-share names: `python cninfo.py reports` (in the same run as
    `cninfo.py sync`; the board asks after 7 days) → `python cninfo.py pending` (`report` rows) → enrich every row
    (references/cninfo.md, "China A-share periodic reports": 年度报告 / 半年度报告 / 季度报告 — read the `_extract`; top-5
@@ -109,13 +109,19 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    `annual report customer share` / `half-year report customer share`, unnamed ones → the filer's quarterly_data;
    entries in English) → `python cninfo.py done --label "<label>"` each. A company's report is enriched BEFORE its
    1b record / Q&A rows when both wait (a filing before management Q&A, the frame's order); ≤ 3 reports per agent.
+1e. China only — Hong Kong-listed names (exchange `HKEX`, 16 nodes): `python -X utf8 hkex.py sync` (every run; one list
+   request per company) → `python -X utf8 hkex.py pending` → enrich every row (references/hkex.md: HKEXnews results
+   announcements, annual / interim reports — read the `_extract` —, business updates, inside information, connected
+   transactions; company filings, entries in English), adding only what the calls did not say →
+   `python -X utf8 hkex.py done --label "<label>"` each.
 2. Conference talks (`--kind conference --market …`), IR releases (`ir_pull.py pending --market …`; non-English
    headlines → `release <id>` labels; entries in English). A Japanese IR release that restates a TDnet filing
    already enriched yields nothing (`restates <label>`).
 3. `python graph_build.py --sync`, then `python investing.py done --kind transcript --market …`,
    `python tdnet.py done --label …` per handled filing and `python edinet.py done --label …` per handled report (Japan),
    `python investing.py done --kind conference --market …`, `ir_pull.py done --label …` per handled release
-   (China: plus `cninfo.py done --label …` per handled record / Q&A file and periodic report).
+   (China: plus `cninfo.py done --label …` per handled record / Q&A file and periodic report, and
+   `hkex.py done --label …` per handled HKEXnews filing).
 
 `enrich intl` (source command) = the calls step for every non-US, non-Korean market at once, including the
 few "other listed" names (SGX, TSX, ASX, IDX).

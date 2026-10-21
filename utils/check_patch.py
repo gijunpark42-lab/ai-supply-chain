@@ -124,7 +124,10 @@ def source_kind(label, doc_path):
         return "regulatory filing"
     if re.search(r" (annual securities|semi-annual) report: ", label):   # Japan EDINET 有価証券報告書 / 半期報告書 (edinet.py):
         return "call / conference / periodic report"                   # statutory statements = like a DART periodic report
-    if re.search(r" (annual|half-year|quarterly) report: ", label):    # China 年度 / 半年度 / 季度报告 (cninfo.py reports) and
+    if " HKEX announcement: " in label or " HKEX circular: " in label:  # Hong Kong HKEXnews filing (hkex.py): like a
+        return "TDnet filing"                                            # TDnet filing — never revenue_growth
+    if re.search(r" (annual|half-year|interim|quarterly) report: ", label):  # China 年度 / 半年度 / 季度报告 (cninfo.py reports),
+        # HKEXnews annual / interim reports (hkex.py) and
         return "call / conference / periodic report"                   # the hand-saved statutory reports: statutory statements
     if doc_path and "_prelim_" in doc_path:
         return "DART preliminary results"
