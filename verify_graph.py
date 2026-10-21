@@ -803,20 +803,28 @@ def name_variants(company):
 # 3. Load every source document once
 # ---------------------------------------------------------------------------
 
-def load_documents():
+HEAD_CHARS = 4000     # what head_only keeps of a document: header_labels() and HEADER_DATE read only the first 3000
+
+
+def load_documents(head_only=False):
     """Read every txt under transcripts/ and supply_contracts/ into Doc objects.
 
     Returns (by_label, all_docs). by_label maps a source label -> the first Doc that
     declares it (a document may declare its label in several spellings; all are indexed).
     supply_contracts files hold several filings separated by ==== lines; each becomes
     its own Doc so a contract label points at exactly the filing it came from.
+
+    head_only=True keeps only the first HEAD_CHARS of each transcript (supply_contracts files stay whole: their
+    blocks each carry a label). That is all label -> file resolution needs (labels, header date, filename), and it
+    is what enrich_status.py uses: the whole corpus (7,900 files, ~430 MB, held four times over as text + the
+    normalized copies a Doc builds for number matching) took the status board to ~1.8 GB and 13 minutes (2026-10-21).
     """
     by_label = {}
     all_docs = []
     for pattern in DOC_GLOBS:
         for path in sorted(glob.glob(pattern, recursive=True)):
             with open(path, encoding="utf-8", errors="replace") as f:
-                raw = f.read()
+                raw = f.read(HEAD_CHARS) if head_only and not path.startswith("supply_contracts") else f.read()
             blocks = re.split(r"^={20,}\s*$", raw, flags=re.M) if path.startswith("supply_contracts") else [raw]
             for block in blocks:
                 if not block.strip():
