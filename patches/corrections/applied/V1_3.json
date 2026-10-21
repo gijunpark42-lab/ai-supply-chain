@@ -1,37 +1,115 @@
 {
- "reviewer": "V1",
- "items": [
-  {
-   "kind": "quarterly_data",
-   "company": "AMD",
-   "target": null,
-   "label": "AMD 8-K (08-04-2026)",
-   "signal_prefix": "Q2 2026 record results: revenue $11.5B",
-   "action": "set",
-   "set": {
-    "signal": "Q2 2026 record results: revenue $11.5B, UP 50% year over year, with GAAP gross margin 54% (non-GAAP 56%), GAAP operating income $2.0B (non-GAAP $3.1B), GAAP net income $2.3B (non-GAAP $2.8B) and GAAP diluted EPS $1.38 (non-GAAP $1.66). DATA CENTER SEGMENT REVENUE $6.7 BILLION, UP 107% YEAR OVER YEAR — more than doubling on EPYC processors and Instinct GPUs — and now 58% OF TOTAL COMPANY REVENUE. Client and Gaming $3.8B (+6%; Client $3.1B +23% on Ryzen, Gaming $779M -31% on lower semi-custom); Embedded $977M (+19%). Q3 2026 GUIDANCE: revenue approximately $13 BILLION +/- $300M, representing roughly +41% year over year and +13% sequentially, with non-GAAP gross margin around 56%. CFO Jean Hu: 'We expect DATA CENTER SALES TO ACCELERATE IN THE SECOND HALF of 2026, driving stronger overall revenue growth and continued earnings expansion.' (Q2 2025 results included $800 million of inventory and related charges due to the US Government's export control on AMD Instinct MI308 data center GPU products.)"
-   },
-   "chains": [
-    "accelerators/amd_mi450_helios.json"
-   ],
-   "reason": "Relabelled to the 8-K under the 'Release facts under call labels' ruling, but the closing clause 'on the call, year-over-year comparisons exclude ... unless otherwise noted' is call wording that the 8-K does not contain; the release footnote states only the $800 million charge.",
-   "evidence": "(2) Q2’25 results included $800 million in inventory and related charges due to the U.S. Government's export control on AMD InstinctTM MI308 data center GPU products"
-  },
-  {
-   "kind": "contract",
-   "company": "AMD",
-   "target": "Anthropic",
-   "label": "AMD 8-K (08-04-2026)",
-   "signal_prefix": "Anthropic agreed 'to deploy UP TO 2 GIGAWATTS",
-   "action": "set",
-   "set": {
-    "signal": "Anthropic agreed 'to deploy UP TO 2 GIGAWATTS OF MI450 SERIES GPUs IN AMD HELIOS RACKS', alongside a MULTIYEAR COLLABORATION to optimise AMD Instinct GPUs and ROCm software development USING CLAUDE."
-   },
-   "chains": [
-    "accelerators/amd_mi450_helios.json"
-   ],
-   "reason": "The last sentence ('This makes Anthropic a named multi-gigawatt ... customer and pairs silicon supply with a software co-development loop ...') is interpretation the release does not state; removed, the sourced deal terms stay.",
-   "evidence": "Announced a strategic partnership with Anthropic to deploy up to 2 gigawatts of MI450 Series GPUs in AMD Helios racks and a multiyear collaboration to optimize AMD Instinct GPUs and ROCm software development using Claude."
-  }
- ]
+  "reviewer": "V1",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "TSMC",
+      "target": null,
+      "label": "TSMC Q3 FY2026 (10-15-2026)",
+      "signal_prefix": "Back-end supply partner: asked about the recent TSMC announc",
+      "action": "delete",
+      "chains": [
+        "manufacturing/packaging_substrate.json"
+      ],
+      "reason": "Same GlobalFoundries back-end statement is the GlobalFoundries -> TSMC contract under this label; the unslotted node copy is a duplicate (one fact, one node).",
+      "evidence": "We designed a deal with GlobalFoundries, and this is part of our overall strategy in the back-end supply."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Microsoft",
+      "target": null,
+      "label": "Microsoft Q4 FY2026 (07-29-2026)",
+      "signal_prefix": "FISCAL Q4 (June quarter) and FY2026 close: revenue $90.0B (+",
+      "action": "set",
+      "set": {
+        "signal": "FISCAL Q4 (June quarter) and FY2026 close: revenue $90 billion (+18%) with operating income +18%; FY2026 revenue surpassed $331 billion (+18%). MICROSOFT CLOUD revenue $59.3 billion (+27%); Intelligent Cloud $39.3 billion (+32%); AZURE AND OTHER CLOUD SERVICES REVENUE +43%, and CEO Satya Nadella said Azure surpassed $100 billion in the fiscal year. Microsoft 365 Copilot passed OVER 30 MILLION PAID SEATS. The forward-demand signal: COMMERCIAL REMAINING PERFORMANCE OBLIGATION ROSE 84% TO $678 BILLION. CFO Amy Hood: cash paid for PP&E was $35.8 billion in the quarter. Results also included a $3.2 BILLION GAIN FROM MICROSOFT'S INVESTMENT IN ANTHROPIC.",
+        "figure": "Q4 revenue $90 billion (+18%); Azure +43%, past $100 billion in FY2026; commercial RPO +84% to $678 billion; cash paid for PP&E $35.8 billion"
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Entry mixed release-only facts into the call label (operating income $40.6B, FY revenue $331.8B, release quote, cash-flow-statement PP&E additions $35.80B / $17.08B / $115.95B / $64.55B), none stated on the call (SKILL §6 same-day release rule). Kept only what the call states.",
+      "evidence": "Capital expenditures were $41 billion ... cash paid for PP&E was $35.8 billion"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Microsoft",
+      "target": null,
+      "label": "Microsoft Q4 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — SILICON, MODELS-AS-MARGIN-LEVER, AND THE AGENT STACK:",
+      "action": "set",
+      "set": {
+        "signal": "CALL — SILICON, MODELS-AS-MARGIN-LEVER, AND THE AGENT STACK: Satya Nadella: 'we will be AMONG THE FIRST cloud providers to deploy next-generation rack-scale AI infrastructure based on AMD HELIOS and NVIDIA VERA RUBIN' (buyer-side confirmation of both platforms). MAIA 200 delivers 30% BETTER PERFORMANCE PER DOLLAR than the latest-generation fleet hardware and now serves BOTH OpenAI and MAI models — 40% better performance per WATT when running MAI models. Model strategy as a MARGIN LEVER: >11,000-model catalog (OpenAI, Anthropic, Mistral, xAI, MAI) with a model-SUBSTITUTABLE harness (context/memory/actions separate from any model family — 'you can't be subject to the refusal of the one model'); MAI-Cyber-1-Flash outperforms a 'much larger MYTHOS model' at HALF the cost by routing 90% of tasks to Flash and 10% to frontier; 89% lower GPU costs in Dynamics 365 with MAI-Voice-2-Flash and up to 84% lower GPU costs in PowerPoint with MAI-Image-2.5. Monetization proof points: M365 Copilot >30M paid seats (net adds 2x QoQ; >50k-seat customers 7x YoY; EY's 400k-seat E7 deal = largest ever; NHS 505k seats); GitHub Copilot 50M users with revenue ACCELERATING >60% QoQ after June usage-based pricing; Foundry at 100,000 customers with revenue MORE THAN DOUBLED; Agent 365 nearly 40M registered agents in 2 months; 1 in 3 GitHub pull requests now involve an agent."
+      },
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "The Cobalt 200 / Cobalt VM customer fact is a CPU-segment fact already held by the call's cpu_datacenter.json entry (one fact, one node).",
+      "evidence": "we expect to have our Cobalt 200 racks in over 25 data centers around the world"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Microsoft",
+      "target": null,
+      "label": "Microsoft Q4 FY2026 (07-29-2026)",
+      "signal_prefix": "CALL — COBALT 200 SCALES OUT: 'When it comes to running agen",
+      "action": "set",
+      "set": {
+        "signal": "CALL — COBALT 200 SCALES OUT: 'When it comes to running agents, CPUs ARE JUST AS IMPORTANT AS GPUs.' Cobalt 200 racks expected in OVER 25 DATA CENTERS worldwide by month-end as Microsoft rapidly expands capacity; Cobalt VMs now power first-party workloads plus external customers including Adobe, Arm, Elastic, OPENAI, Sprinklr and TomTom.",
+        "figure": "Cobalt 200 racks in 25+ DCs; 'CPUs just as important as GPUs' for agents"
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "The capex composition (two-thirds short-lived assets of $41 billion) is a company-wide capex fact already on the call's slot-tagged guidance entry in nvidia_vera_rubin.json (one fact, one node).",
+      "evidence": "Roughly two-thirds of our CapEx was for short-lived assets, primarily CPUs and GPUs"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Microsoft",
+      "target": null,
+      "label": "Microsoft 10-K (07-29-2026)",
+      "signal_prefix": "Microsoft's 10-K states the current portion of other receiva",
+      "action": "delete",
+      "chains": [
+        "accelerators/nvidia_vera_rubin.json"
+      ],
+      "reason": "Neither $27.8 billion / $8.2 billion (server-component purchase receivables) nor $11.3 billion (restricted investments under a supplier agreement) appears in any saved Microsoft 10-K file (MSFT_10-K_2026-07-29_customers / _supplychain); the entry has no source under this label.",
+      "evidence": "grep of transcripts/edgar/MSFT_10-K_2026-07-29_* for '27.8 billion', '11.3 billion', 'server components': no match"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "INNIO",
+      "target": null,
+      "label": "INNIO 8-K (07-28-2026)",
+      "signal_prefix": "Customer Rehlko: INNIO's Q2 2026 results release reports a m",
+      "action": "set",
+      "set": {
+        "signal": "Q2 2026 results release: the increase in Equipment Order Backlog was driven, amongst other factors, by the landmark 1.1 GW prime power order from a developer and operator of data centers (described in the release as a new customer), follow-on orders from a hyperscaler and the multi-year strategic framework agreement with Rehlko.",
+        "figure": "1.1 GW prime power order from a data-center developer and operator"
+      },
+      "chains": [
+        "components/power_cooling.json"
+      ],
+      "reason": "The Rehlko 1.25 GW / 700 MW agreement is already the INNIO -> Rehlko contract under this label (one fact, one node); kept only the backlog-driver facts the contract does not hold.",
+      "evidence": "The increase in Equipment Order Backlog was driven, amongst other factors, by the landmark 1.1 GW prime power order from a developer and operator of data centers"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SOPHiA GENETICS",
+      "target": null,
+      "label": "SOPHiA GENETICS 20-F (03-03-2026)",
+      "signal_prefix": "20-F supplier disclosure - Supplier Microsoft: SOPHiA's plat",
+      "action": "set",
+      "set": {
+        "signal": "20-F supplier disclosure - Supplier Microsoft: remaining commitments under SOPHiA's Microsoft Azure purchase agreement were $58.2 million as of December 31, 2025 ($56.9 million a year earlier); SOPHiA also has ongoing R&D projects on AWS and Google Cloud Platform. As of December 31, 2025 the platform architecture was deployed in 75 countries through its cloud-based solution; SOPHiA says it can deploy in a new geography in approximately one to four weeks if appropriate cloud infrastructure exists in Microsoft Azure, twelve weeks if it does not.",
+        "figure": "$58.2 million remaining Azure commitments at December 31, 2025; platform deployed in 75 countries at December 31, 2025"
+      },
+      "chains": [
+        "applications/ai_bio.json"
+      ],
+      "reason": "The Azure agreement terms ($80.9 million commitment, credits, dates) are already the Microsoft -> SOPHiA GENETICS contract under this label (one fact, one node); kept only the facts the contract does not hold.",
+      "evidence": "we can deploy in a new geography in approximately one to four weeks if appropriate cloud infrastructure exists in Microsoft Azure"
+    }
+  ]
 }

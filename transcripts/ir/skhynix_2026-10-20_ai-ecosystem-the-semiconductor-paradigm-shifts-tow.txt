@@ -1,0 +1,336 @@
+SOURCE: SK Hynix official press release -- https://news.skhynix.com/en/ai-ecosystem-series-ep4/
+TITLE: [AI Ecosystem] The semiconductor paradigm shifts toward memory
+DATE: 10-20-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-20.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: SK Hynix press release: [AI Ecosystem] The semiconductor paradigm shifts toward (10-20-2026)
+
+---
+[AI Ecosystem] The semiconductor paradigm shifts toward memory – SK hynix Newsroom
+
+SK hynix Newsroom | [AI Ecosystem] The semiconductor paradigm shifts toward memory
+
+Skip to the content
+
+TECH&AI
+
+[AI Ecosystem] The semiconductor paradigm shifts toward memory
+
+As AI workloads evolve toward inference and agentic AI, the criteria for system performance are also changing. Computing power alone is no longer enough. Where data is stored, how quickly it moves, and how efficiently it is processed now have a direct impact on the performance and efficiency of AI systems.
+
+This article series explores the transformation of the AI ecosystem, where software, data center infrastructure, semiconductors, and memory technologies work together. It also examines why memory semiconductors have become a foundational technology for the
+
+AI era and outlines SK hynix’s vision for building the next-generation AI memory ecosystem.
+
+Part 4 features Raja Koduri, CEO of OXMIQ Labs, who has led GPU and AI accelerator architecture development at Apple, AMD, and Intel to explore why the focus of AI semiconductor design is shifting toward memory.
+
+① The paradigm shift in AI computing
+
+② The real bottleneck: Data, not compute
+
+③ Redesigning infrastructure: Why architecture determines performance
+
+④ The semiconductor paradigm shifts toward memory — Raja Koduri, founder and CEO of OXMIQ Labs
+
+⑤ Completing AI: Physical intelligence and the role of memory
+
+The era of the data supply bottleneck
+
+The key determinant of AI infrastructure performance is shifting from the capabilities of individual compute devices to data flow across the entire system. Performance and efficiency increasingly depend on how GPUs, memory, networks, and storage work together. This shift is also changing the fundamental questions that semiconductor designers need to address. To supply data faster and reduce unnecessary back-and-forth movement, the architecture of chips, packages, and memory itself must evolve.
+
+The center of gravity in chip design is shifting toward memory. This is not a temporary technology trend, but rather a structural transition driven by physical limitations. Following Moore’s Law * , the semiconductor industry has continued to integrate more compute circuitry onto a single die, and today’s AI accelerators have reached petaflops * -level performance. Yet the bandwidth required to supply data to these compute devices has not kept pace.
+
+* Moore’s Law: An observation proposed by Gordon Moore in 1965 that the number of components integrated into an integrated circuit has historically increased at regular intervals. It is one of the semiconductor industry’s best-known empirical principles
+
+* Petaflops: A unit of computing performance equivalent to 10¹⁵, or one quadrillion, floating-point operations per second. It is commonly used to describe the performance of AI accelerators and supercomputers
+
+Computation itself has become relatively inexpensive. Multiplication and addition operations require only a few femtojoules * of energy. Reading data from on-chip SRAM * , however, consumes considerably more energy, while retrieving data from off-chip DRAM * can cost hundreds or even thousands of times more. The farther data must travel from the compute device, the greater the time and energy costs.
+
+* Femtojoule(fJ): A unit of energy equal to one quadrillionth(10⁻¹⁵) of a joule. In semiconductors, it is used to describe the very small amount of energy consumed by individual computations or data accesses
+
+* On-chip SRAM, off-chip DRAM: On-chip SRAM is high-speed memory located on the same chip as the compute device, while off-chip DRAM is located outside the chip. In general, data access latency and energy costs increase as memory is located farther from the compute device
+
+As the integration density of compute units on a chip has grown significantly, the performance bottleneck has gradually shifted toward data supply. To keep compute devices fully utilized, the required data must arrive on time. No matter how much compute circuitry is integrated, its full performance cannot be utilized if the data arrives too late.
+
+The same challenge applies to memory capacity. The on-chip memory hierarchy, from registers to shared caches, is fast but limited in data capacity. Today’s AI models, by contrast, handle far larger volumes of parameters and intermediate data. As a result, data must be brought in from HBM or DDR, displaced after use, and retrieved again when needed. This repeated streaming adds to both the time and energy burden on the system.
+
+AI semiconductor competition is therefore shifting from simply increasing compute speed toward reliably supplying enough data to keep available compute resources continuously utilized. In large-scale training and large-batch inference, compute resources may appear to be the bottleneck, while in low-latency, small-batch inference, memory bandwidth can limit performance. Even with the same silicon, the location of the bottleneck changes depending on the workload. This is why memory is increasingly becoming a starting point for AI architecture design.
+
+Transformers and the changing memory hierarchy
+
+Computer architectures have long relied on caches to reduce this burden. Caching is based on the assumption that data will be reused. Once data is brought closer to the compute device, it can be accessed multiple times, spreading out the cost of retrieving it in the first place across multiple operations. This assumption worked well for conventional computing workloads. Even relatively small amounts of on-chip SRAM could substantially reduce DRAM accesses, making caching one of the most effective ways to improve computer performance for decades.
+
+However, transformers * , which now dominate today’s mainstream AI models, have challenged this assumption because they process vast numbers of parameters and long contexts. As model parameters have grown significantly, it has become difficult to keep all weights on-chip. During inference, each weight may be used only a limited number of times before new data is required. This reduces data reuse, making it more difficult for caches to sufficiently offset the cost of initially retrieving the data. As a result, systems repeatedly read data from DRAM or HBM.
+
+* Transformer: An AI model architecture that processes relationships among elements of input data using attention mechanisms. It serves as the foundation of modern large language models(LLM)
+
+The burden grows as context length increases. The KV cache * expands in proportion to context length, while attention * operations increase both computation and memory accesses. Agents handling long contexts must also retrieve state information at each stage of a task. When large numbers of these agents operate simultaneously, conventional memory architectures centered on DDR or GDDR can struggle to handle the resulting data flow.
+
+* Key-value cache(KV cache): A memory area where an LLM stores the results of attention calculations for previous tokens and reuses them when generating subsequent tokens. As context length increases, the KV cache also grows, increasing memory capacity and bandwidth requirements
+
+* Attention: A mechanism that calculates which information within the input context an AI model should focus on. It is a core component of the transformer architecture, with computation and memory access requirements increasing as context length grows
+
+More recent optimization techniques such as FlashAttention * , PagedAttention * , and speculative decoding * have also emerged to alleviate this bottleneck * . While their approaches differ, they share the same objective: reducing memory accesses and data movement. These techniques reduce the amount of data transferred between the compute die and DRAM, easing the memory burden during inference. Even with more efficient memory access, however, the physical cost of moving data cannot be eliminated entirely. The direction of semiconductor design is therefore clear: Data needs to be placed closer to the transistors where computation takes place. As transformers become more widely adopted, architectures that reduce the physical distance between data and computation will become increasingly important.
+
+* FlashAttention: An optimization technique that improves processing efficiency by reducing memory accesses during attention operations. It is used to alleviate memory bottlenecks in LLMs handling long contexts
+
+* PagedAttention: An attention optimization technique that improves memory utilization by managing the KV cache in non-contiguous pages
+
+* Speculative decoding: A technique for accelerating LLM inference in which a smaller model first generates candidate tokens that are then verified by a larger model
+
+* Tri Dao et al., “FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness,” NeurIPS 2022; Woosuk Kwon et al., “Efficient Memory Management for Large Language Model Serving with PagedAttention,” SOSP 2023; Yaniv Leviathan, Matan Kalman, and Yossi Matias, “Fast Inference from Transformers via Speculative Decoding,” ICML 2023
+
+HBM and data supply architecture
+
+High Bandwidth Memory(HBM) emerged as the first major architectural solution to this challenge and has become a key memory layer supporting the performance of today’s AI accelerators.
+
+HBM uses an architecture in which multiple DRAM dies are vertically stacked and connected to the compute device through through-silicon vias * and an interposer * . This significantly reduces the distance between compute and memory, from centimeters to millimeters. As a result, bandwidth increases substantially while the energy required for data transfer decreases. This architecture has also played an important role in the dramatic advances in AI accelerators over the past decade.
+
+* Through-silicon via(TSV): A microscopic vertical electrical connection that links stacked semiconductor dies. In HBM, TSVs are a key interconnect technology that enables data movement between multiple DRAM layers
+
+* Interposer: A substrate-like structure that connects multiple semiconductor chips, such as GPUs and HBM, within a single package. It is used to create shorter, wider data paths between chips
+
+These design challenges have repeatedly emerged in real-world product development. At AMD in 2015, the author was involved in the development of an HBM-based GPU. Later, at Intel * , he led the development of “Ponte Vecchio,” which integrated 47 chiplets * and four HBM2e stacks into a single package * . These projects demonstrated that factors such as signal integrity, power delivery, thermal management, and mechanical stability are critical determinants of actual performance and overall product quality.
+
+* Chiplet: A design approach that divides a large chip into multiple smaller functional dies and connects them within a package. It can improve yield, scalability, and design flexibility
+
+* Intel official materials on Ponte Vecchio architecture
+
+HBM has addressed much of the data supply challenge facing AI accelerators. The challenges ahead, however, are more complex. HBM bandwidth is constrained by a combination of factors, including the interface area available around the compute die, signal transmission speed, power delivery, and thermal design. Constraints also arise within the stack itself. As multiple DRAM dies are stacked and signals travel through TSVs and interconnects, longer and more complex signal paths can increase signal loss and interference. This also affects power consumption and heat generation. As HBM advances from one generation to the next, simply adding more bandwidth has become an insufficient means to sustain performance gains.
+
+For this reason, the industry’s focus is expanding from memory itself to the system as a whole. The scope of HBM design is also broadening to encompass the base die * , package, interconnects, thermal design, and the characteristics of actual workloads. Performance increasingly depends on how closely and reliably memory and compute devices can be connected within a single system.
+
+* Base die: A die located at the bottom of an HBM stack that provides connectivity and control between the memory dies and external logic or the package
+
+Advanced packaging and memory integration
+
+As memory becomes increasingly central to system performance, the role of packaging is also changing. Packaging is no longer simply a back-end assembly process. It is now an integral part of the system architecture, involving the co-design of compute dies, memory stacks, interconnects, and power delivery structures, as well as thermal paths that dissipate generated heat. How these elements are arranged and connected directly affects bandwidth, latency, energy efficiency, and reliability.
+
+2.5D and 3D integration, chiplets, interposers, and hybrid bonding * are all approaches designed to reduce the physical distance between data and computation. Simply placing multiple functional blocks within a single package is not enough. Performance and efficiency depend on how closely and reliably those blocks are connected and how well the interconnect architecture aligns with the data flow of actual workloads.
+
+* Hybrid bonding: A packaging technology that directly bonds copper-to-copper connections instead of using conventional microbumps, enabling denser die-to-die connectivity. It is used to shorten data movement paths while providing wider data paths and greater power efficiency within the same area
+
+In large-scale chip projects, seemingly minor details can often escalate into performance degradation or reliability issues. PCB resonance * can destabilize signal and power delivery at specific frequencies, while microbump fatigue * can reduce interconnect reliability under repeated thermal and mechanical stress. Thermal interactions between different dies can also create localized hot spots, potentially degrading performance or shortening product lifespan. The effectiveness of memory-centric design therefore depends on how precisely these granular issues are identified and addressed during the design phase.
+
+* Printed circuit board(PCB) resonance: A phenomenon in which the interconnect and power delivery structures of a printed circuit board can destabilize signals at specific frequencies. In semiconductor systems with high-speed signaling, it can affect both performance and stability
+
+* Microbump fatigue: The accumulation of damage in microbumps, the fine interconnects between semiconductor dies, caused by repeated temperature changes and mechanical stress. It can affect interconnect reliability and lifespan
+
+Hybrid bonding is a technology that enables shorter, denser connections between dies. Replacing conventional microbumps with fine-pitch direct copper-to-copper bonding allows more connections to be formed within the same area. This reduces the electrical overhead associated with contacts and interconnects along the signal path while providing wider data paths within the same area. While microbumps can become a bottleneck in high-speed signal transmission, hybrid bonding connects dies more closely and densely, reducing energy consumption per bit. As a result, highly integrated 3D architectures that more tightly combine logic and memory are emerging as a viable alternative.
+
+At the same time, the boundaries between chips, packages, and systems are becoming increasingly blurred. In the past, GPU compute performance and HBM bandwidth were key metrics for assessing system competitiveness. Today, system designers must also consider how to allocate compute, memory, and interconnect resources within a limited footprint. Some workloads benefit from greater memory capacity, while others require shorter, wider interconnect paths that can move more data within the same area. AI semiconductor design is therefore moving away from assembling general-purpose components toward integrated architectures tailored to the characteristics of actual workloads.
+
+PIM and near-data processing
+
+The technologies discussed so far are converging on a single direction: bringing data closer to compute devices. Larger caches, HBM, and advanced packaging technologies such as hybrid bonding all aim to reduce the physical distance between data and computation. Taking this a step further leads to another strategy for reducing data movement: Instead of moving data to the compute device, some computation is performed directly where the data resides.
+
+Processing-in-memory * is an extension of this approach. In conventional computing architectures, data is brought to the compute device for processing. PIM, by contrast, moves some computation to where the data resides. By performing certain operations within DRAM, on an HBM base die, or near other memory technologies, PIM can reduce unnecessary back-and-forth data transfers.
+
+* Processing-in-memory(PIM): A technology that performs some computation within or close to memory instead of moving data to a compute device. It can improve performance and power efficiency in AI workloads where data movement costs are high
+
+Rather than replacing CPUs or GPUs, PIM is well suited to complementing existing accelerators for workloads where the cost of data movement exceeds the cost of computation. For example, when performing repetitive, relatively simple operations on large tensors * containing vast amounts of data, the cost of moving that data over long distances within the memory hierarchy can have a greater impact on overall system efficiency than the computation itself. For such workloads, performing computation within or near memory can reduce energy consumption by 10 to 100 times, depending on the workload * . The primary advantage of PIM lies less in increasing compute performance itself but in reducing data movement.
+
+* Tensor: A multidimensional array used to represent data processed by AI models, including images, model weights, and intermediate computation results. AI computation involves repeatedly processing these large data arrays
+
+* Raja Koduri, “The Shift Toward Memory,” shared for SK hynix AI Ecosystem series, 2026
+
+This shift is elevating the memory hierarchy to the starting point of system design. System efficiency can vary significantly depending on data placement, which operations are performed where the data resides, and when to transfer data to a central accelerator. Future memory-centric architectures * are likely to move closer to a model in which computation is brought to the data, rather than data being moved to the compute device.
+
+* Memory-centric architecture: An approach that moves beyond architectures centered on transferring data to compute devices, instead co-designing compute, packaging, and interconnects around where data resides and how the memory hierarchy is organized
+
+﻿
+
+There are, however, significant challenges to overcome. One of the most difficult in bringing compute functionality into the memory stack is thermal management. Hybrid bonding can reduce power consumption at the interface, but when logic is placed close to temperature-sensitive DRAM, effectively dissipating the resulting heat remains a difficult challenge. This is because bandwidth, power efficiency, reliability, and thermal performance must all be achieved simultaneously within a limited space.
+
+Implementing PIM therefore requires a system-level approach that closely integrates memory, compute, packaging, thermal design, and software. The concept of computing where data resides is straightforward, but turning it into a practical product requires integrated design capabilities that can precisely coordinate all of these elements.
+
+The new competitive standard for AI semiconductors
+
+The focus of AI silicon is expanding beyond individual compute dies to encompass the package and system as a whole. We have entered an era in which improving any single element alone is no longer enough to overcome the limits of performance and efficiency.
+
+Innovation at the transistor level remains essential. Technologies that lower operating voltage and leakage current while improving compute efficiency must continue to advance. However, the next leap in performance cannot be expected to come simply from integrating more compute circuitry. The greater challenge now is how efficiently the available compute capacity can be utilized.
+
+This leaves three key questions. How close can data be placed to the compute device? When data movement is unavoidable, how quickly and efficiently can that data be transferred? And how much computational value can be extracted from data once it has been retrieved? Future innovation in AI semiconductors will be shaped by how the industry answers these three questions.
+
+The basis of competition in the semiconductor industry is also changing. If the CPU era was defined by competition in processor performance, the GPU era focused on competition in massively parallel processing. In the AI era, competitiveness depends on architectures that integrate compute, memory, packaging, interconnects, and software as a single system while minimizing unnecessary data movement.
+
+At the heart of memory-centric architecture is the idea of making memory the starting point for architecture design across the entire process of storing, delivering, and processing data within an AI system. HBM supplies data close to the compute device, advanced packaging creates denser connections between memory and compute, and PIM reduces data movement itself by performing computation where the data resides.
+
+The competitiveness of AI semiconductors will increasingly depend on designs that keep data close, minimize unnecessary movement, and extract greater computational value from the same data. No technology is exempt from the laws of physics. The difference in performance and efficiency ultimately comes down to meticulous engineering and relentless optimization.
+
+The next article will examine how this shift extends into the realms of physical AI and on-device AI. As AI expands beyond the cloud and data centers into the edge, devices, and the physical world, performance will increasingly depend not simply on faster compute devices, but on architectures that keep the required data close at hand and ensure its stable delivery.
+
+Disclaimer: The opinions expressed in this article are solely those of the author and do not necessarily reflect the official position of SK hynix.
+
+Related content
+
+“Memory-Centric Server Systems Are the Future”: SK hynix Presents Its Next-Generation AI Infrastructure Vision at OCP Global Summit 2026
+
+October 16, 2026
+
+TECH&AI
+
+Agentic AI
+
+AI
+
+CXL
+
+DRAM
+
+eSSD
+
+HBF
+
+HBM
+
+OCP Global Summit
+
+[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance
+
+October 2, 2026
+
+TECH&AI
+
+Agentic AI
+
+AI ecosystem
+
+CXL
+
+GPU
+
+HBM
+
+“Behind AI’s Rapid Growth Lies Memory” — SK hynix Shares Its Next-Generation Memory Portfolio at the TSMC OIP Conference
+
+September 28, 2026
+
+TECH&AI
+
+AI Semiconductor
+
+eSSD
+
+HBF
+
+HBM
+
+SOCAMM2
+
+SSD
+
+TSMC OIP
+
+SK hynix Launches ‘SK hynix Ventures’ in Silicon Valley to Expand Global AI Ecosystem Investment
+
+September 18, 2026
+
+PRESS
+
+AI data center
+
+AI ecosystem
+
+CVC
+
+Semiconductor Ecosystem
+
+Silicon Valley
+
+SK hynix Ventures
+
+Ventures Day
+
+“Memory-Centric Server Systems Are the Future”: SK hynix Presents Its Next-Generation AI Infrastructure Vision at OCP Global Summit 2026
+
+October 16, 2026
+
+TECH&AI
+
+Agentic AI
+
+AI
+
+CXL
+
+DRAM
+
+eSSD
+
+HBF
+
+HBM
+
+OCP Global Summit
+
+[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance
+
+October 2, 2026
+
+TECH&AI
+
+Agentic AI
+
+AI ecosystem
+
+CXL
+
+GPU
+
+HBM
+
+“Behind AI’s Rapid Growth Lies Memory” — SK hynix Shares Its Next-Generation Memory Portfolio at the TSMC OIP Conference
+
+September 28, 2026
+
+TECH&AI
+
+AI Semiconductor
+
+eSSD
+
+HBF
+
+HBM
+
+SOCAMM2
+
+SSD
+
+TSMC OIP
+
+SK hynix Launches ‘SK hynix Ventures’ in Silicon Valley to Expand Global AI Ecosystem Investment
+
+September 18, 2026
+
+PRESS
+
+AI data center
+
+AI ecosystem
+
+CVC
+
+Semiconductor Ecosystem
+
+Silicon Valley
+
+SK hynix Ventures
+
+Ventures Day
+
+Homepage
+
+INSTAGRAM
+
+YOUTUBE
+
+Heritage
+
+Media Library
+
+Toggle Menu
+
+Back to Top

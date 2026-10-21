@@ -1,0 +1,59 @@
+{
+ "source": "CrowdStrike Fal.Con Day 1 2026 (09-01-2026)",
+ "chains": {
+  "components/ai_security_trusted_compute.json": {
+   "players": [
+    {
+     "company": "CrowdStrike",
+     "layer": "application",
+     "sector": "AI-Native Cybersecurity Platforms",
+     "sub_sector": null,
+     "product": "Falcon platform AI: Charlotte AI detection triage and SafeMind agentic security, run on rented AI compute (Cerebras inference, CoreWeave GPUs, NVIDIA NIM)",
+     "quarterly_data": [
+      {
+       "quarter": "CrowdStrike Fal.Con Day 1 2026 (09-01-2026)",
+       "signal": "CEO George Kurtz launched Falcon Guardian at Fal.Con, CrowdStrike's AI Detection and Response (AIDR) product that discovers and secures AI agents where they execute on the endpoint ('It's now available. It's GA'). He also launched the CrowdStrike Cyber Superintelligence Lab (frontier AI research solely for cyber defense, trained on the trillions of events the Falcon sensor sees every day) and CrowdStrike SafeMind, an agentic system of two frontier-class models, Blue Solano (defense) and Red Tempest (offensive security), plus a CrowdStrike harness; the models and harness will power the Falcon platform, and customers wanting direct access to the models get it through a trusted access program that is part of Project QuiltWorks. Kurtz: customers keep model choice (CrowdStrike's models, frontier models, open-source models or all of them) with no vendor lock-in.",
+       "figure": "no specific figure",
+       "topics": ["product_launches"],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "CrowdStrike Fal.Con Day 1 2026 (09-01-2026)",
+       "signal": "CEO George Kurtz on OpenAI: CrowdStrike works with OpenAI on instrumenting agents such as Codex to get the telemetry it needs for AIDR, and 'part of what we talked about is bringing the OpenAI models into our platform', exposing them so customers can use OpenAI's models on the security data CrowdStrike has already collected (stated as a plan; no terms given).",
+       "figure": "no specific figure",
+       "topics": [],
+       "counterparty": "OpenAI",
+       "counterparty_role": "partner (planned model supplier)"
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "sub_sector": null,
+     "product": "NVIDIA Confidential Computing on H100 / Blackwell GPUs; Vera Rubin end-to-end confidential computing (Vera CPU + CX9 security processor); NIM / AI Enterprise for security vendors",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "CrowdStrike",
+       "relationship": "NIM microservices (NVIDIA AI Enterprise) on GPUs for Charlotte AI detection triage",
+       "contracts": [
+        {
+         "source": "CrowdStrike Fal.Con Day 1 2026 (09-01-2026)",
+         "signal": "CEO George Kurtz: 'Together with NVIDIA, we built cybersecurity's first complete agentic system for cybersecurity' (SafeMind), its frontier-class models 'built and trained by CrowdStrike on our data in partnership with NVIDIA'; CrowdStrike works with NVIDIA 'using the Nemotron models built by NVIDIA', and Kurtz thanked NVIDIA for the help it provided.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "model co-development partnership",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

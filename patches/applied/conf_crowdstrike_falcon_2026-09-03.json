@@ -1,0 +1,57 @@
+{
+ "source": "CrowdStrike Fal.Con 2026 (09-03-2026)",
+ "chains": {
+  "components/ai_security_trusted_compute.json": {
+   "players": [
+    {
+     "company": "CrowdStrike",
+     "layer": "application",
+     "sector": "AI-Native Cybersecurity Platforms",
+     "sub_sector": null,
+     "product": "Falcon platform AI: Charlotte AI detection triage and SafeMind agentic security, run on rented AI compute (Cerebras inference, CoreWeave GPUs, NVIDIA NIM)",
+     "quarterly_data": [
+      {
+       "quarter": "CrowdStrike Fal.Con 2026 (09-03-2026)",
+       "signal": "Chief Technology Innovation Officer Alex Ionescu: a local small language model running on the endpoint's NPU for data protection and classification is 'generally available in the latest Windows 8.10 sensor. Generally available, shipping.' CrowdStrike's user-mode protection on Microsoft's Windows Endpoint Security Platform (WESP) runs on private-preview code and will ship in lockstep with Microsoft's public GA (WESP will at first require the latest versions of Windows 11; he expects it to take years to mature); two sensor projects, Ascent (standard protocols such as gRPC and HTTPS content delivery replacing bespoke plumbing) and Modularity (modules that ship on their own schedules, e.g. the Falcon Seraphic Enterprise Browser from the Seraphic acquisition as a single module on unmanaged contractor laptops), prepare the sensor to ship model weights to the endpoint; essentially the entire Linux customer base runs on eBPF.",
+       "figure": "Windows 8.10 sensor",
+       "topics": ["product_launches"],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "CrowdStrike Fal.Con 2026 (09-03-2026)",
+       "signal": "Chief AI and Autonomous Systems Officer Bartley Richardson on SafeMind's offensive side: Red Tempest is a fine-tuned 27 billion parameter dense model with a 256K context window (up to 1 million for extended processing) orchestrating sub-agents across thousands of attack scenarios covering 155 MITRE ATT&CK techniques; in CrowdStrike's test it reached 100% compromise for $21 versus $96 for an off-the-shelf closed frontier model and $62 for an off-the-shelf open model ('80% cost reduction'); Blue Solano's defensive agents carry 3.1 million working hours of expertise from CrowdStrike's detection engineers; CrowdStrike has run tens of thousands of offensive attacks in its hardened environments without any unintentional agent escapes. The Falcon platform stores more than an exabyte of uncompressed data and ingests around 14 petabytes of first- and third-party data every day.",
+       "figure": "Red Tempest 27 billion parameters; $21 versus $96 per full compromise; 14 petabytes ingested per day",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "sub_sector": null,
+     "product": "NVIDIA Confidential Computing on H100 / Blackwell GPUs; Vera Rubin end-to-end confidential computing (Vera CPU + CX9 security processor); NIM / AI Enterprise for security vendors",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "CrowdStrike",
+       "relationship": "NIM microservices (NVIDIA AI Enterprise) on GPUs for Charlotte AI detection triage",
+       "contracts": [
+        {
+         "source": "CrowdStrike Fal.Con 2026 (09-03-2026)",
+         "signal": "Chief AI and Autonomous Systems Officer Bartley Richardson: Blue Solano is CrowdStrike's post-trained NVIDIA Nemotron-3 Super 128B parameter mixture-of-experts model (12 billion active parameters) for rule creation, with Nemotron 3 Ultra as its reasoning orchestrator (up to a million context window), post-trained with supervised fine-tuning and reinforcement learning; CrowdStrike post-trained Blue Solano and Red Tempest 'in combination with our partners at Nvidia and CoreWeave'.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "open model supply (Nemotron) and post-training collaboration",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
