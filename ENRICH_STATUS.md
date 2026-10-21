@@ -1,55 +1,54 @@
 # Enrichment status board
 
-Generated 2026-10-21 01:52 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-21 08:36 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
 ## Run next
 
-1. **`Opus verifier over verify_queue.json`** — 143 applied labels are waiting for the independent check (rule: at 5+)
-2. **`enrich us`** — US call sync (av.py) last ran 1 days ago (2026-10-20); utility regulatory-filing sync (utility_filings.py) last ran 1 days ago (2026-10-20)
-3. **`enrich korea`** — DART sync (dart.py) last ran 1 days ago (2026-10-20); KIND IR deck sync (kind.py) last ran 1 days ago (2026-10-20)
-4. **`enrich edgar`** — 94 filings queued
-5. **`enrich taiwan`** — Investing.com call sync (investing.py) last ran 1 days ago (2026-10-20) — one sync serves Taiwan, Japan, Europe and China; Taiwan Chinese-call sync (tw.py) last ran 1 days ago (2026-10-20); MOPS sync (mops.py) last ran 1 days ago (2026-10-20)
-6. **`enrich japan`** — TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 1 days ago (2026-10-20)
+1. **`Opus verifier over verify_queue.json`** — 132 applied labels are waiting for the independent check (rule: at 5+)
+2. **`enrich us`** — 68 fetched file(s) waiting to be enriched (68 DoD award)
+3. **`enrich edgar`** — 38 filings queued
+4. **`enrich europe`** — 5 fetched file(s) waiting to be enriched (5 DoD award)
+5. **`enrich china`** — 192 fetched file(s) waiting to be enriched (138 results briefing Q&A, 54 HKEX filing)
 
-Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-20 (388 feeds) — due; conference listing walked 2026-10-19 — due.
-Opus verification queue: 143 label(s) waiting (runs at 5+).
+Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-21 (388 feeds); conference listing walked 2026-10-21; Perplexity Finance calls (pplx.py, every market) synced 2026-10-21.
+Opus verification queue: 132 label(s) waiting (runs at 5+).
 
-## Gap fill — tonight's batch (30 of 926 gaps)
+## Gap fill — tonight's batch (30 of 896 gaps)
 
 The nightly `enrich all` takes these, in order, and ends each one by filling it or by `enrich_status.py mark "<Company>" --source <source> --why "…"` (no source exists; back at its recheck date). Full list: `graph/enrich_status.json` → `board` → `gaps`.
 
-1. CoolIT Systems — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-2. Cowboy Space — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-3. DB HiTek — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-4. Daeduck Electronics — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-5. Datasection — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-6. Delta Electronics — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-7. Disco Corporation — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-8. Doosan Corporation — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-9. Doosan Enerbility — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-10. Duksan Hi-Metal — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-11. EO Technics — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-12. Elite Material — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-13. Fluidstack — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-14. FuriosaAI — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-15. GMI — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-16. Global Standard Technology — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-17. Grace Fabric Technology — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-18. HD Hyundai Electric — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-19. Han's CNC Technology — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-20. Hana Micron — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-21. Hanmi Semiconductor — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-22. Hansol Chemical — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-23. Helix Digital Infrastructure — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-24. Huafeng Technology — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-25. Huawei — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-26. Hyosung Heavy Industries — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-27. ISTE — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-28. Ibiden — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-29. Indosat — no executive on the news-interview roster (media/roster_additions.json) (source: media)
-30. Innolight — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+1. DB HiTek — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+2. Daeduck Electronics — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+3. Datasection — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+4. Delta Electronics — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+5. Disco Corporation — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+6. Doosan Corporation — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+7. Doosan Enerbility — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+8. Duksan Hi-Metal — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+9. EO Technics — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+10. Global Standard Technology — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+11. Grace Fabric Technology — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+12. HD Hyundai Electric — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+13. Han's CNC Technology — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+14. Hana Micron — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+15. Hanmi Semiconductor — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+16. Hansol Chemical — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+17. Huafeng Technology — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+18. Huawei — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+19. Hyosung Heavy Industries — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+20. ISTE — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+21. Ibiden — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+22. Indosat — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+23. Innolight — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+24. Isu Petasys — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+25. JCET — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+26. JT — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+27. Jiangfeng Electronic Materials — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+28. Jones Tech — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+29. Komico — no executive on the news-interview roster (media/roster_additions.json) (source: media)
+30. Korea Circuit — no executive on the news-interview roster (media/roster_additions.json) (source: media)
 
 ## Decided by Claude (last 7 days)
 
@@ -158,6 +157,12 @@ The user delegated these judgments on 2026-10-19 ("질문은 니가 알아서 �
 - **CoreWeave** (2026-10-21): No edge and no row (independent Opus verifier V1): an exhibit-index title states no product and no direction, so it is not a stated supply or customer relationship under JOB 4; the stated flow (all GPUs are NVIDIA GPUs) stays on the NVIDIA -> CoreWeave edge.
 - **Unimicron** (2026-10-21): Split by the work each filing names (independent Opus verifier V1): the five firms contracted for 'facility engineering' (plant-facility / cleanroom systems) of an IC-substrate plant are rule-B-type contractors - no relations row, amounts stay on Unimicron's quarterly_data with counterparty keys. Chang You Construction builds a plant building on Unimicron's own land (general construction, Bechtel / Jacobs precedent 10-19): a relations row, scope other.
 - **SUMCO** (2026-10-21): Yes (independent Opus verifier V1): the company itself names the awarding firms as its customers, so 'SUMCO supplies Sony Semiconductor Solutions' is a company-stated relationship and stays a relations row; the award itself yields nothing (CrowdStrike customer-award precedent, 10-20).
+- **Merck KGaA** (2026-10-21): Claude decision 2026-10-21 (independent Opus verifier): foundry.json (Electronics, Process Chemicals & Slurries) is the company-wide placement; group revenue, guidance and Electronics supply entries carry the slots there. Healthcare-only facts go on ai_bio.json (a segment fact that maps to one placement goes there, section 6); Life Science and Bio-Techne facts stay on the company-wide placement without a slot (user 2026-10-12 rule).
+- **Equipment purchases in MOPS acquisition filings** (2026-10-21): Claude decision 2026-10-21 (independent Opus verifier): yes. The buyer's own filing naming the vendor states a supply relationship; when both are players in the chain it is an edge (JOB 4) with an 'equipment purchase' contract (amount, filed fact period), the selling entity named in the signal. Regional subsidiaries map to the parent node (Applied Materials South East Asia -> Applied Materials; Atotech -> MKS Instruments per the 2026-09-05 naming rule). The buyer gets a separate node entry only when it fills a slot; a purchase with no stated capacity does not. Added: Applied Materials -> Powerchip (PSMC), MKS Instruments -> Zhen Ding.
+- **NVIDIA ecosystem adopter lists (10-21 releases)** (2026-10-21): Claude decision 2026-10-21 (coordinator, against the verifier's suggestion): entry text only, counterparties named in the signal. These are AI relationships, and the 2026-10-19 decision 'AI relationships with a counterparty that is not a node' keeps a clearly-AI relationship out of relations/ (scope 'other' = non-AI, and the site lists those rows as non-AI); the software-users rule applies to non-AI products. No new edges: none of the releases states a supply relationship between two players of one chain (demos, 'exploring', 'such as' lists excluded). Applied in the NVIDIA 10-21 patches as written.
+- **Duos Technologies** (2026-10-21): Claude decision 2026-10-21 (independent Opus verifier): approved. Management states the purchases while describing how Duos builds its own sites, and the same-day 8-K deck says Technology Solutions sources for Duos' own sites; resale does not change who sells to Duos (Jabil / POCO / Dingtong / TeraWulf precedents, section 6 cross-chain rule). Placement added beside QTS; edges Trane Technologies, Schneider Electric, Vertiv, Eaton -> Duos Technologies follow once the placement is applied. Corning has no node in that chain and stays a counterparty on Duos' node.
+- **Government and research customers of a chain product** (2026-10-21): Claude decision 2026-10-21 (independent Opus verifier): counterparty keys on the filer's node, no relations row. A customer of a chain product is a chain relationship, and a chain relationship never becomes a scope-'other' row; the 2026-10-19 government-customer rule covers products outside the chains (e.g. Primoris's state DOT highway work, Jacobs' PA Consulting public clients, which stay as rows). Applied: the two Quantinuum rows (U.S. Government, RIKEN) added tonight were removed before commit; the facts stay on Quantinuum's node.
+- **DoD contract awards: counterparties and relations rows** (2026-10-21): Claude decision 2026-10-21 (independent Opus verifier): (1) a multi-award paragraph is written as 'one of N awardees on a $X ceiling', never as the company's own amount; (2) counterparty 'U.S. Space Force' whenever the contracting activity is Space Systems Command or another Space Force unit, even under the AIR FORCE heading ('U.S. Air Force' only for Air Force commands), the activity named in the signal; (3) defense awards for non-AI products (aircraft, munitions, radios, satellites, sustainment) give one relations row per company per agency (supplies, scope 'other', the agency as the award names it, citing the saved dod file); an award for a clearly-AI product stays on the node with counterparty keys. Applied tonight: (1) and (2) in the 79 DoD patches; (3) rows left for the next night (noted).
 
 ## Needs a decision or setup
 
@@ -167,67 +172,77 @@ The user delegated these judgments on 2026-10-19 ("질문은 니가 알아서 �
 
 | Market | Companies | Call current | Overdue | Never had a call | No own data | Waiting | IR feeds | Collector last ran |
 |---|---|---|---|---|---|---|---|---|
-| US — United States | 285 | 277 | 0 | 0 | 0 | 0 | 218 | us 2026-10-20, utility 2026-10-20 |
-| KR — Korea | 128 | 2 | 0 | 125 | 0 | 0 | 25 | dart 2026-10-20, kind 2026-10-20 |
-| TW — Taiwan | 135 | 24 | 0 | 106 | 0 | 0 | 49 | intl 2026-10-20, tw 2026-10-20, mops 2026-10-20 |
-| JP — Japan | 128 | 14 | 0 | 9 | 0 | 0 | 58 | intl 2026-10-20, tdnet 2026-10-20, edinet 2026-10-21 |
-| EU — Europe | 43 | 33 | 0 | 8 | 0 | 0 | 21 | intl 2026-10-20 |
-| CN — China / Hong Kong | 119 | 4 | 0 | 115 | 0 | 0 | 12 | intl 2026-10-20, cninfo 2026-10-21, cnreports 2026-10-21 |
-| other — Other listed | 19 | 6 | 0 | 12 | 0 | 0 | 2 | intl 2026-10-20 |
+| US — United States | 285 | 277 | 0 | 0 | 0 | 68 | 218 | us 2026-10-21, utility 2026-10-21, dod 2026-10-21 |
+| KR — Korea | 128 | 2 | 0 | 125 | 0 | 0 | 25 | dart 2026-10-21, kind 2026-10-21 |
+| TW — Taiwan | 135 | 26 | 0 | 104 | 0 | 0 | 49 | intl 2026-10-21, tw 2026-10-21, mops 2026-10-21 |
+| JP — Japan | 128 | 14 | 0 | 9 | 0 | 0 | 58 | intl 2026-10-21, tdnet 2026-10-21, edinet 2026-10-21 |
+| EU — Europe | 43 | 39 | 0 | 2 | 0 | 5 | 21 | intl 2026-10-21 |
+| CN — China / Hong Kong | 119 | 5 | 0 | 114 | 0 | 192 | 12 | intl 2026-10-21, cninfo 2026-10-21, cnreports 2026-10-21, hkex 2026-10-21, cnbrief 2026-10-21 |
+| other — Other listed | 19 | 8 | 0 | 10 | 0 | 0 | 2 | intl 2026-10-21 |
 
 `Call current` = the latest own earnings call is within the company's usual gap + 3 weeks. `No own data` = not one entry from the company's own documents yet (new nodes land here). Marked companies (no source exists) are left out of Overdue / Never.
 
 ## Details by market
 
 ### US — United States (`enrich us`)
+- Waiting to enrich: 68 DoD award
 - Known gaps, do not re-search: Bayer (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), ChronoScale (call: no transcribed call (checked 2026-10-19): defeatbeta CHRN holds only the predecessor Ekso Bionics Q2 2025 call (wrong company, file removed); Alpha Vantage lists the 10-14-2026 results as 'transcript not posted'; its own 10-K / 10-Q / 8-Ks were enriched via edgar instead; recheck 2026-11-20), Eikon Therapeutics (call: no earnings calls held since their Feb 2026 IPOs (checked 2026-10-06: events pages list only investor conferences); quarterly results come as 8-K releases, enriched via edgar; recheck 2027-01-04), Generate Biomedicines (call: no earnings calls held since their Feb 2026 IPOs (checked 2026-10-06: events pages list only investor conferences); quarterly results come as 8-K releases, enriched via edgar; recheck 2027-01-04), IES Holdings (call: no recent call transcript: defeatbeta's newest IESC transcript is Q1 FY2009 (02-10-2009) and Alpha Vantage's sync saved none (checked 2026-10-18); recheck 2027-01-17), POET Technologies (call: Q2 2026 (08-13-2026): POET did not host an earnings call - the Q2 results release and both 08-13 6-Ks announce no call/webcast; IR page lists no call since a 2022 business-update call; not on Alpha Vantage (2025Q4-2026Q3 empty), defeatbeta (no POET transcripts), Motley Fool (sitemaps Aug-Sep 2026); official YouTube has only a 09-30-2026 CEO 'Business Update' video (15 min, auto captions), not a call. Checked 2026-10-05; recheck 2026-11-20), Relay Therapeutics (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25), Roche-Genentech (call: no free transcript source (AI-bio chain check, recorded 2026-09-18); recheck 2026-12-25)
 
 ### KR — Korea (`enrich korea`)
 - Known gaps, do not re-search: Auros Technology (dart: latest DART file is the amended H1 2026 report filed 10-08-2026, which restates the 08-14-2026 half-year report already enriched (only treasury-share disclosure and one unit fix changed) - checked 2026-10-12; recheck 2026-11-10), Kostek Systems (dart: KONEX-listed: dart.py covers KRX/KOSPI/KOSDAQ only, and KONEX filers are exempt from half-year / quarterly reports; its latest periodic report (FY2025 business report, 03-31-2026) is already enriched from transcripts/non_transcript_sources (checked 2026-10-12); recheck 2027-04-15), Lotte Energy Materials (logo: no companieslogo / Wikidata logo; official sites (gracefabric.com, skyverse.cn from the annual reports; lotteenergymaterials.com; sypc.co.kr) expose no logo asset in their HTML - og:image is a tiny Korean wordmark on a 1200x630 canvas for Lotte (checked 2026-10-20); recheck 2026-11-20), Samsung Electro-Mechanics (call: Q2 2026 call (07-30-2026): no full transcript. Investing.com search + transcript listing walked 07-17..08-05 (no SEMCO article); SEMCO IR site (global + kr earnings-release / archive) has only the results PDF and a login-gated Teletogether audio replay; no official YouTube upload. Checked 2026-10-05; recheck 2027-01-03)
 
 ### TW — Taiwan (`enrich taiwan`)
-- Never had a call enriched: ADATA Technology, ADDA, AP Memory, ASMedia, ASPEED, ASRock, AVC (Asia Vital Components), Ableprint Technology, AcBel Polytech, Accton Technology, Advanced Echem Materials, Advanced Energy Solution … +94 more
-- Known gaps, do not re-search: Chenbro (call: Q2 2026 online 法說會 (Yuanta, 08-07-2026) replay on zucast is registration-gated and its terms forbid recording - not downloaded; no transcript on IR site, no full YouTube upload; checked 2026-10-05; recheck 2027-01-03), Gigabyte (call: No 法說會 on MOPS Jun-Oct 2026 (Q1 was a Cathay online call 05-15); no replay, no full YouTube video; checked 2026-10-05; recheck 2027-01-03), Inventec (call: No Q2 2026 results meeting: MOPS + company IR page list only broker conferences/NDR (08-25 to 10-13) with slides, no audio/video; checked 2026-10-05; recheck 2027-01-03), VPEC (call: Company IR page: no self-hosted 法說會 in 2026; 09-04 CTBC forum has slides only, no video; checked 2026-10-05; recheck 2027-01-03), Wiwynn (call: No Q2 2026 call held: IR page lists only the Q4 2025 call (02-26) plus broker forums with slides; MOPS Jun-Oct and irconference no replay; checked 2026-10-05; recheck 2027-01-03)
+- Never had a call enriched: ADATA Technology, ADDA, AP Memory, ASMedia, ASPEED, ASRock, AVC (Asia Vital Components), Ableprint Technology, AcBel Polytech, Accton Technology, Advanced Echem Materials, Advanced Energy Solution … +92 more
+- Known gaps, do not re-search: Chenbro (call: Q2 2026 online 法說會 (Yuanta, 08-07-2026) replay on zucast is registration-gated and its terms forbid recording - not downloaded; no transcript on IR site, no full YouTube upload; checked 2026-10-05; recheck 2027-01-03), Elite Material (media: its saved MOPS decks, material information and monthly revenue filings name no chairman, president or CFO; no English IR release saved (checked 2026-10-21); recheck 2027-01-19), Gigabyte (call: No 法說會 on MOPS Jun-Oct 2026 (Q1 was a Cathay online call 05-15); no replay, no full YouTube video; checked 2026-10-05; recheck 2027-01-03), Inventec (call: No Q2 2026 results meeting: MOPS + company IR page list only broker conferences/NDR (08-25 to 10-13) with slides, no audio/video; checked 2026-10-05; recheck 2027-01-03), Inventec (media: saved MOPS filings name officers only in Chinese characters (e.g. the filing officer); no company document gives their English names, and Taiwanese romanisations cannot be guessed (checked 2026-10-21); recheck 2027-01-19), Quanta (media: saved MOPS filings name officers only in Chinese characters (e.g. the filing officer); no company document gives their English names, and Taiwanese romanisations cannot be guessed (checked 2026-10-21); recheck 2027-01-19), Unimicron (media: saved MOPS filings name officers only in Chinese characters (e.g. the filing officer); no company document gives their English names, and Taiwanese romanisations cannot be guessed (checked 2026-10-21); recheck 2027-01-19), VPEC (call: Company IR page: no self-hosted 法說會 in 2026; 09-04 CTBC forum has slides only, no video; checked 2026-10-05; recheck 2027-01-03), VPEC (media: saved MOPS filings name officers only in Chinese characters (e.g. the filing officer); no company document gives their English names, and Taiwanese romanisations cannot be guessed (checked 2026-10-21); recheck 2027-01-19), Wistron (media: saved MOPS filings name officers only in Chinese characters (e.g. the filing officer); no company document gives their English names, and Taiwanese romanisations cannot be guessed (checked 2026-10-21); recheck 2027-01-19), Wiwynn (call: No Q2 2026 call held: IR page lists only the Q4 2025 call (02-26) plus broker forums with slides; MOPS Jun-Oct and irconference no replay; checked 2026-10-05; recheck 2027-01-03)
 
 ### JP — Japan (`enrich japan`)
 - Never had a call enriched: DENSO, Ebara, Ferrotec, Micronics Japan, Mitsui & Co., NEC, Osaka Organic Chemical Industry, Sakura Internet, Sumitomo Osaka Cement
 - Known gaps, do not re-search: ADEKA (call: no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only; recheck 2027-01-20), Accretech (Tokyo Seimitsu) (call: no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13); recheck 2027-01-20), Anritsu (call: no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only; recheck 2027-01-20), Asahi Kasei (call: no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13); recheck 2027-01-20), Canon (call: no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13); recheck 2027-01-20), Dai Nippon Printing (call: no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only; recheck 2027-01-20), Daifuku (call: no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only; recheck 2027-01-20), Daihen (call: no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only; recheck 2027-01-20), Daikin Industries (call: no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13); recheck 2027-01-20), Datasection (call: no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only; recheck 2027-01-20), Denka (call: no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13); recheck 2027-01-20), Dexerials (call: no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only; recheck 2027-01-20) … +93 more
 
 ### EU — Europe (`enrich europe`)
-- Never had a call enriched: ASM International, BASF, Inficon, LPKF Laser & Electronics, Merck KGaA, Prysmian, Rolls-Royce, SUSS MicroTec
+- Never had a call enriched: BASF, Rolls-Royce
+- Waiting to enrich: 5 DoD award
 - Known gaps, do not re-search: Legrand (call: H1 2026 call (07-29-2026): no Investing.com transcript (13 search variants); IR site has release, slides, half-year report and audio webcast only, no transcript; no YouTube results webcast; checked 2026-10-05; recheck 2027-01-03), Volex (call: half-yearly reporter: the latest call is the FY2026 results call (06-26-2026, enriched 10-14); the board's quarterly default flags it overdue, but the next call is the half-year results in November; investing.py sync 10-16 found no newer Volex call (checked 2026-10-17); recheck 2026-11-25)
 
 ### CN — China / Hong Kong (`enrich china`)
-- Never had a call enriched: AMEC, Accelink, Advanced Fiber Resources, Anhui Tongguan Copper Foil, Anji Microelectronics, Biren Technology, Biwin Storage Technology, Boqian New Materials, Broadex Technologies, CASTECH, CIG Shanghai, CXMT … +103 more
+- Never had a call enriched: AMEC, Accelink, Advanced Fiber Resources, Anhui Tongguan Copper Foil, Anji Microelectronics, Biren Technology, Biwin Storage Technology, Boqian New Materials, Broadex Technologies, CASTECH, CIG Shanghai, CXMT … +102 more
+- Waiting to enrich: 138 results briefing Q&A, 54 HKEX filing
 - Known gaps, do not re-search: Anhui Tongguan Copper Foil (logo: no reliable logo (checked 2026-10-19): cninfo confirms 301217 and homepage www.ahtgtb.com, but the site times out on http and https; companieslogo and Wikidata have no entry; recheck 2027-01-17), Grace Fabric Technology (logo: no companieslogo / Wikidata logo; official sites (gracefabric.com, skyverse.cn from the annual reports; lotteenergymaterials.com; sypc.co.kr) expose no logo asset in their HTML - og:image is a tiny Korean wordmark on a 1200x630 canvas for Lotte (checked 2026-10-20); recheck 2026-11-20), Skyverse Technology (logo: no companieslogo / Wikidata logo; official sites (gracefabric.com, skyverse.cn from the annual reports; lotteenergymaterials.com; sypc.co.kr) expose no logo asset in their HTML - og:image is a tiny Korean wordmark on a 1200x630 canvas for Lotte (checked 2026-10-20); recheck 2026-11-20)
 
 ### other — Other listed (`enrich intl`)
-- Never had a call enriched: AEM Holdings, FPT Corporation, Ford Otosan, Frencken Group, Frontken, HFCL, Hammond Power Solutions, Lynas Rare Earths, NEXTDC, UMS Integration, YTL Power International, Zealand Pharma
+- Never had a call enriched: AEM Holdings, FPT Corporation, Ford Otosan, Frencken Group, Frontken, HFCL, NEXTDC, UMS Integration, YTL Power International, Zealand Pharma
 - Known gaps, do not re-search: Indosat (call: Q2 2026 call not on Investing.com (newest there is Q1 2026, enriched 10-20); ioh.co.id investor pages are a JavaScript app that Jina Reader cannot read, so no H1 release / info memo was found (checked 2026-10-20); recheck 2026-11-15)
 
 ## Pipelines
 
 | Pipeline | Command | Last sync | Last enriched | Waiting | Files | In graph |
 |---|---|---|---|---|---|---|
-| US earnings calls | `enrich us calls` | 2026-10-20 | 2026-10-21 | 0 | 468 | 467 |
-| US SEC filings | `enrich edgar` | 2026-10-21 | 2026-10-21 | 94 | 2479 | 945 |
-| Korea DART filings | `enrich dart` | 2026-10-20 | 2026-10-20 | 0 | 175 | 200 |
-| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-20 | 2026-10-20 | 0 | 75 | 75 |
-| Taiwan Chinese 法說會 | `enrich tw` | 2026-10-20 | 2026-10-06 | 0 | 18 | 18 |
-| Investor conferences | `enrich conference` | 2026-10-19 | 2026-10-21 | 0 | 176 | 174 |
-| Company IR press releases | `enrich ir` | 2026-10-20 | 2026-10-21 | 0 | 1835 | 729 |
-| Korea IR decks (KIND) | `enrich korea` | 2026-10-20 | 2026-10-16 | 0 | 51 | 40 |
-| US utility regulatory filings | `enrich us` | 2026-10-20 | 2026-10-20 | 0 | 8 | 4 |
-| Korea earnings-call scripts | `enrich korea` | 2026-10-20 | 2026-09-27 | 0 | 1 | 1 |
-| China IR records + investor Q&A | `enrich china` | 2026-10-21 | 2026-10-20 | 0 | 278 | 177 |
-| China periodic reports | `enrich china` | 2026-10-21 | 2026-10-21 | 0 | 319 | 164 |
-| Japan TDnet disclosures | `enrich japan` | 2026-10-20 | 2026-10-20 | 0 | 45 | 24 |
+| US earnings calls | `enrich us calls` | 2026-10-21 | 2026-10-21 | 0 | 468 | 467 |
+| US SEC filings | `enrich edgar` | 2026-10-21 | 2026-10-21 | 38 | 2480 | 968 |
+| Korea DART filings | `enrich dart` | 2026-10-21 | 2026-10-21 | 0 | 178 | 206 |
+| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-21 | 2026-10-21 | 0 | 76 | 76 |
+| Taiwan Chinese 法說會 | `enrich tw` | 2026-10-21 | 2026-10-06 | 0 | 18 | 18 |
+| Investor conferences | `enrich conference` | 2026-10-21 | 2026-10-21 | 0 | 179 | 177 |
+| Company IR press releases | `enrich ir` | 2026-10-21 | 2026-10-21 | 0 | 1851 | 739 |
+| Korea IR decks (KIND) | `enrich korea` | 2026-10-21 | 2026-10-16 | 0 | 51 | 40 |
+| US utility regulatory filings | `enrich us` | 2026-10-21 | 2026-10-20 | 0 | 8 | 4 |
+| Korea earnings-call scripts | `enrich korea` | 2026-10-21 | 2026-09-27 | 0 | 1 | 1 |
+| China IR records + investor Q&A | `enrich china` | 2026-10-21 | 2026-10-21 | 0 | 279 | 178 |
+| China periodic reports | `enrich china` | 2026-10-21 | 2026-10-21 | 0 | 320 | 165 |
+| Japan TDnet disclosures | `enrich japan` | 2026-10-21 | 2026-10-20 | 0 | 45 | 24 |
 | Japan EDINET statutory reports | `enrich japan` | 2026-10-21 | 2026-10-20 | 0 | 524 | 252 |
-| Taiwan MOPS filings | `enrich taiwan` | 2026-10-20 | 2026-10-21 | 0 | 522 | 455 |
-| Pasted transcripts | `Transcript:<company>` | 2026-10-21 | 2026-10-21 | 0 | 636 | 563 |
+| Taiwan MOPS filings | `enrich taiwan` | 2026-10-21 | 2026-10-21 | 0 | 526 | 458 |
+| Hong Kong HKEXnews filings | `enrich china` | 2026-10-21 | - | 54 | 83 | 0 |
+| US DoD contract awards | `enrich us` | 2026-10-21 | 2026-10-21 | 80 | 84 | 79 |
+| China results-briefing Q&A | `enrich china` | 2026-10-21 | - | 138 | 138 | 0 |
+| Perplexity Finance calls | `enrich all` | 2026-10-21 | 2026-10-21 | 0 | 11 | 11 |
+| Pasted transcripts | `Transcript:<company>` | 2026-10-21 | 2026-10-21 | 0 | 640 | 563 |
 
 ## Coordinator notes (newest first)
 
+- 2026-10-21 08:13 US: 2026-10-21 nightly: DoD queue enriched (79 patches) but NO relations rows per agency were written (dod.md asks for one government-customer row per company per agency) - add them next night. Northrop Grumman DoD contract award (07-14-2026) left pending: the saved paragraph is truncated after 'is awarded a $42,007,410' - re-fetch the July 14, 2026 contracts page. The 07-30 NSTTC award to 'Northrup Grumman System Corp.' (sic) was not matched by dod_contracts.py - add the alias and re-sync. EDGAR queue 38 rows left (ArcelorMittal 12, Fluor, MYR Group, Xanadu, Horizon Quantum, Infleqtion, Pasqal).
+- 2026-10-21 08:13 CN: 2026-10-21 nightly: the new collectors' backlogs were not reached tonight (2 workers by memory): hkex.py pending 54 (HKEXnews results / reports since 04-2026) and cnbrief.py pending 138 (results-briefing Q&A since 04-2026). Take them newest first next night. Verifier missed-facts to consider: Huafeng -> ZTE edge (both reports name ZTE as a customer) + relations rows New H3C / xFusion / CRRC; POCO customer-list edges to Delta Electronics, Infineon, TDK + relations rows for its non-node customers; Envicool named data-center customers (ByteDance, China Mobile, China Telecom, Qinhuai Data, AtHub); Dingtong relations rows (Molex, AVIC Jonhon, BYD, Changan, FAW) and the Molex BMS Gen6 small-batch supply; Hengtong Petrobras Malha Optica row.
+- 2026-10-21 08:13 all: 2026-10-21 nightly (session 6702a610, started 04:07 after the 10-20 run): budget was 1-2 agents all night (4-5 GB free). Transcript quality (skill 10a): the 8 flagged files (ChipMOS Q2, Magnachip Q2, Fujitsu Q1 FY2027, IQE FY2025, ASMPT Q1, ABB Q1, Schneider Q1, KeyCorp Q2) still have no better copy: pplx.py fetch takes only a company's newest call no other source has, so it cannot re-fetch an older quarter that already has a file - a --quarter option would let Perplexity Finance replace them. relations/quantinuum.json row 2 (Monarch Quantum, added 10-18) repeats the Monarch -> Quantinuum AI edge (check_relations WARN; committed, left ADD-only).
 - 2026-10-21 01:22 US: 2026-10-21 nightly: EDGAR queue has 94 rows left - D-Wave, Quantum Computing Inc, Quantinuum, Infleqtion, Pasqal, IQM, Horizon Quantum, Xanadu, IES, Primoris, MasTec, MYR, Fluor, Jacobs, ArcelorMittal (12), IBM, Unisys, Penguin; take them company by company. The conference listing walk (investing.py conferences) did not run (stopped for low memory). Alpha Vantage's calendar missed the 10-20 calls of Vicor, SpaceX, 3M and Northrop Grumman - a defeatbeta scan of every US ticker (calls dated since 10-10) found and saved them; repeat that scan each night during earnings season. Missed facts the verifier listed (not added): Microsoft release-only Q4 figures belong under 'Microsoft 8-K (07-29-2026)'; Microsoft 10-K OpenAI ~25% stake / $13B commitment (strategic-equity contract); UMC customer list names MediaTek (possible customer-list edge); Akamai warrant tie to Anthropic cloud purchases; SpaceX ~100x Starlink bandwidth target; Duos $30M Columbus site purchase.
 - 2026-10-21 01:06 all: 2026-10-21 nightly (session 1eab1f7b): graph_build.py --sync was stopped by Claude Code's low-memory guard right after apply_patches (all 108 of tonight's patches + 15 correction items are in chains/); merge / derive / verify_graph / evidence / board / web sync / i18n did not run in the session - nightly.ps1 reruns the build outside. One patch waits in patches/: waitlist_enflame_prospectus_2026-09-07_tencent_edge.json (Enflame -> Tencent edge; the Tencent foundry.json placement it needs is already applied; check_patch clean). Next session: i18n pending -> translate -> merge -> build. 143 labels wait in verify_queue (63 verified tonight). Siemens Energy's 4 IR files of 08-05/08-25 hold only the press-portal page (truncated SOURCE URLs) - re-pull them.
 - 2026-10-20 01:04 US: 2026-10-20 nightly (0a70d1c6): EDGAR queue has 165 rows left, mostly the first 10-K / 10-Q / 8-K pulls of the space / quantum / defense / security / DC-construction companies (AST SpaceMobile, Planet Labs, Rocket Lab, ArcelorMittal, L3Harris, Northrop, Honeywell + Honeywell Aerospace, Quantinuum, Primoris, IQM, MasTec, IES, Rigetti, Xanadu, Horizon Quantum, Infleqtion, IonQ, MYR, Cloudflare, Amgen, IBM, Pfizer, Jacobs, QCI, D-Wave, CrowdStrike, Palo Alto, Mastercard, Fluor, Pasqal, Unisys); take them company by company, newest first. 19 conference talks wait (CrowdStrike x6, Pfizer x2, L3Harris x2, Honeywell x2, Honeywell Aerospace x2, Northrop, Mastercard, Palo Alto, Amgen, Cloudflare). AI relationships the relations backfill found but did not patch (both parties are nodes): Moderna 10-K (ChatGPT Enterprise from OpenAI), Sanofi 20-F (OpenAI collaboration), IBM 10-K (Anthropic partnership), Rockwell / HPE access to Anthropic Project Glasswing.
@@ -235,9 +250,6 @@ The user delegated these judgments on 2026-10-19 ("질문은 니가 알아서 �
 - 2026-10-19 23:14 all: 2026-10-19 nightly: utils/check_relations.py flags 3 COMMITTED rows it now refuses (left untouched, rows are ADD-only): relations/lumen-technologies.json row 0 and relations/palo-alto-networks.json row 5 cite transcripts/optical/lumen_q2_2026.txt, which today's superseded-file move (edits/move_superseded.py) moved to transcripts_superseded/optical/ - both quotes are verbatim in the replacement transcripts/av/lumentechnologies_q2_2026.txt, so the fix is a one-time source repoint by hand; relations/spacex.json row 1 writes 'NTT Docomo' where the node is 'NTT DOCOMO' (node added 2026-10-17). graph_build is not blocked by them.
 - 2026-10-19 21:24 US: Flex: when Axiom Solutions International (Flex's Cloud and Power Infrastructure segment, planned listing Q1 CY2027) files its registration / lists, add Axiom as a node per SKILL.md section 6 'Corporate changes' (board question 49, 2026-10-19).
 - 2026-10-19 00:32 all: 2026-10-19 00:25 nightly 1ffca053: graph_build.py --sync was stopped by Claude Code's low-memory guard after apply_patches + merge + derive (all 100 tonight's patches are in chains/, merged_graph / timelines / screener / exposure rebuilt). NOT run: verify_graph on tonight's 100 labels, evidence / board rebuild, web/public sync, i18n. Next session: run `python graph_build.py --sync` first (nothing pending, it only rebuilds), read the verify lines, then i18n pending -> translate -> merge -> build. Queues were closed (av, ir, media) because the data is in chains/.
-- 2026-10-18 02:01 all: 2026-10-18 02:05: the pending graph_build.py --sync finished cleanly at 01:58 (run from another session); web/public has the DART + KLA changes, i18n 0 untranslated. Nothing left from the 10-17/18 nightly except the IR feed sync (due) and the open questions.
-- 2026-10-18 01:33 all: 2026-10-18 01:45: the second graph_build.py --sync (2 DART patches Mirae Industry / JT + verify-1018-kla correction) was stopped by Claude Code for low memory after merge/derive; its 3 labels were verified by hand (verify_graph --label: 14/14 pass), i18n merged and built (0 untranslated), board rebuilt. Still to run once: python -X utf8 graph_build.py --sync (evidence.json + web/public/data sync). IR feed sync (last 2026-10-14) is due for the next run.
-- 2026-10-18 01:05 all: 2026-10-18 nightly (session b62dfa03): transcript-quality pass (skill 10a) re-fetched verbatim speaker-labelled copies for 46 call labels (transcripts/av/, same labels) with delta patches + correction files, all pre-verified by independent Opus verifiers. Still flagged in graph/transcript_quality.json and NOT re-fetched: Fujitsu Q1 FY2027 (Investing.com), IQE FY2025, ASMPT Q1, ABB Q1, Schneider Q1 (non-US, need Investing.com / company copies); Magnachip Q2 and ChipMOS Q2 (defeatbeta copies also have no speaker labels, checked 2026-10-18); KeyCorp Q2 (not a graph company - nothing to fix). The old condensed / unlabelled files remain beside the new ones (question recorded). Relations backfill night 1: TSMC, NVIDIA, Samsung, SK Hynix, Microsoft done.
 
 ## Recording what no script can know (coordinator only)
 

@@ -1,0 +1,48 @@
+{
+  "reviewer": "V1 (opus verifier, nightly 2026-10-21)",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "ChipMOS",
+      "target": null,
+      "label": "ChipMOS 6-K (10-21-2026)",
+      "signal_prefix": "ChipMOS (6-K, English version of its MOPS filing): ChipMOS acquired machinery equipment",
+      "action": "set",
+      "set": {
+        "signal": "ChipMOS (6-K, English version of its MOPS filing): ChipMOS acquired machinery equipment and related accessories for manufacturing purposes from K-SHINE ELECTRONIC CORPORATION (not a related party; events 03-15-2026 to 10-21-2026) for a total of NT$1,237,950 thousand, and disposed of machinery equipment and related accessories to the same counterparty.",
+        "slot": null
+      },
+      "chains": [
+        "components/hbm_memory.json"
+      ],
+      "reason": "An equipment purchase the filing states only 'for manufacturing purpose', with no capacity figure, is a capex fact, not a supply_status fact (V1 batch-3 judgment 3, recorded on the board); the approval level is procedure (mops.md), so it is dropped from the signal.",
+      "evidence": "a.The acquisition of machinery equipment and related accessories with a total transaction price of NT$1,237,950 thousand. ... 23.Concrete purpose or use of the acquisition or disposal: For manufacturing purpose"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Lotes",
+      "target": null,
+      "label": "Lotes IR presentation: MOPS 353320260514E003 (06-05-2026)",
+      "signal_prefix": "Lotes' product roadmap slide lists the socket vendors per CPU platform",
+      "action": "delete",
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "One fact, one node (SKILL 4 JOB 2 / JOB 3 step 3): the unslotted AMD-counterparty roadmap entry holds the same deck slide that is now recorded as contracts on the Lotes -> AMD and Lotes -> Intel edges (Claude decision 2026-10-19 'Lotes'); the duplicate node copy goes.",
+      "evidence": "AMD ServerLOTES, FIT (Milan)LOTES, FIT, Amphenol (Genoa)LOTES, FIT, TE (Venice)AMD DesktopLOTES, FIT"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "AstraZeneca",
+      "target": null,
+      "label": "AstraZeneca press release: AstraZeneca announces new strategic collaboration with (10-15-2026)",
+      "signal_prefix": "AstraZeneca entered into a new strategic drug discovery collaboration and licensing agreement with insitro, which",
+      "action": "delete",
+      "chains": [
+        "applications/ai_bio.json"
+      ],
+      "reason": "One fact, one node: the same insitro deal (scope, $40 million upfront, up to approximately $1.46 billion milestones, single digit royalties) is the contract on the insitro -> AstraZeneca edge under the same label; the unslotted counterparty copy on AstraZeneca's node is a duplicate.",
+      "evidence": "Under the terms of the agreement, insitro will receive an upfront payment of $40 million, and is also eligible for up to approximately $1.46 billion in potential development and commercial milestones"
+    }
+  ]
+}

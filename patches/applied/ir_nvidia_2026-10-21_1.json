@@ -1,0 +1,196 @@
+{
+ "source": "NVIDIA press release: NVIDIA and Supply Chain Partners Expand Capacity to (10-21-2026)",
+ "chains": {
+  "accelerators/nvidia_vera_rubin.json": {
+   "players": [
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "sub_sector": null,
+     "product": "Vera Rubin platform (Rubin GPU, Vera CPU, NVLink switch, Spectrum-X / Quantum-X networking)",
+     "quarterly_data": [
+      {
+       "quarter": "NVIDIA press release: NVIDIA and Supply Chain Partners Expand Capacity to (10-21-2026)",
+       "signal": "NVIDIA (release): NVIDIA plans to increase substrate capacity for its products by 2.5x over the next three years and expects its total semiconductor testing capacity to double from calendar 2026 to 2027, with buildouts in the U.S., Taiwan and Singapore (Singapore testing high-volume production expected in February 2027). CEO Jensen Huang: 'Demand is extraordinary. Capacity is the constraint.' Partners named: Amkor Technology, IBIDEN, KYEC, Samsung Electro-Mechanics, SPIL and Unimicron.",
+       "figure": "substrate capacity 2.5x over three years; testing capacity to double 2026 to 2027",
+       "topics": [
+        "supply_tightness"
+       ],
+       "slot": "supply_status"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "manufacturing/packaging_substrate.json": {
+   "players": [
+    {
+     "company": "Ibiden",
+     "layer": "advanced_packaging",
+     "sector": "FC-BGA Substrate",
+     "sub_sector": null,
+     "product": "high-end ABF FCBGA substrate",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "NVIDIA",
+       "relationship": "FCBGA substrate for GPU package",
+       "contracts": [
+        {
+         "source": "NVIDIA press release: NVIDIA and Supply Chain Partners Expand Capacity to (10-21-2026)",
+         "signal": "NVIDIA (release): under an agreement signed and announced earlier this year by IBIDEN, NVIDIA is providing a multibillion-dollar capacity reservation advance to support IBIDEN's Ono Plant in Japan; the expansion targets capacity reaching 3x current levels at the plant, with additional capacity expected to begin ramping in the first quarter of 2028.",
+         "units": "Ono Plant capacity to 3x; ramp from Q1 2028",
+         "value": "multibillion-dollar capacity reservation advance",
+         "date_signed": "2026",
+         "type": "capacity reservation agreement",
+         "topics": [
+          "packaging_substrate"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "Samsung Electro-Mechanics",
+     "layer": "advanced_packaging",
+     "sector": "FC-BGA Substrate",
+     "sub_sector": null,
+     "product": "FCBGA substrate for AI accelerators & server CPUs",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "NVIDIA",
+       "relationship": "FCBGA substrate for GPU/accelerator",
+       "contracts": [
+        {
+         "source": "NVIDIA press release: NVIDIA and Supply Chain Partners Expand Capacity to (10-21-2026)",
+         "signal": "NVIDIA (release): Samsung Electro-Mechanics is joining NVIDIA's substrate supply chain, bringing immediate capacity from existing operations in South Korea; the collaboration also supports facility upgrades and new factories in Sejong and Busan, and by 2028 production allocated to NVIDIA is projected to account for a significant portion of Samsung Electro-Mechanics' total annual package substrate production capacity.",
+         "units": "new factories in Sejong and Busan",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "supply agreement (substrate capacity)",
+         "topics": [
+          "packaging_substrate"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "Unimicron",
+     "layer": "advanced_packaging",
+     "sector": "FC-BGA Substrate",
+     "sub_sector": null,
+     "product": "ABF FCBGA substrate",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "NVIDIA",
+       "relationship": "KF substrate capacity reservation for NVIDIA products",
+       "contracts": [
+        {
+         "source": "NVIDIA press release: NVIDIA and Supply Chain Partners Expand Capacity to (10-21-2026)",
+         "signal": "NVIDIA (release): NVIDIA is supporting Unimicron's KF substrate manufacturing expansion in Taiwan with a capacity reservation agreement; the expansion is expected to begin adding capacity in the second quarter of 2027 and reach full capacity by mid-2028.",
+         "units": "capacity from Q2 2027; full capacity by mid-2028",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "capacity reservation agreement",
+         "topics": [
+          "packaging_substrate"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "Amkor Technology",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "sub_sector": null,
+     "product": "OSAT assembly, test & advanced packaging",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "NVIDIA",
+       "relationship": "assembly/test for GPU",
+       "contracts": [
+        {
+         "source": "NVIDIA press release: NVIDIA and Supply Chain Partners Expand Capacity to (10-21-2026)",
+         "signal": "NVIDIA (release): NVIDIA and Amkor plan to expand advanced packaging capacity in South Korea, targeting a greater than 300% increase in interposer wafer capacity by the end of 2028, alongside Amkor's development of new manufacturing facilities in South Korea, to support higher production volumes for NVIDIA's current and next-generation platforms.",
+         "units": "interposer wafer capacity +300%+ by end of 2028",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "capacity expansion agreement",
+         "topics": [
+          "packaging_substrate"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "SPIL",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "sub_sector": null,
+     "product": "OSAT - package substrate buyer (Simmtech 'Big 5' packaging customer)",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "NVIDIA",
+       "relationship": "optical-engine manufacturing for NVIDIA co-packaged optics",
+       "contracts": [
+        {
+         "source": "NVIDIA press release: NVIDIA and Supply Chain Partners Expand Capacity to (10-21-2026)",
+         "signal": "NVIDIA (release): NVIDIA and SPIL plan to expand manufacturing capacity in Taiwan for optical engines used in co-packaged optics, targeting a 15x increase by mid-2027, with aims for another doubling by the end of 2028.",
+         "units": "optical-engine capacity 15x by mid-2027",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "capacity expansion agreement",
+         "topics": [
+          "cpo"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "manufacturing/foundry.json": {
+   "players": [
+    {
+     "company": "KYEC (King Yuan Electronics)",
+     "layer": "foundry",
+     "sector": "OSAT (assembly & test)",
+     "sub_sector": null,
+     "product": "wafer sort, final test, burn-in and system-level test for AI GPUs / ASICs",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "NVIDIA",
+       "relationship": "wafer sort / final test for AI GPUs",
+       "contracts": [
+        {
+         "source": "NVIDIA press release: NVIDIA and Supply Chain Partners Expand Capacity to (10-21-2026)",
+         "signal": "NVIDIA (release): NVIDIA's $1.1 billion capacity reservation advance to KYEC will support new U.S. testing facilities and equipment, with high-volume production targeted for April 2027.",
+         "units": "U.S. testing high-volume production targeted April 2027",
+         "value": "$1.1 billion capacity reservation advance",
+         "date_signed": "not stated",
+         "type": "capacity reservation agreement",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

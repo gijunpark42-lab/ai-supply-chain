@@ -1,0 +1,31 @@
+{
+  "reviewer": "V2 (opus verifier, nightly 2026-10-21, batch 3)",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Quantinuum",
+      "target": null,
+      "label": "Quantinuum prospectus (06-05-2026)",
+      "signal_prefix": "Quantinuum prospectus customer concentration: another government-affiliated",
+      "action": "set",
+      "set": {
+        "signal": "Quantinuum prospectus customer concentration: another government-affiliated research institution (not named) accounted for $2.5 million, or 47%, of revenue in the three months ended March 31, 2026; the U.S. Government accounted for approximately $1.3 million or 24% of revenue in that quarter and approximately $5.0 million or 16% in fiscal 2025 ($2.1 million or 9% in fiscal 2024). The concentration note says one customer (not named there) accounted for $18.7 million, or 60% of revenue, in fiscal 2025 and $14.6 million, or 63%, in fiscal 2024."
+      },
+      "reason": "The $18.7 million / $14.6 million note does not name the customer; the entry mapped it to RIKEN by matching the 60% share stated elsewhere. Rule: never map an unnamed customer to a name (cninfo / edgar rules). RIKEN's own shares stay on the 'Customer RIKEN' entry.",
+      "evidence": "For the years ended December 31, 2025 and 2024 one customer accounted for $18.7 million which represented 60% and $14.6 million which represented 63% of Revenue—net, respectively."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Quantinuum",
+      "target": null,
+      "label": "Quantinuum prospectus (06-05-2026)",
+      "signal_prefix": "Quantinuum prospectus, ownership and research: as of March 31, 2026 Honeywell",
+      "action": "set",
+      "set": {
+        "signal": "Quantinuum prospectus, ownership and research: as of March 31, 2026 Honeywell was the controlling majority owner of Quantinuum with an overall 55% ownership in the business; upon completion of the offering the Honeywell Entities will beneficially own approximately 47.8% of the combined voting power of Class A and Class B common stock. Quantinuum, through subsidiaries, collaborates with NTESS (National Technology and Engineering Solutions of Sandia, the Honeywell subsidiary that manages and operates Sandia National Laboratories) under three statements of work in integrated photonics, quantum performance benchmarking and validation, and quantum error correction, providing cost-reimbursable funding."
+      },
+      "reason": "Ownership rule (skill section 2): an operating company's controlling stake (Honeywell 55% before, ~47.8% voting after the IPO) is kept; the holdings of pre-existing CQC shareholders (34%) and minority investors (11%) are investor holdings, not operating-company ownership, and are removed. 'hold' corrected to the prospectus's future tense.",
+      "evidence": "Honeywell is the controlling majority-owner of Quantinuum, with an overall 55% ownership in the business ... The Honeywell Entities ... upon completion of this offering, will beneficially own approximately 47.8% of the combined voting power"
+    }
+  ]
+}

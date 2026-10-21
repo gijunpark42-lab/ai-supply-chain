@@ -1,0 +1,111 @@
+{
+ "source": "NVIDIA GTC Berlin Keynote 2026 (10-21-2026)",
+ "chains": {
+  "accelerators/nvidia_vera_rubin.json": {
+   "players": [
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "product": "Vera Rubin platform (Rubin GPU, Vera CPU, NVLink switch, Spectrum-X / Quantum-X networking)",
+     "quarterly_data": [
+      {
+       "quarter": "NVIDIA GTC Berlin Keynote 2026 (10-21-2026)",
+       "signal": "CEO Jensen Huang on Europe: 'In the last year alone, we have invested nearly $10 billion in Europe across startups, big partnerships, small partnerships'; in the last week NVIDIA announced investments in 14 startup companies, and it now has 12,000 plus partnerships across Europe.",
+       "figure": "nearly $10 billion invested in Europe in the last year; 14 startups; 12,000 plus partnerships",
+       "topics": []
+      },
+      {
+       "quarter": "NVIDIA GTC Berlin Keynote 2026 (10-21-2026)",
+       "signal": "CEO Jensen Huang on AI factory build-out: a 1 gigawatt AI factory costs about $50 billion; with NVL72 the rack is assembled inside the supply chain and 'Every single computer manufacturer in the world now manufactures NVL72', letting NVIDIA supply several hundred data center build-outs at the same time. By moving the whole DSX POD build into the supply chain, the time from arrival of computing to production of tokens 'will go from many months, we think something along the lines of four to five months down to about a month', reducing idle compute and capex. Agents consume an enormous amount of tokens and 'GPU demand has really gone through the roof'. He predicts every telco, with 100,000 sites representing some 100 gigawatts of distributed base stations and data centers, will evolve into a distributed AI network.",
+       "figure": "about $50 billion per 1 gigawatt AI factory; four to five months down to about a month",
+       "topics": []
+      },
+      {
+       "quarter": "NVIDIA GTC Berlin Keynote 2026 (10-21-2026)",
+       "signal": "CEO Jensen Huang on Hyperion: four more car lines will be Hyperion compatible and part of the robotaxi ride-hailing network - the VW van, the JLR brand new car, the Volvo fleet and the Mercedes next generation. Hyperion is one standard architecture of 14 different cameras, nine radar systems, three lidars and ultrasonics powered by dual NVIDIA GPU systems; he sizes the opportunity at about 1 trillion miles travelled per year, many of them in the future at $1 or $2 per mile on robotaxis.",
+       "figure": "four more car lines; 14 cameras, nine radars, three lidars",
+       "topics": [],
+       "counterparty": "JLR",
+       "counterparty_role": "customer (Hyperion-compatible car line)"
+      },
+      {
+       "quarter": "NVIDIA GTC Berlin Keynote 2026 (10-21-2026)",
+       "signal": "CEO Jensen Huang: RTX Spark and its N1X chip came out of four years of partnership with Microsoft; 'I think the DGX station with DGX Spark, DGX station with Windows will be available at the end of this year.'",
+       "figure": "no specific figure",
+       "topics": [
+        "product_launches"
+       ],
+       "counterparty": "Microsoft",
+       "counterparty_role": "partner"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "NVIDIA",
+     "layer": "interconnect",
+     "sector": "Scale-out",
+     "product": "Quantum-X Photonics and Spectrum-X co-packaged optics switches",
+     "quarterly_data": [
+      {
+       "quarter": "NVIDIA GTC Berlin Keynote 2026 (10-21-2026)",
+       "signal": "CEO Jensen Huang on the Spectrum-X co-packaged optics switch: 'We are in complete volume production, and 512 port at 200 gigabits per second'; lasers feed optics attached directly onto the switch chip using COUPE, a process technology he said NVIDIA invented with TSMC, instead of running signals over PCB.",
+       "figure": "complete volume production; 512 port at 200 gigabits per second",
+       "topics": [
+        "cpo"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/cpu_datacenter.json": {
+   "players": [
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Server CPU",
+     "product": "Grace CPU (GB200/GH200 superchip host)",
+     "quarterly_data": [
+      {
+       "quarter": "NVIDIA GTC Berlin Keynote 2026 (10-21-2026)",
+       "signal": "CEO Jensen Huang on the Vera CPU: eight instructions per clock, an LPDDR memory system he called the world's first (for high bandwidth with energy efficiency) and an on-chip fabric he called the fastest of any chip, designed for data processing and starting agentic sessions.",
+       "figure": "eight instructions per clock",
+       "topics": [
+        "cpu"
+       ]
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "components/ai_security_trusted_compute.json": {
+   "players": [
+    {
+     "company": "NVIDIA",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "product": "NVIDIA Confidential Computing on H100 / Blackwell GPUs; Vera Rubin end-to-end confidential computing (Vera CPU + CX9 security processor); NIM / AI Enterprise for security vendors",
+     "quarterly_data": [
+      {
+       "quarter": "NVIDIA GTC Berlin Keynote 2026 (10-21-2026)",
+       "signal": "CEO Jensen Huang: 'Anthropic and NVIDIA are partnering to create Claude OpenShell agents'; since OpenShell's announcement 'just about every major company in the world, from the frontier labs to the operating system companies, cybersecurity companies, platform companies' has adopted it, per the CEO.",
+       "figure": "no specific figure",
+       "topics": [],
+       "counterparty": "Anthropic",
+       "counterparty_role": "partner"
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "source": "Duos Technologies LD Micro 2026 (10-20-2026)",
+ "new_nodes": {
+  "Duos Technologies": {
+   "ticker": "DUOT",
+   "exchange": "Nasdaq",
+   "country": "US",
+   "why": "existing node (neocloud.json) new in datacenter_construction_power.json: Duos builds and operates modular 1-20 MW colocation data centers for GPU customers, and its CEO names Trane Technologies, Schneider Electric, Vertiv and Eaton (already in this chain) as its equipment suppliers; the placement at cloud_infra / Datacenter Colocation lets those stated supply relationships be edges (skill section 6, cross-chain relationships)",
+   "evidence": "Duos Technologies LD Micro 2026 (10-20-2026), CEO Doug Recker: 'Then Trane builds our chiller plant, which is a closed loop system.' and 'We buy direct from Schneider, Vertiv, Eaton, Corning.'",
+   "approved": "opus verifier 2026-10-21: judgment call - approve a second placement of existing node Duos Technologies at cloud_infra / Datacenter Colocation in datacenter_construction_power.json (the data-center build-out chain, beside QTS; it holds all four named suppliers, as power_cooling.json also does). The CEO states the supply in his own words ('Trane builds our chiller plant'; 'We buy direct from Schneider, Vertiv, Eaton, Corning'; 'when I buy a cabinet or a UPS from Schneider') while describing how Duos builds its own sites, and the same-day 8-K deck says Technology Solutions sources for Duos' own sites; resale of part of that equipment through Technology Solutions does not change who sells to Duos. Precedents: Jabil, POCO Holding, Dingtong, TeraWulf (section 6 cross-chain placements)."
+  }
+ },
+ "chains": {
+  "components/datacenter_construction_power.json": {
+   "players": [
+    {
+     "company": "Duos Technologies",
+     "layer": "cloud_infra",
+     "sector": "Datacenter Colocation",
+     "product": "modular 1-20 MW colocation data centers built and operated for GPU customers",
+     "quarterly_data": [],
+     "connects_to": []
+    }
+   ]
+  }
+ },
+ "note": "Part 1 of 2 (split by verifier V2 2026-10-21): the placement only. Part 2, conf_duostechnologies_ldmicro_2026-10-20_dcplacement_2edges.json, holds the four supplier edges into this placement; utils/check_patch.py can check it only after this part is applied (it resolves edge targets against the live chain)."
+}
