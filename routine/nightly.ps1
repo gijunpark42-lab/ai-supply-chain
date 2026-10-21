@@ -59,7 +59,7 @@ function Write-Log($text) {
 $publishPaths = @(
     "transcripts", "patches", "chains", "graph", "web/public", "static", "i18n", "supply_contracts",
     "av", "investing", "tw", "dart", "edgar", "ir", "kind", "tdnet", "edinet", "mops", "cninfo", "utility_filings",
-    "perplexity", "hkex", "dod",
+    "perplexity", "hkex", "dod", "cnbrief",
     "ENRICH_STATUS.md", "enrich_log.json", "enrich_marks.json", "verify_queue.json", "company_metadata.json", "enrich_waitlist.json",
     # Non-AI relationships (decision C, 2026-10-17; relations.py): the rows the nightly backfill writes and its queue.
     "relations", "relations_backfill.json",

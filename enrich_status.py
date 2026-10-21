@@ -111,6 +111,9 @@ PIPELINES = [
     {"id": "dod",        "name": "US DoD contract awards",     "command": "enrich us",
      "dirs": ["transcripts/dod"],                "state": "dod/sync_state.json",      "pending": "dod/pending.json",
      "source": "DoD daily contract announcements (dod_contracts.py) — the government's award record, not company documents"},
+    {"id": "cnbrief",    "name": "China results-briefing Q&A", "command": "enrich china",
+     "dirs": ["transcripts/cnbrief"],            "state": "cnbrief/sync_state.json",  "pending": "cnbrief/pending.json",
+     "source": "业绩说明会 live text Q&A — SSE Roadshow Center / 全景路演 / SZSE 互动易 (cnbrief.py) — management Q&A, not calls"},
     {"id": "pplx",       "name": "Perplexity Finance calls",   "command": "enrich all",
      "dirs": ["transcripts/perplexity"],         "state": "perplexity/sync_state.json", "pending": "perplexity/pending.json",
      "source": "Perplexity Finance call transcripts (by Quartr), every market, after the market's own call source (pplx.py)"},
@@ -207,11 +210,11 @@ MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan"
 # serve every market at once, so they are reported once ("shared collectors"), not per market.
 MARKET_COLLECTORS = {"US": ["us", "utility", "dod"], "KR": ["dart", "kind"], "TW": ["intl", "tw", "mops"],
                      "JP": ["intl", "tdnet", "edinet"],
-                     "EU": ["intl"], "CN": ["intl", "cninfo", "cnreports", "hkex"], "other": ["intl"]}
+                     "EU": ["intl"], "CN": ["intl", "cninfo", "cnreports", "hkex", "cnbrief"], "other": ["intl"]}
 # Every collector runs every night (user, 2026-10-19: "모든걸 매일돌게"; the nightly `enrich all` runs them all):
 # 0 days = due unless it already ran today. The collectors only fetch what is new, so a daily run costs little.
 SYNC_EVERY = {pid: 0 for pid in ("us", "dart", "intl", "tw", "edgar", "ir", "conference", "kind", "tdnet",
-                                 "edinet", "cninfo", "cnreports", "utility", "mops", "pplx", "hkex", "dod")}
+                                 "edinet", "cninfo", "cnreports", "utility", "mops", "pplx", "hkex", "dod", "cnbrief")}
 GAP_BATCH = 30       # gaps the nightly gap fill takes per night (§12 of the enrich skill), first ones first
 COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", "kind": "KIND IR deck sync (kind.py)",
                    "tdnet": "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days)",
@@ -225,12 +228,14 @@ COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", 
                    "conference": "conference listing (investing.py conferences)",
                    "pplx": "Perplexity Finance call sync (pplx.py, every market)",
                    "hkex": "HKEXnews filing sync (hkex.py)",
-                   "dod": "DoD contract-award sync (dod_contracts.py)"}
+                   "dod": "DoD contract-award sync (dod_contracts.py)",
+                   "cnbrief": "China results-briefing Q&A sync (cnbrief.py)"}
 WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing", "kind": "IR deck", "krcalls": "call",
                  "tdnet": "TDnet filing", "edinet": "EDINET report", "cninfo": "IR record / investor Q&A",
                  "cnreports": "periodic report",
                  "utility": "utility filing", "mops": "MOPS filing",
-                 "conference": "conference", "ir": "IR release", "pplx": "call", "hkex": "HKEX filing", "dod": "DoD award"}
+                 "conference": "conference", "ir": "IR release", "pplx": "call", "hkex": "HKEX filing", "dod": "DoD award",
+                 "cnbrief": "results briefing Q&A"}
 LIST_MAX = 12        # names printed per list on ENRICH_STATUS.md (the JSON keeps every name)
 
 
@@ -317,7 +322,7 @@ def own_sources(graph, label_pipeline, label_file):
                 calls.add(day)
             else:
                 kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "tdnet", "edinet", "cninfo",
-                                      "cnreports", "utility", "mops", "hkex", "dod") else "other"
+                                      "cnreports", "utility", "mops", "hkex", "dod", "cnbrief") else "other"
             latest[kind] = max(latest.get(kind, ""), day)
         out[company] = {"calls": sorted(calls), "latest": latest}
     return out
@@ -705,7 +710,8 @@ def build_enrich_status(graph=None):
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)
-        elif pid in ("kind", "krcalls", "tdnet", "edinet", "cninfo", "cnreports", "utility", "mops", "pplx", "hkex", "dod"):
+        elif pid in ("kind", "krcalls", "tdnet", "edinet", "cninfo", "cnreports", "utility", "mops", "pplx", "hkex", "dod",
+                     "cnbrief"):
             row["last_sync"] = state.get("last_sync")
             row["extra"]["runs"] = state.get("runs", [])[-5:]
         elif pid == "ir":

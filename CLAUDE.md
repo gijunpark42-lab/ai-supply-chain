@@ -339,6 +339,8 @@ earnings-ai/
 ├── cninfo/sync_state.json    # cninfo.py: per-company last sync, every item id handled (saved / skip:<why>), filter rules; cninfo/pending.json = queue
 ├── cninfo/reports_state.json # `cninfo.py reports`: A-share 年度 / 半年度 / 季度报告 → transcripts/cninfo_reports/*.txt (whole) + *_extract.txt
 │                             #   (top-5 customers / suppliers, capacity, 在建工程, R&D, MD&A); queued in cninfo/pending.json as `report` rows
+├── cnbrief.py                # China A-shares: 业绩说明会 full live text Q&A (SSE Roadshow Center, 全景路演 p5w, SZSE 互动易 云访谈)
+│                             #   → transcripts/cnbrief/*.txt; cnbrief/sync_state.json + pending.json (step 1f of `enrich china`)
 ├── hkex.py                   # Hong Kong-listed nodes: HKEXnews filings (results, annual / interim reports + _extract, updates,
 │                             #   inside information, connected transactions) → transcripts/hkex/*.txt; hkex/sync_state.json +
 │                             #   pending.json (step 1e of `enrich china`, references/hkex.md)

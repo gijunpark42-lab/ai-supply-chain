@@ -55,6 +55,7 @@ const WAITING_NAMES: Record<string, string> = {
   mops: "MOPS filing",
   hkex: "HKEX filing",
   dod: "DoD award",
+  cnbrief: "results briefing Q&A",
   pplx: "call",
 };
 

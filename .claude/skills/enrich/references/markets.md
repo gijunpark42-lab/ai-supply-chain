@@ -119,6 +119,11 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    announcements, annual / interim reports — read the `_extract` —, business updates, inside information, connected
    transactions; company filings, entries in English), adding only what the calls did not say →
    `python -X utf8 hkex.py done --label "<label>"` each.
+1f. China only — results-briefing Q&A of the A-share names (业绩说明会: the full live text Q&A on the SSE Roadshow
+   Center, 全景路演 and SZSE 互动易 云访谈): `python -X utf8 cnbrief.py sync` (every run) → `python -X utf8 cnbrief.py
+   pending` → enrich every row (references/cnbrief.md: the company's answers are the facts, investors' questions only
+   context; entries in English) → `python -X utf8 cnbrief.py done --label "<label>"` each. A briefing and its cninfo
+   召开情况 summary (1b) are one event: enrich the briefing, close the cninfo row with `--why "same event as <label>"`.
 2. Conference talks (`--kind conference --market …`), IR releases (`ir_pull.py pending --market …`; non-English
    headlines → `release <id>` labels; entries in English). A Japanese IR release that restates a TDnet filing
    already enriched yields nothing (`restates <label>`).
@@ -126,7 +131,7 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    `python tdnet.py done --label …` per handled filing and `python edinet.py done --label …` per handled report (Japan),
    `python investing.py done --kind conference --market …`, `ir_pull.py done --label …` per handled release
    (China: plus `cninfo.py done --label …` per handled record / Q&A file and periodic report, and
-   `hkex.py done --label …` per handled HKEXnews filing).
+   `hkex.py done --label …` per handled HKEXnews filing, `cnbrief.py done --label …` per handled briefing).
 
 `enrich intl` (source command) = the calls step for every non-US, non-Korean market at once, including the
 few "other listed" names (SGX, TSX, ASX, IDX).
