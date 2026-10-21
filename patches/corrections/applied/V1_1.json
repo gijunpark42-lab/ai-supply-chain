@@ -1,21 +1,22 @@
 {
- "reviewer": "V1",
- "items": [
-  {
-   "kind": "quarterly_data",
-   "company": "Osaka Organic Chemical Industry",
-   "target": null,
-   "label": "Osaka Organic Chemical Industry quarterly results summary: Q2 results for the fiscal year ending November 2026 (07-09-2026)",
-   "signal_prefix": "In the Electronic Materials business the company says it is accelerating development",
-   "action": "set",
-   "set": {
-    "signal": "In the Electronic Materials business the company says it is accelerating development of leading-edge semiconductor materials and expanding photoresist materials into new applications; in H1 it agreed a capital and business alliance with Sanbo Chemical Laboratory (written SANBO CHEMICAL IND. CO., LTD. in the company's English filings) to combine both companies' high-purification technology and development / manufacturing bases in semiconductor and electronic materials."
-   },
-   "chains": [
-    "manufacturing/foundry.json"
-   ],
-   "reason": "The source names the partner 株式会社三宝化学研究所 (三宝 = Sanbo); 'Sanpo' is a mis-romanization. The company's own English TDnet results summary (10-09-2026) writes the same partner SANBO / SAMBO CHEMICAL IND. CO., LTD., so the entry is aligned to that spelling.",
-   "evidence": "当中間連結会計期間において、株式会社三宝化学研究所との資本業務提携に合意いたしました。"
-  }
- ]
+  "reviewer": "V1",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Honeywell Aerospace",
+      "target": null,
+      "label": "Honeywell Aerospace Q2 FY2026 (08-05-2026)",
+      "signal_prefix": "CFO Josh Jepsen (first earnings call after the spin-off from",
+      "action": "set",
+      "set": {
+        "signal": "CFO Josh Jepsen (first earnings call after the spin-off from Honeywell completed on June 29, per CEO Jim Currier; he said he discussed profit metrics on a pro forma standalone basis, as if the company had been operating independently for the full quarter and comparable period): Q2 sales increased 5% organically to $4.5 billion; adjusted EBIT was $1 billion, down 2% on unfavorable mix and an inventory obsolescence charge of approximately $50 million (excluding the charge adjusted EBIT would have grown 3%); adjusted EPS was $1.78 (pro forma standalone basis), down on higher taxes and lower adjusted EBIT. Supply constraints shifted shipments to domestic defense and Engines & Power Systems OE, which have lower than group average margins; the obsolescence charge was mostly in Engines & Power Systems and is not expected to recur.",
+        "figure": "Q2 sales $4.5 billion (+5% organic); pro forma standalone adjusted EBIT $1 billion (-2%) and adjusted EPS $1.78; approximately $50 million inventory obsolescence charge"
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "Not a transcription error: the CFO stated the call's profit metrics are pro forma standalone (call EBIT -2% vs the same-day release's reported adjusted EBIT -7%); the release prints adjusted EPS $1.87 on the reported adjusted basis (on the Honeywell Aerospace 8-K (08-05-2026) entry). Keep $1.78, state its basis.",
+      "evidence": "I'll discuss our profit metrics on a pro forma standalone basis as if we had been operating independently for the full quarter and comparable period"
+    }
+  ]
 }

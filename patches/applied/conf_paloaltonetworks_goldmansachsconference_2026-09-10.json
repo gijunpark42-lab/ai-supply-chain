@@ -1,0 +1,52 @@
+{
+  "source": "Palo Alto Networks Goldman Sachs conference 2026 (09-10-2026)",
+  "chains": {
+    "components/ai_security_trusted_compute.json": {
+      "players": [
+        {
+          "company": "Palo Alto Networks",
+          "layer": "application",
+          "sector": "AI-Native Cybersecurity Platforms",
+          "product": "Prisma AIRS AI security and AI copilots run on Google Cloud AI infrastructure (Vertex AI, Gemini LLMs)",
+          "quarterly_data": [
+            {
+              "quarter": "Palo Alto Networks Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "CEO Nikesh Arora: since Mythos came out Palo Alto Networks has talked to about 2,000 companies (CEOs, CIOs, CISOs); when it first tested Mythos on itself it found 1,200 vulnerabilities, which took three, four months of cleaning, and it is now back to finding a few a month. It now offers customers a testing service; of what it found, about 60% came through Mythos, 30-odd percent using OpenAI and 10% other models, so it runs a multi-model harness - orchestrating across five models for vulnerability management. He says frontier LLMs will not take over cybersecurity enforcement points on cost (about 160 megabytes a day through a laptop against an industry price of $30 to $40 an endpoint); cyber vendors will consume frontier models, and small models from Hugging Face shrunk to a 20-megabyte footprint can do task-specific work at the edge.",
+              "figure": "about 2,000 companies; 1,200 vulnerabilities found; about 60% Mythos, 30-odd percent OpenAI, 10% other models",
+              "topics": []
+            },
+            {
+              "quarter": "Palo Alto Networks Goldman Sachs conference 2026 (09-10-2026)",
+              "signal": "CEO Nikesh Arora on AI security: a whole AI / agentic security stack 'has still to be built' - Claude Code and Codex cannot yet be secured inline because Anthropic and OpenAI have not delivered security hooks, and he expects it takes three to six months to understand the hooks of each new architecture (Facebook's Muse cited); Prisma AIRS (real-time AI security) did $100 million. Neocloud data centers need firewalls only when multi-tenant, which he guesses is no more than 10% or 15% of data-center building (80% to 90% single tenant). His moats: 180 million sensors deployed and 19 petabytes of data a day through Google Cloud; Palo Alto Networks does 70 product deployments a year, has acquired 47 companies, has a $700 million ARR SIEM business, is second in SASE, and expects AI efficiency to let it run at a 500 to 600 basis point differential to smaller companies. Strategy: security is a 2%-5% attach to IT, so it aims to be 'in the token flow' through observability, SOC and endpoint data.",
+              "figure": "Prisma AIRS $100 million; 180 million sensors; 19 petabytes a day; 47 acquisitions; 70 product deployments a year; 500 to 600 basis points",
+              "topics": []
+            }
+          ]
+        },
+        {
+          "company": "Google",
+          "layer": "cloud_infra",
+          "sector": "Hyperscaler Cloud",
+          "product": "Google Cloud Confidential VMs on A3 (Intel TDX + NVIDIA H100 Confidential Computing), Blackwell with confidential computing, Cloud HSM, OpenTitan silicon root of trust; Vertex AI / Gemini for security vendors",
+          "connects_to": [
+            {
+              "company": "Palo Alto Networks",
+              "relationship": "Google Cloud AI infrastructure, Vertex AI and Gemini LLMs for PANW copilots; multibillion-dollar workload-migration agreement",
+              "contracts": [
+                {
+                  "source": "Palo Alto Networks Goldman Sachs conference 2026 (09-10-2026)",
+                  "signal": "Palo Alto Networks CEO Nikesh Arora: 'My moat is I run 19 petabytes of data through Google Cloud every day'; Palo Alto Networks spends north of $1 billion on buying cloud and does not run its own cloud or data centers.",
+                  "units": "19 petabytes of data a day through Google Cloud",
+                  "value": "no specific figure (total cloud purchases north of $1 billion, all providers)",
+                  "date_signed": "not stated",
+                  "type": "cloud usage",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

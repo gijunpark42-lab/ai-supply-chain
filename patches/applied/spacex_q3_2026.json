@@ -1,0 +1,134 @@
+{
+ "source": "SpaceX Q3 FY2026 (10-20-2026)",
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "SpaceX",
+     "layer": "cloud_infra",
+     "sector": "Neocloud (GPU-specialized)",
+     "sub_sector": null,
+     "product": "AI cloud compute capacity (Colossus and Colossus 2)",
+     "quarterly_data": [
+      {
+       "quarter": "SpaceX Q3 FY2026 (10-20-2026)",
+       "signal": "Head of IR Andrea Williams and CFO Bret Johnsen: Q3 2026 revenue $14.6 billion, up 161% from $5.6 billion; net income $4.4 billion versus a $1.1 billion net loss a year earlier; adjusted EBITDA $8.8 billion, up 306%. Segments: Space revenue $1.8 billion (up 84% sequentially, 6% year-over-year); Connectivity $5.2 billion (up 69% year-over-year, 22% sequentially); SuperIntelligence (SI) $7.6 billion (up $5 billion quarter over quarter and $6.7 billion year-over-year), mainly from the ramp of cloud services agreements.",
+       "figure": "revenue $14.6 billion, up 161%; adjusted EBITDA $8.8 billion, up 306%",
+       "topics": [],
+       "slot": "revenue_growth"
+      },
+      {
+       "quarter": "SpaceX Q3 FY2026 (10-20-2026)",
+       "signal": "CFO Bret Johnsen, outlook: total company revenue of $33 billion to $37 billion for Q1 2027; Q4 2026 capital expenditures now $35 billion to $40 billion because of additional capacity coming online (Q3 capex was $19.6 billion, mainly SI compute, Starship infrastructure and satellite production); Q4 gross margin more consistent with Q2 after one-time mix benefits in Q3; still on track for the stated goal of $100 billion of ARR by the end of 2026 (annualized December revenue). CEO Elon Musk ('on that crazy note'): the compute plan implies SpaceX annual recurring revenue of somewhere between $500 billion and $1 trillion by the end of 2027.",
+       "figure": "Q1 2027 revenue $33 billion to $37 billion; Q4 capex $35 billion to $40 billion",
+       "topics": [],
+       "slot": "guidance"
+      },
+      {
+       "quarter": "SpaceX Q3 FY2026 (10-20-2026)",
+       "signal": "CFO Bret Johnsen: backlog totaled $63 billion as of September 30, of which $17.5 billion was recognized as deferred revenue and approximately $42 billion is expected to be recognized within the next year; demand remains robust across all three segments, particularly cloud services, with additional new customers and deals expected.",
+       "figure": "backlog $63 billion; approximately $42 billion within the next year",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      },
+      {
+       "quarter": "SpaceX Q3 FY2026 (10-20-2026)",
+       "signal": "SI compute build-out: SpaceX ended Q3 with 1.7 gigawatts of nameplate compute capacity, expects nearly 2 gigawatts at the end of October and 2.5 to 3 gigawatts by year end (CFO Bret Johnsen); CEO Elon Musk: SpaceX is bringing roughly 200,000 GB300s online per month (later: 220,000 GB300s a month) through year end and next year, with next year primarily Vera Rubin; he is 'highly confident' of an incremental 10 gigawatts of compute in 2027 (about 13 gigawatts total) and is aiming for an incremental 20 gigawatts of power and cooling next year, with a small but non-zero possibility of over 20 gigawatts of SI compute; the most powerful training cluster, 440,000 Vera Rubin computers, is planned online by the end of Q2; SpaceX casts turbine blades and vanes in-house because suppliers say they lag the rest of the turbine by 12 to 18 months.",
+       "figure": "1.7 GW nameplate compute; +10 GW in 2027; 440,000 Vera Rubin training cluster",
+       "topics": [
+        "supply_tightness",
+        "power_cooling"
+       ],
+       "slot": "supply_status"
+      },
+      {
+       "quarter": "SpaceX Q3 FY2026 (10-20-2026)",
+       "signal": "CFO Bret Johnsen on the SI segment: SI solutions and infrastructure revenue was $7 billion, of which $608 million came from Cursor (acquisition closed roughly mid-quarter), and grew 192% sequentially excluding Cursor on new cloud services agreements; SI adjusted EBITDA $5 billion; SI operating income $431 million, or $1.6 billion excluding $1.2 billion of Cursor-related stock-based compensation; compute pricing is tracking slightly above the high end of the $30 to $50 per watt range, new deployments pay back in less than a year, and advertising revenue grew 19%. CEO Elon Musk: SpaceX aims to split compute roughly 50/50 between internal use and rental, rents at about the spot rate on short-term contracts that are renewing at higher dollars per watt, and could rent out its compute 'several times over'.",
+       "figure": "SI solutions and infrastructure revenue $7 billion ($608 million from Cursor); payback under a year",
+       "topics": []
+      },
+      {
+       "quarter": "SpaceX Q3 FY2026 (10-20-2026)",
+       "signal": "Grok and Grok Bot (President Gwynne Shotwell, CEO Elon Musk): Grok Bot, launched in August, had 800,000 paid weekly users earlier in October, more than doubling over the last month, with B2B the fastest-growing category and wide enterprise deployment expected within a few weeks; Grok enterprise customers with more than $1 million of run-rate revenue (including Cursor) rose 50% quarter over quarter on a pro forma basis; a new plan bundles Grok Bot, Cursor and X Premium.",
+       "figure": "800,000 paid weekly Grok Bot users; $1 million-plus enterprise customers up 50%",
+       "topics": []
+      },
+      {
+       "quarter": "SpaceX Q3 FY2026 (10-20-2026)",
+       "signal": "CEO Elon Musk on Terafab and corporate matters: SpaceX's internal aim is a first functional test chip (an SRAM-type line test) at the Austin research fab around May or June of next year and volume production around Q3 2028 at the main Terafab site at Gibbons Creek ('very aggressive dates'), ultimately making 'a terawatt of superintelligence chips per year'. On a possible combination with Tesla: both companies have formed special committees of independent directors at shareholders' request, the committees have not reached agreement on any terms, and a Tesla vote would need 50% of all shares; he thinks a combination would be a good idea.",
+       "figure": "first test chip around May or June 2027; volume production around Q3 2028",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "applications/space_ai_infrastructure.json": {
+   "players": [
+    {
+     "company": "SpaceX",
+     "layer": "system_integration",
+     "sector": "Launch Services",
+     "sub_sector": null,
+     "product": "Falcon 9 and Starship launch (~2,500 tons a year to orbit via Falcon; launches competing constellations)",
+     "quarterly_data": [
+      {
+       "quarter": "SpaceX Q3 FY2026 (10-20-2026)",
+       "signal": "Space (President Gwynne Shotwell, CEO Elon Musk): 35 launches in Q3 (21 Starlink Falcon 9 flights, 2 Starship flights, a Falcon Heavy carrying NASA's Roman Space Telescope, 12 customer missions including 6 national security missions); new wins include 3 more Dragon human spaceflight missions through 2028, the Starlink communications contract for NASA's Artemis III, 18 national security launch missions, a Starship lunar-surface payload contract and 3 Starfall missions. Starship Flight 14 reached orbit and deployed operational Starlink V3 satellites (26 terabits per second); Flight 15, expected next month, will attempt to catch both booster and ship; Starship is expected to fly weekly in the first half of next year and twice weekly by the end of next year, with on-orbit refueling early next year and a first Louisiana launch targeted for 2028 (2029 'highly likely').",
+       "figure": "35 launches in Q3; Starship Flight 15 next month",
+       "topics": [],
+       "slot": "next_catalyst"
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "SpaceX",
+     "layer": "interconnect",
+     "sector": "Satellite Connectivity (LEO broadband & direct-to-device)",
+     "sub_sector": null,
+     "product": "Starlink V3 broadband satellites with laser inter-satellite links (~800 Tbps downlink from 9,600 broadband satellites) and Starlink Mobile direct-to-cell",
+     "quarterly_data": [
+      {
+       "quarter": "SpaceX Q3 FY2026 (10-20-2026)",
+       "signal": "Connectivity (CFO Bret Johnsen, President Gwynne Shotwell): 13.6 million Starlink consumer subscribers after adding 1.6 million in Q3, active in 174 markets; consumer ARPU up 5% sequentially to $69 per month; enterprise and government revenue up 91% year-over-year; connectivity gross margin 55% including about 3% of one-time tariff refunds; Starlink is contracted for roughly 12,000 planes with agreements at three of the four major U.S. carriers, and aviation production quadrupled this year; Starlink Mobile passed 22 million monthly users, up 37% quarter over quarter, the FCC approved 15,000 mobile V2 satellites, and service on newly acquired spectrum is planned for early 2028; a few hundred V3 satellites, achievable by mid-next year, are needed for users to feel the capacity gain.",
+       "figure": "13.6 million consumer subscribers; ARPU $69; 22 million Starlink Mobile users",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    }
+   ]
+  },
+  "accelerators/nvidia_vera_rubin.json": {
+   "players": [
+    {
+     "company": "ASML",
+     "layer": "equipment",
+     "sector": "Lithography",
+     "sub_sector": null,
+     "product": "EUV/High-NA lithography scanners",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "SpaceX",
+       "relationship": "chip-fabrication equipment deliveries for SpaceX's Terafab fabs (ASML named among SpaceX's suppliers)",
+       "contracts": [
+        {
+         "source": "SpaceX Q3 FY2026 (10-20-2026)",
+         "signal": "CEO Elon Musk on Terafab: 'we're very appreciative of ASML and all of our other suppliers in accelerating equipment deliveries' to reach a first test chip around May or June 2027 and volume production around Q3 2028 (he did not confirm EUV orders).",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "equipment supply (accelerated deliveries)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,57 +1,47 @@
 {
- "reviewer": "V1",
- "items": [
-  {
-   "kind": "quarterly_data",
-   "company": "Infleqtion",
-   "target": null,
-   "label": "Infleqtion Q2 FY2026 (08-12-2026)",
-   "signal_prefix": "CFO Ilan Hart: Infleqtion ended Q2 2026 with approximately $582 million",
-   "action": "delete",
-   "chains": [
-    "applications/quantum_computing.json"
-   ],
-   "reason": "duplicate: the same cash figure (~$582 million, no debt) is already in this label's CFO Q2 financials entry ('CFO Ilan Hart: Q2 2026 GAAP loss from operations...') - one fact, one node",
-   "evidence": "We ended the quarter with approximately $582 million in cash equivalent, and available for sale security with no debt."
-  },
-  {
-   "kind": "quarterly_data",
-   "company": "Quantinuum",
-   "target": null,
-   "label": "Quantinuum Q2 FY2026 (08-11-2026)",
-   "signal_prefix": "CFO Nitesh Sharan: Quantinuum ended Q2 2026 with approximately $2.1 billion",
-   "action": "delete",
-   "chains": [
-    "applications/quantum_computing.json"
-   ],
-   "reason": "duplicate: the same cash figure is already in this label's CFO expenses entry ('CFO Nitesh Sharan: research and development expenses were $367 million ... approximately $2.1 billion of cash and equivalents') - one fact, one node",
-   "evidence": "we ended the quarter with approximately $2.1 billion of cash and equivalents."
-  },
-  {
-   "kind": "quarterly_data",
-   "company": "Rigetti Computing",
-   "target": null,
-   "label": "Rigetti Computing Q2 FY2026 (08-06-2026)",
-   "signal_prefix": "CFO Jeff Bertelsen: Rigetti ended Q2 2026 with approximately $541.3 million",
-   "action": "delete",
-   "chains": [
-    "applications/quantum_computing.json"
-   ],
-   "reason": "duplicate: the same cash figures ($541.3 million at June 30, $569 million at March 31, no debt) are already in this label's Q2 operating-expenses entry - one fact, one node",
-   "evidence": "llocation or technology strategy. Turning to the balance sheet, we ended the second quarter of 2026 with approximately $541.3 million in cash equivalents, and available-for-sale in"
-  },
-  {
-   "kind": "quarterly_data",
-   "company": "Xanadu",
-   "target": null,
-   "label": "Xanadu Q2 FY2026 (08-05-2026)",
-   "signal_prefix": "CFO Michael Trzupek: Xanadu ended Q2 2026 with CAD 312.8 million",
-   "action": "delete",
-   "chains": [
-    "applications/quantum_computing.json"
-   ],
-   "reason": "duplicate: the same cash figure is already in this label's CFO R&D / EBITDA entry ('... Cash at quarter end was CAD 312.8 million') - one fact, one node",
-   "evidence": "second half of the year as we continue investing in R&D and manufacturing infrastructure. We ended the quarter with CAD 312.8 million of cash.  Michael Trzupek: In May, we entered "
-  }
- ]
+  "reviewer": "V1",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Tempus AI",
+      "target": null,
+      "label": "Tempus AI 10-K (02-24-2026)",
+      "signal_prefix": "Pathos (private): under the April 2025 Pathos Master Agreeme",
+      "action": "set",
+      "set": {
+        "signal": "Pathos: under the April 2025 Pathos Master Agreement, Pathos is responsible for developing the oncology Foundation Model provided to AstraZeneca; Tempus licenses Pathos a comprehensive de-identified multi-modal dataset to train it, and Pathos will pay Tempus data license fees of $200 million over a three-year period, including a $50 million upfront payment paid as of April 2025, and will pay Tempus the first $60 million of cloud compute costs for the secure cloud environment Tempus provides to host the model. Tempus receives a license to use the completed model and will pay Pathos $35 million, of which $25 million has been paid."
+      },
+      "chains": [
+        "applications/ai_bio.json"
+      ],
+      "reason": "The 10-K never says Pathos is private; '(private)' is background knowledge. Rest of the entry verified.",
+      "evidence": "Pursuant to the Pathos Master Agreement, (i) Pathos will be responsible for Foundation Model development activities"
+    },
+    {
+      "kind": "contract",
+      "company": "NVIDIA",
+      "target": "SharonAI",
+      "label": "SharonAI 10-K (03-31-2026)",
+      "signal_prefix": "10-K supplier disclosure: SharonAI says it is substantially d",
+      "action": "delete",
+      "chains": [
+        "components/ai_security_trusted_compute.json"
+      ],
+      "reason": "Duplicate of the unslotted SharonAI 10-K node entry in neocloud.json (one fact one node), and general GPU dependence does not match this edge's relationship (Confidential Compute for VAST DataEnclave). The edge keeps its SharonAI 8-K (09-23-2026) contract.",
+      "evidence": "We are substantially dependent on NVIDIA Corporation as a supplier of graphics processing units"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Akamai Technologies",
+      "target": null,
+      "label": "Akamai Technologies 8-K (09-24-2026)",
+      "signal_prefix": "Supplier Jabil: on September 24, 2026 Akamai and Jabil enter",
+      "action": "delete",
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "Same Jabil build request is recorded as the Jabil -> Akamai Technologies contract under this label; the node copy carries no slot, so it is a duplicate (one fact one node; JOB 2 allows the repeat only for a slot-tagged node entry).",
+      "evidence": "the Company has authorized Jabil to purchase approximately $1.7 billion of memory components"
+    }
+  ]
 }

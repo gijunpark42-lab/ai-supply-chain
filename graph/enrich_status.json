@@ -1,16 +1,16 @@
 {
- "generated": "2026-10-20 02:30",
- "labels_total": 4194,
+ "generated": "2026-10-21 01:52",
+ "labels_total": 4288,
  "pipelines": [
   {
    "id": "us",
    "name": "US earnings calls",
    "command": "enrich us calls",
    "source": "Alpha Vantage / defeatbeta (av.py)",
-   "files": 463,
-   "labels_on_disk": 463,
-   "in_graph": 462,
-   "entries": 5079,
+   "files": 468,
+   "labels_on_disk": 468,
+   "in_graph": 467,
+   "entries": 5120,
    "pending": [],
    "no_data": [
     {
@@ -22,10 +22,10 @@
    "skipped": 0,
    "source_range": [
     "2025-11-05",
-    "2026-10-15"
+    "2026-10-20"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-21",
    "enriched_days": [
     {
      "day": "2026-08-31",
@@ -85,10 +85,18 @@
     },
     {
      "day": "2026-10-19",
-     "labels": 38
+     "labels": 36
+    },
+    {
+     "day": "2026-10-20",
+     "labels": 4
+    },
+    {
+     "day": "2026-10-21",
+     "labels": 3
     }
    ],
-   "last_sync": "2026-10-18",
+   "last_sync": "2026-10-20",
    "extra": {
     "waiting": [
      {
@@ -98,7 +106,7 @@
       "fiscal_end": "2026-08-31"
      }
     ],
-    "saved_pairs": 237
+    "saved_pairs": 238
    }
   },
   {
@@ -106,76 +114,11 @@
    "name": "US SEC filings",
    "command": "enrich edgar",
    "source": "SEC EDGAR 8-K / 10-K / 10-Q + foreign issuers' 6-K / 20-F / 40-F + recent IPO prospectus (edgar_pull.py)",
-   "files": 2453,
-   "labels_on_disk": 1900,
-   "in_graph": 900,
-   "entries": 2645,
+   "files": 2479,
+   "labels_on_disk": 1922,
+   "in_graph": 945,
+   "entries": 2753,
    "pending": [
-    {
-     "company": "Amgen",
-     "label": "Amgen 10-K (02-13-2026)",
-     "file": "transcripts/edgar/AMGN_10-K_2026-02-13_customers.txt"
-    },
-    {
-     "company": "Amgen",
-     "label": "Amgen 10-K (02-13-2026)",
-     "file": "transcripts/edgar/AMGN_10-K_2026-02-13_supplychain.txt"
-    },
-    {
-     "company": "Amgen",
-     "label": "Amgen 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/AMGN_10-Q_2026-08-05_segments.txt"
-    },
-    {
-     "company": "Amgen",
-     "label": "Amgen 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/AMGN_10-Q_2026-08-05_supplychain.txt"
-    },
-    {
-     "company": "AST SpaceMobile",
-     "label": "AST SpaceMobile 10-K (03-02-2026)",
-     "file": "transcripts/edgar/ASTS_10-K_2026-03-02_customers.txt"
-    },
-    {
-     "company": "AST SpaceMobile",
-     "label": "AST SpaceMobile 10-K (03-02-2026)",
-     "file": "transcripts/edgar/ASTS_10-K_2026-03-02_supplychain.txt"
-    },
-    {
-     "company": "AST SpaceMobile",
-     "label": "AST SpaceMobile 10-Q (08-10-2026)",
-     "file": "transcripts/edgar/ASTS_10-Q_2026-08-10_segments.txt"
-    },
-    {
-     "company": "AST SpaceMobile",
-     "label": "AST SpaceMobile 10-Q (08-10-2026)",
-     "file": "transcripts/edgar/ASTS_10-Q_2026-08-10_supplychain.txt"
-    },
-    {
-     "company": "AST SpaceMobile",
-     "label": "AST SpaceMobile 8-K (08-10-2026)",
-     "file": "transcripts/edgar/ASTS_8-K_2026-08-10.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike 10-K (03-05-2026)",
-     "file": "transcripts/edgar/CRWD_10-K_2026-03-05_customers.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike 10-K (03-05-2026)",
-     "file": "transcripts/edgar/CRWD_10-K_2026-03-05_supplychain.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike 10-Q (08-27-2026)",
-     "file": "transcripts/edgar/CRWD_10-Q_2026-08-27_segments.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike 10-Q (08-27-2026)",
-     "file": "transcripts/edgar/CRWD_10-Q_2026-08-27_supplychain.txt"
-    },
     {
      "company": "Fluor",
      "label": "Fluor 10-K (02-17-2026)",
@@ -195,66 +138,6 @@
      "company": "Fluor",
      "label": "Fluor 10-Q (08-07-2026)",
      "file": "transcripts/edgar/FLR_10-Q_2026-08-07_supplychain.txt"
-    },
-    {
-     "company": "Honeywell",
-     "label": "Honeywell 10-K (02-17-2026)",
-     "file": "transcripts/edgar/HON_10-K_2026-02-17_customers.txt"
-    },
-    {
-     "company": "Honeywell",
-     "label": "Honeywell 10-K (02-17-2026)",
-     "file": "transcripts/edgar/HON_10-K_2026-02-17_supplychain.txt"
-    },
-    {
-     "company": "Honeywell",
-     "label": "Honeywell 10-Q (07-23-2026)",
-     "file": "transcripts/edgar/HON_10-Q_2026-07-23_supplychain.txt"
-    },
-    {
-     "company": "Honeywell",
-     "label": "Honeywell 10-Q (07-24-2026)",
-     "file": "transcripts/edgar/HON_10-Q_2026-07-24_supplychain.txt"
-    },
-    {
-     "company": "Honeywell",
-     "label": "Honeywell 8-K (06-29-2026)",
-     "file": "transcripts/edgar/HON_8-K_2026-06-29.txt"
-    },
-    {
-     "company": "Honeywell",
-     "label": "Honeywell 8-K (08-19-2026)",
-     "file": "transcripts/edgar/HON_8-K_2026-08-19.txt"
-    },
-    {
-     "company": "Honeywell Aerospace",
-     "label": "Honeywell Aerospace 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/HONA_10-Q_2026-08-05_segments.txt"
-    },
-    {
-     "company": "Honeywell Aerospace",
-     "label": "Honeywell Aerospace 10-Q (08-05-2026)",
-     "file": "transcripts/edgar/HONA_10-Q_2026-08-05_supplychain.txt"
-    },
-    {
-     "company": "Honeywell Aerospace",
-     "label": "Honeywell Aerospace prospectus (07-13-2026)",
-     "file": "transcripts/edgar/HONA_424B3_2026-07-13_customers.txt"
-    },
-    {
-     "company": "Honeywell Aerospace",
-     "label": "Honeywell Aerospace prospectus (07-13-2026)",
-     "file": "transcripts/edgar/HONA_424B3_2026-07-13_supplychain.txt"
-    },
-    {
-     "company": "Honeywell Aerospace",
-     "label": "Honeywell Aerospace 8-K (06-29-2026)",
-     "file": "transcripts/edgar/HONA_8-K_2026-06-29.txt"
-    },
-    {
-     "company": "Honeywell Aerospace",
-     "label": "Honeywell Aerospace 8-K (08-05-2026)",
-     "file": "transcripts/edgar/HONA_8-K_2026-08-05.txt"
     },
     {
      "company": "Horizon Quantum",
@@ -362,51 +245,6 @@
      "file": "transcripts/edgar/INFQ_8-K_2026-09-24.txt"
     },
     {
-     "company": "IonQ",
-     "label": "IonQ 10-K (02-25-2026)",
-     "file": "transcripts/edgar/IONQ_10-K_2026-02-25_customers.txt"
-    },
-    {
-     "company": "IonQ",
-     "label": "IonQ 10-K (02-25-2026)",
-     "file": "transcripts/edgar/IONQ_10-K_2026-02-25_supplychain.txt"
-    },
-    {
-     "company": "IonQ",
-     "label": "IonQ 10-Q (08-10-2026)",
-     "file": "transcripts/edgar/IONQ_10-Q_2026-08-10_segments.txt"
-    },
-    {
-     "company": "IonQ",
-     "label": "IonQ 10-Q (08-10-2026)",
-     "file": "transcripts/edgar/IONQ_10-Q_2026-08-10_supplychain.txt"
-    },
-    {
-     "company": "IonQ",
-     "label": "IonQ 8-K (07-28-2026)",
-     "file": "transcripts/edgar/IONQ_8-K_2026-07-28.txt"
-    },
-    {
-     "company": "IonQ",
-     "label": "IonQ 8-K (07-31-2026)",
-     "file": "transcripts/edgar/IONQ_8-K_2026-07-31.txt"
-    },
-    {
-     "company": "IonQ",
-     "label": "IonQ 8-K (08-28-2026)",
-     "file": "transcripts/edgar/IONQ_8-K_2026-08-28.txt"
-    },
-    {
-     "company": "IonQ",
-     "label": "IonQ 8-K (09-08-2026)",
-     "file": "transcripts/edgar/IONQ_8-K_2026-09-08.txt"
-    },
-    {
-     "company": "IonQ",
-     "label": "IonQ 8-K (10-13-2026)",
-     "file": "transcripts/edgar/IONQ_8-K_2026-10-13.txt"
-    },
-    {
      "company": "IQM Quantum Computers",
      "label": "IQM Quantum Computers prospectus (08-26-2026)",
      "file": "transcripts/edgar/IQMX_424B3_2026-08-26_customers.txt"
@@ -440,46 +278,6 @@
      "company": "Jacobs Solutions",
      "label": "Jacobs Solutions 10-Q (08-04-2026)",
      "file": "transcripts/edgar/J_10-Q_2026-08-04_supplychain.txt"
-    },
-    {
-     "company": "L3Harris",
-     "label": "L3Harris 10-K (02-12-2026)",
-     "file": "transcripts/edgar/LHX_10-K_2026-02-12_customers.txt"
-    },
-    {
-     "company": "L3Harris",
-     "label": "L3Harris 10-K (02-12-2026)",
-     "file": "transcripts/edgar/LHX_10-K_2026-02-12_supplychain.txt"
-    },
-    {
-     "company": "L3Harris",
-     "label": "L3Harris 10-Q (07-30-2026)",
-     "file": "transcripts/edgar/LHX_10-Q_2026-07-30_supplychain.txt"
-    },
-    {
-     "company": "L3Harris",
-     "label": "L3Harris 8-K (08-17-2026)",
-     "file": "transcripts/edgar/LHX_8-K_2026-08-17.txt"
-    },
-    {
-     "company": "Mastercard",
-     "label": "Mastercard 10-K (02-11-2026)",
-     "file": "transcripts/edgar/MA_10-K_2026-02-11_customers.txt"
-    },
-    {
-     "company": "Mastercard",
-     "label": "Mastercard 10-K (02-11-2026)",
-     "file": "transcripts/edgar/MA_10-K_2026-02-11_supplychain.txt"
-    },
-    {
-     "company": "Mastercard",
-     "label": "Mastercard 10-Q (07-30-2026)",
-     "file": "transcripts/edgar/MA_10-Q_2026-07-30_segments.txt"
-    },
-    {
-     "company": "Mastercard",
-     "label": "Mastercard 10-Q (07-30-2026)",
-     "file": "transcripts/edgar/MA_10-Q_2026-07-30_supplychain.txt"
     },
     {
      "company": "ArcelorMittal",
@@ -592,99 +390,14 @@
      "file": "transcripts/edgar/MYRG_8-K_2026-08-07.txt"
     },
     {
-     "company": "Cloudflare",
-     "label": "Cloudflare 10-K (02-26-2026)",
-     "file": "transcripts/edgar/NET_10-K_2026-02-26_customers.txt"
+     "company": "Penguin Solutions",
+     "label": "Penguin Solutions 10-K (10-20-2026)",
+     "file": "transcripts/edgar/PENG_10-K_2026-10-20_customers.txt"
     },
     {
-     "company": "Cloudflare",
-     "label": "Cloudflare 10-K (02-26-2026)",
-     "file": "transcripts/edgar/NET_10-K_2026-02-26_supplychain.txt"
-    },
-    {
-     "company": "Cloudflare",
-     "label": "Cloudflare 10-K (04-29-2026)",
-     "file": "transcripts/edgar/NET_10-K_2026-04-29_supplychain.txt"
-    },
-    {
-     "company": "Cloudflare",
-     "label": "Cloudflare 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/NET_10-Q_2026-08-06_supplychain.txt"
-    },
-    {
-     "company": "Cloudflare",
-     "label": "Cloudflare 8-K (08-06-2026)",
-     "file": "transcripts/edgar/NET_8-K_2026-08-06.txt"
-    },
-    {
-     "company": "Northrop Grumman",
-     "label": "Northrop Grumman 10-K (01-27-2026)",
-     "file": "transcripts/edgar/NOC_10-K_2026-01-27_customers.txt"
-    },
-    {
-     "company": "Northrop Grumman",
-     "label": "Northrop Grumman 10-K (01-27-2026)",
-     "file": "transcripts/edgar/NOC_10-K_2026-01-27_supplychain.txt"
-    },
-    {
-     "company": "Northrop Grumman",
-     "label": "Northrop Grumman 10-Q (07-21-2026)",
-     "file": "transcripts/edgar/NOC_10-Q_2026-07-21_segments.txt"
-    },
-    {
-     "company": "Northrop Grumman",
-     "label": "Northrop Grumman 10-Q (07-21-2026)",
-     "file": "transcripts/edgar/NOC_10-Q_2026-07-21_supplychain.txt"
-    },
-    {
-     "company": "Palo Alto Networks",
-     "label": "Palo Alto Networks 10-K (09-10-2026)",
-     "file": "transcripts/edgar/PANW_10-K_2026-09-10_customers.txt"
-    },
-    {
-     "company": "Palo Alto Networks",
-     "label": "Palo Alto Networks 10-K (09-10-2026)",
-     "file": "transcripts/edgar/PANW_10-K_2026-09-10_supplychain.txt"
-    },
-    {
-     "company": "Palo Alto Networks",
-     "label": "Palo Alto Networks 10-Q (06-03-2026)",
-     "file": "transcripts/edgar/PANW_10-Q_2026-06-03_segments.txt"
-    },
-    {
-     "company": "Palo Alto Networks",
-     "label": "Palo Alto Networks 10-Q (06-03-2026)",
-     "file": "transcripts/edgar/PANW_10-Q_2026-06-03_supplychain.txt"
-    },
-    {
-     "company": "Pfizer",
-     "label": "Pfizer 10-K (02-26-2026)",
-     "file": "transcripts/edgar/PFE_10-K_2026-02-26_customers.txt"
-    },
-    {
-     "company": "Pfizer",
-     "label": "Pfizer 10-K (02-26-2026)",
-     "file": "transcripts/edgar/PFE_10-K_2026-02-26_supplychain.txt"
-    },
-    {
-     "company": "Pfizer",
-     "label": "Pfizer 10-Q (08-04-2026)",
-     "file": "transcripts/edgar/PFE_10-Q_2026-08-04_segments.txt"
-    },
-    {
-     "company": "Pfizer",
-     "label": "Pfizer 10-Q (08-04-2026)",
-     "file": "transcripts/edgar/PFE_10-Q_2026-08-04_supplychain.txt"
-    },
-    {
-     "company": "Planet Labs",
-     "label": "Planet Labs 10-K (03-23-2026)",
-     "file": "transcripts/edgar/PL_10-K_2026-03-23_supplychain.txt"
-    },
-    {
-     "company": "Planet Labs",
-     "label": "Planet Labs 10-Q (09-03-2026)",
-     "file": "transcripts/edgar/PL_10-Q_2026-09-03_supplychain.txt"
+     "company": "Penguin Solutions",
+     "label": "Penguin Solutions 10-K (10-20-2026)",
+     "file": "transcripts/edgar/PENG_10-K_2026-10-20_supplychain.txt"
     },
     {
      "company": "Primoris Services",
@@ -842,66 +555,6 @@
      "file": "transcripts/edgar/QUBT_8-K_2026-10-02.txt"
     },
     {
-     "company": "Rigetti Computing",
-     "label": "Rigetti Computing 10-K (03-04-2026)",
-     "file": "transcripts/edgar/RGTI_10-K_2026-03-04_customers.txt"
-    },
-    {
-     "company": "Rigetti Computing",
-     "label": "Rigetti Computing 10-K (03-04-2026)",
-     "file": "transcripts/edgar/RGTI_10-K_2026-03-04_supplychain.txt"
-    },
-    {
-     "company": "Rigetti Computing",
-     "label": "Rigetti Computing 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/RGTI_10-Q_2026-08-06_segments.txt"
-    },
-    {
-     "company": "Rigetti Computing",
-     "label": "Rigetti Computing 10-Q (08-06-2026)",
-     "file": "transcripts/edgar/RGTI_10-Q_2026-08-06_supplychain.txt"
-    },
-    {
-     "company": "Rigetti Computing",
-     "label": "Rigetti Computing 8-K (09-08-2026)",
-     "file": "transcripts/edgar/RGTI_8-K_2026-09-08.txt"
-    },
-    {
-     "company": "Rocket Lab",
-     "label": "Rocket Lab 10-K (02-26-2026)",
-     "file": "transcripts/edgar/RKLB_10-K_2026-02-26_customers.txt"
-    },
-    {
-     "company": "Rocket Lab",
-     "label": "Rocket Lab 10-K (02-26-2026)",
-     "file": "transcripts/edgar/RKLB_10-K_2026-02-26_supplychain.txt"
-    },
-    {
-     "company": "Rocket Lab",
-     "label": "Rocket Lab 10-Q (08-10-2026)",
-     "file": "transcripts/edgar/RKLB_10-Q_2026-08-10_segments.txt"
-    },
-    {
-     "company": "Rocket Lab",
-     "label": "Rocket Lab 10-Q (08-10-2026)",
-     "file": "transcripts/edgar/RKLB_10-Q_2026-08-10_supplychain.txt"
-    },
-    {
-     "company": "Rocket Lab",
-     "label": "Rocket Lab 8-K (06-29-2026)",
-     "file": "transcripts/edgar/RKLB_8-K_2026-06-29.txt"
-    },
-    {
-     "company": "Rocket Lab",
-     "label": "Rocket Lab 8-K (08-13-2026)",
-     "file": "transcripts/edgar/RKLB_8-K_2026-08-13.txt"
-    },
-    {
-     "company": "Rocket Lab",
-     "label": "Rocket Lab 8-K (10-14-2026)",
-     "file": "transcripts/edgar/RKLB_8-K_2026-10-14.txt"
-    },
-    {
      "company": "Unisys",
      "label": "Unisys 10-K (02-25-2026)",
      "file": "transcripts/edgar/UIS_10-K_2026-02-25_customers.txt"
@@ -942,6 +595,11 @@
      "label": "3M 10-Q (07-21-2026)",
      "file": "transcripts/edgar/MMM_10-Q_2026-07-21_supplychain.txt",
      "why": "10-Q supplier / manufacturing / backlog paragraphs"
+    },
+    {
+     "label": "3M 8-K (10-20-2026)",
+     "file": "transcripts/edgar/MMM_8-K_2026-10-20.txt",
+     "why": null
     },
     {
      "label": "ACM Research 10-Q (08-07-2026)",
@@ -1021,6 +679,11 @@
     {
      "label": "AST SpaceMobile 8-K (09-28-2026)",
      "file": "transcripts/edgar/ASTS_8-K_2026-09-28.txt",
+     "why": null
+    },
+    {
+     "label": "AST SpaceMobile 8-K (10-20-2026)",
+     "file": "transcripts/edgar/ASTS_8-K_2026-10-20.txt",
      "why": null
     },
     {
@@ -1112,6 +775,11 @@
      "label": "Cipher Digital 8-K (10-16-2026)",
      "file": "transcripts/edgar/CIFR_8-K_2026-10-16.txt",
      "why": null
+    },
+    {
+     "label": "Cloudflare 10-K (04-29-2026)",
+     "file": "transcripts/edgar/NET_10-K_2026-04-29_supplychain.txt",
+     "why": "10-K supplier / manufacturing / backlog paragraphs"
     },
     {
      "label": "Cloudflare 8-K (06-30-2026)",
@@ -1222,6 +890,31 @@
      "label": "Dominion Energy 10-Q (07-31-2026)",
      "file": "transcripts/edgar/D_10-Q_2026-07-31_segments.txt",
      "why": "10-Q XBRL segment revenue"
+    },
+    {
+     "label": "Duos Technologies 8-K (07-20-2026)",
+     "file": "transcripts/edgar/DUOT_8-K_2026-07-20.txt",
+     "why": null
+    },
+    {
+     "label": "Duos Technologies 8-K (08-18-2026)",
+     "file": "transcripts/edgar/DUOT_8-K_2026-08-18.txt",
+     "why": null
+    },
+    {
+     "label": "Duos Technologies 8-K (08-26-2026)",
+     "file": "transcripts/edgar/DUOT_8-K_2026-08-26.txt",
+     "why": null
+    },
+    {
+     "label": "Duos Technologies 8-K (09-17-2026)",
+     "file": "transcripts/edgar/DUOT_8-K_2026-09-17.txt",
+     "why": null
+    },
+    {
+     "label": "Duos Technologies 8-K (10-13-2026)",
+     "file": "transcripts/edgar/DUOT_8-K_2026-10-13.txt",
+     "why": null
     },
     {
      "label": "Evaxion Biotech 20-F (03-05-2026)",
@@ -1429,6 +1122,11 @@
      "why": null
     },
     {
+     "label": "Northrop Grumman 8-K (10-20-2026)",
+     "file": "transcripts/edgar/NOC_8-K_2026-10-20.txt",
+     "why": null
+    },
+    {
      "label": "Novo Nordisk 6-K (10-19-2026)",
      "file": "transcripts/edgar/NVO_6-K_2026-10-19.txt",
      "why": null
@@ -1544,8 +1242,18 @@
      "why": null
     },
     {
+     "label": "SpaceX 8-K (10-20-2026)",
+     "file": "transcripts/edgar/SPCX_8-K_2026-10-20.txt",
+     "why": null
+    },
+    {
      "label": "Supermicro 8-K (10-15-2026)",
      "file": "transcripts/edgar/SMCI_8-K_2026-10-15.txt",
+     "why": null
+    },
+    {
+     "label": "Supermicro 8-K (10-20-2026)",
+     "file": "transcripts/edgar/SMCI_8-K_2026-10-20.txt",
      "why": null
     },
     {
@@ -1579,6 +1287,16 @@
      "why": null
     },
     {
+     "label": "Vertex 8-K (10-20-2026)",
+     "file": "transcripts/edgar/VRTX_8-K_2026-10-20.txt",
+     "why": null
+    },
+    {
+     "label": "Vicor 8-K (10-20-2026)",
+     "file": "transcripts/edgar/VICR_8-K_2026-10-20.txt",
+     "why": null
+    },
+    {
      "label": "Xanadu 6-K (08-05-2026)",
      "file": "transcripts/edgar/XNDU_6-K_2026-08-05.txt",
      "why": null
@@ -1594,17 +1312,17 @@
      "why": "10-Q XBRL segment revenue"
     }
    ],
-   "skipped": 814,
+   "skipped": 816,
    "source_range": [
     "2025-05-15",
-    "2026-10-19"
+    "2026-10-20"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-21",
    "enriched_days": [
     {
      "day": "2026-09-10",
-     "labels": 420
+     "labels": 417
     },
     {
      "day": "2026-10-01",
@@ -1624,17 +1342,25 @@
     },
     {
      "day": "2026-10-18",
-     "labels": 40
+     "labels": 31
     },
     {
      "day": "2026-10-19",
-     "labels": 41
+     "labels": 20
+    },
+    {
+     "day": "2026-10-20",
+     "labels": 48
+    },
+    {
+     "day": "2026-10-21",
+     "labels": 30
     }
    ],
-   "last_sync": "2026-10-20",
+   "last_sync": "2026-10-21",
    "extra": {
-    "done": 2171,
-    "dropped": 103,
+    "done": 2256,
+    "dropped": 115,
     "why": [
      [
       "no supply-chain content",
@@ -1642,15 +1368,15 @@
      ],
      [
       "10-Q supplier / manufacturing / backlog paragraphs",
-      224
+      243
      ],
      [
       "10-K supplier / manufacturing / backlog paragraphs",
-      213
+      229
      ],
      [
       "10-K customer concentration",
-      197
+      211
      ],
      [
       "earnings release only",
@@ -1658,7 +1384,7 @@
      ],
      [
       "10-Q XBRL segment revenue",
-      169
+      182
      ]
     ]
    }
@@ -1668,10 +1394,10 @@
    "name": "Korea DART filings",
    "command": "enrich dart",
    "source": "DART 정기보고서 / 잠정실적 / 공급계약 (dart.py)",
-   "files": 173,
-   "labels_on_disk": 200,
-   "in_graph": 197,
-   "entries": 1227,
+   "files": 175,
+   "labels_on_disk": 203,
+   "in_graph": 200,
+   "entries": 1230,
    "pending": [],
    "no_data": [
     {
@@ -1693,10 +1419,10 @@
    "skipped": 0,
    "source_range": [
     "2026-03-10",
-    "2026-10-19"
+    "2026-10-20"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-20",
    "enriched_days": [
     {
      "day": "2026-09-07",
@@ -1732,12 +1458,16 @@
     },
     {
      "day": "2026-10-19",
-     "labels": 10
+     "labels": 4
+    },
+    {
+     "day": "2026-10-20",
+     "labels": 9
     }
    ],
-   "last_sync": "2026-10-19",
+   "last_sync": "2026-10-20",
    "extra": {
-    "filings_seen": 103
+    "filings_seen": 106
    }
   },
   {
@@ -1792,12 +1522,8 @@
      "labels": 1
     },
     {
-     "day": "2026-10-19",
-     "labels": 7
-    },
-    {
      "day": "2026-10-20",
-     "labels": 1
+     "labels": 8
     }
    ],
    "last_sync": "2026-10-20",
@@ -1833,7 +1559,7 @@
      "labels": 1
     }
    ],
-   "last_sync": "2026-10-19",
+   "last_sync": "2026-10-20",
    "extra": {
     "no_media": [
      "2308|2026-07-08",
@@ -1857,105 +1583,9 @@
    "source": "Investing.com fireside chats (investing.py conferences)",
    "files": 176,
    "labels_on_disk": 176,
-   "in_graph": 155,
-   "entries": 898,
-   "pending": [
-    {
-     "company": "Pfizer",
-     "label": "Pfizer U.S. All Stars Conference 2026 (09-22-2026)",
-     "file": "transcripts/conferences/pfizer_usallstarsconference_2026-09-22.txt"
-    },
-    {
-     "company": "Northrop Grumman",
-     "label": "Northrop Grumman Morgan Stanley conference 2026 (09-17-2026)",
-     "file": "transcripts/conferences/northropgrumman_morganstanleyconference_2026-09-17.txt"
-    },
-    {
-     "company": "L3Harris",
-     "label": "L3Harris Morgan Stanley conference 2026 (09-16-2026)",
-     "file": "transcripts/conferences/l3harris_morganstanleyconference_2026-09-16.txt"
-    },
-    {
-     "company": "Honeywell",
-     "label": "Honeywell Morgan Stanley’s 14th annual Laguna Conference 2026 (09-16-2026)",
-     "file": "transcripts/conferences/honeywell_morganstanleys14thannuallagunaconference_2026-09-16.txt"
-    },
-    {
-     "company": "Honeywell Aerospace",
-     "label": "Honeywell Aerospace Morgan Stanley conference 2026 (09-15-2026)",
-     "file": "transcripts/conferences/honeywellaerospace_morganstanleyconference_2026-09-15.txt"
-    },
-    {
-     "company": "Pfizer",
-     "label": "Pfizer Morgan Stanley conference 2026 (09-14-2026)",
-     "file": "transcripts/conferences/pfizer_morganstanleyconference_2026-09-14.txt"
-    },
-    {
-     "company": "Mastercard",
-     "label": "Mastercard Goldman Sachs communacopia + technology 2026 (09-11-2026)",
-     "file": "transcripts/conferences/mastercard_goldmansachscommunacopiatechnology_2026-09-11.txt"
-    },
-    {
-     "company": "Palo Alto Networks",
-     "label": "Palo Alto Networks Goldman Sachs conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/paloaltonetworks_goldmansachsconference_2026-09-10.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike Goldman Sachs conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/crowdstrike_goldmansachsconference_2026-09-10.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike Citi’s Global TMT Conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/crowdstrike_citisglobaltmtconference_2026-09-10.txt"
-    },
-    {
-     "company": "Amgen",
-     "label": "Amgen Wells Fargo 21st Annual Healthcare Conference 2026 (09-10-2026)",
-     "file": "transcripts/conferences/amgen_wellsfargo21stannualhealthcareconference_2026-09-10.txt"
-    },
-    {
-     "company": "L3Harris",
-     "label": "L3Harris Jefferies Global Industrials Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/l3harris_jefferiesglobalindustrialsconference_2026-09-09.txt"
-    },
-    {
-     "company": "Cloudflare",
-     "label": "Cloudflare Goldman Sachs communacopia + technology conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/cloudflare_goldmansachscommunacopiatechnologyconfer_2026-09-09.txt"
-    },
-    {
-     "company": "Honeywell Aerospace",
-     "label": "Honeywell Aerospace Jefferies Global Industrials Conference 2026 (09-09-2026)",
-     "file": "transcripts/conferences/honeywellaerospace_jefferiesglobalindustrialsconference_2026-09-09.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike Fal.Con 2026 (09-03-2026)",
-     "file": "transcripts/conferences/crowdstrike_falcon_2026-09-03.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike Fal.Con Investor Briefing 2026 (09-02-2026)",
-     "file": "transcripts/conferences/crowdstrike_falconinvestorbriefing_2026-09-02.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike Fal.Con Day 2 2026 (09-02-2026)",
-     "file": "transcripts/conferences/crowdstrike_falconday2_2026-09-02.txt"
-    },
-    {
-     "company": "CrowdStrike",
-     "label": "CrowdStrike Fal.Con Day 1 2026 (09-01-2026)",
-     "file": "transcripts/conferences/crowdstrike_falconday1_2026-09-01.txt"
-    },
-    {
-     "company": "Honeywell",
-     "label": "Honeywell Deutsche Bank’s Chicago Industrials Summit 2026 (08-11-2026)",
-     "file": "transcripts/conferences/honeywell_deutschebankschicagoindustrialssummit_2026-08-11.txt"
-    }
-   ],
+   "in_graph": 174,
+   "entries": 969,
+   "pending": [],
    "no_data": [
     {
      "label": "Lenovo Six Five Summit 2026 (08-26-2026)",
@@ -1973,8 +1603,8 @@
     "2026-07-20",
     "2026-10-13"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-21",
    "enriched_days": [
     {
      "day": "2026-09-16",
@@ -2014,7 +1644,15 @@
     },
     {
      "day": "2026-10-19",
-     "labels": 7
+     "labels": 3
+    },
+    {
+     "day": "2026-10-20",
+     "labels": 22
+    },
+    {
+     "day": "2026-10-21",
+     "labels": 1
     }
    ],
    "last_sync": "2026-10-19",
@@ -2068,10 +1706,10 @@
    "name": "Company IR press releases",
    "command": "enrich ir",
    "source": "Company IR RSS feeds (ir_pull.py) — company-issued, not transcripts",
-   "files": 1801,
-   "labels_on_disk": 1796,
-   "in_graph": 715,
-   "entries": 1005,
+   "files": 1835,
+   "labels_on_disk": 1830,
+   "in_graph": 729,
+   "entries": 1024,
    "pending": [],
    "no_data": [
     {
@@ -2645,6 +2283,11 @@
      "why": null
     },
     {
+     "label": "Apple press release: Apple unveils the 2026 Designers of Tomorrow (10-20-2026)",
+     "file": "transcripts/ir/apple_2026-10-20_apple-unveils-the-2026-designers-of-tomorrow.txt",
+     "why": null
+    },
+    {
      "label": "Apple press release: Apple's new child safety features now available (09-14-2026)",
      "file": "transcripts/ir/apple_2026-09-14_apple-s-new-child-safety-features-now-available.txt",
      "why": null
@@ -2747,6 +2390,11 @@
     {
      "label": "Axcelis press release: Axcelis Announces Sponsorship and Participation in the 23rd (09-21-2026)",
      "file": "transcripts/ir/axcelis_2026-09-21_axcelis-announces-sponsorship-and-participation-in.txt",
+     "why": null
+    },
+    {
+     "label": "Axcelis press release: Axcelis to Begin Construction of New Manufacturing Facility (10-20-2026)",
+     "file": "transcripts/ir/axcelis_2026-10-20_axcelis-to-begin-construction-of-new-manufacturing.txt",
      "why": null
     },
     {
@@ -2862,6 +2510,11 @@
     {
      "label": "Bloom Energy press release: Powering Community Resilience, Bloom Energy Supports First (09-25-2026)",
      "file": "transcripts/ir/bloomenergy_2026-09-25_powering-community-resilience-bloom-energy-support.txt",
+     "why": null
+    },
+    {
+     "label": "Broadcom press release: Broadcom Announces Continued Infrastructure Agreement with (10-20-2026)",
+     "file": "transcripts/ir/broadcom_2026-10-20_broadcom-announces-continued-infrastructure-agreem.txt",
      "why": null
     },
     {
@@ -3030,6 +2683,11 @@
      "why": null
     },
     {
+     "label": "Cisco press release: Splunk State of Observability 2026: Avoiding the Hidden (10-20-2026)",
+     "file": "transcripts/ir/cisco_2026-10-20_splunk-state-of-observability-2026-avoiding-the-hi.txt",
+     "why": null
+    },
+    {
      "label": "CleanSpark press release: CleanSpark, Inc. Announces Closing of $2.276 Billion of (09-25-2026)",
      "file": "transcripts/ir/cleanspark_2026-09-25_cleanspark-inc-announces-closing-of-2-276-billion-.txt",
      "why": null
@@ -3105,16 +2763,6 @@
      "why": null
     },
     {
-     "label": "CoreWeave press release: CoreWeave Launches Physical AI Field Engineering to Turn (09-10-2026)",
-     "file": "transcripts/ir/coreweave_2026-09-10_coreweave-launches-physical-ai-field-engineering-t.txt",
-     "why": null
-    },
-    {
-     "label": "CoreWeave press release: CoreWeave Partner Network Accelerates the Path to AI (09-30-2026)",
-     "file": "transcripts/ir/coreweave_2026-09-30_coreweave-partner-network-accelerates-the-path-to-.txt",
-     "why": null
-    },
-    {
      "label": "CoreWeave press release: CoreWeave Prices Upsized $3.7 Billion Convertible Senior (09-18-2026)",
      "file": "transcripts/ir/coreweave_2026-09-18_coreweave-prices-upsized-3-7-billion-convertible-s.txt",
      "why": null
@@ -3187,6 +2835,11 @@
     {
      "label": "Digital Realty press release: Digital Realty Welcomes Governor Abbott's Initiative for (08-07-2026)",
      "file": "transcripts/ir/digitalrealty_2026-08-07_digital-realty-welcomes-governor-abbott-s-initiati.txt",
+     "why": null
+    },
+    {
+     "label": "DigitalOcean press release: AI makes website performance a boardroom priority as (10-20-2026)",
+     "file": "transcripts/ir/digitalocean_2026-10-20_ai-makes-website-performance-a-boardroom-priority-.txt",
      "why": null
     },
     {
@@ -4505,6 +4158,11 @@
      "why": null
     },
     {
+     "label": "Lite-On press release: From Device Edge to Data Center: Key Power Architecture (10-20-2026)",
+     "file": "transcripts/ir/liteon_2026-10-20_from-device-edge-to-data-center-key-power-architec.txt",
+     "why": null
+    },
+    {
      "label": "Lite-On press release: LITEON Showcases NVIDIA 800 VDC Architecture and Thermal (10-14-2026)",
      "file": "transcripts/ir/liteon_2026-10-14_liteon-showcases-nvidia-800-vdc-architecture-and-t.txt",
      "why": null
@@ -4950,6 +4608,11 @@
      "why": null
     },
     {
+     "label": "Mitsubishi Gas Chemical press release: release 261021 (10-21-2026)",
+     "file": "transcripts/ir/mitsubishigaschemical_2026-10-21_release-261021.txt",
+     "why": null
+    },
+    {
      "label": "Mitsubishi Heavy Industries press release: Announcement Regarding the Construction Work of the Giant (09-18-2026)",
      "file": "transcripts/ir/mitsubishiheavyindustries_2026-09-18_announcement-regarding-the-construction-work-of-th.txt",
      "why": null
@@ -4957,6 +4620,11 @@
     {
      "label": "Mitsubishi Heavy Industries press release: Approval in Principle (AiP) Acquired for Standard (09-15-2026)",
      "file": "transcripts/ir/mitsubishiheavyindustries_2026-09-15_approval-in-principle-aip-acquired-for-standard-lo.txt",
+     "why": null
+    },
+    {
+     "label": "Mitsubishi Heavy Industries press release: CONNEX Digital Platform for Integrated Management of the (10-21-2026)",
+     "file": "transcripts/ir/mitsubishiheavyindustries_2026-10-21_connex-digital-platform-for-integrated-management-.txt",
      "why": null
     },
     {
@@ -5420,6 +5088,11 @@
      "why": null
     },
     {
+     "label": "Nitto Boseki press release: Nittobo Joins the HDP (High Density Packaging) User Group, (10-21-2026)",
+     "file": "transcripts/ir/nittoboseki_2026-10-21_nittobo-joins-the-hdp-high-density-packaging-user-.txt",
+     "why": null
+    },
+    {
      "label": "Nitto Boseki press release: Nittobo and Aqualung Carbon Capture sign joint development (10-15-2026)",
      "file": "transcripts/ir/nittoboseki_2026-10-15_nittobo-and-aqualung-carbon-capture-sign-joint-dev.txt",
      "why": null
@@ -5550,6 +5223,11 @@
      "why": null
     },
     {
+     "label": "Novo Nordisk press release: Novo's CagriSema was associated with 25% weight loss on (10-20-2026)",
+     "file": "transcripts/ir/novonordisk_2026-10-20_novo-s-cagrisema-was-associated-with-25-weight-los.txt",
+     "why": null
+    },
+    {
      "label": "NuScale Power press release: NuScale Power Deploys Nuclear-Specific AI from NPX and (08-25-2026)",
      "file": "transcripts/ir/nuscalepower_2026-08-25_nuscale-power-deploys-nuclear-specific-ai-from-npx.txt",
      "why": null
@@ -5637,6 +5315,11 @@
     {
      "label": "Panasonic Holdings press release: Panasonic Develops World's First PTZ Cameras Featuring a (09-02-2026)",
      "file": "transcripts/ir/panasonicholdings_2026-09-02_panasonic-develops-world-s-first-ptz-cameras-featu.txt",
+     "why": null
+    },
+    {
+     "label": "Panasonic Holdings press release: Panasonic HD Develops a World Model for Mobile Work (10-21-2026)",
+     "file": "transcripts/ir/panasonicholdings_2026-10-21_panasonic-hd-develops-a-world-model-for-mobile-wor.txt",
      "why": null
     },
     {
@@ -5980,6 +5663,11 @@
      "why": null
     },
     {
+     "label": "SK Hynix press release: [AI Ecosystem] The semiconductor paradigm shifts toward (10-20-2026)",
+     "file": "transcripts/ir/skhynix_2026-10-20_ai-ecosystem-the-semiconductor-paradigm-shifts-tow.txt",
+     "why": null
+    },
+    {
      "label": "SK Hynix press release: [AI infrastructure insight] Why power and cooling have (09-29-2026)",
      "file": "transcripts/ir/skhynix_2026-09-29_ai-infrastructure-insight-why-power-and-cooling-ha.txt",
      "why": null
@@ -6102,6 +5790,11 @@
     {
      "label": "Sakai Chemical Industry press release: release 3767 (10-13-2026)",
      "file": "transcripts/ir/sakaichemicalindustry_2026-10-13_release-3767.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: \"Discover New Ways to Live Smarter\": Samsung Electronics (10-21-2026)",
+     "file": "transcripts/ir/samsung_2026-10-21_discover-new-ways-to-live-smarter-samsung-electron.txt",
      "why": null
     },
     {
@@ -6375,6 +6068,11 @@
      "why": null
     },
     {
+     "label": "Samsung press release: [Infographic] 80 Years of JBL: From Studios and Stages to (10-21-2026)",
+     "file": "transcripts/ir/samsung_2026-10-21_infographic-80-years-of-jbl-from-studios-and-stage.txt",
+     "why": null
+    },
+    {
      "label": "Samsung press release: [Infographic] Not All Ice Is Created Equal: Discover the (08-18-2026)",
      "file": "transcripts/ir/samsung_2026-08-18_infographic-not-all-ice-is-created-equal-discover-.txt",
      "why": null
@@ -6397,6 +6095,11 @@
     {
      "label": "Samsung press release: [Invitation] Galaxy Event August 2026 (08-20-2026)",
      "file": "transcripts/ir/samsung_2026-08-20_invitation-galaxy-event-august-2026.txt",
+     "why": null
+    },
+    {
+     "label": "Samsung press release: [Photo] Inside Samsung's 'Design Is an Act of Love' (10-21-2026)",
+     "file": "transcripts/ir/samsung_2026-10-21_photo-inside-samsung-s-design-is-an-act-of-love-ex.txt",
      "why": null
     },
     {
@@ -6580,6 +6283,21 @@
      "why": null
     },
     {
+     "label": "Siemens Energy press release: Earnings Release Q3 FY 2026: (08-25-2026)",
+     "file": "transcripts/ir/siemensenergy_2026-08-25_earnings-release-q3-fy-2026.txt",
+     "why": null
+    },
+    {
+     "label": "Siemens Energy press release: Pekka Lundmark succeeds Matthias Rebellius on Siemens (08-25-2026)",
+     "file": "transcripts/ir/siemensenergy_2026-08-25_pekka-lundmark-succeeds-matthias-rebellius-on-siem.txt",
+     "why": null
+    },
+    {
+     "label": "Siemens Energy press release: Third quarter results FY 2026 August 5, 2026 More details (08-05-2026)",
+     "file": "transcripts/ir/siemensenergy_2026-08-05_third-quarter-results-fy-2026-august-5-2026-more-d.txt",
+     "why": null
+    },
+    {
      "label": "Silicon Motion press release: Silicon Motion Earns ISO/SAE 21434 Automotive Cybersecurity (09-09-2026)",
      "file": "transcripts/ir/siliconmotion_2026-09-09_silicon-motion-earns-iso-sae-21434-automotive-cybe.txt",
      "why": null
@@ -6707,6 +6425,11 @@
     {
      "label": "Socionext press release: Socionext Announces Executive Appointment (09-30-2026)",
      "file": "transcripts/ir/socionext_2026-09-30_socionext-announces-executive-appointment.txt",
+     "why": null
+    },
+    {
+     "label": "Socionext press release: Socionext Expands Agentic AI to Advanced, Large-Scale SoC (10-20-2026)",
+     "file": "transcripts/ir/socionext_2026-10-20_socionext-expands-agentic-ai-to-advanced-large-sca.txt",
      "why": null
     },
     {
@@ -6917,6 +6640,11 @@
     {
      "label": "TDK press release: TDK demonstrates the world's first direct retinal (10-02-2026)",
      "file": "transcripts/ir/tdk_2026-10-02_tdk-demonstrates-the-world-s-first-direct-retinal-.txt",
+     "why": null
+    },
+    {
+     "label": "TDK press release: TDK showcases technologies enabling the AI ecosystem at (10-20-2026)",
+     "file": "transcripts/ir/tdk_2026-10-20_tdk-showcases-technologies-enabling-the-ai-ecosyst.txt",
      "why": null
     },
     {
@@ -7270,6 +6998,11 @@
      "why": null
     },
     {
+     "label": "Vicor press release: Vicor Corporation Reports Results for the Third Quarter (10-20-2026)",
+     "file": "transcripts/ir/vicor_2026-10-20_vicor-corporation-reports-results-for-the-third-qu.txt",
+     "why": null
+    },
+    {
      "label": "Vishay press release: Vishay Intertechnology 45 mm Inductive Position Sensor (09-08-2026)",
      "file": "transcripts/ir/vishay_2026-09-08_vishay-intertechnology-45-mm-inductive-position-se.txt",
      "why": null
@@ -7395,6 +7128,11 @@
      "why": null
     },
     {
+     "label": "Wiwynn press release: Recap of Wiwynn at OCP Global Summit 2026: Scaling AI (10-20-2026)",
+     "file": "transcripts/ir/wiwynn_2026-10-20_recap-of-wiwynn-at-ocp-global-summit-2026-scaling-.txt",
+     "why": null
+    },
+    {
      "label": "Wiwynn press release: The Island and the Trees Hits NT$20M: Director LEE (08-03-2026)",
      "file": "transcripts/ir/wiwynn_2026-08-03_the-island-and-the-trees-hits-nt-20m-director-lee-.txt",
      "why": null
@@ -7483,10 +7221,10 @@
    "skipped": 0,
    "source_range": [
     "2026-05-15",
-    "2026-10-20"
+    "2026-10-21"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-20",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-21",
    "enriched_days": [
     {
      "day": "2026-09-25",
@@ -7514,25 +7252,20 @@
     },
     {
      "day": "2026-10-19",
-     "labels": 101
+     "labels": 76
     },
     {
      "day": "2026-10-20",
-     "labels": 1
+     "labels": 33
+    },
+    {
+     "day": "2026-10-21",
+     "labels": 7
     }
    ],
-   "last_sync": "2026-10-19",
+   "last_sync": "2026-10-20",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-07 23:33",
-      "since": "per company (latest call)",
-      "feeds": 387,
-      "saved": 42,
-      "skip": 18,
-      "fail": 121,
-      "seen": 1667
-     },
      {
       "at": "2026-10-12 21:45",
       "since": "per company (latest call)",
@@ -7568,6 +7301,15 @@
       "skip": 15,
       "fail": 129,
       "seen": 1860
+     },
+     {
+      "at": "2026-10-20 23:25",
+      "since": "per company (latest call)",
+      "feeds": 388,
+      "saved": 34,
+      "skip": 14,
+      "fail": 130,
+      "seen": 1899
      }
     ],
     "feeds": 388
@@ -7661,19 +7403,9 @@
      "labels": 1
     }
    ],
-   "last_sync": "2026-10-19",
+   "last_sync": "2026-10-20",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-04 17:40",
-      "since": "2026-09-25",
-      "listed": 21,
-      "ours": 0,
-      "saved": 0,
-      "skipped": 0,
-      "site_saved": 0,
-      "site_skipped": 0
-     },
      {
       "at": "2026-10-12 21:19",
       "since": "2026-09-27",
@@ -7713,6 +7445,16 @@
       "skipped": 0,
       "site_saved": 0,
       "site_skipped": 0
+     },
+     {
+      "at": "2026-10-20 23:36",
+      "since": "2026-10-12",
+      "listed": 53,
+      "ours": 4,
+      "saved": 0,
+      "skipped": 0,
+      "site_saved": 0,
+      "site_skipped": 0
      }
     ]
    }
@@ -7733,19 +7475,19 @@
     "2025-10-15",
     "2026-10-15"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-20",
    "enriched_days": [
     {
      "day": "2026-10-01",
      "labels": 3
     },
     {
-     "day": "2026-10-19",
+     "day": "2026-10-20",
      "labels": 1
     }
    ],
-   "last_sync": "2026-10-19",
+   "last_sync": "2026-10-20",
    "extra": {
     "runs": [
      {
@@ -7774,6 +7516,15 @@
       "skipped": 4,
       "later": 0,
       "seen": 79
+     },
+     {
+      "at": "2026-10-20 23:52",
+      "since": "per company (latest call)",
+      "company": "all",
+      "saved": 0,
+      "skipped": 0,
+      "later": 0,
+      "seen": 84
      }
     ]
    }
@@ -7802,19 +7553,9 @@
      "labels": 1
     }
    ],
-   "last_sync": "2026-10-19",
+   "last_sync": "2026-10-20",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-04 17:40",
-      "since": "2026-09-25",
-      "listed": 21,
-      "ours": 0,
-      "saved": 0,
-      "skipped": 0,
-      "site_saved": 0,
-      "site_skipped": 0
-     },
      {
       "at": "2026-10-12 21:19",
       "since": "2026-09-27",
@@ -7854,6 +7595,16 @@
       "skipped": 0,
       "site_saved": 0,
       "site_skipped": 0
+     },
+     {
+      "at": "2026-10-20 23:36",
+      "since": "2026-10-12",
+      "listed": 53,
+      "ours": 4,
+      "saved": 0,
+      "skipped": 0,
+      "site_saved": 0,
+      "site_skipped": 0
      }
     ]
    }
@@ -7863,8 +7614,8 @@
    "name": "China IR records + investor Q&A",
    "command": "enrich china",
    "source": "cninfo 投资者关系活动记录表 + SZSE 互动易 / SSE e互动 answers (cninfo.py) — management Q&A, not calls",
-   "files": 273,
-   "labels_on_disk": 273,
+   "files": 278,
+   "labels_on_disk": 278,
    "in_graph": 177,
    "entries": 432,
    "pending": [],
@@ -7935,6 +7686,11 @@
      "why": null
     },
     {
+     "label": "Gaolan investor Q&A: SZSE Interactive Easy (10-20-2026)",
+     "file": "transcripts/cninfo/gaolan_2026-10-20_qa_szse.txt",
+     "why": null
+    },
+    {
      "label": "HGTECH investor Q&A: SZSE Interactive Easy (10-15-2026)",
      "file": "transcripts/cninfo/hgtech_2026-10-15_qa_szse.txt",
      "why": null
@@ -7967,6 +7723,11 @@
     {
      "label": "Huafeng Technology investor Q&A: SSE e-Interactive (10-12-2026)",
      "file": "transcripts/cninfo/huafengtechnology_2026-10-12_qa_sse.txt",
+     "why": null
+    },
+    {
+     "label": "Huafeng Technology investor Q&A: SSE e-Interactive (10-19-2026)",
+     "file": "transcripts/cninfo/huafengtechnology_2026-10-19_qa_sse.txt",
      "why": null
     },
     {
@@ -8130,6 +7891,16 @@
      "why": null
     },
     {
+     "label": "Longsys investor Q&A: SZSE Interactive Easy (10-20-2026)",
+     "file": "transcripts/cninfo/longsys_2026-10-20_qa_szse.txt",
+     "why": null
+    },
+    {
+     "label": "Megmeet investor Q&A: SZSE Interactive Easy (10-20-2026)",
+     "file": "transcripts/cninfo/megmeet_2026-10-20_qa_szse.txt",
+     "why": null
+    },
+    {
      "label": "Montage Technology investor Q&A: SSE e-Interactive (09-11-2026)",
      "file": "transcripts/cninfo/montagetechnology_2026-09-11_qa_sse.txt",
      "why": null
@@ -8290,6 +8061,11 @@
      "why": null
     },
     {
+     "label": "WUS Printed Circuit IR activity record: 2026-1020-042 (10-20-2026)",
+     "file": "transcripts/cninfo/wusprintedcircuit_2026-10-20_record_1225612453.txt",
+     "why": null
+    },
+    {
      "label": "WUS Printed Circuit investor Q&A: SZSE Interactive Easy (10-15-2026)",
      "file": "transcripts/cninfo/wusprintedcircuit_2026-10-15_qa_szse.txt",
      "why": null
@@ -8353,10 +8129,10 @@
    "skipped": 0,
    "source_range": [
     "2026-04-16",
-    "2026-10-19"
+    "2026-10-20"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-20",
    "enriched_days": [
     {
      "day": "2026-10-01",
@@ -8372,22 +8148,16 @@
     },
     {
      "day": "2026-10-19",
-     "labels": 28
+     "labels": 1
+    },
+    {
+     "day": "2026-10-20",
+     "labels": 27
     }
    ],
-   "last_sync": "2026-10-20",
+   "last_sync": "2026-10-21",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-05 11:25",
-      "since": "2026-08-25",
-      "company": "SJ Semiconductor",
-      "records": 0,
-      "qa_files": 0,
-      "answers_kept": 0,
-      "answers_skipped": 0,
-      "skipped": 0
-     },
      {
       "at": "2026-10-05 11:25",
       "since": "2026-08-25",
@@ -8427,6 +8197,16 @@
       "answers_kept": 108,
       "answers_skipped": 103,
       "skipped": 0
+     },
+     {
+      "at": "2026-10-21 14:50",
+      "since": "per company",
+      "company": "all",
+      "records": 1,
+      "qa_files": 4,
+      "answers_kept": 6,
+      "answers_skipped": 31,
+      "skipped": 0
      }
     ]
    }
@@ -8436,19 +8216,19 @@
    "name": "China periodic reports",
    "command": "enrich china",
    "source": "cninfo 年度报告 / 半年度报告 / 季度报告 (cninfo.py reports) — company statutory reports, not transcripts",
-   "files": 316,
-   "labels_on_disk": 161,
-   "in_graph": 161,
-   "entries": 1427,
+   "files": 319,
+   "labels_on_disk": 164,
+   "in_graph": 164,
+   "entries": 1433,
    "pending": [],
    "no_data": [],
    "skipped": 0,
    "source_range": [
     "2026-02-28",
-    "2026-10-20"
+    "2026-10-21"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-21",
    "enriched_days": [
     {
      "day": "2026-10-06",
@@ -8460,20 +8240,20 @@
     },
     {
      "day": "2026-10-19",
-     "labels": 11
+     "labels": 9
+    },
+    {
+     "day": "2026-10-20",
+     "labels": 2
+    },
+    {
+     "day": "2026-10-21",
+     "labels": 3
     }
    ],
-   "last_sync": "2026-10-20",
+   "last_sync": "2026-10-21",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-05 09:47",
-      "since": "per company",
-      "company": "Innolight",
-      "saved": 0,
-      "skipped": 0,
-      "failed": 0
-     },
      {
       "at": "2026-10-05 11:07",
       "since": "per company",
@@ -8500,6 +8280,14 @@
      },
      {
       "at": "2026-10-20 13:18",
+      "since": "per company",
+      "company": "all",
+      "saved": 2,
+      "skipped": 0,
+      "failed": 0
+     },
+     {
+      "at": "2026-10-21 14:56",
       "since": "per company",
       "company": "all",
       "saved": 2,
@@ -8631,8 +8419,8 @@
     "2026-09-09",
     "2026-10-20"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-20",
    "enriched_days": [
     {
      "day": "2026-10-01",
@@ -8652,25 +8440,16 @@
     },
     {
      "day": "2026-10-19",
-     "labels": 4
+     "labels": 1
+    },
+    {
+     "day": "2026-10-20",
+     "labels": 3
     }
    ],
-   "last_sync": "2026-10-19",
+   "last_sync": "2026-10-20",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-04 19:03",
-      "days": "20260905..20261005",
-      "companies": [
-       "Fuso Chemical"
-      ],
-      "listed": 5691,
-      "ours": 0,
-      "saved": 0,
-      "skipped": 0,
-      "later": 0,
-      "skip_reasons": {}
-     },
      {
       "at": "2026-10-06 02:20",
       "days": "20260906..20261006",
@@ -8734,6 +8513,21 @@
        "English duplicate": 2,
        "results-date notice": 1,
        "stock compensation": 1
+      }
+     },
+     {
+      "at": "2026-10-20 23:44",
+      "days": "20261016..20261021",
+      "companies": null,
+      "listed": 774,
+      "ours": 31,
+      "saved": 0,
+      "skipped": 6,
+      "later": 3,
+      "skip_reasons": {
+       "other notice type": 3,
+       "officer change": 2,
+       "correction": 1
       }
      }
     ]
@@ -8861,8 +8655,8 @@
     "2025-10-15",
     "2026-10-14"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-20",
    "enriched_days": [
     {
      "day": "2026-10-06",
@@ -8873,11 +8667,11 @@
      "labels": 1
     },
     {
-     "day": "2026-10-19",
+     "day": "2026-10-20",
      "labels": 3
     }
    ],
-   "last_sync": "2026-10-20",
+   "last_sync": "2026-10-21",
    "extra": {
     "runs": [
      {
@@ -8909,6 +8703,16 @@
       "skipped": 0,
       "later": 0,
       "already": 1
+     },
+     {
+      "at": "2026-10-20 23:44",
+      "days": "2026-10-17..2026-10-21",
+      "companies": null,
+      "reports": 0,
+      "saved": 0,
+      "skipped": 0,
+      "later": 0,
+      "already": 0
      }
     ]
    }
@@ -8918,27 +8722,11 @@
    "name": "Taiwan MOPS filings",
    "command": "enrich taiwan",
    "source": "MOPS 法說會 decks, important 重大訊息 and monthly revenue (mops.py) — company filings, not transcripts",
-   "files": 521,
-   "labels_on_disk": 521,
-   "in_graph": 451,
-   "entries": 635,
-   "pending": [
-    {
-     "company": "WinWay Technology",
-     "label": "WinWay Technology IR presentation: MOPS 651520260306E001 (03-09-2026)",
-     "file": "transcripts/mops/winwaytechnology_2026-03-09_deck_651520260306E001.txt"
-    },
-    {
-     "company": "WinWay Technology",
-     "label": "WinWay Technology IR presentation: MOPS 651520260514E001 (05-14-2026)",
-     "file": "transcripts/mops/winwaytechnology_2026-05-14_deck_651520260514E001.txt"
-    },
-    {
-     "company": "WinWay Technology",
-     "label": "WinWay Technology MOPS material information: release 6515-20260225-5 (02-25-2026)",
-     "file": "transcripts/mops/winwaytechnology_2026-02-25_material_6515-20260225-5.txt"
-    }
-   ],
+   "files": 522,
+   "labels_on_disk": 522,
+   "in_graph": 455,
+   "entries": 639,
+   "pending": [],
    "no_data": [
     {
      "label": "AcBel Polytech IR presentation: MOPS 628220260914E001 (09-15-2026)",
@@ -9281,8 +9069,8 @@
     "2026-02-25",
     "2026-10-29"
    ],
-   "last_fetch": "2026-10-19",
-   "last_enriched": "2026-10-19",
+   "last_fetch": "2026-10-20",
+   "last_enriched": "2026-10-21",
    "enriched_days": [
     {
      "day": "2026-10-01",
@@ -9302,22 +9090,20 @@
     },
     {
      "day": "2026-10-19",
-     "labels": 7
+     "labels": 2
+    },
+    {
+     "day": "2026-10-20",
+     "labels": 5
+    },
+    {
+     "day": "2026-10-21",
+     "labels": 4
     }
    ],
-   "last_sync": "2026-10-19",
+   "last_sync": "2026-10-20",
    "extra": {
     "runs": [
-     {
-      "at": "2026-10-19 22:16",
-      "since": "per company",
-      "companies": 135,
-      "deck_saved": 0,
-      "deck_skipped": 0,
-      "material_saved": 4,
-      "material_skipped": 28,
-      "revenue_saved": 0
-     },
      {
       "at": "2026-10-19 23:14",
       "since": "2026-07-01",
@@ -9357,6 +9143,16 @@
       "material_saved": 1,
       "material_skipped": 36,
       "revenue_saved": 0
+     },
+     {
+      "at": "2026-10-20 23:43",
+      "since": "per company",
+      "companies": 135,
+      "deck_saved": 0,
+      "deck_skipped": 1,
+      "material_saved": 1,
+      "material_skipped": 16,
+      "revenue_saved": 0
      }
     ]
    }
@@ -9366,10 +9162,10 @@
    "name": "Pasted transcripts",
    "command": "Transcript:<company>",
    "source": "URL / pasted text enriched directly in Claude Code",
-   "files": 634,
-   "labels_on_disk": 461,
-   "in_graph": 562,
-   "entries": 2681,
+   "files": 636,
+   "labels_on_disk": 462,
+   "in_graph": 563,
+   "entries": 2697,
    "pending": [],
    "no_data": [
     {
@@ -9738,8 +9534,8 @@
     "2019-03-04",
     "2026-10-19"
    ],
-   "last_fetch": "2026-10-20",
-   "last_enriched": "2026-10-20",
+   "last_fetch": "2026-10-21",
+   "last_enriched": "2026-10-21",
    "enriched_days": [
     {
      "day": "2026-09-04",
@@ -9779,14 +9575,18 @@
     },
     {
      "day": "2026-10-19",
-     "labels": 12
+     "labels": 5
     },
     {
      "day": "2026-10-20",
-     "labels": 2
+     "labels": 9
+    },
+    {
+     "day": "2026-10-21",
+     "labels": 1
     }
    ],
-   "last_sync": "2026-10-20",
+   "last_sync": "2026-10-21",
    "extra": {}
   }
  ],
@@ -11662,18 +11462,6 @@
   },
   {
    "day": "2026-10-20",
-   "pipeline": "us",
-   "files": 463,
-   "in_graph": 462,
-   "pending": 0,
-   "last_sync": "2026-10-18",
-   "source_range": [
-    "2025-11-05",
-    "2026-10-15"
-   ]
-  },
-  {
-   "day": "2026-10-20",
    "pipeline": "edgar",
    "files": 2453,
    "in_graph": 900,
@@ -11730,18 +11518,6 @@
    "source_range": [
     "2026-07-20",
     "2026-10-13"
-   ]
-  },
-  {
-   "day": "2026-10-20",
-   "pipeline": "ir",
-   "files": 1801,
-   "in_graph": 715,
-   "pending": 0,
-   "last_sync": "2026-10-19",
-   "source_range": [
-    "2026-05-15",
-    "2026-10-20"
    ]
   },
   {
@@ -11851,24 +11627,224 @@
     "2019-03-04",
     "2026-10-19"
    ]
+  },
+  {
+   "day": "2026-10-20",
+   "pipeline": "us",
+   "files": 463,
+   "in_graph": 462,
+   "pending": 1,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2025-11-05",
+    "2026-10-15"
+   ]
+  },
+  {
+   "day": "2026-10-20",
+   "pipeline": "ir",
+   "files": 1801,
+   "in_graph": 715,
+   "pending": 15,
+   "last_sync": "2026-10-19",
+   "source_range": [
+    "2026-05-15",
+    "2026-10-20"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "us",
+   "files": 468,
+   "in_graph": 467,
+   "pending": 0,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2025-11-05",
+    "2026-10-20"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "edgar",
+   "files": 2479,
+   "in_graph": 945,
+   "pending": 94,
+   "last_sync": "2026-10-21",
+   "source_range": [
+    "2025-05-15",
+    "2026-10-20"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "dart",
+   "files": 175,
+   "in_graph": 200,
+   "pending": 0,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2026-03-10",
+    "2026-10-20"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "tw",
+   "files": 18,
+   "in_graph": 18,
+   "pending": 0,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2026-02-26",
+    "2026-08-28"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "conference",
+   "files": 176,
+   "in_graph": 174,
+   "pending": 0,
+   "last_sync": "2026-10-19",
+   "source_range": [
+    "2026-07-20",
+    "2026-10-13"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "ir",
+   "files": 1835,
+   "in_graph": 729,
+   "pending": 0,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2026-05-15",
+    "2026-10-21"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "kind",
+   "files": 51,
+   "in_graph": 40,
+   "pending": 0,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2026-04-23",
+    "2026-10-16"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "utility",
+   "files": 8,
+   "in_graph": 4,
+   "pending": 0,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2025-10-15",
+    "2026-10-15"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "krcalls",
+   "files": 1,
+   "in_graph": 1,
+   "pending": 0,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2026-07-30",
+    "2026-07-30"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "cninfo",
+   "files": 278,
+   "in_graph": 177,
+   "pending": 0,
+   "last_sync": "2026-10-21",
+   "source_range": [
+    "2026-04-16",
+    "2026-10-20"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "cnreports",
+   "files": 319,
+   "in_graph": 164,
+   "pending": 0,
+   "last_sync": "2026-10-21",
+   "source_range": [
+    "2026-02-28",
+    "2026-10-21"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "tdnet",
+   "files": 45,
+   "in_graph": 24,
+   "pending": 0,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2026-09-09",
+    "2026-10-20"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "edinet",
+   "files": 524,
+   "in_graph": 252,
+   "pending": 0,
+   "last_sync": "2026-10-21",
+   "source_range": [
+    "2025-10-15",
+    "2026-10-14"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "mops",
+   "files": 522,
+   "in_graph": 455,
+   "pending": 0,
+   "last_sync": "2026-10-20",
+   "source_range": [
+    "2026-02-25",
+    "2026-10-29"
+   ]
+  },
+  {
+   "day": "2026-10-21",
+   "pipeline": "manual",
+   "files": 636,
+   "in_graph": 563,
+   "pending": 0,
+   "last_sync": "2026-10-21",
+   "source_range": [
+    "2019-03-04",
+    "2026-10-19"
+   ]
   }
  ],
  "board": {
-  "today": "2026-10-20",
+  "today": "2026-10-21",
   "markets": [
    {
     "id": "US",
     "name": "United States",
     "command": "enrich us",
     "companies": 285,
-    "call_current": 275,
+    "call_current": 277,
     "overdue": [],
-    "never": [
-     "Duos Technologies"
-    ],
-    "nothing": [
-     "Duos Technologies"
-    ],
+    "never": [],
+    "nothing": [],
     "dart_never": [],
     "marked": [
      {
@@ -11902,12 +11878,6 @@
       "recheck": "2027-01-17"
      },
      {
-      "company": "Micron",
-      "source": "call",
-      "why": "Q4 FY2026 MAIN earnings call (09-30-2026, Sanjay Mehrotra; prepared remarks end 'We will now open for questions'): no full transcript anywhere - Alpha Vantage MU 2026Q4, defeatbeta MU 2026Q4 and Motley Fool (10-01 'q4-2026-earnings-call-transcript') all carry only the separate POST-EARNINGS ANALYST CALL (already enriched as 'Micron post-earnings analyst call 2026 (09-30-2026)'); Micron IR posts only the prepared-remarks PDF (a script, not used), deck and release; no official YouTube upload. Checked 2026-10-05",
-      "recheck": "2026-10-20"
-     },
-     {
       "company": "POET Technologies",
       "source": "call",
       "why": "Q2 2026 (08-13-2026): POET did not host an earnings call - the Q2 results release and both 08-13 6-Ks announce no call/webcast; IR page lists no call since a 2022 business-update call; not on Alpha Vantage (2025Q4-2026Q3 empty), defeatbeta (no POET transcripts), Motley Fool (sitemaps Aug-Sep 2026); official YouTube has only a 09-30-2026 CEO 'Business Update' video (15 min, auto captions), not a call. Checked 2026-10-05",
@@ -11927,12 +11897,10 @@
      }
     ],
     "feeds": 218,
-    "waiting": {
-     "conference": 19
-    },
+    "waiting": {},
     "collectors": {
-     "us": "2026-10-18",
-     "utility": "2026-10-19"
+     "us": "2026-10-20",
+     "utility": "2026-10-20"
     }
    },
    {
@@ -12085,6 +12053,12 @@
       "recheck": "2027-04-15"
      },
      {
+      "company": "Lotte Energy Materials",
+      "source": "logo",
+      "why": "no companieslogo / Wikidata logo; official sites (gracefabric.com, skyverse.cn from the annual reports; lotteenergymaterials.com; sypc.co.kr) expose no logo asset in their HTML - og:image is a tiny Korean wordmark on a 1200x630 canvas for Lotte (checked 2026-10-20)",
+      "recheck": "2026-11-20"
+     },
+     {
       "company": "Samsung Electro-Mechanics",
       "source": "call",
       "why": "Q2 2026 call (07-30-2026): no full transcript. Investing.com search + transcript listing walked 07-17..08-05 (no SEMCO article); SEMCO IR site (global + kr earnings-release / archive) has only the results PDF and a login-gated Teletogether audio replay; no official YouTube upload. Checked 2026-10-05",
@@ -12094,8 +12068,8 @@
     "feeds": 25,
     "waiting": {},
     "collectors": {
-     "dart": "2026-10-19",
-     "kind": "2026-10-19"
+     "dart": "2026-10-20",
+     "kind": "2026-10-20"
     }
    },
    {
@@ -12248,13 +12222,11 @@
      }
     ],
     "feeds": 49,
-    "waiting": {
-     "mops": 3
-    },
+    "waiting": {},
     "collectors": {
      "intl": "2026-10-20",
-     "tw": "2026-10-19",
-     "mops": "2026-10-19"
+     "tw": "2026-10-20",
+     "mops": "2026-10-20"
     }
    },
    {
@@ -12913,8 +12885,8 @@
     "waiting": {},
     "collectors": {
      "intl": "2026-10-20",
-     "tdnet": "2026-10-19",
-     "edinet": "2026-10-20"
+     "tdnet": "2026-10-20",
+     "edinet": "2026-10-21"
     }
    },
    {
@@ -12960,7 +12932,7 @@
     "id": "CN",
     "name": "China / Hong Kong",
     "command": "enrich china",
-    "companies": 118,
+    "companies": 119,
     "call_current": 4,
     "overdue": [],
     "never": [
@@ -12981,6 +12953,7 @@
      "Delton Technology",
      "Dingtong Technology",
      "Dongshan Precision",
+     "Enflame",
      "Envicool",
      "Eoptolink",
      "Everbright Photonics",
@@ -13087,14 +13060,26 @@
       "source": "logo",
       "why": "no reliable logo (checked 2026-10-19): cninfo confirms 301217 and homepage www.ahtgtb.com, but the site times out on http and https; companieslogo and Wikidata have no entry",
       "recheck": "2027-01-17"
+     },
+     {
+      "company": "Grace Fabric Technology",
+      "source": "logo",
+      "why": "no companieslogo / Wikidata logo; official sites (gracefabric.com, skyverse.cn from the annual reports; lotteenergymaterials.com; sypc.co.kr) expose no logo asset in their HTML - og:image is a tiny Korean wordmark on a 1200x630 canvas for Lotte (checked 2026-10-20)",
+      "recheck": "2026-11-20"
+     },
+     {
+      "company": "Skyverse Technology",
+      "source": "logo",
+      "why": "no companieslogo / Wikidata logo; official sites (gracefabric.com, skyverse.cn from the annual reports; lotteenergymaterials.com; sypc.co.kr) expose no logo asset in their HTML - og:image is a tiny Korean wordmark on a 1200x630 canvas for Lotte (checked 2026-10-20)",
+      "recheck": "2026-11-20"
      }
     ],
     "feeds": 12,
     "waiting": {},
     "collectors": {
      "intl": "2026-10-20",
-     "cninfo": "2026-10-20",
-     "cnreports": "2026-10-20"
+     "cninfo": "2026-10-21",
+     "cnreports": "2026-10-21"
     }
    },
    {
@@ -13139,43 +13124,41 @@
    {
     "command": "Opus verifier over verify_queue.json",
     "reasons": [
-     "99 applied labels are waiting for the independent check (rule: at 5+)"
+     "143 applied labels are waiting for the independent check (rule: at 5+)"
     ]
    },
    {
     "command": "enrich us",
     "reasons": [
-     "19 fetched file(s) waiting to be enriched (19 conference)",
-     "US call sync (av.py) last ran 2 days ago (2026-10-18)",
-     "utility regulatory-filing sync (utility_filings.py) last ran 1 days ago (2026-10-19)",
-     "1 never had a call enriched (fetch with defeatbeta, mark the ones with none): Duos Technologies"
+     "US call sync (av.py) last ran 1 days ago (2026-10-20)",
+     "utility regulatory-filing sync (utility_filings.py) last ran 1 days ago (2026-10-20)"
     ]
    },
    {
     "command": "enrich korea",
     "reasons": [
-     "DART sync (dart.py) last ran 1 days ago (2026-10-19)",
-     "KIND IR deck sync (kind.py) last ran 1 days ago (2026-10-19)"
+     "DART sync (dart.py) last ran 1 days ago (2026-10-20)",
+     "KIND IR deck sync (kind.py) last ran 1 days ago (2026-10-20)"
     ]
    },
    {
     "command": "enrich edgar",
     "reasons": [
-     "165 filings queued"
+     "94 filings queued"
     ]
    },
    {
     "command": "enrich taiwan",
     "reasons": [
-     "3 fetched file(s) waiting to be enriched (3 MOPS filing)",
-     "Taiwan Chinese-call sync (tw.py) last ran 1 days ago (2026-10-19)",
-     "MOPS sync (mops.py) last ran 1 days ago (2026-10-19)"
+     "Investing.com call sync (investing.py) last ran 1 days ago (2026-10-20) — one sync serves Taiwan, Japan, Europe and China",
+     "Taiwan Chinese-call sync (tw.py) last ran 1 days ago (2026-10-20)",
+     "MOPS sync (mops.py) last ran 1 days ago (2026-10-20)"
     ]
    },
    {
     "command": "enrich japan",
     "reasons": [
-     "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 1 days ago (2026-10-19)"
+     "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days) last ran 1 days ago (2026-10-20)"
     ]
    }
   ],
@@ -13185,19 +13168,29 @@
   "questions": [],
   "shared": {
    "ir": {
-    "last_sync": "2026-10-19",
+    "last_sync": "2026-10-20",
     "days": 1,
     "due": true,
     "feeds": 388
    },
    "conference": {
     "last_sync": "2026-10-19",
-    "days": 1,
+    "days": 2,
     "due": true
    }
   },
-  "verify_pending": 99,
+  "verify_pending": 143,
   "notes": [
+   {
+    "at": "2026-10-21 01:22",
+    "market": "US",
+    "text": "2026-10-21 nightly: EDGAR queue has 94 rows left - D-Wave, Quantum Computing Inc, Quantinuum, Infleqtion, Pasqal, IQM, Horizon Quantum, Xanadu, IES, Primoris, MasTec, MYR, Fluor, Jacobs, ArcelorMittal (12), IBM, Unisys, Penguin; take them company by company. The conference listing walk (investing.py conferences) did not run (stopped for low memory). Alpha Vantage's calendar missed the 10-20 calls of Vicor, SpaceX, 3M and Northrop Grumman - a defeatbeta scan of every US ticker (calls dated since 10-10) found and saved them; repeat that scan each night during earnings season. Missed facts the verifier listed (not added): Microsoft release-only Q4 figures belong under 'Microsoft 8-K (07-29-2026)'; Microsoft 10-K OpenAI ~25% stake / $13B commitment (strategic-equity contract); UMC customer list names MediaTek (possible customer-list edge); Akamai warrant tie to Anthropic cloud purchases; SpaceX ~100x Starlink bandwidth target; Duos $30M Columbus site purchase."
+   },
+   {
+    "at": "2026-10-21 01:06",
+    "market": "all",
+    "text": "2026-10-21 nightly (session 1eab1f7b): graph_build.py --sync was stopped by Claude Code's low-memory guard right after apply_patches (all 108 of tonight's patches + 15 correction items are in chains/); merge / derive / verify_graph / evidence / board / web sync / i18n did not run in the session - nightly.ps1 reruns the build outside. One patch waits in patches/: waitlist_enflame_prospectus_2026-09-07_tencent_edge.json (Enflame -> Tencent edge; the Tencent foundry.json placement it needs is already applied; check_patch clean). Next session: i18n pending -> translate -> merge -> build. 143 labels wait in verify_queue (63 verified tonight). Siemens Energy's 4 IR files of 08-05/08-25 hold only the press-portal page (truncated SOURCE URLs) - re-pull them."
+   },
    {
     "at": "2026-10-20 01:04",
     "market": "US",
@@ -13237,169 +13230,9 @@
     "at": "2026-10-18 01:05",
     "market": "all",
     "text": "2026-10-18 nightly (session b62dfa03): transcript-quality pass (skill 10a) re-fetched verbatim speaker-labelled copies for 46 call labels (transcripts/av/, same labels) with delta patches + correction files, all pre-verified by independent Opus verifiers. Still flagged in graph/transcript_quality.json and NOT re-fetched: Fujitsu Q1 FY2027 (Investing.com), IQE FY2025, ASMPT Q1, ABB Q1, Schneider Q1 (non-US, need Investing.com / company copies); Magnachip Q2 and ChipMOS Q2 (defeatbeta copies also have no speaker labels, checked 2026-10-18); KeyCorp Q2 (not a graph company - nothing to fix). The old condensed / unlabelled files remain beside the new ones (question recorded). Relations backfill night 1: TSMC, NVIDIA, Samsung, SK Hynix, Microsoft done."
-   },
-   {
-    "at": "2026-10-17 02:07",
-    "market": "US",
-    "text": "2026-10-17 01:30-03:00 (same nightly, on the user's request relayed from another session): verbatim re-pass of calls first enriched from condensed / unlabelled files - defeatbeta verbatim saved to transcripts/av/ under the existing labels: Microsoft Q4 FY2026, Google Q2, Amazon Q2, Meta Q2, Nebius Q2, Apple Q3 FY2026; 6 delta patches (*_verbatim.json) + correction proposals (patches/corrections/verbatim-1017-*.json, incl. SK Hynix Q2 call attribution made neutral where Investing.com swapped speaker labels), each checked by an independent Opus verifier before apply."
-   },
-   {
-    "at": "2026-10-17 00:00",
-    "market": "US",
-    "text": "2026-10-16/17 nightly enrich: board said nothing due; av.py sync saved 0 (only the 5 marked known gaps). Alpha Vantage's earnings calendar does not list TSM, so TSMC's Q3 call (10-15) was fetched from defeatbeta (utils/defeatbeta_fetch.py \"TSMC\" TSM --fy 2026 --q 3) and enriched: 10 entries, Opus verifier 3 wording fixes (patches/corrections/applied/verify-1017-tsmc.json). A defeatbeta scan of every US-market ticker for calls dated 10-06..10-16 found nothing else missing. Next quarters: TSMC must be fetched by hand (defeatbeta) each mid-Jan/Apr/Jul/Oct. Also: the 'us' sync cadence compares dates, so a nightly that finishes after midnight counts as today's sync; the board's refresh took ~18 min (enrich_status.py, ~1.5 GB)."
    }
   ],
   "gaps": [
-   {
-    "company": "Duos Technologies",
-    "gap": "no own data",
-    "source": "any"
-   },
-   {
-    "company": "Cognition",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "FPT Corporation",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Fluidstack",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Grace Fabric Technology",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "HyperAccel",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Korea AI Computing Center (KOACC)",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "LS Cable & System",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Lotte Energy Materials",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "MicroBT",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Mobilint",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Monarch Quantum",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Rehlko",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "SK Trichem",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Samyoung Pure Chemicals",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Skyverse Technology",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "SolarEdge",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "TerraPower",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Tokai Carbon Co.",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "UTAC",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Vultr",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Zealand Pharma",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "insitro",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Advanced Fiber Resources",
-    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
-    "source": "media"
-   },
-   {
-    "company": "Ajinomoto Fine-Techno",
-    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
-    "source": "media"
-   },
-   {
-    "company": "Axiom Space",
-    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
-    "source": "media"
-   },
-   {
-    "company": "Biwin Storage Technology",
-    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
-    "source": "media"
-   },
-   {
-    "company": "Black Forest Labs",
-    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
-    "source": "media"
-   },
-   {
-    "company": "Blue Origin",
-    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
-    "source": "media"
-   },
-   {
-    "company": "CXMT",
-    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
-    "source": "media"
-   },
    {
     "company": "CoolIT Systems",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
@@ -13472,6 +13305,11 @@
    },
    {
     "company": "GMI",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Global Standard Technology",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    },
@@ -13592,11 +13430,6 @@
    },
    {
     "company": "Korea Circuit",
-    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
-    "source": "media"
-   },
-   {
-    "company": "LS Eco Energy",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    },
@@ -13737,11 +13570,6 @@
    },
    {
     "company": "Solidigm",
-    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
-    "source": "media"
-   },
-   {
-    "company": "Sumitomo Electric",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    },
@@ -15621,6 +15449,11 @@
     "source": "ir"
    },
    {
+    "company": "Enflame",
+    "gap": "no IR feed (find the newsroom: ir_pull.py discover)",
+    "source": "ir"
+   },
+   {
     "company": "Envicool",
     "gap": "no IR feed (find the newsroom: ir_pull.py discover)",
     "source": "ir"
@@ -16154,11 +15987,6 @@
     "company": "Zealand Pharma",
     "gap": "no IR feed (find the newsroom: ir_pull.py discover)",
     "source": "ir"
-   },
-   {
-    "company": "Duos Technologies",
-    "gap": "never had a call enriched",
-    "source": "call"
    },
    {
     "company": "AD Technology",
@@ -17486,6 +17314,11 @@
     "source": "call"
    },
    {
+    "company": "Enflame",
+    "gap": "never had a call enriched",
+    "source": "call"
+   },
+   {
     "company": "Envicool",
     "gap": "never had a call enriched",
     "source": "call"
@@ -18033,152 +17866,152 @@
   ],
   "gap_batch": [
    {
-    "company": "Duos Technologies",
-    "gap": "no own data",
-    "source": "any"
+    "company": "CoolIT Systems",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
    },
    {
-    "company": "Cognition",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
+    "company": "Cowboy Space",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
    },
    {
-    "company": "FPT Corporation",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
+    "company": "DB HiTek",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Daeduck Electronics",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Datasection",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Delta Electronics",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Disco Corporation",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Doosan Corporation",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Doosan Enerbility",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Duksan Hi-Metal",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "EO Technics",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Elite Material",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
    },
    {
     "company": "Fluidstack",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "FuriosaAI",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "GMI",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Global Standard Technology",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
    },
    {
     "company": "Grace Fabric Technology",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "HyperAccel",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Korea AI Computing Center (KOACC)",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "LS Cable & System",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Lotte Energy Materials",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "MicroBT",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Mobilint",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Monarch Quantum",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Rehlko",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "SK Trichem",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Samyoung Pure Chemicals",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Skyverse Technology",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "SolarEdge",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "TerraPower",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Tokai Carbon Co.",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "UTAC",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Vultr",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Zealand Pharma",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "insitro",
-    "gap": "no logo (docs/memory/logo_fetching.md)",
-    "source": "logo"
-   },
-   {
-    "company": "Advanced Fiber Resources",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    },
    {
-    "company": "Ajinomoto Fine-Techno",
+    "company": "HD Hyundai Electric",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    },
    {
-    "company": "Axiom Space",
+    "company": "Han's CNC Technology",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    },
    {
-    "company": "Biwin Storage Technology",
+    "company": "Hana Micron",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    },
    {
-    "company": "Black Forest Labs",
+    "company": "Hanmi Semiconductor",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    },
    {
-    "company": "Blue Origin",
+    "company": "Hansol Chemical",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    },
    {
-    "company": "CXMT",
+    "company": "Helix Digital Infrastructure",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Huafeng Technology",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Huawei",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Hyosung Heavy Industries",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "ISTE",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Ibiden",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Indosat",
+    "gap": "no executive on the news-interview roster (media/roster_additions.json)",
+    "source": "media"
+   },
+   {
+    "company": "Innolight",
     "gap": "no executive on the news-interview roster (media/roster_additions.json)",
     "source": "media"
    }
@@ -19037,6 +18870,78 @@
     "at": "2026-10-20",
     "answer": "Claude decision 2026-10-19 (independent Opus verifier, user delegated): approved (1) Duos Technologies (NASDAQ DUOT) new node in neocloud.json cloud_infra / Datacenter Colocation, edge Duos -> Axe Compute (Columbus GA site, +55 MW; Axe call + 8-Ks); (2) Axe Compute second placement in nand_flash.json Neocloud for WEKA -> Axe Compute storage; (3) 3M placement in optical_networking.json interconnect / Components for GSEO -> 3M (EBO ferrules / CPO manufacturing partner) and 3M -> Amazon (warrant vesting on optical-connectivity purchases); (4) ChronoScale second placement in neocloud.json for ChronoScale -> Together AI (10-K: sole Cloud customer, H100); (5) ASPEED second placement in ai_security_trusted_compute.json for eMemory -> ASPEED (PUFrt in ASPEED Caliptra products). Rejected: Aethir (token network), Nutanix (framework only), Verily / Pfizer (collaborations), Supermicro -> Axe (servers came with the Duos SPV).",
     "answered": "2026-10-20",
+    "by": "claude"
+   },
+   {
+    "subject": "Honeywell Aerospace",
+    "question": "The Q2 FY2026 call gives adjusted EPS $1.78 while the same-day results release (8-K 08-05-2026) prints $1.87 - transcription error (SKILL 6 call vs filed figure) or a different basis?",
+    "label": "Honeywell Aerospace 8-K (08-05-2026)",
+    "at": "2026-10-20",
+    "answer": "Different basis, not a transcription error: the CFO says he discusses profit metrics on a pro forma standalone basis and the call's adjusted EBIT change (-2%) also differs from the release (-7%). The call entry keeps $1.78, labelled pro forma standalone (correction V1_1); the release figure $1.87 is recorded under the 8-K label. A figure with a different stated basis is kept and labelled with that basis (independent Opus verifier V1).",
+    "answered": "2026-10-20",
+    "by": "claude"
+   },
+   {
+    "subject": "relations committed rows",
+    "question": "Three committed relations rows fail check_relations (lumen-technologies row 0 and palo-alto-networks row 5 cite a transcript moved to transcripts_superseded/; spacex row 1 spells NTT Docomo for the node NTT DOCOMO), and editing a committed row is itself an ADD-only error - leave them, hand-fix once, or append corrected rows?",
+    "label": null,
+    "at": "2026-10-21",
+    "answer": "One-time hand fix (independent Opus verifier V1): the two rows now cite transcripts/av/lumentechnologies_q2_2026.txt (same label; both quotes verbatim there) and the SpaceX row names NTT DOCOMO. No fact changed - only a moved path and a node spelling - so ADD-only's purpose (no silent loss) holds; the one-night 'committed row edited' errors clear when tonight's publish commits the files. Appending duplicates would leave dead paths and a board that fails forever.",
+    "answered": "2026-10-21",
+    "by": "claude"
+   },
+   {
+    "subject": "Duos Technologies",
+    "question": "The Q2 FY2026 call calls the 10 MW / five-year Columbus colocation agreement one with Axe Compute, while the company's release and 8-Ks describe the counterparty as an investment-grade hyperscaler - which edge carries it?",
+    "label": "Duos Technologies Q2 FY2026 (08-17-2026)",
+    "at": "2026-10-21",
+    "answer": "Duos -> Axe Compute (independent Opus verifier V1): the CEO names Axe Compute, Inc. as the contracting party and Axe Compute's own 8-K (08-17-2026) describes the 10 MW Georgia deployment Duos is delivering for Axe; the hyperscaler is the end user. The contract quotes the call only; the end customer is worded as the CEO said ('they are a Tier 1 hyperscaler', not disclosed).",
+    "answered": "2026-10-21",
+    "by": "claude"
+   },
+   {
+    "subject": "SpaceX",
+    "question": "Is the CEO's 'we're very appreciative of ASML and all of our other suppliers in accelerating equipment deliveries' (Terafab) a stated supply relationship for an ASML -> SpaceX edge?",
+    "label": "SpaceX Q3 FY2026 (10-20-2026)",
+    "at": "2026-10-21",
+    "answer": "Yes (independent Opus verifier V1): management names ASML as one of SpaceX's suppliers of equipment deliveries - not an example list or a demo - and both are players in nvidia_vera_rubin.json. Edge kept with relationship 'chip-fabrication equipment deliveries for SpaceX's Terafab fabs (ASML named among SpaceX's suppliers)'; 'lithography' removed because the call says only 'equipment'.",
+    "answered": "2026-10-21",
+    "by": "claude"
+   },
+   {
+    "subject": "Celestica",
+    "question": "Celestica's 10-K customer list names Dell, HPE (CCS segment) and Applied Materials, Lam Research (ATS segment) - customer-list edges or relations rows?",
+    "label": "Celestica 10-K (02-27-2026)",
+    "at": "2026-10-21",
+    "answer": "Split (independent Opus verifier V1): Dell and HPE get customer-list edges Celestica -> Dell / HPE in amd_mi450_helios.json, where all three are players and CCS is Celestica's chain product (strict customer-list rule, user 2026-10-05); Applied Materials and Lam Research stay relations rows (scope other) because ATS equipment subsystems are not Celestica's chain product and an edge would misstate what flows.",
+    "answered": "2026-10-21",
+    "by": "claude"
+   },
+   {
+    "subject": "CoreWeave",
+    "question": "CoreWeave's 10-K exhibit index lists a CoreWeave-NVIDIA Master Services Agreement with no product stated - edge CoreWeave -> NVIDIA?",
+    "label": "CoreWeave 10-K (03-02-2026)",
+    "at": "2026-10-21",
+    "answer": "No edge and no row (independent Opus verifier V1): an exhibit-index title states no product and no direction, so it is not a stated supply or customer relationship under JOB 4; the stated flow (all GPUs are NVIDIA GPUs) stays on the NVIDIA -> CoreWeave edge.",
+    "answered": "2026-10-21",
+    "by": "claude"
+   },
+   {
+    "subject": "Unimicron",
+    "question": "Rule B: are the facility-engineering and plant-construction contractors in Unimicron's MOPS filings for its IC-substrate plants (Cheng De Fire Protection, Fu Kuo Electrical Engineering, Teng Yuan Engineering, Li Wei Technology Engineering, Xuan Tong System, Chang You Construction) excluded like fab contractors?",
+    "label": "Unimicron MOPS material information: release 3037-20261014-1 (10-14-2026)",
+    "at": "2026-10-21",
+    "answer": "Split by the work each filing names (independent Opus verifier V1): the five firms contracted for 'facility engineering' (plant-facility / cleanroom systems) of an IC-substrate plant are rule-B-type contractors - no relations row, amounts stay on Unimicron's quarterly_data with counterparty keys. Chang You Construction builds a plant building on Unimicron's own land (general construction, Bechtel / Jacobs precedent 10-19): a relations row, scope other.",
+    "answered": "2026-10-21",
+    "by": "claude"
+   },
+   {
+    "subject": "SUMCO",
+    "question": "Does a supplier-award list in SUMCO's own Annual Report 2025 ('Honored with awards from customers ... Sony Semiconductor Solutions') count as naming a customer?",
+    "label": null,
+    "at": "2026-10-21",
+    "answer": "Yes (independent Opus verifier V1): the company itself names the awarding firms as its customers, so 'SUMCO supplies Sony Semiconductor Solutions' is a company-stated relationship and stays a relations row; the award itself yields nothing (CrowdStrike customer-award precedent, 10-20).",
+    "answered": "2026-10-21",
     "by": "claude"
    }
   ]

@@ -1,0 +1,57 @@
+{
+ "source": "CrowdStrike Fal.Con Day 2 2026 (09-02-2026)",
+ "chains": {
+  "components/ai_security_trusted_compute.json": {
+   "players": [
+    {
+     "company": "CrowdStrike",
+     "layer": "application",
+     "sector": "AI-Native Cybersecurity Platforms",
+     "sub_sector": null,
+     "product": "Falcon platform AI: Charlotte AI detection triage and SafeMind agentic security, run on rented AI compute (Cerebras inference, CoreWeave GPUs, NVIDIA NIM)",
+     "quarterly_data": [
+      {
+       "quarter": "CrowdStrike Fal.Con Day 2 2026 (09-02-2026)",
+       "signal": "President Michael Sentonas: CrowdStrike's AI gateway (every AI request through one path; the customer decides which models its people can use and what may go out) 'will be shipping in September', first as a hosted SaaS version with a hybrid version shortly after, and Falcon Guardian customers get it; the Falcon Guardian capability shipped in the sensor some weeks ago and is an entitlement Falcon Flex customers can be running by the end of the day; CrowdStrike announced its Agentic Identity Provider (continuous identity discovery, enrichment and zero standing access for humans and agents), with more to come at Fal.Con Europe in November; its software supply chain protection policies, built into the platform, are already used by over 8,000 customers.",
+       "figure": "AI gateway shipping in September; over 8,000 customers using supply chain protection",
+       "topics": ["product_launches"],
+       "slot": "next_catalyst"
+      },
+      {
+       "quarter": "CrowdStrike Fal.Con Day 2 2026 (09-02-2026)",
+       "signal": "SVP Counter Adversary Operations Adam Meyers: with the right harness CrowdStrike cut the 80% false positive rate it saw when using the Mythos model to find vulnerabilities down to 20%, and by June had submitted 2,400 vulnerabilities as CVEs (30% of all vulnerabilities reported in June) through responsible disclosure; for the first time agents were responsible for 2 and a half times more detections than humans across the platform. He announced Falcon Adversary OverWatch Cross-Domain Threat Hunting (available now, extending OverWatch to Guardian / AIDR, identity, cloud control plane and Next-Gen SIEM under one SKU) and Agentic Recon for dark-web credential exposure, due out in a few weeks.",
+       "figure": "2,400 vulnerabilities submitted as CVEs; false positive rate cut from 80% to 20%",
+       "topics": []
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "Amazon",
+     "layer": "cloud_infra",
+     "sector": "Hyperscaler Cloud",
+     "sub_sector": null,
+     "product": "AWS Nitro System security under every GPU- and Trainium-based EC2 instance; Amazon CloudHSM",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "CrowdStrike",
+       "relationship": "Amazon Bedrock model access for CrowdStrike's AI",
+       "contracts": [
+        {
+         "source": "CrowdStrike Fal.Con Day 2 2026 (09-02-2026)",
+         "signal": "President Michael Sentonas, on stage with Amazon's CISO: 'We're big users of Amazon Bedrock.'",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "AI model service usage (customer)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

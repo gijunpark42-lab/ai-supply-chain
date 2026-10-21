@@ -1,0 +1,47 @@
+{
+  "source": "Duos Technologies 8-K (10-05-2026)",
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "Duos Technologies",
+          "layer": "cloud_infra",
+          "sector": "Datacenter Colocation",
+          "product": "data center buildings owned and operated for GPU clusters (owner / operator of the Columbus, Georgia site hosting Axe Compute's B300 cluster)",
+          "quarterly_data": [
+            {
+              "quarter": "Duos Technologies 8-K (10-05-2026)",
+              "signal": "Duos Technologies 8-K: on September 30, 2026 Duos sold 100% of Duos Edge AI - GPUaaS, LLC, the SPV holding its Columbus GPU cluster of 288 Supermicro B300 servers (2,304 GPUs) and networking equipment, to Axe Compute; following the closing Duos will lease the underlying GPU compute capacity from Axe Compute under a capacity supply arrangement, continues to own and operate the Columbus colocation facility (power, cooling, security, managed infrastructure) and will continue to serve the existing customer without interruption under a revised five-year agreement it expects to increase the revenue it recognizes. Duos is now a pure-play colocation landlord directing capital exclusively to 10 to 30 MW modular colocation sites; its 2026 outlook is unchanged - full-year revenue above $50 million and positive adjusted EBITDA (CFO Chris DeAlmeida).",
+              "figure": "288 servers, 2,304 GPUs sold September 30, 2026; 2026 revenue above $50 million",
+              "topics": [],
+              "slot": "guidance"
+            }
+          ]
+        },
+        {
+          "company": "Axe Compute",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "dedicated bare-metal AI infrastructure (GPU clusters) designed, deployed, owned and operated for enterprises; Axe Compute Build build-to-order program",
+          "connects_to": [
+            {
+              "company": "Duos Technologies",
+              "relationship": "GPU compute capacity leased to Duos under a capacity supply arrangement (Columbus, Georgia cluster)",
+              "contracts": [
+                {
+                  "source": "Duos Technologies 8-K (10-05-2026)",
+                  "signal": "Duos Technologies 8-K: following its September 30, 2026 purchase of the Duos GPUaaS SPV (288 Supermicro B300 servers, 2,304 GPUs), Duos will lease the cluster's underlying GPU compute capacity from Axe Compute under a capacity supply arrangement while it continues serving its Columbus, Georgia customer under a revised five-year agreement.",
+                  "units": "2,304 GPUs (288 Supermicro B300 servers)",
+                  "value": "no specific figure",
+                  "date_signed": "not stated (follows the September 30, 2026 closing)",
+                  "type": "capacity supply arrangement",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
