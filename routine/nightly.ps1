@@ -288,7 +288,7 @@ if ($Test) { $command = "test" } else { $command = "enrich all" }
 if ($Test) {
     $prompt = 'Routine plumbing test started by routine/nightly.ps1. Use the Write tool to create .claude/nightly_test.txt containing the word OK (this checks that the routine can write in place), then reply with one line: OK plus the first item of the Run next list in ENRICH_STATUS.md. Touch nothing else and run nothing else.'
 } else {
-    $prompt = 'Nightly routine started by routine/nightly.ps1 while nobody is watching. Run `' + $command + '` exactly as the enrich skill says (section 1): every market and every source tonight, due or not - US, Korea, Taiwan, Japan, Europe, China, other, EDGAR, conferences, IR, the waitlist - then the Perplexity Finance call queue (pplx.py pending, references/pplx.md; pplx.py sync already ran), the news interviews (media_status.py, section 11), the relations backfill (relations.py next 15, relations/ rows, utils/check_relations.py until clean, relations.py done), the gap fill batch on the board (section 12: fill or mark every gap), graph_build.py --sync, verification and translation; run every build as `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 utils/build_outside.py` (section 7.2: it runs graph_build.py --sync outside Claude Code, whose low-memory guard killed the in-session build on 10-18, 10-19 and 10-20; while it prints still running, call it again with --wait); status board first and last. Worker pool (section 7.4): run utils/agent_budget.py first and never have more agents alive than its agents: number (re-run it before graph_build.py); spawn the pool once and give every next batch to the same idle worker with SendMessage instead of spawning new agents; run utils/work_ledger.py start first and hand out its carried-over items first, and record every batch with work_ledger.py assign and done. Before every graph_build.py: stop every pool worker (TaskStop; each idle worker keeps a process of ~350 MB alive - the 10-20 build was killed with 21 claude processes holding 4 GB), make sure no tool process of yours is still running, and re-run utils/agent_budget.py; restart workers from the ledger only if work remains after the build. Record notes, marks and decisions with enrich_status.py (it no longer rebuilds the board; never pass --board during the run). Unattended rules: never stop to wait for an answer - a judgment the rules do not settle is decided by an independent Opus verifier from the rules and the user earlier answers (enrich_marks.json answered), applied, and recorded with enrich_status.py decide --no-board (section 0.3); do not commit, push or merge yourself - routine/nightly.ps1 publishes the data (branch, PR, merge into main) after you stop, and only if you finish with result:, so end with needs input: if graph_build.py --sync or verification did not complete; leave alone any uncommitted edits you did not make. Run Python scripts by the literal path, e.g. `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 apply_corrections.py --check` - never through a shell variable such as P=...; $P, because the permission allow rules match the literal command. End with a short report in Korean: what was enriched per market, the gap fill (filled / marked), new companies, the decisions you made, and the board Run next block. Its last line is `result:` plus a one-line summary. A source that needs a login, an account or a paid subscription is deferred, never a stop (user, 2026-10-21: login-gated sources wait): skip it, mark the gap with enrich_status.py mark --no-board (--why naming the login wall) and go on; never sign in or create an account. Write `needs input:` instead only when a step could not run (permission denied, usage limit, a source down that the rules cannot work around), naming the step; when the build failed (build_outside.py exit 1 with a memory error, or its process gone), name graph_build in that line and do not restart it more than once - the script reruns it outside the session.'
+    $prompt = 'Nightly routine started by routine/nightly.ps1 while nobody is watching. Run `' + $command + '` exactly as the enrich skill says (section 1): every market and every source tonight, due or not - US, Korea, Taiwan, Japan, Europe, China, other, EDGAR, conferences, IR, the waitlist - then the Perplexity Finance call queue (pplx.py pending, references/pplx.md; pplx.py sync already ran), the news interviews (media_status.py, section 11), the relations backfill (relations.py next 15, relations/ rows, utils/check_relations.py until clean, relations.py done), the gap fill batch on the board (section 12: fill or mark every gap), graph_build.py --sync, verification and translation; run every build as `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 utils/build_outside.py` (section 7.2: it runs graph_build.py --sync outside Claude Code, whose low-memory guard killed the in-session build on 10-18, 10-19 and 10-20; while it prints still running, call it again with --wait); status board first and last - refresh it with `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 utils/build_outside.py --board`, never enrich_status.py with no command inside the session (it takes ~1.8 GB; the last refresh of the 10-21 morning run was killed). Worker pool (section 7.4): run utils/agent_budget.py first and never have more agents alive than its agents: number (re-run it before graph_build.py); spawn the pool once and give every next batch to the same idle worker with SendMessage instead of spawning new agents; run utils/work_ledger.py start first and hand out its carried-over items first, and record every batch with work_ledger.py assign and done. Before every graph_build.py: stop every pool worker (TaskStop; each idle worker keeps a process of ~350 MB alive - the 10-20 build was killed with 21 claude processes holding 4 GB), make sure no tool process of yours is still running, and re-run utils/agent_budget.py; restart workers from the ledger only if work remains after the build. Record notes, marks and decisions with enrich_status.py (it no longer rebuilds the board; never pass --board during the run). Unattended rules: never stop to wait for an answer - a judgment the rules do not settle is decided by an independent Opus verifier from the rules and the user earlier answers (enrich_marks.json answered), applied, and recorded with enrich_status.py decide --no-board (section 0.3); do not commit, push or merge yourself - routine/nightly.ps1 publishes the data (branch, PR, merge into main) after you stop, and only if you finish with result:, so end with needs input: if graph_build.py --sync or verification did not complete; leave alone any uncommitted edits you did not make. Run Python scripts by the literal path, e.g. `/c/Users/calif/AppData/Local/Python/bin/python.exe -X utf8 apply_corrections.py --check` - never through a shell variable such as P=...; $P, because the permission allow rules match the literal command. End with a short report in Korean: what was enriched per market, the gap fill (filled / marked), new companies, the decisions you made, and the board Run next block. Its last line is `result:` plus a one-line summary. Low memory is handled, never a stop (user, 2026-10-21): when Claude Code stops one of your commands, monitors or workers for low memory, do not end the run - re-run utils/agent_budget.py until it allows an agent, shrink the pool to its number, rerun the stopped step (heavy scripts through utils/build_outside.py) and go on; write needs input: memory only after the same step was stopped three times. A source that needs a login, an account or a paid subscription is deferred, never a stop (user, 2026-10-21: login-gated sources wait): skip it, mark the gap with enrich_status.py mark --no-board (--why naming the login wall) and go on; never sign in or create an account. Write `needs input:` instead only when a step could not run (permission denied, usage limit, a source down that the rules cannot work around), naming the step; when the build failed (build_outside.py exit 1 with a memory error, or its process gone), name graph_build in that line and do not restart it more than once - the script reruns it outside the session.'
 }
 
 # Free memory first (2026-10-21: the 10-20 build was killed with 21 claude processes holding 4 GB): stop the automated
@@ -320,19 +320,58 @@ Write-Log ("started {0} as {1}" -f $command, $id)
 Add-Type -Namespace Win32 -Name Power -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint flags);'
 [Win32.Power]::SetThreadExecutionState([uint32]2147483649) | Out-Null   # 0x80000001 = ES_CONTINUOUS | ES_SYSTEM_REQUIRED
 $deadline = $scriptStart.AddHours(10.5)
-do {
-    Start-Sleep -Seconds 60
-    $job = Get-Sessions | Where-Object { $_.id -eq $id }
-} while ($job -and $job.state -eq "working" -and (Get-Date) -lt $deadline)
+# 4a. A stop for low memory is noticed and handled here (user, 2026-10-21: "메모리 때문에 중단되면 니가 알 수 있게 한 담에
+#     니가 알아서 처리해야지"): when the session stops without finishing and its detail names memory, this script logs it
+#     ("memory stop"), frees memory (stops the other finished automated sessions and the stopped one; `claude stop` keeps
+#     every conversation), waits until 3.5 GB is free (30 min at most) and resumes the same conversation with
+#     `claude --bg --resume`, which carries its whole history and ledger. At most 3 resumes, and none in the last
+#     45 minutes before the deadline; after that the safety net of 4b and the next night take over.
+$resumes = 0
+while ($true) {
+    do {
+        Start-Sleep -Seconds 60
+        $job = Get-Sessions | Where-Object { $_.id -eq $id }
+    } while ($job -and $job.state -eq "working" -and (Get-Date) -lt $deadline)
 
-if ($job) { $state = $job.state } else { $state = "finished (no longer listed)" }
-# The job's own one-line detail says why it stopped (finished, or the step that is blocked).
-$stateFile = Join-Path $env:USERPROFILE ".claude\jobs\$id\state.json"
-if (Test-Path $stateFile) {
-    $detail = (Get-Content $stateFile -Raw -Encoding UTF8 | ConvertFrom-Json).detail
-    if ($detail) { $state = "{0} - {1}" -f $state, $detail }
+    if ($job) { $state = $job.state } else { $state = "finished (no longer listed)" }
+    # The job's own one-line detail says why it stopped (finished, or the step that is blocked).
+    $stateFile = Join-Path $env:USERPROFILE ".claude\jobs\$id\state.json"
+    $sessionId = $null
+    if (Test-Path $stateFile) {
+        $jobState = Get-Content $stateFile -Raw -Encoding UTF8 | ConvertFrom-Json
+        $sessionId = $jobState.sessionId
+        if ($jobState.detail) { $state = "{0} - {1}" -f $state, $jobState.detail }
+    }
+    Write-Log ("{0} stopped working: {1}" -f $id, $state)
+
+    # The session reports in Korean, so its detail may say memory in Korean. This file has no BOM, so the word is built
+    # from its code points (Hangul typed into the code would be misread by Windows PowerShell).
+    $koMemory = -join [char[]](0xBA54, 0xBAA8, 0xB9AC)      # the Korean word for memory, built from its code points
+    $memoryStop = ($state -notlike "done*") -and ($state -match ("memory|" + $koMemory + "|OOM"))
+    if ($Test -or -not $memoryStop) { break }
+    if ($resumes -ge 3 -or -not $sessionId -or (Get-Date) -gt $deadline.AddMinutes(-45)) {
+        Write-Log ("memory stop: not resumed (resumes so far {0}, session id {1}); the safety net and the next night take over" -f $resumes, $sessionId)
+        break
+    }
+    $resumes++
+    $others = @((Get-Sessions) | Where-Object { $_.kind -eq "background" -and $_.state -ne "working" -and ($_.name -like "fintweet *" -or $_.name -like "nightly *") })
+    foreach ($s in $others) { & $claude stop $s.id 2>&1 | Out-Null }
+    $waitUntil = (Get-Date).AddMinutes(30)
+    do {
+        $free = [double]((& $python -X utf8 (Join-Path $repo "utils\agent_budget.py") --json | Out-String) | ConvertFrom-Json).free_gb
+        if ($free -ge 3.5) { break }
+        Start-Sleep -Seconds 60
+    } while ((Get-Date) -lt $waitUntil)
+    Write-Log ("memory stop {0} of 3: stopped {1} finished session(s), {2} GB free; resuming the conversation" -f $resumes, $others.Count, $free)
+    $resumePrompt = 'routine/nightly.ps1 resumed you after a stop for low memory (resume ' + $resumes + ' of 3; user, 2026-10-21: a memory stop is handled, never left). Continue the same enrich all run from where it stopped: run utils/agent_budget.py and keep the pool within its number, read utils/work_ledger.py show for what is left, rerun the step that was stopped (heavy scripts through utils/build_outside.py), then finish the night exactly as your first instructions say, ending with result: or needs input: as before.'
+    $out = & $claude --bg --resume $sessionId --permission-mode auto -n $name $resumePrompt 2>&1 | Out-String
+    $hint = [regex]::Matches($out, "claude logs ([0-9a-f]{8})")
+    if ($hint.Count -gt 0) { $newId = $hint[$hint.Count - 1].Groups[1].Value }
+    else { $m = [regex]::Match($out, "\b[0-9a-f]{8}\b"); if ($m.Success) { $newId = $m.Value } else { $newId = $null } }
+    if (-not $newId) { Write-Log ("memory stop: resume FAILED: {0}" -f $out.Trim()); break }
+    $id = $newId
+    Write-Log ("memory stop: resumed as {0}" -f $id)
 }
-Write-Log ("{0} stopped working: {1}" -f $id, $state)
 
 # 4b. Safety net (user, 2026-10-19): inside Claude Code a big graph_build.py can be killed for low memory, and the session
 #     then stops blocked naming graph_build. Run the build once more here, outside the session (no such guard), and treat
@@ -351,6 +390,10 @@ if (-not $Test -and $state -notlike "done*" -and $state -match "graph_build") {
 # 5. Publish the run (user, 2026-10-14). Only a run that finished as done; a blocked run is rebuilt and published next night.
 if (-not $Test) {
     if ($state -like "done*") {
+        # The board as the run left it (marks, notes and decisions recorded after the last build), refreshed here,
+        # outside the session, so the published ENRICH_STATUS.md is current (2026-10-21: the in-session refresh was
+        # killed for low memory).
+        Invoke-DataStep "board" @("-X", "utf8", "enrich_status.py") 30
         $gitLock = Enter-GitLock 20                   # the 22:00 market-data publish may be running right now
         if ($gitLock) { Publish-Run $runDate; $gitLock.ReleaseMutex() }
         else { Write-Log "not published: another git job (a publish) still held the git lock after 20 min; the next done night publishes this data" }
