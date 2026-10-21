@@ -347,6 +347,8 @@ earnings-ai/
 ├── tdnet/sync_state.json     # tdnet.py: last sync, runs (skip reasons), every doc id seen with its status; tdnet/pending.json = filings not yet enriched
 ├── edinet.py                 # Japanese statutory reports from FSA EDINET (有価証券報告書 / 半期報告書: major customers, capex, R&D, MD&A; needs
 │                             #   EDINET_API_KEY) → transcripts/edinet/*.txt + *_extract.txt; edinet/sync_state.json + pending.json (step 1c of `enrich japan`)
+├── dod_contracts.py          # US DoD daily contract announcements (defense.gov / war.gov, $7.5M+): the award paragraphs naming
+│                             #   a graph company → transcripts/dod/*.txt; dod/sync_state.json + pending.json (step 4c of `enrich us`)
 ├── utility_filings.py        # US utilities' OWN regulatory filings on data-center load (IRPs, large-load reports, data-center tariffs) →
 │                             #   transcripts/utility_filings/*.txt (full) + *_load.txt (extract the enricher reads); monthly step of `enrich us`
 ├── utility_filings/sources.json # curated company → official pages / Georgia PSC dockets / documents (sync_state.json + pending.json GENERATED)

@@ -54,6 +54,7 @@ const WAITING_NAMES: Record<string, string> = {
   edinet: "EDINET report",
   mops: "MOPS filing",
   hkex: "HKEX filing",
+  dod: "DoD award",
   pplx: "call",
 };
 

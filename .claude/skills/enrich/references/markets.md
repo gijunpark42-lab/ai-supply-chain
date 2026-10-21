@@ -45,6 +45,11 @@ what the call did not say — and rebuilds the graph and the board once. A compa
 4b. Utility regulatory filings — every run (daily since 2026-10-19; the sync fetches only what is new): `python utility_filings.py sync` → `python utility_filings.py pending` → enrich each `_load`
    file (references/utility_filings.md: IRPs, large-load reports and data-center tariffs the utilities filed
    themselves; Dominion, Southern / Georgia Power, AEP / I&M, Entergy Louisiana, NextEra / FPL).
+4c. DoD contract awards — every run: `python -X utf8 dod_contracts.py sync` (the Department of Defense's daily
+   contract announcements; only paragraphs naming a graph company are saved) → `python -X utf8 dod_contracts.py pending`
+   (the whole queue, any market — Rolls-Royce, Siemens included) → enrich each file (references/dod.md: the award
+   record states facts — the awardee, what, how much, where, until when, the contracting activity; no slot) →
+   `python -X utf8 dod_contracts.py done --label "<label>"` each.
 5. `python graph_build.py --sync`, then `python av.py done`, `python investing.py done --kind conference --market US`,
    `python ir_pull.py done --label "<label>"` for every handled release (with `--why` when it gave nothing), and
    `python utility_filings.py done --label "<label>"` for every handled filing.
