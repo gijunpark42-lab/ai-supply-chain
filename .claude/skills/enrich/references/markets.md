@@ -10,8 +10,11 @@ what the call did not say — and rebuilds the graph and the board once. A compa
 0. Read `ENRICH_STATUS.md` (refresh it if stale). The market's **Run next** line and its **Details** section are
    the to-do list: waiting files, overdue calls, never-enriched companies, known gaps.
 1. Collect (scripts, cheap): the market's own collectors below, plus the shared ones when the board calls them
-   due — IR feeds (`python ir_pull.py sync`, every market at once) and the conference listing
-   (`python investing.py conferences`). Shared collectors fetch for everyone; enrich only this market's rows and
+   due — IR feeds (`python ir_pull.py sync`, every market at once), the conference listing
+   (`python investing.py conferences`) and the Perplexity Finance calls (`pplx.py sync`, every market; the nightly
+   runs it before the session — references/pplx.md). The calls step of every market below ends with the market's
+   rows of `python -X utf8 pplx.py pending` (calls no market source had), enriched as calls, then
+   `pplx.py done --label "<label>"` each. Shared collectors fetch for everyone; enrich only this market's rows and
    leave the others pending — the board then shows them under their own market.
 2. Enrich in this order: calls → filings → conference talks → IR releases, each under the enrich skill's common
    rules. **Parallel by default: up to 20 `enricher` agents** (fewer for a small queue — about one agent per 2–5
@@ -22,7 +25,8 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    `company_metadata.json`; records each ambiguous one with `enrich_status.py ask`; names all of them in the report.
 4. Board gaps (overdue / never enriched): try the market's fetch; when nothing exists, the coordinator records it —
    `python -X utf8 enrich_status.py mark "<Company>" --source call --why "<what was checked>"`.
-5. Apply once: `python graph_build.py --sync`; read the verify lines, fix, re-run until 0 fail.
+5. Apply once: `python graph_build.py --sync` (nightly: through `utils/build_outside.py`, skill §7.2); read the
+   verify lines, fix, re-run until 0 fail.
 6. Close ONLY this market's queue rows (commands below); append the applied labels to `verify_queue.json`
    (Opus verifier at 5+).
 7. If anything is left, `python -X utf8 enrich_status.py note <market> "<where it stopped>"`; paste the board's
@@ -32,15 +36,20 @@ what the call did not say — and rebuilds the graph and the board once. A compa
 ## `enrich us` — daily. SEC filings are NOT part of it: `enrich edgar` (also every night inside `enrich all`).
 1. Calls: `python av.py sync` → `python av.py pending` → enrich every row (references/us.md). A call Alpha
    Vantage has not posted (`waiting`) or a `QUOTA` stop: `python utils/defeatbeta_fetch.py "<Canonical Name>" <TICKER>`
-   (same file format and label, no quota); not there either: Perplexity Finance in Chrome (references/us.md step 1).
+   (same file format and label, no quota); not there either: Perplexity Finance (`pplx.py fetch`, references/pplx.md).
 2. Board gaps: every US company overdue for a call or never enriched → `utils/defeatbeta_fetch.py`, then Perplexity
-   Finance (references/us.md step 1); nothing there → mark it (`--why "not on Alpha Vantage, defeatbeta or Perplexity
+   Finance (the nightly `pplx.py sync` already tried the board's gaps; `pplx.py fetch "<Company>"` for one); nothing there → mark it (`--why "not on Alpha Vantage, defeatbeta or Perplexity
    Finance (checked <date>)"`).
 3. Conference talks: `python investing.py pending --kind conference --market US` → references/conferences.md.
 4. IR releases: `python ir_pull.py pending --market US` → references/ir.md (important releases only).
 4b. Utility regulatory filings — every run (daily since 2026-10-19; the sync fetches only what is new): `python utility_filings.py sync` → `python utility_filings.py pending` → enrich each `_load`
    file (references/utility_filings.md: IRPs, large-load reports and data-center tariffs the utilities filed
    themselves; Dominion, Southern / Georgia Power, AEP / I&M, Entergy Louisiana, NextEra / FPL).
+4c. DoD contract awards — every run: `python -X utf8 dod_contracts.py sync` (the Department of Defense's daily
+   contract announcements; only paragraphs naming a graph company are saved) → `python -X utf8 dod_contracts.py pending`
+   (the whole queue, any market — Rolls-Royce, Siemens included) → enrich each file (references/dod.md: the award
+   record states facts — the awardee, what, how much, where, until when, the contracting activity; no slot) →
+   `python -X utf8 dod_contracts.py done --label "<label>"` each.
 5. `python graph_build.py --sync`, then `python av.py done`, `python investing.py done --kind conference --market US`,
    `python ir_pull.py done --label "<label>"` for every handled release (with `--why` when it gave nothing), and
    `python utility_filings.py done --label "<label>"` for every handled filing.
@@ -72,7 +81,8 @@ what the call did not say — and rebuilds the graph and the board once. A compa
 3. MOPS filings: `python mops.py sync` → `python mops.py pending` → enrich every row (references/mops.md): 法說會
    decks (`deck`), important 重大訊息 (`material`: orders, capacity / capex, incidents, guidance, M&A) and monthly
    revenue (`revenue`, only companies without an IR feed). Company filings, not transcripts; after the calls (depth rule).
-4. Board gaps: a company on neither Investing.com nor tw.py's list → mark it once checked.
+4. Board gaps: a company on neither Investing.com nor tw.py's list nor Perplexity Finance (`pplx.py`) → mark it once
+   checked.
 5. Conference talks (`--kind conference --market TW`), IR releases (`ir_pull.py pending --market TW`; Chinese
    headlines are labelled `release <id>` — write the entries in English). A release with a same-day MOPS filing
    (`# SEE ALSO` line in the MOPS file) is enriched once.
@@ -82,7 +92,8 @@ what the call did not say — and rebuilds the graph and the board once. A compa
 
 ## `enrich japan` / `enrich europe` / `enrich china`
 1. Calls: `python investing.py sync` → `python investing.py pending --kind transcript --market JP|EU|CN`
-   (references/intl.md). Calls held only in Japanese / Chinese are not on Investing.com: mark them once checked.
+   (references/intl.md). Calls held only in Japanese / Chinese are not on Investing.com: Perplexity Finance
+   (`pplx.py pending` / `pplx.py fetch`) is the next source; mark them once both were checked.
 1b. Japan only — TDnet timely disclosures: `python tdnet.py sync` (every 3 days at most: TDnet keeps only 31 days
    online) → `python tdnet.py pending` → enrich every row (references/tdnet.md: results / 決算短信, forecast revisions,
    capex and plant notices, results decks, mid-term plans, agreements, M&A operating facts; English version when TSE
@@ -95,7 +106,7 @@ what the call did not say — and rebuilds the graph and the board once. A compa
 1b. China only — management Q&A of the A-share names (SZSE / SSE): `python cninfo.py sync` → `python cninfo.py pending`
    → enrich every row (references/cninfo.md): IR activity records (投资者关系活动记录表, `record` rows) and the company's
    answers on SZSE 互动易 / SSE e互动 (`qa` rows), both treated like a conference talk (answers = the company,
-   questions = context only), entries in English → `python cninfo.py done --label "<label>"` each. Run the sync every run: SSE e互动 shows only about one month. Hong Kong-only names (ASMPT, Lenovo, Innoscience) are out of its scope.
+   questions = context only), entries in English → `python cninfo.py done --label "<label>"` each. Run the sync every run: SSE e互动 shows only about one month. Hong Kong-listed names (ASMPT, Lenovo, Innoscience …) are step 1e.
 1d. China only — periodic reports of the same A-share names: `python cninfo.py reports` (in the same run as
    `cninfo.py sync`; the board asks after 7 days) → `python cninfo.py pending` (`report` rows) → enrich every row
    (references/cninfo.md, "China A-share periodic reports": 年度报告 / 半年度报告 / 季度报告 — read the `_extract`; top-5
@@ -103,13 +114,24 @@ what the call did not say — and rebuilds the graph and the board once. A compa
    `annual report customer share` / `half-year report customer share`, unnamed ones → the filer's quarterly_data;
    entries in English) → `python cninfo.py done --label "<label>"` each. A company's report is enriched BEFORE its
    1b record / Q&A rows when both wait (a filing before management Q&A, the frame's order); ≤ 3 reports per agent.
+1e. China only — Hong Kong-listed names (exchange `HKEX`, 16 nodes): `python -X utf8 hkex.py sync` (every run; one list
+   request per company) → `python -X utf8 hkex.py pending` → enrich every row (references/hkex.md: HKEXnews results
+   announcements, annual / interim reports — read the `_extract` —, business updates, inside information, connected
+   transactions; company filings, entries in English), adding only what the calls did not say →
+   `python -X utf8 hkex.py done --label "<label>"` each.
+1f. China only — results-briefing Q&A of the A-share names (业绩说明会: the full live text Q&A on the SSE Roadshow
+   Center, 全景路演 and SZSE 互动易 云访谈): `python -X utf8 cnbrief.py sync` (every run) → `python -X utf8 cnbrief.py
+   pending` → enrich every row (references/cnbrief.md: the company's answers are the facts, investors' questions only
+   context; entries in English) → `python -X utf8 cnbrief.py done --label "<label>"` each. A briefing and its cninfo
+   召开情况 summary (1b) are one event: enrich the briefing, close the cninfo row with `--why "same event as <label>"`.
 2. Conference talks (`--kind conference --market …`), IR releases (`ir_pull.py pending --market …`; non-English
    headlines → `release <id>` labels; entries in English). A Japanese IR release that restates a TDnet filing
    already enriched yields nothing (`restates <label>`).
 3. `python graph_build.py --sync`, then `python investing.py done --kind transcript --market …`,
    `python tdnet.py done --label …` per handled filing and `python edinet.py done --label …` per handled report (Japan),
    `python investing.py done --kind conference --market …`, `ir_pull.py done --label …` per handled release
-   (China: plus `cninfo.py done --label …` per handled record / Q&A file and periodic report).
+   (China: plus `cninfo.py done --label …` per handled record / Q&A file and periodic report, and
+   `hkex.py done --label …` per handled HKEXnews filing, `cnbrief.py done --label …` per handled briefing).
 
 `enrich intl` (source command) = the calls step for every non-US, non-Korean market at once, including the
 few "other listed" names (SGX, TSX, ASX, IDX).

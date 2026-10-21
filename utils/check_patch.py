@@ -124,7 +124,12 @@ def source_kind(label, doc_path):
         return "regulatory filing"
     if re.search(r" (annual securities|semi-annual) report: ", label):   # Japan EDINET 有価証券報告書 / 半期報告書 (edinet.py):
         return "call / conference / periodic report"                   # statutory statements = like a DART periodic report
-    if re.search(r" (annual|half-year|quarterly) report: ", label):    # China 年度 / 半年度 / 季度报告 (cninfo.py reports) and
+    if re.search(r" DoD contract award(?: \d+)? \(", label):          # US DoD award record (dod_contracts.py): the
+        return "DoD contract award"                                     # government's record, never a slot
+    if " HKEX announcement: " in label or " HKEX circular: " in label:  # Hong Kong HKEXnews filing (hkex.py): like a
+        return "TDnet filing"                                            # TDnet filing — never revenue_growth
+    if re.search(r" (annual|half-year|interim|quarterly) report: ", label):  # China 年度 / 半年度 / 季度报告 (cninfo.py reports),
+        # HKEXnews annual / interim reports (hkex.py) and
         return "call / conference / periodic report"                   # the hand-saved statutory reports: statutory statements
     if doc_path and "_prelim_" in doc_path:
         return "DART preliminary results"
@@ -142,6 +147,7 @@ ALLOWED_SLOTS = {
     "press release": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},
     "IR presentation": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},   # a company deck (kind.py)
     "TDnet filing": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},      # same as a deck / IR release
+    "DoD contract award": set(),                     # an official award record about the company, not its own words
     "regulatory filing": {"guidance", "next_catalyst", "backlog_or_b2b", "supply_status"},  # a utility IRP / load report (utility_filings.py)
     "DART preliminary results": {"revenue_growth"},
     "monthly revenue": set(),                        # Taiwan monthly revenue (mops.py): no slot, like the IR-release monthly entries (user, 2026-10-01)

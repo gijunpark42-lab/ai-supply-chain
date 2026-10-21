@@ -105,6 +105,18 @@ PIPELINES = [
     {"id": "mops",       "name": "Taiwan MOPS filings",        "command": "enrich taiwan",
      "dirs": ["transcripts/mops"],               "state": "mops/sync_state.json",     "pending": "mops/pending.json",
      "source": "MOPS 法說會 decks, important 重大訊息 and monthly revenue (mops.py) — company filings, not transcripts"},
+    {"id": "hkex",       "name": "Hong Kong HKEXnews filings", "command": "enrich china",
+     "dirs": ["transcripts/hkex"],               "state": "hkex/sync_state.json",     "pending": "hkex/pending.json",
+     "source": "HKEXnews results, annual / interim reports, updates, inside information, transactions (hkex.py) — company filings, not transcripts"},
+    {"id": "dod",        "name": "US DoD contract awards",     "command": "enrich us",
+     "dirs": ["transcripts/dod"],                "state": "dod/sync_state.json",      "pending": "dod/pending.json",
+     "source": "DoD daily contract announcements (dod_contracts.py) — the government's award record, not company documents"},
+    {"id": "cnbrief",    "name": "China results-briefing Q&A", "command": "enrich china",
+     "dirs": ["transcripts/cnbrief"],            "state": "cnbrief/sync_state.json",  "pending": "cnbrief/pending.json",
+     "source": "业绩说明会 live text Q&A — SSE Roadshow Center / 全景路演 / SZSE 互动易 (cnbrief.py) — management Q&A, not calls"},
+    {"id": "pplx",       "name": "Perplexity Finance calls",   "command": "enrich all",
+     "dirs": ["transcripts/perplexity"],         "state": "perplexity/sync_state.json", "pending": "perplexity/pending.json",
+     "source": "Perplexity Finance call transcripts (by Quartr), every market, after the market's own call source (pplx.py)"},
     {"id": "manual",     "name": "Pasted transcripts",         "command": "Transcript:<company>",
      "dirs": [],                                 "state": None,                       "pending": None,
      "source": "URL / pasted text enriched directly in Claude Code"},
@@ -196,13 +208,13 @@ MARKET_COMMAND = {"US": "enrich us", "KR": "enrich korea", "TW": "enrich taiwan"
                   "EU": "enrich europe", "CN": "enrich china", "other": "enrich intl"}
 # The collectors that fetch each market's calls / filings. IR feeds and the conference listing
 # serve every market at once, so they are reported once ("shared collectors"), not per market.
-MARKET_COLLECTORS = {"US": ["us", "utility"], "KR": ["dart", "kind"], "TW": ["intl", "tw", "mops"],
+MARKET_COLLECTORS = {"US": ["us", "utility", "dod"], "KR": ["dart", "kind"], "TW": ["intl", "tw", "mops"],
                      "JP": ["intl", "tdnet", "edinet"],
-                     "EU": ["intl"], "CN": ["intl", "cninfo", "cnreports"], "other": ["intl"]}
+                     "EU": ["intl"], "CN": ["intl", "cninfo", "cnreports", "hkex", "cnbrief"], "other": ["intl"]}
 # Every collector runs every night (user, 2026-10-19: "모든걸 매일돌게"; the nightly `enrich all` runs them all):
 # 0 days = due unless it already ran today. The collectors only fetch what is new, so a daily run costs little.
 SYNC_EVERY = {pid: 0 for pid in ("us", "dart", "intl", "tw", "edgar", "ir", "conference", "kind", "tdnet",
-                                 "edinet", "cninfo", "cnreports", "utility", "mops")}
+                                 "edinet", "cninfo", "cnreports", "utility", "mops", "pplx", "hkex", "dod", "cnbrief")}
 GAP_BATCH = 30       # gaps the nightly gap fill takes per night (§12 of the enrich skill), first ones first
 COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", "kind": "KIND IR deck sync (kind.py)",
                    "tdnet": "TDnet disclosure sync (tdnet.py; TDnet keeps only 31 days)",
@@ -213,12 +225,17 @@ COLLECTOR_NAMES = {"us": "US call sync (av.py)", "dart": "DART sync (dart.py)", 
                    "mops": "MOPS sync (mops.py)",
                    "intl": "Investing.com call sync (investing.py)", "tw": "Taiwan Chinese-call sync (tw.py)",
                    "edgar": "EDGAR pull (edgar_pull.py)", "ir": "IR feed sync (ir_pull.py)",
-                   "conference": "conference listing (investing.py conferences)"}
+                   "conference": "conference listing (investing.py conferences)",
+                   "pplx": "Perplexity Finance call sync (pplx.py, every market)",
+                   "hkex": "HKEXnews filing sync (hkex.py)",
+                   "dod": "DoD contract-award sync (dod_contracts.py)",
+                   "cnbrief": "China results-briefing Q&A sync (cnbrief.py)"}
 WAITING_NAMES = {"us": "call", "intl": "call", "tw": "call", "dart": "DART filing", "kind": "IR deck", "krcalls": "call",
                  "tdnet": "TDnet filing", "edinet": "EDINET report", "cninfo": "IR record / investor Q&A",
                  "cnreports": "periodic report",
                  "utility": "utility filing", "mops": "MOPS filing",
-                 "conference": "conference", "ir": "IR release"}
+                 "conference": "conference", "ir": "IR release", "pplx": "call", "hkex": "HKEX filing", "dod": "DoD award",
+                 "cnbrief": "results briefing Q&A"}
 LIST_MAX = 12        # names printed per list on ENRICH_STATUS.md (the JSON keeps every name)
 
 
@@ -275,7 +292,7 @@ def is_call(label, pid, path):
     """True when this label is an earnings call (see NOT_A_CALL_FILE above)."""
     if not path or not EARNINGS_LABEL.search(label):
         return False
-    if pid in ("us", "intl", "tw", "krcalls"):
+    if pid in ("us", "intl", "tw", "krcalls", "pplx"):
         return True
     return pid == "manual" and not NOT_A_CALL_FILE.search(path)
 
@@ -305,7 +322,7 @@ def own_sources(graph, label_pipeline, label_file):
                 calls.add(day)
             else:
                 kind = pid if pid in ("dart", "edgar", "conference", "ir", "kind", "tdnet", "edinet", "cninfo",
-                                      "cnreports", "utility", "mops") else "other"
+                                      "cnreports", "utility", "mops", "hkex", "dod", "cnbrief") else "other"
             latest[kind] = max(latest.get(kind, ""), day)
         out[company] = {"calls": sorted(calls), "latest": latest}
     return out
@@ -448,7 +465,7 @@ def market_board(graph, label_pipeline, label_file, pipelines, today):
                      "`EDINET_API_KEY=<key>` to .env. Until then `enrich japan` skips its EDINET step.")
 
     shared = {}
-    for pid in ("ir", "conference"):
+    for pid in ("ir", "conference", "pplx"):
         days, day = age(pid)
         shared[pid] = {"last_sync": day, "days": days, "due": days is None or days > SYNC_EVERY[pid]}
     shared["ir"]["feeds"] = len(feeds)
@@ -507,9 +524,10 @@ def write_board(board, pipelines, generated):
         L.append("Nothing is due. Every market is current and no queue holds work.")
     sh = board["shared"]
     L += ["", "Shared collectors (every market command runs them first when due): IR feeds synced %s (%d feeds)%s; "
-          "conference listing walked %s%s." % (
+          "conference listing walked %s%s; Perplexity Finance calls (pplx.py, every market) synced %s%s." % (
               sh["ir"]["last_sync"] or "never", sh["ir"]["feeds"], " — due" if sh["ir"]["due"] else "",
-              sh["conference"]["last_sync"] or "never", " — due" if sh["conference"]["due"] else ""),
+              sh["conference"]["last_sync"] or "never", " — due" if sh["conference"]["due"] else "",
+              sh.get("pplx", {}).get("last_sync") or "never", " — due" if sh.get("pplx", {}).get("due") else ""),
           "Opus verification queue: %d label(s) waiting (runs at 5+)." % board["verify_pending"], ""]
     gaps = board.get("gaps", [])
     L += ["## Gap fill — tonight's batch (%d of %d gaps)" % (len(board.get("gap_batch", [])), len(gaps)), "",
@@ -692,7 +710,8 @@ def build_enrich_status(graph=None):
             seen = state.get("seen", {})
             row["extra"]["no_media"] = sorted(k for k, v in seen.items() if v == "no_media")
             row["extra"]["conferences_seen"] = len(seen)
-        elif pid in ("kind", "krcalls", "tdnet", "edinet", "cninfo", "cnreports", "utility", "mops"):
+        elif pid in ("kind", "krcalls", "tdnet", "edinet", "cninfo", "cnreports", "utility", "mops", "pplx", "hkex", "dod",
+                     "cnbrief"):
             row["last_sync"] = state.get("last_sync")
             row["extra"]["runs"] = state.get("runs", [])[-5:]
         elif pid == "ir":

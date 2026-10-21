@@ -1,0 +1,1200 @@
+SOURCE: https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0924/2026092401583.pdf
+TITLE: 2026 Interim Report
+DOCUMENT TYPE: interim report (HKEXnews headline category: Financial Statements/ESG Information - [Interim/Half-Year Report])
+DATE: 2026-09-24 18:27 HKT   (HKEXnews release time; the label date)
+COMPANY: Zhipu AI (HKEX 02513, listed as Z.AI)
+LANGUAGE: English version (HKEXnews English section)
+# NOTE: company statutory report — NOT a transcript. Facts and the company's own statements, enriched like a
+#       DART periodic report (enrich skill §4 slot table: statutory statements — the ONE best entry per slot).
+#       Every entry in English (§8). A named major customer / supplier that is a node -> a contract on the
+#       edge; unnamed shares ('largest customer 23%') stay on the company's own quarterly_data.
+# EXTRACT: 34 of 83 pages — financial highlights, the chairman's / CEO's statement and the
+#          management discussion and analysis whole, and the pages elsewhere with major customers /
+#          suppliers, segment information, capex, R&D, connected-transaction caps, related parties,
+#          capacity or orders. The whole document: transcripts/hkex/zhipuai_2026-09-24_2026092401583.txt
+# LOCATED: segment information p65, p66; capex / capital commitments p34, p37, p65; R&D p35, p36, p54, p65, p66; related-party transactions p81, p82. Not in the extract: major customers / suppliers, connected transactions (caps / amounts), capacity / utilisation, orders / backlog
+# source label: Zhipu AI interim report: 2026 Interim Report (09-24-2026)
+==== page 13 (financial highlights) ====
+Financial Summary
+12 Z.AI Co., Ltd.
+For the six
+months ended
+30 June 2026
+For the six
+months ended
+30 June 2025
+RMB’000 RMB’000
+(Unaudited) (Unaudited)
+Revenue 953,892 190,877
+Cost of revenue (702,281) (95,453)
+Gross profit 251,611 95,424
+Loss before income tax (2,070,030) (2,357,852)
+Income tax (1,962) –
+Loss for the period (2,071,992) (2,357,852)
+Adjusted net loss for the period (non-IFRS measure) (1,964,138) (1,751,974)
+As at
+30 June
+2026
+As at
+31 December
+2025
+RMB’000 RMB’000
+(Unaudited) (Audited)
+Total assets 9,644,830 4,853,861
+Total liabilities 5,215,274 12,964,843
+Total equity 4,429,556 (8,110,982)
+
+==== page 14 (MD&A) ====
+Management Discussion and Analysis
+132026 Interim Report
+Business Review
+In the first half of 2026, the Company validated the deliverability of large models in the domain of coding – progressing
+from early-stage simple code recommendations, to full-file code generation, and then to the implementation of
+complete engineering projects (Agentic Engineering). It has fully traversed this trajectory: the model is no longer merely
+a tool, but possesses the capability to complete an entire task independently. Accordingly, its revenue structure
+shifted: the share of open-platform and API services – billed on a per-invocation basis – rose from 26.3% of the
+previous full year to 86.5%, while on-premises model deployment revenue fell from 73.7% to 13.5%. The restructuring
+of our core revenue mix in the first half of 2026 is essentially an inevitable consequence of a generational leap in model
+capability. Cybersecurity Co-work is an extension of the same capability curve. Software vulnerability discovery does
+not rely on memorization, but on the model’s reasoning depth and long-range autonomy – precisely the direction that
+naturally follows after coding capability crosses the threshold of engineering project delivery. During the Reporting
+Period, the Company’s model achieved a score of 84.5% on CyberGym (surpassing Fable 5 and GPT-5.6 Sol) and
+completed 130 tasks on ExploitGym (ranking second only to Fable 5 and GPT-5.6 Sol).
+Underpinning these two trajectories is infrastructure. Since the beginning of 2026, the Company has fully implemented
+an All-in-Infra strategy, investing in both training and inference, and integrating domestic chips as a primary inference
+compute resource. It has achieved large-scale, low-cost inference across a cluster of over 100,000 domestic chips,
+with unit Token inference costs declining by 80% from the beginning of the year. Given the persistent global supply
+constraints on compute, this path ensures that the Company’s cost curve remains within its own control. As at the
+end of the Reporting Period, the number of enterprise and developer users on the GLM MaaS platform exceeded 5.8
+million. The Company’s total revenue amounted to approximately RMB954 million (approximately USD142 million),
+representing a nearly 400% increase year-on-year. Among this, open-platform and API revenue amounted to
+approximately RMB825 million (approximately USD123 million), up 2,735.7% year-on-year.
+In August 2026, the Company released GLM-5.3 and GLM-5.3-Flash (Ox-Alpha), and simultaneously made the GLM
+Coding Plan subscription available to all users, covering Lite, Pro, Max and Team editions – making it one of the
+earliest large-model services in China to deliver coding-agent capabilities under a subscription model. As of the date
+of this report, the GLM MaaS platform had over 7.4 million enterprise and developer users.
+I. Strategic Focus
+Intelligence upper bound defines the task boundary; task value defines the commercial space
+At the beginning of 2026, we set out a formula: AGI Commercial Value = Upper Bound of Intelligence Ò Token
+Consumption Scale. This time, we would like to elaborate a bit on this.
+The upper bound of intelligence determines which tasks the model can handle and how much user value can
+be created per Token. A higher intelligence upper bound means that the model can handle tasks with higher
+value density, and each unit of intelligence corresponds to greater economic output. Token consumption scale
+reflects the breadth and depth of intelligence utilization; the upper bound of intelligence first unlocks the task
+boundary, and the task boundary then determines where Tokens are assigned to in terms of value density. The
+same volume of Token used for casual chat versus fixing a production-environment vulnerability yields an output
+difference of several orders of magnitude.
+
+==== page 15 ====
+14 Z.AI Co., Ltd.
+Management Discussion and Analysis
+Capability Ladder. The evolution of model capabilities is not a set of parallel product lines, but a ladder that can
+only be climbed sequentially:
+Chat ÷ Coding ÷ Agent ÷ Co-work ÷ Autonomous AI
+Chat delivers a single response; the task ends within one round, with the lowest value density but broadest
+coverage. Coding delivers runnable code, introducing the first objective acceptance criterion – it either runs
+or it does not. Agent delivers a completed multi-step task chain, where the model begins to invoke tools and
+handle intermediate failures by itself. Co-work delivers a work product that can be reviewed by a professional,
+entering real workflows and priced by completed tasks. Autonomous AI delivers continuous operation capability,
+where the model undertakes long-term objectives without human supervision. Each step upward is gated by a
+concrete technical threshold. From Chat to Coding, the threshold is verifiability of results; from Coding to Agent,
+it is long-horizon planning and error recovery; from Agent to Co-work, it is reliability to the level that professionals
+are willing to review rather than redo from scratch; from Co-work to Autonomous AI, it is whether the model can
+judge the correctness of its own outputs. If the threshold cannot be crossed, the business model for that level
+does not hold.
+Market Space. As the task boundary moves upward, the market space expands correspondingly. By rough
+order-of-magnitude estimates: Chat corresponds to the search market of approximately USD100 billion – the
+answer given by the Internet era; Coding corresponds to roughly USD500 billion in software R&D expenditure;
+Co-work corresponds to approximately USD5 trillion in knowledge-work spending; and in the longer term,
+AI-driven re-architecting of operating systems and human-computer interaction, together with industry-
+wide upgrades, corresponds to an addressable space of about USD30 trillion. (The above market space
+figures are the Company’s rough estimates based on publicly available industry data, used solely to illustrate
+the correspondence between task tiers and market magnitudes, have not been independently verified, and
+do not constitute a forecast or guarantee by the Company of its business, financial condition or results of
+operations. The shareholders and investors of the Company should not place undue reliance on such figures.)
+Correspondingly, industry evaluation criteria are also shifting: from single-turn response quality and Token
+consumption volume to long-horizon task success rate, unit intelligence cost, result verifiability, and the actual
+business outcomes delivered to customers.
+During the Reporting Period, the Company’s focus lay between the second rung (Coding) and the fourth rung
+(Co-work) of the ladder. The coding direction has been fully traversed; cybersecurity has entered the co-work
+validation phase; and other areas such as legal remain at early stages. The Company’s R&D expenditure for the
+first half of 2026 amounted to approximately RMB2.131 billion (approximately USD317 million), demonstrating a
+steadfast commitment to scaling new heights.
+Why this order. We hold a straightforward understanding of AGI: it is not the intelligence of a single person, but
+the sum total of human intelligence, and should ultimately possess the capability to generate original knowledge
+on par with the theory of relativity. What determines progress along this path is the generational level of model
+capabilities. This is the starting point for all of the Company’s products and business logic.
+
+==== page 16 ====
+152026 Interim Report
+Management Discussion and Analysis
+The Company was among the earliest teams in China to invest in large-model R&D. From the GLM pre-training
+architecture and the Wudao series to today’s GLM-5 series, we have focused essentially on one thing: training
+more powerful models. When the industry was hot, we did not divert resources to roll out multiple product lines;
+when the industry cooled, we did not pause model iteration. In retrospect, every sharp increase in revenue
+occurred after – not before – model capabilities improved and new task scenarios were unlocked.
+II. Technology Roadmap and Model Progress
+The core capability of a model-building company lies in the efficiency of converting unit resources into
+intelligence. Compute, data and talent all carry costs; how efficiently the Company can convert these inputs into
+model intelligence determines how far it can go. Our optimal organizational approach is that research problems
+originate from real tasks, and research outcomes go directly into the next-generation model, delivering end-to-
+end service capabilities to users.
+• How We Understand SOTA
+Pareto Frontier for SOTA models: Iteration Speed*Intelligence Index*Cost per Task
+Z.AI GLM series
+DeepSeek
+Kimi by Moonshot AI
+OpenAI
+Anthropic
+Pareto Frontier (price vs intelligence)
+Paradigm progress
+Cost / Task (USD)
+Arti/f_icial Analysis Intelligence Index
+All 27 models from: Arti/f_icical Analysis
+Task metric: cost per lntelligence Index task updated: 2026-08-27
+
+==== page 17 ====
+16 Z.AI Co., Ltd.
+Management Discussion and Analysis
+Over the past year, the industry’s understanding of “SOTA” has been rewritten. Leading a point-in-time
+leaderboard is no longer the most important thing. What truly matters is who can sustainably bring more
+capable models to market at a faster pace and with better cost-efficiency. We place 27 flagship models
+from five vendors from September 2025 to the present into a single coordinate system: the horizontal axis
+is paradigm progress, the vertical axis is intelligence index, and the depth axis is C ost per T ask. In this
+framework, a single-point champion is merely a fleeting dot; sustained optimality is a trajectory that keeps
+advancing upward. All players are moving forward, but the pace and cost differ. The GLM series completed
+six iterations – 4.6, 4.7, 5, 5.1, 5.2 and 5.3 – over approximately 11 months, with the intelligence index
+rising from 32 to 60 and per-task costs stable at around USD0.20, spanning all three paradigm stages
+shown in the figure. GLM-5.3-Flash, with a per-task cost of USD0.045, has entered the intelligence-cost
+frontier. (Intelligence Index and per-task cost source: Artificial Analysis Intelligence Index, as of 27 August
+2026; task metric: cost per Intelligence Index task.)
+During the Reporting Period, the Company’s technology roadmap comprised three generations of models.
+1. GLM-5: Using Coding as the Entry Point to Unlock Long-Horizon Intelligence
+We chose coding as the entry point for capability breakthroughs because software engineering is
+the closest real-world environment to “verifiable intelligence”: task goals are clear, the toolchains
+are complete, and whether code runs, tests pass and issues are fixed all constitute clear feedback
+signals. Without verifiable feedback, there are no targets to optimize against.
+The capability focus of GLM-5 extends from code generation to system understanding, task planning,
+tool invocation, continuous debugging and engineering delivery, driving the model from Vibe Coding
+towards Agentic Engineering.
+The value of coding to the Company goes beyond helping developers write code. Over longer task
+chains, the model needs to continuously understand goals, invoke tools, handle exceptions and
+adjust strategies based on environmental feedback. Through coding – a high-feedback-density
+real-world environment – the long-horizon task capabilities accumulated can be transferred to
+cybersecurity, data analytics, complex automation and other professional domains. During the
+Reporting Period, the coding direction had already become the Company’s primary revenue source,
+and the capability transfer mentioned above was validated in Cybersecurity Co-work.
+2. GLM-5.2 and GLM-5.3: Scaling Deep While Scaling Up
+Scaling up means expanding model size, context length, compute power and system capacity;
+scaling deep means investing in post-training, reinforcement learning, long-horizon trajectories and
+task feedback. At the current stage, we prioritize resource allocation for the latter. There have been
+several historical precedents. Kaplan’s Law drove parameter growth far ahead of data growth;
+Chinchilla revised this path using the “20 Tokens per parameter” ratio: the 70B model trained on 1.4T
+Tokens comprehensively outperformed the 280B Gopher. In the inference era, models are invoked
+billions of times per day, inference costs exceed training costs, and the optimum shifts toward “smaller
+yet trained longer”. MoE further splits parameters into two dimensions: total parameters determine
+
+==== page 18 ====
+172026 Interim Report
+Management Discussion and Analysis
+how much is memorized, while active parameters and depth determine how deep the reasoning
+goes. Recent research also indicates that the optimal Token-to-parameter ratio is task-dependent:
+memory-oriented tasks favor larger parameters, while reasoning-oriented tasks favor more data.
+Tasks like cybersecurity do not require memorizing more CVEs ; they require pushing a twenty-
+step causal chain all the way through  without breaking – a capability that does not reside in total
+parameters.
+GLM-5.3 is a test of this judgment. It shares the same architecture, total parameter count and active
+parameter count with GLM-5.2; the only variable is the scale of post-training – using one month to
+scale up long-horizon task environments and reinforcement learning. In the Company’s self-built
+real-world coding evaluation, the end-to-end completion rate improved by over 50% compared
+with GLM-5.2 (evaluation methodology and sample size are detailed in the GLM-5.3 technical
+blog at https://z.ai/blog/glm-5.3). This approximates a controlled experiment, demonstrating that
+scaling is not just about parameters, and that post-training currently offers the largest headroom for
+performance gains.
+Our thesis is that a capable model can only be obtained by applying appropriate data at the right time
+and training at a suitable scale. The objective is not simply to pursue maximum size, but to deliver the
+model that, under current data and compute constraints and with sufficient training depth, maximizes
+intelligence upper bound.
+CVE (Common Vulnerations and Exposures)
+MoE (Mixture-of-Experts)
+
+==== page 19 ====
+18 Z.AI Co., Ltd.
+Management Discussion and Analysis
+This approach unfolds across four dimensions. (i) Data: continuously increase knowledge density and
+task complexity, and accumulate high-quality long-horizon Agent trajectories through the developer
+ecosystem, industry partnerships and Model-with-Model Self-Play, which are then filtered, validated,
+synthesized and fed back into training; (ii) Mid-training: between pre-training and post-training, the
+Company has separately allocated compute for the mid-training stage to increase knowledge density,
+extend effective context length, and establish foundational patterns for tool invocation and long-
+horizon tasks. The marginal returns of the three stages differ, and compute is budgeted separately
+rather than as a single one-off investment; (iii) Algorithms: in response to new challenges in reward
+allocation, feedback utilization and continual learning over long trajectories, we are moving from
+GRPO to explore Critic-based SAO, and extending from SFT towards OPD. Starting with GLM-
+5.2, we have introduced Critic-based single-trajectory optimization for ultra-long trajectories; (iv)
+Engineering and Environment: Slime improves the efficiency of large-scale reinforcement learning
+training; Index Share reduces the overhead of long-context sparse attention; MTP optimizes inference
+decoding; and LayerSplit and ZCube improve KV cache management and cluster network efficiency.
+At the same time, we continue to expand Coding Agent and more real-world interactive environments
+across additional domains, enabling the model to learn through continuous execution, failure and
+replanning. As the number, type and complexity of environments grow, the model learns not only
+how to answer, but how to continuously complete complex work in dynamic environments. These
+four dimensions interlock: environments generate trajectories; algorithms improve trajectory utilisation;
+engineering supports larger-scale training and inference; and data sets the starting point.
+3. GLM-5.3-Flash (Test Codename Ox-Alpha): Next-Generation Architecture and System Capability
+If GLM-5.3 represents the current capability upper bound, GLM-5.3-Flash represents the cost
+frontier. The two serve different task regimes: the former targets long-horizon tasks requiring the
+highest intelligence; the latter targets high-frequency, high-volume, cost-sensitive invocations.
+GLM-5.3-Flash adopts a brand-new architecture, purpose-built for ultra-low cost. It has 320B total
+parameters, 18B active parameters and 45 layers. It employs a hybrid architecture of sparse attention
+and linear attention, which substantially reduces long-context serving costs while maintaining long-
+context precision, and uses manifold-constrained H yperconnection (mHC) to enhance scaling
+capability. Combined with a 30T-scale multimodal pre-training corpus, GLM-5.3-Flash outperforms
+GLM-5.2 on benchmarks and in real-world applications, at one-tenth of the latter’s price.
+
+==== page 20 ====
+192026 Interim Report
+Management Discussion and Analysis
+Before the official release, we deployed the anonymous model Ox-Alpha on OpenCode and
+OpenRouter for real-world invocation testing. On its launch day, it reached the top of the OpenRouter
+leaderboard and set a new single-day Token usage record on that platform; within one week, it
+became the most-invoked model on both platforms, with a 6-day cumulative Token volume of more
+than 62 trillion, driving an over 20% increase in overall platform traffic.
+4. Domestic Chips Power Domestic Models
+The inference of GLM-5.3-Flash marks the first time the Company has fully deployed a domestic chip
+cluster to serve ultra-large-scale real-world traffic, with chips interconnected via a self-developed
+high-bandwidth network. The way this work was accomplished is itself worth recording: the entire
+inference engine was substantially accelerated by an infra agent powered by GLM-5.3, which
+assisted engineers in developing and optimizing operators, diagnosing performance bottlenecks, and
+improving the deployment service stack. The model optimizes the system, and the system hosts the
+model – this loop ran internally for the first time. Operator development cycles were shortened by half.
+This also serves as an internal validation of the Company’s own co-work approach.
+
+==== page 21 ====
+20 Z.AI Co., Ltd.
+Management Discussion and Analysis
+The main technical constraint is the memory capacity and bandwidth of domestic chips, making 1M
+context support particularly challenging. To address this, we built a dedicated inference engine on
+top of SGLang, with custom optimizations that trade compute for bandwidth and communication
+for memory, and adopted at the cluster level a production-grade Encode – Prefill – Decode
+disaggregated architecture, splitting multimodal encoding, prompt pre-filling and per-Token decoding
+into independently schedulable and scalable worker pools. Compared with the initial baseline on the
+same hardware, end-to-end service performance improved by 300% , in coding scenarios, the per-
+Token inference cost on domestic chips has reached a level comparable in cost-performance to
+mainstream imported GPUs. Domestic chips can economically support inference for cutting-edge
+models at large scale.
+III. Commercialization Progress: The Right Model Will Natively Go to Market
+(I) Revenue Structure Flip
+The evolution of the Company’s revenue structure is essentially a progression of transaction modes driven
+by model capability improvement:
+Sell Model ÷ Sell Invocations ÷ Sell Subscriptions ÷ Sell End-to-End Task Outcomes
+These four transaction modes are not parallel product lines, but forms unlocked sequentially as model
+capability improves. The more complete the tasks the model can independently accomplish, the closer the
+customer’s purchase is to the outcome itself, and the unit of revenue measurement changes accordingly.
+1. On-premise Deployment Phase: Completing Deep Industry Accumulation and Validation
+In the early days, when the model was not yet capable of independently completing a full task,
+customers purchased tools that needed to be integrated, customized and deployed in their own
+environments. Combined with requirements for data security, compliance and autonomous control,
+on-premise deployment became the natural starting point for enterprise adoption of large models.
+The transaction mode at this phase was selling models – one-time licensing, project-based delivery.
+During this phase, the Company completed penetration into key industries, developed understanding
+of complex scenarios, and built enterprise-grade delivery capabilities. These accumulations remain
+valuable today – what has changed is the delivery form, not the industry understanding.
+2. Coding Phase: From One-Time Delivery to Continuous Invocation
+The improvement in GLM’s coding capability drove rapid growth in API and Coding Plan adoption.
+During this phase, the Company proactively scaled back its on-premise deployment model software
+licensing business, shifting toward continuously providing invokable, scalable and quantifiable
+intelligence services. By end-2025, API invocation volume had grown approximately seven times
+from end-June 2025, with the revenue from the open platform and API accounting for approximately
+26.3% of total revenue, and gross margin improving to 18.9%. Coding became the first scaled entry
+point for Token consumption and cloud revenue growth. The significance of this step extends beyond
+growth rate: revenue recognition shifted from one-off to recurring, giving the Company predictable
+recurring revenue for the first time.
+
+==== page 22 ====
+212026 Interim Report
+Management Discussion and Analysis
+3. Agent and Co-work Phase: From Model Invocation to Task Delivery
+In the first half of 2026, GLM’s capabilities in Agent planning, tool invocation, continuous execution
+and long-horizon tasks continued to improve, extending the business from the single-point application
+in coding to high-value scenarios such as software engineering, cybersecurity, data analytics and
+complex automation. The transaction mode evolved further from selling invocations to selling
+subscriptions and end-to-end task outcomes.
+During the Reporting Period, revenue from the open platform and API reached RMB825 million,
+representing a year-on-year increase of over 27 times and accounting for approximately 86.5% of
+total revenue, compared with 15.2% in the same period last year – a rise of 71.3 percentage points.
+Co-work represents the part currently being unlocked: the model connects to enterprise data, tools
+and business systems, embedding into procurement, finance, customer service, R&D, IT operation
+and maintenance and other functions, moving from understanding requirements to executing tasks.
+In turn, enterprises’ real workflows become learnable environments and data for the model. During
+the Reporting Period, the Company initiated pilot efforts in cybersecurity, legal, finance, education
+and other sectors, with cybersecurity progressing most rapidly; the others remain at early stages and
+have not yet generated material revenue.
+Looking back at these three phases, they form a cohesive trajectory: with each leap in model
+capabilities, what customers purchase moves one step closer to tangible outcomes, and the
+Company’s revenue structure is reshaped accordingly.
+(II) Volumes Surge While Prices Rise, with Improving Gross Profit and Narrowing Loss
+The above growth did not come at the expense of price. As of the date of this report, the Token invocation
+volume of the MaaS platform had increased over 40 times from the beginning of 2026, with Coding Plan
+invocation volume growing over 23 times. During the same period, the average API selling price increased
+by approximately 101%, and Coding Plan subscription prices also went up. Volumes surged while prices
+rose.
+During the Reporting Period, the gross profit margin for the open platform and API business increased
+to 24.6%, an improvement of approximately 25 percentage points year-on-year and up approximately
+6 percentage points from 2025. The Company’s loss for the period decreased by 12.1% year-on-year,
+the loss ratio (loss/revenue) narrowed by 4.7 times compared with the same period last year, and
+the adjusted net loss ratio for the period (adjusted loss/revenue for the period) shrunk by 3.5 times
+compared with the same period last year. While the scale expanded, unit economics improved, which is
+the set of metrics we value more.
+
+==== page 23 ====
+22 Z.AI Co., Ltd.
+Management Discussion and Analysis
+(III) From Coding to Co-work
+Coding is currently the largest-consumption and most fully validated scenario. Leveraging code generation,
+engineering understanding, tool invocation and long-horizon task capabilities, the Company is extending
+from code assistance to the full software development lifecycle. Through Harness, ZCode undertakes the
+tasks of context management, tool invocation, task scheduling, caching and result verification, improving
+the model’s performance in real-world engineering. As long-horizon capabilities advance, the complexity
+ceiling of coding tasks continues to rise.
+The Company uses three dimensions to decide which co-work directions to enter: intellectual threshold –
+the requirements for reasoning, planning, tool invocation and long-horizon execution; unit intelligence
+consumption – the effective Token, inference duration, computing power and human intervention required
+to complete a task; and unit output value – the revenue generated by a single delivery, labor time saved,
+and risk reduced. Together, these three factors determine whether it is necessary to handle over a task to
+the model today.
+For large enterprises and public institutions, the Company continues to provide on-premise deployment
+and organization-level intelligent infrastructure to satisfy the demands for data security, permission
+management, system integration and domestic computing power adaptation. Such demands will not
+disappear, but their roles in revenue have shifted from primary contributor to supplementary contributor.
+(IV) User Scale and Engagement Depth
+As of the date of this report, the Company’s MaaS platform had over 7.4 million users, an increase of
+144% from the beginning of 2026, with the number of paid daily active users rising by 603%. For the top
+ten customers by revenue, the average daily invocation volume soared 98 times from the beginning of
+2026.
+These three figures point to the same direction, with increasing magnitudes: more users, faster growth in
+paying users, and deeper usage among heavy paying users. The third figure is especially important as it
+indicates that the model is moving from trial to production within customer organizations.
+(V) Computing Power Multiplier
+During the Reporting Period, the Company’s Computing Power Multiplier, defined as the open platform
+and API revenue generated from every RMB1 of computing power investment (including both training and
+inference), increased by approximately 14 times year-on-year.
+This improvement in the curve comes from both ends: the intelligence per Token is increasing, while the
+Token and cost consumed per task are decreasing. The former is determined by model capability; the
+latter by infrastructure. Only when both of them improve simultaneously can there be a Pareto advance
+in the “intelligence-cost” frontier. The revenue recovered per RMB1 of computing power investment is
+increasing, meaning the model’s self-sustaining capability is strengthening. We intend to continue pushing
+this curve upward.
+
+==== page 24 ====
+232026 Interim Report
+Management Discussion and Analysis
+IV. Ecosystem and Safety: Earning Real-World Trust for Capability
+Between model capability and a dependable service lies one thing: whether the real world trusts it. The
+Company works on two fronts simultaneously: open-source and openness, so that safety capabilities grow in
+tandem with model capabilities. On one hand, the Company makes model weights, the MaaS platform, Coding
+Plan and the global developer network available for users, allowing the model to enter as many real-world
+scenarios as possible. On the other hand, the Company establishes verifiability of capabilities through permission
+controls, process supervision, risk assessment, vulnerability disclosure and external validation. They are mutually
+reinforcing: without openness and open-source, safety cannot be examined; without safety, openness and
+open-source cannot be sustained.
+Safety is not merely a compliance cost; it can also be a verifiable public good, helping the market judge whether
+a model can be safely, stably and durably deployed in real-world environments.
+From Capability to Public Good
+Since the launch of GLM-5.2, the Company, in collaboration with multiple security teams, has conducted
+ongoing red-team testing and safety evaluations. As of the end of the Reporting Period, a total of 2,436
+vulnerabilities had been identified (after initial screening and deduplication), of which 1,097 were medium- or
+high-severity, covering 269 projects including system kernels, operating systems, browser engines, open-
+source foundational components, Internet applications and network protocols. A considerable portion of the
+vulnerabilities are long-standing, previously undiscovered historical vulnerabilities, with the oldest having existed
+for more than 20 years.
+These discoveries have evolved into an ongoing vulnerability discovery and disclosure effort, with related
+vulnerabilities submitted to national vulnerability databases such as CNNVD/CNVD. To enhance transparency,
+the Company has established a Security Disclosure Ledger (https://cvd.z.ai/) that records the entire process
+from discovery, confirmation to remediation. The ledger is continuously updated, and only discloses the
+vulnerabilities that have been disclosed and remediated by vendors; for those still in the coordinated disclosure
+phase, only hash values are made public for subsequent verification, without disclosing reproducible exploit
+code.
+The significance of this mechanism is that it places the model’s capabilities in a position subject to third-party
+verification. Benchmark scores are reported by us; vulnerability disclosures are confirmed by national vulnerability
+databases and vendors, with the latter being the source of external trust.
+
+==== page 25 ====
+24 Z.AI Co., Ltd.
+Management Discussion and Analysis
+Open Source and Openness
+With the launch of GLM-5.3, the Company simultaneously launched the “Open Source Shield” initiative,
+comprising three ongoing commitments. First, we conduct continuous security audits of key open-source
+projects, helping maintainers identify and remediate risks free of charge, with audit results made public through
+OpenVuln (https://huggingface.co/spaces/zai-org/OpenVuln). Second, we provide free model quotas and
+defence access for the open-source community, allowing open-source project maintainers to apply for these
+resources for security audit and defence tasks.  Third, we offer code audit functionality in ZCode, integrating
+security checks into daily R&D workflows.
+The common thread across these three initiatives is putting the Company’s most advanced capabilities into the
+hands of those who need them most but can least afford them. Open-source foundational components underpin
+almost all modern software, while maintainers are often a few unpaid individuals. While attackers’ cost of using
+cutting-edge models is falling rapidly, defenders may not be able to afford them. If the strongest spear is locked
+in the hands of a few, the best shield must belong to everyone. Before the open-source release, the Company,
+together with top domestic security teams, conducted sustained red-team testing and automated jailbreak
+evaluations, using newly generated samples to iteratively harden the review system, and invited professional
+teams to independently assess the model’s high-risk task capabilities. The balance between capability release
+and risk mitigation is judged by external parties, not by the Company itself.
+From a commercial perspective, open-source and safety are not cost items. The distribution scale brought
+by open-source is a prerequisite for the model to receive real-world task feedback; the external confirmation
+brought by security disclosures is the basis upon which enterprise customers decide whether to integrate the
+model into their production systems.
+Capability Boundaries and Controlled Access
+The model’s capabilities in cybersecurity have dual-use implications. For the most sensitive capabilities, the
+Company adopts a controlled-access approach: which are made available to verified security researchers and
+institutions, while all other users follow standard security policies. Before the open-source release, the Company
+completes safety assessments, model hardening and usage boundary design.
+
+==== page 26 ====
+252026 Interim Report
+Management Discussion and Analysis
+Future Outlook
+In the first half of 2026, we have validated that the model can independently complete an entire task. The next step is
+to enable it to undertake an entire business process.
+(I) Tasks: From Long-Horizon Tasks to Autonomous Systems
+Longer time horizons. We will enable the model to stay consistent with its goals over longer periods and
+continuously perform task decomposition, tool invocation, environmental interaction, error remediation and result
+verification. Today’s frontier is engineering tasks on the order of hours, while the next step will be complete
+delivery on the order of days.
+Multi-agent collaboration. We will move from a single Agent to multi-Agent collaboration, with the model
+undertaking complete business processes, shifting from assisting work to executing work. The threshold at this
+step lies not entirely in intelligence itself, but is more in reliability and auditability, indicating the model must be
+able to operate without step-by-step human inspection, while leaving verifiable traces.
+Each outward expansion of the task boundary raises the requirements on model capability by an order of
+magnitude. The consequent question is: along which dimensions can capability continue to improve.
+(II) Capability: Scaling Never Stops
+Scaling remains the main path to higher intelligence. What has changed is what we are scaling.
+Over the past few years, scaling was almost synonymous with parameter count. However, once parameters
+pass the threshold of “housing the world”, the marginal return from further width diminishes rapidly, while other
+dimensions still have substantial untapped headroom. What determines a model’s upper bound today is a
+combination of four factors: base model scale, effective depth, training depth and task environments. Their
+marginal returns differ and rotate across stages; the Company’s resource allocation is about judging which factor
+offers the highest immediate return at each stage.
+Base Model Scale: The upper bound is set by pre-training. Post-training is the knob with the highest
+immediate return, but the ceiling on intelligence is determined by the base model. How deep a model can be
+trained depends on how much of the world it has seen during pre-training and how many structures remain
+available for activation. After post-training is pushed to its extreme, the next phase of growth must return to
+the base model. The Company has never ceased base-model iteration. GLM-5.3-Flash has already used a
+new-generation architecture and a 30T-scale multimodal pre-training corpus, validating the new architecture’s
+efficiency at medium parameter scale. Building on this, the Company is advancing the training of the next-
+generation base model, targeting larger effective scale, longer native context and unified native multimodal
+modelling.
+
+==== page 27 ====
+26 Z.AI Co., Ltd.
+Management Discussion and Analysis
+Effective Depth: Let the model think several steps ahead. Parameters determine how much is
+remembered; depth determines how far it can think. Loop Transformer increases effective computational depth
+through layer recycling without significantly increasing parameter count, shifting compute from “remembering”
+to “thinking” (the Company has preliminarily validated this concept in early experiments). This path aligns with
+our judgment on tasks: cybersecurity-type work requires pushing a twenty-step causal chain to the end without
+breaking, a capability that comes from depth, not parameter count.
+Training Depth: Currently the largest untapped margin. GLM-5.3 is direct evidence for this judgment. It
+shares the same architecture, total parameters and active parameters as GLM-5.2, with the only variable being
+post-training scale. It achieved an end-to-end completion rate improvement of over 50%. This curve has not
+yet plateaued. The Company will continue to scale up reinforcement learning over long-horizon tasks, extend
+effective training trajectories and improve trajectory utilization efficiency.
+Task Environments: A newly emerging variable. When algorithms and computing power are no longer the
+sole bottleneck, the number, type and complexity of environments begin to directly determine what the model
+can learn. This is a dimension that has emerged over the past two years and is among the most concentrated
+areas of the Company’s next-stage investment.
+(III) Systems: Fully Self-training
+Among the four knobs, the speed of environment building is becoming the new bottleneck. And at a deeper
+level, early evidence is emerging that AI is taking over all three components of the training system: data,
+environments and infrastructure.
+Data is starting to be self-generated. High-quality human-generated data is peaking, with publicly available
+data nearly exhausted, while a next-generation base model requires trillions of Tokens of ever-improving quality.
+Our solution is a model-vs-model self-play pipeline: one model generates solutions and content, while another
+model reviews, tests and executes validation, with only data that passes adversarial checks moving to the
+next stage. This is followed by four layers of filtering – rule-based verification confirms compilability, reasoning
+consistency and format compliance; execution validation actually runs in a sandbox, where execution results
+themselves are the highest-quality training signal; model review adds another judgment layer; and finally manual
+spot checks are conducted for calibration. What is accumulated is verifiable, executable and debuggable data
+that feeds back into all three stages of pre-training, mid-training and post-training.
+Thus, the upper bound on data quality is no longer determined by human annotation speed. Instead, it is
+determined by the model’s own verification capability. The stronger the model, the harder the problems it
+generates and the stricter its validation, leading to higher-quality data; better data then trains a stronger next
+model. Data transforms from a one-time consumable into a reusable capital asset that spans generations.
+
+==== page 28 ====
+272026 Interim Report
+Management Discussion and Analysis
+Environments are starting to be self-built. A useful training environment must be executable, verifiable and
+close to real-world professional work, and there must be thousands of environments, which cannot be built
+through manual work. In the GLM-5.3 technical blog, we shared some of our approaches: research agents
+capture task patterns from real-world work, converting work that would take senior engineers several days into
+runnable long-horizon environments containing multi-step dependencies and hidden states; judge agents test-
+run each task to confirm solvability; verifiers are synthesized without access to ground-truth answers, and solver
+trajectories are then used to detect and seal reward shortcuts; verifiers that pass oracle, no-op and unsolved
+checks ultimately produce binary rewards directly usable for reinforcement learning. The Slime architecture
+reduces mathematics, code, sandboxes and verifiers to plug-and-play data components, turning environments
+into standard products on an assembly line.
+It should be noted that this pipeline still involves a considerable amount of human intervention. Our next step is
+to make environment building and validation more autonomous.
+Infrastructure is starting to self-optimize. Inference system optimization, including kernels, scheduling,
+quantization and operators, is essentially a code-engineering task, which happens to be the model’s strongest
+domain. The inference engine for GLM-5.3-Flash was built through the following approach: an infrastructure
+agent powered by GLM-5.3 assisted engineers in developing and optimizing kernels, diagnosing performance
+bottlenecks and improving the service stack, ultimately achieving a 300% improvement in end-to-end service
+performance on domestic chips. The same logic is also operating on the training side: Slime enables training
+and large-scale inference rollout to share a common data flow, and configuration experience and scheduling
+strategies accumulated in reinforcement learning can be directly transferred to production serving.
+These three threads point to the same end state: the model participates in its own improvement, forming
+recursive self-improvement. This is not a distant concept, and its early form has already emerged in the first half
+of 2026: GLM-5.3 contributed to the optimization of the inference engine serving GLM itself, and environments
+generated by GLM are training the next-generation GLM. The only difference today is that a large number of
+engineers still stand in this loop. Each time the loop tightens, the pace of intelligence progress is increasingly
+determined by the speed at which environments grow.
+This is our technical vision: Fully Self Training. The next-generation GLM will be trained in the environments built
+by the previous-generation GLM.
+
+==== page 29 ====
+28 Z.AI Co., Ltd.
+Management Discussion and Analysis
+(IV) Boundaries and Governance
+The technical aspiration of the Company is that the model can automatically participate in the building of the
+training system. However, we must ensure that the assessment of its capabilities and the judgment of the risks
+ultimately remain human-mediated, with external institutions invited to perform evaluation independently. In
+the first half of 2026, we have already done so in cybersecurity: the most sensitive capabilities are subject to
+controlled access, open-sourcing is preceded by independent evaluation by third-party professional teams, and
+vulnerabilities are disclosed through national vulnerability databases. Benchmark scores are reported by us; risk
+judgments are subject to external confirmation. This division of labor will not change as capabilities improve; it
+will only be reinforced as capabilities ascend.
+The Company will continue to seek new balances among capability ceiling, inference efficiency, task value
+density and safety governance, so that higher-level intelligence can enter the real world stably and controllably,
+and everyone can benefit from universal access to intelligence.
+Financial Review
+The following discussion is based on the financial data and accompanying notes set out in other sections of this report
+and should be read in conjunction therewith.
+Analysis of Key Operating Performance Items
+Revenue
+During the Reporting Period, we achieved substantial revenue growth. Our revenues were RMB190.9 million for
+the six months ended 30 June 2025 and RMB953.9 million for the six months ended 30 June 2026, respectively,
+representing an increase of 399.7%. The expansion in revenue scale was primarily driven by the explosive growth of
+the cloud-based deployment business, marking a shift in the Group’s primary revenue growth driver from on-premise
+deployment business to cloud-based deployment business.
+By deployment method:
+Cloud-based Deployment
+Revenue from cloud-based deployment increased from RMB29.1 million for the six months ended 30 June 2025
+to RMB825.2 million for the six months ended 30 June 2026, representing an increase of 2,735.7%. This growth
+primarily reflected the Company’s gradual enhancement of its model capabilities for high-value task scenarios, and
+the continuous progress in the model’s long-horizon task capabilities, enabling users to consistently leverage the
+model in complex scenarios, thereby driving a significant increase in average daily Token usage per user. Meanwhile,
+the number of users on the MaaS platform continued to expand, and the momentum of simultaneous growth in both
+volume and price persisted. Revenue from cloud-based deployment as a percentage of total revenue increased from
+15.2% for the corresponding period of the previous year to 86.5%, and has become the Group’s primary source of
+revenue.
+
+==== page 30 ====
+292026 Interim Report
+Management Discussion and Analysis
+On-premise Deployment
+Revenue from on-premise deployment decreased from RMB161.8 million for the six months ended 30 June 2025
+to RMB128.7 million for the six months ended 30 June 2026, representing a decrease of 20.5%. This decrease was
+primarily due to the Group’s greater emphasis on the quality of its on-premise business and its selection of industries
+amid the explosive growth of its cloud-based deployment business, thereby laying a solid foundation for the future
+development of its model capabilities from general-purpose scenarios to high-value, specialised task scenarios in
+vertical industries.
+For the six months ended 30 June
+2026 2025
+RMB’000 % of total RMB’000 % of total
+(Unaudited) (Audited)
+Cloud-based deployment 825,176 86.5% 29,100 15.2%
+On-premise deployment 128,716 13.5% 161,777 84.8%
+Total 953,892 100.0% 190,877 100.0%
+By business form and core product lines:
+Open Platform and API
+Revenue from the Open Platform and API, or cloud services provided by the Group based on general-purpose large
+models, increased from RMB29.1 million for the six months ended 30 June 2025 to RMB825.2 million for the six
+months ended 30 June 2026, representing an increase of 2,735.7%. This growth primarily reflected the Company’s
+gradual enhancement of its model capabilities for high-value task scenarios, as well as the continuous improvement
+and qualitative advancement in long-horizon task capabilities driven by multiple rounds of iteration of the GLM series
+of models. These improvements enable users to continuously invoke the models in complex scenarios, thereby
+leading to a significant increase in average daily Token usage per user. Meanwhile, the user base of the MaaS platform
+continued to expand, and the momentum of simultaneous growth in both volume and price persisted.
+Enterprise-level Agents
+Revenue from enterprise-level agents, or autonomous intelligent systems developed by the Group for complex
+corporate scenarios, increased from RMB13.7 million for the six months ended 30 June 2025 to RMB55.6 million
+for the six months ended 30 June 2026, marking an increase of 304.4%. This was attributable to the accelerated
+adoption of intelligent agents by enterprise customers. On the one hand, the execution capabilities of the GLM series
+models in long-horizon tasks and complex scenarios continued to improve, enabling enterprise workflow-oriented
+agent products to cover more high-value scenarios; on the other hand, during the Reporting Period, enterprise
+customers demonstrated rapidly growing demand for the deployment of agent-based use cases, thereby contributing
+to the revenue growth of this segment.
+
+==== page 31 ====
+30 Z.AI Co., Ltd.
+Management Discussion and Analysis
+Enterprise-level General-purpose Large Models
+Revenue from enterprise-level general-purpose large models, namely a matrix of pre-trained models independently
+developed by the Group primarily delivered through private on-premise deployment, decreased from RMB147.6 million
+for the six months ended 30 June 2025 to RMB67.0 million for the six months ended 30 June 2026, representing
+a decrease of 54.6%. The decrease was primarily attributable to the Group’s greater emphasis on the quality of its
+enterprise-level general-purpose large model business and its selection of industries, thereby laying a solid foundation
+for the future development of its model capabilities from general-purpose scenarios to high-value, specialised task
+scenarios in vertical industries. Meanwhile, some enterprise-level general-purpose large model customers gradually
+migrated to Open Platform and API services, which created a positive flywheel effect.
+Technical Services and Others
+Revenue from technical services and others increased from RMB0.5 million for the six months ended 30 June 2025
+to RMB6.1 million for the six months ended 30 June 2026, representing a period-on-period increase of 1,120.0%,
+primarily due to the Group’s exploration of extending the capabilities of its self-developed large models to more
+application scenarios. The revenue base of this segment remained relatively small, and its changes had a limited
+impact on the Group’s overall revenue structure.
+For the six months ended 30 June
+2026 2025
+RMB’000 % of Total RMB’000 % of Total
+(Unaudited) (Unaudited)
+Open platform and API 825,176 86.5% 29,100 15.2%
+Enterprise-level agents 55,561 5.8% 13,739 7.2%
+Enterprise-level general-purpose large models 67,037 7.0% 147,555 77.3%
+Technical services and others 6,118 0.7% 483 0.3%
+Total 953,892 100.0% 190,877 100.0%
+Gross Profit and Gross Profit Margin
+The Group’s gross profit increased from RMB95.4 million for the six months ended 30 June 2025 to RMB251.6
+million for the six months ended 30 June 2026, representing an increase of 163.7%. The Group’s gross profit margin
+decreased from 50.0% for the six months ended 30 June 2025 to 26.4% for the six months ended 30 June 2026,
+primarily due to the change in revenue mix, as the proportion of cloud-based deployment business expanded rapidly.
+This business segment, being in its early stage of rapid growth, was still experiencing a gross profit margin ramp-
+up, which structurally diluted the overall gross profit margin. Nevertheless, the gross profit margin of the cloud-based
+business itself turned from negative to positive and increased rapidly from the corresponding period of the previous
+year. During the Reporting Period, the Group’s gross profit increased by more than 1.6 times, reflecting that the
+change in revenue mix has made a positive contribution to gross profit.
+
+==== page 32 ====
+312026 Interim Report
+Management Discussion and Analysis
+By deployment method:
+Cloud-based Deployment
+Gross profit from the cloud-based deployment business increased from RMB-0.1 million for the six months ended
+30 June 2025 to RMB202.9 million for the six months ended 30 June 2026, representing a turnaround over the prior
+period. The gross profit margin increased from -0.4% for the six months ended 30 June 2025 to 24.6% for the six
+months ended 30 June 2026. This improvement was primarily attributable to: first, the economies of scale resulting
+from the explosive growth in revenue, with the exponential increase in Token usage significantly diluting fixed costs;
+second, the gradual upward adjustment of pricing strategies in line with the increase in the upper bound of model
+intelligence, while Token usage continued to grow, maintaining the momentum of simultaneous growth in both volume
+and price; and third, continuous full-stack self-developed engineering optimization that reduced model inference
+costs.
+On-premise Deployment
+Gross profit from the on-premise deployment business decreased from RMB95.5 million for the six months ended
+30 June 2025 to RMB48.7 million for the six months ended 30 June 2026, representing a period-on-period decrease
+of 49.0%. The gross profit margin decreased from 59.1% for the six months ended 30 June 2025 to 37.9% for the
+six months ended 30 June 2026. Gross profit and gross profit margin both decreased, primarily due to the Group’s
+efforts to advance the adjustment of its business model, resulting in changes in the product mix of its on-premise
+deployment business. The scale of private delivery of enterprise-level general-purpose large models with relatively high
+gross profit margin has contracted, while the proportion of enterprise-level agent products, which remained at the
+stage of large-scale expansion, has increased. Meanwhile, certain customers migrated from on-premises deployment
+to cloud services.
+For the six months ended 30 June
+2026 2025
+Gross profit
+(RMB’000)
+Gross profit
+margin (%)
+Gross profit
+(RMB’000)
+Gross profit
+margin (%)
+(Unaudited) (Audited)
+Cloud-based deployment 202,871 24.6 (116) -0.4
+On-premise deployment 48,740 37.9 95,540 59.1
+Total 251,611 26.4 95,424 50.0
+
+==== page 33 ====
+32 Z.AI Co., Ltd.
+Management Discussion and Analysis
+By business form and core product lines:
+Open Platform and API
+Gross profit from the Open Platform and API business increased from RMB-0.1 million for the six months ended 30
+June 2025 to RMB202.9 million for the six months ended 30 June 2026, representing a turnaround over the prior
+period. The gross profit margin improved from -0.4% for the six months ended 30 June 2025 to 24.6% for the six
+months ended 30 June 2026. This improvement was primarily attributable to the realization of economies of scale,
+upward adjustments to pricing, and continued full-stack engineering optimization that reduced inference costs.
+Enterprise-level Agents
+Gross profit from the enterprise-level agents business increased from RMB8.9 million for the six months ended 30
+June 2025 to RMB19.8 million for the six months ended 30 June 2026, representing a period-on-period increase of
+122.5%. The gross profit margin decreased from 64.6% for the six months ended 30 June 2025 to 35.6% for the six
+months ended 30 June 2026. Gross profit increased while gross profit margin decreased, primarily due to increasingly
+growing demands from enterprise customers for the deployment of agent-based use cases during the Reporting
+Period. To ensure delivery quality and the depth of scenario coverage, relatively significant development and delivery
+costs were made to meet diversified customer needs; as economies of scale gradually emerge, the gross profit margin
+is expected to stabilize and recover.
+Enterprise-level General-purpose Large Models
+Gross profit from the enterprise-level general-purpose large models business decreased from RMB86.3 million for the
+six months ended 30 June 2025 to RMB28.4 million for the six months ended 30 June 2026, representing a period-
+on-period decrease of 67.1%. The gross profit margin decreased from 58.5% for the six months ended 30 June 2025
+to 42.3% for the six months ended 30 June 2026. Gross profit and gross profit margin both decreased, primarily due
+to the Group’s greater emphasis on the quality of this type of business and its selection of industries, thereby laying
+a solid foundation for the future development of its model capabilities from general-purpose scenarios to high-value,
+specialised task scenarios in vertical industries. Meanwhile, the delivery and maintenance costs of this type of business
+have a certain degree of rigidity, resulting in reduced economies of scale. In addition, as customer needs have been
+upgraded, certain projects have shifted towards enterprise-level agent solutions, which also had a temporary impact
+on gross profit margin.
+
+==== page 34 ====
+332026 Interim Report
+Management Discussion and Analysis
+Technical Services and Others
+Gross profit from the technical services and others business increased from RMB0.3 million for the six months ended
+30 June 2025 to RMB0.6 million for the six months ended 30 June 2026, representing a period-on-period increase of
+100.0%. The gross profit margin decreased from 65.8% for the six months ended 30 June 2025 to 9.4% for the six
+months ended 30 June 2026. Gross profit increased while gross profit margin decreased, primarily due to increased
+investment in certain exploratory scenario projects during the Reporting Period, and the relatively small revenue base
+of this segment, which resulted in a more significant impact on gross profit margin.
+For the six months ended 30 June
+2026 2025
+Gross profit
+(RMB’000)
+Gross profit
+margin (%)
+Gross profit
+(RMB’000)
+Gross profit
+margin (%)
+(Unaudited) (Unaudited)
+Open platform and API 202,871 24.6 (116) -0.4
+Enterprise-level agents 19,796 35.6 8,880 64.6
+Enterprise-level general-purpose large models 28,368 42.3 86,342 58.5
+Technical services and others 576 9.4 318 65.8
+Total 251,611 26.4 95,424 50.0
+Cost of Sales
+The Group’s cost of sales increased from RMB95.5 million for the six months ended 30 June 2025 to RMB702.3
+million for the six months ended 30 June 2026, representing a period-on-period increase of 635.4%. The increase
+in costs was primarily attributable to the increase in computing service fees resulting from business expansion and
+revenue growth, which was broadly in line with the trend of revenue growth.
+Capital Expenditure
+The Group’s capital expenditure increased from RMB53.7 million for the six months ended 30 June 2025 to
+RMB390.6 million for the six months ended 30 June 2026, representing a period-on-period increase of 627.4%.
+This increase was primarily due to the Company’s completion of the acquisition of the entire equity interest in Beijing
+Hongzuan Technology Development Co., Ltd. (ʮ̡) (“Beijing Hongzuan”), resulting in the
+addition of a significant amount of property, plant and equipment.
+Other Income
+The Group’s other income increased from RMB4.6 million for the six months ended 30 June 2025 to RMB41.4 million
+for the six months ended 30 June 2026, representing a period-on-period increase of 800.0%. This was primarily due
+to the substantial increase in the scale of the Group’s bank deposits following the Company’s listing in January 2026,
+which resulted in a corresponding increase in interest income.
+
+==== page 35 ====
+34 Z.AI Co., Ltd.
+Management Discussion and Analysis
+Research and Development Expenses
+The Group’s research and development expenses increased from RMB1,594.7 million for the six months ended 30
+June 2025 to RMB2,131.2 million for the six months ended 30 June 2026, representing a period-on-period increase
+of 33.6%. This was primarily due to the Group’s continued increase in research and development investment in model
+training to support the continuous breakthroughs in the upper bound of intelligence of the GLM series models.
+Selling and Marketing Expenses
+The Group’s selling and marketing expenses decreased from RMB208.6 million for the six months ended 30 June
+2025 to RMB177.7 million for the six months ended 30 June 2026, representing a period-on-period decrease of
+14.8%. This was primarily due to the Group’s optimization of its allocation of marketing resources and improvement in
+the conversion efficiency of marketing investments.
+General and Administrative Expenses
+The Group’s general and administrative expenses decreased from RMB185.2 million for the six months ended 30
+June 2025 to RMB103.3 million for the six months ended 30 June 2026, representing a period-on-period decrease
+of 44.2%. This was primarily due to the decrease in professional service fees and equity-settled share-based
+compensation expenses during the Reporting Period, compared to the same period last year.
+Impairment Losses on Financial Assets
+The Group’s impairment losses on financial assets increased from RMB10.9 million for the six months ended 30
+June 2025 to RMB27.4 million for the six months ended 30 June 2026, representing a period-on-period increase of
+151.4%. This was primarily due to the increase in the gross amount of trade and bills receivables resulting from the
+expansion of the business scale.
+Finance Costs
+The Group’s finance costs increased from RMB53.3 million for the six months ended 30 June 2025 to RMB95.9
+million for the six months ended 30 June 2026, representing a period-on-period increase of 79.9%. This was primarily
+due to the recognition of net foreign exchange losses and the increase in interest expenses on bank loans during the
+Reporting Period.
+Share of Profits Less Losses of Associates
+The Group’s share of profits less losses of associates increased from RMB14.1 million for the six months ended 30
+June 2025 to RMB144.2 million for the six months ended 30 June 2026, representing a period-on-period increase of
+922.7%. This was primarily due to the improvement in the operating and financial results of the associates during the
+Reporting Period.
+Changes in Fair Value of Financial Instruments Measured at FVPL
+The changes in fair value of financial instruments measured at fair value through profit or loss increased from
+RMB9.8 million for the six months ended 30 June 2025 to RMB50.4 million for the six months ended 30 June 2026,
+representing a period-on-period increase of 414.3%. This was primarily due to the increase in the valuation of the
+financial instruments held by the Group during the period, resulting in the recognition of fair value gains.
+
+==== page 36 ====
+352026 Interim Report
+Management Discussion and Analysis
+Changes in the Carrying Amount of Financial Instruments Issued to Investors
+The carrying amount of financial instruments issued to investors recorded a loss of RMB429.3 million for the six
+months ended 30 June 2025, which decreased to a loss of RMB22.1 million for the six months ended 30 June 2026,
+representing a period-on-period decrease of 94.9%. This was primarily due to the termination of financial instruments
+issued to investors and related redemption rights and their derecognition upon listing in January 2026, resulting in
+changes in carrying amount being recognized only for the short period prior to the listing during the Reporting Period.
+Net Loss
+The Group recorded a net loss of RMB2,072.0 million for the six months ended 30 June 2026, representing a
+decrease from a net loss of RMB2,357.9 million for the six months ended 30 June 2025. This was primarily due to an
+increase in gross profit during the Reporting Period and a significant decrease in losses arising from changes in the
+carrying amount of financial instruments issued to investors upon listing, which were converted into ordinary shares.
+The increase in research and development expenses partially offset the decrease.
+Non-IFRS Measure
+For the six months
+ended 30 June
+2026 2025
+RMB’000 RMB’000
+(Unaudited) (Unaudited)
+Loss for the period (2,071,992) (2,357,852)
+Add:
+– Equity-settled share-based compensation expenses 85,764 158,852
+– Changes in the carrying amount of financial
+instruments issued to investors 22,090 429,295
+– Listing expense – 17,731
+Adjusted net loss for the period (non-IFRS measure) (1,964,138) (1,751,974)
+Analysis of Key Items in Financial Position
+Financial Position
+Shareholders’ equity increased from RMB-8,111.0 million as at 31 December 2025 to RMB4,429.6 million as at 30
+June 2026, primarily due to the successful listing of the Group during the Reporting Period, pursuant to which the
+financial instruments issued to investors and related redemption rights had been terminated, and the related financial
+liabilities were transferred to the Company’s equity.
+Liquidity and Financial Resources
+As at 30 June 2026, the Group held cash and cash equivalents of RMB3,993.7 million, an increase of RMB1,734.6
+million from RMB2,259.1 million as at 31 December 2025. This fluctuation was mainly attributable to the receipt
+of proceeds from the listing and an increase in bank loans during the Reporting Period, while operating expenses
+consumed part of the funds.
+
+==== page 37 ====
+36 Z.AI Co., Ltd.
+Management Discussion and Analysis
+Capital Structure
+The Group primarily funded its development needs through cash generated from operating activities, as well as
+through financing activities such as share issuances and external borrowings.
+Debt/Borrowings
+As at 30 June 2026, the Group’s total bank loans amounted to RMB2,224.8 million, an increase of RMB1,535.3
+million from RMB689.5 million as at 31 December 2025, primarily due to funds borrowed to meet operational needs.
+All relevant loans are interest-bearing with floating interest rate, denominated primarily in RMB and unsecured.
+Lease Liabilities
+As at 30 June 2026, the total lease liabilities recognized by the Group (including both current and non-current portions)
+amounted to RMB379.4 million, a decrease of RMB165.7 million from RMB545.1 million as at 31 December 2025.
+This fluctuation was primarily attributable to the payment of lease payments during the Reporting Period and changes
+in lease arrangements.
+Gearing Ratio
+The Group’s gearing ratio (Gearing ratio is calculated by bank loans and lease liabilities divided by total equity as of the
+end of the period multiplied by 100%) was 58.8% as at 30 June 2026, compared to -15.2% as at 31 December 2025.
+This change was primarily attributable to the termination of the financial instruments issued to investors and related
+redemption rights upon listing, and the related financial liabilities were transferred to the Company’s equity resulting in
+total equity changing from negative to positive.
+Asset Pledges
+The Group had no pledged assets for the six months ended 30 June 2026.
+Capital Commitments
+The Group had no outstanding capital commitment for the six months ended 30 June 2026.
+Contingent Liabilities
+The Group had no significant contingent liabilities for the six months ended 30 June 2026.
+Significant Investments and Major Acquisitions and Disposals of Subsidiaries, Associates, and Joint
+Ventures
+Pursuant to the resolution of the Board dated 31 March 2026 and the acquisition framework agreement dated 14 April
+2026, the Company acquired 100% of the equity interest of Beijing Hongzuan at a total consideration of no more than
+RMB360.52 million. Upon completion of the acquisition, Beijing Hongzuan has been accounted for as a subsidiary of
+the Company. For details, please refer to the Company’s announcement dated 14 April 2026.
+Save as disclosed above, as of 30 June 2026, the Group did not make any significant investments or engage in any
+other major acquisitions or disposals of subsidiaries, associates, or joint ventures. The Group had no specific future
+plans for the acquisition of material capital assets as of the date of this report.
+
+==== page 38 ====
+372026 Interim Report
+Management Discussion and Analysis
+Employees and Remuneration Policy
+As at 30 June 2026, the Group had 981 permanent employees (30 June 2025: 883), with staffing levels subject to
+operational needs. The Group incurred total remuneration costs (including share-based payments) of RMB482.1
+million during the Reporting Period (six months ended 30 June 2025: RMB499.6 million).
+Talent is the Company’s most core strategic resource. In light of the characteristics of the artificial intelligence industry,
+we have established a talent management system that is capability-oriented and incentive-driven, supporting the
+Company’s continuous technological innovation and business expansion in the AI field.
+In terms of remuneration strategy, we adopt a three-tier structure of “fixed remuneration + performance bonus +
+medium- and long-term incentives” to ensure that rewards are closely aligned with the Company’s performance
+and individual contributions. Through employee incentive plans and employee shareholding platforms, we closely
+align the interests of core management personnel, key technical personnel and business professionals with the
+Company’s long-term development. We regularly conduct industry remuneration benchmarking to maintain the market
+competitiveness of our remuneration levels and attract and retain top talent.
+In terms of employee care, in addition to statutory social insurance and housing provident fund, we provide multiple
+layers of benefits, including supplementary commercial insurance, annual health check-ups, meal allowances and
+holiday benefits. We also support various cultural, recreational and sports activities, pay attention to employees’
+physical and mental well-being, and foster a positive and uplifting working environment. The Company has established
+systematic internal training and knowledge-sharing mechanisms, encouraging cross-departmental collaboration and
+technical exchanges and providing ongoing support for employees’ career development.
+As a leading enterprise in the large language model sector, we have established an AI-native working model as the
+fundamental mode of organizational operations. Built on our self-developed models and intelligent agent systems,
+we have positioned ourselves as a frontier environment for the large-scale validation of model capabilities in real-
+world production environments. In our daily R&D activities, standardized processes such as code generation, defect
+fixing and test writing are largely completed autonomously by AI, while employees focus on identifying the essence
+of problems, designing technical solutions and exploring innovative directions. This collaborative paradigm of “AI
+performs the work, while people make the decisions” is reshaping the Company’s productivity and pace of innovation.
+Exposure to Exchange Rate Fluctuation
+The Group’s foreign exchange risk arises from future commercial transactions and recognized assets and liabilities
+denominated in currencies other than the functional currency of the relevant Group entities. The Company’s functional
+currency is Renminbi. Most non-RMB assets and liabilities are cash and cash equivalents denominated in US dollars
+and Hong Kong dollars.
+The Group is primarily exposed to risks arising from fluctuations in RMB/USD and RMB/HKD exchange rates.
+Currently, we have not conducted hedging activities designed or intended to manage foreign exchange rate risks.
+However, we manage foreign exchange risks by closely monitoring exchange rate movements, and will take necessary
+measures to mitigate such risks.
+
+==== page 39 ====
+38 Z.AI Co., Ltd.
+Management Discussion and Analysis
+Principal Risks and Uncertainties
+Our operations involve certain risks and uncertainties, including (i) risks related to our research and development; (ii)
+risks related to our commercialization; (iii) risks related to our operations; (iv) risks related to our intellectual property;
+(v) risks related to our financial position and additional funding requirements; and (vi) risks related to the jurisdictions in
+which we conduct business, including but not limited to:
+• The AI industry represents a cutting-edge technology sector characterized by constant changes. The Group’s
+future business operations, results of operations, financial position and competitive standing hinge on its capacity
+to continuously upgrade and iterate its models and technologies.
+• We have made and expect to continue to make substantial investments in R&D to continuously upgrade and
+iterate our large models.
+• The Group is exposed to risks relating to customer changes and slower-than-expected development of new
+customers.
+• The development of AGI is still at an early stage and there are substantial uncertainties in the future realization of
+AGI.
+• We need to maintain a sufficient and stable team of technical personnel over the long term to respond to
+market changes in a timely manner. Any adverse changes involving our key technical personnel may affect
+the development, advancement and commercialization of major R&D projects of the Group, which may in turn
+adversely affect the Group’s operations.
+• We are exposed to management risks arising from business expansion.
+• The Group’s assets and revenue have grown rapidly in scale, while the number of personnel has continued to
+increase, placing higher demands on the Group’s management capabilities and risk control. The Group may, to
+a certain extent, face management risks arising from business expansion.
+• We rely on third parties to provide computing resources to us, and any disruption of their services or fluctuation
+of prices could adversely affect our business, results of operations and financial condition.
+• China’s AI industry is subject to an evolving and increasingly stringent regulatory environment. Future laws and
+regulations may impose additional requirements and other obligations that could adversely affect our business,
+results of operations, financial condition and prospects.
+• We may not be able to obtain or maintain adequate intellectual property rights protection for our business, or the
+scope of such intellectual property rights protection may not be sufficiently broad.
+
+==== page 40 ====
+392026 Interim Report
+Management Discussion and Analysis
+• We are exposed to risks from intensifying market competition in the future. If the Group’s technological
+development and product iterations fail to remain at the leading level in the industry, the Group’s competitive
+position, market share and operating results may be adversely affected.
+• The size of our addressable market and the demand for our solutions may not increase as rapidly as we
+anticipate due to a variety of factors, which would adversely affect our business, results of operations, financial
+condition and prospects.
+• Any failure of our MaaS platform to perform as required could harm our business, results of operations, financial
+condition and prospects.
+• We have a limited track record in the commercialization of our business. In addition, the large model market
+is subject to dual impacts from technological iteration and changes in regulatory policies, making it difficult to
+accurately predict development opportunities and the future market size.
+The above list is not exhaustive. For further details, please refer to the “Risk Factors” section of our Prospectus.
+
+==== page 54 (outside the review sections: R&D) ====
+Interim Consolidated Statement of Profit or Loss and Other Comprehensive Income
+For the six months ended 30 June 2026 – unaudited
+(Expressed in RMB)
+532026 Interim Report
+Six months ended 30 June
+2026 2025
+Note RMB’000 RMB’000
+Revenue 3 953,892 190,877
+Cost of revenue (702,281) (95,453)
+Gross profit 3(b) 251,611 95,424
+Other income 41,436 4,614
+Selling and marketing expenses (177,666) (208,570)
+General and administration expenses (103,346) (185,165)
+Research and development expenses (2,131,171) (1,594,661)
+Impairment losses on financial assets (27,416) (10,867)
+Loss from operations (2,146,552) (1,899,225)
+Finance costs 4(a) (95,925) (53,270)
+Share of profits less losses of associates 10 144,152 14,147
+Changes in fair value of financial instruments measured at fair value
+through profit or loss (“FVPL”) 50,385 9,791
+Changes in the carrying amounts of financial instruments issued to
+investors 17 (22,090) (429,295)
+Loss before taxation 4 (2,070,030) (2,357,852)
+Income tax 5 (1,962) –
+Loss for the period (2,071,992) (2,357,852)
+The notes on page 62 to 81 form part of this interim financial report.
+
+==== page 65 (outside the review sections: segment information, capex / capital commitments, R&D) ====
+64 Z.AI Co., Ltd.
+Notes to the Unaudited Interim Financial Report
+(Expressed in RMB unless otherwise indicated)
+3 Revenue and segment reporting (continued)
+(b) Segment reporting
+The Group manages its businesses by service types. In a manner consistent with the way in which
+information is reported internally to the Group’s most senior executive management for the purposes of
+resource allocation and performance assessment, the Group has presented the following two reportable
+segments. No operating segments have been aggregated to form the following reportable segments.
+• On-premise deployment:  this segment develops and provides customised large model-related
+services according to the customers’ specific instructions and needs at
+the customers’ infrastructure.
+• Cloud-based deployment:  this segment develops and provides cloud-based large model-related
+services to customers through cloud infrastructure.
+(i) Segment results
+For the purposes of assessing segment performance and allocating resources, the Group’s most
+senior executive management monitors the results attributable to each reportable segment on the
+following bases:
+Revenue and expenses are allocated to the reportable segments with reference to revenue generated
+by those segments and direct expenses incurred by those segments. The measure used for reporting
+segment result is gross profit. No inter-segment sales have occurred during the period. Assistance
+provided by one segment to another, including sharing of assets and technical know-how, is not
+measured.
+The Group’s other operating income and expenses, such as other income, selling and marketing
+expenses, general and administrative expenses, research and development expenses, impairment
+losses on financial assets, finance costs, and assets and liabilities are not measured under individual
+segments. Accordingly, neither information on segment assets and liabilities nor information
+concerning capital expenditure, interest income and interest expenses is presented.
+
+==== page 66 (outside the review sections: segment information, R&D) ====
+652026 Interim Report
+Notes to the Unaudited Interim Financial Report
+(Expressed in RMB unless otherwise indicated)
+3 Revenue and segment reporting (continued)
+(b) Segment reporting (continued)
+(i) Segment results (continued)
+Information regarding the Group’s reportable segments as provided to the Group’s most senior
+executive management for the purposes of resource allocation and assessment of segment
+performance during the period is set out below.
+Six months ended 30 June 2026
+On-premise
+deployment
+Cloud-based
+deployment Total
+RMB’000 RMB’000 RMB’000
+Segment revenue derived from external
+customers 128,716 825,176 953,892
+Segment gross profit 48,740 202,871 251,611
+Six months ended 30 June 2025
+On-premise
+deployment
+Cloud-based
+deployment Total
+RMB’000 RMB’000 RMB’000
+Segment revenue derived from external
+customers 161,777 29,100 190,877
+Segment gross profit 95,540 (116) 95,424
+(ii) Reconciliation of reportable segment profit or loss
+Six months ended 30 June
+2026 2025
+RMB’000 RMB’000
+Reportable segment gross profit 251,611 95,424
+Other income 41,436 4,614
+Selling and marketing expenses (177,666) (208,570)
+General and administration expenses (103,346) (185,165)
+Research and development expenses (2,131,171) (1,594,661)
+Impairment losses on financial assets (27,416) (10,867)
+Finance costs (95,925) (53,270)
+Share of profits less losses of associates 144,152 14,147
+Changes in fair value of financial instruments
+measured at FVPL 50,385 9,791
+Changes in the carrying amounts of financial
+instruments issued to investors (22,090) (429,295)
+Consolidated loss before taxation (2,070,030) (2,357,852)
+
+==== page 67 (outside the review sections: continued from page 66) ====
+66 Z.AI Co., Ltd.
+Notes to the Unaudited Interim Financial Report
+(Expressed in RMB unless otherwise indicated)
+4 Loss before taxation
+(a) Finance costs
+Six months ended 30 June
+2026 2025
+RMB’000 RMB’000
+Interest expenses on lease liabilities 12,480 17,983
+Interest expenses on bank loans 9,997 1,807
+Transaction costs on issuance of financial instruments to investors – 31,975
+Foreign currency exchange loss, net 73,448 1,505
+95,925 53,270
+(b) Staff costs
+Six months ended 30 June
+2026 2025
+RMB’000 RMB’000
+Salaries, wages and other benefits 369,349 318,624
+Contributions to defined contribution retirement benefit schemes 26,991 22,118
+Equity-settled share-based compensation expenses (excluding
+expenses of RMB237,000 (six months ended 30 June 2025:
+RMB2,890,000) capitalised as inventories) 85,764 158,852
+482,104 499,594
+(c) Other items
+Six months ended 30 June
+2026 2025
+RMB’000 RMB’000
+Depreciation on property, plant and equipment (excluding expense of
+RMB2,429,000 (six months ended 30 June 2025: RMB3,311,000)
+capitalised as inventories and net of government grants of
+RMB1,227,000 (six months ended 30 June 2025: nil)) 129,304 132,908
+Amortisation of intangible assets 5,671 6,128
+
+==== page 81 (outside the review sections: related-party transactions) ====
+80 Z.AI Co., Ltd.
+Notes to the Unaudited Interim Financial Report
+(Expressed in RMB unless otherwise indicated)
+21 Fair value measurement of financial instruments (continued)
+(a) Fair value measurement (continued)
+Fair value hierarchy (continued)
+(i) Financial assets measured at fair value (continued)
+Information about Level 3 fair value measurements
+Below is a summary of the valuation techniques and significant unobservable inputs used in the
+valuation of these financial assets.
+Valuation
+techniques
+Significant
+unobservable inputs
+Investments in equity securities Market approach Discount for lack of
+marketability
+Wealth management products Discounted cash flow
+method
+Expected rate of return
+During the six months ended 30 June 2026, the Group’s investments in equity securities measured at
+FVPL are investments in non-listed entities of which fair values were substantially determined based
+on either the latest round of equity financing obtained by these entities or based on market approach.
+Given the discount for lack of marketability was not developed by the Group, the management of the
+Group did not carry out nor present any information on sensitivity analysis.
+Fair value of the wealth management products is affected by changes in the expected rate of return.
+If the expected rate of return had increased/decreased by 1% with all other variables held constant,
+the loss before tax for the six months ended 30 June 2026 would have been decreased/increased by
+approximately RMB3,621,000 (six months ended 30 June 2025: RMB3,206,000).
+(ii) Fair values of financial assets and liabilities carried at other than fair value
+The carrying amounts of the Group’s financial instruments carried at amortised cost are not materially
+different from their fair values as at 30 June 2026 and 31 December 2025.
+22 Material related party transactions
+The Group entered into the following significant related party transactions during the period:
+(a) Transactions with the following parties are considered as related party transactions:
+Name of parties
+Relationship with
+the Group
+Zhang Peng An executive director
+of the Company
+Beijing Doushen Zhichuang Technology Co., Ltd. An associate
+Shenzhen Zhixian Robot Technology Co., Ltd. An associate
+
+==== page 82 (outside the review sections: related-party transactions) ====
+812026 Interim Report
+Notes to the Unaudited Interim Financial Report
+(Expressed in RMB unless otherwise indicated)
+22 Material related party transactions (continued)
+(b) Transactions with related parties
+Six months ended 30 June
+2026 2025
+RMB’000 RMB’000
+Provision of services 828 20,977
+Purchases of services 158 29,717
+23 Non-adjusting events after the reporting period
+On 13 July 2026, the Company completed a share placement and issued 19,780,000 ordinary shares at the
+price of HK$1,588. The gross proceeds from the placing were approximately HK$31,410,640,000 (equivalent to
+approximately RMB27,230,826,000).
+24 Possible impact of amendments, new standards, and interpretations issued but
+not yet effective for the six months ended 30 June 2026
+A number of amendments and new standards are not yet mandatory for annual periods beginning 1 January
+2026. Earlier application is permitted; however, the Group has not early adopted any new or amended standards
+in preparing this interim financial report.
+The following updates the information provided in the last annual financial statements about the possible impacts
+of IFRS 18 which may have a significant impact on the Group’s consolidated financial statements when adopted.
+IFRS 18, Presentation and disclosure in financial statements
+IFRS 18 will replace IAS 1, Presentation of financial statements , and is first effective for annual reporting periods
+beginning on or after 1 January 2027.
+IFRS 18 introduces new requirements for presentation and disclosure in financial statements, including new
+categories and defined subtotals in the statement of profit or loss, enhanced requirements for aggregation and
+disaggregation of information, and specific disclosures about management-defined performance measures.
+The Group is assessing the expected impact that the initial application of IFRS 18 will have on its consolidated
+financial statements.
+The Group expects that the adoption of IFRS 18 will not change the Group’s net assets or net profit. However,
+it is expected to affect the presentation of the Group’s consolidated statement of profit or loss and related note
+disclosures.
+The actual impact of applying IFRS 18 may change as the Group continues to assess the new requirements
+and finalises any changes to its reporting processes, controls and accounting policies before the date of initial
+application.

@@ -34,7 +34,8 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 
 | The user says | What runs |
 |---|---|
-| `enrich all` | **The nightly run** (user, 2026-10-19: every country, every source, every night at 23:00): every market command (`enrich us`, `korea`, `taiwan`, `japan`, `europe`, `china`, `intl`) with each of its collectors, `enrich edgar`, `enrich conference`, `enrich ir`, `enrich waitlist`, the news interviews (§11), the relations backfill, the gap fill (§12) and Claude's decisions on any open judgment (§0.3) — whether or not the board calls them due. One fixed worker pool sized by free memory does all of it (§7.4). |
+| `enrich all` | **The nightly run** (user, 2026-10-19: every country, every source, every night at 23:00): every market command (`enrich us`, `korea`, `taiwan`, `japan`, `europe`, `china`, `intl`) with each of its collectors, `enrich edgar`, `enrich conference`, `enrich ir`, `enrich waitlist`, the Perplexity Finance call queue
+(`pplx.py pending`, every market — references/pplx.md), the news interviews (§11), the relations backfill, the gap fill (§12) and Claude's decisions on any open judgment (§0.3) — whether or not the board calls them due. One fixed worker pool sized by free memory does all of it (§7.4). |
 | `enrich` | The board's **Run next** list, top to bottom (refresh the board first). |
 | `enrich us` | Every US gap except SEC filings — calls (+ defeatbeta fallback), overdue / never-enriched companies, conference talks, IR releases; also the utilities' own regulatory filings (`utility_filings.py`). Meant to run daily. |
 | `enrich korea` | DART filings (+ backfill of Korean companies with no filing enriched), IR presentations and Samsung's official call script (`kind.py`: KRX KIND library + six large-cap IR sites), conference talks, IR releases. |
@@ -42,7 +43,7 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 | `enrich edgar` | SEC 8-K / 10-K / 10-Q, foreign issuers' 6-K / 20-F / 40-F, recent listings' prospectus (not part of `enrich us`; `enrich all` runs it every night). |
 | `enrich waitlist` / `enrich waitlist <market>` | Onboard the user-pre-approved new companies queued in `enrich_waitlist.json`, each market by its own rules (`references/waitlist.md`). |
 | `enrich us calls` · `enrich dart` · `enrich kind` · `enrich tdnet` · `enrich intl` · `enrich tw` · `enrich conference` · `enrich ir` | One source, across every market it covers (reference table below). |
-| a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance in Chrome, references/us.md; others: the market's source, then Perplexity Finance) and state the call date before enriching. |
+| a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance, references/us.md; others: the market's source, then Perplexity Finance — `python -X utf8 pplx.py fetch "<Company>"`, references/pplx.md) and state the call date before enriching. |
 
 The step-by-step market procedures are in `references/markets.md`.
 
@@ -366,6 +367,7 @@ which slot:
 | Taiwan MOPS monthly revenue (`mops.py`) | none — enriched without a slot, like the IR-release monthly revenue entries (user, 2026-10-01) |
 | Company IR presentation (deck; `kind.py`, `mops.py`) or Taiwan MOPS material information (`mops.py`) | same as a company IR press release (row below); never `revenue_growth` — DART holds the quarter's numbers. A results deck may also fill `backlog_or_b2b` with the company's own stated total orders / order backlog (2026-10-01) |
 | Japan TDnet filing (`tdnet.py`) | same as a company IR press release (row below), never `revenue_growth`; a results-meeting Q&A record (`_qa` file) = the call / conference row |
+| US DoD contract award (`dod_contracts.py`) | none: the government's award record about the company, not the company's own words; the award is a fact entry without a slot |
 | Utility regulatory filing (IRP, large-load report or tariff; `utility_filings.py`) | same as a company IR press release (the row below): the company's load / capacity plan → `guidance`, contracted large load → `backlog_or_b2b`; never `revenue_growth` |
 | Company IR press release | `guidance` (company guidance / targets), `next_catalyst` (a new product launch, availability, production or shipment start with a date), `backlog_or_b2b` (a named order, contract or design win), `supply_status` (capacity, utilisation, sold-out) — only what the release itself states; never `revenue_growth`; a demo never fills a slot |
 | News interview (`transcripts/media/`, `media_pull.py`, §11) | none — a remark on TV never replaces the call / filing entry the screener shows |
@@ -392,8 +394,11 @@ the key out when an entry fills no slot (never `"slot": null`). `utils/check_pat
 | China A-share IR activity record (`cninfo.py`) | `[Company] IR activity record: [record no., else the date] (MM-DD-YYYY)`, dated the disclosure day | `Innolight IR activity record: 2026-008 (08-23-2026)` |
 | China A-share investor Q&A answers (`cninfo.py`, one file per company per answer day) | `[Company] investor Q&A: [SZSE Interactive Easy \| SSE e-Interactive] (MM-DD-YYYY)` | `Eoptolink investor Q&A: SZSE Interactive Easy (09-23-2026)` |
 | China A-share periodic report (`cninfo.py reports`; the shape of the reports saved by hand earlier) | `[Company] annual report: [YYYY] Annual Report (MM-DD-YYYY)` / `[Company] half-year report: [YYYY] Half-Year Report (…)` / `[Company] quarterly report: [YYYY] Q1\|Q3 Report (…)`; YYYY = the fiscal (calendar) year, dated the disclosure day | `Innolight annual report: 2025 Annual Report (03-31-2026)` |
+| Hong Kong HKEXnews filing (`hkex.py`) | `[Company] HKEX announcement: [short English title, ≤ 60 chars] (MM-DD-YYYY)` / `[Company] HKEX circular: …` / `[Company] annual report: [YYYY/YY] Annual Report (…)` / `[Company] interim report: [YYYY] Interim Report (…)` / `[Company] prospectus (…)`, dated the HKEXnews release day (Hong Kong time) | `Lenovo HKEX announcement: Continuing Connected Transactions (09-12-2026)` |
+| China A-share results briefing Q&A (`cnbrief.py`) | `[Company] results briefing Q&A: [period(s)][ collective] (MM-DD-YYYY)`, dated the briefing; a non-results briefing `[Company] investor briefing Q&A: [platform] [id] (MM-DD-YYYY)` | `JCET results briefing Q&A: H1 2026 (08-21-2026)` |
 | Japan TDnet timely disclosure (`tdnet.py`) | `[Company] TDnet: [short English title, ≤ 60 chars] (MM-DD-YYYY)` for an English version; `[Company] TDnet: release <doc id> (MM-DD-YYYY)` for a Japanese-only filing; dated the disclosure day | `Taiyo Yuden TDnet: Conclusion of a Memorandum of Understanding Regarding (09-29-2026)` |
 | Japan annual securities report / semi-annual report from EDINET (`edinet.py`) | `[Company] annual securities report: FY[YYYY] (MM-DD-YYYY)` / `[Company] semi-annual report: H1 FY[YYYY] (MM-DD-YYYY)`; an amended one adds `amended ` before the type; FY = the year the fiscal year ENDS in (a March year Apr 2025 – Mar 2026 = FY2026, as for the calls); dated the filing day | `SUMCO semi-annual report: H1 FY2026 (08-07-2026)` (December year); a March-year company's report filed in late June 2026 = `… annual securities report: FY2026 (06-dd-2026)` |
+| US DoD contract announcement (`dod_contracts.py`) | `[Company] DoD contract award (MM-DD-YYYY)`, the announcement day; a second same-day page adds its article id before the date | `Northrop Grumman DoD contract award (09-30-2026)` |
 | US utility regulatory filing (`utility_filings.py`) | `[Company] regulatory filing: [document short title] (MM-DD-YYYY)`, dated the filing; [Company] = the graph node (the parent of the filing subsidiary) | `Southern Company regulatory filing: Georgia Power Large Load Economic Development Report Q2 2026 (08-17-2026)` |
 | News interview of a company executive (`media_pull.py`, `transcripts/media/`, §11) | `[Company] [Outlet] interview (MM-DD-YYYY)`, dated the day the video was published; [Company] = the graph node the speaking executive works for; [Outlet] = `CNBC`, `CNBC International`, `Bloomberg`, `Yahoo Finance` or `Fox Business`; a second video of the same company, outlet and day adds its YouTube video id before the date | `NVIDIA CNBC interview (10-16-2026)`, `Micron Bloomberg interview <video id> (10-16-2026)` |
 | Other company document (deck, investor-day material) | `[Company] [document type]: [title] (MM-DD-YYYY)` | — |
@@ -479,6 +484,11 @@ that call and any curated timelines/*.json source string (Claude decision 2026-1
    one node, one source per patch.
 2. **Apply once:** `python graph_build.py --sync` — the coordinator only; enrich agents never run it or
    `apply_patches.py`. It re-verifies the labels just applied (`verify_graph.py`): read every `[fail]` / `[warn]`.
+   **In the nightly (and any long session) run it as `python -X utf8 utils/build_outside.py`** (2026-10-21): it
+   starts `graph_build.py --sync` outside Claude Code's process tree — Claude Code's low-memory guard killed the
+   in-session build on 10-18, 10-19 and 10-20 — waits up to 9 minutes and prints the build's fail / warn lines and
+   its last output; `still running` (exit 3) → call it again with `--wait`. Exit 1 = the build itself failed: read
+   the lines it printed (`.claude/build_outside.log` holds the whole output).
    A `number_not_in_source` on a figure you computed means the arithmetic must go; `source_not_found` means the
    source file was not saved under the label; anything else — fix the patch and re-run. One label by hand:
    `python -X utf8 verify_graph.py --label "<label>"`.
@@ -624,8 +634,8 @@ DART filing enriched, companies with no IR feed, companies
 that never had a call enriched, calls overdue. `enrich all` hands the batch to the pool after the queues are done (at least the listed
 batch; more if the night has time), and every gap ends in one of two ways — never left half done:
 - **filled:** fetch the company's own source through its pipeline (`dart.py fetch`, `ir_pull.py discover` → a new
-  entry in `ir/feeds.json`, `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance (references/us.md) for a missed
-  call, the market's IR site, the
+  entry in `ir/feeds.json`, `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance (`pplx.py fetch "<Company>"`, references/pplx.md —
+  every market) for a missed call, the market's IR site, the
   company's own deck or filing) and enrich it under every rule above; a missing logo is fetched as JOB 3 step 5 says;
   an empty news roster gets the company's CEO / CFO (and IR head) appended to `media/roster_additions.json` —
   `{"<node>": [{"name", "title", "aliases": [], "source": "<label | path or URL of the company document stating the
@@ -647,7 +657,8 @@ These build ON TOP of everything above. When a command fires, read its reference
 | `enrich dart` | Korean listed names — DART filings (정기보고서 / 잠정실적 / 공급계약) | `references/dart.md` |
 | `enrich kind` | Korean listed names — IR presentations from the KRX KIND IR library (`kind.py`) | `references/kind.md` |
 | `enrich tdnet` | Japanese listed names — TSE TDnet timely disclosures (決算短信, forecast revisions, capex, plans, agreements, M&A; English version preferred; only 31 days online) (`tdnet.py`) | `references/tdnet.md` |
-| `enrich us calls` | US-listed names — Alpha Vantage full call transcripts (`av.py`), defeatbeta fallback, then Perplexity Finance in Chrome | `references/us.md` |
+| `enrich us calls` | US-listed names — Alpha Vantage full call transcripts (`av.py`), defeatbeta fallback, then Perplexity Finance | `references/us.md` |
+| `enrich all` / every market command (calls step) | Every market — Perplexity Finance call transcripts (by Quartr) for the calls no market source has (`pplx.py`, nightly, real Chrome + the site's JSON) | `references/pplx.md` |
 | `enrich intl` | Taiwan / Japan / Europe / HK / China — Investing.com (`investing.py`) | `references/intl.md` |
 | `enrich tw` | Taiwan Chinese-language 法說會 — video + whisper (`tw.py`) | `references/tw.md` |
 | `enrich taiwan` (MOPS step) | Taiwan listed names — 法說會 decks, important 重大訊息, monthly revenue from MOPS (`mops.py`) | `references/mops.md` |
@@ -656,6 +667,9 @@ These build ON TOP of everything above. When a command fires, read its reference
 | `enrich ir` | Company-issued IR press releases via each company's own feed (`ir_pull.py`); important releases only, facts only | `references/ir.md` |
 | `enrich china` (step 1b) | China A-share names — IR activity records (投资者关系活动记录表) from cninfo / SSE e互动 and the company's answers on SZSE 互动易 / SSE e互动 (`cninfo.py`); management Q&A, answers only | `references/cninfo.md` |
 | `enrich china` (step 1d) | China A-share names — 年度报告 / 半年度报告 / 季度报告 from cninfo (`cninfo.py reports`; full text + `_extract`): top-5 customers / suppliers, capacity, construction in progress, R&D, MD&A | `references/cninfo.md` ("China A-share periodic reports") |
+| `enrich china` (step 1e) | Hong Kong-listed names — HKEXnews results, annual / interim reports (+ `_extract`), business updates, inside information, transactions (`hkex.py`); company filings | `references/hkex.md` |
+| `enrich china` (step 1f) | China A-share names — 业绩说明会 full live text Q&A from the SSE Roadshow Center, 全景路演 (p5w) and SZSE 互动易 云访谈 (`cnbrief.py`); management Q&A, answers only; one event with cninfo's 召开情况 summary | `references/cnbrief.md` |
+| `enrich us` (DoD step) | US Department of Defense daily contract announcements, awards of $7.5M+ naming a graph company (`dod_contracts.py`); the government's own award record | `references/dod.md` |
 | `enrich us` (utility step) | US utilities' own IRPs, large-load reports and data-center tariffs (`utility_filings.py`; full text + `_load` extract) | `references/utility_filings.md` |
 | `enrich japan` (step 1c) | Japanese listed names — FSA EDINET 有価証券報告書 / 半期報告書 (`edinet.py`; full text + `_extract`): major customers with % of sales, production / orders / sales, capex and new-facility plans, R&D, MD&A | `references/edinet.md` |
 | `enrich waitlist` | New companies queued in `enrich_waitlist.json` (user pre-approved 2026-09-28) — metadata first, then each market's collectors, first patch adds the node | `references/waitlist.md` |
