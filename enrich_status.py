@@ -851,11 +851,15 @@ if __name__ == "__main__":
     dc.add_argument("--answer", required=True, help="what was decided and done")
     dc.add_argument("--question", default="", help="the judgment, when no open question has this subject")
     dc.add_argument("--label", help="the source label it comes from")
-    for p in (mk, um, nt, ak, rs, dc):       # many records in a row: rebuild the board once, at the end
-        p.add_argument("--no-board", action="store_true", help="record only; skip the ~10-minute board rebuild")
+    # A record no longer rebuilds the board (2026-10-21): the rebuild reads every document (~10 minutes, ~1.7 GB), and
+    # a nightly `note` run that way during graph_build pushed the laptop into Claude Code's low-memory guard. The next
+    # graph_build.py (or a bare `python enrich_status.py`) rebuilds it; --board asks for it right away.
+    for p in (mk, um, nt, ak, rs, dc):
+        p.add_argument("--board", action="store_true", help="also rebuild the board now (~10 minutes, ~1.7 GB)")
+        p.add_argument("--no-board", action="store_true", help=argparse.SUPPRESS)   # the default now; kept for old commands
     args = ap.parse_args()
     if args.cmd:
         record(args)
-        if args.no_board:
+        if not args.board:
             sys.exit(0)
     build_enrich_status()
