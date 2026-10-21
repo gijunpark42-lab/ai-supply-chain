@@ -1,0 +1,31 @@
+{
+  "reviewer": "V2 (opus verifier, nightly 2026-10-21)",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "BASF",
+      "target": null,
+      "label": "BASF press release: BASF strengthens its position in the market and achieves major progress (07-29-2026)",
+      "signal_prefix": "BASF (release): Q2 2026 sales were EUR 17.2 billion, EUR 2.4 billion above",
+      "action": "set",
+      "set": {
+        "signal": "BASF (release): Q2 2026 sales were EUR 17.2 billion, EUR 2.4 billion above the prior-year period, on prices up 11.5% and volumes up 7.3%; EBITDA before special items rose by EUR 854 million to EUR 2.4 billion; net income was EUR 4.1 billion, which the release says contains the disposal gain from the sale of the Coatings business to Carlyle; H1 2026 sales were EUR 33.2 billion and EBITDA before special items EUR 4.8 billion; H1 free cash flow was minus EUR 1.6 billion."
+      },
+      "reason": "Skill section 2 (disposals): a sale of a business is recorded with what was sold and the buyer, never the price, proceeds or gain; the EUR 3.5 billion after-tax disposal gain is removed, the rest is unchanged and verbatim.",
+      "evidence": "Net income was €4.1 billion ... This contained a disposal gain after taxes of €3.5 billion from the sale of the Coatings business to Carlyle."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Boqian New Materials",
+      "target": null,
+      "label": "Boqian New Materials investor Q&A: SSE e-Interactive (10-16-2026)",
+      "signal_prefix": "The company said on SSE e-Interactive: main construction of its 800-tonne",
+      "action": "set",
+      "set": {
+        "signal": "The company said on SSE e-Interactive: main construction of its 800-tonne-a-year high-performance ultra-fine copper powder project is basically complete; effective copper powder capacity differs by specification and will be adjusted to demand; the ramp-up of its new production lines depends on equipment commissioning, process validation, order pace and staffing, and whether a line reaches full output depends mainly on downstream orders."
+      },
+      "reason": "The nickel powder line (1,200 tonnes, started in Q2) is named only in the investor's question; the company's answer speaks of its new production lines in general. Question content is context only (cninfo note, skill section 2).",
+      "evidence": "Q (investor): how is the ramp of the 1,200-tonne nickel powder capacity started in Q2? A (company, translated): the ramp-up of newly built lines is affected by equipment commissioning, process validation, order pace and staffing ... whether a line reaches full output depends mainly on downstream market orders."
+    }
+  ]
+}

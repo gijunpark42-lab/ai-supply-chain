@@ -1,0 +1,57 @@
+{
+  "reviewer": "V1 (opus verifier, nightly 2026-10-21)",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Huafeng Technology",
+      "target": null,
+      "label": "Huafeng Technology annual report: 2025 Annual Report (04-15-2026)",
+      "signal_prefix": "FY2025 annual report: Huawei Technologies was the largest customer",
+      "action": "delete",
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "One fact, one node (skill 4 JOB 2 / 6): the same Huawei 60.52% customer share is already the annual report customer share contract on the Huafeng Technology -> Huawei edge in the same chain; the unslotted counterparty copy is a duplicate.",
+      "evidence": "华为技术有限公司本期销售额152,973.27 万元，占年度销售总额比例的60.52%。"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Dingtong Technology",
+      "target": null,
+      "label": "Dingtong Technology annual report: 2025 Annual Report (03-31-2026)",
+      "signal_prefix": "2025 annual report: Customer Luxshare was customer 5 and new to the top five",
+      "action": "delete",
+      "chains": [
+        "components/optical_networking.json"
+      ],
+      "reason": "One fact, one node: the Luxshare 1.09% / RMB 1,738.04 ten-thousand customer share is already the annual report customer share contract on the Dingtong Technology -> Luxshare edge (nvidia_vera_rubin.json); the unslotted counterparty copy is a duplicate.",
+      "evidence": "5 客户5 1,738.04 1.09 否 ... 报告期内，前五名客户中客户5 为新增客户立讯精密，主要系通讯连接器市场需求旺盛"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "POCO Holding",
+      "target": null,
+      "label": "POCO Holding annual report: 2025 Annual Report (04-23-2026)",
+      "signal_prefix": "Annual report (2025): besides deepening cooperation with existing chip inductor customers such as MPS",
+      "action": "delete",
+      "chains": [
+        "components/mlcc.json"
+      ],
+      "reason": "One fact, one node: the MPS chip-inductor customer relationship is already the contract on the POCO Holding -> Monolithic Power Systems edge (power_semiconductor.json) under the same label; the unslotted counterparty copy is a duplicate.",
+      "evidence": "公司芯片电感产品除了与 MPS 等现有客户不断深化合作外，报告期内还与伟创力（Flex）等多家全球知名厂商建立了合作"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "POCO Holding",
+      "target": null,
+      "label": "POCO Holding annual report: 2025 Annual Report (04-23-2026)",
+      "signal_prefix": "Annual report (2025): the company established cooperation during the year with Flex",
+      "action": "delete",
+      "chains": [
+        "components/mlcc.json"
+      ],
+      "reason": "One fact, one node: the Flex chip-inductor cooperation is already the contract on the POCO Holding -> Flex edge (power_semiconductor.json) under the same label; the unslotted counterparty copy is a duplicate.",
+      "evidence": "公司芯片电感产品除了与 MPS 等现有客户不断深化合作外，报告期内还与伟创力（Flex）等多家全球知名厂商建立了合作"
+    }
+  ]
+}

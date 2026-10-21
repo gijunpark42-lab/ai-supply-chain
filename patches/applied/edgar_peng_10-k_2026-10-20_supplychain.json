@@ -1,0 +1,78 @@
+{
+ "source": "Penguin Solutions 10-K (10-20-2026)",
+ "chains": {
+  "components/neocloud.json": {
+   "players": [
+    {
+     "company": "Penguin Solutions",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "AI cluster design/integration & managed services (plus Smart Modular memory)",
+     "quarterly_data": [
+      {
+       "quarter": "Penguin Solutions 10-K (10-20-2026)",
+       "signal": "Fiscal 2026 segment results (10-K, in thousands): net sales - Advanced Computing $558,789 (2025: $648,417), Integrated Memory $924,001 ($464,249), Optimized LED $248,678 ($256,128), total $1,731,468; segment operating income - Advanced Computing $38,307 ($115,009), Integrated Memory $184,942 ($43,639), Optimized LED $17,713 ($9,004). Advanced Computing non-GAAP operating income decreased by $76.7 million, or 66.7%, primarily due to the wind down of the Penguin Edge business (completed in the fourth quarter of fiscal 2026) and hyperscale hardware sales in 2025 that did not recur in 2026; higher memory pricing increased Integrated Memory gross margin. By type, product net sales were $1,480,932 ($1,104,557) and services $250,536 ($264,237).",
+       "figure": "FY2026 Advanced Computing net sales $558,789 thousand (2025: $648,417 thousand); Integrated Memory $924,001 thousand ($464,249 thousand); Advanced Computing segment operating income $38,307 thousand ($115,009 thousand)",
+       "topics": []
+      },
+      {
+       "quarter": "Penguin Solutions 10-K (10-20-2026)",
+       "signal": "10-K supply: purchases from Penguin's two largest suppliers (not named) were $1.3 billion in 2026, versus $0.6 billion in 2025 and $0.4 billion in 2024, and accounts payable and accrued expenses included $236.5 million owed to them at August 28, 2026 ($77.4 million a year earlier). Named suppliers include memory makers Samsung Semiconductor, Micron Technology, SK hynix, International Business Machines and Kioxia, processor providers Intel, Advanced Micro Devices and TD SYNNEX, and networking suppliers Super Micro Computer and Juniper Networks; contract manufacturers include NEC, Advantech and Celestica. AI and HPC systems are manufactured and tested at its Fremont, California facility. During fiscal 2026 Penguin received $93.0 million in cash advances from a customer to fund specified component purchases under the customer's pre-existing supply chain program. The filing says high demand for and limited supply of AI components continue to affect sourcing and deployment timing, with extended lead times for certain components, and constrained memory supply may affect Integrated Memory. Capital expenditures were $11.6 million in 2026 ($9.0 million in 2025), used among other things to expand manufacturing and test capacity.",
+       "figure": "purchases from two largest suppliers $1.3 billion (2025: $0.6 billion); $93.0 million customer cash advances for component purchases; capex $11.6 million",
+       "topics": ["supply_tightness"]
+      }
+     ],
+     "connects_to": []
+    },
+    {
+     "company": "AMD",
+     "layer": "compute_hardware",
+     "sector": "Training GPU",
+     "product": "Instinct MI-series accelerators",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Penguin Solutions",
+       "relationship": "processors supplied to Penguin Solutions (named semiconductor supplier)",
+       "contracts": [
+        {
+         "source": "Penguin Solutions 10-K (10-20-2026)",
+         "signal": "Penguin Solutions' fiscal 2026 10-K again names Advanced Micro Devices, Inc. among the world's largest providers of computing, communications and graphics processors that are its semiconductor suppliers.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "10-K supplier disclosure",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "company": "Supermicro",
+     "layer": "system_integration",
+     "sector": "Server / Rack OEM",
+     "product": "liquid-cooled GPU server racks",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Penguin Solutions",
+       "relationship": "networking products supplied to Penguin Solutions (named supplier)",
+       "contracts": [
+        {
+         "source": "Penguin Solutions 10-K (10-20-2026)",
+         "signal": "Penguin Solutions' fiscal 2026 10-K again names Super Micro Computer, Inc. among its suppliers of networking products.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "10-K supplier disclosure",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
