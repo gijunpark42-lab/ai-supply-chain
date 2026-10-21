@@ -9,6 +9,10 @@ to Windows instead of running it as its own child:
     python -X utf8 utils/build_outside.py                # start graph_build.py --sync outside, wait, print the result
     python -X utf8 utils/build_outside.py --wait         # a build is already running (or the wait ran out): attach
     python -X utf8 utils/build_outside.py -- --no-verify # anything after "--" goes to graph_build.py (default --sync)
+    python -X utf8 utils/build_outside.py --board        # the status board alone (enrich_status.py), the same way
+
+The board refresh needs the same care: `enrich_status.py` itself takes ~1.8 GB, and on 10-21 the guard killed the
+session's last board refresh. `--board` runs it outside like a build (same state / log files, same --wait).
 
 How. The build is started through WMI (Win32_Process.Create), so its parent is the WMI service, not this script or
 the Claude session: nothing the session's guard kills can take the build with it. This script then only waits on
@@ -70,8 +74,8 @@ def free_gb():
     return psutil.virtual_memory().available / 1e9
 
 
-def start(build_args):
-    """Start `python utils/build_outside.py --run <args>` through WMI and return at once."""
+def start(script, build_args):
+    """Start `python utils/build_outside.py --run <script> <args>` through WMI and return at once."""
     waited = 0
     while free_gb() < MIN_FREE_GB and waited < 600:
         if waited == 0:
@@ -79,7 +83,7 @@ def start(build_args):
         time.sleep(15)
         waited += 15
     me = os.path.abspath(__file__)
-    command = f'"{sys.executable}" -X utf8 "{me}" --run ' + " ".join(f'"{a}"' for a in build_args)
+    command = f'"{sys.executable}" -X utf8 "{me}" --run ' + " ".join(f'"{a}"' for a in [script, *build_args])
     # Win32_Process.Create starts the process under the WMI service: outside the caller's process tree and job object.
     ps = ("$r = Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments "
           "@{CommandLine=$env:BO_CMD; CurrentDirectory=$env:BO_DIR}; "
@@ -89,18 +93,18 @@ def start(build_args):
     parts = (out.stdout or "").split()
     if len(parts) < 2 or parts[0] != "0":
         sys.exit(f"could not start the build outside: {out.stdout.strip()} {out.stderr.strip()[:300]}")
-    print(f"started graph_build.py {' '.join(build_args)} outside the session (runner pid {parts[1]}, "
+    print(f"started {script} {' '.join(build_args)} outside the session (runner pid {parts[1]}, "
           f"{free_gb():.1f} GB free); output: .claude/build_outside.log")
 
 
-def run(build_args):
-    """The runner (started by start()): run graph_build.py, keep its output and exit code in the two files."""
+def run(script, build_args):
+    """The runner (started by start()): run the script, keep its output and exit code in the two files."""
     proc_self = psutil.Process()
     write_state({"status": "running", "pid": proc_self.pid, "pid_started": proc_self.create_time(),
-                 "args": build_args, "started": datetime.now().isoformat(timespec="seconds"),
+                 "args": [script, *build_args], "started": datetime.now().isoformat(timespec="seconds"),
                  "free_gb_at_start": round(free_gb(), 1)})
     with open(LOG, "w", encoding="utf-8") as log:
-        code = subprocess.call([sys.executable, "-X", "utf8", "graph_build.py", *build_args], cwd=ROOT,
+        code = subprocess.call([sys.executable, "-X", "utf8", script, *build_args], cwd=ROOT,
                                stdout=log, stderr=subprocess.STDOUT, env={**os.environ, "PYTHONUNBUFFERED": "1"})
     state = read_state()
     state.update(status="finished", exit=code, finished=datetime.now().isoformat(timespec="seconds"))
@@ -152,16 +156,20 @@ if __name__ == "__main__":
     mine = argv[:argv.index("--")] if "--" in argv else argv
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--wait", action="store_true", help="attach to the running (or finished) build")
+    parser.add_argument("--board", action="store_true", help="refresh the status board (enrich_status.py) instead")
     parser.add_argument("--wait-minutes", type=float, default=9)
     parser.add_argument("--run", nargs=argparse.REMAINDER, help=argparse.SUPPRESS)
     args = parser.parse_args(mine)
     if args.run is not None:
-        run(args.run)
+        run(args.run[0], args.run[1:])
         sys.exit(0)
     if not args.wait:
         if running(read_state()):
             print("a build is already running outside -- attaching to it instead of starting another")
         else:
             write_state({"status": "starting", "requested": datetime.now().isoformat(timespec="seconds")})
-            start(extra or ["--sync"])
+            if args.board:
+                start("enrich_status.py", extra)
+            else:
+                start("graph_build.py", extra or ["--sync"])
     sys.exit(wait(args.wait_minutes))

@@ -16,7 +16,8 @@ or a reference file disagrees, this file wins). The source-specific steps live i
    refresh it first: `python -X utf8 enrich_status.py` (seconds, no model tokens). Do not re-scan pipelines,
    queues or the graph to find out what is done — the board already did.
 2. **At the end**, `python graph_build.py --sync` rebuilds the board. If the run applied nothing (empty queues),
-   run `python -X utf8 enrich_status.py` anyway. Paste the board's **Run next** block into your report.
+   run `python -X utf8 enrich_status.py` anyway (in the nightly: `utils/build_outside.py --board` — it needs
+   ~1.8 GB and was killed inside the session on 10-21). Paste the board's **Run next** block into your report.
 3. **Record what no script can know** (the coordinator only — parallel agents put it in their report):
    - a source that does not exist: `python -X utf8 enrich_status.py mark "<Company>" ["<Company>" …] --source call|dart|ir|conference|edgar --why "<what was checked>" [--recheck YYYY-MM-DD]`
      (default recheck in 90 days; a marked company leaves the board's missing lists until then);
@@ -506,6 +507,10 @@ that call and any curated timelines/*.json source string (Claude decision 2026-1
    - **Size:** run `python -X utf8 utils/agent_budget.py` first. Its `agents:` number (free RAM minus a 3 GB
      reserve, 0.75 GB per agent, 1–20) is the most agents alive at once — enrichers and verifiers together (about
      one verifier per three enrichers). Re-run it before graph_build.py and before adding a worker; never exceed it.
+     **A stop for low memory never ends the run** (user, 2026-10-21): when Claude Code stops a command, monitor or
+     worker for low memory, re-run the budget, shrink the pool to it and rerun the step (heavy scripts through
+     `utils/build_outside.py`); `needs input: memory` only after the same step was stopped three times —
+     routine/nightly.ps1 then frees memory and resumes the conversation (up to 3 times a night).
      **Before every graph_build.py stop all pool workers** (TaskStop): an idle worker still holds its process (~350 MB),
      and on 2026-10-20 the build was killed with 21 claude processes holding 4 GB. Restart from the ledger if work remains.
    - **Spawn once, then reuse:** start the pool's workers once (`enricher` agents named W1…Wn, verifiers V1…Vm)
