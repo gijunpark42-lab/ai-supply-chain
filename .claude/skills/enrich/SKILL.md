@@ -34,7 +34,8 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 
 | The user says | What runs |
 |---|---|
-| `enrich all` | **The nightly run** (user, 2026-10-19: every country, every source, every night at 23:00): every market command (`enrich us`, `korea`, `taiwan`, `japan`, `europe`, `china`, `intl`) with each of its collectors, `enrich edgar`, `enrich conference`, `enrich ir`, `enrich waitlist`, the news interviews (§11), the relations backfill, the gap fill (§12) and Claude's decisions on any open judgment (§0.3) — whether or not the board calls them due. One fixed worker pool sized by free memory does all of it (§7.4). |
+| `enrich all` | **The nightly run** (user, 2026-10-19: every country, every source, every night at 23:00): every market command (`enrich us`, `korea`, `taiwan`, `japan`, `europe`, `china`, `intl`) with each of its collectors, `enrich edgar`, `enrich conference`, `enrich ir`, `enrich waitlist`, the Perplexity Finance call queue
+(`pplx.py pending`, every market — references/pplx.md), the news interviews (§11), the relations backfill, the gap fill (§12) and Claude's decisions on any open judgment (§0.3) — whether or not the board calls them due. One fixed worker pool sized by free memory does all of it (§7.4). |
 | `enrich` | The board's **Run next** list, top to bottom (refresh the board first). |
 | `enrich us` | Every US gap except SEC filings — calls (+ defeatbeta fallback), overdue / never-enriched companies, conference talks, IR releases; also the utilities' own regulatory filings (`utility_filings.py`). Meant to run daily. |
 | `enrich korea` | DART filings (+ backfill of Korean companies with no filing enriched), IR presentations and Samsung's official call script (`kind.py`: KRX KIND library + six large-cap IR sites), conference talks, IR releases. |
@@ -42,7 +43,7 @@ or a reference file disagrees, this file wins). The source-specific steps live i
 | `enrich edgar` | SEC 8-K / 10-K / 10-Q, foreign issuers' 6-K / 20-F / 40-F, recent listings' prospectus (not part of `enrich us`; `enrich all` runs it every night). |
 | `enrich waitlist` / `enrich waitlist <market>` | Onboard the user-pre-approved new companies queued in `enrich_waitlist.json`, each market by its own rules (`references/waitlist.md`). |
 | `enrich us calls` · `enrich dart` · `enrich kind` · `enrich tdnet` · `enrich intl` · `enrich tw` · `enrich conference` · `enrich ir` | One source, across every market it covers (reference table below). |
-| a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance in Chrome, references/us.md; others: the market's source, then Perplexity Finance) and state the call date before enriching. |
+| a pasted transcript / URL / release, or `Transcript:<company>` | Save the source (§2), then enrich it under these rules. For `Transcript:<company>` fetch the latest full call yourself (US: `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance, references/us.md; others: the market's source, then Perplexity Finance — `python -X utf8 pplx.py fetch "<Company>"`, references/pplx.md) and state the call date before enriching. |
 
 The step-by-step market procedures are in `references/markets.md`.
 
@@ -479,6 +480,11 @@ that call and any curated timelines/*.json source string (Claude decision 2026-1
    one node, one source per patch.
 2. **Apply once:** `python graph_build.py --sync` — the coordinator only; enrich agents never run it or
    `apply_patches.py`. It re-verifies the labels just applied (`verify_graph.py`): read every `[fail]` / `[warn]`.
+   **In the nightly (and any long session) run it as `python -X utf8 utils/build_outside.py`** (2026-10-21): it
+   starts `graph_build.py --sync` outside Claude Code's process tree — Claude Code's low-memory guard killed the
+   in-session build on 10-18, 10-19 and 10-20 — waits up to 9 minutes and prints the build's fail / warn lines and
+   its last output; `still running` (exit 3) → call it again with `--wait`. Exit 1 = the build itself failed: read
+   the lines it printed (`.claude/build_outside.log` holds the whole output).
    A `number_not_in_source` on a figure you computed means the arithmetic must go; `source_not_found` means the
    source file was not saved under the label; anything else — fix the patch and re-run. One label by hand:
    `python -X utf8 verify_graph.py --label "<label>"`.
@@ -624,8 +630,8 @@ DART filing enriched, companies with no IR feed, companies
 that never had a call enriched, calls overdue. `enrich all` hands the batch to the pool after the queues are done (at least the listed
 batch; more if the night has time), and every gap ends in one of two ways — never left half done:
 - **filled:** fetch the company's own source through its pipeline (`dart.py fetch`, `ir_pull.py discover` → a new
-  entry in `ir/feeds.json`, `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance (references/us.md) for a missed
-  call, the market's IR site, the
+  entry in `ir/feeds.json`, `av.py` / `utils/defeatbeta_fetch.py` / Perplexity Finance (`pplx.py fetch "<Company>"`, references/pplx.md —
+  every market) for a missed call, the market's IR site, the
   company's own deck or filing) and enrich it under every rule above; a missing logo is fetched as JOB 3 step 5 says;
   an empty news roster gets the company's CEO / CFO (and IR head) appended to `media/roster_additions.json` —
   `{"<node>": [{"name", "title", "aliases": [], "source": "<label | path or URL of the company document stating the
@@ -647,7 +653,8 @@ These build ON TOP of everything above. When a command fires, read its reference
 | `enrich dart` | Korean listed names — DART filings (정기보고서 / 잠정실적 / 공급계약) | `references/dart.md` |
 | `enrich kind` | Korean listed names — IR presentations from the KRX KIND IR library (`kind.py`) | `references/kind.md` |
 | `enrich tdnet` | Japanese listed names — TSE TDnet timely disclosures (決算短信, forecast revisions, capex, plans, agreements, M&A; English version preferred; only 31 days online) (`tdnet.py`) | `references/tdnet.md` |
-| `enrich us calls` | US-listed names — Alpha Vantage full call transcripts (`av.py`), defeatbeta fallback, then Perplexity Finance in Chrome | `references/us.md` |
+| `enrich us calls` | US-listed names — Alpha Vantage full call transcripts (`av.py`), defeatbeta fallback, then Perplexity Finance | `references/us.md` |
+| `enrich all` / every market command (calls step) | Every market — Perplexity Finance call transcripts (by Quartr) for the calls no market source has (`pplx.py`, nightly, real Chrome + the site's JSON) | `references/pplx.md` |
 | `enrich intl` | Taiwan / Japan / Europe / HK / China — Investing.com (`investing.py`) | `references/intl.md` |
 | `enrich tw` | Taiwan Chinese-language 法說會 — video + whisper (`tw.py`) | `references/tw.md` |
 | `enrich taiwan` (MOPS step) | Taiwan listed names — 法說會 decks, important 重大訊息, monthly revenue from MOPS (`mops.py`) | `references/mops.md` |
