@@ -41,7 +41,10 @@ sys.stdout.reconfigure(encoding="utf-8")
 import verify_graph as vg  # noqa: E402
 from taxonomy import iter_players, LAYER_SLUGS, DOMAIN_SLUGS  # noqa: E402
 
-BY_LABEL, ALL_DOCS = vg.load_documents()
+# Label -> file resolution needs only each document's header and filename; the checks read the whole text of just the
+# files the patch cites (full_doc below). Loading the whole corpus with its text took ~1.5 GB per run, and the nightly's
+# workers run several pre-flights at once (2026-10-21: six of them held ~6 GB and memory ran out).
+BY_LABEL, ALL_DOCS = vg.load_documents(head_only=True)
 TOPICS = {os.path.splitext(os.path.basename(p))[0] for p in glob.glob("timelines/*.json")}
 SLOTS = {"revenue_growth", "guidance", "backlog_or_b2b", "supply_status", "next_catalyst"}
 CAPEX_FIELDS = {"capex_q", "capex_year", "backlog", "signal"}
@@ -202,12 +205,25 @@ def check_tags(where, entry, label, kind, company, seen_slots):
 
 
 _DOCS = {}
+_FULL = {}
+
+
+def full_doc(doc):
+    """The whole document behind a header-only Doc, read once per file (supply_contracts blocks are already whole)."""
+    if doc.path.startswith("supply_contracts/"):
+        return doc
+    if doc.path not in _FULL:
+        with open(doc.path, encoding="utf-8", errors="replace") as f:
+            full = vg.Doc(doc.path, f.read(), doc.label)
+        full.labels = doc.labels
+        _FULL[doc.path] = full
+    return _FULL[doc.path]
 
 
 def docs_for(label):
-    """Saved source file(s) a label refers to (cached)."""
+    """Saved source file(s) a label refers to (cached), with their whole text."""
     if label not in _DOCS:
-        _DOCS[label] = vg.resolve_label_docs(label, BY_LABEL, ALL_DOCS)
+        _DOCS[label] = [full_doc(d) for d in vg.resolve_label_docs(label, BY_LABEL, ALL_DOCS)]
     return _DOCS[label]
 
 
