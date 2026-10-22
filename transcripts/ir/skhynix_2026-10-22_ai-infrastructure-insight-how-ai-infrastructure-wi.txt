@@ -1,0 +1,260 @@
+SOURCE: SK Hynix official press release -- https://news.skhynix.com/en/ai-infrastructure-insight-ep4/
+TITLE: [AI Infrastructure Insight] How AI infrastructure will be designed for the future
+DATE: 10-22-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-22.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: SK Hynix press release: [AI Infrastructure Insight] How AI infrastructure will be (10-22-2026)
+
+---
+[AI Infrastructure Insight] How AI infrastructure will be designed for the future – SK hynix Newsroom
+
+SK hynix Newsroom | [AI Infrastructure Insight] How AI infrastructure will be designed for the future
+
+Skip to the content
+
+TECH&AI
+
+[AI Infrastructure Insight] How AI infrastructure will be designed for the future
+
+AI is no longer defined by a single model or AI processor. For AI to operate effectively in real-world services and industrial applications, it takes faster compute, wider memory bandwidth, higher-performance networks, more efficient storage, and more stable power and cooling working seamlessly together. This is why competition in AI is shifting beyond individual technologies to the design and operation of the entire infrastructure.
+
+In the AI Infrastructure Insight series, we explore how the architecture behind AI infrastructure is evolving — from compute, memory, storage, network, and power and cooling to the way they come together as a unified system — and what this means for the industry.
+
+[Series overview]
+
+① What is changing inside AI data centers?
+
+② Why faster GPUs alone can’t deliver AI performance
+
+③ Why power and cooling have become the next challenge for AI data centers
+
+④ How AI infrastructure will be designed for the future
+
+The changes explored in the first three installments of the [AI Infrastructure Insight] series point to a new direction for AI infrastructure design. Competition in AI infrastructure is no longer shaped by the performance of individual components alone, but also by how effectively compute, memory, storage, networking, and power and cooling are integrated. The AI data center architecture discussed in Part 1, the data movement bottlenecks examined in Part 2, and the power and cooling challenges covered in Part 3 all lead to the same design challenge.
+
+How, then, should next-generation AI infrastructure be designed and at what scale? In the final installment of [AI Infrastructure Insight], we examine how the scope of infrastructure design is expanding from individual servers to racks and entire data centers. We also examine how co-design * — an approach that considers compute, memory, storage, networking, and power and cooling together from the initial design stage — is shaping AI infrastructure design and industry collaboration while evolving the role of AI memory companies.
+
+* Co-design: A design approach that considers the requirements of different technologies and systems from the early stages of development to optimize the system as a whole.
+
+From servers to racks: The expanding scale of AI infrastructure design
+
+The fundamental unit of AI infrastructure design is expanding from individual servers to racks. This is because large-scale AI training and inference workloads are difficult to handle with a single AI accelerator or server. In environments where large numbers of accelerators must be tightly interconnected to share workloads, overall performance is shaped not only by the performance of individual accelerators, but also by balance across the system, including inter-accelerator connectivity, memory, networking, and power and cooling.
+
+As a result, the focus of design is shifting from individual servers toward integrating the resources within a rack into a unified architecture. Multiple servers and accelerators are densely packed into each rack, with memory configurations, networking, and power and cooling requirements designed around the same system. One representative example of this approach is the rack-scale system * , which treats the entire rack as a single computing system.
+
+* Rack-scale system: An AI computing system that integrates CPUs, GPUs, memory, networking, power, and cooling into a unified design at the rack level.
+
+In a rack-scale system, multiple accelerators and processors are connected through high-speed interconnects, while memory, networking, and power and cooling are designed together at the rack level. In this way, racks are evolving from spaces that simply house multiple servers into integrated system units that bring together data movement, power delivery, and thermal management.
+
+From racks to the entire data center: Expanding the scope of infrastructure design
+
+AI infrastructure design does not stop at the rack level. Building high-density AI systems at scale requires a coordinated approach considering everything from rack placement and networking to power, cooling, and the physical structure of the data center itself.
+
+As AI clusters grow larger, the efficiency of communication between racks has an increasingly significant impact on system performance. Rack placement, connection distance, and network architecture can affect data transfer latency and communication efficiency. Cooling infrastructure must also account for rack placement and facility design to handle the heat generated by high-density racks. The same applies to power distribution architecture, which must ensure a reliable supply of the required power across the facility.
+
+Realizing the full performance potential of large-scale AI infrastructure requires the coordinated design of rack placement and connectivity, power delivery, cooling, and building architecture.
+
+As AI workloads diversify, infrastructure design changes
+
+As the scope of AI infrastructure design expands, the types of workloads being processed are also becoming an important design consideration. Rather than applying the same architecture to every workload, resources must be configured according to the performance requirements and data processing characteristics of each task.
+
+Large-scale model training requires numerous accelerators to perform parallel computations over extended periods, placing a premium on high throughput, memory bandwidth, and fast inter-accelerator connectivity. Inference, by contrast, requires low latency, fast data access, throughput, and power and cost efficiency. Even within the same AI infrastructure, the configuration of compute and memory, how networking and storage are connected, and power and cooling requirements can vary depending on the workloads the system is designed to handle.
+
+In particular, workloads such as agentic AI * add another layer of complexity. A single request may involve multiple rounds of reasoning as well as repeated access to external tools and data. In such environments, the movement of data across memory, storage, and networking can become a major factor in real-world processing performance.
+
+Even the most advanced accelerators cannot deliver their expected performance without smooth data movement, sufficient memory bandwidth, and stable power and cooling. AI infrastructure design begins with a fundamental question: What workload is the system being built to handle?
+
+* Agentic AI: An AI system or technology that plans tasks based on a user-defined goal and carries out multiple steps using external tools, data, and other resources.
+
+AI infrastructure: From late-stage integration to co-design
+
+As the technologies that make up AI infrastructure become more tightly interconnected, the way systems are designed is changing as well. Changes in accelerator performance and power characteristics affect the memory bandwidth and capacity required by the system, interconnect performance, and rack-level power and cooling requirements. Conversely, the power, cooling, and networking available within a data center can affect the configuration and scale of the computing systems that can be deployed.
+
+There are limits to designing each component independently and integrating them only at the final stage. As a result, co-design — an approach that aligns the requirements of AI computing platforms and data center infrastructure from the initial design stage — is becoming increasingly widespread.
+
+Co-design now extends to the physical infrastructure of the data center, including power and cooling. In high-density AI systems, power delivery, liquid cooling, and thermal management have become design variables that must be considered alongside the requirements of the computing system.
+
+AI infrastructure design is therefore shifting away from assembling finished components at the final stage toward an integrated design process that aligns compute, memory, storage, networking, and power and cooling from the outset.
+
+From co-design to shared design standards
+
+As co-design expands across individual systems, the industry also needs common interfaces and requirements that allow technologies from different companies to work together within the same data center.
+
+Power infrastructure is one representative area. As rack-level power requirements increase in high-density AI environments, efforts are currently being made to establish common standards for power quality, power fluctuation management, and equipment interfaces. Against this backdrop, discussions are continuing through the Open Compute Project * to standardize power architectures, system requirements, and interfaces for next-generation data centers.
+
+* Open Compute Project (OCP): A global collaborative community that develops and shares open designs and standards for data center hardware and infrastructure.
+
+Common design standards would allow companies developing power equipment, connectors, and power conversion systems to build interoperable products and systems rather than having to respond separately to the specific requirements of each data center.
+
+This trend is not limited to power infrastructure. Discussions are also underway to establish common standards for accelerator interconnects and memory interfaces. In the memory industry, standards organizations such as JEDEC * define the fundamental specifications for key products, including HBM, which individual companies then use as the basis for product development. Collaboration that begins with co-design between individual companies is thus evolving into a shared design foundation that can be adopted across the broader industry ecosystem.
+
+* JEDEC Solid State Technology Association (JEDEC): An international standards organization that establishes specifications for memory and other semiconductor technologies.
+
+How co-design is changing the role of memory
+
+Common standards alone, however, cannot meet the requirements of every system. While standards provide a foundation for interoperability, optimization for individual systems takes place on top of that foundation. The same applies to memory. As accelerators process increasingly large volumes of data at higher speeds, requirements for memory bandwidth, capacity, power, and thermal performance vary from system to system. As a result, memory specifications are increasingly being defined alongside platform and system architecture from the early planning stages while remaining grounded in common standards.
+
+HBM is a representative example of this shift. Discussions are gaining momentum around next-generation custom HBM designs that incorporate customers’ system requirements, with the base die * playing a central role.
+
+* Base die: A die located beneath the stacked DRAM dies in HBM that handles functions such as data input/output.
+
+This shift is also changing how memory companies work with their customers. The scope of collaboration is expanding to include earlier discussions on customer system roadmaps and how memory specifications and development directions should align with them.
+
+SK hynix is likewise expanding collaboration with customers by engaging earlier in the development of their next-generation AI systems. This involves aligning customers’ system roadmaps with memory development plans to jointly define their memory requirements.
+
+In AI infrastructure competition, differentiation among memory companies increasingly comes not only from product performance, but also from how early they understand customers’ next-generation system development plans and how deeply they participate in the design process.
+
+Co-designing the next generation of AI infrastructure
+
+As AI infrastructure expands in scale, optimizing compute, memory, storage, networking, and power and cooling is no longer sufficient. Data flows and the power and cooling infrastructure that support them must also be designed together as part of the same architecture.
+
+Moving forward, competition in AI infrastructure will be shaped not only by the specifications of individual technologies, but also by how precisely the overall architecture can be coordinated. SK hynix is expanding collaboration with customers and partners to understand their next-generation systems earlier and jointly define the memory requirements those systems will need.
+
+Related content
+
+[AI Ecosystem] The semiconductor paradigm shifts toward memory
+
+October 21, 2026
+
+TECH&AI
+
+AI ecosystem
+
+HBM
+
+Hybrid Bonding
+
+PIM
+
+“Memory-Centric Server Systems Are the Future”: SK hynix Presents Its Next-Generation AI Infrastructure Vision at OCP Global Summit 2026
+
+October 16, 2026
+
+TECH&AI
+
+Agentic AI
+
+AI
+
+CXL
+
+DRAM
+
+eSSD
+
+HBF
+
+HBM
+
+OCP Global Summit
+
+[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance
+
+October 2, 2026
+
+TECH&AI
+
+Agentic AI
+
+AI ecosystem
+
+CXL
+
+GPU
+
+HBM
+
+[AI infrastructure insight] Why power and cooling have become the next challenge for AI data centers
+
+September 30, 2026
+
+TECH&AI
+
+AI
+
+AI data center
+
+AI Infrastructure
+
+AI Infrastructure Insight
+
+[AI Ecosystem] The semiconductor paradigm shifts toward memory
+
+October 21, 2026
+
+TECH&AI
+
+AI ecosystem
+
+HBM
+
+Hybrid Bonding
+
+PIM
+
+“Memory-Centric Server Systems Are the Future”: SK hynix Presents Its Next-Generation AI Infrastructure Vision at OCP Global Summit 2026
+
+October 16, 2026
+
+TECH&AI
+
+Agentic AI
+
+AI
+
+CXL
+
+DRAM
+
+eSSD
+
+HBF
+
+HBM
+
+OCP Global Summit
+
+[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance
+
+October 2, 2026
+
+TECH&AI
+
+Agentic AI
+
+AI ecosystem
+
+CXL
+
+GPU
+
+HBM
+
+[AI infrastructure insight] Why power and cooling have become the next challenge for AI data centers
+
+September 30, 2026
+
+TECH&AI
+
+AI
+
+AI data center
+
+AI Infrastructure
+
+AI Infrastructure Insight
+
+Homepage
+
+INSTAGRAM
+
+YOUTUBE
+
+Heritage
+
+Media Library
+
+Toggle Menu
+
+Back to Top

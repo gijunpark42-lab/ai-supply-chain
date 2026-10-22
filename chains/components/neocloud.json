@@ -206,7 +206,33 @@
               "company": "Mistral",
               "product": "open-weight models",
               "connects_to": [],
-              "quarterly_data": []
+              "quarterly_data": [
+                {
+                  "quarter": "Mistral press release: Introducing Timestral (10-15-2026)",
+                  "signal": "Mistral released Timestral, its first family of time-series foundation models (probabilistic, multivariate forecasts with past-only and known-future covariates), in four sizes from 5M to 209M parameters; Mistral says the largest, at 209M parameters, ranks first on the three main public benchmarks (GIFT-Eval, TIME, fev-bench), outperforming the previous state of the art with two-thirds of its parameters (company claim; results submitted to the GIFT-Eval and TIME leaderboards).",
+                  "figure": "four sizes, 5M to 209M parameters",
+                  "slot": "next_catalyst",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Mistral press release: Voxtral 3 (10-20-2026)",
+                  "signal": "Mistral introduced Voxtral 3, a family of speech-to-text and text-to-speech models plus a voice agent SDK (listening, reasoning, tool calling and speaking in one real-time pipeline), available today through Mistral's EU-hosted API or for self-deployment: Voxtral Small Transcribe 3 (transcription in 50 languages incl. the 24 official EU languages, diarization, context biasing), a 4B-parameter Mini transcription variant priced at $0.0035/min, Voxtral Realtime Transcribe 3 (sub-500ms latency in over 35 languages), Voxtral Mini TTS 3 (35+ languages, 50+ dialects) and Pro Voice adaptation from 30 minutes of audio. Mistral claims state-of-the-art results that outperform Whisper, Scribe v2 and Gemini 3.5 Transcribe (company claim).",
+                  "figure": "50 languages; Mini 4B parameters at $0.0035/min; sub-500ms realtime latency",
+                  "slot": "next_catalyst",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Mistral press release: Mistral Advances AI for Engineering with NVIDIA (10-21-2026)",
+                  "signal": "Mistral is collaborating with NVIDIA on AI-native engineering workflows (Mistral Large 4 with Mistral's data generation and physics modeling pipelines, accelerated by NVIDIA CUDA-X libraries and NVIDIA Warp) and on public benchmarks and open datasets for physics models and for agentic AI in CAE and EDA; the companies previously co-developed Mistral NeMo and are working through the NVIDIA Nemotron Coalition on a frontier base model. Mistral Large 4 (public preview), its largest model, has approximately 1 trillion total parameters and 49 billion active parameters and was trained on 3,800 NVIDIA Grace Blackwell GPUs in Mistral-operated data centers in Europe; Mistral is bringing additional NVIDIA-powered AI infrastructure online in support of its compute roadmap targeting 1 GW of capacity by 2030.",
+                  "figure": "approximately 1 trillion total / 49 billion active parameters; 3,800 NVIDIA Grace Blackwell GPUs; 1 GW of capacity by 2030 (target)",
+                  "slot": "guidance",
+                  "topics": []
+                }
+              ]
             },
             {
               "company": "Cohere",
@@ -217,6 +243,23 @@
                   "quarter": "Nebius Q2 FY2026 (08-12-2026)",
                   "signal": "Named by Nebius as one of four landmark mid-term AI cloud customers signed in Q2 (alongside Reflection, an unnamed scale U.S. Neolab and a large U.S.-based quant trading firm). The four deals averaged MORE THAN $1 BILLION each at a $20-25M per megawatt yield, with upfront payments covering 50-60% of the associated capex. All four were competitive wins where the customer already had an existing supplier — in some cases a hyperscaler — and was expanding onto next-generation capacity.",
                   "figure": "one of four >$1B average mid-term Nebius AI cloud deals"
+                },
+                {
+                  "quarter": "Cohere press release: Introducing Rerank 5: precise, efficient enterprise (10-21-2026)",
+                  "signal": "Cohere released Rerank 5 (Pro and Fast tiers), joining Embed 5 and Parse 5 in its latest generation of search models, generally available today on the Cohere API and Model Vault, Microsoft Foundry, Amazon SageMaker, private VPC / on-premises deployment and to all North users; API pricing is $0.05 per 1M tokens for Pro and $0.02 for Fast. New Context Focus returns the most relevant passages within each document; Cohere says Rerank 5 Pro leads on major public benchmarks (company claim).",
+                  "figure": "$0.05 per 1M tokens (Pro); $0.02 (Fast)",
+                  "slot": "next_catalyst",
+                  "topics": [
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Cohere press release: Cohere to acquire AISLE to advance cyber-resilient (10-15-2026)",
+                  "signal": "Cohere announced a proposed agreement to acquire AISLE (founded in 2024; autonomous systems that discover and remediate previously unknown software vulnerabilities - more than 500 CVE-assigned vulnerabilities across more than 100 codebases in its first year out of stealth, per Cohere) and plans to launch Cohere Cyber, expanding its platform to help enterprises and governments secure AI systems; it follows Cohere's acquisitions of Reliant AI and Aleph Alpha. The transaction is proposed.",
+                  "figure": "no specific figure",
+                  "counterparty": "AISLE",
+                  "counterparty_role": "company to be acquired",
+                  "topics": []
                 }
               ]
             },
@@ -5216,8 +5259,36 @@
                   "signal": "CEO Doug Recker on the market: a tier 1 customer signed 80 plus colo agreements last year and only 3 came to fruition because the power did not come up; Duos goes only where power is already there (transformers usually already on the property). GPU clusters used to be a megawatt and customers now look at 4.5 megawatt clusters; Duos has been a pure colocation business since August (CFO).",
                   "figure": "80 plus colo agreements, 3 came up",
                   "topics": []
+                },
+                {
+                  "quarter": "Duos Technologies press release: Duos Technologies Announces 20 MW Customer Agreement and (10-20-2026)",
+                  "signal": "Duos signed a new 10-year colocation agreement for 20 MW of facility load with a mature publicly traded cloud services provider in the United States (not named), representing over $400 million of total contract value over the initial term, expected to be deployed in Q2 2027; Duos is under contract and in active negotiations to secure approximately 100 MW of additional powered, data-center-zoned land - approximately 25 MW under contract across multiple sites and an additional 75 MW in active negotiation.",
+                  "figure": "20 MW; over $400 million total contract value; approximately 100 MW of land (25 MW under contract, 75 MW in negotiation)",
+                  "topics": []
                 }
               ]
+            },
+            {
+              "company": "Polar Data Centers",
+              "product": "AI-ready data center capacity in Tordal, Norway (hydroelectric-powered)",
+              "connects_to": [
+                {
+                  "company": "Crusoe",
+                  "relationship": "AI data-center capacity at the Tordal, Norway campus (DRA01, DRA02) hosting Crusoe Cloud",
+                  "contracts": [
+                    {
+                      "source": "Crusoe press release: Polar & Crusoe expand Norway AI partnership to 40MW (10-21-2026)",
+                      "signal": "DRA01 (12MW of IT capacity, 100% hydroelectric) is live and powering Crusoe Cloud; the partnership expands into DRA02, expected live in late 2027 with an additional 40MW of liquid-cooled IT capacity, where Crusoe plans to deploy NVIDIA Vera Rubin NVL72.",
+                      "units": "12MW live; additional 40MW",
+                      "value": "no specific figure",
+                      "date_signed": "2026",
+                      "type": "capacity lease",
+                      "topics": []
+                    }
+                  ]
+                }
+              ],
+              "quarterly_data": []
             }
           ]
         },
@@ -6187,13 +6258,46 @@
                   "contracts": []
                 }
               ],
-              "quarterly_data": []
+              "quarterly_data": [
+                {
+                  "quarter": "Crusoe press release: Crusoe Spark Liquid: 3.5MW modular AI factory (10-21-2026)",
+                  "signal": "Crusoe introduced Crusoe Spark Liquid, the sixth generation of its modular AI factory platform: prefabricated, closed-loop direct-liquid-cooled units engineered for NVIDIA GB300 NVL72 and NVIDIA Vera Rubin NVL72 that support up to 3.5MW of compute per unit, built in Crusoe's factory and shipped ready to deploy, cutting deployment timelines from years to months to add Crusoe Cloud capacity closer to users for low-latency inference. Crusoe Spark is already deployed for Crusoe Cloud customers in production, such as Ollama.",
+                  "figure": "up to 3.5MW of compute per unit; sixth generation",
+                  "counterparty": "Ollama",
+                  "counterparty_role": "customer",
+                  "slot": "next_catalyst",
+                  "topics": [
+                    "power_cooling",
+                    "product_launches"
+                  ]
+                },
+                {
+                  "quarter": "Crusoe press release: Crusoe Spark supports NVIDIA DSX POD (10-21-2026)",
+                  "signal": "Crusoe's Crusoe Spark modular AI data center platform will support the NVIDIA DSX POD reference design (a blueprint for modular infrastructure for the NVIDIA Vera Rubin platform). Crusoe has built and operated modular AI factories since 2020; production is powered by its in-house engineering and domestic manufacturing footprint, including the 352,000 sq ft Crusoe Spark Factory in Brighton, Colorado, with next-generation liquid units slated for 2027; in 2022 it acquired electrical manufacturing specialist Easter-Owens Electric.",
+                  "figure": "352,000 sq ft Crusoe Spark Factory; next-generation liquid units slated for 2027",
+                  "topics": []
+                },
+                {
+                  "quarter": "Crusoe press release: Polar & Crusoe expand Norway AI partnership to 40MW (10-21-2026)",
+                  "signal": "Polar Data Centers' DRA01 facility in Tordal, Norway is now live, providing 12MW of IT capacity powered by 100% hydroelectric energy and supporting Crusoe Cloud; the partnership expands into DRA02, the next phase of the Tordal campus, expected to go live in late 2027 with an additional 40MW of liquid-cooled IT capacity, where Crusoe plans to deploy NVIDIA Vera Rubin NVL72.",
+                  "figure": "12MW live (DRA01); additional 40MW expected late 2027 (DRA02)",
+                  "slot": "backlog_or_b2b",
+                  "topics": []
+                }
+              ]
             },
             {
               "company": "Lambda",
               "product": "GPU cloud",
               "connects_to": [],
-              "quarterly_data": []
+              "quarterly_data": [
+                {
+                  "quarter": "Lambda press release: What Lambda is building with NVIDIA at GTC Berlin 2026 (10-21-2026)",
+                  "signal": "Lambda announced support for Confidential Bare Metal, the expansion of NVIDIA Confidential Computing to dedicated third-party infrastructure (hardware-rooted isolation and attestation for frontier model builders on bare-metal instances), alongside Confidential Containers and Confidential Virtual Machines; in September it joined NVIDIA to support open agent safety.",
+                  "figure": "no specific figure",
+                  "topics": []
+                }
+              ]
             },
             {
               "company": "NScale",
@@ -6202,7 +6306,50 @@
                 {
                   "company": "Microsoft",
                   "relationship": "capacity",
-                  "contracts": []
+                  "contracts": [
+                    {
+                      "source": "NScale prospectus (09-18-2026)",
+                      "signal": "NScale's IPO prospectus: between September 2025 and April 2026 NScale entered into statements of work with Microsoft providing for payments of up to approximately $43.8 billion through December 2033 (excluding optional extensions, subject to delivery and availability-of-service requirements) for GPU infrastructure, colocation space and cloud services; GPU service terms run five to six years from acceptance of each tranche, with an optional six-month extension at Microsoft's election. NScale expects Microsoft and Anthropic to be significant customers in future periods.",
+                      "units": "GPU service terms five to six years per tranche",
+                      "value": "up to approximately $43.8 billion through December 2033",
+                      "date_signed": "September 2025 - April 2026",
+                      "type": "supply agreement",
+                      "topics": []
+                    },
+                    {
+                      "source": "NScale prospectus (09-18-2026)",
+                      "signal": "NScale's IPO prospectus: over 12,600 NVIDIA Grace Blackwell Ultra GPUs are deployed at the first building of the SINES Data Campus (Portugal) for Microsoft.",
+                      "units": "over 12,600 NVIDIA Grace Blackwell Ultra GPUs",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
+                      "topics": []
+                    },
+                    {
+                      "source": "NScale prospectus (09-18-2026)",
+                      "signal": "NScale's IPO prospectus: after OpenAI withdrew from the Stargate Norway and Stargate UK partnerships in April 2026, Microsoft expanded its agreement with NScale to take the extra compute capacity at Stargate Norway.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "2026",
+                      "type": "capacity expansion",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "NVIDIA",
+                  "relationship": "reserved GPU cloud capacity under the NVIDIA master cloud services agreement",
+                  "contracts": [
+                    {
+                      "source": "NScale prospectus (09-18-2026)",
+                      "signal": "NScale's IPO prospectus: in July 2025 NScale entered into a master cloud services agreement with NVIDIA Corporation, under which it provides GPU cloud computing services (reserved GPU cluster capacity) across data center locations in Iceland, the United Kingdom and Norway, with initial service terms ranging from 12 to 48 months, for an aggregate amount of $1.2 billion.",
+                      "units": "reserved GPU cluster capacity; initial terms 12 to 48 months",
+                      "value": "$1.2 billion aggregate",
+                      "date_signed": "July 2025",
+                      "type": "cloud services agreement",
+                      "topics": []
+                    }
+                  ]
                 }
               ],
               "quarterly_data": [
@@ -6210,6 +6357,115 @@
                   "quarter": "NVIDIA Q2 FY2027 (08-26-2026)",
                   "signal": "Cited by NVIDIA (with CoreWeave and Nebius) as a neocloud it helped build into an entire infrastructure business.",
                   "figure": "no specific figure"
+                },
+                {
+                  "quarter": "NScale press release: Nscale Joins the PyTorch Foundation as a Platinum Member (10-20-2026)",
+                  "signal": "Nscale has joined the PyTorch Foundation as a Platinum member; the release refers to Nscale's planned acquisition of Anyscale, the company behind the Ray distributed-computing framework, after which Nscale has committed to continuing investment in Ray's development.",
+                  "figure": "no specific figure",
+                  "counterparty": "Anyscale",
+                  "counterparty_role": "company to be acquired",
+                  "topics": []
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus (Form S-1): revenue was $140.6 million for the six months ended June 30, 2026 versus $10.4 million a year earlier (an increase of 1,252%), and $33.0 million for 2025 versus $19.1 million for 2024 (+73%). 2025 was the first full year of high-performance cloud services for AI workloads; most 2024 revenue came from colocation for institutional crypto-currency miners, a service NScale ceased at the end of 2024. Net losses were $1,020.1 million for the first half of 2026 and $761.8 million for 2025; Adjusted EBITDA was $(199.2) million and $(81.7) million. Cash and cash equivalents were $1.5 billion at June 30, 2026.",
+                  "figure": "H1 2026 revenue $140.6 million (H1 2025 $10.4 million, +1,252%); FY2025 revenue $33.0 million (FY2024 $19.1 million, +73%); net loss $1,020.1 million (H1 2026) / $761.8 million (FY2025); Adjusted EBITDA $(199.2) million / $(81.7) million; cash $1.5 billion at June 30, 2026",
+                  "topics": []
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus, revenue by region: for the six months ended June 30, 2026, Portugal $73.0 million, Norway $63.7 million and United Kingdom $3.9 million (52% and 45% of revenue from deployments in Portugal and Norway); for 2025, Norway $31.8 million and United Kingdom $1.2 million (a substantial majority of 2024 and 2025 revenue came from Norway).",
+                  "figure": "H1 2026: Portugal $73.0 million, Norway $63.7 million, UK $3.9 million (52% / 45% Portugal / Norway); FY2025: Norway $31.8 million, UK $1.2 million",
+                  "topics": []
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus, customer concentration: the largest customer accounted for 52% of revenue in the six months ended June 30, 2026 and 73% of revenue in 2025; in 2024 a single customer accounted for substantially all revenue (93%). The customer that was 73% of 2025 revenue signed a series of GPU infrastructure services agreements from November 2024 through March 2026 (GPU infrastructure and colocation space, phased delivery); NScale anticipates it will be approximately less than 20% of 2026 revenue, with the share expected to keep decreasing. The prospectus does not name the 52% or 73% customer.",
+                  "figure": "largest customer 52% of H1 2026 revenue; 73% of FY2025 revenue (expected less than 20% of FY2026 revenue); 93% in FY2024",
+                  "topics": []
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "Customer Pega Nordic: NScale's IPO prospectus says an October 2022 agreement to provide data center infrastructure at its Norway facility was with the customer that represented 93% of 2024 revenue (Pega Nordic named as the counterparty); the agreement terminated in December 2024 and is no longer in effect.",
+                  "figure": "93% of FY2024 revenue; agreement terminated December 2024",
+                  "topics": [],
+                  "counterparty": "Pega Nordic",
+                  "counterparty_role": "customer"
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus, contracted backlog: as of August 31, 2026 it had approximately $2.6 billion of active and $103.4 billion of active and contracted total contract value (TCV) under long-term take-or-pay contracts, versus $0.5 billion and $38.0 billion as of December 31, 2025, supporting approximately 461,000 active or contracted GPUs; weighted average contract life approximately 5.7 years; weighted-average customer prepayment 23% of active and contracted TCV.",
+                  "figure": "$103.4 billion active and contracted TCV ($2.6 billion active) at August 31, 2026 vs $38.0 billion ($0.5 billion) at December 31, 2025; ~461,000 GPUs; 5.7-year weighted average contract life; 23% weighted-average prepayment",
+                  "topics": [],
+                  "capex": {
+                    "field": "backlog",
+                    "busd": 103.4,
+                    "display": "$103.4 billion",
+                    "metric": "active and contracted TCV (August 31, 2026)",
+                    "growth": "from $38.0 billion as of December 31, 2025"
+                  }
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus, remaining performance obligations: RPO for service contracts was $56.4 billion as of June 30, 2026 (including $7.1 billion significant financing component on customer prepayments), expected to be recognized over the next 7 years, versus $34.5 billion at December 31, 2025 (approximately 16% to be recognized in the next two years and 40% in the following two years); plus $2.0 billion of minimum lease payments due from customers under ASC 842 at June 30, 2026. After June 30, 2026 NScale entered into contracts to deploy and operate GPU clusters for an aggregate $52.5 billion (and after December 31, 2025, $62.9 billion).",
+                  "figure": "RPO $56.4 billion at June 30, 2026 (incl. $7.1 billion financing component; over 7 years); $34.5 billion at December 31, 2025; $2.0 billion minimum lease payments; $52.5 billion of GPU cluster contracts signed after June 30, 2026",
+                  "topics": []
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus, infrastructure footprint as of August 31, 2026: approximately 25,000 active GPUs and 461,000 active and contracted GPUs; five active and twelve contracted data center sites (seven wholly-owned, nine colocation, one leased); approximately 1.37 GW of active and contracted capacity (1 GW at owned sites, 200 MW at leased sites, 165 MW at colocation sites), with line of sight to approximately 10 GW of potential power capacity; footprint concentrated in regions such as Norway, Portugal, Iceland, and select locations in the United States and APAC; over 1,000 full-time employees. Leased sites were approximately 15% of active and contracted MW for the six months ended June 30, 2026.",
+                  "figure": "~25,000 active GPUs; 461,000 active and contracted GPUs; 5 active + 12 contracted sites; ~1.37 GW (1 GW owned, 200 MW leased, 165 MW colocation); ~10 GW potential power; over 1,000 employees",
+                  "topics": []
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus data center table (IT capacity contracted, IT MW): active sites - Portugal colocation 30, Norway colocation 6, Norway colocation 5, Iceland colocation 15, Norway owned 25; contracted (operating data center sites) - Norway colocation 9, United Kingdom colocation 20, Iceland colocation 16, United States colocation 40, Indonesia colocation 24, United States leased 200, United States owned 70, Portugal owned 200, United Kingdom owned 50, Norway owned 100, Norway owned 100, United States owned 460.",
+                  "figure": "17 sites; largest contracted: United States owned 460 IT MW, United States leased 200 IT MW, Portugal owned 200 IT MW, two Norway owned 100 IT MW",
+                  "topics": []
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus, Monarch Compute Campus: on March 31, 2026 NScale acquired 100% of AIPCorp (American Intelligence & Power Corporation), securing the approximately 2,250-acre Monarch Compute Campus in Mason County, West Virginia - which it believes will be one of the first state-certified AI micro-grids in the United States - with behind-the-meter power; an initial 2 GWs of gross power capacity (1.37 GWs of IT load) is expected online by the first half of 2028, with expansion to approximately 8 GWs of gross capacity planned for 2031 (scalable to over 6.5 GW of IT load power). NScale created Nscale Energy & Power to internalize power origination and development.",
+                  "figure": "~2,250 acres; 2 GWs gross / 1.37 GWs IT load by H1 2028; ~8 GWs gross planned for 2031; over 6.5 GW IT load potential",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "Supplier Caterpillar: NScale's IPO prospectus lists its continued collaboration with Caterpillar as a supplier of natural gas generators among the conditions for realizing the Monarch Compute Campus's behind-the-meter power plan, alongside access to natural gas supply at commercially viable costs.",
+                  "figure": "no specific figure",
+                  "topics": [
+                    "power_cooling"
+                  ],
+                  "counterparty": "Caterpillar",
+                  "counterparty_role": "supplier"
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus, other acquisitions: on April 24, 2026 it acquired SIN02, a 200 MW powered land site at the SINES Data Campus in Portugal (a 200 MW owned hyperscale campus); in December 2025 it acquired Future Tech, a United Kingdom-based data center engineering consultancy; on July 28, 2026 it signed a definitive agreement to acquire Anyscale (the company behind the Ray open-source distributed AI framework, 740 million cumulative downloads including approximately 174 million in Q2 2026), adding approximately 200 employees, with closing expected at or concurrent with the IPO.",
+                  "figure": "SIN02 200 MW; Anyscale ~200 employees; Ray 740 million cumulative downloads (~174 million in Q2 2026)",
+                  "topics": []
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "Partner Aker: NScale's IPO prospectus says it formed a 50/50 joint venture with Aker for Stargate Norway, an AI infrastructure project in Kvandal, Norway (agreement July 31, 2025, completed October 8, 2025); in March 2026 the joint venture entities were rolled up into NScale, which acquired Aker's 50% interest. In April 2026 OpenAI withdrew from the Stargate Norway and Stargate UK partnerships.",
+                  "figure": "50/50 joint venture; NScale acquired the remaining 50% in March 2026",
+                  "topics": [],
+                  "counterparty": "Aker",
+                  "counterparty_role": "partner"
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus, commitments as of June 30, 2026: outstanding purchase commitments for technology equipment not yet delivered of $24.0 billion and data center build-out commitments of $3.5 billion, both payable primarily throughout 2026 and 2027, plus $1.4 billion of undiscounted payments for colocation leases not yet commenced. Net cash used in investing activities was $3,285.8 million in the first half of 2026 (versus $113.7 million), primarily higher purchases of GPUs and technology equipment.",
+                  "figure": "$24.0 billion technology equipment commitments; $3.5 billion data center build commitments; $1.4 billion colocation leases not yet commenced; H1 2026 investing cash outflow $3,285.8 million",
+                  "topics": []
+                },
+                {
+                  "quarter": "NScale prospectus (09-18-2026)",
+                  "signal": "NScale's IPO prospectus, GPU supply chain: it buys NVIDIA GPUs through multiple third-party suppliers on individual, often just-in-time purchase orders without long-term supply contracts; in 2025 three suppliers accounted for 57%, 27% and 16% of NVIDIA GPU and related infrastructure equipment purchases, and in the first half of 2026 three main suppliers accounted for 53%, 37% and 10%; NScale expects to add suppliers during 2026.",
+                  "figure": "FY2025 three suppliers 57% / 27% / 16%; H1 2026 53% / 37% / 10%",
+                  "topics": []
                 }
               ]
             },
@@ -6222,6 +6478,15 @@
                   "quarter": "NVIDIA Q2 FY2027 (08-26-2026)",
                   "signal": "Among ~20 AI-native companies exceeding $1B annualized run-rate revenue (NVIDIA).",
                   "figure": ">$1B ARR"
+                },
+                {
+                  "quarter": "Together AI press release: Together Post-Training: frontier-grade model shaping, the (10-19-2026)",
+                  "signal": "Together AI introduced Together Post-Training, a new service for building custom models on its platform from environment rewards via RL and supervision data via SFT (LoRA and select full-weight training on dedicated GPU allocations, custom losses), launching with open-weight models including Muse Spark Open, GLM 5.3, Kimi K3 and Qwen 3.8-27B, with the selection to expand in the coming weeks.",
+                  "figure": "no specific figure",
+                  "slot": "next_catalyst",
+                  "topics": [
+                    "product_launches"
+                  ]
                 }
               ]
             },
@@ -6889,6 +7154,18 @@
                   "counterparty": "U.S. Space Force",
                   "counterparty_role": "customer",
                   "topics": []
+                },
+                {
+                  "quarter": "SpaceX IR presentation: Earnings Update (10-20-2026)",
+                  "signal": "Q3 2026 results release, figures the call does not state: capex by segment was SI $16,444 million, Space $1,606 million and Connectivity $1,543 million, total $19,593 million (nine months $48,069 million versus $13,846 million); SI revenues were $7.6 billion, up 195% sequentially and 830% year over year, of which advertising revenues $538 million and SI solutions and infrastructure revenues $7,022 million; nameplate compute 1.7 GW versus 1.4 GW at June 30 and 0.6 GW a year earlier, as SpaceX continued the buildout of COLOSSUS II and signed additional cloud services agreements. Balance sheet at September 30, 2026: cash and cash equivalents $51,294 million and marketable securities $38,561 million; deferred revenue $10,784 million current and $6,736 million non-current; nine-month net cash provided by operating activities $13,097 million.",
+                  "figure": "Q3 capex $19,593 million (SI $16,444 million); SI revenues $7.6 billion (+830% YoY)",
+                  "topics": [],
+                  "capex": {
+                    "field": "capex_q",
+                    "busd": 19.593,
+                    "display": "$19,593 million",
+                    "period": "Q3 2026"
+                  }
                 }
               ]
             },
@@ -8427,6 +8704,13 @@
                   "signal": "SharonAI 8-K: collaboration with VAST Data under which SharonAI will offer VAST DataEnclave, the new confidential AI capability of the VAST DataEngine, as part of its AI Factory platform across Australia and Asia-Pacific: a hardware-isolated secure runtime and cryptographic attestation service for running leading AI models onshore, in which proprietary models execute inside confidential virtual machines with NVIDIA GPUs operating in Confidential Compute mode; it is designed to let regulated organizations run advanced AI models onshore (including in fully air-gapped environments) and infrastructure operators, including SharonAI, cannot access customer data or model weights while they are being processed. The company expects the collaboration to significantly expand the number of leading AI models available to its customers.",
                   "figure": "no specific figure",
                   "topics": []
+                },
+                {
+                  "quarter": "SharonAI press release: NVIDIA confirms Sharon AI is scaling to 68,000 GPUs and (09-10-2026)",
+                  "signal": "SharonAI's deployment target rose to up to 68,000 NVIDIA GPUs (HGX B300 and GB300 NVL72) on NVIDIA DSX, from its previous target of 64,000; NVIDIA InfiniBand is the primary interconnect across most deployments, with one AI factory using RoCE. CEO James Manning: building on NVIDIA DSX, SharonAI is equipped to bring gigawatt-scale AI factories to Australian enterprises, researchers, government and AI natives.",
+                  "figure": "up to 68,000 GPUs (previous target 64,000)",
+                  "slot": "supply_status",
+                  "topics": []
                 }
               ]
             },
@@ -8466,6 +8750,19 @@
                   "signal": "FPT (earnings report): in 6M2026 FPT won a multi-million-dollar AI contract with a leading global materials manufacturer to deploy its FleziPT platform, expanded AI-transformation partnerships with Intel and ASEAN groups (CPF, SCG, UOB, Sembcorp, SATS, ComfortDelGro), and introduced FPT CASAN, a five-level AI-Native maturity framework; it joined the NVIDIA Partner Network as a Service Delivery Partner and holds 10,000+ NVIDIA certificates, and calls itself the first enterprise systems integrator in Southeast Asia recognized as a Microsoft Frontier Partner.",
                   "figure": "multi-million-dollar FleziPT AI contract; 10,000+ NVIDIA certificates",
                   "topics": []
+                },
+                {
+                  "quarter": "FPT Corporation IR presentation: Content of Information disclosure: Public release on FPT's (10-21-2026)",
+                  "signal": "FPT 9M2026 financial performance release (HOSE disclosure, scanned): revenue VND 40,023 billion (+12.4%) and profit before tax VND 8,770 billion (+17.0%); PAT attributable to the parent VND 7,778 billion (+13.3%); EPS VND 4,142 (+12.8%). From 2026 FPT Telecom is accounted for under the equity method and 2025 figures are restated. Technology segment revenue VND35,515 billion (+14.8%, 89% of revenue); Global IT Services VND28,538 billion (+11.6%), with Japan +17.2% (+25.2% in JPY); overseas digital transformation VND14,411 billion (+16.3%); AI and Data Analytics services VND2,915 billion (+55%); Domestic IT Services VND6,977 billion (+29.8%, PBT +108.5%); Made-by-FPT products VND2,284 billion (+19.9%).",
+                  "figure": "9M2026 revenue VND 40,023 billion (+12.4%); PBT VND 8,770 billion (+17.0%); AI & Data Analytics VND2,915 billion (+55%)",
+                  "topics": []
+                },
+                {
+                  "quarter": "FPT Corporation IR presentation: Content of Information disclosure: Public release on FPT's (10-21-2026)",
+                  "signal": "FPT 9M2026 release: signed revenue from Global IT Services reached VND36,137 billion in the first nine months of 2026, up 23.1% year on year, and FPT secured 16 projects worth over $10 million each. In Q3 2026 FPT became a Global Partner (Select Partner) of OpenAI, introduced the MediSight healthcare AI framework, partnered with Vietnam's National Data Center in data, AI and high-performance computing, and with NVIDIA expanded the Nemotron-Personas-Vietnam dataset tenfold to one million synthetic user profiles. Its Flezi Metis AI platform, deployed for a leading US-headquartered automotive technology group (not named), cut source code search time by 50% in an initial pilot on about one million lines of code.",
+                  "figure": "Global IT signed revenue VND36,137 billion (+23.1%); 16 projects over $10 million",
+                  "topics": [],
+                  "slot": "backlog_or_b2b"
                 }
               ]
             },
@@ -8600,6 +8897,19 @@
                   "slot": "backlog_or_b2b",
                   "counterparty": "Duos Technologies",
                   "counterparty_role": "data center owner / operator (colocation and energy for the Georgia cluster)"
+                },
+                {
+                  "quarter": "Axe Compute press release: Axe Compute Receives $317 Million in Customer Prepayments (08-18-2026)",
+                  "signal": "Axe Compute has received over $317 million in customer prepayments under the more than $3 billion in AI infrastructure contracts announced on July 27, 2026 (five-year commitments with extension options, in new U.S. and European markets); these deployments are expected to begin recognizing revenue in late Q4 2026, and the prepayments reduce the external funding needed for initial deployment. Axe retains ownership of the infrastructure under its Axe Compute Build model.",
+                  "figure": "over $317 million in customer prepayments; more than $3 billion in contracts",
+                  "topics": []
+                },
+                {
+                  "quarter": "Axe Compute press release: Axe Compute Receives More Than $184 Million in Customer (09-29-2026)",
+                  "signal": "Axe Compute has received more than $184 million in customer prepayments and signed over $266 million in new AI infrastructure contracts since reporting second-quarter results on August 17, 2026, bringing the total value of contracts signed over the past seven months to more than $3.45 billion.",
+                  "figure": "more than $184 million in prepayments; over $266 million of new contracts; more than $3.45 billion total",
+                  "slot": "backlog_or_b2b",
+                  "topics": []
                 }
               ]
             },
@@ -10058,6 +10368,24 @@
                       "value": "no specific figure",
                       "date_signed": "not stated",
                       "type": "partnership"
+                    },
+                    {
+                      "source": "NScale prospectus (09-18-2026)",
+                      "signal": "NScale's IPO prospectus: NVIDIA is currently the primary manufacturer of the GPUs deployed across NScale's infrastructure (sourced through multiple third-party suppliers); NScale relies on NVIDIA as a result of its obligations under current customer contracts, and some customers have contractually specified the use of NVIDIA GPUs.",
+                      "units": "no specific figure",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "prospectus supplier disclosure",
+                      "topics": []
+                    },
+                    {
+                      "source": "NScale prospectus (09-18-2026)",
+                      "signal": "NScale's IPO prospectus: NScale says it is closely aligned with key manufacturers such as NVIDIA through partnerships such as direct equity investment; NVIDIA was issued 63,177,840 Series B preferred shares in the October 2025 Series B Financing and 16,346,160 Series C-3 plus 23,410,920 Series C-4 preferred shares at the March 2026 Series C completion.",
+                      "units": "63,177,840 Series B; 23,410,920 Series C-4 and 16,346,160 Series C-3 preferred shares",
+                      "value": "no specific figure",
+                      "date_signed": "October 2025; March 2026",
+                      "type": "strategic equity investment",
+                      "topics": []
                     }
                   ]
                 },
@@ -10261,6 +10589,21 @@
                       "value": "no specific figure",
                       "date_signed": "not stated",
                       "type": "10-Q supplier disclosure",
+                      "topics": []
+                    }
+                  ]
+                },
+                {
+                  "company": "Mistral",
+                  "relationship": "NVIDIA Grace Blackwell GPUs and NVIDIA-powered AI infrastructure in Mistral-operated data centers",
+                  "contracts": [
+                    {
+                      "source": "Mistral press release: Mistral Advances AI for Engineering with NVIDIA (10-21-2026)",
+                      "signal": "Mistral Large 4 was trained on 3,800 NVIDIA Grace Blackwell GPUs in Mistral-operated data centers in Europe; Mistral is bringing additional NVIDIA-powered AI infrastructure online in support of its compute roadmap targeting 1 GW of capacity by 2030.",
+                      "units": "3,800 NVIDIA Grace Blackwell GPUs",
+                      "value": "no specific figure",
+                      "date_signed": "not stated",
+                      "type": "deployment",
                       "topics": []
                     }
                   ]

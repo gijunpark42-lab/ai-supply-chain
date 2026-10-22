@@ -1,0 +1,568 @@
+SOURCE: GMI official press release -- https://www.gmicloud.ai/en/blog/eagle-4-launches-on-gmi-cloud-2-7-x-faster-inference-on-nvidia-b300-gpusx
+TITLE: EAGLE-4 Launches on GMI Cloud: 2.7 Faster Inference on NVIDIA B300 GPUs
+DATE: 10-20-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: GMI press release: EAGLE-4 Launches on GMI Cloud: 2.7 Faster Inference on (10-20-2026)
+
+---
+EAGLE-4 Launches on GMI Cloud: 2.7× Faster Inference on NVIDIA B300 GPUs
+
+More Blog Posts
+
+More Blog Posts
+
+Announcements EAGLE-4 Launches on GMI Cloud: 2.7× Faster Inference on NVIDIA B300 GPUs
+
+Today Eagle AI released EAGLE-4 as open source, the newest generation of the EAGLE speculative decoders. GMI Cloud is a launch partner for the release, and EAGLE-4 is available to run on GMI Cloud from day one.
+
+October 20, 2026
+
+Speculative decoding makes a model generate tokens faster without changing what it says. EAGLE-4 pairs a new drafter with EAGLE-Harness, a runtime that sizes each draft tree using a cost table measured on the GPUs it runs on. With early access from Eagle AI, GMI's inference team ran Eagle's published recipes on our NVIDIA B300 nodes, benchmarked them against every other speculative decoder available for the same model, profiled the runtime at the CUDA level, and qualified it for GMI's inference platform.
+
+On Qwen3.8-27B, EAGLE-4 reached 703 tokens per second on four NVIDIA B300 GPUs at batch 1, 2.7× faster than plain decoding and the fastest of the decoders we tested. Under load, the same drafter served up to 27,600 tokens per second on one four-GPU replica at 512 concurrent requests. This post covers the results, where the speedup comes from, how it holds up as load grows, and what it means for teams serving models on GMI Cloud. If you want to run EAGLE-4, or a speculator trained for your own model and traffic, contact us .
+
+Key results on NVIDIA B300 GPUs
+
+2.7× at batch 1. EAGLE-4 decodes Qwen3.8-27B at 703 tok/s on 4×B300, up from 260 tok/s for plain decoding. Qwen's built-in MTP head, DSpark and DFlash 2 all reach 2.0×. With sampling at T=1, EAGLE-4 keeps 2.1×. ( read Eagle AI's announcement )
+
+Measured against a fair baseline. Every speedup in this post is measured against plain decoding on the same engine with its fastest settings. Against the slower baseline in Eagle's own chart, the same run reads 3.5×. We report 2.7×, the number a production deployment will see.
+
+The hardware-aware tree is worth 36%. With the same EAGLE-4 drafter, a static draft chain reaches 1.99× and the Harness-sized tree reaches 2.71×. The tree commits 29% more tokens per round at about the same cost per round.
+
+No blocking syncs. Our profiling shows the Harness verifies a bigger tree than the static chain and still finishes each round sooner, with zero blocking CUDA syncs where the chain has six.
+
+Up to 512 concurrent conversations on one replica. With Eagle's high-concurrency recipe, EAGLE-4 serves 27,600 tok/s on a 4×B300 replica at 512 concurrent, 1.24× plain decoding and 5% ahead of MTP. Between 8 and 64 concurrent, MTP keeps a 4–7% edge.
+
+Figure 1. Speedup over plain decoding on the same engine at one concurrent conversation, greedy (T=0) and sampling (T=1). DSpark and DFlash 2 are normalized to upstream SGLang 0.5.21.
+
+Results at batch 1
+
+At one concurrent conversation on SPEED-Bench, EAGLE-4 is the only speculator that clears 2.5×. The other three finish within 1% of each other at 2.0×, even though they accept very different numbers of tokens per target pass.
+
+Qwen3.8-27B, 4×B300, 1 concurrent
+
+T=0 tok/s
+
+T=0 speedup
+
+T=0 AL
+
+T=1 tok/s
+
+T=1 speedup
+
+T=1 AL
+
+No speculation
+
+260
+
+1.00×
+
+–
+
+254
+
+1.00×
+
+–
+
+MTP (built-in head)
+
+524
+
+2.02×
+
+2.89
+
+408
+
+1.60×
+
+2.29
+
+DSpark*
+
+471
+
+2.02×
+
+3.72
+
+407
+
+1.73×
+
+3.26
+
+DFlash 2*
+
+467
+
+2.00×
+
+3.98
+
+391
+
+1.66×
+
+3.36
+
+EAGLE-4
+
+703
+
+2.71×
+
+4.56
+
+545
+
+2.14×
+
+3.72
+
+Table 1. Single-conversation results on SPEED-Bench (88 conversations, 117 turns), Qwen3.8-27B on 4×B300. T is sampling temperature (T=0 greedy, T=1 sampling). AL is acceptance length: tokens committed per target forward pass, counting the token the target produces itself, so plain decoding has AL 1. Speculation configs: EAGLE-4 Harness tree 12/4/16 (depth / branches / verify cap), MTP 3-step chain, DSpark block 7, DFlash 2 8 draft tokens. *DSpark and DFlash 2 run on upstream SGLang 0.5.21 and are normalized to plain decoding on that engine (234 tok/s at T=0, 235 at T=1).
+
+The acceptance column shows why the runtime matters. EAGLE-4 commits 4.56 tokens per target pass and DFlash 2 commits 3.98, yet DFlash 2 is no faster than MTP, which commits 2.89. Acceptance only turns into speed when the extra drafted tokens are cheap to verify, and EAGLE-4 pairs its drafter with a runtime that sizes the verify to the hardware.
+
+Where the speedup comes from
+
+To isolate what the hardware-aware tree adds, we served the same EAGLE-4 checkpoint two ways: through EAGLE-Harness, and through SGLang's standard static-chain speculative worker, which drafts a fixed number of tokens per step. With this drafter, the Harness is the only way to verify a tree, so the comparison measures the tree and its per-step sizing together against the best static chain.
+
+Same EAGLE-4 drafter
+
+tok/s, 1 concurrent
+
+speedup
+
+AL
+
+time per round
+
+speedup, 8 concurrent
+
+static chain, 3 draft tokens
+
+459
+
+1.77×
+
+2.78
+
+6.0 ms
+
+1.70×
+
+static chain, 7 draft tokens
+
+517
+
+1.99×
+
+3.54
+
+6.8 ms
+
+1.77×
+
+static chain, 7 draft tokens, on the Harness's backend
+
+398
+
+1.53×
+
+3.57
+
+9.0 ms
+
+–
+
+EAGLE-Harness
+
+703
+
+2.71×
+
+4.56
+
+6.5 ms
+
+1.89×
+
+for reference: built-in MTP, 3 draft tokens
+
+524
+
+2.02×
+
+2.89
+
+5.5 ms
+
+1.88×
+
+for reference: no speculation
+
+260
+
+1.00×
+
+1
+
+3.8 ms
+
+1.00×
+
+Table 2. Static chain vs. dynamic tree with the same EAGLE-4 drafter, same protocol as Table 1. Time per round is derived as AL ÷ throughput and includes each turn's prefill, so treat it as an estimate rather than a measured step time. The chains run on trtllm_mha attention with the overlap scheduler on, their fastest settings; the third row repeats the 7-token chain on the Harness's backend (FlashInfer, page size 1, overlap scheduler off).
+
+At batch 1, the speedup over plain decoding is approximately:
+
+speedup ≈ AL × t_plain / t_round
+
+where AL is the tokens committed per speculative round, t_plain is the time to generate one token with plain decoding, and t_round is the time for one speculative round (drafting, verification and runtime overhead).
+
+That gives two levers: commit more tokens per round, or make the round cheaper. The static chain only pulls the first. Going from 3 to 7 draft tokens raises acceptance from 2.78 to 3.54, but the round slows down almost in step, and the speedup only moves from 1.77× to 1.99×. The Harness pulls both. Its round costs about the same as the 7-token chain's (6.5 ms vs. 6.8 ms) and it commits 29% more tokens, which accounts for the full 36% gap. That comparison gives the chains their best settings. On the Harness's own backend, the 7-token chain's round stretches to 9.0 ms and its speedup falls to 1.53×, so measured on one backend the tree is worth 77%.
+
+How can a round that verifies up to 16 tokens cost less than one that verifies 8? We profiled one long prompt with the PyTorch profiler over 40 decode rounds.
+
+Per decode round
+
+No speculation
+
+EAGLE-4 drafter, static chain (7 draft tokens)
+
+EAGLE-4 drafter, Harness
+
+decode tok/s
+
+266
+
+601
+
+803
+
+acceptance length
+
+1
+
+4.55
+
+5.22
+
+time per round
+
+3.8 ms
+
+7.6 ms
+
+6.5 ms
+
+blocking syncs (cudaStreamSynchronize)
+
+0
+
+6
+
+0
+
+device-to-host copies
+
+1
+
+7
+
+2
+
+CUDA graph launches
+
+1
+
+3
+
+10
+
+kernels launched outside graphs
+
+15
+
+71
+
+43
+
+cudaEventQuery polls
+
+10
+
+12
+
+1,229
+
+Table 3. Per-round profile of one long prompt, thinking off, server-log medians.
+
+The answer is in the last four rows. The static chain calls cudaStreamSynchronize six times per round, and each call makes the CPU wait until the GPU queue is empty, so the GPU idles while the CPU decides what to launch next. The Harness never empties the queue. It records CUDA events, keeps launching work, and polls those events later, after the next chunk of work is already queued. Its poll count is high because polling is cheap, and the GPU never waits on any of them.
+
+How GMI qualifies runtimes. Acceptance length is the number most speculators advertise, but customers pay for time per round, and that depends on how well the runtime keeps the GPU busy. GMI's inference team profiles every new speculative runtime at this level (syncs, copies, graph launches) on the hardware it will serve on, before it reaches a customer endpoint. Table 3 is a typical output of that process.
+
+How EAGLE-4 works
+
+EAGLE-4 keeps the EAGLE-3 drafter design, a single transformer layer that reads the target model's hidden states from a low, a middle and a high layer. Two changes make each draft step cheaper: the drafter attends over a sliding window of the last 4,096 positions, so draft steps do not slow down as context grows, and a low-rank LM head scores the full vocabulary while computing exact logits only for the top candidates.
+
+EAGLE-Harness is the runtime. Before serving, it times draft steps and target verifies on the local GPUs over a grid of batch sizes, token counts and context lengths (about 6 minutes on 4×B300). At serving time, after each draft level it compares the expected gain in accepted tokens with the cost of one more draft step and a wider verify, read from that table, and stops when the gain per millisecond falls below a threshold. The decisions run on the CPU using GPU results that are one level old, so the GPU always has work queued. Under sampling, the tree is verified by recursive rejection sampling, so speculation stays lossless. Eagle AI's paper and repository cover the design in full.
+
+Figure 2. The EAGLE-Harness decision loop. After each draft level, the Harness compares the expected gain in accepted tokens with the cost of one more draft step and a wider verify, taken from a cost table measured on the local GPUs, and stops when the gain per millisecond drops below a threshold.
+
+Hardware-aware needs matching hardware. The cost table is only as accurate as the machine it was measured on. A table profiled on a different GPU SKU, driver build or tensor-parallel layout will mis-size trees: the Harness either stops drafting too early or pays for verifies the GPUs cannot absorb. Because GMI operates its own NVIDIA B300 GPU fleet, profiling, benchmarking and production serving run on the same node type and software stack, and the profiling pass is rerun whenever any of them changes.
+
+Performance under real serving loads
+
+Batch size changes the economics. Every drafted token adds one row per request to the target's verify pass. At batch 1 the verify is bound by weight reads, so those rows are nearly free. At 64 requests, 16 drafted tokens each become 1,024 rows of verify work, and they cost real time.
+
+Eagle AI's recipe for EAGLE-4 follows this curve with two Harness modes on the same drafter. At 1 to 4 concurrent conversations the Harness draws the dynamic tree described above. From 8 up it drafts a dynamic chain and narrows the verify as the batch grows, up to 512 running requests on one replica. We ran Eagle's batch-1 and high-concurrency recipes as published, from 1 to 512 concurrent conversations, against plain decoding and MTP on the same server settings.
+
+Figure 3. Throughput per GPU versus per-user speed (median request), one point per load level from 1 to 512 concurrent conversations. Qwen3.8-27B on 4×B300, SPEED-Bench (880 conversations), thinking on, T=0. At 1 to 4 concurrent all three methods run with the batch-1 server settings; from 8 up, with the high-concurrency settings (see Methodology).
+
+Figure 3 is the view that matters for capacity planning: pick the per-user speed you want to hold, then read off how much throughput each GPU delivers. Above 450 tok/s per user, plain decoding is out of reach and EAGLE-4 serves twice MTP's throughput per GPU. To keep the median user near 200 tok/s, plain decoding holds 16 conversations per replica while MTP and EAGLE-4 both hold 64, almost four times the throughput per GPU; in this middle range MTP is about 5% ahead. At full load the order flips back: at 512 conversations per replica EAGLE-4 delivers 6,900 tok/s per GPU at 55 tok/s per user, MTP 6,550 at 53, and plain decoding 5,570 at 47.
+
+Concurrent conversations
+
+Plain decoding
+
+MTP
+
+EAGLE-4
+
+1
+
+255 (230)
+
+498 (401)
+
+651 (526)
+
+4
+
+233 (201)
+
+438 (331)
+
+467 (355)
+
+16
+
+214 (191)
+
+366 (262)
+
+351 (249)
+
+64
+
+131 (101)
+
+202 (153)
+
+192 (131)
+
+256
+
+67 (62)
+
+94 (79)
+
+95 (79)
+
+512
+
+47 (42)
+
+53 (43)
+
+55 (46)
+
+Table 4. Median per-user generation speed (tokens/s), with the 10th percentile in parentheses, thinking on, T=0. Rows 1 and 4 use the batch-1 server settings; rows 16 to 512 use the high-concurrency settings, for all three methods. The client measures whole-turn latency, so these include prefill.
+
+Figure 4. Throughput speedup over plain decoding at the same load and the same server settings, from 1 to 512 concurrent conversations. Left of the divider EAGLE-4 runs the Harness tree with the batch-1 settings; from 8 up it runs the Harness chain, and all methods use the high-concurrency settings.
+
+Both methods lose speedup as the batch grows, and the two curves cross twice. EAGLE-4 starts highest and stays ahead through 4 concurrent, 34% over MTP at 1 and 12% at 4. From 8 to 64, Qwen's built-in head is 4–7% faster. At 128 EAGLE-4 is 4.6% ahead, at 256 the two are level, and at 512 EAGLE-4 is 5.1% ahead: 27,600 tok/s against 26,200 on a 4×B300 replica, 1.24× plain decoding on the same settings. DSpark and DFlash 2 were run only with the batch-1 settings; there they fell to within 7% of plain decoding from 128 concurrent up.
+
+The middle of the curve has a simple cause. From 8 to 64 the Harness chain accepts more tokens per pass than MTP (3.42 at 8, 2.97 at 32, 2.80 at 64, against MTP's steady 2.89), but it buys them with wider verifies, and it runs without SGLang's overlap scheduler, which the Harness worker cannot use and MTP keeps. At 128 and above, both methods verify 4 tokens per request and the chain's round is cheaper, so it pulls ahead on fewer accepted tokens. At 512 the Harness narrows the verify to 3 tokens per request and still finishes first: at that batch size a verify row is no longer free, and the narrower verify saves more than the lost acceptance costs.
+
+Sampling moves the balance toward MTP in the middle range. We repeated 4, 16, 64 and 256 concurrent conversations at T=1 with top-k off (Table 5). On the tree, at 4 and 16, both methods keep about 80% of their greedy speedup and the order holds. On the chain, at 64 and 256, EAGLE-4 keeps only 1.05× and 1.06×, while MTP keeps 1.33× and 1.09×. For sampling-heavy traffic at 64 concurrent and above, MTP is the better choice on this release.
+
+Concurrent conversations
+
+EAGLE-4, T=0
+
+EAGLE-4, T=1
+
+MTP, T=0
+
+MTP, T=1
+
+1
+
+2.71× (4.56)
+
+2.14× (3.72)
+
+2.02× (2.89)
+
+1.60× (2.29)
+
+4
+
+2.20× (4.44)
+
+1.75× (3.54)
+
+1.96× (2.88)
+
+1.59× (2.28)
+
+16
+
+1.67× (3.67)
+
+1.34× (3.11)
+
+1.68× (2.89)
+
+1.35× (2.28)
+
+64
+
+1.59× (2.80)
+
+1.05× (2.20)
+
+1.66× (2.89)
+
+1.33× (2.28)
+
+256
+
+1.47× (2.80)
+
+1.06× (2.20)
+
+1.46× (2.90)
+
+1.09× (2.28)
+
+Table 5. Throughput speedup over plain decoding at the same load and settings, greedy (T=0) and sampling (T=1, top-k off), with accepted tokens per target pass in parentheses. Rows 1 to 16 are the Harness tree with the batch-1 settings; rows 64 and 256 are the Harness chain with the high-concurrency settings.
+
+What this means for serving on GMI Cloud
+
+Sizing endpoints by per-user speed. Figure 3 is the view GMI uses to size dedicated inference endpoints. We start from the per-user speed a customer needs, then choose the speculator, server settings and replica count that deliver the most throughput per GPU at that speed. For latency-first endpoints, EAGLE-4 cuts the GPU time per million tokens by a quarter at one conversation per replica, and by half when the median user must stay above 450 tok/s:
+
+Operating point
+
+Plain decoding
+
+MTP
+
+EAGLE-4
+
+1 conversation per replica (fastest per user)
+
+4.278
+
+2.119
+
+1.581
+
+Median user ≥ 450 tok/s
+
+out of reach
+
+1.119 (2 concurrent)
+
+0.549 (4 concurrent)
+
+Table 6. GPU-hours of a 4×B300 replica per million generated tokens, batch-1 server settings.
+
+Choosing a speculator per endpoint. The crossovers above are why GMI treats the speculator as a per-endpoint choice rather than a platform default. Latency-sensitive traffic at low concurrency, such as coding assistants and interactive agents, gets EAGLE-4's tree; sampling-heavy traffic at 64 concurrent and above stays on MTP on this release. Both run on the same SGLang-based serving stack, so moving an endpoint from one to the other is a configuration change, not a migration.
+
+Running EAGLE-4 on GMI Cloud
+
+EAGLE-4 shows that the next speculative decoding gains come from a strong drafter paired with a runtime that knows the cost of every token on the hardware in front of it. GMI's inference platform is built to supply the hardware, the measurement and the serving stack that this approach depends on.
+
+Ready on NVIDIA B300 GPUs from launch day. Eagle's batch-1 tree and high-concurrency chain recipes are tested on GMI Cloud B300 nodes and ready to deploy, with the cost table profiled on the same node type that serves production traffic.
+
+Day-zero model support. GMI's model-as-a-service platform adds leading open models on release day, so when Eagle publishes a drafter for a new model, we can serve it quickly.
+
+Custom drafters, trained on your traffic. Acceptance varies widely across task types (see the appendix), and a drafter matched to a customer's own traffic accepts more tokens per pass. GMI has a standard process for training EAGLE drafters on a customer's prompts and target-model responses, and delivers each drafter with a runtime profile for the GPUs it will serve on.
+
+Measured before you commit. Every speculator GMI deploys is benchmarked against plain decoding on the same engine and settings, as in this post, across the concurrency and temperature range a customer expects. Customers see per-user speed and throughput-per-GPU curves for their own workload before they reserve capacity.
+
+Validated infrastructure. GMI Cloud is a recognized NVIDIA Exemplar Cloud , with clusters benchmarked against NVIDIA's reference architecture.
+
+What's next: EAGLE-5 and custom speculative decoding
+
+EAGLE-4 is the start of a deeper partnership. GMI Cloud and Eagle AI are now working together on deploying EAGLE-5, Eagle AI's next-generation closed-source speculator. EAGLE-5 will be offered through GMI Cloud's inference platform as a customized solution, with the same profiling, endpoint sizing and plain-decoding benchmarks described in this post.
+
+Need custom speculative decoding? Whether you want early access to EAGLE-5, an EAGLE drafter trained on your own model and traffic, or help choosing the right speculator for your latency and throughput targets, our inference team can help. Contact us →
+
+Methodology notes
+
+Setup and workload. We tested Qwen3.8-27B on one dedicated GMI Cloud 8×B300 node, with four GPUs per server (TP4, BF16) and two servers side by side. We used SPEED-Bench's 880 multi-turn conversations across 11 categories, with subsets at lower concurrency and the full set repeated 2, 3 and 4 times at 128, 256 and 512 concurrent so the server never runs dry. The batch-1 results use 88 conversations and 117 turns. We tested greedy decoding and sampling.
+
+Fair comparisons. Each speedup is measured against plain decoding on the same engine and the same server settings. EAGLE-4 and MTP use Eagle's SGLang fork; DSpark and DFlash 2 use upstream SGLang 0.5.21 with their own baselines. We keep SGLang's overlap scheduler on wherever it is supported. Plain decoding runs at 260 tok/s with it and 201 tok/s with Eagle's baseline settings; against the slower baseline the same EAGLE-4 run is 3.50×, within 3% of Eagle's own chart. We report 2.7×.
+
+Two sets of server settings, both from Eagle AI's recipes. The 1 to 4 concurrent results use Eagle's batch-1 recipe. From 8 concurrent, every method, plain decoding included, runs with the settings of Eagle's high-concurrency recipe: GDN state in BF16 instead of FP32, SGLang's prefill delayer, prefill CUDA graphs on, and a pinned KV pool sized for 512 running requests. These settings are not specific to speculation. Plain decoding alone gains 13% at 16 concurrent and 75% at 512 from them, so we compare each method only against plain decoding on the same settings. Plain decoding and MTP keep the overlap scheduler, which the Harness worker cannot use.
+
+Measurement and repeatability. Throughput is generated tokens divided by wall-clock time, prefill included; time to first token was not measured separately. Repeated batch-1 EAGLE-4 runs reached 696–703 tok/s. The batch-1 and high-concurrency results were measured three days apart on the same node and model files; plain decoding and MTP re-run on the newer build came out within 0.4% and 5% of the earlier runs. High-concurrency results varied more with the workload, so small differences should be read cautiously.
+
+Output consistency. We compared outputs against plain decoding turn by turn. BF16 rounding differences between kernels can change token choices, so these runs are not bit-exact replays, even though each configuration is deterministic; plain decoding shows the same effect when only the attention backend changes.
+
+An operational note. On nodes that also run Kubernetes, SGLang's default port 30000 falls inside the NodePort range (30000–32767) and can be intercepted, so we served on port 28000.
+
+Appendix: acceptance by task
+
+Figure 5. Acceptance length by SPEED-Bench category, 80 conversations each. EAGLE-4 at 4 concurrent with the Harness tree; the other three at 64 concurrent on their static configs, whose acceptance does not depend on batch size.
+
+EAGLE-4 accepts the most tokens per target pass in all 11 SPEED-Bench categories, and the order of the other three never changes. Retrieval-augmented answers, which copy from the prompt, are the easiest to draft; open-ended writing and roleplay are the hardest. The methods verify different numbers of tokens per pass (up to 16 for EAGLE-4's tree, 4 for MTP's chain), so a longer acceptance is bought with a wider verify. The Harness only buys it when the hardware makes it cheap, which is why the acceptance lead becomes a speed lead at low concurrency and not at high. The spread across categories is also why a drafter trained on a customer's own traffic can accept more than a general one.
+
+Acknowledgements
+
+Thank you to Hongyang Zhang, Patrick Colangelo and the whole Eagle AI team for early access to EAGLE-4 and EAGLE-Harness, for the batch-1 and high-concurrency recipes, and for answering our questions throughout testing. We look forward to bringing EAGLE-5 to GMI Cloud customers together.
+
+References
+
+EAGLE-4, "One Flexible Drafter for All Batch Sizes and Hardware": github.com/eagle-hq/EAGLE-4 ; the Qwen3.8-27B drafter: EAGLE-Corp/EAGLE4-Qwen3.8-27B .
+
+Earlier work in the line: EAGLE (ICML 2024), EAGLE-2 (EMNLP 2024), EAGLE-3 (NeurIPS 2025) and EAGLE 3.1 .
+
+SPEED-Bench from NVIDIA; SGLang .
+
+The public DSpark (RadixArk) and DFlash 2 (z-lab) drafters for Qwen3.8-27B.
+
+Authors
+
+Yijie Hong
+
+Director of Eng | US @ GMI Cloud
+
+Lillian Ma
+
+Global Partnership & Product Growth @ GMI Cloud
+
+Brian Shi
+
+Machine Learning Engineer @ GMI Cloud
+
+Build AI Without Limits
+
+GMI Cloud helps you architect, deploy, optimize, and scale your AI strategies
+
+Contact Sales
+
+Ready to build?
+
+Explore powerful AI models and launch your project in just a few clicks.
+
+Get Started

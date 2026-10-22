@@ -1,0 +1,67 @@
+{
+  "source": "Meta Q3 FY2026 (10-21-2026)",
+  "chains": {
+    "accelerators/nvidia_vera_rubin.json": {
+      "players": [
+        {
+          "company": "Meta",
+          "layer": "cloud_infra",
+          "sector": "Hyperscaler Cloud",
+          "product": "internal AI training infrastructure",
+          "quarterly_data": [
+            {
+              "quarter": "Meta Q3 FY2026 (10-21-2026)",
+              "signal": "Q3 2026 results (CFO Susan Li): total revenue $64.6 billion, up 26% on both a reported and constant currency basis; Family of Apps revenue $64.2 billion, up 26%, with ad revenue $63.1 billion (up 26%) and Family of Apps other revenue $1.1 billion, up 59%, driven primarily by WhatsApp paid messaging and subscriptions revenue; Reality Labs revenue $443 million, down 6% on lower Quest headset sales, partially offset by continued strong growth in AI glasses revenue. Total expenses $51.6 billion, up 68%, including a $9.9 billion charge related to the August 2026 multi-state attorneys general agreement; growth was driven by legal-related costs, infrastructure costs (higher third-party cloud spend, depreciation and data center operating costs) and third-party AI token costs. Excluding the legal charge, Q3 operating income would have increased 11% year over year; tax rate 24%. Capital expenditures, including principal payments on finance leases, were $34.9 billion, driven by investments in servers, data centers and network infrastructure; free cash flow was negative $2.1 billion. Over 66,000 employees, down 12% from Q2 following the May 2026 headcount reduction.",
+              "figure": "Q3 revenue $64.6 billion (+26%); FoA other revenue $1.1 billion (+59%); Q3 capex $34.9 billion; expenses +68% incl. $9.9 billion legal charge",
+              "topics": [],
+              "slot": "revenue_growth",
+              "capex": {"field": "capex_q", "busd": 34.9, "display": "$34.9 billion", "period": "Q3 2026"}
+            },
+            {
+              "quarter": "Meta Q3 FY2026 (10-21-2026)",
+              "signal": "Outlook (CFO Susan Li): Q4 2026 total revenue expected at $73 billion-$76 billion, assuming foreign currency is an approximately 1% headwind; full-year 2026 total expenses now $175 billion-$179 billion, raised to incorporate the $9.9 billion legal charge; 2026 capital expenditures, including principal payments on finance leases, expected at $135 billion-$145 billion, narrowed from the prior $130 billion-$145 billion; Reality Labs 2026 losses now $18 billion-$19 billion; Q4 tax rate 15%-17%. On 2027: Meta is 'quite early' in its budget and capacity plans, expects 'to continue investing aggressively' in the core business and emerging AI initiatives, and will give quantitative guidance on the Q4 call; it is not providing a 2027 revenue outlook but expects to 'sustain strong overall revenue growth throughout 2027', with new AI businesses (subscriptions, transactions, advertising, enterprise offerings) expected to 'begin contributing incremental revenue in 2027'. CEO Mark Zuckerberg: Reality Labs operating loss expected to come down to around $15 billion next year and trend towards profitability from there.",
+              "figure": "Q4 2026 revenue $73 billion-$76 billion; FY2026 capex $135 billion-$145 billion (prior $130 billion-$145 billion); 2027 Reality Labs loss around $15 billion",
+              "topics": [],
+              "slot": "guidance",
+              "capex": {"field": "capex_year", "busd": 140, "display": "$135 billion-$145 billion", "period": "2026 plan"}
+            },
+            {
+              "quarter": "Meta Q3 FY2026 (10-21-2026)",
+              "signal": "Compute for Muse (CEO Mark Zuckerberg, CFO Susan Li): because Muse is 'a compute-intensive service to run, we have not launched it globally yet'; compute efficiency is 'one of the limiting factors over the next year'. Meta is 'building out the capacity to serve more than 1 billion people over the next few years' and expects to improve Muse's compute cost efficiency 'by more than 10x in the next year' through better utilization of off-peak capacity, more efficient models and inference optimization (higher GPU utilization), which the CEO says will enable Muse to be profitable once revenue lines are at scale; the CFO expects total serving costs to rise as the user base grows. CEO: since training is a large fixed cost, Meta wants to serve as much high-margin inference demand as possible, and 'we have many good uses for this compute'. CFO: current capacity and what is scheduled to come online gives flexibility to allocate resources across model training, core business growth and new products.",
+              "figure": "Muse compute cost efficiency >10x in the next year; capacity to serve more than 1 billion people",
+              "topics": ["supply_tightness"],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Meta Q3 FY2026 (10-21-2026)",
+              "signal": "Muse personal agent adoption (CEO Mark Zuckerberg, CFO Susan Li): in about a month and a half more than 10 million people in the U.S. and Canada set up Muse personal agents; about 25% of them use it on any given day, which the CEO says is more than twice where Threads started; Muse has been number one in the App Store almost every day. Shopping is the most common use case, with more than a quarter of users engaging in it at an average purchase size of over $200 (travel included); in the first week Meta had to work with Stripe to raise credit limits because volumes exceeded expectations. Business model (CEO): free for most people with a fee on transactions Meta helps facilitate, paid by businesses, plus direct subscriptions for the most advanced models or extra tokens and for business features; the family-of-apps revenue of existing Muse users in the U.S. is several hundred dollars per user annually and Muse is expected to reach a higher level over time. CEO: Meta expects to work on Muse monetization 'somewhat sooner' than its normal playbook. Muse for small business launched in late September as skills and connectors inside the Muse app; Meta estimates at least 500 million self-identified small businesses use its apps. A Muse confidential VM is planned 'soon'.",
+              "figure": "more than 10 million Muse set-ups in the U.S. and Canada; about 25% daily use; average purchase over $200",
+              "topics": [],
+              "counterparty": "Stripe",
+              "counterparty_role": "partner (raised credit limits for Muse shopping volumes)"
+            },
+            {
+              "quarter": "Meta Q3 FY2026 (10-21-2026)",
+              "signal": "Models and enterprise (CEO Mark Zuckerberg, CFO Susan Li): Meta shipped Muse Wonder as its first frontier model (in the paid tier; Muse Spark is the default in the free tier), plus Muse Spark 1.2 and 1.3, Muse Code, two open-weights models (Muse Glimmer and Muse Spark Open) and Muse Voice; it is working on larger models after Muse Wonder and on smaller models 'coming out soon' that deliver Muse Wonder-level intelligence more efficiently. Engagement per person in Meta AI has more than doubled since April. The Meta Enterprise platform's main near-term offering is the model API and Muse Code alongside business agents, 'each of those three things is growing quite quickly'; the CFO hopes enterprise becomes a new diversified, recurring revenue stream and says Meta will scale investment behind demonstrated demand. Meta began moving its content understanding models onto the first-party Muse model family; in offline evaluations they outperform prior production models and reduce per-unit content processing costs by more than 80%. Earlier this month Meta previewed the Personal Agent Protocol, an open standard across Muse and Meta Business Agents developed with industry partners including Sierra, Walmart, Stripe and Shopify.",
+              "figure": "content processing costs reduced by more than 80% (offline evaluations); Meta AI engagement per person more than doubled since April",
+              "topics": ["product_launches"]
+            },
+            {
+              "quarter": "Meta Q3 FY2026 (10-21-2026)",
+              "signal": "Devices (CEO Mark Zuckerberg): Muse is coming to Meta Glasses starting next month and is 'coming soon' to the new audio glasses; Meta is about to ship Muse Charm, which will have gone from concept to a hardware device in less than a year. Glasses sales continue to grow rapidly and with Muse Meta expects paid subscriptions to increase; devices are priced not to make a large profit on hardware. Meta will only ship new VR devices when it has major breakthroughs (as with the Meta VR Glasses) and will pace that investment to focus on personal superintelligence first.",
+              "figure": "no specific figure",
+              "topics": ["product_launches"],
+              "slot": "next_catalyst"
+            },
+            {
+              "quarter": "Meta Q3 FY2026 (10-21-2026)",
+              "signal": "Engagement and ads performance (CEO Mark Zuckerberg, CFO Susan Li): Instagram global time spent per user grew double digits year over year; Facebook Reels time spent grew double digits globally and in the U.S.; Threads time spent per user grew over 20% and, per the CEO, Threads has overtaken X in monthly actives. Reels relevance launches lifted Instagram Reels time spent by over 4%; nearly 45% of recommended Instagram Reels are less than one day old. Meta Generative Recommender launched on Facebook Feed (nearly 2% more conversions in targeted segments); GEM expanded to more surfaces (1.7% more off-site conversions, 9.6% more app ad conversions); Andromeda improvements lifted Facebook conversions 1.4%. Nearly 10 million advertisers used at least one generative AI ad creative tool in Q3; advertiser adoption of video generation grew 25% quarter over quarter. Partnership ads grew over 97% year over year and surpassed $15 billion in annual revenue run rate. Meta One subscriptions passed 15 million subscriptions and trials; Edits passed 50 million actives.",
+              "figure": "partnership ads >$15 billion annual run rate (+97%); Meta One 15 million subscriptions and trials; ~10 million advertisers on generative AI tools",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

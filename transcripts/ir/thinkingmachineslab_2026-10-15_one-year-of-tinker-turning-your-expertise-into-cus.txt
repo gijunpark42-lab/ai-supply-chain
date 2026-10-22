@@ -1,0 +1,120 @@
+SOURCE: Thinking Machines Lab official press release -- https://thinkingmachines.ai/news/one-year-of-tinker/
+TITLE: One Year of Tinker: Turning Your Expertise into Custom Models
+DATE: 10-15-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Thinking Machines Lab press release: One Year of Tinker: Turning Your Expertise into Custom (10-15-2026)
+
+---
+One Year of Tinker: Turning Your Expertise into Custom Models - Thinking Machines Lab One Year of Tinker: Turning Your Expertise into Custom Models
+
+Oct 15, 2026
+
+Imagine a world with no APIs for LLM inference. You could chat with models and give them tasks, but not integrate AI into your own workflows, systems, and custom applications. A few companies would have the capacity to run models on their own production servers; everyone else would be locked out of building with AI.
+
+When Tinker launched one year ago, AI post-training was in a similar situation. It required hiring an infrastructure team, sourcing your own GPUs, setting up software libraries, and debugging errors and failed runs. There was no API that let anyone apply the full range of fine-tuning methods on their own data with just a few lines of code.
+
+Our mission at Thinking Machines is to build AI that extends human will and judgment. Post-training is a practical application of that mission: people training models using their own knowledge, evaluating them against their own standards, and evolving them as they learn. We were convinced that the market for customizing models was small not because there was no value in fine-tuning, but because there was no post-training platform that was versatile, reliable, fast, and cheap enough to make it viable. We launched Tinker to bring the same post-training API frontier labs use internally to everyone.
+
+Your data
+
+Examples and prompts
+
+→ Your loop
+
+Your code, loss, and rewards
+
+→ API sample Generate tokens
+
+forward_backward Compute gradients
+
+optim_step Update weights
+
+save_state Save training state
+
+→ → Tinker’s infrastructure
+
+Tinker manages GPUs for sampling and training, and stores checkpoints.
+
+Your data and training loop stay under your control. Four API functions connect your code to Tinker’s managed infrastructure. Sampling and checkpointing happen when your code requests them.
+
+Making training accessible
+
+In this new market, Tinker’s evolution was guided by our customers’ needs. Our first users were AI researchers with post-training experience who wanted to avoid the cost and complexity of managing their own GPUs. Their demands drove our focus on infrastructure: resource allocation, scheduling, failure recovery, and everything else required for complex training runs to run quickly and smoothly.
+
+The Tinker community grew to include a wide range of users and applications which we regularly highlight on our X account and our news blog . We worked to make post-training knowledge more accessible, sharing our own and our users’ best methods and adapting them into Tinker cookbook recipes that everyone can use. Recipes such as SDFT for continual learning or forecaster training were inspired by Tinker research grantees and early customers.
+
+Finally, we saw Tinker’s thesis validated with enterprise customers training custom models that beat frontier LLMs at their tasks. Among publicly disclosed results, our users trained cutting-edge models for financial judgment, hardware design, search agents, specialized coding, audio analysis, and predictions. Enterprise demands have shifted our focus towards speed, security, and inference.
+
+We shipped dozens of improvements in these areas throughout the year, informed by our community and by our own experience post-training Inkling . We added new features and models to make Tinker the best post-training platform for ambitious projects.
+
+One year of shipping
+
+Speed, reliability, and capacity
+
+The core requirement for Tinker is that customers can launch a run of any size at any time and get results quickly.
+
+We implemented autoscaling that shifts capacity between models as demand changes, so users can send tens of thousands of concurrent requests without being stuck in a queue. We’ve optimized kernels across the stack, including LoRA-specific kernels, to accelerate both training and sampling. We improved error diagnostics, added Perfetto debugging to the console, and vastly reduced the number of infrastructure errors behind the scenes. We shipped all of these improvements as hitless deploys, so updates never pause training runs. We also migrated Tinker to newer-generation GPUs twice, with zero downtime.
+
+The improvements in efficiency allow us to run Tinker cheaper, and we pass these on to our customers with price cuts .
+
+Privacy and security
+
+Custom models draw strong interest from security-sensitive industries, and their requirements set a high bar. We met it with enterprise-grade controls. Organizations divided into projects with data and training access gated by membership. Admins get single sign-on, granular role-based access control, an audit-log API, and programmatic resource management. Data is protected by enterprise encryption and private VPC connectivity.
+
+Privacy has been our guarantee from day one: all customer content on Tinker belongs to the customer, and we never train on it.
+
+Diversity of models and modalities
+
+Open-weight models are constantly pushing the efficient frontier of performance, cost, and speed, and that frontier is represented on Tinker. We launched with 14 models from Qwen and Llama, all of them text-only. Since then, we have added over 20 models from Qwen, Nemotron, Kimi, GLM, DeepSeek, GPT-OSS, and our own Inkling, several of them available the day they were released. Most of our models support image input and reasoning over documents and charts. The release of Inkling in July added support for audio.
+
+Our lineup now features models ranging from 4B to 1T parameters and includes normal- and long-context variants. We prioritize models requested by our community and test new releases ourselves to add those that open new possibilities and provide the best fine-tuning experience.
+
+Knowledge sharing
+
+The Tinker cookbook covers established and novel methods in supervised fine-tuning and reinforcement learning, such as on-policy distillation . There are recipes for several specific applications such as math and code, tool-using search agents, forecasting models, vision classifiers, and multi-agent environments. It’s a collaborative project with our community: several of these recipes were inspired by our users’ public projects, and we regularly hear from customers who learn from them and adapt them for their own use cases.
+
+Our cookbook is tailored for both humans and coding agents with skills and special documentation.
+
+Self-Distillation Fine-Tuning (SDFT), developed by MIT researchers, uses expert demonstrations to guide a model's learning from its own responses. The chart shows the uplift in tool-use accuracy by Qwen2.5-7B-Instruct compared with standard supervised fine-tuning (SFT).
+
+Developer experience
+
+Tinker now gives detailed visibility into how each run is going and what it costs. You can now monitor and cancel sessions from the console, trace checkpoint lineage, and see where a job’s time goes and what it’s waiting on. Spending on training, sampling, and storage can now be broken down by session to make budgeting easier.
+
+We expanded the range of post-training methods available with CISPO and DRO alongside custom losses for RL, and top-k logprobs for distillation and scoring. Finally, while we stand behind the effectiveness of LoRAs , we have begun offering full fine-tuning as a beta feature and are considering a broader release.
+
+Sampling and production inference
+
+Every checkpoint saved on Tinker is a model you can sample from. The Tinker Playground provides a quick chat interface, and you can also use Tinker for production inference via sampling API that’s compatible with the interfaces of OpenAI and Anthropic (in beta).
+
+We’re continuing to work on a more fully featured offering with higher throughput and interactivity. If interested, please join our waitlist .
+
+Turning expertise into better models
+
+Training a useful model brings together three kinds of expertise: mastery in the task domain, knowledge of post-training, and the ability to run the infrastructure. Those rarely coexist in one team outside large AI companies. Tinker handles the infrastructure, while our research and recipes make more training methods accessible. The goal is to let our users turn their advantage in domain knowledge into an advantage in AI.
+
+The common approach to applying task expertise to LLMs is prompt engineering and scaffolding. When that hits a performance ceiling, the only recourse is hoping that the next generation of generalist LLMs will work better with the same prompt without being prohibitively expensive. We believe that expertise belongs in the training signal where it can directly uplift the model’s performance on the task.
+
+AI performance across domains scales with the availability of high-quality training data. Curating that data is the most important application of our customer’s expertise.
+
+Public datasets are often limited, error-prone, and unrepresentative of real-world applications. Even when they aren’t, they encode someone else’s standard of judgment — not yours. Our users train better models by curating data from real work. Glean pulled tool plans from their own production traces. Lightning Rod Labs used real clinical records to train prediction models. Sundial filtered for LaTeX errors real users ran into. Judgment also goes into the reward function, such as the correct prioritization of requirements for power-transformer design or the right scoring rule for forecasting .
+
+Putting expertise into training requires an investment of effort upfront, but the outcome is often a custom model that pushes far beyond the cost-performance frontier on the given task. Bridgewater’s text-to-SQL model beat Fable 5 and GPT-5.6 Sol on accuracy at 15% of their cost. Sundial’s model beat every frontier model but GPT-6 Astra on the share of LaTeX errors fixed, at 7% of Astra’s cost. Glean’s custom search agent is twice as fast and uses 25% fewer tokens with no quality regression.
+
+Specialized knowledge combined with fine-tuning rigor can produce custom models that execute a task better, cheaper, and faster than the best generalist LLMs.
+
+Text-to-SQL: higher accuracy at lower inference cost. ReViSQL-K2.6 trained by UIUC and Bridgewater achieves 92.97% accuracy on a clean Text-to-SQL benchmark when picking from 16 samples (SC-16), just above the human mark.
+
+Fine-tuning places control of the best models in your own hands. Your customization recipe can be applied to new open-weight models as they’re released, and you can choose the right trade-off between performance, speed, and cost. As your models are deployed and gain experience, what they learn can be folded back into the recipe. If your current edge is in your in-house data, taste, and knowledge, fine-tuning can translate that edge into AI.
+
+Looking ahead
+
+Model customization is still at a nascent stage of adoption in most industries. Better and more varied open-weight models create more starting points. Customers increasingly want to turn successful experiments into systems they can use in daily work, with the efficiency and security that requires. In Tinker’s second year, we plan to support this shift by making it a platform for both training and serving custom models at commercial scale.
+
+We are collectively making a choice about the future of AI. Down one path, AI is trained, aligned, and owned by a few labs that extract and centralize all human knowledge. Down the other, AI is distributed to where human knowledge resides and is trained, aligned, and shaped by its users. We believe that the future worth building is the second one, that an ecosystem of decentralized AIs is more robust, creative, and productive than a consolidated monopoly.
+
+We built Tinker to put this choice in your hands. We look forward to seeing what you make with it!
+
+prev back to top

@@ -1,0 +1,62 @@
+SOURCE: Infleqtion official press release -- https://ir.infleqtion.com/news-events/press-releases/detail/210/infleqtion-advances-fault-tolerant-quantum-computing-software-with-nvidia-cuda-q-logical
+TITLE: Infleqtion Advances Fault-Tolerant Quantum Computing Software with NVIDIA CUDA-Q Logical
+DATE: 09-14-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Infleqtion press release: Infleqtion Advances Fault-Tolerant Quantum Computing (09-14-2026)
+
+---
+Infleqtion Advances Fault-Tolerant Quantum Computing Software with NVIDIA CUDA-Q Logical :: Infleqtion, Inc. (INFQ)
+
+Infleqtion Advances Fault-Tolerant Quantum Computing Software with NVIDIA CUDA-Q Logical
+
+September 14, 2026 9:05am EDT
+
+Integrating qLDPC library with NVIDIA CUDA-Q Logical enables quantum error correction that uses up to five times fewer physical data qubits than prevailing surface-code approaches
+
+LOUISVILLE, Colo.--(BUSINESS WIRE)--
+
+Infleqtion (NYSE: INFQ), a global leader in quantum computing and quantum sensing powered by neutral-atom technology, today announced results from its integration of NVIDIA CUDA-Q Logical with the qLDPC open-source library for quantum error correction research. Infleqtion is among the first organizations building on the platform, which NVIDIA just announced as a logical orchestration layer adding tooling to NVIDIA CUDA-Q purpose-built for fault-tolerant quantum algorithms.
+
+Working with an early-access version of CUDA-Q Logical, Infleqtion researchers constructed and validated a high-rate quantum error correction code that uses approximately six physical data qubits per logical qubit, representing about a fivefold improvement in code rate over the surface-code approach used for comparison. This physical-to-logical qubit ratio is below 10:1 and represents progress toward Infleqtion’s architectural target for near-term systems.
+
+The high physical-qubit overhead of error correction is one of the central obstacles between today’s quantum computers and commercially useful ones. High-rate codes of this kind pack more logical information into the same machine, an advantage that only pays off if the rest of the system, from atom movement to classical decoding, is built to preserve it. That is the work the CUDA-Q Logical integration is designed to accelerate.
+
+“Quantum software can change how much hardware we need to reach utility scale,” said Pranav Gokhale, Chief Technology Officer and General Manager of Quantum Computing at Infleqtion. “We’re integrating the qLDPC library with NVIDIA CUDA-Q Logical because the code and the machine must be designed together. Better error correction means more computational power from fewer physical qubits.”
+
+“The path to useful quantum computing depends on turning advances in error correction into full-stack architectures that can run on real hardware. Infleqtion’s integration of the qLDPC library with NVIDIA CUDA-Q Logical shows how researchers can design and evaluate logical qubit workloads end to end for their quantum processors,” said Sam Stanwyck, Director of Quantum Product at NVIDIA.
+
+Building the Integration
+
+Infleqtion open-sourced qLDPC last year in work alongside researchers from JPMorgan Chase. The package supplies the underlying code mathematics; CUDA-Q Logical supplies the compilation model. Together they allowed the team to construct the code, validate its structure, and carry it into a working compiler pipeline, with the resulting block confirmed to hold multiple distinct logical qubits inside a single encoded structure.
+
+The construction follows architecture work from the laboratory of Professor Fred Chong, Infleqtion's Chief Scientist for Quantum Software, targeting reconfigurable neutral-atom arrays: a platform whose parallel operations and flexible connectivity make it well suited to high-rate codes.
+
+Infleqtion is now extending the workflow toward physical execution, adding syndrome extraction, neutral-atom noise modeling and decoder benchmarking, and building on the company’s earlier work using the NVIDIA Ising open family of models for real-time decoding. Portions of the integration were developed with AI assistance, extending an internal practice Infleqtion has credited with improving the efficiency of its logical-qubit operations.
+
+Full technical detail is available in Infleqtion’s accompanying blog
+
+Infleqtion at IEEE Quantum Week 2026: Booth 607
+
+Infleqtion will present across the week in Toronto, including:
+
+Tuesday, September 15: Pranav Gokhale receives the 2026 IEEE Quantum Technical Community Distinguished Early Career Award, presented before the afternoon keynote.
+
+Tuesday, Sept. 15, 1:00–2:30 p.m. | Workshop: Quantum Network Engineering | Pranav Gokhale
+
+Wednesday, Sept. 16, 1:00–2:30 p.m. | Tutorial: Accelerated Decoders for Quantum Error Correction: A Hands-on Tutorial for GPU-Enabled Algorithmic and AI Decoding Techniques, Session 2 | Victory Omole
+
+Thursday, Sept. 17, 10:05–10:25 a.m. | Workshop: Quantum Algorithms for Financial Applications | Pranav Gokhale
+
+Thursday, Sept. 17, 4:00–4:30 p.m. | Workshop: 4th Workshop on Quantum Computing for Natural Sciences: Technology and Applications | Pranav Gokhale
+
+Thursday, Sept. 17, 3:00–4:30 p.m. | Paper Session: Quantum Control, Optimization & Reinforcement Learning II | “Hardware-Aware Optimization of Echoed-Conditional Displacement and Rotation Sequence Parameters” | Dara Ogunkoya
+
+Friday, Sept. 18, 10:00–11:30 a.m. | Panel: Scalable QPU Architectures | Pranav Gokhale
+
+Friday, Sept. 18, 10:00–11:30 a.m. | Workshop: Democratizing Quantum AI: Practical Workflows, Benchmarks, and Hybrid Development for Quantum-Ready Applications | “Leveraging Neutral Atom Quantum Technology for Life Sciences Applications” | Teague Tomesh
+
+Looking Ahead
+
+Infleqtion will share additional company updates and new milestones the following week at Quantum World Congress in College Park, Maryland, where Chief Executive Officer Matt Kinsella will deliver a plenary keynote on September 24.

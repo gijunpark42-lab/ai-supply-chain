@@ -1,0 +1,52 @@
+SOURCE: VAST Data official press release -- https://www.vastdata.com/press-releases/vast-data-nvidia-secure-ai-agent-sandbox-infrastructure
+TITLE: VAST Data Introduces New Foundation Stack for Secure, Production-Ready AI Agent Sandboxes with NVIDIA
+DATE: 10-21-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: VAST Data press release: VAST Data Introduces New Foundation Stack for Secure, (10-21-2026)
+
+---
+VAST Data Introduces New Foundation Stack for Secure, Production-Ready AI Agent Sandboxes with NVIDIA
+
+New Agent Sandbox Foundation Stack combines the VAST AI Operating System with NVIDIA NemoClaw and NVIDIA OpenShell to give every sandboxed agent a fast, isolated workspace, the data services it needs and a complete record of everything it did
+
+Remote-First-Company | NEW YORK CITY and NVIDIA GTC BERLIN, GERMANY – October 21, 2026 – VAST Data , the AI Operating System company, today announced a new Agent Sandbox Foundation Stack with NVIDIA, built with NVIDIA NemoClaw and NVIDIA OpenShell to provide the scalable, persistent data infrastructure enterprises need to securely run thousands of AI agents and sub-agents in production. The stack helps enterprises and AI service providers deploy, operate and scale governed agent environments without tying persistent state to ephemeral compute.
+
+As enterprises deploy increasingly autonomous AI agents, infrastructure requirements change fundamentally. Agents can spawn other agents, execute tasks and disappear, with fleets creating and destroying thousands of isolated workspaces an hour. Long-running agents may also work across multiple sessions, sleeping, resuming and delegating tasks to short-lived subagents along the way. Whether an agent runs for minutes or across multiple sessions, its progress, working data and memory need to persist independently of any individual sandbox or compute node – remaining available, governed and auditable wherever execution resumes.
+
+The VAST Foundation Stack for Governed Agent Sandboxes addresses this challenge by combining NVIDIA’s secure agent runtime technologies with the persistent infrastructure and data services of the VAST AI Operating System . NVIDIA OpenShell provides isolated execution and policy enforcement around agent activity, while VAST provides persistent state, scalable agent workspaces, integrated data services and operational records across the agent lifecycle. By decoupling persistent agent state from individual compute nodes, the architecture allows agents to pause, resume or move across eligible infrastructure without losing their progress, working data or context. Together, these capabilities let agent compute stay ephemeral while agent state stays durable.
+
+Every enterprise that puts an agent into production will eventually need to answer what it did and why it did it,” said Alon Horev, CTO and Co-Founder at VAST Data. “An agent might exist for minutes, spawn thousands of other agents and then disappear, but its work has to persist and its actions have to stay understandable long afterward. Together with NVIDIA, we’re showing how the VAST AI Operating System provides the durable foundation underneath secure agent environments, so organizations can scale agentic systems without sacrificing persistence, governance or control.
+
+As AI agents take on more complex work, enterprises need infrastructure that can support secure execution while preserving the data, context and state agents depend on across their lifecycle,” said Kari Briski, Vice President of Generative AI Software at NVIDIA . “By combining NVIDIA NemoClaw and OpenShell with the VAST AI Operating System, organizations can build agent sandbox environments that are secure and designed to scale from experimentation to production.
+
+A Foundation for Production Agentic AI
+
+The new Agent Sandbox Foundation Stack extends VAST’s work with NVIDIA to provide repeatable implementations for production AI. Rather than requiring organizations to assemble separate infrastructure for agent execution, data access, persistence and observability, the architecture brings these capabilities together across three layers:
+
+Infrastructure Built for Dynamic Agent Environments: The VAST AI OS provides persistent infrastructure underneath NVIDIA NemoClaw and OpenShell environments, supporting the rapid creation and removal of isolated agent workspaces. As new agent tasks are initiated, VAST uses zero-copy clones to rapidly provision persistent storage for isolated OpenShell sandboxes without creating full copies of the underlying data. This architecture is built for performance – designed to operate at the speed of agents by supporting efficient and highly dynamic workflows in which agents can spawn, disappear and reappear as reasoning demands change.
+
+Persistent State and Integrated Agent Data Services: Agent compute may be temporary, but its work does not have to be. VAST separates agent execution from persistent state so agents can pause, resume or transfer work across agent environments without starting from scratch. VAST DataStore provides persistent sandbox storage and snapshots, while VAST DataBase and integrated data services provide shared access to agent memory, context and enterprise data – allowing isolated agents to work concurrently from common data without creating redundant copies.
+
+Real-Time Observability and Durable Auditability: As agents take more independent actions, platform teams need visibility into both what is happening now and what happened after an agent disappears. The VAST Management System provides real-time visibility into data flows and infrastructure activity across agent fleets, while VAST DataBase maintains a persistent record of agent activity, including tool calls, prompts, tokens, costs and decisions. Together, these capabilities give teams operational visibility into active agent environments and a durable audit trail across increasingly complex multi-agent workflows.
+
+From AI Blueprints to Agent Infrastructure
+
+VAST introduced Foundation Stacks to help organizations turn NVIDIA AI Blueprints into repeatable, production-ready AI implementations on the VAST AI OS. Initial Foundation Stacks showcased the use of VAST DataEngine for enterprise research assistance with NVIDIA Nemotron and video intelligence using NVIDIA Cosmos reasoning models and NVIDIA Video Search and Summarization. The Agent Sandbox Foundation Stack extends that model into the infrastructure required to operate autonomous agents themselves in secure, governed sandbox environments.
+
+At NVIDIA GTC Berlin, VAST will demonstrate the Agent Sandbox Foundation Stack through a governed multi-agent workflow running NVIDIA NemoClaw and OpenShell on the VAST AI OS, showing agents dynamically spawning, accessing persistent data services and maintaining state across changing compute environments. VAST also plans to make the automated deployment available through a public GitHub repository, providing a reproducible path for organizations to deploy the architecture in their own environments.
+
+Additional Resources:
+
+Press Release: VAST Data Introduces Foundation Stacks to Accelerate Enterprise Adoption of NVIDIA Blueprints
+
+Blog: Powering Production AI with VAST, NVIDIA, and Agent Sandboxes
+
+Blog: Building Semantic Enterprise Search for AI Agents
+
+Demo: Agent Knowledge Foundation with NVIDIA Auto-Ontology
+
+Video: Securing AI Operations with Agent Sandboxes
+
+GitHub: Agent Sandbox Foundation Stack
