@@ -3576,5 +3576,597 @@
   "title_key": "title",
   "date_key": "beginDt",
   "link_tpl": "https://www.samsungsdi.com/sdi-now/sdi-news/{idx}.html"
+ },
+ "Nichicon": {
+  "feed": "https://www.nichicon.co.jp/rss.xml",
+  "how": "page",
+  "page": "https://www.nichicon.co.jp/company/press",
+  "checked": "2026-10-22"
+ },
+ "ADEKA": {
+  "feed": "https://www.adeka.co.jp/en/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "adeka\\.co\\.jp/en/news/20\\d\\d/\\d\\d/[\\w-]+\\.html",
+  "date_from": "page"
+ },
+ "Anritsu": {
+  "feed": "https://www.anritsu.com/en-us/test-measurement/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "anritsu\\.com/en-us/test-measurement/news/news-releases/20\\d\\d/20\\d\\d-\\d\\d-\\d\\d[\\w-]*",
+  "via": "jina"
+ },
+ "Asahi Kasei": {
+  "feed": "https://www.asahi-kasei.com/news/2026",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "asahi-kasei\\.com/news/20\\d\\d/e\\d{6}[\\w-]*",
+  "title_strip_re": "\\b20\\d\\d\\s+(?:(?:Management/Earnings|Business/Products|R&D|Notice|Sustainability)\\s+)+",
+  "via": "jina"
+ },
+ "DENSO": {
+  "feed": "https://www.denso.com/global/en/news/newsroom/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "denso\\.com/global/en/newsroom/news/20\\d\\d/20\\d{6}[\\w-]*",
+  "title_strip_re": "^NEWS\\s+",
+  "via": "jina"
+ },
+ "Daifuku": {
+  "feed": "https://www.daifuku.com/company/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "daifuku\\.com/company/news/20\\d\\d/\\d{4}_\\d+/?",
+  "via": "jina"
+ },
+ "Daihen": {
+  "feed": "https://www.daihen.co.jp/newinfo/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "daihen\\.co\\.jp/newinfo_20\\d\\d/news_\\d{6}\\.html",
+  "lang": "ja"
+ },
+ "Daikin Industries": {
+  "feed": "https://www.daikin.com/press",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "daikin\\.com/press/20\\d\\d/20\\d{6}(?:_\\d+)?",
+  "via": "jina"
+ },
+ "Datasection": {
+  "feed": "https://www.datasection.co.jp/news/category/pressrelease",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "datasection\\.co\\.jp/news/pressrelease-\\d{11}",
+  "lang": "ja",
+  "title_strip_re": "^(?:20\\d\\d\\.\\d\\d\\.\\d\\d\\s+)?プレスリリース\\s+"
+ },
+ "Denka": {
+  "feed": "https://www.denka.co.jp/eng/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "denka\\.co\\.jp/eng/storage/news/pdf/\\d+/20\\d{6}[^\\\"')]*\\.pdf",
+  "title_strip_re": "^News\\s+",
+  "via": "jina"
+ },
+ "Dexerials": {
+  "feed": "https://www.dexerials.jp/en/news/2026/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "dexerials\\.jp/en/news/20\\d\\d/news\\d+\\.html",
+  "title_strip_re": "^(?:20\\d\\d\\.\\d\\d\\.\\d\\d\\s+)?(?:Event|Corporate|Products?|Technology|Sustainability|IR)\\s+"
+ },
+ "Disco Corporation": {
+  "feed": "https://www.disco.co.jp/eg/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "disco\\.co\\.jp/eg/news/[a-z_]+/20\\d{6}[\\w-]*\\.html"
+ },
+ "Fuji Electric": {
+  "feed": "https://www.fujielectric.co.jp/about/news/news.json",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "json",
+  "items_key": "content",
+  "title_key": "title",
+  "date_key": "date",
+  "link_key": "link_url",
+  "lang": "ja"
+ },
+ "Fujibo Holdings": {
+  "feed": "https://www.fujibo.co.jp/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "fujibo\\.co\\.jp/wp/wp-content/uploads/[0-9a-f]{32}\\.pdf",
+  "lang": "ja",
+  "title_strip_re": "^(?:20\\d\\d\\.\\d\\d\\.\\d\\d\\s+)?(?:その他|企業情報|IR情報|製品情報|お知らせ|サステナビリティ)\\s+|\\s*\\(\\d+KB\\)\\s*$"
+ },
+ "Fujitsu": {
+  "feed": "https://global.fujitsu/en-global/pr/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "global\\.fujitsu/en-global/pr/news/20\\d\\d/\\d\\d/\\d\\d-\\d\\d",
+  "via": "jina"
+ },
+ "Hamamatsu Photonics": {
+  "feed": "https://www.hamamatsu.com/jp/en/news/news-all.html",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "hamamatsu\\.com/jp/en/news/[a-z-]+/20\\d\\d/20\\d{12}\\.html"
+ },
+ "Hirata Corporation": {
+  "feed": "https://www.hirata.co.jp/en/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "hirata\\.co\\.jp/(en/news/archives/\\d+|files/optionallink/\\d+_file\\.pdf)",
+  "title_strip_re": "^(Announcement|Financial closing)\\s+"
+ },
+ "JEOL": {
+  "feed": "https://www.jeol.com/news/json/news-pr.json",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "json",
+  "items_key": "data",
+  "title_key": "title",
+  "date_key": "create_date",
+  "link_key": "link_url"
+ },
+ "Kurita Water Industries": {
+  "feed": "https://www.kurita-water.com/en/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "kurita-water\\.com/en/news/20\\d+-\\d+/?",
+  "via": "jina"
+ },
+ "Meidensha": {
+  "feed": "https://www.meidensha.com/news/news_01/news_01_01/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "meidensha\\.com/news/news_03/news_03_\\d+/\\d+_\\d+\\.html",
+  "title_strip_re": "^(Management and Finance|Products and Services|Sustainability|Exhibitions and Events|Information)\\s+",
+  "via": "jina"
+ },
+ "MinebeaMitsumi": {
+  "feed": "https://www.minebeamitsumi.com/news/index.html",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "minebeamitsumi\\.com/news/(press|newproducts)/20\\d\\d/\\d+_\\d+\\.html",
+  "lang": "ja"
+ },
+ "Mitsui & Co.": {
+  "feed": "https://www.mitsui.com/jp/en/release/index.html",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "mitsui\\.com/jp/en/release/20\\d\\d/\\d+_\\d+\\.html"
+ },
+ "Mitsui Chemicals": {
+  "feed": "https://jp.mitsuichemicals.com/en/release/index.htm",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "mitsuichemicals\\.com/en/release/20\\d\\d/[\\d_]+/index\\.htm",
+  "title_strip_re": "^(Business|Sustainability|IR|R&D|Others?)\\s+"
+ },
+ "NEC": {
+  "feed": "https://www.nec.com/en/press/press.xml",
+  "how": "manual",
+  "checked": "2026-10-22"
+ },
+ "NGK Insulators": {
+  "feed": "https://www.ngk-global.com/news/2026/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "ngk-global\\.com/news/20\\d\\d/20\\d{6}_\\d+\\.html",
+  "title_strip_re": "^((Topics|Company|Products|IR|Sustainability|R&D|Others?)\\s+)+",
+  "via": "jina"
+ },
+ "NHK Spring": {
+  "feed": "https://www.nhkspg.co.jp/en/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "nhkspg\\.co\\.jp/hubfs/nhkspg\\.co\\.jp/en/pdf/news/[\\w_-]+/20\\d\\d/20\\d{6}\\w*\\.pdf",
+  "title_strip_re": "^\\s*(\\d{4}\\.\\d\\d\\.\\d\\d\\s+)?((MANAGEMENT AND BUSINESSES|PRODUCTS AND TECHNOLOGIES|ORGANIZATION AND PERSONNEL|SUSTAINABILITY|IR)\\s+)+"
+ },
+ "Nidec": {
+  "feed": "https://www.nidec.com/en/corporate/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "nidec\\.com/files/user/www-nidec-com/corporate/news/20\\d\\d/\\d{4}-\\d+/[\\w-]+\\.pdf",
+  "date_order": "dmy",
+  "title_strip_re": "^\\s*(\\d{1,2}/\\d{1,2}/\\d{4}\\s+)?(Corporate|Investor Relations|Products?|Technology|Sustainability|Others?)\\s+"
+ },
+ "Nippon Chemi-Con": {
+  "feed": "https://www.chemi-con.co.jp/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "chemi-con\\.co\\.jp/news/detail\\.php\\?id=[A-Za-z0-9_-]+",
+  "lang": "ja"
+ },
+ "Nippon Electric Glass": {
+  "feed": "https://www.neg.co.jp/en/api/news/news_json.json",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "json",
+  "items_key": "",
+  "title_key": "text",
+  "date_key": "date",
+  "link_key": "href"
+ },
+ "Nissan Chemical": {
+  "feed": "https://www.nissanchem.co.jp/eng/news_release/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "nissanchem\\.co\\.jp/eng/news_release/release/[^\\\"']+\\.pdf"
+ },
+ "Optorun": {
+  "feed": "https://www.optorun.co.jp/topics/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "optorun\\.co\\.jp/topics/(20\\d\\d/[^\\\"'/]+\\.html|upload/[^\\\"'/]+\\.pdf)",
+  "lang": "ja",
+  "title_strip_re": "\\s*PDF:\\s*\\d+\\s*[KM]B\\s*$"
+ },
+ "Organo": {
+  "feed": "https://www.organo.co.jp/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "organo\\.co\\.jp/news/detail/\\?id=[A-Za-z0-9_-]+|files\\.microcms-assets\\.io/assets/[0-9a-f]+/[0-9a-f]+/[^\\\"' )]+\\.pdf",
+  "lang": "ja",
+  "via": "jina"
+ },
+ "Sakura Internet": {
+  "feed": "https://www.sakura.ad.jp/corporate/information/newsreleases/feed/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "lang": "ja"
+ },
+ "Santec": {
+  "feed": "https://www.santec.com/en/news.html",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "santec\\.com/media/en/a\\d+",
+  "title_strip_re": "^English\\s+(News Release|EVENT|News)\\s+"
+ },
+ "Sanyo Denki": {
+  "feed": "https://www.sanyodenki.com/products/product_news/index.html",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "sanyodenki\\.com/products/product_news/20\\d\\d/\\d{8}_[a-z0-9_.-]+\\.html",
+  "title_strip_re": "^(SANMOTION|San Ace|SANUPS)\\s+"
+ },
+ "Sumitomo Osaka Cement": {
+  "feed": "https://www.soc.co.jp/feed/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "lang": "ja"
+ },
+ "TOTO": {
+  "feed": "https://jp.toto.com/company/press/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "jp\\.toto\\.com/company/press/20\\d\\d_\\d\\d_\\d\\d[^\\\"]*/",
+  "lang": "ja",
+  "title_from": "page"
+ },
+ "Tazmo": {
+  "feed": "https://tazmo.co.jp/category/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "tazmo\\.co\\.jp/news/\\d{8}(-\\d+)?/",
+  "lang": "ja"
+ },
+ "Tokai Carbon Co.": {
+  "feed": "https://www.xj-storage.jp/public-list/GetList.aspx?company=AS04435&len=30&doctype=210,214,202,216,218,302,219,304&output=json",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "json",
+  "items_key": "items",
+  "title_key": "title",
+  "date_key": "publishDate",
+  "link_key": "files.0.url"
+ },
+ "Tokuyama": {
+  "feed": "https://www.tokuyama.co.jp/eng/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "tokuyama\\.co\\.jp/eng/news/(20\\d\\d/\\d{10}\\.html|pdf/\\d{10}_[A-Za-z_]+\\.pdf)"
+ },
+ "Toray": {
+  "feed": "https://www.toray.com/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "toray\\.com/news/article\\.html\\?contentId=[a-z0-9]+",
+  "via": "jina"
+ },
+ "Tosoh": {
+  "feed": "https://www.tosoh.co.jp/news/release/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "tosoh\\.co\\.jp/news/release/20\\d\\d/\\d{8}(_\\d+)?\\.html",
+  "lang": "ja",
+  "title_strip_re": "^ニュースリリース\\s+"
+ },
+ "Toyo Gosei": {
+  "feed": "https://www.toyogosei.co.jp/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "toyogosei\\.co\\.jp/news/(20\\d{6}_[^\\\"]+\\.pdf|20\\d\\d/\\d\\d/[^\\\"]+\\.html)",
+  "lang": "ja"
+ },
+ "Ushio": {
+  "feed": "https://www.ushio.co.jp/en/news/1001.xml",
+  "how": "manual",
+  "checked": "2026-10-22"
+ },
+ "Yamaichi Electronics": {
+  "feed": "https://www.yamaichi.co.jp/en/news/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "yamaichi\\.co\\.jp/(en/)?news/[a-z0-9-]+/$",
+  "title_from": "page"
+ },
+ "Enplas": {
+  "feed": "https://www.enplas.co.jp/english/category/news/feed/",
+  "how": "page",
+  "page": "https://www.enplas.co.jp/english/news/",
+  "checked": "2026-10-22"
+ },
+ "Nikon": {
+  "feed": "https://www.nikon.com/company/rss/feeds/news.rss",
+  "how": "page",
+  "page": "https://www.nikon.com/company/news/",
+  "checked": "2026-10-22"
+ },
+ "WEG": {
+  "feed": "https://www.weg.net/institutional/US/en/rss",
+  "how": "page",
+  "page": "https://www.weg.net/institutional/US/en/news",
+  "checked": "2026-10-22"
+ },
+ "Belimo": {
+  "feed": "https://www.belimo.com/belimo-master/en_GB/about/media/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/belimo-master/en_GB/about/media/news/[A-Za-z0-9-]+"
+ },
+ "Huber+Suhner": {
+  "feed": "https://www.hubersuhner.com/api/v1/articlepreviews?filter[siteName]=HuberSuhner&filter[aliasPath]=%2FNewsroom%2FCompany-news%2FNews-Ad-hoc-News-(1)%2F*&page[number]=1&page[size]=20",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "json",
+  "items_key": "data",
+  "title_key": "title",
+  "date_key": "publicationDate",
+  "link_key": "url"
+ },
+ "VAT Group": {
+  "feed": "https://www.vatgroup.com/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/news/(?:company/)?[a-z0-9-]{12,}$",
+  "title_from": "page",
+  "title_strip_re": " - VAT Group$"
+ },
+ "Alfa Laval": {
+  "feed": "https://news.cision.com/alfa-laval",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/alfa-laval/r/[a-z0-9-]+,c[0-9]+",
+  "title_strip_re": "\\s+(Mon|Tue|Wed|Thu|Fri|Sat|Sun), .*$"
+ },
+ "Atlas Copco": {
+  "feed": "https://news.cision.com/atlas-copco",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/atlas-copco/r/[a-z0-9-]+,c[0-9]+",
+  "title_strip_re": "\\s+(Mon|Tue|Wed|Thu|Fri|Sat|Sun), .*$"
+ },
+ "BASF": {
+  "feed": "https://www.basf.com/global/en/media/news-releases",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/global/en/media/news-releases/20[0-9]{2}/[0-9]{2}/p-[0-9]+-[0-9]+"
+ },
+ "Jenoptik": {
+  "feed": "https://www.jenoptik.com/news/pressreleases",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/news/pressreleases/20[0-9]{2}/[0-9]{2}/[0-9]{2}/[a-z0-9-]+",
+  "title_from": "page"
+ },
+ "Siemens": {
+  "feed": "https://press.siemens.com/global/en/press-search?f%5B0%5D=content_type:c2_ct_press_release",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "press\\.siemens\\.com/global/en/pressrelease/[a-z0-9-]+",
+  "date_from": "page"
+ },
+ "Wacker Chemie": {
+  "feed": "https://www.wacker.com/cms/en-de/press-and-media/press/press-releases/archive-2026/archiv-press-releases-2026.html",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/press-releases/20[0-9]{2}/press-releases-detail-20[0-9]{2}-[0-9]+\\.html",
+  "title_strip_re": "\\s*Read more$",
+  "via": "jina"
+ },
+ "Munters": {
+  "feed": "https://news.cision.com/munters-group-ab",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/munters-group-ab/r/[a-z0-9-]+,c[0-9]+",
+  "title_strip_re": "\\s+(Mon|Tue|Wed|Thu|Fri|Sat|Sun), .*$"
+ },
+ "Mycronic": {
+  "feed": "https://mfn.se/a/mycronic.rss?lang=en",
+  "how": "manual",
+  "checked": "2026-10-22"
+ },
+ "Prysmian": {
+  "feed": "https://www.prysmian.com/en/media/press-releases",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/en/media/press-releases/[a-z0-9-]+$",
+  "title_strip_re": "^\\d{1,2}:\\d{2} [AP]M(?: - Price Sensitive)?\\s*"
+ },
+ "Rolls-Royce": {
+  "feed": "https://www.rolls-royce.com/media/press-releases.aspx",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/media/press-releases/20[0-9]{2}/[0-9]{2}-[0-9]{2}-20[0-9]{2}-[a-z0-9-]+\\.aspx",
+  "date_order": "dmy",
+  "date_from": "page"
+ },
+ "Volex": {
+  "feed": "https://www.volex.com/investors/reports-and-presentations/rns-announcements",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "rns-announcement\\?rid=[0-9]+",
+  "date_from": "page"
+ },
+ "Wärtsilä": {
+  "feed": "https://www.wartsila.com/media/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/media/news/[0-9]{2}-[0-9]{2}-20[0-9]{2}-[a-z0-9-]+",
+  "date_order": "dmy"
+ },
+ "Biren Technology": {
+  "feed": "https://www.birentech.com/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/news/[a-z0-9]{20,}/",
+  "lang": "zh"
+ },
+ "Foxconn Interconnect Technology": {
+  "feed": "https://www.fit-foxconn.com/en/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "BlogInfo\\.php\\?xmlid=[0-9]+",
+  "via": "jina"
+ },
+ "Lightelligence": {
+  "feed": "https://www.lightelligence.ai/about-us/news/dynamic",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/about-us/news/dynamic/[0-9]+$"
+ },
+ "SMIC": {
+  "feed": "https://www.smics.com/en/site/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/en/site/news_read/[0-9]+"
+ },
+ "Tencent": {
+  "feed": "https://www.tencent.com/newsroom/all-news/feed/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "category_re": "^(Corporate|Financial)$"
+ },
+ "HFCL": {
+  "feed": "https://www.hfcl.com/insights/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/insights/news/[a-z0-9-]+$",
+  "title_strip_re": "^Press Release - "
+ },
+ "Sterlite Technologies": {
+  "feed": "https://stl.tech/press_release/feed/",
+  "how": "manual",
+  "checked": "2026-10-22"
+ },
+ "FPT Corporation": {
+  "feed": "https://fpt.com/en/news",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "fpt\\.com/en/news/[a-z0-9-]{15,}$",
+  "date_order": "mdy",
+  "title_from": "page"
+ },
+ "UMS Integration": {
+  "feed": "https://www.umsgroup.com.sg/newsroom.html/year/-1.html",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "links\\.sgx\\.com/1\\.0\\.0/corporate-announcements/[A-Z0-9]+/[0-9a-f]+",
+  "follow_pdf": true
+ },
+ "Hammond Power Solutions": {
+  "feed": "https://www.globenewswire.com/en/search/organization/Hammond%20Power%20Solutions%20Inc",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/news-release/20[0-9][0-9]/[0-9]{2}/[0-9]{2}/[0-9]+/[0-9]+/en/[a-zA-Z0-9-]+\\.html$"
+ },
+ "NEXTDC": {
+  "feed": "https://www.nextdc.com/news/rss.xml",
+  "how": "manual",
+  "checked": "2026-10-22"
+ },
+ "Saudi Aramco": {
+  "feed": "https://www.aramco.com/api/v1/com/rss/news?sc_lang=en",
+  "how": "manual",
+  "checked": "2026-10-22"
+ },
+ "Zealand Pharma": {
+  "feed": "https://www.globenewswire.com/en/search/organization/Zealand%20Pharma",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "/news-release/20[0-9][0-9]/[0-9]{2}/[0-9]{2}/[0-9]+/[0-9]+/en/[a-zA-Z0-9-]+\\.html$"
  }
 }
