@@ -1,0 +1,111 @@
+{
+  "reviewer": "v1",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "CoreWeave",
+      "target": null,
+      "label": "CoreWeave 10-K (03-02-2026)",
+      "signal_prefix": "CoreWeave's 10-K states that CoreWeave clusters also use cut",
+      "action": "delete",
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "One fact, one node: the same 10-K sentence is already recorded as contracts on the AMD -> CoreWeave and Intel -> CoreWeave edges (cpu_datacenter.json); this node copy repeats it.",
+      "evidence": "CoreWeave clusters also use cutting edge CPUs, including AMD and Intel chips, to power compute-intensive projects"
+    },
+    {
+      "kind": "contract",
+      "company": "AMD",
+      "target": "CoreWeave",
+      "label": "CoreWeave 10-K (03-02-2026)",
+      "signal_prefix": "CoreWeave's 10-K states its clusters also use cutting edge C",
+      "action": "set",
+      "set": {
+        "type": "10-K supplier disclosure"
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "A supplier the 10-K says the filer uses is typed '10-K supplier disclosure' (edgar.md, supplychain paragraphs).",
+      "evidence": "CoreWeave clusters also use cutting edge CPUs, including AMD and Intel chips"
+    },
+    {
+      "kind": "contract",
+      "company": "Intel",
+      "target": "CoreWeave",
+      "label": "CoreWeave 10-K (03-02-2026)",
+      "signal_prefix": "CoreWeave's 10-K states its clusters also use cutting edge C",
+      "action": "set",
+      "set": {
+        "type": "10-K supplier disclosure"
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "A supplier the 10-K says the filer uses is typed '10-K supplier disclosure' (edgar.md, supplychain paragraphs).",
+      "evidence": "CoreWeave clusters also use cutting edge CPUs, including AMD and Intel chips"
+    },
+    {
+      "kind": "contract",
+      "company": "CoreWeave",
+      "target": "Microsoft",
+      "label": "CoreWeave 10-K (03-02-2026)",
+      "signal_prefix": "CoreWeave's 10-K states it recognized approximately 67% of i",
+      "action": "set",
+      "set": {
+        "value": "approximately 67% of 2025 revenue"
+      },
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "A 10-K customer-concentration contract carries the share in value (the Exposure tab reads it); the filing states approximately 67%.",
+      "evidence": "We recognized an aggregate of approximately 67% of our revenue from our top customer, Microsoft, for the year ended December 31, 2025."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "CoreWeave",
+      "target": null,
+      "label": "CoreWeave press release: CoreWeave Launches Physical AI Field Engineering to Turn (09-10-2026)",
+      "signal_prefix": "Nissan Technical Centre Europe (Emma Deutsch, Director of En",
+      "action": "delete",
+      "chains": [
+        "components/neocloud.json"
+      ],
+      "reason": "A third party's testimonial quote: it does not name CoreWeave or state that Nissan uses its service, so the 'customer' role is inferred (skill §2: no inferred customers); no CoreWeave fact remains.",
+      "evidence": "\"AI is helping us unlock greater value from the vast amount of engineering and test data we generate every day,\" said Emma Deutsch, Director of Engineering & Test Operations, Nissan Technical Centre Europe."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "IonQ",
+      "target": null,
+      "label": "IonQ 10-K (02-25-2026)",
+      "signal_prefix": "IonQ 10-K: IonQ acquired Capella (July 11, 2025) and Oxford ",
+      "action": "set",
+      "set": {
+        "signal": "IonQ 10-K: IonQ acquired Capella (July 11, 2025) and Oxford Ionics (September 16, 2025) in 2025, alongside Vector Atomic and others, and Skyloom in January 2026; on January 25, 2026 it agreed to acquire SkyWater Technology, a U.S.-based semiconductor foundry, which IonQ believes will accelerate its roadmap by providing embedded access to a secure quantum foundry."
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "The same sentence is already in this label's customer-concentration entry; one fact, one entry.",
+      "evidence": "customers, potential customers and partners include ... Air Force Research Lab ... DARPA ... Oak Ridge National Laboratory"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "IonQ",
+      "target": null,
+      "label": "IonQ 8-K (10-13-2026)",
+      "signal_prefix": "IonQ 8-K: on October 9, 2026 IonQ agreed to acquire Elisity,",
+      "action": "set",
+      "set": {
+        "signal": "IonQ 8-K: on October 9, 2026 IonQ agreed to acquire Elisity, a Zero Trust security company with more than 100 global customer deployments, in a transaction expected to close in the fourth quarter of 2026, pairing Elisity's platform with IonQ's post-quantum cryptography and quantum key distribution. IonQ says it has deployed some of the largest quantum-safe national communications networks, including in Switzerland, Poland, Romania and Slovakia, and delivered 40% year-over-year growth in multiproduct revenue in the second quarter of 2026. CEO Niccolo de Masi: 'Q-Day is coming much faster than predicted.'"
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "The form of acquisition consideration (all-stock) is a deal term (skill §2: never the price or security terms of an acquisition); the operating facts stay.",
+      "evidence": "agreed to acquire Elisity ... in an all-stock transaction"
+    }
+  ]
+}

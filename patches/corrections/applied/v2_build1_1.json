@@ -1,0 +1,108 @@
+{
+  "reviewer": "V2 (opus verifier 2026-10-21, build-1 EDGAR + HKEX)",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Infleqtion",
+      "label": "Infleqtion 10-Q (08-18-2026)",
+      "signal_prefix": "Infleqtion 10-Q: Q2 2026 total revenue was $13,538 thousand ",
+      "action": "set",
+      "set": {
+        "signal": "Infleqtion 10-Q: Q2 2026 total revenue was $13,538 thousand (Q2 2025: $5,277 thousand), up 157% - product revenue $3,173 thousand (-11%) and service revenue $10,365 thousand (+504%); gross profit $2,167 thousand; loss from operations $29,858 thousand. First-half 2026 revenue was $23,445 thousand (+74%). Q2 cost of revenue rose mainly on a $3.3 million increase in subcontractor expense primarily related to the QGG contract."
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "The 10-Q does not mention the earnings call; the comparison is the enricher's addition (the revenue update is stated in the 8-K of the same day, which has its own entry).",
+      "evidence": "Q2 2026 total revenue $13,538 thousand (10-Q results table); no reference to the call in the filing"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "ArcelorMittal",
+      "label": "ArcelorMittal 6-K (07-31-2026)",
+      "signal_prefix": "ArcelorMittal 6-K (legal proceedings): on January 29, 2026 i",
+      "action": "set",
+      "set": {
+        "signal": "ArcelorMittal 6-K (legal proceedings): on January 29, 2026 it was served by the Extraordinary Commissioners of Acciaierie d'Italia (ADI) with a writ before the Court of Milan alleging mismanagement and value transfer from ADI to ArcelorMittal, seeking damages valued at EUR 7.0 billion (alternative valuation EUR 3.65 billion), which ArcelorMittal will defend vigorously; in June 2025 it started international arbitration against the Republic of Italy claiming damages in excess of EUR 1.8 billion; on May 15, 2026 ArcelorMittal Mining Canada settled two hundred Fisheries Act charges with Environment and Climate Change Canada for a payment of 70 (US$ millions), and in March 2026 it settled a Mexican tax assessment for a payment of 95 (US$ millions)."
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "Amounts in the legal-proceedings note are in US$ millions; the Mexican tax settlement figure was left without a unit.",
+      "evidence": "In March 2026, the Company reached a settlement agreement with the Mexican Tax Authority for a payment of 95."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Pasqal",
+      "label": "Pasqal prospectus (09-24-2026)",
+      "signal_prefix": "Customer CINECA: Pasqal inaugurated Italy's first neutral-at",
+      "action": "set",
+      "set": {
+        "signal": "Customer CINECA: Pasqal announced the inauguration of what it calls Italy's first neutral-atom quantum computer, a 140-qubit system deployed at CINECA, Italy's largest public supercomputing center, to be integrated with the Leonardo supercomputer for hybrid quantum-HPC workloads under the EuroHPC initiative."
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "'First' is the company's claim and must be attributed (standing rule).",
+      "evidence": "In 2026, Pasqal announced the inauguration of Italy's first neutral-atom quantum computer, a 140-qubit system deployed at CINECA"
+    },
+    {
+      "kind": "contract",
+      "company": "Pasqal",
+      "label": "Pasqal prospectus (09-24-2026)",
+      "signal_prefix": "Pasqal (prospectus): on May 18, 2026 Pasqal and Saudi Arabia",
+      "action": "set",
+      "set": {
+        "signal": "Pasqal (prospectus): on May 18, 2026 Pasqal and Saudi Arabian Oil Company inaugurated what they call Saudi Arabia's first quantum computer and launched what they call the region's first commercial Quantum Computing as a Service platform, powered by Pasqal's 200-qubit neutral-atom quantum processor and hosted at Aramco's data center in Dhahran; Saudi Aramco is named among Pasqal's customers."
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "'First' is the company's claim and must be attributed (standing rule).",
+      "evidence": "On May 18, 2026, Pasqal and Saudi Arabian Oil Company inaugurated Saudi Arabia's first quantum computer and launched the region's first commercial Quantum Computing as a Service (QCaaS) platform.",
+      "target": "Saudi Aramco"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "ASMPT",
+      "label": "ASMPT annual report: 2025 Annual Report (04-10-2026)",
+      "signal_prefix": "Advanced packaging and TCB in 2025 (annual report): advanced",
+      "action": "set",
+      "set": {
+        "signal": "Advanced packaging and TCB in 2025 (annual report): advanced packaging revenue US$532.1 million, up 30.2% and 30% of Group revenue (26% in 2024), with record TCB revenue growth of about 146% after the breakthrough into HBM; the company says its TCB solutions for HBM4 12H were the first to secure orders from multiple players, the flux-based TCB tool was adopted for HBM4 16H sampling and the AOR fluxless process is under qualification; in logic, ASMPT is the Process-Of-Record in chip-to-substrate with continuous OSAT orders into Q1 2026, and its ultrafine-pitch C2W TCB with plasma AOR won orders for multiple tools in Q1 2026 from a leading advanced logic customer. The company estimates the TCB TAM growing from about US$760.0 million in 2025 to US$1.6 billion in 2028. Hybrid bonding: customer buy-offs and more tools shipped in 2025. Photonics revenue grew 10%, keeping dominance in 800G transceiver assembly; SMT system-in-package orders rose about 43%, driven by AI demand for base-station RF modules."
+      },
+      "chains": [
+        "manufacturing/packaging_substrate.json"
+      ],
+      "reason": "'First' is the company's claim and must be attributed (standing rule).",
+      "evidence": "Its TCB solutions for HBM4 12H were the first to secure orders from multiple players, affirming the Group's technology leadership"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SMIC",
+      "label": "SMIC HKEX announcement: 2026 Interim Results (08-27-2026)",
+      "signal_prefix": "H1 2026 operating detail (interim results): wafer shipments ",
+      "action": "set",
+      "set": {
+        "signal": "H1 2026 operating detail (interim results): wafer shipments rose 14.9% to 5,379 thousand standard logic 8-inch-equivalent wafers (4,682 thousand in H1 2025); average selling price US$966 per wafer versus US$903; wafer revenue US$5,196.8 million, up 22.9%; net cash from operating activities US$3,207,101 thousand, up 252.7%, mainly on higher cash received from sales of goods; government funding in other operating income US$154,083 thousand. H1 revenue by region China 89.6%, America 8.7%, Eurasia 1.7%; wafer revenue by application smartphone 17.8%, computer and tablet 14.7%, consumer electronics 45.1%, connectivity and IoT 7.0%, industrial and automotive 15.4%; 12-inch wafers 77.4% of wafer revenue."
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "The filing prints US$3,207,101 thousand; the entry converted it to US$3,207.1 million (no unit conversion / arithmetic).",
+      "evidence": "Net cash generated from operating activities 3,207,101 909,257 252.7"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Pasqal",
+      "label": "Pasqal prospectus (09-24-2026)",
+      "signal_prefix": "Pasqal (first-half 2026 results in the prospectus): revenue ",
+      "action": "delete",
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "Restates the same-day call (Pasqal Q2 FY2026 (09-24-2026), CFO: H1 revenue EUR 4.9 million, +14%, QPU-related services +34%); depth rule section 6.",
+      "evidence": "revenue of EUR 4.9 million in the six months to June 30, 2026, up 14% ... including 34% growth in QPU-related services revenue"
+    }
+  ]
+}

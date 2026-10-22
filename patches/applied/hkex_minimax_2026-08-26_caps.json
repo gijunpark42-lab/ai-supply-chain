@@ -1,0 +1,67 @@
+{
+  "source": "MiniMax HKEX announcement: Revision of Annual Caps for Continuing Connected (08-26-2026)",
+  "new_nodes": {
+    "MiniMax": {
+      "ticker": "0100.HK",
+      "exchange": "HKEX",
+      "country": "CN",
+      "why": "Existing graph node (neocloud.json ai_models / Foundation Models), new placement in power_cooling.json ai_models / Foundation Models beside OpenAI / Anthropic, where its cloud supplier Alibaba already sits at cloud_infra / Hyperscaler Cloud (enrich skill section 6, cross-chain relationships). Same proposal as patches/hkex_minimax_2026-04-22.json; whichever applies first creates the placement.",
+      "evidence": "MiniMax HKEX announcement: Revision of Annual Caps for Continuing Connected (08-26-2026): 'Pursuant to the Alibaba Cloud Services Agreement, we agreed to purchase from Alibaba Cloud Computing Ltd. certain cloud products and services' - annual caps revised from USD115 million to USD300.0 million (2026), USD125 million to USD400.0 million (2027) and USD135 million to USD500.0 million (2028); and 'we agreed to provide API services to businesses operated by Alibaba Group'.",
+      "approved": "opus verifier 2026-10-21: existing node, second placement at power_cooling ai_models / Foundation Models beside OpenAI / Anthropic where Alibaba already sits at Hyperscaler Cloud; MiniMax's own annual report and caps announcement state the Alibaba Cloud Services Agreement (cloud compute for training / inference, an AI relationship) and the reverse Master API Service Agreement; neocloud.json has no hyperscaler sector, so one placement here is the fewest-placement fit (Envicool / Hengtong Alibaba precedent); company-wide facts stay on neocloud.json"
+    }
+  },
+  "chains": {
+    "components/power_cooling.json": {
+      "players": [
+        {
+          "company": "MiniMax",
+          "layer": "ai_models",
+          "sector": "Foundation Models",
+          "product": "Foundation models (MiniMax M-series language models, Hailuo video, speech and music models) trained and served on cloud compute, and sold as model API services",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Alibaba",
+              "relationship": "Model API services (MiniMax foundation models) provided to businesses operated by Alibaba Group",
+              "contracts": [
+                {
+                  "source": "MiniMax HKEX announcement: Revision of Annual Caps for Continuing Connected (08-26-2026)",
+                  "signal": "Supplemental Master API Service Agreement (August 26, 2026): the annual caps for MiniMax's API services to businesses operated by Alibaba Group were revised from USD0.65 million to USD7.5 million for 2026, from USD1.00 million to USD22.0 million for 2027 and from USD1.50 million to USD33.0 million for 2028 (subject to independent shareholders' approval). Historical amounts: approximately USD41,376 (2023), USD33,284 (2024), USD341,244 (2025) and USD501,704 (six months to June 30, 2026); utilization of the existing 2026 cap reached approximately 77.2% as of June 30, 2026 due to the expansion of use cases and traffic with Alibaba Group. MiniMax expects further substantial expansion: its audio and speech models across Alibaba Group's digital media and interaction scenarios, integration of its text, reasoning and logic models into Alibaba Group's software ecosystem, and joint development of industry-specific AI solutions in key vertical sectors.",
+                  "units": "no specific figure",
+                  "value": "revised annual caps USD7.5 million (2026), USD22.0 million (2027), USD33.0 million (2028)",
+                  "date_signed": "August 26, 2026",
+                  "type": "API service agreement - annual caps revised (continuing connected transaction)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Alibaba",
+          "layer": "cloud_infra",
+          "sector": "Hyperscaler Cloud",
+          "product": "Alibaba Cloud hyperscale data centers (buyer of data-center cooling systems; Envicool customer)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "MiniMax",
+              "relationship": "Cloud products and services (compute for model training and inference) supplied by Alibaba Cloud Computing Ltd.",
+              "contracts": [
+                {
+                  "source": "MiniMax HKEX announcement: Revision of Annual Caps for Continuing Connected (08-26-2026)",
+                  "signal": "On August 26, 2026 MiniMax and Alibaba Cloud Computing Ltd. entered into the Supplemental Alibaba Cloud Services Agreement revising the annual caps for MiniMax's purchases of cloud products and services from USD115 million to USD300.0 million for 2026, from USD125 million to USD400.0 million for 2027 and from USD135 million to USD500.0 million for 2028 (subject to independent shareholders' approval). Historical amounts: approximately USD3.1 million (2023), USD10.0 million (2024), USD75.9 million (2025) and USD75.6 million (six months to June 30, 2026); utilization of the existing 2026 cap reached approximately 65.7% as of June 30, 2026. MiniMax cites growing demand for high-performance cloud computing for model training, surging demand for cloud products and data-center operation and maintenance for inference as API call volume grows, and cloud security; the 2025 purchases were approximately 30.0% of its R&D expenses, and the caps are set by reference to expected R&D expenses, which it expects to be mainly cloud procurement for AI infrastructure and model R&D (its plan implies additional average monthly R&D-related expenditure of approximately USD92.6 million through December 31, 2027).",
+                  "units": "no specific figure",
+                  "value": "revised annual caps USD300.0 million (2026), USD400.0 million (2027), USD500.0 million (2028); USD75.6 million purchased in H1 2026",
+                  "date_signed": "August 26, 2026",
+                  "type": "cloud services agreement - annual caps revised (continuing connected transaction)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

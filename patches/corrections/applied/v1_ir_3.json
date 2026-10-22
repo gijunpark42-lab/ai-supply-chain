@@ -1,0 +1,102 @@
+{
+  "reviewer": "v1",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Inficon",
+      "target": null,
+      "label": "Inficon press release: INFICON delivers record second quarter 2026 and raises full-year guidance (07-30-2026)",
+      "signal_prefix": "INFICON (release): its reconfigured global manufacturing foo",
+      "action": "set",
+      "set": {
+        "slot": null
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "supply_status is for capacity / utilisation / sold-out; this entry's figure is operating cash flow and working capital, so the screener cell would show a cash-flow number as supply status. The fact stays, unslotted.",
+      "evidence": "Cash generation remained strong, with an operating cash flow of USD 48.4 million in the second quarter"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Prysmian",
+      "target": null,
+      "label": "Prysmian press release: Prysmian raises guidance after its best quarter yet (07-30-2026)",
+      "signal_prefix": "Prysmian (release): FY2026 guidance raised to adjusted EBITD",
+      "action": "set",
+      "set": {
+        "signal": "Prysmian (release): FY2026 guidance raised to adjusted EBITDA of EUR 2,800-EUR 2,900 million (previously EUR 2,625-EUR 2,775 million) and free cash flow of EUR 1,650-EUR 1,750 million (previously EUR 1,300-EUR 1,400 million); CEO Massimo Battaini says Prysmian is well placed to achieve its 2028 targets ahead of schedule."
+      },
+      "chains": [
+        "components/optical_networking.json"
+      ],
+      "reason": "A Capital Markets Day date is an event schedule (skill §2: do not capture); the guidance and the CEO's 2028-target remark stay.",
+      "evidence": "New Capital Markets Day to be held within 1H27"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Prysmian",
+      "target": null,
+      "label": "Prysmian press release: Prysmian raises guidance after its best quarter yet (07-30-2026)",
+      "signal_prefix": "CEO Massimo Battaini (release): Prysmian cements its positio",
+      "action": "set",
+      "set": {
+        "signal": "Prysmian (release) says it cements its position as the front-running cable player for data centers after the transformative Molex deal and a capacity increase in Digital Solutions; CEO Massimo Battaini: its existing strengths in connectivity and long-haul digital connections are complemented by major deals to enter the 'inside' data center space."
+      },
+      "chains": [
+        "components/optical_networking.json"
+      ],
+      "reason": "Attribution: 'cements its position as the front-running cable player for data centers after transformative Molex deal and capacity increase' is a release headline bullet, not the CEO's quote; the CEO's quote is the 'inside' data center sentence.",
+      "evidence": "Prysmian cements its position as the front-running cable player for data centers after transformative Molex deal ... our existing strengths in connectivity and long-haul digital connections are complemented by major deals to enter the 'inside' data center space"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Prysmian",
+      "target": null,
+      "label": "Prysmian press release: Prysmian raises guidance after its best quarter yet (07-30-2026)",
+      "signal_prefix": "Prysmian (release): net financial debt fell to EUR 4,079 mil",
+      "action": "set",
+      "set": {
+        "signal": "Prysmian (release): net financial debt fell to EUR 4,079 million at June 30, 2026, with LTM free cash flow of EUR 978 million and EUR 703 million of net capital expenditure; the decrease also reflects the sale of its stake in YOFC and other disposals."
+      },
+      "chains": [
+        "components/optical_networking.json"
+      ],
+      "reason": "Disposal proceeds are a deal price (skill §2: a sale of a stake is recorded without its price or proceeds); the sale itself stays.",
+      "evidence": "proceeds from the sale of the stake in YOFC and other disposals for €580 million"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Sumitomo Electric",
+      "target": null,
+      "label": "Sumitomo Electric press release: Sumitomo Electric Holds Opening Ceremony for the UK's First (10-19-2026)",
+      "signal_prefix": "Sumitomo Electric opened the UK's first HVDC subsea cable fa",
+      "action": "set",
+      "set": {
+        "signal": "Sumitomo Electric opened what it calls the UK's first HVDC subsea cable factory at the Port of Nigg in Scotland on October 19, 2026: a GBP 350 million investment with 58,000 square meters of floor space on a 15-hectare site that will manufacture 525kV XLPE HVDC subsea transmission cables and subsea inter-array cables, creating over 200 skilled local jobs. National Grid says it awarded Sumitomo Electric the contract to supply the HVDC cable for Sea Link, and SSEN Transmission says its proposed Shetland 2 subsea cable project anchored the investment."
+      },
+      "chains": [
+        "components/optical_networking.json"
+      ],
+      "reason": "'UK's first' is the company's claim (skill §2.4: attribute 'first').",
+      "evidence": "held an opening ceremony on October 19, 2026, for the UK's first HVDC subsea cable factory"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Sunonwealth",
+      "target": null,
+      "label": "Sunonwealth press release: release News (10-19-2026)",
+      "signal_prefix": "At the OCP Global Summit 2026 in the U.S., Sunonwealth (SUNO",
+      "action": "set",
+      "set": {
+        "slot": null,
+        "signal": "At the OCP Global Summit 2026 in the U.S., Sunonwealth (SUNON) officially launched new liquid-cooling products for servers and AI applications - five core products: standard cold plates and DIMM cooling supporting Intel / AMD server platforms; customized liquid-cooling solutions; a 3D-printed cold plate it is exploring with 3D Architech as future research; an In-Rack CDU (L2L / L2A) for lab validation through high-density AI racks; and an In-Row CDU combining its HVAC fan technology. The company says it now has a complete liquid-cooling product line; the products were shown at the summit with static displays and live demonstrations, and the release gives no availability or shipment date."
+      },
+      "chains": [
+        "components/power_cooling.json"
+      ],
+      "reason": "A trade-show unveiling with static displays and live demonstrations, with no availability, production or shipment date and no specs; next_catalyst needs a launch / availability / production start with a date and a demo never fills a slot (skill §2.4, slot table). The entry stays, worded as an unveiling.",
+      "evidence": "展會中除靜態展示外，亦以動態演示吸引國際客戶關注"
+    }
+  ]
+}
