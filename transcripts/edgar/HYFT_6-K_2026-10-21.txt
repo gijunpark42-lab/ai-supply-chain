@@ -1,0 +1,67 @@
+# MindWalk (HYFT) 6-K filed 2026-10-21
+# source label: MindWalk 6-K (10-21-2026)
+# https://www.sec.gov/Archives/edgar/data/1715925/0001193125-26-427256-index.html
+
+## 6-K report (press_release_oct_21_202.htm)
+6-K 
+
+UNITED STATES 
+
+SECURITIES AND EXCHANGE COMMISSION 
+
+Washington, D.C. 20549
+
+Form 6-K 
+
+REPORT OF FOREIGN PRIVATE ISSUER PURSUANT TO RULE 13a-16 OR 15d-16 
+
+OF THE SECURITIES EXCHANGE ACT OF 1934 
+
+For the month of October, 2026.
+
+Commission File Number: 001-39530
+
+MindWalk Holdings Corp. 
+
+Industrious 823 Congress Ave Suite 300 Austin, Texas 78701, United States
+
+(Address of principal executive office) 
+
+Indicate by check mark whether the registrant files or will file annual reports under cover Form 20-F or Form 40-F. 
+
+| | 
+
+Form 20-F ☒ | Form 40-F ☐ | 
+
+EXHIBIT INDEX
+
+| | 
+
+| | 
+
+Exhibit | Description | 
+
+99.1 | Press Release dated October 21, 2026 | 
+
+SIGNATURES 
+
+Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned, thereunto duly authorized. 
+
+| | | 
+
+| | | 
+
+| MINDWALK HOLDINGS CORP. | 
+
+Date: October 21, 2026 | | 
+
+| | | 
+
+| By: | /s/ Jennifer Bath | 
+
+| Name: | Jennifer Bath | 
+
+| Title: | President and Chief Executive Officer |
+
+## Exhibit EX-99.1 (hyft-ex99_1.htm)
+EX-99.1 99.1 MindWalk Screens 890,634 Antibody Sequences for Immune Risk in Under Five Hours New white paper shows LensAI immunogenicity screening running at up to 43% lower cost per sequence on Amazon EC2 Hpc8a instances powered by AMD EPYC processors, making a critical drug-safety check practical at the scale AI-driven discovery now demands AUSTIN, Texas--(BUSINESS WIRE)--MindWalk Holdings Corp. ("MindWalk") (NASDAQ: HYFT), a Bio-Native AI company, today published a white paper showing that its LensAI immunogenicity screening ran across an entire public antibody database of 890,634 sequences in 4 hours and 41 minutes on Amazon EC2 Hpc8a instances powered by 5th Gen AMD EPYC processors, delivering up to 43% lower cost per sequence than a comparable Intel configuration running identical code. “Every antibody drug carries a question: will the patient’s own immune system attack it,” said Dr. Jennifer Bath, President and Chief Executive Officer of MindWalk. “Answering that question late is one of the most expensive failures in this industry. Answering it early has been impractical, because AI now designs candidates far faster than anyone could screen them. This work shows LensAI screening all of them. Candidate selection and safety assessment are no longer the bottleneck. It also lowers what it costs us to deliver at this scale, so we can take on more volume without our costs rising in step with it.” The problem the paper addresses When the body treats a therapeutic antibody as foreign, it produces anti-drug antibodies. These can blunt the drug's effect, change how it moves through the body, and raise safety concerns. Discovering that risk in late-stage development can delay or end a program after years of investment. Regulators increasingly expect the risk to be assessed at the start of discovery instead. The obstacle has been volume. Modern AI design methods generate thousands of candidate molecules, and a single antibody heavy chain expands into 2,420 variants under a routine single-point mutation scan. Checking all of them has been too slow and too expensive to be part of everyday work. What the benchmark measured The paper reports LensAI immunogenicity screening run on three cloud configurations with no code changes between them, repeated five times and averaged. On the identical workload, Amazon EC2 Hpc8a instances delivered 37% faster performance and approximately 43% lower cost per sequence compared with an Amazon EC2 C8i instance powered by Intel® Xeon® processors. A compute-optimized Amazon EC2 C8a configuration delivered 35% sfaster performance and approximately 29% lower cost per sequence. At full scale on Amazon EC2 Hpc8a, LensAI screened the Fitness Landscape for Antibodies (FLAb) database of 890,634 heavy and light chain sequences in 4 hours and 41 minutes, and the Patent and Literature Antibody Database (PLAbDab) of 348,550 sequences in 2 hours and 12 minutes. Results reflect the specific configurations evaluated and are not representative of all workloads. Where the advantage comes from LensAI produces a composite immune-risk score from three inputs: HYFT-based humanness scoring, MHC II binding prediction, and population allele weighting. The humanness step is where MindWalk's data layer does the work. Conventional approaches compare every new sequence against a full reference library, so the cost of the comparison grows with the size of both the candidate set and the reference. LensAI instead matches sequences against HYFT® patterns that are indexed once and reused, which turns the comparison into a lookup, and assesses every antibody against shared biological context rather than treating it as an isolated file. In the published work, that step completed in roughly one minute for 6,220 sequences on a single 64-core machine. That design has a second consequence. Because the remaining work is divided into independent units that share no state, the pipeline scales to use every core made available to it, which is what turns high core counts directly into finished results. The Amazon EC2 Hpc8a instances used in the benchmark provide up to 192 physical cores across two sockets, with simultaneous multithreading disabled so every virtual core maps to a physical one, alongside the AVX-512, VNNI, and bfloat16 instructions that accelerate the MHC II binding models dominating runtime. Each successive generation of AMD EPYC processors has delivered double-digit performance gains running the same LensAI code. A deepening engineering relationship with AMD The work published today builds on MindWalk’s previous work using AMD technologies, spanning AMD Instinct GPUs and AMD EPYC server processors. In July 2026, ReefIQ made its public debut at AMD Advancing AI 2026. AMD subsequently published a case study on MindWalk's use of AMD Instinct MI300X GPUs for large-scale antibody screening. In September 2026, MindWalk brought the open-source OpenFold3 model into production using the AMD Enterprise AI Reference stack, running on Vultr Kubernetes Engine with AMD Instinct MI325X GPUs. Across those engagements, MindWalk returned findings on multi-GPU execution, inference control, and deployment workflow to AMD and its cloud partners. The benchmark published today extends MindWalk’s use of AMD technologies to AMD EPYC server processors. "Our work with AMD now spans their accelerators and server CPUs," said Dirk Van Hyfte, MD, PhD, Chief Technology Officer of MindWalk. “That gives us a compute foundation that can scale with the complexity and volume of modern drug discovery. Just as importantly, we can continue taking advantage of advances in AMD EPYC processors without having to rewrite the underlying LensAI code.” Why the result extends beyond one workflow Immunogenicity screening is one of several LensAI workflows that run on ReefIQ, MindWalk's biological context layer. The characteristics that produced these results, indexed HYFT patterns and a pipeline that can be split across any number of machines, belong to that shared layer rather than to this one workflow, and are designed to carry to others built on it. Enrichment added to ReefIQ for one program also reaches programs already on the platform. For MindWalk, the commercial consequence sits in the cost of delivery. As enterprise platform agreements move the company toward contracted, recurring revenue, the expense of running the underlying workflows becomes a direct input to margin. Reducing that expense by up to 43% on one of the heaviest workloads in the catalog, without changing the software, is intended to let MindWalk absorb additional volume without a proportional increase in compute cost. What it changes for discovery teams Screening at this speed and cost lets teams flag high-risk sequences before synthesis, rank and triage thousands of candidates by population-level immune risk in hours rather than weeks, and run exhaustive in silico engineering such as scanning every single amino acid substitution across an antibody's heavy chain. Work that was previously reserved for a short list of finalists becomes available across a full design space. In a study covering 217 therapeutic antibodies cited in the paper, LensAI classified 197 of the 217, approximately 91%, as having an anti-drug antibody incidence risk greater than 30%. Availability LensAI immunogenicity screening is commercially available from MindWalk. Amazon EC2 C8a and Hpc8a instances, powered by AMD EPYC processors, are available through Amazon Web Services. The white paper, “Built to Inherit the Curve,” is available at www.mindwalkai.com. About MindWalk Holdings Corp. MindWalk Holdings Corp. (NASDAQ: HYFT) is a Bio-Native AI company building the BioIntelligence infrastructure that life sciences AI and agentic AI require, integrating AI, data, and advanced wet lab capabilities into one connected discovery ecosystem. At its core is HYFT® Technology, a proprietary, function-aware representation of biology. Its HYFT fingerprints span sequence and structural biology and, refined over 20 years of curation, form a continuously evolving biological representation of 660 million patterns and 25 billion relationships. This enriched biological representation is the architecture behind ReefIQ, the biological data substrate that provides context for life sciences, enriching data at ingestion and growing more valuable with each program run on it, and LensAI, the reasoning and application layer for target discovery, candidate diligence, portfolio decision support, and the agentic AI workflows pharma is racing to deploy. By design, value compounds in this HYFT representation layer, not in any individual AI model that runs on top of it. Investor Relations Contact Louie Toma, CPA, CFA Managing Director, CoreIR investors@mindwalkai.com Forward-Looking Statements This press release contains forward-looking statements within the meaning of applicable United States and Canadian securities laws. Forward-looking statements are based on management's current expectations and assumptions and are subject to known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially, including: that the benchmark results described are specific to the workloads, datasets, processor configurations, cloud regions, and pricing tested in July 2026, and may not be representative of other workloads, configurations, pricing, or future hardware generations; that performance and cost figures may change; MindWalk's reliance on third-party compute and cloud providers, including AMD, Amazon Web Services, and Vultr, and their respective product roadmaps, availability, and pricing; that the engineering collaborations with AMD described in this release are project-based and non-exclusive, may not continue or expand, and are not expected to generate revenue; the expectation that future processor generations will deliver performance gains to the same software without modification, which may not occur; the expectation that architectural characteristics demonstrated in this workflow will extend to other LensAI workflows or reduce the cost of delivery at enterprise scale, which may not occur; the pace and scale of commercial adoption of LensAI and ReefIQ and the ability to convert technical results into contracted, recurring arrangements; the fact that immunogenicity predictions are statistical in nature and do not guarantee clinical outcomes, regulatory acceptance, or product success; competition; intellectual property risks; regulatory determinations; and capital markets conditions. Additional information is available in MindWalk's Annual Report on Form 20-F and other filings on SEDAR+ (sedarplus.ca) and EDGAR (sec.gov/edgar). Except as required by law, MindWalk undertakes no obligation to update any forward-looking statement. Nothing in this press release constitutes investment advice. This press release does not constitute an offer to sell or the solicitation of an offer to buy any securities. Trademarks HYFT® is a registered trademark of MindWalk Holdings Corp. LensAI and ReefIQ are trademarks of MindWalk Holdings Corp. or its subsidiaries; ReefIQ registration is pending. All other trademarks are the property of their respective owners. AMD, the AMD Arrow logo, AMD EPYC, the EPYC logo, AMD Instinct, and combinations thereof are trademarks of Advanced Micro Devices, Inc. Amazon Web Services, AWS, Amazon EC2, and related marks are trademarks of Amazon.com, Inc. or its affiliates. Intel and Xeon are trademarks of Intel Corporation. References to Amazon Web Services and Intel describe the compute environment used to run these benchmarks and do not imply any partnership, sponsorship, or endorsement. Source: MindWalk Holdings Corp.

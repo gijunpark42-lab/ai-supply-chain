@@ -1,0 +1,71 @@
+{
+  "reviewer": "v3",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "L3Harris",
+      "target": null,
+      "label": "L3Harris Jefferies Global Industrials Conference 2026 (09-09-2026)",
+      "signal_prefix": "CFO Ken Sharp on radios and electronic warfare: Falcon IV wi",
+      "action": "set",
+      "set": {
+        "signal": "CFO Ken Sharp on radios and electronic warfare: Falcon IV will move to Falcon V, 'a whole new radio' about half the size with better battery life and more capacity, rolling out around the end of next year (international customers move from Falcon III to Falcon IV); U.S. radio modernization is at '40-plus percent'. Counter-UAS has a '$1 billion in pipeline' - its first round fires '$30,000 missiles at drones' with a kill rate of 'about 80%' and has been fielded in Ukraine - and L3Harris is working with SOCOM on Wraith Shield-type software jamming. Next Generation Jammer is on schedule and on price, in a cost-type development phase with lower margins. Margin focus: a clean 16% margin without asset-sale gains, fewer EAC charges through management reserve, missile volumes going '3x, 4x, 5x, 10x' on different programs, and the former Remington facility in Huntsville to dual-source parts where suppliers create issues."
+      },
+      "chains": [
+        "applications/space_ai_infrastructure.json"
+      ],
+      "reason": "The Jefferies transcript never names VAMPIRE (that name appears only in the 09-16 Morgan Stanley talk); the CFO said 'Our first round of that is really kind of firing $30,000 missiles at drones'.",
+      "evidence": "Our first round of that is really kind of firing $30,000 missiles at drones. The kill rate on it is about 80%."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Pfizer",
+      "target": null,
+      "label": "Pfizer Morgan Stanley conference 2026 (09-14-2026)",
+      "signal_prefix": "CEO Albert Bourla: Pfizer's new products and business-develo",
+      "action": "set",
+      "set": {
+        "signal": "CEO Albert Bourla: Pfizer's new products and business-development products are running at around a $13 billion annualized rate and growing in the 20s percent, the basis for offsetting the coming LOEs. The HHS 340B pilot starting in January 2027 covers two significant Pfizer products, ELIQUIS and IBRANCE (a pilot Pfizer 'worked very hard to make sure that happens'); he would not count on a major 340B benefit, as the recent effect was net marginally positive."
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "Beating 'expectations' is measured against analyst consensus estimates, which the capture rules exclude; the rest of the entry is unchanged.",
+      "evidence": "In the last 10 earnings ... we beat expectations for revenue, nine out of 10, and for EPS, 10 out of 10."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Rocket Lab",
+      "target": null,
+      "label": "Rocket Lab 10-Q (08-10-2026)",
+      "signal_prefix": "Rocket Lab 10-Q: revenue for the six months ended June 30, 2",
+      "action": "set",
+      "set": {
+        "signal": "Rocket Lab 10-Q: revenue for the six months ended June 30, 2026 was $434,414 thousand versus $267,067 thousand (Launch Services $108,249 thousand, Space Systems $326,165 thousand), with a six-month gross margin of 37.1%; capital expenditures were $53.1 million for the six months.",
+        "figure": "six-month revenue $434,414 thousand (vs $267,067 thousand); gross margin 37.1%; capex $53.1 million"
+      },
+      "chains": [
+        "applications/space_ai_infrastructure.json"
+      ],
+      "reason": "The 10-Q does not state a 63% increase; it was computed from the two totals (no arithmetic in signal / figure).",
+      "evidence": "Total revenue by recognition model | | $ | 108,249 | | | $ | 326,165 | | | $ | 434,414 | | | $ | 82,238 | | | $ | 184,829 | | | $ | 267,067"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Rocket Lab",
+      "target": null,
+      "label": "Rocket Lab 10-Q (08-10-2026)",
+      "signal_prefix": "Rocket Lab 10-Q: backlog increased from $1,847.3 million at ",
+      "action": "set",
+      "set": {
+        "signal": "Rocket Lab 10-Q: backlog increased from $1,847.3 million at December 31, 2025 to $2,355.9 million at June 30, 2026 ($1,415.8 million space systems, $940.2 million launch services), mainly from continued bookings and backlog added through acquisitions (GEOST, Mynaric and Motiv); contract liabilities rose to $351,193 thousand, including $76,015 thousand assumed at acquisitions. A government customer accounted for 42% of accounts receivable, net as of June 30, 2026.",
+        "figure": "backlog $2,355.9 million; contract liabilities $351,193 thousand; government customer 42% of accounts receivable"
+      },
+      "chains": [
+        "applications/space_ai_infrastructure.json"
+      ],
+      "reason": "The printed 10-Q table lists only 'Government customer 42%' of accounts receivable; the XBRL section's '42% of revenue' and 'MDA Corporation 11% of accounts receivable' disagree with the printed table (mis-tag rule: use the printed table only).",
+      "evidence": "the Company's customer that accounted for 10% or more of the total accounts receivable, net, was as follows: ... Government customer | 42 | %"
+    }
+  ]
+}

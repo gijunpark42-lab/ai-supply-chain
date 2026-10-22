@@ -1,0 +1,108 @@
+{
+  "reviewer": "v4",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "AMEC",
+      "label": "AMEC results briefing Q&A: Q1 2026 (05-13-2026)",
+      "signal_prefix": "Products and platform (Q1 2026 results briefing): board secr",
+      "action": "set",
+      "set": {
+        "signal": "Products and platform (Q1 2026 results briefing): board secretary Liu Fang said the next-generation 90:1 ultra-high-aspect-ratio cryogenic etch tool has shipped to a customer for validation. Chairman Yin Zhiyao said its PECVD tool with a VHF decoupled reactive-ion plasma source and 16 stations has 80% to 100% higher throughput than standard tools and customer validation is going well; its new CuBS PVD multi-chamber tool cuts barrier-seed resistivity and raises throughput by 50% to 100%, has been recognised by several leading customers and delivered to a domestic advanced-logic R&D line for validation; for advanced packaging its CCP and TSV etch tools are in batch delivery, with PVD, CVD, ECP, bonding and metrology tools planned; subsidiary Chaowei, which has recruited e-beam metrology and inspection experts, has planned a range of metrology and inspection tools; the Chengdu subsidiary will develop and make CVD, ALD and other tools for high-end logic and memory. The acquisition of Hangzhou Zhonggui Electronics by share issue and cash has received CSRC registration approval. About 60%-70% of a new tool's design is now reusable modules, speeding development."
+      },
+      "chains": [
+        "components/nand_flash.json"
+      ],
+      "reason": "The CuBS PVD tool went to the R&D line FOR VALIDATION; Chaowei has only PLANNED metrology tools (with e-beam experts hired).",
+      "evidence": "获得多家头部客户认可并已交付至国内先进逻辑器件研发线验证 / 子公司超微公司引入多名国际顶尖的电子束量检测设备领域专家…已规划覆盖多种量检测设备产品"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Anji Microelectronics",
+      "label": "Anji Microelectronics results briefing Q&A: 2025 annual collective (05-07-2026)",
+      "signal_prefix": "Chairman Wang Shumin (2025 annual collective results briefin",
+      "action": "set",
+      "set": {
+        "signal": "Chairman Wang Shumin (2025 annual collective results briefing): the Shanghai Jinqiao base mainly makes CMP slurries, Ningbo Beilun mainly functional wet chemicals, and the Shanghai Chemical Industry Park base (main building topped out) will mainly make upstream raw materials. Once built, the planned Shanghai Anji IC materials base in the Shanghai Chemical Industry Park is to add capacity of 8,000 tonnes of etch solutions, 3,400 tonnes of new-formula process chemicals and related products (plating solutions and additives), 1,200 tonnes of electronic-grade additives and 500 tonnes of nano abrasives; Ningbo Anji plans to add 10,000 tonnes of photoresist removers (post-etch cleans), 5,000 tonnes of post-CMP cleans and 400 tonnes of electronic-grade additives. The plating-solution and additive platform and one-stop delivery are in place with localised supply ramping; it is building a team and local lab in Taiwan, with technical-cooperation projects and product validations progressing. General manager Zhang Ming said gross margin will be kept in a healthy range with 'long-term stability' as the goal.",
+        "slot": "supply_status"
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "Financing terms out (skill 2): the convertible-bond project label and the own-funds vs raised-funds split are use-of-proceeds; the capacity plan stays, hedged as planned. A capacity plan with no date is supply_status, not next_catalyst.",
+      "evidence": "项目建成后将新增 8,000 吨刻蚀液…其中，刻蚀液生产线拟使用自有资金投资建设，不涉及使用募集资金；拟在宁波安集新增 10,000 吨光刻胶去除剂"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Biwin Storage Technology",
+      "label": "Biwin Storage Technology results briefing Q&A: 2025 annual and Q1 2026 (05-22-2026)",
+      "signal_prefix": "Results briefing (company and chairman Sun Chengsi): AI emer",
+      "action": "set",
+      "set": {
+        "signal": "Results briefing (company and chairman Sun Chengsi): AI emerging edge storage products earned about RMB 17.51 hundred million in 2025, of which AI-glasses storage about RMB 9.6 hundred million; in Q1 2026 AI edge storage revenue was about RMB 11.75 hundred million, up 496.45% year on year and 53.19% quarter on quarter. Its first in-house eMMC controller (SP1800) is in mass production and batch delivery, and the company expects in-house controller shipments to exceed 25 million units in 2026 (hedged: actual sales per later disclosures). The chairman said industry prosperity continues and Q2 results are expected to keep improving; the company said that, judging by market expectations, product prices still have some room to rise given AI and token demand, with memory makers now locking capacity for 2027 and beyond, and that its moving-weighted-average inventory costing smooths cost changes."
+      },
+      "chains": [
+        "components/nand_flash.json"
+      ],
+      "reason": "Hedge kept: the company framed the price view as market expectation.",
+      "evidence": "从市场预期看，受益于AI应用及Token调用的需求爆发，后续产品价格仍有一定上升空间"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Biwin Storage Technology",
+      "label": "Biwin Storage Technology results briefing Q&A: 2025 annual and Q1 2026 (05-22-2026)",
+      "signal_prefix": "Chairman Sun Chengsi (results briefing): Biwin supplies ROM+",
+      "action": "delete",
+      "chains": [
+        "components/nand_flash.json"
+      ],
+      "reason": "Meta is a player in nand_flash.json with an existing Biwin -> Meta edge (ePOP storage for AI/AR glasses); the supply statement is re-added as a contract on that edge (and the Google mention on the Biwin -> Google edge) in patches/v4_cnbrief_biwin.json.",
+      "evidence": "公司为Meta AI智能眼镜提供ROM+RAM存储器芯片，是国内的主力供应商"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Boqian New Materials",
+      "label": "Boqian New Materials results briefing Q&A: 2025 annual and Q1 2026 (05-12-2026)",
+      "signal_prefix": "Director and general manager Qiu Oute (results briefing): th",
+      "action": "set",
+      "set": {
+        "signal": "Director and general manager Qiu Oute (results briefing): the company's customers are mainly MLCC and other electronic-component makers and paste makers. It makes ultra-fine powders industrially by atmospheric-pressure plasma heating and vapour condensation, a technology that can be adapted to many metal and non-metal powders, and plans to broaden its product range on this platform. It has filed a patent application (under review) for copper plating of graphite powder surfaces to improve anode-material electrical performance."
+      },
+      "chains": [
+        "components/mlcc.json"
+      ],
+      "reason": "One fact, one place: the customer list is already one contract on each of the four customer edges from this label.",
+      "evidence": "公司客户主要为MLCC等电子元器件生产商以及各类浆料生产商，包括三星电机、潮州三环、台湾国巨、国瓷材料等"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Boqian New Materials",
+      "label": "Boqian New Materials results briefing Q&A: H1 2026 (09-15-2026)",
+      "signal_prefix": "H1 2026 results briefing (company's pre-collected answers): ",
+      "action": "set",
+      "set": {
+        "signal": "H1 2026 results briefing (company's pre-collected answers): H1 2026 interest expense was RMB 4,992,620.35 (34.19% of financial expenses) and FX loss RMB 9,218,385.97 (63.13%); the company hedges RMB-appreciation risk with forward FX contracts and options. Asset impairment losses were RMB 8,052,904.55 and credit impairment losses RMB 4,417,669.58; inventory book balance was RMB 518,720,785.56 at period end and inventory turnover days shortened year on year. Alloy powders were no more than 2% of main-product revenue in H1 2026 because inductor customers are cost-constrained and large-scale use has not started; nano silicon and silicon-alloy powders for advanced battery anodes are still in evaluation with battery makers. Silver-coated copper products have shipped and added copper-based revenue in the period, at different stages (validation, small batch and volume) across PV technology routes and customers."
+      },
+      "chains": [
+        "components/mlcc.json"
+      ],
+      "reason": "The answer lists three coexisting stages, including volume.",
+      "evidence": "不同技术路线、不同客户可能处于验证、小批量与批量并存的状态"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Giantec Semiconductor",
+      "label": "Giantec Semiconductor results briefing Q&A: H1 2026 collective (09-16-2026)",
+      "signal_prefix": "Senior IR manager Sun Yuan (H1 2026 collective results brief",
+      "action": "set",
+      "set": {
+        "signal": "Senior IR manager Sun Yuan (H1 2026 collective results briefing): Q2 2026 net profit excluding non-recurring items was RMB 6,655 ten-thousand, up 147.20% quarter on quarter, as DDR5 SPD chips and high-reliability automotive and industrial EEPROMs shipped much more than in Q1 with some end markets recovering and SOCAMM2 and LPCAMM2 modules entering commercial use; H1 sales of some of its PC and smartphone products fell year on year as tight memory-die supply and sharp price rises pressured those markets. For H2 the company will adjust SPD capacity to market conditions and add final-test items, push automotive EEPROM in Europe, the US, Korea and Japan, and moderately adjust prices of some consumer products in light of upstream costs and demand."
+      },
+      "chains": [
+        "components/cpu_datacenter.json"
+      ],
+      "reason": "The answer says part of the PC / smartphone products fell somewhat year on year, not the whole category.",
+      "evidence": "公司应用于 PC 和智能手机领域的部分产品的销售收入较上年同期存在一定幅度的下滑"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+SOURCE: MindWalk official press release -- https://ir.mindwalkai.com/news/news-releases/news-details/2026/MindWalk-Screens-890634-Antibody-Sequences-for-Immune-Risk-in-Under-Five-Hours/default.aspx
+TITLE: MindWalk Screens 890,634 Antibody Sequences for Immune Risk in Under Five Hours
+DATE: 10-21-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: MindWalk press release: MindWalk Screens 890,634 Antibody Sequences for Immune Risk (10-21-2026)
+
+---
+MindWalk Screens 890,634 Antibody Sequences for Immune Risk in Under Five Hours
+
+October 21, 2026
+
+New white paper shows LensAI™ immunogenicity screening running at up to 43% lower cost per sequence on Amazon EC2 Hpc8a instances powered by AMD EPYC processors, making a critical drug-safety check practical at the scale AI-driven discovery now demands
+
+AUSTIN, Texas--(BUSINESS WIRE)--
+
+MindWalk Holdings Corp. ("MindWalk") (NASDAQ: HYFT), a Bio-Native AI company, today published a white paper showing that its LensAI™ immunogenicity screening ran across an entire public antibody database of 890,634 sequences in 4 hours and 41 minutes on Amazon EC2 Hpc8a instances powered by 5th Gen AMD EPYC™ processors, delivering up to 43% lower cost per sequence than a comparable Intel configuration running identical code.
+
+“Every antibody drug carries a question: will the patient’s own immune system attack it,” said Dr. Jennifer Bath, President and Chief Executive Officer of MindWalk. “Answering that question late is one of the most expensive failures in this industry. Answering it early has been impractical, because AI now designs candidates far faster than anyone could screen them. This work shows LensAI screening all of them. Candidate selection and safety assessment are no longer the bottleneck. It also lowers what it costs us to deliver at this scale, so we can take on more volume without our costs rising in step with it.”
+
+The problem the paper addresses
+
+When the body treats a therapeutic antibody as foreign, it produces anti-drug antibodies. These can blunt the drug's effect, change how it moves through the body, and raise safety concerns. Discovering that risk in late-stage development can delay or end a program after years of investment. Regulators increasingly expect the risk to be assessed at the start of discovery instead.
+
+The obstacle has been volume. Modern AI design methods generate thousands of candidate molecules, and a single antibody heavy chain expands into 2,420 variants under a routine single-point mutation scan. Checking all of them has been too slow and too expensive to be part of everyday work.
+
+What the benchmark measured
+
+The paper reports LensAI immunogenicity screening run on three cloud configurations with no code changes between them, repeated five times and averaged.
+
+On the identical workload, Amazon EC2 Hpc8a instances delivered 37% faster performance and approximately 43% lower cost per sequence compared with an Amazon EC2 C8i instance powered by Intel ® Xeon ® processors. A compute-optimized Amazon EC2 C8a configuration delivered 35% faster performance and approximately 29% lower cost per sequence.
+
+At full scale on Amazon EC2 Hpc8a, LensAI screened the Fitness Landscape for Antibodies (FLAb) database of 890,634 heavy and light chain sequences in 4 hours and 41 minutes, and the Patent and Literature Antibody Database (PLAbDab) of 348,550 sequences in 2 hours and 12 minutes.
+
+Results reflect the specific configurations evaluated and are not representative of all workloads.
+
+Where the advantage comes from
+
+LensAI produces a composite immune-risk score from three inputs: HYFT-based humanness scoring, MHC II binding prediction, and population allele weighting.
+
+The humanness step is where MindWalk's data layer does the work. Conventional approaches compare every new sequence against a full reference library, so the cost of the comparison grows with the size of both the candidate set and the reference. LensAI instead matches sequences against HYFT ® patterns that are indexed once and reused, which turns the comparison into a lookup, and assesses every antibody against shared biological context rather than treating it as an isolated file. In the published work, that step completed in roughly one minute for 6,220 sequences on a single 64-core machine.
+
+That design has a second consequence. Because the remaining work is divided into independent units that share no state, the pipeline scales to use every core made available to it, which is what turns high core counts directly into finished results. The Amazon EC2 Hpc8a instances used in the benchmark provide up to 192 physical cores across two sockets, with simultaneous multithreading disabled so every virtual core maps to a physical one, alongside the AVX-512, VNNI, and bfloat16 instructions that accelerate the MHC II binding models dominating runtime. Each successive generation of AMD EPYC processors has delivered double-digit performance gains running the same LensAI code.
+
+A deepening engineering relationship with AMD
+
+The work published today builds on MindWalk’s previous work using AMD technologies, spanning AMD Instinct™ GPUs and AMD EPYC server processors.
+
+In July 2026, ReefIQ™ made its public debut at AMD Advancing AI 2026. AMD subsequently published a case study on MindWalk's use of AMD Instinct MI300X GPUs for large-scale antibody screening. In September 2026, MindWalk brought the open-source OpenFold3 model into production using the AMD Enterprise AI Reference stack, running on Vultr Kubernetes Engine with AMD Instinct MI325X GPUs. Across those engagements, MindWalk returned findings on multi-GPU execution, inference control, and deployment workflow to AMD and its cloud partners. The benchmark published today extends MindWalk’s use of AMD technologies to AMD EPYC server processors.
+
+"Our work with AMD now spans their accelerators and server CPUs," said Dirk Van Hyfte, MD, PhD, Chief Technology Officer of MindWalk. “That gives us a compute foundation that can scale with the complexity and volume of modern drug discovery. Just as importantly, we can continue taking advantage of advances in AMD EPYC processors without having to rewrite the underlying LensAI code.”
+
+Why the result extends beyond one workflow
+
+Immunogenicity screening is one of several LensAI workflows that run on ReefIQ™, MindWalk's biological context layer. The characteristics that produced these results, indexed HYFT patterns and a pipeline that can be split across any number of machines, belong to that shared layer rather than to this one workflow, and are designed to carry to others built on it. Enrichment added to ReefIQ for one program also reaches programs already on the platform.
+
+For MindWalk, the commercial consequence sits in the cost of delivery. As enterprise platform agreements move the company toward contracted, recurring revenue, the expense of running the underlying workflows becomes a direct input to margin. Reducing that expense by up to 43% on one of the heaviest workloads in the catalog, without changing the software, is intended to let MindWalk absorb additional volume without a proportional increase in compute cost.
+
+What it changes for discovery teams
+
+Screening at this speed and cost lets teams flag high-risk sequences before synthesis, rank and triage thousands of candidates by population-level immune risk in hours rather than weeks, and run exhaustive in silico engineering such as scanning every single amino acid substitution across an antibody's heavy chain. Work that was previously reserved for a short list of finalists becomes available across a full design space.
+
+In a study covering 217 therapeutic antibodies cited in the paper, LensAI classified 197 of the 217, approximately 91%, as having an anti-drug antibody incidence risk greater than 30%.
+
+Availability
+
+LensAI™ immunogenicity screening is commercially available from MindWalk. Amazon EC2 C8a and Hpc8a instances, powered by AMD EPYC™ processors, are available through Amazon Web Services.
+
+The white paper, “ Built to Inherit the Curve ,” is available at www.mindwalkai.com .

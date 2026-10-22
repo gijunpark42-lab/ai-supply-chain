@@ -1,0 +1,37 @@
+{
+  "reviewer": "v1",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "SICC",
+      "target": null,
+      "label": "SICC quarterly report: 2026 Q3 Report (10-21-2026)",
+      "signal_prefix": "Q3 2026 report: Q3 revenue RMB 645,591,150.64, up 102.89% ye",
+      "action": "set",
+      "set": {
+        "signal": "Q3 2026 report: Q3 revenue RMB 645,591,150.64, up 102.89% year over year, with Q3 gross margin 27.46% and 8-inch products over 50% of revenue; Q3 net profit attributable to shareholders RMB 85,832,892.80, swinging from a loss; nine-month revenue RMB 1,559,237,697.17, up 40.22% (a record high, per the company), and nine-month net profit RMB 27,216,245.45, up 2,330.24%; Q3 R&D RMB 41,138,276.73 (6.37% of revenue)."
+      },
+      "chains": [
+        "components/power_semiconductor.json"
+      ],
+      "reason": "The report calls the nine-month (Jan-Sep) revenue a record high, not the Q3 revenue.",
+      "evidence": "公司前三季度营业收入、毛利水平稳步增长，收入创历史新高。第三季度实现销售收入 6.46 亿元，毛利率 27.46%"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "SICC",
+      "target": null,
+      "label": "SICC quarterly report: 2026 Q3 Report (10-21-2026)",
+      "signal_prefix": "Q3 2026 report, the company's explanation: rising penetratio",
+      "action": "set",
+      "set": {
+        "signal": "Q3 2026 report, the company's explanation: rising penetration of 800V high-voltage platforms in new-energy vehicles drove automotive-grade conductive substrates, high-voltage power supplies for AI servers became a core new source of demand, and PV / storage and high-power fast charging added volume; domestic and overseas demand both grew quickly; demand from new-energy vehicles, data centers, solid-state transformers and industrial power is growing, and the company says it keeps building its technology reserves and advancing its capacity layout. Balance sheet and cash flow: construction in progress RMB 336,637,462.98 at September 30 versus RMB 128,805,758.76 at year-end; nine-month cash paid for fixed and other long-term assets RMB 641,345,190.86."
+      },
+      "chains": [
+        "components/power_semiconductor.json"
+      ],
+      "reason": "The report does not tie the construction-in-progress balance or the capex cash outflow to its capacity statement (no variance note on either); they are stated separately as balance-sheet / cash-flow facts.",
+      "evidence": "公司持续夯实技术储备并推进产能布局，将紧抓产业发展机遇；在建工程 336,637,462.98 128,805,758.76"
+    }
+  ]
+}

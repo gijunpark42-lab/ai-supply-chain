@@ -1,0 +1,72 @@
+{
+  "reviewer": "v1",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Mitsui & Co.",
+      "target": null,
+      "label": "Mitsui & Co. annual securities report: FY2026 (06-12-2026)",
+      "signal_prefix": "Investments (annual securities report): investments and loan",
+      "action": "set",
+      "set": {
+        "slot": null,
+        "signal": "Investments (annual securities report): investments and loans in the year to March 2026 were about JPY 1 trillion 3,800 hundred million, led by the Rhodes Ridge iron ore project (Mineral & Metal Resources) and oil and gas production projects (Energy); main property, plant and equipment spending: Rhodes Ridge iron ore JPY 7,238 hundred million, Australian iron ore JPY 663 hundred million, Australian coking coal JPY 215 hundred million, oil and gas development and production JPY 1,271 hundred million, power generation JPY 425 hundred million, chemical tank terminals JPY 184 hundred million. Under MTP 2026 it executed about JPY 2.4 trillion of growth investment including the Rhodes Ridge interest, and it says future capex will stay centred on Mineral & Metal Resources and Energy. Mitsui E&P Middle East's oil and gas production interests in Oman are being sold, subject to regulatory approvals. ITC Antwerp became a consolidated subsidiary from Q2; the Innovation & Corporate Development segment booked FVTPL-related gains from Quantinuum, and JA Mitsui Leasing's US factoring business caused an equity-method loss of JPY 604 hundred million linked to receivables acquired from First Brands Group.",
+        "figure": "investments and loans ~JPY 1 trillion 3,800 hundred million; Rhodes Ridge PP&E spending JPY 7,238 hundred million"
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "next_catalyst is for a dated launch / production / capacity start; this entry reports past-year investments and an asset sale pending approvals, so it fills no slot. The report states investments as about 1兆3,800億円; written in the report's unit (edinet.md: no conversion).",
+      "evidence": "投融資＊1は約1兆3,800億円となり"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NEC",
+      "target": null,
+      "label": "NEC annual securities report: FY2026 (06-18-2026)",
+      "signal_prefix": "Fiscal year to March 2026 (annual securities report, IFRS): ",
+      "action": "set",
+      "set": {
+        "signal": "Fiscal year to March 2026 (annual securities report, IFRS): revenue JPY 3 trillion 5,827 hundred million (+4.7%), with every segment growing; operating profit JPY 3,599 hundred million (up JPY 1,034 hundred million); adjusted operating profit JPY 3,868 hundred million; Non-GAAP operating profit JPY 3,972 hundred million (up 859); profit attributable to owners of the parent JPY 2,702 hundred million (up 950). IT Services revenue JPY 2 trillion 5,089 hundred million (+2.0%, adjusted operating profit 3,367) on strong domestic public-sector demand and BluStellar; Social Infrastructure revenue JPY 9,353 hundred million (+12.4%, adjusted operating profit 743) on aerospace and national security. No external customer accounts for 10% or more of revenue.",
+        "figure": "FY to March 2026 revenue JPY 3 trillion 5,827 hundred million (+4.7%); Non-GAAP operating profit JPY 3,972 hundred million"
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "Amounts written in the report's own unit (edinet.md: no conversion): 3兆5,827億円 and 2兆5,089億円, not '35,827 / 25,089 hundred million'.",
+      "evidence": "当連結会計年度の売上収益は3兆5,827億円（前連結会計年度比4.7%増加）; 前連結会計年度に比べ491億円（2.0%）増加し、2兆5,089億円となりました"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "NEC",
+      "target": null,
+      "label": "NEC annual securities report: FY2026 (06-18-2026)",
+      "signal_prefix": "'2030 Mid-term Management Plan' (May 2026) targets for fisca",
+      "action": "set",
+      "set": {
+        "signal": "'2030 Mid-term Management Plan' (May 2026) targets for fiscal 2030: Non-GAAP operating margin of 15% or more, Non-GAAP operating profit doubled from fiscal 2025, and Non-GAAP EPS growth averaging 15% or more a year (fiscal 2026-2030). Strategy: in IT services, a shift to consulting plus continuous operations around IT, data and AI (BluStellar), and integration of CSG Systems International with Netcracker to strengthen telecom / broadband software in North America; in social infrastructure, aerospace and defense, submarine cable systems (40 ten-thousand km laid over 60 years; it aims to raise market share) and cybersecurity. The conventional base-station business is being wound down to focus on vRAN."
+      },
+      "chains": [
+        "applications/quantum_computing.json"
+      ],
+      "reason": "The report states 40万km (40 ten-thousand km); written in the report's unit rather than converted.",
+      "evidence": "過去60年間の40万km（地球約10周分）に及ぶ敷設実績"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "UMS Integration",
+      "target": null,
+      "label": "UMS Integration press release: UMS net profit soars 90% to $19.8m on higher revenue (08-13-2026)",
+      "signal_prefix": "2QFY2026 / 1HFY2026 results: 2Q revenue S$87.1 million (+29%",
+      "action": "set",
+      "set": {
+        "signal": "2QFY2026 / 1HFY2026 results: 2Q revenue S$87.1 million (+29% YoY, +26% QoQ), net profit S$19.8 million (+90%), net attributable profit S$19.4 million; semiconductor revenue S$75.5 million (+28%), with integrated-system sales S$33.5 million (+19%) and component sales S$42.1 million (+37%); aerospace S$8.6 million (+59%). 1H revenue S$156.5 million (+25%), net attributable profit S$33.4 million (+66%), semiconductor S$134.5 million (+25%). Malaysia revenue rose 50% to S$14.0 million in 2Q as it ramped semiconductor component production for its new major customer (not named), and Korea revenue rose 347% to S$6.4 million on shipments to that customer's location in Korea. Gross material margin 54.2% in 2Q. 1H capex S$9.6 million, mainly for the Penang expansion; the group has acquired the remaining 30% minority interest in Starke Singapore. CEO Andy Luong: current performance does not yet reflect the full contribution of several new manufacturing services being set up and qualified, and key customers have given strong equipment-demand forecasts for several years ahead."
+      },
+      "chains": [
+        "manufacturing/foundry.json"
+      ],
+      "reason": "A loan repayment is financing (skill §2); the ownership fact (it acquired the remaining 30% of Starke Singapore) stays, without the loan.",
+      "evidence": "the Group repaid the S$8.3 million short-term bank loan taken to finance the acquisition of the remaining 30% minority interest in Starke Singapore Pte. Ltd."
+    }
+  ]
+}

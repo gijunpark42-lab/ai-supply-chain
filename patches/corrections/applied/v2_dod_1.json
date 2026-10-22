@@ -1,0 +1,37 @@
+{
+  "reviewer": "V2 (opus verifier 2026-10-21, DoD batch 1)",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Blue Origin",
+      "label": "Blue Origin DoD contract award (07-17-2026)",
+      "signal_prefix": "DoD award: Blue Origin LLC, Merritt Island, Florida (FA8811-24-D-B002, P00009) is one of 7 awardees",
+      "action": "set",
+      "set": {"figure": "one of 7 awardees on an $11,400,000,000 combined ceiling increase (total cumulative face value $17,000,000,000 from $5,600,000,000)"},
+      "chains": ["applications/space_ai_infrastructure.json"],
+      "reason": "Board format 2026-10-21 ('one of N awardees on a $X ceiling'); the old figure 'ceiling increase $11,400,000,000 to $17,000,000,000' read as an increase from $11.4B to $17B. The $11.4B is the shared ceiling increase; $17B is the total cumulative face value.",
+      "evidence": "have been awarded modifications to previously awarded contracts for National Security Space Launch Phase Three Lane One that will cumulatively increase the ceiling by $11,400,000,000. These modifications bring the total cumulative face value of the contract to $17,000,000,000 from $5,600,000,000."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "L3Harris",
+      "label": "L3Harris DoD contract award (09-30-2026)",
+      "signal_prefix": "DoD award: firm-fixed-price definitization contracting action (FA254126CB014PZ004) to L3Harris",
+      "action": "delete",
+      "chains": ["applications/space_ai_infrastructure.json"],
+      "reason": "Counterparty must be U.S. Space Force (board decision 2026-10-21, rule 2): the contracting activity is the Space Force Portfolio Acquisition Executive, though printed under the AIR FORCE heading. The counterparty key cannot be set here, so the entry is deleted and re-added with counterparty U.S. Space Force by patches/v2_dod_l3harris_2026-09-30_spaceforce.json (same label, same facts).",
+      "evidence": "The Space Force Portfolio Acquisition Executive for Satellite Communications and Positioning, Navigation, and Timing, Los Angeles Air Force Base, California, is the contracting activity (FA254126CB014PZ004)."
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "L3Harris",
+      "label": "L3Harris DoD contract award (10-13-2026)",
+      "signal_prefix": "DoD award: modification P00380 to contract FA8823-20-C-0004 with L3Harris",
+      "action": "set",
+      "set": {"signal": "DoD award: modification P00380 to contract FA8823-20-C-0004 with L3Harris Technologies Inc. (Colorado Springs, Colorado) for the Unified Messaging System effort, bringing the contract's total cumulative face value to $1,527,155,327 from $1,494,014,252; work in Colorado Springs and Vandenberg Space Force Base, California, expected completion October 2028; fiscal 2026 RDT&E funds of $2,419,579 obligated at award; contracting activity Space Systems Command, Peterson Space Force Base, Colorado. The Oct. 13 announcement dated the award Oct. 10, 2026; DoD's Oct. 14, 2026 correction said the modification was not released, and its Oct. 16, 2026 correction states it was actually awarded on Oct. 16, 2026."},
+      "chains": ["applications/space_ai_infrastructure.json"],
+      "reason": "The old closing note ('DoD posted corrections ... about this modification's release and award date') did not say what the corrections state; the 10-14 and 10-16 correction files (closed onto this entry) say not released, then actually awarded Oct. 16, 2026, and the announcement itself printed 'Awarded on Oct. 10, 2026'.",
+      "evidence": "(Awarded on Oct. 10, 2026). | 10-16 file: CORRECTION: The $33,141,075 contract modification (P00380) ... announced on Oct. 13, 2026, was actually awarded on Oct. 16, 2026."
+    }
+  ]
+}
