@@ -1,0 +1,474 @@
+SOURCE: GMI official press release -- https://www.gmicloud.ai/en/blog/qwen-38-omni-flash-listens-watches-and-searches-in-one-call
+TITLE: Qwen 3.8 Omni Flash Listens, Watches, and Searches in One Call.
+DATE: 10-21-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: GMI press release: Qwen 3.8 Omni Flash Listens, Watches, and Searches in One (10-21-2026)
+
+---
+qwen-38-omni-flash-listens-watches-and-searches-in-one-call
+
+More Blog Posts
+
+More Blog Posts
+
+Research Qwen 3.8 Omni Flash Listens, Watches, and Searches in One Call.
+
+One omni model, one request, one 39-second answer pulled from a 72-minute film. See how a coarse-to-fine video agent on GMI Cloud finds, cuts, and subtitles a single scene for cents instead of reading every frame.
+
+October 21, 2026
+
+The usual workflow for asking a question about a recording has been a chain of handoffs. Audio goes through speech-to-text. The resulting transcript goes to a language model. A vision model may review a few frames separately. Information falls away at each step: overlapping speakers blur together, events that appear on screen but are never spoken disappear, and timestamps drift enough that you end up scrubbing through the recording anyway.
+
+Qwen3.8-Omni-Flash, released September 18, removes that chain. A single request can include text, images, audio, and video, and the model returns a text answer. It supports a one-million-token context window. Qwen built it for agent workflows: planning, tool use, and searching long media in stages instead of trying to describe the entire source in one pass. That staged approach is what makes the economics work, and it is what the video demonstrates.
+
+What Qwen3.8-Omni-Flash Is
+
+Feature
+
+Details
+
+Model
+
+Qwen3.8-Omni-Flash
+
+Released
+
+September 18, 2026
+
+Inputs
+
+Text, image, audio, video
+
+Output
+
+Text
+
+Context window
+
+1M tokens; 991,808 maximum input without thinking, 983,616 with thinking
+
+Maximum output
+
+131,072 tokens
+
+Thinking
+
+On by default, with adjustable reasoning effort
+
+Audio input
+
+113 languages and dialects; files up to 3 hours or 2 GB by URL
+
+Video input
+
+Files up to 2 hours or 2 GB by URL
+
+Image input
+
+Up to 2,048 images per request by URL
+
+Weights
+
+API only at launch
+
+Qwen says the model is based on Qwen3.8-Flash-Next, the text model it open-sourced in August. Unlike Qwen3.5-Omni, which could answer with speech, this model returns text only; speech generation belongs to a separate model in the lineup.
+
+Two choices matter more than the parameter count, which Qwen has not disclosed. First, audio enters as a first-class signal rather than being reduced to a transcript. That is what makes the speaker-separation results below possible. Second, the model is trained to collect evidence in stages. Qwen calls this agentic perception : start with the question, sample the media broadly, and inspect only the portions that the first pass identifies as relevant. Most of the recording remains unread.
+
+Benchmarks
+
+Every figure in this section comes from Qwen’s launch post . Qwen ran every model in its tables, including Gemini 3.8 Flash, and selected the harness used for the agent-mode rows. As of October 2, I found no independent reproduction of the tables.
+
+Treat the results as Qwen’s claims. That is how I used them: as a basis for deciding what to test.
+
+Audio and meetings
+
+This is the category Qwen designed the model for, and the reported gap is substantial. Diarization error rate and concatenated word error rate are both lower-is-better metrics.
+
+Benchmark
+
+Qwen3.8-Omni-Flash
+
+Qwen3.5-Omni-Plus
+
+Gemini 3.8 Flash
+
+AliMeeting, DER / cpWER
+
+3.4 / 17.2
+
+88.1 / 89.6
+
+72.6 / 53.1
+
+AISHELL-4, DER / cpWER
+
+2.8 / 11.2
+
+100.0 / 100.0
+
+66.4 / 56.9
+
+LongAudioSpan, accuracy
+
+82.7
+
+74.4
+
+79.3
+
+MuchoMusic-RUL, music understanding
+
+72.6
+
+n/a
+
+53.7
+
+MusTBench, music reasoning
+
+50.6
+
+n/a
+
+40.3
+
+The previous Qwen Omni scored 88 and 100 on the two meeting tests. Since lower scores are better, those results indicate it could not reliably separate speakers. One generation later, Qwen reports error rates in the low single digits. For recordings with people talking over one another, this is the result to pay attention to.
+
+Audio-visual and video
+
+The results here are more mixed, and the “agent” column matters most. Static means the model processed the entire video in a single pass. Agent means it ran within Qwen’s harness, sampling broadly first and then inspecting the highest-value regions more closely.
+
+Benchmark
+
+Qwen static
+
+Qwen agent
+
+Qwen3.5-Omni-Plus
+
+Gemini 3.8 Flash
+
+OmniVideoBench
+
+63.4
+
+67.8
+
+53.8
+
+65.2
+
+LVOmniBench
+
+63.3
+
+73.6
+
+n/a
+
+70.7
+
+JointAVBench
+
+75.9
+
+n/a
+
+n/a
+
+70.4
+
+DailyOmni
+
+85.1
+
+n/a
+
+85.1
+
+84.0
+
+StreamingBench
+
+80.8
+
+n/a
+
+57.1
+
+79.9
+
+Video-MME-v2
+
+65.0
+
+n/a
+
+n/a
+
+71.0
+
+In static mode, Qwen trails Gemini on OmniVideoBench and LVOmniBench. In agent mode, it moves ahead of Gemini on both. On Video-MME-v2, video reasoning without audio as a supporting signal, Gemini retains a six-point lead. Audio-first work favors Qwen; visual-heavy work remains competitive.
+
+Agent mode is also less expensive. On OmniVideoBench, Qwen reports that agentic perception raised accuracy from 63.4 to 67.8 while reducing tokens per query from 145,736 to 79,117: a 45.7% reduction.
+
+Qwen’s launch post on X presents the same comparison as 51.8% fewer tokens. Both figures are Qwen’s and were likely calculated using different aggregation methods. If you use either one in a slide, specify which number you used and link to the corresponding source.
+
+Agents and tool use
+
+Benchmark
+
+Qwen3.8-Omni-Flash
+
+Qwen3.5-Omni-Plus
+
+Gemini 3.8 Flash
+
+WildClawBench-MM, multimodal tool use
+
+71.0
+
+34.5
+
+58.9
+
+UniClawBench
+
+69.6
+
+67.1
+
+69.0
+
+AgenticVBench
+
+36.8
+
+14.5
+
+45.0
+
+OmniGAIA, web search
+
+74.0
+
+n/a
+
+78.6
+
+AndroidWorld, mobile use
+
+87.1
+
+n/a
+
+n/a
+
+The 36.5-point improvement on WildClawBench-MM over the previous Omni model is the largest gain in Qwen’s tables. Gemini still leads on AgenticVBench and web search.
+
+Text and code
+
+The omni encoders do not appear to have reduced the model’s text capabilities. Against its own text-only sibling and DeepSeek’s Flash model:
+
+Benchmark
+
+Qwen3.8-Omni-Flash
+
+Qwen3.8-Flash-Next
+
+DeepSeek V4 Flash 0731
+
+LiveCodeBench v6
+
+92.6
+
+91.9
+
+n/a
+
+SWE-bench Pro
+
+63.3
+
+62.5
+
+56.0
+
+GPQA Diamond
+
+91.0
+
+91.7
+
+n/a
+
+IFBench
+
+81.5
+
+n/a
+
+79.2
+
+NL2Repo-Bench
+
+48.9
+
+n/a
+
+54.2
+
+The Demo: One Moment in a 72-Minute Film
+
+The video walks through Find the Moment from start to finish: Roger Corman’s 1960 The Little Shop of Horrors , one plain-language question, and a 39-second clip returned with subtitles in three languages. Watch it for the workflow. What follows is the cost panel shown briefly in the video and the arithmetic behind it.
+
+Screenshot 1 goes here: the final 39-second clip with the English, Simplified Chinese, and Spanish subtitle tracks (video 5:51 to 6:16).
+
+The agent searches in three passes: a coarse pass over sparse frames and short audio windows, a fine pass within the highest-ranked windows, and a deliverable pass on the final cut alone. The coarse pass produces the savings.
+
+Screenshot 2 goes here: a contact sheet of timestamped frames from the coarse pass (video 2:55 to 3:18).
+
+Coarse stage
+
+What it read
+
+Input tokens
+
+Time to first token
+
+Cost at the displayed $0.75 / $3.75 rate
+
+Contact-sheet call, one request
+
+8 sheets, 160 frames
+
+11,200
+
+8.0 s
+
+$0.011
+
+Audio scouts, 8 requests in parallel
+
+About 9 minutes of audio each
+
+13,708 each
+
+5.4 to 15.3 s
+
+About $0.011 each
+
+Whole coarse stage
+
+160 frames plus the full audio track, once
+
+About 121,000
+
+n/a
+
+About $0.10
+
+At one frame per second, the film contains 4,317 frames. The coarse pass reviewed 160 of them, 3.7%, and listened to the full audio track once through eight parallel windows. One scout, covering 35:58 to 44:58, returned the only hit.
+
+The fine pass narrowed the moment to 37:53–38:32 and identified one proper noun, Doctor Farb, at 0.95 confidence. A second check against the audio raised confidence to 0.98 and identified him as Dr. Phoebus Farb, the dentist. Every later step used only 39 seconds of video: the cut, the subtitle cues, and the three translations.
+
+Screenshot 3 goes here: the second-pass output showing the 37:53 to 38:32 window and the Doctor Farb proper-noun detection with its confidence score (video 4:03 to 4:36).
+
+Compare that with reading the full file. Qwen estimates that a static read of 720p video with audio at one frame per second costs about $0.20 per hour before output tokens, or approximately $0.24 for this film. That cost is charged again for every question asked.
+
+Screenshot 4 goes here: the cost breakdown panel comparing the staged run against a full-file read (video 7:01 to 7:46).
+
+With a staged workflow, the expensive passes scale with the answer rather than the runtime. A three-hour recording and a 30-minute recording can cost nearly the same to answer if the relevant moment is the same length.
+
+One point should be clear: Qwen3.8-Omni-Flash is not in GMI Cloud’s model catalog as of this writing. The search calls in the recording therefore ran against Gemini 3.8 Flash through GMI’s endpoint, and the cost panel uses GMI Cloud’s listed Gemini 3.8 Flash rates of $0.75 per million input tokens and $3.75 per million output tokens.
+
+The agent is model-agnostic. It sends standard image, audio, and video parts to the chat completions endpoint, so changing models is a one-line swap when the catalog entry becomes available. The three-pass pattern shown in the video is also the pattern Qwen’s own agent harness uses to move from 63.4 to 67.8 on OmniVideoBench.
+
+Before You Put It in Production
+
+Route by the question being asked. Questions about spoken content align with the diarization and long-audio benchmarks, where Qwen reports wide advantages in its own tables. Questions about what happened on screen, without speech to support the answer, are where Gemini still leads on Video-MME-v2 and AgenticVBench. Test those clips before setting routing rules.
+
+Do not allow an answer to imply more coverage than the passes actually provided. MindStudio’s hands-on test found cases where the model’s reasoning trace acknowledged that it had used sampled frames, while its final answer described the audio as if it had processed every second. The test also found mistakes with proper nouns, including an ocean’s name in some target-language outputs for an Arabic clip.
+
+The video shows the fix for names: run a focused verification pass. The broader rule is to retain the evidence each pass used and make the output say “sampled” when it was sampled.
+
+Expect harness friction. DataCamp notes GitHub reports of interruptions and session instability when the model runs inside Claude Code. Qwen’s own plugins and harness are new.
+
+Stay within the input limits. Alibaba caps one audio input at three hours or 2 GB and one video input at two hours or 2 GB by URL. Longer recordings must be chunked before reaching the model, which is another reason to sample before performing a detailed read.
+
+Try It on GMI Cloud
+
+Qwen3.8-Omni-Flash is API-only from Alibaba today. GMI Cloud serves the text side of the same generation alongside omni-input models such as Gemini Omni Flash, all through one OpenAI-compatible endpoint.
+
+The agent pattern from the video works with any model there that accepts image, audio, and video parts.
+
+curl https://api.gmi-serving.com/v1/chat/completions \
+
+-H "Authorization: Bearer $GMI_API_KEY" \
+
+-H "Content-Type: application/json" \
+
+-d '{
+
+"model": "gemini-omni-1.1-flash-preview",
+
+"messages": [{
+
+"role": "user",
+
+"content": [
+
+{
+
+"type": "text",
+
+"text": "Which 30-second window contains the moment the patient asks for his teeth pulled? Answer with start and end seconds."
+
+},
+
+{
+
+"type": "input_audio",
+
+"input_audio": {
+
+"data": "<base64 wav>",
+
+"format": "wav"
+
+}
+
+}
+
+]
+
+}]
+
+}' Where I Land
+
+Qwen3.8-Omni-Flash is the first omni model I would consider putting directly in front of a meeting archive, without inserting transcription as an intermediate step. Its reported multi-speaker results are far enough ahead to be compelling, audio input is priced close to negligible, and the coarse-to-fine workflow keeps costs tied to the relevant clip rather than the total number of uploaded hours.
+
+I would not yet use it as the default choice for a sports feed or a silent screen recording. Gemini still performs better on pure-video reasoning in Qwen’s own tables, every benchmark cited here was run by Qwen, and the pricing tier you use can change the final cost by an order of magnitude.
+
+The evaluation is straightforward. Choose one recording your team already spends time searching. Write down the question they typically ask, then run it through a coarse pass built from sampled frames and audio windows before transcribing anything. If it returns the right time window, you have both the answer and a usable cost estimate that same afternoon. If it does not, you have spent only a few cents and learned whether your workload depends more on the model’s audio understanding or its visual reasoning.
+
+Ready to build? Get Started
+
+Grace Deng
+
+DevRel @ GMI Cloud
+
+Build AI Without Limits
+
+GMI Cloud helps you architect, deploy, optimize, and scale your AI strategies
+
+Contact Sales
+
+Ready to build?
+
+Explore powerful AI models and launch your project in just a few clicks.
+
+Get Started

@@ -1,0 +1,74 @@
+SOURCE: GMI official press release -- https://www.gmicloud.ai/en/blog/gmi-cloud-agentbox-x-nvidia-openshell-for-enhanced-agent-governance
+TITLE: GMI Cloud Agentbox x NVIDIA OpenShell for Enhanced Agent Governance
+DATE: 10-21-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: GMI press release: GMI Cloud Agentbox x NVIDIA OpenShell for Enhanced Agent (10-21-2026)
+
+---
+GMI Cloud Agentbox x NVIDIA OpenShell for Enhanced Agent Governance
+
+More Blog Posts
+
+More Blog Posts
+
+Announcements GMI Cloud Agentbox x NVIDIA OpenShell for Enhanced Agent Governance
+
+GMI Cloud is designing a managed NVIDIA OpenShell integration for Agentbox to help teams apply explicit policies to agent workloads while GMI manages the sandbox infrastructure.
+
+October 21, 2026
+
+NVIDIA OpenShell is an open-source secure runtime that governs how agents execute, which resources and data they can reach, and where inference is routed. GMI’s proposed integration focuses on policy-controlled network access, credential handling and visibility into access decisions through familiar Agentbox workflows.
+
+Agentbox sandboxes are available today. GMI is inviting design partners to help shape and validate the OpenShell integration.
+
+Isolation is not the same as governance
+
+A sandbox isolates an agent from other workloads. That is necessary, and it is where Agentbox starts. But isolation alone does not govern how the agent uses its access. Three gaps can remain:
+
+Credentials can be exposed to the workload. An API key in an environment variable can be read and leaked by a compromised agent, including one acting on a prompt injection.
+
+Outbound access is too coarse. Agentbox’s hostname allowlist does not express a rule such as “this binary may send GET requests to GitHub with this token, and nothing else.
+
+Logs do not explain access decisions. Agent output alone does not show which destinations it tried to reach or which requests were blocked.
+
+These gaps need controls outside the agent, where the workload cannot change its own permissions.
+
+What OpenShell adds
+
+NVIDIA OpenShell is an open-source runtime that enforces those controls. A supervisor outside the sandbox checks network requests against policy and supplies credentials only at approved endpoints. The agent uses placeholders instead of holding those credentials. OpenShell also records access decisions, giving teams a way to inspect what was allowed or denied.
+
+Why Agentbox
+
+OpenShell supports Docker, Podman, Kubernetes, and microVM runtimes; in each case the team runs that infrastructure.
+
+We are designing a managed option on Agentbox, with two benefits:
+
+Managed sandbox infrastructure. Every Agentbox sandbox is a microVM with its own kernel, isolated through hardware virtualization. Agentbox handles provisioning and provides templates, organizations, and billing. Our integration goal is for Agentbox to manage this infrastructure while OpenShell governs access and credentials.
+
+Model access on GMI Cloud. Agentbox users can call models served on GMI Cloud’s NVIDIA GPUs with a GMI API key. In the proposed integration, the agent would hold a placeholder, and OpenShell would inject the key only into approved requests to GMI’s model endpoint. Execution and model serving would run on the same cloud, while the key would stay outside the sandbox.
+
+Our goal is to let developers create sandboxes through the Agentbox API or console and attach an OpenShell policy. In the proposed flow, the supervisor would run outside the microVM, checking outbound requests against that policy and recording allow and deny decisions. Developers would keep using familiar Agentbox workflows, while security teams would gain explicit access controls and a record of network decisions.
+
+Build this with us
+
+We are inviting you in early. Agentbox sandboxes are ready today; the OpenShell integration is the part we want to shape with the people who will depend on it. A small group of design partners will write the first policies, break the first workflow, and decide what “governed” should mean on Agentbox.
+
+If you want your use case to shape that, tell us.
+
+Try Agentbox sandboxes
+
+Join the OpenShell integration as a design partner
+
+Build AI Without Limits
+
+GMI Cloud helps you architect, deploy, optimize, and scale your AI strategies
+
+Contact Sales
+
+Ready to build?
+
+Explore powerful AI models and launch your project in just a few clicks.
+
+Get Started

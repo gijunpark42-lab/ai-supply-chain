@@ -1,0 +1,53 @@
+{
+  "source": "SharonAI press release: NVIDIA confirms Sharon AI is scaling to 68,000 GPUs and (09-10-2026)",
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "SharonAI",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "Neocloud GPU compute platform: sovereign AI factories in Australia and New Zealand running NVIDIA B300 / GB300 clusters (GPU-as-a-service, AI platform layers, high-performance storage); NVIDIA Cloud Partner",
+          "quarterly_data": [
+            {
+              "quarter": "SharonAI press release: NVIDIA confirms Sharon AI is scaling to 68,000 GPUs and (09-10-2026)",
+              "signal": "SharonAI's deployment target rose to up to 68,000 NVIDIA GPUs (HGX B300 and GB300 NVL72) on NVIDIA DSX, from its previous target of 64,000; NVIDIA InfiniBand is the primary interconnect across most deployments, with one AI factory using RoCE. CEO James Manning: building on NVIDIA DSX, SharonAI is equipped to bring gigawatt-scale AI factories to Australian enterprises, researchers, government and AI natives.",
+              "figure": "up to 68,000 GPUs (previous target 64,000)",
+              "slot": "supply_status",
+              "topics": []
+            }
+          ],
+          "connects_to": []
+        }
+      ]
+    },
+    "components/ai_security_trusted_compute.json": {
+      "players": [
+        {
+          "company": "NVIDIA",
+          "layer": "compute_hardware",
+          "sector": "Training GPU",
+          "product": "NVIDIA Confidential Computing on H100 / Blackwell GPUs; Vera Rubin end-to-end confidential computing (Vera CPU + CX9 security processor); NIM / AI Enterprise for security vendors",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "SharonAI",
+              "relationship": "NVIDIA GPUs run in Confidential Compute mode for VAST DataEnclave on SharonAI's AI Factory",
+              "contracts": [
+                {
+                  "source": "SharonAI press release: NVIDIA confirms Sharon AI is scaling to 68,000 GPUs and (09-10-2026)",
+                  "signal": "SharonAI (release): NVIDIA confirmed that SharonAI is deploying up to 68,000 NVIDIA GPUs, comprised of NVIDIA HGX B300 and GB300 NVL72, on the NVIDIA DSX AI factory platform as part of Australia's AI infrastructure buildout - up from its previous target of 64,000 GPUs.",
+                  "units": "up to 68,000 NVIDIA GPUs (HGX B300 and GB300 NVL72)",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "GPU supply",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

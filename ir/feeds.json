@@ -2686,5 +2686,895 @@
   "how": "agent",
   "checked": "2026-10-21",
   "note": "merck.com/media/news is JS-rendered; its WordPress REST list of news_item posts (the site own data). Dates spot-checked against release pages."
+ },
+ "Quantum Computing Inc": {
+  "feed": "https://www.quantumcomputinginc.com/news/press-releases",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/news/press-releases/20\\d\\d/[^/?#]+$",
+  "via": "jina"
+ },
+ "Primoris Services": {
+  "feed": "https://ir.prim.com/rss/news-releases.xml",
+  "how": "manual",
+  "checked": "2026-10-21"
+ },
+ "SharonAI": {
+  "feed": "https://sharonai.com/feed/",
+  "how": "manual",
+  "checked": "2026-10-21"
+ },
+ "Solaris Energy Infrastructure": {
+  "feed": "https://ir.solaris-energy.com/rss/news.xml",
+  "how": "manual",
+  "checked": "2026-10-21"
+ },
+ "Power Solutions International": {
+  "feed": "https://investors.psiengines.com/rss/news-releases.xml",
+  "how": "manual",
+  "checked": "2026-10-21"
+ },
+ "Northrop Grumman": {
+  "feed": "https://investor.northropgrumman.com/rss/news-releases.xml",
+  "how": "manual",
+  "checked": "2026-10-21"
+ },
+ "OpenAI": {
+  "feed": "https://openai.com/news/rss.xml",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "category_re": "^(Company|Product)$",
+  "note": "private: openai.com/news RSS (official). Mixed feed (customer stories, research, safety, global affairs); category_re keeps Company + Product posts only (~15/month)."
+ },
+ "Anthropic": {
+  "feed": "https://www.anthropic.com/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "anthropic[.]com/news/(?!(announcements|features|partnerships|policy|product|research|safeguards|security|societal-impacts|economic-research)$)[a-z0-9-]+$",
+  "title_from": "page",
+  "date_from": "page",
+  "note": "private: anthropic.com/news list (no RSS). link_re skips the category pages; headline and date read from each page (og:title, article:published_time)."
+ },
+ "Hitachi High-Tech": {
+  "feed": "https://www.hitachi-hightech.com/global/en/api/json/newslist/?PageNumber=1&LinesOfNumber=20",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "json",
+  "title_key": "Title",
+  "date_key": "Date",
+  "link_key": "URL",
+  "link_re": "/news/nr[0-9]{8}",
+  "follow_pdf": true,
+  "note": "subsidiary (Hitachi): the JSON the hitachi-hightech.com/global/en/news page script calls (/global/en/api/json/newslist/). link_re keeps news releases (nr<date>) only; follow_pdf adds the release PDF."
+ },
+ "Rapidus": {
+  "feed": "https://www.rapidus.inc/en/news_topics/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: rapidus.inc English News WordPress feed."
+ },
+ "SENKO Advanced Components": {
+  "feed": "https://www.senko.com/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "category_re": "^Newsroom$",
+  "note": "private: senko.com WordPress feed; category_re keeps the Newsroom category (drops Tech Blog / Newsletter / application notes)."
+ },
+ "Shinko Electric": {
+  "feed": "https://www.shinko.co.jp/english/news/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/english/news/(docs|[0-9]{4})/",
+  "title_strip_re": "^[0-9.]+\\s+(Corporate|Sustainability|Notifications|News ?release|IR|Products?)\\s+|\\s*\\([0-9.]+\\s*[KM]B\\)$",
+  "note": "private (JIC buyout): shinko.co.jp/english/news list; releases are PDFs (read whole); title_strip_re cuts the date + category tag and the PDF size."
+ },
+ "NTT DOCOMO": {
+  "feed": "https://www.docomo.ne.jp/english/info/media_center/pr/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/english/info/media_center/pr/20\\d\\d/\\d{4}_\\d\\d\\.html$",
+  "title_strip_re": "^\\(Topics\\)\\s*",
+  "note": "subsidiary (NTT): docomo.ne.jp English press-release list (its RSS keeps the '(Topics)' prefix that breaks the body match, so the list page with title_strip_re)."
+ },
+ "Ajinomoto Fine-Techno": {
+  "feed": "https://www.aft-website.com/news/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "aft-website\\.com/news/(?!page/)[a-z0-9-]+/?$",
+  "lang": "ja",
+  "title_strip_re": "^[0-9.]+\\s*(お知らせ|セミナー・イベント|製品)\\s*",
+  "note": "subsidiary (Ajinomoto): aft-website.com news list (Japanese only; no English news). Low volume; newest 2026-08-06."
+ },
+ "JSR Corporation": {
+  "feed": "https://www.jsr.co.jp/news/2026/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "jsr\\.co\\.jp/news/20\\d\\d/\\d{8}[\\w-]*\\.html$",
+  "lang": "ja",
+  "title_from": "page",
+  "note": "private (JIC buyout): jsr.co.jp/news/2026/ list (Japanese; the English site is gone; its RSS has no dates). Year in the URL -- bump in January. Headline from each page."
+ },
+ "Shoei Chemical": {
+  "feed": "https://www.shoeichem.co.jp/news/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: shoeichem.co.jp Japanese news WordPress feed (the English feed holds one item). Low volume."
+ },
+ "Via Mechanics": {
+  "feed": "https://www.viamechanics.com/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "subsidiary: viamechanics.com WordPress feed (Japanese, all posts are お知らせ news). Low volume; newest 2026-07-01."
+ },
+ "Rubycon": {
+  "feed": "https://www.rubycon.co.jp/en/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: rubycon.co.jp English WordPress feed (Announcement / Products). Some one-line notices have no body text and fail the body check."
+ },
+ "LS Cable & System": {
+  "feed": "https://news.lscns.com/category/%ed%94%84%eb%a0%88%ec%8a%a4%eb%a3%b8/%eb%b3%b4%eb%8f%84%ec%9e%90%eb%a3%8c/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private (LS Corp subsidiary): news.lscns.com (LS Cable's own newsroom) press-release category feed, Korean. It also carries releases of LS Cable's own subsidiaries (LS Eco Energy, Gaon Cable, LS Marine Solution, LS Materials) -- the enricher attaches each fact to the company it is about."
+ },
+ "SK Specialty": {
+  "feed": "https://www.skspecialty.com/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/company/news_view\\.asp\\?intSeq=\\d+",
+  "lang": "ko",
+  "note": "private: skspecialty.com home page news links (Korean; the news list page builds itself with JS). Stale: newest 2024-10-10."
+ },
+ "Black Forest Labs": {
+  "feed": "https://bfl.ai/blog",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://bfl[.]ai/blog/[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: bfl.ai blog, the only news outlet (no RSS); category tags are client-side labels, so research posts and customer stories are mixed in. Dates from the card labels, spot-checked against the release page."
+ },
+ "Cognition": {
+  "feed": "https://cognition.ai/blog",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://cognition[.]ai/blog/[a-z0-9.-]+$",
+  "title_from": "page",
+  "note": "private: cognition.ai blog, the only news outlet; mixed listing of company news (funding, M&A, partnerships) and research / product posts. Dates from labels match the release pages."
+ },
+ "Cohere": {
+  "feed": "https://cohere.com/newsroom",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://cohere[.]com/blog/(?!tag/)[a-z0-9-]+$",
+  "title_strip_re": " +[A-Z][a-z]{2} [0-9]{1,2}, [0-9]{4}.*$",
+  "note": "private: cohere.com/newsroom (releases live under /blog/; no RSS). The first links are the mega-menu's featured posts, still Cohere's own. title_strip_re cuts the 'Oct 21, 2026 8 min read' clutter."
+ },
+ "Crusoe": {
+  "feed": "https://www.crusoe.ai/resources/newsroom",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://www[.]crusoe[.]ai/resources/newsroom/[a-z0-9-]+$",
+  "title_from": "page",
+  "date_from": "page",
+  "note": "private: crusoe.ai newsroom (Webflow, no RSS, links carry no text). date_from page is required: dates beside the links drifted onto neighbours (checked against three release pages)."
+ },
+ "Cursor": {
+  "feed": "https://cursor.com/blog/topic/company",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://cursor[.]com/blog/(?!topic/)[a-z0-9-]+$",
+  "title_from": "page",
+  "title_strip_re": " · Cursor$",
+  "note": "cursor.com blog, 'company' topic (funding, M&A, partnerships); /atom.xml is stale (2024). Cursor's own 2026-08-14 post says it has been acquired by SpaceX (now a subsidiary). Newest item 2026-08-14."
+ },
+ "Fluidstack": {
+  "feed": "https://www.fluidstack.io/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://www[.]fluidstack[.]io/news/[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: fluidstack.io/news (no RSS), only 4 items; dates from the release pages. Newest item 2026-07-20."
+ },
+ "GMI": {
+  "feed": "https://www.gmicloud.ai/en/blog",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://www[.]gmicloud[.]ai/en/blog/[a-z0-9-]+$",
+  "note": "private: gmicloud.ai (GMI Cloud) blog, full listing (Company + Customers + R&D; partnership news sits under Customers, so no category filter). Busy (~8 posts a week, 10 per page): R&D / model-availability posts are the noise."
+ },
+ "Lambda": {
+  "feed": "https://lambda.ai/blog/rss.xml",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "category_re": "^(announcements|company|NVIDIA .*)$",
+  "note": "private: lambda.ai HubSpot blog RSS (no separate newsroom). category_re keeps announcements / company posts plus NVIDIA-tagged product news; tags are free-form, so an untagged release could slip through."
+ },
+ "Mistral": {
+  "feed": "https://mistral.ai/news/rss",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: mistral.ai/news RSS (official). No <category> tags, so company news, model launches and solution posts are mixed."
+ },
+ "NScale": {
+  "feed": "https://www.nscale.com/newsroom",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://www[.]nscale[.]com/press-releases/[a-z0-9-]+$",
+  "title_strip_re": " *(Read Article|Button Text|Learn more)$",
+  "note": "private: nscale.com/newsroom press releases (clean, no RSS); dates from labels, spot-checked. Filed an IPO registration statement on 2026-09-18 (may become listed)."
+ },
+ "Pattison Food Group": {
+  "feed": "https://pattisonfoodgroup.com/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "follow_pdf": true,
+  "note": "subsidiary (Jim Pattison Group): pattisonfoodgroup.com WordPress feed of its media releases, 5 items. Each release page is a 'Download Press Release' link, so follow_pdf reads the PDF (the page footer also links two unrelated PDFs that get appended). Newest item 2026-10-01."
+ },
+ "Perplexity": {
+  "feed": "https://www.perplexity.ai/hub/blog/category/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://www[.]perplexity[.]ai/hub/blog/(?!category/)[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: perplexity.ai Hub blog, server-side 'News' category (the main blog mixes research and guides). No RSS; dates from labels match the pages."
+ },
+ "Reflection": {
+  "feed": "https://reflection.ai/blog",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://reflection[.]ai/blog/[a-z0-9-]+$",
+  "title_from": "page",
+  "title_strip_re": " — Reflection$",
+  "note": "private: reflection.ai/blog (3 posts; /newsroom only links third-party coverage). The newest post sits in an undated featured card, so it is recorded 'fail:no date' and saved once it moves into the dated list."
+ },
+ "Thinking Machines Lab": {
+  "feed": "https://thinkingmachines.ai/news/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://thinkingmachines[.]ai/news/[a-z0-9-]+/$",
+  "note": "private: thinkingmachines.ai/news (separate from the Connectionism research blog; the site /index.xml is stale and mixed). Partner deals (Crusoe, Google TPU) are not posted here."
+ },
+ "Together AI": {
+  "feed": "https://www.together.ai/blog/rss.xml",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: together.ai blog RSS (/press lists only third-party coverage). No <category> tags: company posts sit among inference / research / model-launch posts and customer stories."
+ },
+ "Vultr": {
+  "feed": "https://blogs.vultr.com/category/vultr-news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://blogs[.]vultr[.]com/(?!category/|tag/|author/)[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: blogs.vultr.com (Vultr's own subdomain) 'Vultr News' category (region launches, AMD / NVIDIA items); www.vultr.com/news sits behind a Cloudflare challenge."
+ },
+ "World Labs": {
+  "feed": "https://www.worldlabs.ai/blog",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "^https://www[.]worldlabs[.]ai/blog/[a-z0-9.-]+$",
+  "title_from": "page",
+  "note": "private: worldlabs.ai blog (only news outlet; research posts mixed in). Its 2026-09-28 post says it signed a definitive agreement to join AMD."
+ },
+ "insitro": {
+  "feed": "https://www.insitro.com/news/category/press-releases/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: insitro.com WordPress 'Press Releases' category feed (clean)."
+ },
+ "Ampere Computing": {
+  "feed": "https://amperecomputing.com/press/1",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "amperecomputing[.]com/press/[a-z0-9-]*[a-z][a-z0-9-]*$",
+  "title_from": "page",
+  "note": "SoftBank subsidiary since 2025-11-25; amperecomputing.com is still its own site. Press list page 1 (/press itself is 404). Dates are labels in the link text, spot-checked. Newest item 2026-03-19."
+ },
+ "Axiado": {
+  "feed": "https://axiado.com/category/press-release/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: axiado.com WordPress 'Press Release' category feed (the main /feed/ mixes in third-party links)."
+ },
+ "Ayar Labs": {
+  "feed": "https://ayarlabs.com/category/news/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: ayarlabs.com WordPress 'News' category feed (= its press releases; the main feed adds blog posts)."
+ },
+ "Etched": {
+  "feed": "https://www.etched.com/progress",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "etched[.]com/progress/[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: etched.com/progress, the company's announcement list (/news, /blog, /press are soft 404s); 3 posts, funding / milestones."
+ },
+ "Groq": {
+  "feed": "https://groq.com/newsroom",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "groq\\.com/newsroom/[a-z0-9-]+$",
+  "title_strip_re": "^(Partnership|Fundraising|Company|Research|Platform|Product|Customer|Announcement|News)\\s+",
+  "note": "private: groq.com/newsroom list (category tag stripped from the link text; dates spot-checked). Some partnership news is only on groq.com/blog, which this entry does not read."
+ },
+ "Lightmatter": {
+  "feed": "https://lightmatter.com/press-releases/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "lightmatter\\.com/press-release/[a-z0-9-]+/?$",
+  "title_strip_re": "^.{0,20}?Press Release\\s+",
+  "note": "private: lightmatter.com Press Releases list (the site feed is blog-only). Dates spot-checked."
+ },
+ "SambaNova": {
+  "feed": "https://sambanova.ai/press/rss.xml",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: sambanova.ai Press Releases RSS (declared on /press; /news/rss.xml is news coverage, not used)."
+ },
+ "Tenstorrent": {
+  "feed": "https://tenstorrent.com/newsroom/tags/announcements",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "tenstorrent\\.com/newsroom/(?!tags/|all$)[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: tenstorrent.com newsroom 'Announcements' tag (no RSS); also holds a few developer announcements. Dates spot-checked."
+ },
+ "d-Matrix": {
+  "feed": "https://www.d-matrix.ai/announcement-category/press-release/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: d-matrix.ai WordPress feed of its press-release category (the newsroom's 'In the News' links are third-party, not read)."
+ },
+ "Solidigm": {
+  "feed": "https://news.solidigm.com/en-WW/releases/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "news\\.solidigm\\.com/en-WW/\\d+-[a-z0-9-]+/?$",
+  "note": "SK hynix subsidiary: news.solidigm.com (its own newsroom subdomain) releases list, no RSS; also people / event stories. Dates spot-checked. Newest item 2026-08-12."
+ },
+ "Ranovus": {
+  "feed": "https://ranovus.com/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: ranovus.com WordPress feed (every post is News). Stale: newest item 2025-04-01."
+ },
+ "VAST Data": {
+  "feed": "https://www.vastdata.com/rss/press.xml",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: vastdata.com Press Releases RSS (declared on /press-releases); feed order is not strictly by date, dates are correct."
+ },
+ "WEKA": {
+  "feed": "https://www.weka.io/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "weka\\.io/news/[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: weka.io/news; its HTML links only the 3 newest press releases, enough for a daily sync. Label dates are UTC publish times (can be a day before the page dateline)."
+ },
+ "FuriosaAI": {
+  "feed": "https://furiosa.ai/newsroom",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "furiosa\\.ai/blog/[a-z0-9-]+$",
+  "note": "private: furiosa.ai/newsroom press-release list (releases live under /blog/; the blog RSS mixes in SDK / tech posts). Dates match the blog RSS."
+ },
+ "Rebellions": {
+  "feed": "https://rebellions.ai/wp-json/wp/v2/newsroom?per_page=20&news-category_exclude=168&_fields=date,link,title",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "json",
+  "items_key": "",
+  "title_key": "title.rendered",
+  "date_key": "date",
+  "link_key": "link",
+  "note": "private: rebellions.ai WordPress REST list of its 'newsroom' posts, excluding category 168 (Media Coverage = third-party articles); the press-release category feed misses some releases."
+ },
+ "HyperAccel": {
+  "feed": "https://hyperaccel.ai/category/announcements/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: hyperaccel.ai WordPress 'Announcements' category feed (the rest of its newsroom reposts third-party articles). Stale: newest item 2025-12-15."
+ },
+ "Huawei": {
+  "feed": "https://www.huawei.com/en/rss-feeds/huawei-updates/rss",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: huawei.com official 'Huawei Updates' RSS (listed on /en/rss-feeds); items are /en/news press releases. Heavy carrier / event volume."
+ },
+ "Yangtze Memory Technologies": {
+  "feed": "https://www.ymtc.com/cn/news.html",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "ymtc\\.com/cn/news/\\d+\\.html$",
+  "title_from": "page",
+  "lang": "zh",
+  "via": "jina",
+  "note": "private: ymtc.com Chinese company-news list (the English list stopped in 2025-08); an Aliyun WAF JS challenge blocks direct reads, so via Jina. Mostly ZhiTai consumer-SSD launches. Dates spot-checked."
+ },
+ "DenseLight": {
+  "feed": "https://www.denselight.com/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: denselight.com WordPress feed (all posts News; mostly trade-show notices). Stub posts that only link a partner's release (e.g. 'LITEON Announcement') fail the body check; normal posts read fine."
+ },
+ "AQT": {
+  "feed": "https://www.aqt.eu/news/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "aqt\\.eu/(?!(solutions|product-finder|partnerships|career|downloads-aqt-gallery|quantum-glossary|quantum-sdk-connectors|news|press|about|contact|imprint|privacy-policy|products|author|events)/)[a-z0-9-]+/$",
+  "via": "jina",
+  "note": "private: aqt.eu (Alpine Quantum Technologies) WordPress news list; releases sit at root slugs, so link_re skips the menu pages. Through Jina: the site rate-banned direct reads during the check. Dates printed before each card, spot-checked."
+ },
+ "Bluefors": {
+  "feed": "https://bluefors.com/feed/?post_type[]=bf_news&post_type[]=bf_press-release",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: bluefors.com WordPress RSS of its two news post types (bf_news + bf_press-release); the plain /feed/ is customer stories only."
+ },
+ "Maybell Quantum": {
+  "feed": "https://www.maybellquantum.com/news/rss.xml",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: maybellquantum.com news RSS. Newest item 2026-06-24."
+ },
+ "Monarch Quantum": {
+  "feed": "https://www.monarchquantum.com/category/news/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: monarchquantum.com WordPress NEWS category feed (drops blog / event posts)."
+ },
+ "PsiQuantum": {
+  "feed": "https://www.psiquantum.com/news-import?format=rss",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: psiquantum.com (Squarespace) -- the RSS of the collection behind its /news page; all categories are company news."
+ },
+ "QuEra Computing": {
+  "feed": "https://www.quera.com/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/press-releases/[a-z0-9-]+$",
+  "title_strip_re": "^PRESS RELEASE\\s+[A-Z][a-z]+ \\d{1,2}, \\d{4}\\s*|\\s*Read More.*$",
+  "note": "private: quera.com /news list (Webflow). Its press-release RSS is NOT used: its pubDates are republish dates. Card dates spot-checked against the release page."
+ },
+ "Quantum Machines": {
+  "feed": "https://www.quantum-machines.co/press-releases/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/press-release/[a-z0-9-]+/?$",
+  "title_strip_re": "^Press Release\\s*",
+  "note": "private: quantum-machines.co press-release list (feeds disabled); dates from each release page (JSON-LD), spot-checked against the dateline. 'In the Media' is third-party, not read."
+ },
+ "Quobly": {
+  "feed": "https://quobly.io/archives?type=press-releases",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/press-releases/[a-z0-9-]+$",
+  "title_strip_re": "\\s+[A-Z][a-z]{2} \\d{1,2}, \\d{4}\\s*(Read.*)?$",
+  "note": "private: quobly.io press-release archive (no RSS); date labels match the release pages."
+ },
+ "ZuriQ": {
+  "feed": "https://zuriq.com/news/rss/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: zuriq.com (Ghost) news collection feed (partnerships, funding, scientific publications)."
+ },
+ "iPronics": {
+  "feed": "https://ipronics.com/category/news/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: ipronics.com WordPress News category feed (drops the blog / article posts that duplicate releases)."
+ },
+ "Ampace": {
+  "feed": "https://en.ampace.com/news/all-news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/news/(latest-news|exhibition-activities|strategic-cooperation)/\\d+$",
+  "title_strip_re": "\\s*View More\\s*$",
+  "note": "private (ATL / CATL JV): en.ampace.com, its own English site (canonical of ampacetech.com/en). Card dates match the release pages."
+ },
+ "Carl Zeiss SMT": {
+  "feed": "https://www.zeiss.com/semiconductor-manufacturing-technology/news-and-events.html",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/smt-press-releases/\\d{4}/[a-z0-9-]+\\.html$",
+  "note": "subsidiary: the ZEISS SMT segment's own News & Events page (not the ZEISS group newsroom). Only the 3 newest SMT press releases are static links (the full list is JS-built): enough for a daily sync."
+ },
+ "HITECH Semiconductor (Wuxi)": {
+  "feed": "http://www.hitechsemi.com/htxw/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/news/\\d+\\.html$",
+  "title_strip_re": "\\s+[^\\s，。]*[，。].*$|\\s*<!--.*$|-->|\\d{2}\\s*/\\s*\\d{4}-\\d{2}",
+  "lang": "zh",
+  "note": "private (SK hynix JV under Taiji Industry): hitechsemi.com 海太新闻 list, Chinese, low volume. title_strip_re cuts teaser text and a commented-out slider's clutter. Dates spot-checked."
+ },
+ "Raytec Semiconductor": {
+  "feed": "https://www.rayteksemi.com/news/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "rayteksemi\\.com/news-detail/[^/]+/$",
+  "insecure_tls": true,
+  "lang": "zh",
+  "note": "Raytek Semiconductor 瑞峰半導體 (Hsinchu; spelled 'Raytec' on the map): rayteksemi.com news list, broken TLS chain on its own site. Holds 1 own item; the list's media links are excluded by link_re. It trades on Taiwan's emerging board (興櫃 7873), so MOPS is the richer source."
+ },
+ "Robotechnik": {
+  "feed": "https://www.ficontec.com/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "category_re": "^News$",
+  "note": "ficonTEC (Achim, Germany), Robotechnik's German subsidiary that builds the automated photonics / OCS assembly lines -- matches the map node (DE, OCS packaging lines). WordPress feed, News category only. The parent Robotechnik Intelligent Technology (罗博特科) is listed (SZSE 300757, HKEX since 2026-09)."
+ },
+ "SPIL": {
+  "feed": "https://www.spilglobal.com/News/38bffb66bc6ad759",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/NewsDetail/[0-9a-f]+$",
+  "title_strip_re": "^Press Center\\s*",
+  "note": "subsidiary (ASE): spilglobal.com (SPIL's own global site; spil.com.tw links there), 'Press Center' category (leaves out CSR / HR). Some items repost media stories."
+ },
+ "Sacmi": {
+  "feed": "https://sacmi.com/en-US/corporate/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/corporate/news/\\d+/",
+  "date_order": "dmy",
+  "title_from": "page",
+  "note": "private: sacmi.com corporate news, all divisions (ceramics, packaging, closures...); the MLCC line is a small part. dd/mm/yyyy dates, spot-checked."
+ },
+ "Tenpower": {
+  "feed": "https://www.tenpowercell.com/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "subsidiary (parent Azure Corp., SZ 002245): tenpowercell.com, its own English site, WordPress RSS (all own posts). Body via content:encoded. Newest item 2026-07-18."
+ },
+ "Trumpf": {
+  "feed": "https://www.trumpf.com/en_INT/newsroom/global-press-releases/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/press-release-detail-page/release/[a-z0-9-]+-\\d+/$",
+  "note": "private: trumpf.com global press releases (titles and dates from the release pages); machine-tool news mixed with semiconductor / EUV news."
+ },
+ "XING Mobility": {
+  "feed": "https://www.xingmobility.com/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "xingmobility\\.com/news/[a-z0-9-]+$",
+  "title_strip_re": "\\s*看更多\\s*$",
+  "lang": "zh",
+  "note": "private: xingmobility.com (行競科技). Its newsroom page keeps release URLs in data-url attributes, so the Chinese home page's 5 newest release links are read instead; dates spot-checked. A few English-only items may not appear."
+ },
+ "Utimaco": {
+  "feed": "https://utimaco.com/news/press-releases",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "/news/press-releases/[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: utimaco.com press-release list (no RSS). Card dates are correct, but the site mega-menu 'spotlight' links point at duplicate copies of older releases whose page date is the fetch day -- such a row is closed with `done --why \"duplicate of an older release\"`."
+ },
+ "ArianeGroup": {
+  "feed": "https://www.ariane.group/en/updates/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "ariane\\.group/en/news/[a-z0-9-]+/?$",
+  "date_order": "dmy",
+  "title_strip_re": "^(Ariane )?News \\d{2}\\.\\d{2}\\.\\d{4}\\s*",
+  "note": "private: ariane.group English news list (WordPress RSS turned off; press.ariane.group refused connections). dd.mm.yyyy labels in the links, spot-checked. Includes Arianespace launch news (subsidiary) and defence news."
+ },
+ "Axiom Space": {
+  "feed": "https://www.axiomspace.com/releases",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "axiomspace\\.com/release/[a-z0-9-]+$",
+  "note": "private: axiomspace.com press-release list; dates beside the links, spot-checked. Its /release/rss.xml is NOT used: its pubDates are re-publish times."
+ },
+ "Cowboy Space": {
+  "feed": "https://www.cowboyspace.com/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "cowboyspace\\.com/news/[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: cowboyspace.com (formerly Aetherflux; aetherflux.com redirects here) Framer news page, 3 posts; dates in the link text, spot-checked."
+ },
+ "Davidson Technologies": {
+  "feed": "https://www.davidson-tech.com/news/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: davidson-tech.com WordPress News feed (current announcements; also carries 'Industry Perspectives' opinion pieces). Its formal press-release feed /press-releases/feed/ is cleaner but its newest item is 2025-11-03."
+ },
+ "Kepler Communications": {
+  "feed": "https://kepler.space/category/press-and-news/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: kepler.space WordPress 'Press and News' category feed. Posts titled '[Partner] ...' redirect to that partner's own release; posts naming a media outlet ('[SpaceNews] ...') redirect to the article and are skipped by skip_title_re.",
+  "skip_title_re": "^\\[(SpaceNews|Space News|Via Satellite|SatNews|Payload|SpaceQ|Reuters|Bloomberg|TechCrunch|[^\\]]*\\b(News|Times|Journal|Magazine|Post|Week)\\b[^\\]]*)\\]"
+ },
+ "Sophia Space": {
+  "feed": "https://sophia.space/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "sophia\\.space/news/[^/?#]+$",
+  "date_order": "mdy",
+  "title_strip_re": "\\s*READ\\s*→.*$",
+  "note": "private: sophia.space Framer news page (sophiaspace.com is a parked page, not the company); dates in the link text, spot-checked. Media-coverage reposts ('LA TIMES - ...', 'SPACENEWS - ...') are skipped by skip_title_re.",
+  "skip_title_re": "^(?!Sophia)[^:|]{1,25}\\s+-\\s|^[A-Z]{3,}[A-Z ]*:\\s"
+ },
+ "Starcloud": {
+  "feed": "https://www.starcloud.com/blog",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "starcloud\\.com/blog/[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private: starcloud.com blog, the only listing on its own site (no news / press page); 3 explainer posts, newest 2026-01-19. Low value: it announces through wires and partners."
+ },
+ "United Launch Alliance": {
+  "feed": "https://newsroom.ulalaunch.com/releases/rss.xml",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private (Boeing / Lockheed JV): newsroom.ulalaunch.com HubSpot press-release RSS (the old www.ulalaunch.com feed stopped 2026-07-02)."
+ },
+ "TerraPower": {
+  "feed": "https://www.terrapower.com/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "terrapower\\.com/[A-Za-z0-9]+(-[A-Za-z0-9]+){3,}$",
+  "note": "private: terrapower.com news list (releases at root-level slugs, so link_re needs 4+ hyphenated words). Dates from the dateline in each excerpt; a few items carry no date anywhere (recorded fail:no date)."
+ },
+ "X-Energy": {
+  "feed": "https://x-energy.com/news/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "x-energy.com WordPress news feed. Its own releases now say 'X-Energy, Inc. (Nasdaq: XE)': it is LISTED, so company_metadata.json (status private) is out of date."
+ },
+ "Intersect Power": {
+  "feed": "https://www.intersect.com/news/category/press-releases",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "intersect\\.com/news/(?!category/|p\\d+$)[a-z0-9-]+$",
+  "note": "Alphabet subsidiary: intersect.com (intersectpower.com redirects here) Press Releases category list, still publishing; dates beside the links, spot-checked."
+ },
+ "VoltaGrid": {
+  "feed": "https://voltagrid.com/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: voltagrid.com WordPress feed (news posts only). Newest item 2026-05-11."
+ },
+ "Puget Sound Energy": {
+  "feed": "https://www.cleanenergyplan.pse.com/feed/rss2",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: cleanenergyplan.pse.com, PSE's own Clean Energy Plan subdomain, republishes PSE's energy-supply press releases (each links back to pse.com). Not every PSE release appears (rate cases do not); the main pse.com list is a Coveo widget with a token. Advisory-group meeting notices are skipped by skip_title_re.",
+  "skip_title_re": "\\b(Meeting|Webinar) \\|"
+ },
+ "CoolIT Systems": {
+  "feed": "https://www.coolitsystems.com/wp-json/wp/v2/news?per_page=20&category_news=116,129",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "json",
+  "title_key": "title.rendered",
+  "date_key": "date",
+  "link_key": "link",
+  "note": "Ecolab subsidiary since 2026-07-02: coolitsystems.com WordPress REST list of its 'news' posts, categories News (116) + Press Releases (129). Media-coverage reposts ('Calgary Herald: ...', 'CBC: ...') are skipped by skip_title_re.",
+  "skip_title_re": "^(?!CoolIT)[A-Z][A-Za-z ]{1,30}:\\s"
+ },
+ "CyrusOne": {
+  "feed": "https://www.cyrusone.com/resources/press-releases/rss.xml",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private (KKR / GIP): cyrusone.com HubSpot press-release RSS; the RSS date is the posting date, 0-2 days after the release dateline."
+ },
+ "FläktGroup": {
+  "feed": "https://www.flaktgroup.com/en/news/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "flaktgroup\\.com/en/news/news-archive/20(2[6-9]|[3-9]\\d)/[a-z]+/[^/]+/$",
+  "note": "Samsung subsidiary: flaktgroup.com global English news; dates beside the links, spot-checked. link_re keeps archive years 2026+ (the page also shows old 'recommended' links)."
+ },
+ "Helix Digital Infrastructure": {
+  "feed": "https://www.helixdi.com/wp-json/wp/v2/news_insights?per_page=20",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "json",
+  "title_key": "title.rendered",
+  "date_key": "date",
+  "link_key": "link",
+  "note": "private: helixdi.com WordPress REST list of its news_insights posts (the HTML list filters through a POST). Only some are press releases; its pages for media pieces (WSJ, FT, CNBC) just link out."
+ },
+ "Hitachi Energy": {
+  "feed": "https://www.hitachienergy.com/news-and-events/press-releases/_jcr_content/root/container/content_1/content/grid_0/newslist.listsearchresults.json",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "json",
+  "items_key": "items",
+  "title_key": "title",
+  "date_key": "date",
+  "link_key": "url",
+  "date_order": "dmy",
+  "note": "Hitachi subsidiary: hitachienergy.com GLOBAL press releases (not country news) through the page's own JSON endpoint (AEM newslist, GET). Dates 'dd.mm.yyyy hh:mm'."
+ },
+ "LiquidStack": {
+  "feed": "https://liquidstack.com/news/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "Trane Technologies subsidiary since 2026-03-03, keeps its own newsroom: liquidstack.com WordPress news feed. Newest item 2026-05-21."
+ },
+ "QTS": {
+  "feed": "https://q.com/news/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "Blackstone subsidiary: q.com is QTS's own domain (feed title 'News - QTS Data Centers'; qtsdatacenters.com/news declares this feed). Mostly press releases, plus community items and some media pieces."
+ },
+ "Rehlko": {
+  "feed": "https://www.rehlko.com/press-releases",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "rehlko\\.com/newsroom-[a-z0-9-]+$",
+  "title_from": "page",
+  "note": "private (formerly Kohler Energy): rehlko.com press-release list; dates beside the links, spot-checked."
+ },
+ "Rittal": {
+  "feed": "https://www.rittal.com/com-en/Company/Presse/Pressemeldungen",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "rittal\\.com/com-en/Company/Presse/Pressemeldungen/[A-Za-z0-9_.-]+$",
+  "title_from": "page",
+  "note": "private (Friedhelm Loh Group): rittal.com global English press releases. title_from page is required for the body match; some page titles are German."
+ },
+ "Skeleton Technologies": {
+  "feed": "https://www.skeletontech.com/news/rss.xml",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: skeletontech.com news RSS (declared on its page)."
+ },
+ "Submer": {
+  "feed": "https://submer.com/category/blog/press/feed/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "note": "private: submer.com WordPress 'Press' category feed (the main feed mixes blog and events)."
+ },
+ "Vantage Data Centers": {
+  "feed": "https://vantage-dc.com/wp-json/wp/v2/news?per_page=20&news_type=64,155",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "json",
+  "title_key": "title.rendered",
+  "date_key": "date",
+  "link_key": "link",
+  "note": "private: vantage-dc.com WordPress REST list of its 'news' posts, types Press Release (64) + Statement (155), leaving out Media Coverage (63)."
+ },
+ "Wieland Group": {
+  "feed": "https://www.wieland.com/en/about/news",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "wieland\\.com/en/about/news/[a-z0-9.-]+$",
+  "date_order": "dmy",
+  "note": "private: wieland.com English news list; dd.mm.yyyy labels in the links, spot-checked. A few titles are German only."
+ },
+ "LG Energy Solution": {
+  "feed": "https://news.lgensol.com/feed/",
+  "how": "page",
+  "page": "https://news.lgensol.com/",
+  "checked": "2026-10-21"
+ },
+ "Doosan Fuel Cell": {
+  "feed": "https://www.doosanfuelcell.com/en/media-center/medi-0101/",
+  "how": "manual",
+  "checked": "2026-10-21",
+  "kind": "page",
+  "link_re": "medi-0101_view/\\?id=\\d+"
+ },
+ "OE Solutions": {
+  "feed": "https://oesolutions.com/rss",
+  "how": "page",
+  "page": "https://oesolutions.com/news/",
+  "checked": "2026-10-22"
+ },
+ "Seondo Electric": {
+  "feed": "https://www.seondo.co.kr/community/index.php",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "community/index\\.php\\?boardid=news&(amp;)?mode=view&(amp;)?idx=\\d+",
+  "lang": "ko",
+  "title_strip_re": "\\s*Read more\\s*$"
+ },
+ "Taihan Cable": {
+  "feed": "https://www.taihan.com/",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "news/pr/releaseDetail\\?idx=\\d+",
+  "lang": "ko",
+  "title_strip_re": "^\\d\\d\\.\\d\\d\\s+\\d\\d\\s+보도자료\\s+\\d{4}-\\d\\d-\\d\\d\\s*"
+ },
+ "Samsung Electro-Mechanics": {
+  "feed": "https://www.samsungsem.com/global/newsroom/news/overview.do",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "samsungsem\\.com/global/newsroom/news/view\\.do\\?id=\\d+"
+ },
+ "AcBel Polytech": {
+  "feed": "https://www.acbel.com.tw/en/news/775Yn28xRENsfYI5",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "acbel\\.com\\.tw/en/new/[A-Za-z0-9]+/775Yn28xRENsfYI5",
+  "title_strip_re": "^News Releases\\s+"
+ },
+ "ASRock": {
+  "feed": "https://www.asrock.com.tw/news/index.us.asp",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "page",
+  "link_re": "asrock\\.com\\.tw/news/index\\.us\\.asp\\?iD=\\d+",
+  "title_strip_re": "^\\[Press Release\\]\\s*",
+  "via": "jina"
+ },
+ "Samsung SDI": {
+  "feed": "https://www.samsungsdi.com/sdi-now/sdi-news/list/ajax.html?pageIndex=1&pagesize=15",
+  "how": "manual",
+  "checked": "2026-10-22",
+  "kind": "json",
+  "items_key": "pageInfo.list",
+  "title_key": "title",
+  "date_key": "beginDt",
+  "link_tpl": "https://www.samsungsdi.com/sdi-now/sdi-news/{idx}.html"
  }
 }

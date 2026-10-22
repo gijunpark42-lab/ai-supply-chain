@@ -1,0 +1,108 @@
+SOURCE: IBM official press release -- https://newsroom.ibm.com/2026-10-20-llm-d-1-0-advances-open,-cost-efficient-ai-inference-for-production-scale
+TITLE: llm-d 1.0 Advances Open, Cost-Efficient AI Inference for Production Scale
+DATE: 10-20-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: IBM press release: llm-d 1.0 Advances Open, Cost-Efficient AI Inference for (10-20-2026)
+
+---
+llm-d 1.0 Advances Open, Cost-Efficient AI Inference for Production Scale
+
+-->
+
+All press releases
+
+-->
+
+-->
+
+llm-d 1.0 Advances Open, Cost-Efficient AI Inference for Production Scale
+
+• llm-d 1.0 consolidates a hardened core for distributed inference validated for day 2 production deployments that helps organizations improve AI serving efficiency and scale enterprise workloads.
+
+• llm-d is broadly adopted and trusted by frontier model labs, hyperscalers and neoclouds, hardware accelerators, and major enterprises, with recent demonstrations showing up to five to 10 times cost reductions for context-heavy agentic workloads [1] and three times greater output throughput. [2]
+
+Oct 20, 2026
+
+SAN JOSE, C.A., OCT. 20, 2026 – Today, llm-d project contributors announced the release of llm-d 1.0, a major milestone for the open source project designed to help organizations deploy and scale large language model inference more efficiently across modern infrastructure. Founded in 2025 by Red Hat, IBM (NYSE: IBM ), Google Cloud, CoreWeave and NVIDIA, and now governed by the Cloud Native Computing Foundation (CNCF), llm-d plays a key role in the open foundation for enterprises deploying AI at scale in production.
+
+As organizations race to put AI into production, many are discovering that running AI at scale can be as challenging and expensive as building the models themselves. Organizations need a way to deliver responsive experiences for users, support agentic workloads, and maximize utilization of increasingly scarce compute resources. llm-d 1.0 is built to address these challenges through intelligent distributed inference capabilities to facilitate improvements in performance, increases in throughput and help organizations gain greater control over the economics of AI serving.
+
+Turning Innovation into Production Reality
+
+With the rise of agentic AI, new types of workloads are placing a different kind of stress on infrastructure systems. Agentic workloads continually access and reuse vast amounts of context while supporting parallel agents that can generate unpredictable bursts of activity. Managing that context often consumes more resources than generating the final output itself, making latency, throughput, memory efficiency and infrastructure costs critical factors in realizing AI ROI. llm-d already delivers hardware heterogeneity and advanced inference capabilities out of the box for complex infrastructure environments, as well as prefix-cache and load-aware routing, KV cache offloading, prefill/decode disaggregation, wide expert parallelism and batch and async inference — across multiple model servers, including vLLM and SGLang.
+
+llm-d 1.0 is engineered to bring that performance to the realities of Day 2 operations and the ongoing work of running inference in production: serving multiple tenants, balancing competing priorities, providing with zero downtime features and supporting emerging agentic workloads, all within one suite of co-designed components that compose into a platform. New capabilities in 1.0 include:
+
+Multi-tenant quality of service — Priority and fairness-aware flow control helps latency-sensitive requests, and bursty agent workloads share a fleet without starving one another.
+
+Zero-downtime operations — Router high availability with hot standby and rolling updates keep traffic flowing through upgrades and planned maintenance. Management of prefill/decode replicas as one logical unit, with coordinated rollouts and lockstep upgrades—making disaggregated serving practical in production.
+
+A stable foundation to build on — A v1 configuration API and a hardened request path, validated across clouds and accelerators, give adopters a release they can standardize on.
+
+Agent-aware serving — Session-aware routing keeps multi-turn conversations close to their cached context, while turn-priority scheduling and native Responses API state support help agents reuse context across turns and reduce recomputation.
+
+The result is infrastructure that can support diverse AI workloads, ranging from latency-sensitive user interactions to large-scale autonomous agent workflows, without forcing organizations to choose between responsiveness and efficiency.
+
+Growing Ecosystem Momentum
+
+llm-d is already being used across a growing ecosystem of model developers, cloud providers, infrastructure vendors and enterprise users. Today, the project includes more than 500 contributors from over 25 organizations collaborating on the future of distributed AI serving and helping build common foundations across the AI infrastructure stack.
+
+Core users including organizations running large-scale distributed inference, frontier model developers optimizing inference stacks and cloud providers serving multi-tenant AI endpoints have all seen measurable benefit from deploying llm-d.
+
+In one recent use case , open frontier models and llm-d enabled IBM Research to explore quantum error correction hardware at 11.5 times lower inference cost than an all-proprietary configuration. [3] Researchers reported a prefix-cache hit rate of approximately 98% and a blended serving cost of about $0.11 per million tokens.
+
+In a separate recent demonstration using benchmark workloads, researchers showed that llm-d could efficiently serve large mixture-of-experts models for agentic workloads. Researchers used llm-d to deploy GLM 5.2, an approximately 753-billion-parameter open-weight model, on widely deployed NVIDIA GPUs, demonstrating how enterprises can use existing GPU fleets to serve frontier-class AI at scale. On a workload with hundreds of agentic sessions running in parallel, the deployment delivered over 6.6 million output tokens per minute at peak on agentic benchmarks, serving up to 3,000 concurrent coding agents with zero preemptions. At current cloud rental rates, this deployment led to costs that would have been 5 to 10 times less per token than equivalent commercial API pricing, with the largest savings on the input-heavy traffic patterns typical of agentic workloads, highlighting how llm-d can save resources and costs for enterprises deploying AI in production at scale. [4]
+
+Through its CNCF governance model and broad industry participation, llm-d aims to accelerate innovation while providing organizations with an open alternative for managing increasingly complex AI infrastructure. Looking to the future, the community will continue adapting to new hardware and models as they emerge, evolving the software stack to achieve peak performance across new architectures. To learn more, read the announcement blogs from IBM and Red Hat.
+
+Supporting Quotes
+
+Chris Aniszczyk, CTO, CNCF
+
+“AI inference is quickly becoming a core cloud native workload. llm-d 1.0 helps organizations meet this shift at scale by bringing together open source inference capabilities with the requirements that matter in scaling production to then meet the demands of agentic workloads. It’s an important step toward making high performance open source inference more operationally mature and accessible across the cloud native ecosystem.”
+
+Brian Stevens, senior vice president and AI chief technology officer, Red Hat
+
+"As organizations move beyond AI experimentation and into full-scale production, the bottleneck shifts from generating answers to managing the economics, operational reliability, and extreme infrastructure demands of complex agentic workloads. Open source collaboration is essential to solving these day-two operational challenges at scale. With llm-d 1.0, the community is delivering a standardized, hardened core for distributed inference to empower enterprises to optimize hardware performance, address operational costs, and build high-density AI architectures on an open foundation."
+
+Priya Nagpurkar, vice president, AI native systems, IBM Research
+
+“At IBM, we see firsthand that the challenge of enterprise AI is no longer just building powerful models but running them efficiently and reliably at scale. llm-d 1.0 represents an important milestone in creating an open foundation for distributed inference to help organizations get more value from their AI infrastructure and more control on the AI capabilities they depend on. As agentic workloads become more prevalent, open technologies like llm-d will be critical to improving performance, lowering costs, and accelerating innovation across the AI ecosystem.”
+
+Mark Lohmeyer, VP & GM, AI & Computing Infrastructure, Google Cloud
+
+"Agentic AI is unlocking tremendous value for enterprises and consumers across a broad range of use-cases. However, as these workloads scale rapidly in production, they place unique demands on the infrastructure and require new approaches to deliver the performance, reliability, and cost-effectiveness our customers need. The release of llm-d 1.0 is an important milestone for the industry to address these needs. As a founding contributor to llm-d, Google Cloud is integrating llm-d 1.0 into Google Kubernetes Engine, and enabling it across our Google TPU and NVIDIA GPU portfolio, enabling customers to scale multi-tenant environments, optimize their inference performance, and dramatically lower their overall serving costs on a hardened, open-source foundation."
+
+Shadi Saba, vice president of engineering, AI/ML at CoreWeave
+
+"Every team running inference at scale hits the same problems: context that often costs more to manage than the output, tenants competing for the same fleet, and upgrades that can't interrupt traffic. llm-d 1.0 gives the community a hardened, open base to solve them once instead of separately. CoreWeave helped found the project, and customers can run llm-d on CoreWeave Kubernetes Service alongside NVIDIA Dynamo, choosing the serving stack that fits their workload."
+
+Ujval Kapasi, vice president, Engineering AI Frameworks, NVIDIA
+
+"The next wave of agentic AI demands inference that delivers performance and efficiency at scale. Bringing llm-d to NVIDIA Vera Rubin will help enterprises build and scale advanced AI applications on the next generation of NVIDIA accelerated infrastructure. Through our collaboration with the llm-d community and contributions from open source NVIDIA Dynamo, we’re helping enterprises get more from their AI infrastructure investments."
+
+Phil Guido, executive vice president and chief commercial officer at AMD
+
+“With llm-d v1.0, we are advancing open, high-performance distributed inference on AMD Instinct™ GPUs. Agentic workloads require infrastructure that delivers responsiveness and efficiency. Working with the llm-d community, we're delivering the latest inference innovation on an open foundation, giving developers greater flexibility and choice to deploy AI at scale."
+
+Acyr Locatelli, VP, Modeling, Cohere
+
+"At Cohere, we face the dual challenge of training frontier language models while serving them efficiently at enterprise scale. llm-d helps us optimize for both, whether maximizing throughput for large-scale reinforcement learning workloads or delivering the responsiveness users expect in production. Its flexible, open-source architecture aligns closely with our commitment to sovereign AI, giving organizations greater control over how AI is deployed, operated, and scaled."
+
+Salman Paracha , SVP AI Engineering, DigitalOcean
+
+“DigitalOcean is excited about the llm-d 1.0 release and relies on llm-d as foundational distributed inference software for DigitalOcean Serverless Inference and Managed Agents, serving trillions of tokens. Its Kubernetes-native design and integration with the Kubernetes Gateway API Inference Extensions provide robust orchestration and endpoint picking, while production-proven paths for dynamic flow control, inference-aware load balancing, and prefill/decode disaggregation help us operate reliably at scale. We collaborate closely with the llm-d community, contributing upstream features and feedback, and look forward to the continued development of llm-d.”
+
+Vladislav Tankov, Director of AI, JetBrains
+
+"JetBrains has been working with llm-d since its early releases, and it is great to see the project reach 1.0. llm-d now runs in production behind our new Junie Lite plan and serves a significant share of its traffic. Our traffic ranges from long agentic coding sessions to short requests, and predicted latency-based scheduling was straightforward to enable and keeps latency consistent across that mix. Junie Lite brings our AI coding agent to developers at no cost, and llm-d helps make that possible by letting us serve more requests per GPU at lower cost and with faster responses. We have enjoyed working with the llm-d team and congratulate them on this release."
+
+Mathis Felardos, Lucas Fernandes-Martins and Nikhil Thomas (Mistral, Inference Engineers and llm-d contributors)
+
+“Serving frontier models across interactive applications and high-volume APIs means handling steep traffic spikes without letting bursty workloads degrade latency for priority customers. With llm-d's prefix-cache-aware routing, flow control and disaggregated serving support we can enforce strict priority bands across our commercial tiers, automatically holding or shedding lower-priority requests when pools saturate so paid traffic meets our latency SLOs. Mistral is a proud supporter of open-source software, and we will continue to contribute back to llm-d and DisaggregatedSet projects.”
+
+Nishchaie Khanna, Sr Director of Engineering, AI Platform, Roblox
+
+"At Roblox, serving large language models efficiently across a mix of cloud and on-premises GPUs is one of our core infrastructure challenges. llm-d gives us a Kubernetes-native foundation for disaggregated serving and cache-aware routing on the hardware we already run, without tying us to a single inference engine. We’re excited to build on llm-d 1.0 and to contribute back to the community."

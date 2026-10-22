@@ -1,0 +1,36 @@
+SOURCE: Cloudflare official press release -- https://cloudflare.net/news/news-details/2026/Cloudflare-Expands-Support-for-AI-Coding-Agents-with-Cursor-Cloud-Agents-on-Cloudflare-Sandboxes/default.aspx
+TITLE: Cloudflare Expands Support for AI Coding Agents with Cursor Cloud Agents on Cloudflare Sandboxes
+DATE: 09-02-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Cloudflare press release: Cloudflare Expands Support for AI Coding Agents with Cursor (09-02-2026)
+
+---
+Cloudflare Expands Support for AI Coding Agents with Cursor Cloud Agents on Cloudflare Sandboxes
+
+2026-09-02
+
+Now SpaceXAI users have another way to run AI agents in environments they control, while Cloudflare expands the infrastructure powering the next generation of agentic software
+
+SAN FRANCISCO--(BUSINESS WIRE)--
+
+Cloudflare, Inc. (NYSE: NET), the leading connectivity cloud company, today announced support for running Cursor Cloud Agents on Cloudflare Sandboxes , giving developers and platform teams a new way to run AI coding agents in secure, customer-controlled environments.
+
+The integration builds on Cloudflare’s work with other leading AI agent platforms, including Devin Outposts and Claude Managed Agents , and reflects a simple shift in how agentic software is being deployed: developers want to keep the tools they already use, while enterprises want control over where agent work runs and how it accesses code, systems, and secrets. Cloudflare Sandboxes are becoming a natural execution layer for that model: secure, isolated environments where agent work can run closer to a customer’s code, systems, and security requirements.
+
+Cursor Cloud Agents let developers assign coding tasks from the Cursor app, cursor.com, or the Cursor mobile app. With Cursor Self-Hosted Machines, Cursor continues to run the agent loop, including inference, planning, and orchestration, while the agent gets work done on a customer-selected worker. In SpaceXAI’s model, a worker is the customer-operated machine or environment that executes agent tasks; it is separate from Cloudflare Workers , Cloudflare’s serverless developer platform. With Cloudflare Sandboxes, that self-hosted worker can run in a sandbox environment in the customer’s Cloudflare account.
+
+Developers keep the Cursor workflow they already use: they still start and manage agents from Cursor, and Cursor still routes the work and streams results back to the user. What changes is where the work happens. Tool calls, including terminal, filesystem, and browser actions, run inside customer-controlled Cloudflare sandbox environments, which matters for teams with strict requirements around where code, build caches, and secrets live. For organizations using Cursor Self-Hosted Machines across different execution environments, Cloudflare Sandboxes provide another controlled option for running agent workloads.
+
+“Developers want powerful AI tools that fit naturally into their workflows, and enterprises need those tools to run in environments they control,” said Dane Knecht, Chief Technology Officer at Cloudflare. “Cloudflare Sandboxes gives teams the freedom to use the AI tools they prefer while giving organizations a secure, isolated place to run agent work. Bringing Cursor Cloud Agents to Cloudflare Sandboxes is another step toward making Cloudflare the execution layer for the next generation of agentic applications.”
+
+Cursor Cloud Agents run via self-hosted machines use an outbound connectivity model. A Cursor worker runs the Cursor CLI and opens a long-lived outbound HTTPS connection to Cursor’s backend, where agent tool calls are sent over that connection. Cursor does not need to open an inbound connection into the customer’s network; teams can use the quickstart guide to configure a Cursor worker and connect it to their environment.
+
+"SpaceXAI’s goal is to make agents useful wherever developers work,” said Toni Adams, Sr Director of Partnerships at SpaceXAI. “Self-Hosted Machines let teams keep Cursor workflows across desktop, web, and mobile while routing work to infrastructure they operate. Cloudflare Sandboxes give those teams an enterprise-grade option for running agent workloads in a controlled environment.”
+
+The integration supports Cursor’s Self-Hosted Machines workflow for individual developers and teams. Developers can connect a single worker through My Machines, while enterprise teams can use Cursor self hosted worker pools as named routing targets that allow new agent chats to wait until an available worker claims them. Teams can create pools for different execution environments, then use pool orchestration to watch demand, start worker capacity when needed, and release it when sessions end.
+
+During self-hosted operation, repositories, build caches, and secrets stay on the customer's machines. File chunks read by the model during inference, along with Cloud Agent artifacts such as screenshots, videos, and log references, are uploaded so they can appear in pull requests and dashboards. Teams that want to integrate self-hosted machine status or pool routing into their own systems can also use the Cloud Agents API .
+
+Developers and platform teams can learn more about Cursor Self-Hosted Machines by visiting the Cloudflare tutorial , the Cursor quickstart , or the Cursor worker pools , pool orchestration , and Cloud Agents API documentation. To see how Cloudflare Sandboxes support other agent platforms, read more about Devin Outposts on Cloudflare and Claude Managed Agents on Cloudflare .

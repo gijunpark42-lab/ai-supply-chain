@@ -1,0 +1,43 @@
+{
+  "source": "Ferrotec TDnet: release 140120261019553164 (10-20-2026)",
+  "new_nodes": {
+    "Ferrotec": {
+      "ticker": "6890.T",
+      "exchange": "TSE",
+      "country": "JP",
+      "why": "existing node (manufacturing/foundry.json, materials / Components & Parts Suppliers) new in optical_networking.json: Ferrotec's TECs (thermoelectric coolers), thermistors and insulating heat-dissipation substrates for submounts temperature-control and cool the lasers in optical transceivers, and Innolight (already in this chain, interconnect / Components) is named as one of the main customers of its TEC products; Ferrotec and Innolight share no chain, so the placement lets the stated supplier -> customer relationship be an edge (skill section 6, cross-chain relationships)",
+      "evidence": "Ferrotec TDnet 10-20-2026 (Japanese): the company-relationship row for InnoLight reads 'Transaction relationship: one of the main customers of the company's TEC products' (translated from the Japanese), and the consolidated subsidiary Hangzhou Dahe Thermo-Magnetics concluded a strategic collaboration agreement with InnoLight for the supply and joint development of TECs and submounts for AIDC optical-interconnect products",
+      "approved": "opus verifier 2026-10-21: existing node new in optical_networking.json under the cross-chain rule: Ferrotec's TDnet filing names InnoLight as one of the main customers of its TEC products and its subsidiary concluded a supply and joint-development agreement for TECs and submounts for AIDC optical interconnect; interconnect / Components fits TECs and submounts for transceivers"
+    }
+  },
+  "chains": {
+    "components/optical_networking.json": {
+      "players": [
+        {
+          "company": "Ferrotec",
+          "layer": "interconnect",
+          "sector": "Components",
+          "product": "TECs (thermoelectric coolers), thermistors and insulating heat-dissipation substrates for submounts used in optical transceivers",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Innolight",
+              "relationship": "TEC (thermoelectric cooler) and submount supply for optical transceivers",
+              "contracts": [
+                {
+                  "source": "Ferrotec TDnet: release 140120261019553164 (10-20-2026)",
+                  "signal": "Ferrotec's TDnet filing names InnoLight as one of the main customers of its TEC products; its consolidated subsidiary Hangzhou Dahe Thermo-Magnetics Electronics concluded a strategic collaboration agreement with InnoLight for the supply and joint development of TECs and submounts and collaboration in technologies and materials for AIDC optical-interconnect products (board resolution October 20, 2026; agreement date and collaboration start given as during October 2026, planned).",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "October 2026 (planned, as the filing states)",
+                  "type": "strategic collaboration agreement (product supply and joint development)",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

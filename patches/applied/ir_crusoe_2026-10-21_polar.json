@@ -1,0 +1,58 @@
+{
+  "source": "Crusoe press release: Polar & Crusoe expand Norway AI partnership to 40MW (10-21-2026)",
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "Crusoe",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "energy-first GPU cloud",
+          "quarterly_data": [
+            {
+              "quarter": "Crusoe press release: Polar & Crusoe expand Norway AI partnership to 40MW (10-21-2026)",
+              "signal": "Polar Data Centers' DRA01 facility in Tordal, Norway is now live, providing 12MW of IT capacity powered by 100% hydroelectric energy and supporting Crusoe Cloud; the partnership expands into DRA02, the next phase of the Tordal campus, expected to go live in late 2027 with an additional 40MW of liquid-cooled IT capacity, where Crusoe plans to deploy NVIDIA Vera Rubin NVL72.",
+              "figure": "12MW live (DRA01); additional 40MW expected late 2027 (DRA02)",
+              "slot": "backlog_or_b2b",
+              "topics": []
+            }
+          ]
+        },
+        {
+          "company": "Polar Data Centers",
+          "layer": "cloud_infra",
+          "sector": "Datacenter Colocation",
+          "product": "AI-ready data center capacity in Tordal, Norway (hydroelectric-powered)",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "Crusoe",
+              "relationship": "AI data-center capacity at the Tordal, Norway campus (DRA01, DRA02) hosting Crusoe Cloud",
+              "contracts": [
+                {
+                  "source": "Crusoe press release: Polar & Crusoe expand Norway AI partnership to 40MW (10-21-2026)",
+                  "signal": "DRA01 (12MW of IT capacity, 100% hydroelectric) is live and powering Crusoe Cloud; the partnership expands into DRA02, expected live in late 2027 with an additional 40MW of liquid-cooled IT capacity, where Crusoe plans to deploy NVIDIA Vera Rubin NVL72.",
+                  "units": "12MW live; additional 40MW",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "capacity lease",
+                  "topics": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "new_nodes": {
+    "Polar Data Centers": {
+      "ticker": null,
+      "exchange": null,
+      "country": null,
+      "why": "develops and operates the AI data-center capacity (DRA01 12MW live, DRA02 40MW) that hosts Crusoe Cloud's GPUs: its business benefits directly from AI compute build-outs",
+      "evidence": "Polar Data Centers (\"Polar\"), a European developer and operator of AI-ready data center infrastructure, today announced the expansion of its partnership with Crusoe ... DRA01 is now live, providing 12MW of IT capacity",
+      "approved": "opus verifier 2026-10-21: private European developer/operator of AI data centers whose Tordal, Norway DRA01 (12MW, live) hosts Crusoe Cloud and whose DRA02 (40MW, late 2027) will host Crusoe's Vera Rubin NVL72, stated in Crusoe's own release with both CEOs quoted; colocation for a neocloud passes the litmus; no existing node under another spelling (judgment call: private company)"
+    }
+  }
+}

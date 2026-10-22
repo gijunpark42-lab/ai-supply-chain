@@ -1,0 +1,378 @@
+SOURCE: GMI official press release -- https://www.gmicloud.ai/en/blog/minimax-m31-flash-on-gmi-cloud-agent-work-at-015-per-million-tokens
+TITLE: MiniMax M3.1 Flash on GMI Cloud: agent work at $0.15 per million tokens
+DATE: 10-21-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: GMI press release: MiniMax M3.1 Flash on GMI Cloud: agent work at $0.15 per (10-21-2026)
+
+---
+MiniMax M3.1 Flash on GMI Cloud: agent work at $0.15 per million tokens
+
+More Blog Posts
+
+More Blog Posts
+
+Announcements MiniMax M3.1 Flash on GMI Cloud: agent work at $0.15 per million tokens
+
+MiniMax M3.1 Flash is live on GMI Cloud at $0.15 input and $0.60 output per million tokens, with 1M context and agent scores beside models that cost 10 to 80 times more.
+
+October 21, 2026
+
+Why cost per task is the number that matters now
+
+An agent run is hundreds of model calls, each one reading the growing context and writing the next step. Per-token price times tokens consumed is the bill, and a model that reasons in fewer tokens wins twice.
+
+MiniMax released M3.1 Flash on October 19, 2026. It is the model that ran anonymously as "Space Bunny" and processed over 200 trillion tokens before the reveal. MiniMax reports agent task costs 70% lower than M3, with output peaking above 200 tokens per second and a median above 170. Artificial Analysis measured about $0.22 per task on its Intelligence Index, down from $0.51 for M3, while the index score rose from 29 to 42.
+
+The model is available today on GMI Cloud as MiniMaxAI/MiniMax-M3.1-Flash , served in FP8 with the full 1,048,576-token context.
+
+Demo: a shinto shrine for $4.50
+
+We pointed a coding agent at M3.1 Flash on GMI Cloud and asked for a shinto shrine as a 3D web scene. Four hours of autonomous agent work, including planning, writing the scene code, iterating on lighting and layout, and fixing its own runtime errors, cost $4.50 in tokens.
+
+Watch the result on X : torii gates, lantern-lit paths, a koi pond and a footbridge, rendered live in the browser.
+
+Demo fact
+
+Value
+
+Model
+
+MiniMaxAI/MiniMax-M3.1-Flash on GMI Cloud
+
+Task
+
+Coding agent builds a 3D web scene of a shinto shrine
+
+Agent runtime
+
+4 hours
+
+Total token cost
+
+$4.50
+
+Context used
+
+Single 1M-token window, long multi-file sessions with the full history kept in context
+
+To put $4.50 in perspective: at $4 input and $20 output per million, the same four hours of agent tokens would run well past $100. The video shows what the agent shipped, and the cost is the point.
+
+https://x.com/gmi_cloud/status/2112253749289009429
+
+Pricing: $0.75 for a million in and a million out
+
+M3.1 Flash sits at the cheapest tier in its class while keeping a flat rate across the full 1M context. M3 doubled its price above 512K input tokens; M3.1 Flash charges the same rate at every context length.
+
+Model
+
+Input $/1M
+
+Output $/1M
+
+1M in + 1M out
+
+Context
+
+MiniMax M3.1 Flash (GMI Cloud)
+
+$0.15
+
+$0.60
+
+$0.75
+
+1M
+
+DeepSeek V4.1 Flash (peak)
+
+$0.30
+
+$1.20
+
+$1.50
+
+1M
+
+MiniMax M3 (up to 512K)
+
+$0.30
+
+$1.20
+
+$1.50
+
+1M
+
+Gemini 3.8 Flash (through Dec 31, 2026)
+
+$0.75
+
+$3.75
+
+$4.50
+
+1M
+
+GLM-5.3
+
+$1.40
+
+$4.40
+
+$5.80
+
+1M
+
+Claude Sonnet 5.5
+
+$2.00
+
+$10.00
+
+$12.00
+
+1M
+
+Cached input on M3.1 Flash is $0.015 per million, a 10x discount for the repeated system prompts and tool schemas that dominate agent traffic. Prices from MiniMax and VentureBeat ; GMI Cloud list price matches MiniMax.
+
+Per-token price is half the story. The other half is how many tokens a model burns to finish a task. On the Artificial Analysis Intelligence Index, M3.1 Flash used about 189M output tokens where GLM-5.3 Flash used 324M and Gemini 3.8 Flash 334M.
+
+Artificial Analysis via VentureBeat, October 19, 2026 · max reasoning effort
+
+Agent benchmarks
+
+The benchmarks that matter for agents measure long sequences of tool calls, shell work, and multi-step planning. Here is where M3.1 Flash lands against open-weight peers in the same price band.
+
+MiniMax model card via MarkTechPost, October 19, 2026 · self-reported scores
+
+Against closed frontier models, MiniMax's own numbers put it ahead on business workflows. MiniMax reports 62.2 on Automation-Bench against 50.3 for Claude Opus 5 and 45.8 for GPT-5.6 Sol, and a 76.2 on BankerToolBench that ties Opus 5. On DeepSWE v1.1 the field is tight: Opus 5 at 74.0, M3.1 Flash at 73.7, GPT-5.6 Sol at 73.0.
+
+Benchmark
+
+What it measures
+
+M3.1 Flash
+
+BankerToolBench
+
+Finance workflows with chained tool calls
+
+76.2 (ties Opus 5)
+
+OSWorld V2
+
+Computer use on a desktop
+
+61.7
+
+Agents' Last Exam
+
+Hard multi-step agent tasks
+
+29.6
+
+CyberGym
+
+Vulnerability discovery and validation
+
+82.2
+
+LOCA-Bench 256K
+
+Long-context agent work
+
+60.3
+
+Humanity's Last Exam (Artificial Analysis)
+
+Expert-level reasoning
+
+48% (M3: 39%)
+
+Sources: MiniMax , MarkTechPost , VentureBeat .
+
+Hands-on: five tasks through the GMI endpoint
+
+Benchmarks tell you where a model ranks. A hands-on run tells you what it feels like to build with. We gave M3.1 Flash a small tool-calling loop (three tools: run_shell , write_file , read_file ) against the GMI Cloud OpenAI-compatible endpoint and five tasks in an empty folder on a Mac. Test assets came from other GMI Cloud models: gemini-3-pro-image drew a shrine signboard reading "OPEN 9 TO 5" and MiniMaxAI/MiniMax-M2.7 wrote a two-page maintenance PDF with six part numbers.
+
+Task
+
+Outcome
+
+Seconds
+
+Tool calls
+
+What happened
+
+1 List files, count lines of code
+
+Pass
+
+164
+
+23
+
+Correct table; over-verified a 3-file folder with file, wc, od and a throwaway Python counter
+
+2 Three.js shrine, three files
+
+Partial
+
+784 (stopped)
+
+34
+
+Wrote 1,472 lines across index.html, scene.js, style.css; node --check clean; then went past the brief and tried to launch Chrome
+
+3 Long-context Q&A over the code
+
+Pass
+
+24
+
+8
+
+103k prompt tokens in 21 s; every cited line number correct
+
+4 Image and PDF input
+
+Partial
+
+35
+
+4
+
+Image text read exactly; the PDF was ignored in both request formats we tried
+
+5 Write and run a self-test
+
+Pass
+
+217
+
+16
+
+341-line unittest file, 12 of 12 pass, then started mutation testing on its own
+
+Two things stood out.
+
+It reads a whole project at once. We handed it the full shrine codebase (about 103,000 tokens) in a single request and asked three questions about it. It answered in 21 seconds, and every file and line number it cited was correct.
+
+It builds more than you ask for. The brief was a gate, six lanterns, a pond and a bridge. It added animated water, a dusk sky, fireflies and a shrine hall on its own, and the camera drifts around the scene at a steady pace and pauses when you grab it.
+
+The flip side is that it keeps working after the job is done. It took 23 steps to count three files, and once the shrine was written it wanted to open a browser and look at it. Give it a clear finish line and a step limit, and it behaves.
+
+Practical notes for the GMI endpoint from this run:
+
+Finding
+
+Detail
+
+Stream long generations
+
+A 37 KB scene.js as one non-streaming reply exceeded the ~100 s edge timeout (HTTP 524); "stream": true fixed it
+
+Set a User-Agent
+
+Requests with Python's default urllib User-Agent get a 403; send a custom User-Agent header
+
+Image input
+
+Works with base64 image_url data URLs; the signboard text came back character-exact in 7.6 s at 1,600 prompt tokens
+
+PDF input
+
+Both OpenAI file and Anthropic document blocks return HTTP 200 with the file dropped (224 prompt tokens, same as text-only); extract text or render pages to PNG first
+
+Reasoning budget
+
+M2.7, used here to write the test PDF, spent all of a 4,096 max_tokens budget on thinking and returned empty content; give reasoning models 16k+
+
+Unknown tools
+
+The model called an edit tool outside the three we provided; return a clear error for unknown tool names
+
+Model facts
+
+Spec
+
+MiniMax M3.1 Flash
+
+Architecture
+
+Mixture of experts, 428B total, about 23B active
+
+Context window
+
+1,048,576 tokens, flat pricing across the full window
+
+Input
+
+Text and images (tested); PDF input was dropped in our test
+
+Output
+
+Text
+
+Reasoning
+
+Always on, with selectable effort levels from Low to Max (Max is the MiniMax default)
+
+Speed
+
+200+ TPS peak, 170+ TPS median per MiniMax; about 3x M3
+
+Serving on GMI Cloud
+
+FP8, tool calling, OpenAI-compatible endpoint, model ID MiniMaxAI/MiniMax-M3.1-Flash
+
+Weights
+
+Open-weight release planned for October 23, 2026; license pending
+
+The speed gain comes from MiniMax Sparse Attention (MSA) plus a small active-parameter count: the model reads less of the context on each step and moves less data through GPU memory, which is where throughput is decided on H100 and B200 class GPUs.
+
+Where to be careful
+
+The agent scores above come from MiniMax's own model card. Artificial Analysis has published independent numbers for the Intelligence Index, Humanity's Last Exam, and factuality, and those are the ones to lean on until third parties rerun the agent suites.
+
+Factuality is the weak spot. On AA-Omniscience, M3.1 Flash answers 56% of questions correctly, ahead of DeepSeek V4.1 Flash at 43% and GLM-5.3 Flash at 28%. When it lacks the answer, though, it guesses: a 93% hallucination rate: when it misses, it almost always gives a confident wrong answer instead of saying it is unsure.
+
+For agent work this is manageable. Pair the model with retrieval, tool results, and verification steps so facts come from the environment rather than from the weights. For open-ended Q&A with zero grounding, pick a different model.
+
+Two small discrepancies in the published material: MiniMax's cost chart shows Automation-Bench at 62.8 while its table shows 62.2, and DeepSeek V4.1 Flash on DeepSWE appears as both 74.2 and 77.0 across sources. This post uses the table values.
+
+Quickstart on GMI Cloud
+
+The endpoint is OpenAI-compatible, so anything that takes a base URL and a model ID works. Try it in the playground or grab a key from the GMI Cloud console .
+
+curl https://api.gmi-serving.com/v1/chat/completions \
+
+-H "Authorization: Bearer $GMI_API_KEY" \
+
+-H "Content-Type: application/json" \
+
+-d '{"model": "MiniMaxAI/MiniMax-M3.1-Flash", "messages": [{"role": "user", "content": "Plan a Three.js scene of a shinto shrine at dusk."}]}' Point Claude Code, OpenCode or Cline at the same base URL and model ID and you have a coding agent. Stream long replies, and keep the system prompt stable across turns so the $0.015 cached-input rate covers most of each request.
+
+Try it
+
+M3.1 Flash is the first model in this price band that holds its own on agent benchmarks, and the shrine demo shows what four hours and $4.50 buys. Run your own agent against MiniMaxAI/MiniMax-M3.1-Flash on GMI Cloud and compare the bill to what you pay today. Open weights land October 23, and the Pro variant follows.
+
+Roan Weigert
+
+DevReal Lead @ GMI Cloud
+
+Build AI Without Limits
+
+GMI Cloud helps you architect, deploy, optimize, and scale your AI strategies
+
+Contact Sales
+
+Ready to build?
+
+Explore powerful AI models and launch your project in just a few clicks.
+
+Get Started

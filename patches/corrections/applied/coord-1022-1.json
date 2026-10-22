@@ -1,0 +1,33 @@
+{
+  "reviewer": "coord-1022",
+  "items": [
+    {
+      "kind": "edge",
+      "company": "ArianeGroup",
+      "target": "Amazon",
+      "action": "set",
+      "set": {
+        "relationship": "24-launch agreement for Amazon Leo (Ariane 6, contracted through Arianespace)"
+      },
+      "chains": [
+        "applications/space_ai_infrastructure.json"
+      ],
+      "reason": "the 10-14 release states a 24-launch agreement (six additional Ariane 64 launches announced in September 2026); the edge label still read 18 launches",
+      "evidence": "VA271/LE-04 is part of Arianespace’s 24-launch agreement with Amazon to support the deployment of the Amazon Leo constellation."
+    },
+    {
+      "kind": "edge",
+      "company": "NVIDIA",
+      "target": "SharonAI",
+      "action": "set",
+      "set": {
+        "relationship": "NVIDIA GPU systems (HGX B300, GB300 NVL72) for SharonAI's AI factories, incl. GPUs in Confidential Compute mode for VAST DataEnclave"
+      },
+      "chains": [
+        "components/ai_security_trusted_compute.json"
+      ],
+      "reason": "SharonAI's 09-10 release states its scaling to up to 68,000 NVIDIA GPUs (HGX B300 and GB300 NVL72); the verifier moved that contract onto this existing edge, whose label covered only Confidential Compute mode",
+      "evidence": "NVIDIA confirms Sharon AI is scaling to 68,000 GPUs"
+    }
+  ]
+}

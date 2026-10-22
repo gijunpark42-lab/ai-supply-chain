@@ -1,0 +1,42 @@
+SOURCE: Xanadu official press release -- https://investors.xanadu.ai/news-releases/news-release-details/xanadu-and-amd-launch-backline-streamline-cpu-gpu-fpga
+TITLE: Xanadu and AMD launch Backline to streamline CPU, GPU, FPGA integration for quantum technology
+DATE: 09-10-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-22.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Xanadu press release: Xanadu and AMD launch Backline to streamline CPU, GPU, FPGA (09-10-2026)
+
+---
+Xanadu and AMD launch Backline to streamline CPU, GPU, FPGA integration for quantum technology | September 10, 2026
+
+Skip to main navigation
+
+Xanadu and AMD launch Backline to streamline CPU, GPU, FPGA integration for quantum technology
+
+September 10, 2026
+
+PDF Version
+
+Xanadu and AMD open-source Backline, expanding PennyLane to bridge quantum processors with classical hardware engines. This open platform provides an accessible framework for quantum-classical integration across the developer ecosystem.
+
+TORONTO, Sept. 10, 2026 (GLOBE NEWSWIRE) -- Xanadu Quantum Technologies Limited (" Xanadu "; NASDAQ/TSX: XNDU), a leading photonic quantum computing company, in collaboration with AMD today announced the release of Backline , an open-platform solution, co-designed by Xanadu and AMD, for rapid communications between quantum and classical computing hardware. Backline is built using Xanadu’s open-source PennyLane software platform to solve one of quantum technology’s most pressing challenges: how to establish ultra-low-latency communication between classical processors and quantum hardware.
+
+Today, quantum devices cannot operate in isolation. To operate effectively, quantum computers are expected to rely on classical hardware, such as GPUs, CPUs, and FPGAs, to shuttle massive streams of data back and forth between components within microseconds. While this ultra-fast, real-time communication is essential for applications such as quantum error correction (QEC), optical network routing, and high-speed sensing, establishing these links has historically limited developer agility by forcing teams into rigid, low-level software frameworks and vendor-locked classical hardware.
+
+Backline reframes the quantum-classical boundary as a heterogeneous computing problem, treating a quantum processor as one more node in a high-performance distributed network. The solution seeks to provide researchers and hardware developers low-level hardware control directly through PennyLane's high-level Python interface. This opens a new design space for hybrid classical/quantum systems, enabling teams to execute ultra-low-latency communication loops between classical and quantum hardware without compromising developer agility or risking vendor lock-in.
+
+Key highlights of Backline include:
+
+Sub-3 Microsecond Latency: Achieves end-to-end classical-quantum loop times under 3 microseconds 1 , delivering ultra-fast data links to support quantum error correction, real-time network signal processing, and high-speed sensing.
+
+CPU-Friendly Infrastructure: Demonstrates that standard processors, such as AMD EPYC™ or Threadripper™ CPUs, can handle low-latency demands out of the box. Teams can deploy real-time feedback loops without relying on enterprise GPUs or specialized servers, democratizing access to a wide range of classical hardware.
+
+Open & Hardware-Agnostic Design: Built within open-source software (Xanadu’s PennyLane platform), Backline connects standard CPUs, adaptive FPGAs, and GPUs seamlessly without vendor lock-in. The PennyLane platform provides users with an accessible entry point through Python programming and enabling compilation to translate those programs for rapid communication between hardware components.
+
+"Quantum processors require ultra-fast classical infrastructure, operating behind the scenes," said Dr. Christian Weedbrook, Founder and Chief Executive Officer of Xanadu. "By integrating Backline into PennyLane, we are providing direct access to the communication layers that the industry needs to move from laboratory R&D to real-world performance. Our work with AMD shows that AMD’s hardware can handle these demanding latency budgets right now, even with standard CPUs, bringing useful quantum computing closer to reality."
+
+"Quantum computers never run alone. Every useful quantum system depends on classical compute reacting in microseconds, and that is a heterogeneous computing problem AMD is uniquely built to solve,” said Scott Tease, Corporate Vice President, HPC and Sovereign AI, AMD. “We co-designed Backline with Xanadu so a single Python program can span AMD EPYC and Threadripper CPUs, AMD Instinct GPUs, AMD Versal FPGAs and AMD Pensando networking, and route every task to the engine that meets its latency budget. That gives the whole quantum ecosystem an open path from research to production, on hardware developers can use today."
+
+For the broader quantum industry, Backline marks a decisive shift away from high-cost, proprietary hardware lock-in toward an accessible, production-ready ecosystem. By dramatically lowering the barrier to entry, PennyLane now provides a universal software foundation for connecting quantum and classical hardware. This enables university researchers, enterprise engineers, and hardware manufacturers the ability to rapidly prototype and deploy fault-tolerant quantum technologies, without rebuilding their classical infrastructure from the ground up. In doing so, Backline bridges the gap between today’s classical computing workflows and tomorrow’s scalable quantum technologies.
+
+Backline is available today as an open-source feature suite within the PennyLane open-source platform.

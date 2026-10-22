@@ -1,6 +1,6 @@
 {
  "updated": "2026-10-21",
- "scanned": 886,
+ "scanned": 896,
  "flagged": [
   {
    "path": "transcripts/av/chipmos_q2_2026.txt",
@@ -21,6 +21,12 @@
    "suggestion": "re-fetch a verbatim, speaker-labelled copy (company IR transcript, Investing.com or LSEG), save it under the same source label, then re-enrich that label"
   },
   {
+   "path": "transcripts/investing/nec_q4_2026.txt",
+   "label": "NEC Q4 FY2026 (04-28-2026)",
+   "problem": "no speaker labels: 14,440 chars of call text with 1 speaker turns marked, so management answers cannot be told apart from analyst questions",
+   "suggestion": "re-fetch a verbatim, speaker-labelled copy (company IR transcript, Investing.com or LSEG), save it under the same source label, then re-enrich that label"
+  },
+  {
    "path": "transcripts/optical/iqe_q4_2025.txt",
    "label": "IQE FY2025 (05-28-2026)",
    "problem": "no speaker labels: 31,715 chars of call text with 0 speaker turns marked, so management answers cannot be told apart from analyst questions",
@@ -35,7 +41,7 @@
   {
    "path": "transcripts/power/abb_q1_2026.txt",
    "label": null,
-   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 70% bullet lines; 5,468 chars vs a median 58,512 for its other calls)",
+   "problem": "condensed: the header claims a full transcript but the body is notes (note sections (Q&A highlights / KEY FACTS / KEY CONTENT); 70% bullet lines; 5,468 chars vs a median 58,899 for its other calls)",
    "suggestion": "re-fetch a verbatim, speaker-labelled copy (US listings: `python -X utf8 utils/defeatbeta_fetch.py \"<Name>\" <TICKER> --fy <FY> --q <Q>`, else the Motley Fool or the company's IR transcript), save it under the same source label, then re-enrich that label; keep the condensed file's facts only where the new copy confirms them"
   },
   {

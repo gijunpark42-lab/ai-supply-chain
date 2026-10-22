@@ -1,0 +1,21 @@
+{
+  "reviewer": "v1-1021",
+  "items": [
+    {
+      "kind": "quarterly_data",
+      "company": "Camtek",
+      "target": null,
+      "label": "Camtek 6-K (10-14-2026)",
+      "signal_prefix": "Camtek's technology roadmap (investor presentation): a 10th generation bump-metrology sensor",
+      "action": "set",
+      "set": {
+        "signal": "Camtek's technology roadmap (investor presentation): a 10th generation bump-metrology sensor designed to measure bumps below 5 μm in height is expected to launch in 2027; the 2027-28 metrology roadmap targets micro bumps for future HBM5 and other high end applications; the deck describes Camtek's 8th and 9th generation as the reference for bump-height metrology on CoWoS and CoWoS-like interposers, and the Hawk (chiplets, HBM and hybrid bonding, defects down to 150 nm) as the bump-height metrology reference for HBM4 and HBM4e. Camtek plans to start selling software products in 2027, developed with Visual Layer, the AI company it acquired in April 2026."
+      },
+      "chains": [
+        "manufacturing/packaging_substrate.json"
+      ],
+      "reason": "the deck's micro-bump slide (page 17, image label 'HBM5') says HBM5 is expected to continue using micro-bump interconnect; HBM4 and HBM4e are listed only under the 8th + 9th gen bump-height metrology reference. The 6-K text layer drops the 'HBM5' image label; its 2027-28 roadmap slide states micro bumps for future HBM5",
+      "evidence": "INTERCONNECT Small bumps Micro bumps for future HBM 5 and other high end applications"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+SOURCE: Cloudflare official press release -- https://cloudflare.net/news/news-details/2026/Cloudflare-Announces-Public-Certificate-Authority-for-the-Post-Quantum-Web/default.aspx
+TITLE: Cloudflare Announces Public Certificate Authority for the Post-Quantum Web
+DATE: 09-29-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Cloudflare press release: Cloudflare Announces Public Certificate Authority for the (09-29-2026)
+
+---
+Cloudflare Announces Public Certificate Authority for the Post-Quantum Web
+
+2026-09-29
+
+Automated certificates for everyone, built for today, and hardened for the era of quantum computing
+
+SAN FRANCISCO--(BUSINESS WIRE)--
+
+Cloudflare, Inc. (NYSE: NET), the leading connectivity cloud company, today announced its intent to become a public Certificate Authority (CA), an open service that issues the digital certificates websites need to encrypt traffic and prove their identity to visitors. The new CA will support both traditional encryption and next-generation post-quantum Merkle Tree Certificates (MTCs), giving every website a path to stay protected as computing power advances—with no new tools or rebuilds required. Additionally, Cloudflare has agreed to acquire established, publicly trusted Root CA key material from GlobalSign, which will provide ubiquity across the global Web PKI ecosystem.
+
+Every secure website depends on a certificate authority to verify its identity and enable encrypted connections. Today, that trust is concentrated in a small number of dominant issuers, creating systemic risk if any one of them fails or is compromised. At the same time, most certificate infrastructure was built before quantum computing became a practical concern. Quantum computers capable of breaking today's encryption are expected within years, and much of the web is not prepared for that shift.
+
+“Twelve years ago, Cloudflare made encryption free and automatic for millions of websites. Today, we’re taking the next step by building an open, transparent and reliable Certificate Authority for the entire Internet,” said Matthew Prince, CEO and co-founder of Cloudflare. “Upgrading the web's security before quantum computers can break it is one of the biggest coordination challenges in the history of the Internet. By balancing support for older devices with brand-new, post-quantum tech, we’re providing a permanent safety net—so the Internet stays fast, reliable, and secure for all devices, no matter what comes next.”
+
+To ensure certificates work on older smartphones, operating systems, and devices that no longer receive software updates, Cloudflare plans to acquire an established root certificate. A root certificate is what tells browsers and devices whether to trust a CA. Acquiring one means websites using Cloudflare-issued certificates will be recognized immediately, including on legacy hardware. Cloudflare has also applied for inclusion in the Chrome, Apple, Microsoft, and Mozilla root programs, following the public process established by each. Together, the acquired root and the pending root program applications are designed to give Cloudflare-issued certificates broad recognition across the web as quickly as possible. Building on a successful experiment with Chrome, Cloudflare will also begin issuing production MTCs designed around built-in transparency, paving the way for post-quantum security without sacrificing web speed or performance, all from a new, single CA.
+
+In 2014, Cloudflare launched Universal SSL and instantly doubled the amount of encrypted traffic on the web overnight by offering free TLS certificates to millions of websites. Today, the vast majority of the encrypted web relies on automated, free certificates. However, much of this burden rests on a small set of dominant issuers. Cloudflare’s new public CA will add an independent, high-scale issuer to that foundation.
+
+Unlike traditional certificate authorities, Cloudflare is redesigning public certificate issuance from the ground up for modern scale and speed to provide:
+
+Glass-Box Operational Transparency: Moving beyond traditional static audits, Cloudflare will share detailed operational and technical insights, publish reproducible code builds, and maintain a live, public health dashboard so the Internet community can inspect operations in real time.
+
+Zero-Downtime Incident Response: By leveraging automated renewal signaling (RFC 9773), Cloudflare will be able to seamlessly trigger background certificate replacements across millions of sites instantly, minimizing the risk of mass web outages during routine revocations or security updates.
+
+Scalable post-quantum security: Co-authored by Cloudflare as an IETF draft specification, MTCs verify that a certificate is logged in a trusted registry using lightweight proofs, avoiding the need to transmit heavy post-quantum signatures with every connection.
+
+Frictionless Web Migration: Site owners will be able to manage both classic TLS certificates and next-generation Merkle Tree Certificates within a single, unified system, enabling a smooth transition to post-quantum security without forcing immediate cutovers.
+
+Cloudflare will begin issuing classical certificates following completion of the browser root program application and acceptance process, with production MTC issuance scheduled to begin in the first quarter of 2027. Cloudflare’s acquisition of publicly trusted Root CA key material from GlobalSign is expected to close in the next two months and is subject to customary closing conditions. Site owners and developers can follow engineering updates and sign up for early access notifications via Cloudflare’s blog.
+
+To learn more, please check out the resources below:
+
+Blog: Building a Certificate Authority for the whole Internet
+
+Blog: Building a post-quantum Certificate Authority with MTCs
+
+Cloudflare Post-Quantum Cryptography

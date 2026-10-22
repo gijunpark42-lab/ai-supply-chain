@@ -1,0 +1,228 @@
+SOURCE: GMI official press release -- https://www.gmicloud.ai/en/blog/nvidia-nemotron-35-super-vl-on-gmi-cloud-agents-that-can-see
+TITLE: NVIDIA Nemotron 3.5 Super VL on GMI Cloud: Agents That Can See
+DATE: 10-15-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-21.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: GMI press release: NVIDIA Nemotron 3.5 Super VL on GMI Cloud: Agents That Can (10-15-2026)
+
+---
+NVIDIA Nemotron 3.5 Super VL on GMI Cloud: Agents That Can See
+
+More Blog Posts
+
+More Blog Posts
+
+Announcements NVIDIA Nemotron 3.5 Super VL on GMI Cloud: Agents That Can See
+
+NVIDIA Nemotron 3.5 Super VL is available on GMI Cloud from Day 0. I used it to build a voice-controlled agent on my Mac. Here’s what I learned.
+
+October 15, 2026
+
+NVIDIA Nemotron 3.5 Super VL is now available on GMI Cloud. From today you can call it through the same OpenAI-compatible serverless API you already use for Nemotron 3.5 Lightning and Nemotron 3 Ultra. Ultra takes the hardest planning calls, Lightning takes the high-volume text work, and Super VL adds the piece both of them lacked: eyes. It interprets images, video and documents and returns text, including tool calls that an application can execute.
+
+I wanted to try Super VL on everyday tasks on my Mac: opening a website, finding a setting and typing into an app. These tasks gave me a way to test how the model interprets screenshots and chooses what to do next. I built a small agent around it to capture the screen, send it to the model and carry out the suggested action.
+
+I spent one day building and testing the prototype on my Mac. Across 121 runs, including fixed test tasks, voice requests and typed requests, the agent reported completion in 105 runs, or 87%. The fixed test tasks had a median of 4 steps and 16 seconds per run. Below, I explain how it works, how I checked the results and what changed when I added memory.
+
+What Nemotron 3.5 Super VL Is
+
+Super VL combines a vision encoder with the Nemotron 3.5 Super language model. The vision encoder processes images and video frames so the language model can interpret them alongside text. The model has 120B total parameters and 12B active parameters per token. It also includes Multi-Token Prediction, which can accelerate text generation when supported and enabled by the serving setup.
+
+NVIDIA trained it in stages: text first, on over 25 trillion tokens, then vision alignment, then fine-tuning on images, video, documents, charts and app screens, and finally reinforcement learning on tasks that mix all of those with tool use. The app-screen data in that mix is why the model is comfortable on a screenshot out of the box.
+
+Spec
+
+Value
+
+Parameters
+
+120B total, 12B active
+
+Inputs
+
+Image (JPEG, PNG), video (MP4 up to 2 minutes), text
+
+Output
+
+Text, JSON, tool calls, optional reasoning trace
+
+Context
+
+Up to 1M tokens
+
+Languages
+
+English, French, Spanish, Italian, German, Japanese, Hindi, Korean, Brazilian Portuguese, Chinese
+
+Minimum GPUs (BF16)
+
+2× H200, 2× B200, or 4× H100
+
+Reasoning is on by default and can be switched off per request, which matters a lot for agent loops, as the demo section shows.
+
+Super VL’s visual capabilities extend beyond desktop screenshots. It can interpret document layouts, tables and charts, and answer questions about images and video. An agent can use that information alongside text instructions and tools, for example, to extract details from an invoice and pass them to an application for validation. My Mac demo explores the screenshot side of those capabilities.
+
+Developers can also customize Super VL with NVIDIA NeMo using their own data and workflows. That provides a path to adapting the model for specialized documents or tasks. In my prototype, I used prompting and saved task history without fine-tuning the model, so the results below reflect what I built around it.
+
+The Superpower: It Looks at a Screen and Points
+
+I tested whether Super VL could locate interface elements for my desktop agent. I prompted it to return coordinates on a 0 to 1000 grid, which my code converted into screen coordinates. In my preliminary test of five Mac screenshots with four named elements each, it located all 20 targets at full resolution with reasoning off, taking about 1.5 seconds per answer.
+
+With reasoning off, we measured about 120 output tokens per second on GMI Cloud on our preliminary tests. The model can read window titles and dialog text and use that information to choose an action. Our agent also loads saved mistakes and successful task paths into the prompt before a task. That gives the model useful context from earlier runs without changing its weights. The model chooses an action, and code checks and executes it.
+
+The Demo: A Mac Computer Use with Nemotron 3.5 Super VL
+
+Try yourself: https://github.com/roangws/nemotron-3.5-super-computer-use-app
+
+The agent lives in the macOS menu bar. You hold the backtick key (the ` key, top left of the keyboard), say what you want, and let go. Whisper turns your voice into text on the Mac itself, then the loop starts: screenshot, one move from Super VL, do it, check, repeat, until the model says done. A glowing orb at the bottom of the screen pulses while the agent listens and works, and a voice from Inworld, served through GMI Cloud, says each step out loud ("Opening Safari"). Esc stops everything at once, and pushing the mouse into a screen corner is the emergency stop.
+
+Each step sends one screenshot plus the task and a one-line history of the last eight steps. The model answers with one small JSON object: the move (click, type, press a key, scroll, open an app, done), where on the screen, which app should receive the keys, and whether the move is risky. The reason for JSON is simple: code can read it, check it and refuse it before anything touches the mouse. Every step is saved, the screenshot the model saw, the click marked on it, and the reply, so after a run you open one report and see exactly what happened and why.
+
+Two choices came straight from measurement. Reasoning stays off for normal steps and switches on only when the agent is stuck. In our runs, a reasoning step took between 10 and 134 seconds, compared with about 1.5 seconds without reasoning. Sending a smaller screenshot, a 1512-pixel-wide JPEG, reduced model-call time from 2.2 to 1.5 seconds. In the separate pointing test, accuracy fell from 20 of 20 targets at full resolution to about 18 of 20 at the smaller size.
+
+Safety rules live in code rather than in the prompt. The agent asks before anything that sends, deletes, buys, submits or posts. It refuses to type passwords. It stops after 25 steps. Before typing, the model has to name the app that should receive the keys, and if a different app is in front the move is blocked. That last rule exists because an early run typed "Capital of California" into the terminal that was building the agent, right after the model itself had written "the front app is Terminal". The prompt already said keys go to the front app. The model read it and typed anyway. Prompts guide the model; code enforces the rule.
+
+The Loop
+
+Agent loop · 7 steps, memory on both ends
+
+This is the loop I built around the model. Think of someone playing a video game: look at the screen, decide one move, press the button, look again. The model does the looking and the deciding. My code does the pressing, waits for the screen to settle, writes the step down, and reloads memory before the next task. One move per step is the whole trick: a short answer is easy to check and easy to undo, and a plan of twenty moves drifts the moment the screen changes.
+
+Memory: Reusing What Worked
+
+The agent's memory is four small files: hand-written rules that load into every task, mistakes the code caught (a wrong app name, keys sent to the wrong window), the shortest path that worked for each kind of task, and a few facts about this Mac. Before each task the agent loads only the parts that match the apps involved, so the prompt stays small.
+
+The baseline run finished 9 of 10 tasks. Every memory-on run from pass 2 onward finished 10 of 10. The final configuration also finished 10 of 10 after we reduced screenshot size and replaced fixed pauses with a wait for the screen to settle. These were repeated runs of the same ten tasks on one Mac, so they do not establish how well the agent will perform on unfamiliar tasks.
+
+Hygiene mattered more than the mechanism. Of the first 17 facts the model wrote, we deleted 10, because screen positions and obvious facts age badly. Test runs stopped writing to memory. And what the user says outranks what the agent learns: say "remember that my default browser is Chrome" and that fact is pinned and loaded first. This is ten tasks on one Mac, and the first learning pass scored below the baseline, so read it as a signal rather than proof.
+
+What One Day of Measurement Showed
+
+Across 121 runs on my Mac, my prototype reported completion in 105 runs, or 87%. This count records when the model returned done; it is not a verified success rate. The fixed test tasks also included outcome checks, such as inspecting the Chrome window title, checking for a folder on disk or checking the text in TextEdit.
+
+Source
+
+Runs
+
+Reported completion
+
+Median time
+
+Median steps
+
+Fixed test tasks
+
+91
+
+86 (95%)
+
+16 s
+
+4
+
+Voice
+
+26
+
+17 (65%)
+
+18 s
+
+4
+
+Typed
+
+4
+
+2
+
+20 s
+
+5
+
+Voice runs scored lower because spoken tasks were vaguer ("open my app from...") and several were stopped on purpose while we tested Esc. The tasks themselves were simple: calculator math, open a site in Safari, make a folder, open a Settings page, type in TextEdit, Spotlight search, a new tab plus a search. Longer multi-app tasks are the next thing to test.
+
+The model's done is a claim, and twice in 60 valid runs it was wrong, once while reporting "the trending page is fully loaded" over a 404. Check the result, every time.
+
+What You Can Build
+
+Desktop and admin work. My prototype tested simple tasks such as opening websites, creating folders, navigating settings and typing into TextEdit. The same approach could be extended to entering data into spreadsheets or working with applications that lack suitable APIs. Those workflows would need their own tests and checks to confirm that the agent completed each action correctly.
+
+Document intelligence. Super VL can interpret scans, invoices, tables, charts and multi-page documents. In my testing, it read an invoice number and total from a photo correctly on the first call. A possible extension of my prototype is a receipts agent that extracts those fields and enters them into a spreadsheet, with checks against the original document.
+
+Video understanding. Super VL takes clips of one to two minutes and answers questions about what happened in them. We plan to run it over our own livestream recordings to answer "where did we show the pricing slide" and to pull chapter markers, the kind of pass a video team does by hand today.
+
+Web research with the page as evidence. A browser agent that reads rendered pages can inspect charts, screenshots and visual layout that text extraction may miss. It still needs checks for page-load failures and missing content. In one of our runs, the model reported that a page had loaded when the screen showed a 404.
+
+The pattern is the same in every case: the model looks and decides, code acts and checks, and a person approves anything that sends, pays or deletes.
+
+Why Run It on GMI Cloud
+
+GMI Cloud provides Day 0 access to Nemotron 3.5 Super VL through an OpenAI-compatible serverless API. Use the same API key and base URL as Nemotron 3.5 Lightning and Nemotron 3 Ultra: Lightning for high-volume text work, Ultra for complex text reasoning, and Super VL for workflows involving images, documents and video.
+
+Serverless access lets you pay per token without paying for idle capacity between tasks. If you need your own capacity, GMI Cloud can also deploy Super VL on a dedicated endpoint. My Mac prototype uses the serverless API through the standard OpenAI client. Its spoken responses come from Inworld text-to-speech, also served through GMI Cloud.
+
+Get Started
+
+Point the OpenAI client at GMI Cloud, send a screenshot, ask where something is:
+
+from openai import OpenAI
+
+client = OpenAI(base_url="https://api.gmi-serving.com/v1", api_key=GMI_API_KEY)
+
+reply = client.chat.completions.create(
+
+model="nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
+
+messages=[{"role": "user", "content": [
+
+{"type": "image_url", "image_url": {"url": screenshot_data_url}},
+
+{"type": "text", "text": "Where is the Safari address bar? Reply as JSON {x, y} on a 0-1000 grid."},
+
+]}],
+
+response_format={"type": "json_object"},
+
+extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+
+)
+
+print(reply.choices[0].message.content) Ready to Build?
+
+Call Nemotron 3.5 Super VL through GMI Cloud’s API using the example above, or explore my demo repo to see how I connected the model to a desktop agent. If you need dedicated capacity, contact the GMI Cloud team to discuss deploying Super VL on your own endpoint.
+
+Start with Super VL for visual tasks, and add Lightning or Ultra when your workflow needs high-volume text processing or more complex text reasoning.
+
+Nemotron 3.5 Super VL on GMI Cloud | Read the Docs | Join our Discord
+
+Roan Weigert
+
+DevRel Lead @ GMI Cloud
+
+Build AI Without Limits
+
+GMI Cloud helps you architect, deploy, optimize, and scale your AI strategies
+
+Contact Sales
+
+FAQ
+
+Should I run it with reasoning on or off?
+
+Off for every step that only needs a look and a choice, which is most of an agent loop: about 1.5 seconds and accurate pointing. On for planning a multi-app task or recovering when the screen stopped changing, with a bigger max_tokens and a longer timeout.
+
+What screenshot size should I send?
+
+How is this different from Nemotron 3.5 Lightning?
+
+Which release should I use?
+
+Does the 0 to 1000 grid cover the whole image?
+
+Ready to build?
+
+Explore powerful AI models and launch your project in just a few clicks.
+
+Get Started

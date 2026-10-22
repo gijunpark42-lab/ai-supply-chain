@@ -1,0 +1,62 @@
+{
+  "source": "AP Memory press release: UMC and AP Memory Collaborate to Enable Advanced Power (10-22-2026)",
+  "chains": {
+    "components/hbm_memory.json": {
+      "players": [
+        {
+          "company": "AP Memory",
+          "layer": "memory",
+          "sector": "DRAM",
+          "product": "VHM custom DRAM 3D-stacked onto the SoC via wafer-on-wafer",
+          "quarterly_data": [
+            {
+              "quarter": "AP Memory press release: UMC and AP Memory Collaborate to Enable Advanced Power (10-22-2026)",
+              "signal": "UMC and AP Memory announced a technology and manufacturing collaboration on power delivery for AI and HPC systems, combining UMC's deep trench capacitor (DTC) foundry technology and wafer manufacturing with AP Memory's silicon capacitor designs (capacitors that can be integrated into the interposer, substrate or landside of an advanced package). In Q3 2026 AP Memory's S-SiCap Gen2D discrete silicon capacitor designs completed tape-out and initial functional validation; the next step is system-level performance and reliability testing in substrate packages.",
+              "figure": "no specific figure",
+              "slot": "backlog_or_b2b",
+              "topics": [
+                "packaging_substrate"
+              ]
+            }
+          ]
+        },
+        {
+          "company": "UMC",
+          "layer": "advanced_packaging",
+          "sector": "Wafer-Level Packaging (CoWoS, SoIC)",
+          "product": "deep trench capacitor (DTC) foundry technology for interposer / substrate silicon capacitors",
+          "quarterly_data": [],
+          "connects_to": [
+            {
+              "company": "AP Memory",
+              "relationship": "deep trench capacitor (DTC) foundry technology and wafer manufacturing for AP Memory's S-SiCap silicon capacitors",
+              "contracts": [
+                {
+                  "source": "AP Memory press release: UMC and AP Memory Collaborate to Enable Advanced Power (10-22-2026)",
+                  "signal": "Technology and manufacturing collaboration: UMC's DTC foundry technology and scalable wafer manufacturing with AP Memory's silicon capacitor designs; AP Memory's S-SiCap Gen2D designs completed tape-out and initial functional validation in Q3 2026.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "2026",
+                  "type": "foundry manufacturing collaboration",
+                  "topics": [
+                    "packaging_substrate"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "new_nodes": {
+    "UMC": {
+      "ticker": "UMC",
+      "exchange": "NYSE",
+      "country": "TW",
+      "why": "existing node, new in this chain (cross-chain rule, skill section 6): UMC manufactures AP Memory's AI/HPC silicon capacitors with its DTC foundry technology; AP Memory sits only in hbm_memory.json, UMC's matching role (2.5D interposers with deep-trench capacitors) is its packaging_substrate placement, same sector",
+      "evidence": "This partnership combines UMC’s deep trench capacitor (DTC) foundry technology and scalable wafer manufacturing with AP Memory’s silicon capacitor designs",
+      "approved": "opus verifier 2026-10-21: existing node new in hbm_memory.json under the cross-chain rule: the release states UMC's DTC foundry technology and wafer manufacturing for AP Memory's S-SiCap silicon capacitors for AI/HPC packages; AP Memory sits only in hbm_memory.json, which has no sector for AP Memory's role in packaging_substrate, so UMC joins at its existing advanced_packaging / Wafer-Level Packaging role (fewest new placements; judgment call)"
+    }
+  }
+}
