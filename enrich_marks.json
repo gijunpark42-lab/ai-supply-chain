@@ -2,6 +2,22 @@
  "_rule": "Facts no script can infer, recorded ONLY by the coordinator of an enrich run through `python enrich_status.py mark / unmark / note / decide / ask / resolve` (parallel agents report, never write). A mark keeps a company out of the board's missing lists until its recheck date; judgments are decided by Claude (`decide`, user 2026-10-19) and kept in 'answered'.",
  "marks": [
   {
+   "company": "AD Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "ADATA Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "ADDA",
    "source": "call",
    "status": "no_source",
@@ -26,10 +42,58 @@
    "recheck": "2026-11-20"
   },
   {
+   "company": "AMEC",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688012.SS, latest 2026-08-19) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-02 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: AMEC results briefing Q&A: H1 2026 collective (09-10-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "AP Memory",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6531.TW, latest 2026-08-06) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-08 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "ASICLand",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "ASMedia",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (5269.TW, latest 2026-08-12) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-11 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "ASRock",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "AVC (Asia Vital Components)",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3017.TW, latest 2026-08-12) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-14 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Ableprint Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -42,11 +106,35 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Accelink",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002281.SZ, latest 2026-08-20) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-28 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Accelink results briefing Q&A: 2025 annual (05-14-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Accretech (Tokyo Seimitsu)",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13)",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Accton Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (2345.TW, latest 2026-08-10) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-06), Investing.com sync 2026-10-21 found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Advanced Echem Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -62,6 +150,22 @@
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript; A-share results briefings are text Q&A, enriched through cnbrief.py / cninfo.py instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Advanced Wireless Semiconductor",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (8086.TWO, latest 2026-08-11) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-11), Investing.com sync 2026-10-21 found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Airoha Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6526.TW, latest 2026-07-30) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-30), Investing.com sync 2026-10-21 found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -90,10 +194,34 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Amosense",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Andes Technology",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Anhui Tongguan Copper Foil",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Anji Microelectronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688019.SS, latest 2026-08-26) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-31 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Anji Microelectronics results briefing Q&A: 2025 annual collective (05-07-2026)) (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -130,6 +258,30 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Auras Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3324.TWO, latest 2026-08-14) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-08 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Auros Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "BHI",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Bayer",
    "source": "call",
    "status": "no_source",
@@ -138,10 +290,42 @@
    "recheck": "2026-12-25"
   },
   {
+   "company": "Biren Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6082.HK, latest 2026-08-28) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-29 and saves the call if one appears); Investing.com sync found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Biwin Storage Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Boqian New Materials",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript; A-share results briefings are text Q&A, enriched through cnbrief.py / cninfo.py instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Broadex Technologies",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Browave",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3163.TWO, latest 2026-08-14) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-08 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -162,11 +346,67 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "CHPT (Chunghwa Precision Test)",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6510.TWO, latest 2026-07-29) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-30 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "CIG Shanghai",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (603083.SS, latest 2026-08-24) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-02 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: CIG Shanghai results briefing Q&A: 2025 annual collective (05-15-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "CXMT",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688825.SS, latest 2026-08-28) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-31), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Cambricon",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688256.SS, latest 2026-08-08) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-26 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Cambricon results briefing Q&A: H1 2026 (08-12-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Canon",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13)",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Celxpert Energy",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Centec Communications",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Chemtronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -182,6 +422,14 @@
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Cheryong Electric",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -210,10 +458,26 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Co-Tech Development",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (8358.TWO, latest 2026-08-07) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-05 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Compeq Manufacturing",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "DB HiTek",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (000990.KS, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -224,6 +488,46 @@
    "why": "no full call transcript; the company's own published results-briefing Q&A summary is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; enriched 2026-10-21)",
    "at": "2026-10-21",
    "recheck": "2027-01-19"
+  },
+  {
+   "company": "DI Corporation",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "DIT",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "DNF",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Daeduck Electronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Daewon Cable",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "Dai Nippon Printing",
@@ -266,6 +570,22 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Dawon Nexview",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Daxin Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Delton Technology",
    "source": "call",
    "status": "no_source",
@@ -290,11 +610,75 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Dingtong Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Disco Corporation",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Dongjin Semichem",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (005290.KQ, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Dongshan Precision",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002384.SZ, latest 2026-08-21) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-02 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Doosan Corporation",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (000150.KS, latest 2026-07-27) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-27), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Doosan Enerbility",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (034020.KS, latest 2026-07-27) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-27), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Doosan Fuel Cell",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (336260.KS, latest 2026-08-13) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-29), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Doosan Tesna",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (131970.KQ, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Duksan Hi-Metal",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -306,10 +690,42 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "E&R Engineering",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "ENF Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "EO Technics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "EZconn",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "East Tender Optoelectronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -330,11 +746,91 @@
    "recheck": "2027-01-04"
   },
   {
+   "company": "Elite Advanced Laser",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Enflame",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Enplas",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Envicool",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002837.SZ, latest 2026-08-24) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-29 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Eoptolink",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (300502.SZ, latest 2026-08-24) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-01 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Eternal Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Eugene Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Everbright Photonics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Exicon",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "FADU",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "FOCI Fiber Optic Communications",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3363.TWO, latest 2026-08-13) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-13 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -354,10 +850,26 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "FST",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Favite",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Feirongda",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -378,12 +890,60 @@
    "recheck": "2026-11-20"
   },
   {
+   "company": "FiberHome Telecommunication",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Focuslight Technologies",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Foosung",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (093370.KS, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Ford Otosan",
    "source": "call",
    "status": "no_source",
    "why": "call already enriched from the company's own full transcript saved in transcripts/non_transcript_sources/ (Ford Otosan Q2 FY2026 08-05-2026; Rolls-Royce Q2 FY2026 07-30-2026), which the board does not count as a call folder (checked 2026-10-21)",
    "at": "2026-10-21",
    "recheck": "2027-01-19"
+  },
+  {
+   "company": "Formosa Advanced Technologies",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Formosa Sumco",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3532.TW, latest 2026-08-05) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-12 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Fortune Electric",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (1519.TW, latest 2026-08-13) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-15 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "Fortune Precision",
@@ -398,6 +958,30 @@
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Foxconn Industrial Internet",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (601138.SS, latest 2026-08-12) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-01 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Foxconn Interconnect Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6088.HK, latest 2026-08-11) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-12 and saves the call if one appears); Investing.com sync found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Foxsemicon Integrated Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -490,6 +1074,30 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Gaolan",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Gaon Cable",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Gaonchips",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Generate Biomedicines",
    "source": "call",
    "status": "no_source",
@@ -502,6 +1110,30 @@
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Giantec Semiconductor",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "GigaDevice",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (603986.SS, latest 2026-08-18) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-29), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "GigaVis",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -522,10 +1154,42 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Global Standard Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "GlobalWafers",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Grace Fabric Technology",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript; A-share results briefings are text Q&A, enriched through cnbrief.py / cninfo.py instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Grand Process Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3131.TWO, latest 2026-08-13) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-15 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Group Up Industrial",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -538,6 +1202,38 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "HD Construction Equipment",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (267270.KS, latest 2026-07-29) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-26), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "HD Hyundai Electric",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (267260.KS, latest 2026-07-28) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-27), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "HGTECH",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (000988.SZ, latest 2026-08-26) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-01 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: HGTECH results briefing Q&A: 2025 annual collective (07-09-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "HL D&I Halla",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "HOYA",
    "source": "call",
    "status": "no_source",
@@ -546,11 +1242,75 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "HPSP",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "HaeSung DS",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Hamamatsu Photonics",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13)",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hana Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hana Micron",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hanmi Semiconductor",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (042700.KS, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hansol Chemical",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hanwha Vision",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hengtong Optic-Electric",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (600487.SS, latest 2026-08-26) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-29), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -570,6 +1330,14 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Hon Precision",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (7769.TW, latest 2026-07-30) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-06 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Horiba",
    "source": "call",
    "status": "no_source",
@@ -578,10 +1346,74 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Huafeng Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Huaqin Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (603296.SS, latest 2026-08-25) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-29 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Huaqin Technology results briefing Q&A: H1 2026 (08-27-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Huatian Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002185.SZ, latest 2026-08-21) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-02 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hubei DOTI Micro Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hubei Dinglong",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hubei Feilihua Quartz Glass",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Hwatsing Technology",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript; A-share results briefings are text Q&A, enriched through cnbrief.py / cninfo.py instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hygon Information Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688041.SS, latest 2026-08-14) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-24 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Hygon Information Technology results briefing Q&A: H1 2026 (08-20-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hyosung Heavy Industries",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (298040.KS, latest 2026-08-13) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-30), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -594,6 +1426,54 @@
    "recheck": "2027-01-17"
   },
   {
+   "company": "ISC",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "ISTE",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "ITEQ",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6213.TW, latest 2026-08-17) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-12-13 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Iljin Electric",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Iluvatar CoreX",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (9903.HK, latest 2026-08-28) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2027-03-29), Investing.com sync 2026-10-21 found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "InWin Development",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Indosat",
    "source": "call",
    "status": "no_source",
@@ -602,10 +1482,50 @@
    "recheck": "2026-11-15"
   },
   {
+   "company": "Innodisk",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (5289.TWO, latest 2026-06-12) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-06), Investing.com sync 2026-10-21 found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Innolight",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (300308.SZ, latest 2026-08-21) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-31 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Innolight investor briefing Q&A: p5w 177743293735444 (05-15-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Innoscience",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (2577.HK, latest 2026-08-28) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2027-03-28 and saves the call if one appears); Investing.com sync found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Inspur Electronic Information",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (000977.SZ, latest 2026-08-28) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-31 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Inspur Electronic Information investor briefing Q&A: p5w 177743293735444 (05-15-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Insyde Software",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Intekplus",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -626,6 +1546,22 @@
    "recheck": "2027-01-03"
   },
   {
+   "company": "Isu Petasys",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (007660.KS, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "JCET",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (600584.SS, latest 2026-08-21) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-25 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: JCET results briefing Q&A: H1 2026 (08-21-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "JCU Corporation",
    "source": "call",
    "status": "no_source",
@@ -639,6 +1575,22 @@
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "JNTC",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "JT",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -666,6 +1618,70 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Jentech Precision",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3653.TW, latest 2026-08-12) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-13 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Jiangfeng Electronic Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Jiangsu Novoray New Material",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Jiujiang Defu Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Jones Tech",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Jusung Engineering",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (036930.KQ, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-29), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "KC Tech",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "KYEC (King Yuan Electronics)",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (2449.TW, latest 2026-08-10) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-12 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Kanto Denka Kogyo",
    "source": "call",
    "status": "no_source",
@@ -690,10 +1706,50 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "King Slide",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (2059.TW, latest 2026-08-07) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-08 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Kingboard Laminates",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (1888.HK, latest 2026-08-24) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2027-03-21 and saves the call if one appears); Investing.com sync found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Kingsemi",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688037.SS, latest 2026-08-25) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-01 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Kingsemi results briefing Q&A: H1 2026 (10-09-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Kinik",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Kinwong",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (603228.SS, latest 2026-08-21) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-28 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Kinwong results briefing Q&A: 2025 annual (04-10-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Koh Young Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -703,6 +1759,46 @@
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Komico",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Korea Advanced Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Korea Circuit",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Korea Zinc",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (010130.KS, latest 2026-08-06) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Kstar",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -722,11 +1818,91 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "LB Semicon",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "LG Electronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (066570.KS, latest 2026-07-30) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-28), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "LG Energy Solution",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (373220.KS, latest 2026-07-30) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-03), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "LG Innotek",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (011070.KS, latest 2026-07-27) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-27), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "LS Eco Energy",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "LS Electric",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (010120.KS, latest 2026-07-24) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-29), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "LS Marine Solution",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Lake Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Laserssel",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Lasertec",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13)",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Leeno Industrial",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (058470.KQ, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -736,6 +1912,38 @@
    "why": "H1 2026 call (07-29-2026): no Investing.com transcript (13 search variants); IR site has release, slides, half-year report and audio webcast only, no transcript; no YouTube results webcast; checked 2026-10-05",
    "at": "2026-10-05",
    "recheck": "2027-01-03"
+  },
+  {
+   "company": "LiComm",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Lightelligence",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (1879.HK, latest 2026-08-21) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-20), Investing.com sync 2026-10-21 found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Lightron",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Lingyi iTech",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002600.SZ, latest 2026-08-28) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-29), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "Linktel Technologies",
@@ -754,10 +1962,42 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Longsys",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (301308.SZ, latest 2026-08-11) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-29), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Lotes",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3533.TW, latest 2026-08-14) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-15 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Lotte Energy Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (020150.KS, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-14), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "LuxNet",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Luxshare",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002475.SZ, latest 2026-08-24) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-31 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Luxshare results briefing Q&A: 2025 annual (05-06-2026)) (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -778,6 +2018,14 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "MK Electron",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "MPI Corporation",
    "source": "call",
    "status": "no_source",
@@ -790,6 +2038,22 @@
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Maxio Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Mecaro",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -826,10 +2090,34 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "MiCo",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "MiTAC Holdings",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Micro Contact Solution",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Micro2Nano",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -855,6 +2143,22 @@
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "MiniMax",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (0100.HK, latest 2026-08-26) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2027-03-01), Investing.com sync 2026-10-21 found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Mirae Industry",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -906,6 +2210,14 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Montage Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688008.SS, latest 2026-08-28) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-31 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Montage Technology results briefing Q&A: H1 2026 (09-08-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Moore Threads",
    "source": "call",
    "status": "no_source",
@@ -919,6 +2231,14 @@
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "NAURA",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002371.SZ, latest 2026-08-25) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-01 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -962,6 +2282,62 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Nan Ya Plastics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (1303.TW, latest 2026-08-17) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-13 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Nantong Jianghai",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "National Silicon Industry Group",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688126.SS, latest 2026-08-19) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-30), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Naver",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (035420.KS, latest 2026-08-07) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-12), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Neosem",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Nepes",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Nextin",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Nichicon",
    "source": "call",
    "status": "no_source",
@@ -991,6 +2367,14 @@
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Ningxia Orient Tantalum",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -1082,11 +2466,27 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "OE Solutions",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Okamoto Machine Tool Works",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Okins Electronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -1122,12 +2522,124 @@
    "recheck": "2026-11-20"
   },
   {
+   "company": "PCL Technologies",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (4977.TW, latest 2026-08-27) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-15 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "PMT",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "POCO Holding",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "POET Technologies",
    "source": "call",
    "status": "no_source",
    "why": "Q2 2026 (08-13-2026): POET did not host an earnings call - the Q2 results release and both 08-13 6-Ks announce no call/webcast; IR page lists no call since a 2022 business-update call; not on Alpha Vantage (2025Q4-2026Q3 empty), defeatbeta (no POET transcripts), Motley Fool (sitemaps Aug-Sep 2026); official YouTube has only a 09-30-2026 CEO 'Business Update' video (15 min, auto captions), not a call. Checked 2026-10-05",
    "at": "2026-10-05",
    "recheck": "2026-11-20"
+  },
+  {
+   "company": "POSCO",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (005490.KS, latest 2026-07-30) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-02), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "PSK Holdings",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "PSK Inc.",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Park Systems",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (140860.KQ, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Pemtron",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Philoptics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Piotech",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688072.SS, latest 2026-08-20) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-31 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Piotech results briefing Q&A: H1 2026 (10-08-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Powerchip (PSMC)",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6770.TW, latest 2026-10-21) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-28 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Protec",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "RF Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Range Intelligent Computing",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (300442.SZ, latest 2026-08-27) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-27), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "Relay Therapeutics",
@@ -1186,11 +2698,91 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Ruijie Networks",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "S&S Tech",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "SEMCNS",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "SFA Semiconductor",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "SICC",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688234.SS, latest 2026-10-20) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2027-03-28 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: SICC results briefing Q&A: H1 2026 (09-11-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "SJ Semiconductor",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "SK Telecom",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (017670.KS, latest 2026-08-05) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-04), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "STI",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "STL Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "SUMCO",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "SUNeVision",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (1686.HK, latest 2026-09-01) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2027-02-24), Investing.com sync 2026-10-21 found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -1216,6 +2808,38 @@
    "why": "Q2 2026 call (07-30-2026): no full transcript. Investing.com search + transcript listing walked 07-17..08-05 (no SEMCO article); SEMCO IR site (global + kr earnings-release / archive) has only the results PDF and a login-gated Teletogether audio replay; no official YouTube upload. Checked 2026-10-05",
    "at": "2026-10-05",
    "recheck": "2027-01-03"
+  },
+  {
+   "company": "Samsung SDI",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (006400.KS, latest 2026-07-30) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-29), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Samwha Capacitor",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Sanan Optoelectronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (600703.SS, latest 2026-08-25) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-30), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Sanil Electric",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (062040.KS, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-05), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "Sanken Electric",
@@ -1258,6 +2882,22 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "SemiFive",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Seondo Electric",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Shengyi Electronics",
    "source": "call",
    "status": "no_source",
@@ -1266,10 +2906,50 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Shengyi Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (600183.SS, latest 2026-08-15) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-01 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Shengyi Technology results briefing Q&A: H1 2026 (08-25-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Shenling Environmental Systems",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Shennan Circuits",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002916.SZ, latest 2026-08-26) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-25 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Shenzhen Fastprint Circuit Tech",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002436.SZ, latest 2026-08-20) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-29), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Shenzhen Honor Electronic",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript; A-share results briefings are text Q&A, enriched through cnbrief.py / cninfo.py instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Shenzhen Sunlord Electronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -1306,12 +2986,76 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "ShunSin Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6451.TW, latest 2026-08-31) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-14 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Signetics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Sigurd Microelectronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6257.TW, latest 2026-08-14) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-01 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Silergy",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6415.TW, latest 2026-08-28) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-15 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Simmtech",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (222800.KQ, latest 2026-08-13) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Simplo Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (6121.TWO, latest 2026-08-14) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-15 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Simulations Plus",
    "source": "call",
    "status": "no_source",
    "why": "Q3 FY2026: no earnings call appears to have been held (pending acquisition by Altaris, signed 06-15-2026). Company conference-calls page lists the 07-09-2026 Q3 release + deck but NO webcast link (every earlier quarter has a viavid webcast); the 07-09 release (8-K) announces no call; not on Alpha Vantage (SLP 2026Q3 empty), defeatbeta (latest 04-09-2026) or Motley Fool (sitemaps Jul-Sep 2026). Checked 2026-10-05",
    "at": "2026-10-05",
    "recheck": "2026-12-15"
+  },
+  {
+   "company": "Sino-American Silicon",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (5483.TWO, latest 2026-08-07) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-11 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Sinocera",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (300285.SZ, latest 2026-08-06) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-29 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Sinocera investor briefing Q&A: p5w 177743293735444 (05-15-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "Sinopack",
@@ -1338,11 +3082,35 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Solus Advanced Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (336370.KS, latest 2026-07-24) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-30), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Soulbrain",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (357780.KQ, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Stella Chemifa",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Sugon",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -1386,10 +3154,58 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Sysgration",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "T&S Communications",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript; A-share results briefings are text Q&A, enriched through cnbrief.py / cninfo.py instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "TEMC",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "TES",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (095610.KQ, latest 2026-08-13) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-12), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "TFC Optical",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (300394.SZ, latest 2026-08-19) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-31 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "TFME",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002156.SZ, latest 2026-08-28) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-01 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: TFME results briefing Q&A: 2025 annual (04-28-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "TLB",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -1410,6 +3226,14 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "TSE Co.",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Ta Liang Technology",
    "source": "call",
    "status": "no_source",
@@ -1426,10 +3250,34 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Taihan Cable",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Taihan Fiberoptics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Taiwan Glass Industry",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Taiwan Speciality Chemicals",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -1458,11 +3306,35 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Techwing",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (089030.KQ, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Tekscend Photomask",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript on Investing.com; the company's own published results-briefing Q&A summary (or its own full transcript) is used under the 2026-10-13 Japan exception (transcripts/non_transcript_sources/*_qa_*; checked 2026-10-13)",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Three-Circle",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (300408.SZ, latest 2026-08-27) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-30 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Three-Circle results briefing Q&A: 2025 annual (04-16-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Time Interconnect Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (1729.HK, latest 2026-08-28) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2027-03-26), Investing.com sync 2026-10-21 found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -1490,6 +3362,14 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Tokai Carbon Korea",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Tokuyama",
    "source": "call",
    "status": "no_source",
@@ -1503,6 +3383,14 @@
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Topoint Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (8021.TW, latest 2026-08-14) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-15 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -1562,6 +3450,22 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Tripod Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3044.TW, latest 2026-08-11) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-08 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Truelight",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "UMS Integration",
    "source": "call",
    "status": "no_source",
@@ -1578,11 +3482,35 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "UniTest",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Union Tool",
    "source": "call",
    "status": "no_source",
    "why": "no full call transcript; company IR site checked 2026-10-13 - no company-published results-briefing Q&A summary for the latest briefing (or it is already in the graph); decks / tanshin only",
    "at": "2026-10-13",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Unisem Co.",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (036200.KQ, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Unisplendour",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (000938.SZ, latest 2026-08-28) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-01 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
   {
@@ -1594,12 +3522,44 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "VM",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "VPEC",
    "source": "call",
    "status": "no_source",
    "why": "Company IR page: no self-hosted 法說會 in 2026; 09-04 CTBC forum has slides only, no video; checked 2026-10-05",
    "at": "2026-10-05",
    "recheck": "2027-01-03"
+  },
+  {
+   "company": "Vanguard International Semiconductor",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (5347.TWO, latest 2026-08-04) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-05 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "VeriSilicon",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (688521.SS, latest 2026-08-18) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-02 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: VeriSilicon results briefing Q&A: 2025 annual (04-09-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Victory Giant Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (300476.SZ, latest 2026-08-27) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-31 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "VisEra",
@@ -1618,10 +3578,26 @@
    "recheck": "2026-11-25"
   },
   {
+   "company": "WUS Printed Circuit",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002463.SZ, latest 2026-08-25) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-30 and saves the call if one appears); Investing.com sync found none; its cninfo IR activity records / periodic reports are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Walsin Technology",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Win Semiconductors",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (3105.TWO, latest 2026-07-24) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-31 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -1634,12 +3610,100 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Winbond Electronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (2344.TW, latest 2026-08-06) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-11-05 and saves the call if one appears); Investing.com sync found none; its MOPS 法說會 decks / material information are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Winpac",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Wiwynn",
    "source": "call",
    "status": "no_source",
    "why": "No Q2 2026 call held: IR page lists only the Q4 2025 call (02-26) plus broker forums with slides; MOPS Jun-Oct and irconference no replay; checked 2026-10-05",
    "at": "2026-10-05",
    "recheck": "2027-01-03"
+  },
+  {
+   "company": "Woer Heat-Shrinkable Material",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002130.SZ, latest 2026-08-30) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-27), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Wonik IPS",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Wonik Materials",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Wonik QnC",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (074600.KQ, latest 2026-08-14) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Wooriro",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Wuxi Taclink Optoelectronics",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "YC",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "YC Chem",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "YOFC",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (601869.SS, latest 2026-08-21) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-31), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "YTL Power International",
@@ -1666,6 +3730,22 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Yest",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Yoke Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (002409.SZ, latest 2026-08-25) but holds no transcript for any of them (pplx.py sync 2026-10-21: 'no transcript on Perplexity'; it looks again on 2026-10-30 and saves the call if one appears); Investing.com sync found none; its 业绩说明会 results-briefing text Q&A is collected by cnbrief.py and enriched instead (latest: Yoke Technology results briefing Q&A: 2025 annual (05-19-2026)) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Yuanjie",
    "source": "call",
    "status": "no_source",
@@ -1674,10 +3754,58 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Yunnan Germanium",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "ZTE",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (000063.SZ, latest 2026-08-21) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-26), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Zeus",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Zhaolong Interconnect",
    "source": "call",
    "status": "no_source",
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript; A-share results briefings are text Q&A, enriched through cnbrief.py / cninfo.py instead (checked 2026-10-22); recheck at the next results season",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Zhipu AI",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (2513.HK, latest 2026-08-31) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2027-03-30), Investing.com sync 2026-10-21 found none; its HKEXnews results / reports are enriched instead (hkex.py) (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Zhongheng Electric",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-22: covered false; it tries again on 2026-11-21), Investing.com sync 2026-10-21 found no transcript; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Zhongtian Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "no call transcript source: Perplexity Finance lists its results calls (600522.SS, latest 2026-08-27) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-10-30), Investing.com sync 2026-10-21 found none; its cninfo IR activity records / periodic reports (and any 业绩说明会 Q&A, cnbrief.py) are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -1704,6 +3832,14 @@
    "why": "KONEX-listed: dart.py covers KRX/KOSPI/KOSDAQ only, and KONEX filers are exempt from half-year / quarterly reports; its latest periodic report (FY2025 business report, 03-31-2026) is already enriched from transcripts/non_transcript_sources (checked 2026-10-12)",
    "at": "2026-10-12",
    "recheck": "2027-04-15"
+  },
+  {
+   "company": "ABB",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.abb.com/global/en/news builds its release list by script and returns no list directly or via jina; the only RSS found is a regional ABB India channel, not group releases. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "ADATA Technology",
@@ -1758,6 +3894,14 @@
    "source": "ir",
    "status": "no_source",
    "why": "no RSS (ir_pull.py discover); the official site's news / IR board carries only statutory notices, awards, CSR or company events - no company releases (checked 2026-10-22; official homepage from DART hm_url / TWSE-TPEx openapi); filings / decks reach the map through DART, KIND or MOPS",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Aalberts",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://aalberts.com/news holds its release list only as HTML-escaped JSON inside a page attribute (no links, no JSON endpoint) - ir_pull cannot read it; next step: a parser for that format. (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -2010,6 +4154,14 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "E2E Networks",
+   "source": "ir",
+   "status": "no_source",
+   "why": "https://www.e2enetworks.com/investors/press-release lists dated PDF releases but every link reads 'Download PDF' (no title, even from the page), so same-day releases would share one label; next step: take the title from the table row in ir_pull. Media Updates there are third-party articles. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "ENF Technology",
    "source": "ir",
    "status": "no_source",
@@ -2080,6 +4232,38 @@
    "why": "no RSS (ir_pull.py discover); the official homepage (DART company overview hm_url) links no news / press-release page in its HTML (script scan for news / press / PR / 보도 / 홍보 links found none) (checked 2026-10-21); company documents reach the map via DART / KIND",
    "at": "2026-10-21",
    "recheck": "2027-01-19"
+  },
+  {
+   "company": "Ford Otosan",
+   "source": "ir",
+   "status": "no_source",
+   "why": "the material-disclosures list https://www.fordotosan.com.tr/en/investors/announcements/material-disclosures (KAP copies) has undated detail pages, and period-report rows would take the period-end date from their title instead of the disclosure date - not registered, to keep labels correctly dated. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Frencken Group",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); its newsroom https://frenckengroup.listedcompany.com/newsroom.html sits behind an AWS WAF challenge (empty via jina) and www.frenckengroup.com has no newsroom; disclosures go out via SGX, which no map collector reads. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Frontken",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.frontken.com has no newsroom (its WordPress feed holds only 2017 placeholder posts); disclosures go to Bursa Malaysia, which no map collector reads. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Fuso Chemical",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); the press-release list https://fusokk.co.jp/ir/ir_cat/press-release carries only TDnet-copy PDFs (results, forecast revisions, capex and personnel notices) and the homepage topics are trade shows. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "Gaonchips",
@@ -2178,6 +4362,22 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "Hirano Tecseed",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); the news blocks on https://www.hirano-tec.co.jp/ carry only notices and trade shows, and the IR news page carries only 決算短信 / statutory PDFs. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Hua Hong Semiconductor",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); hhgrace.com does not resolve and https://www.huahonggrace.com/en/ returns 403 (directly and via jina); the A-share side reaches the map through cninfo. Its announcements reach the map through HKEXnews (hkex.py). (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Hyosung Heavy Industries",
    "source": "ir",
    "status": "no_source",
@@ -2218,6 +4418,30 @@
    "recheck": "2026-11-20"
   },
   {
+   "company": "Iluvatar CoreX",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.iluvatar.com/news is a Nuxt page that returns no release list directly or via jina. Its announcements reach the map through HKEXnews (hkex.py). (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Indosat",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://ioh.co.id/portal/en/iohnewsroom refuses script connections and via jina redirects to the homepage with no release list. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Inficon",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); ir.inficon.com is an EQS app whose news API needs a key and https://www.inficon.com/en/news returns a JavaScript cookie challenge (empty directly and via jina); its ad hoc news goes out on SIX/EQS, which no map collector reads. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Intekplus",
    "source": "ir",
    "status": "no_source",
@@ -2232,6 +4456,14 @@
    "why": "no RSS (ir_pull.py discover); the official site's news / press page (homepage from DART company overview hm_url) only links or reprints third-party press articles, no company-issued releases (checked 2026-10-21); company documents reach the map via DART / KIND",
    "at": "2026-10-21",
    "recheck": "2027-01-19"
+  },
+  {
+   "company": "JCU Corporation",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); the news page https://www.jcu-i.com/news/ carries only notices (earthquake, sponsorship, office move) and exhibitions - no company releases. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "JNTC",
@@ -2250,6 +4482,14 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "Japan Material",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no official site on record (ir_events/sites.json, Wikidata); the likely domain www.j-material.jp is unconfirmed and timed out, direct and via jina. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Jusung Engineering",
    "source": "ir",
    "status": "no_source",
@@ -2264,6 +4504,30 @@
    "why": "no RSS (ir_pull.py discover); the official site's news / notice board (homepage from DART hm_url) carries only statutory notices (shareholder meetings, dividends, audit reports), awards or internal events, no material company releases (checked 2026-10-21); company documents reach the map via DART / KIND",
    "at": "2026-10-21",
    "recheck": "2027-01-19"
+  },
+  {
+   "company": "Kanto Denka Kogyo",
+   "source": "ir",
+   "status": "no_source",
+   "why": "site down: https://www.kantodenka.co.jp/ returns 503 (maintenance), direct and via jina - retry. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2026-10-29"
+  },
+  {
+   "company": "Kingboard Laminates",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.kblaminates.com/en has no newsroom, only copies of exchange announcements and reports. Its announcements reach the map through HKEXnews (hkex.py). (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Kohoku Kogyo",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover --url); the Topics page https://www.kohokukogyo.co.jp/news/ carries only trade shows, TV appearances, recruiting and CSR - no company releases. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
   },
   {
    "company": "Komico",
@@ -2370,6 +4634,14 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "Lynas Rare Earths",
+   "source": "ir",
+   "status": "no_source",
+   "why": "the ASX announcements list comes from a Weblink JSONP call (HeadlineJsonP.aspx) with 4 arguments and /Date(ms)/ dates that ir_pull's JSON mode cannot read; lynasrareearths.com/feed/ carries only community posts; next step: multi-argument JSONP in ir_pull. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "MK Electron",
    "source": "ir",
    "status": "no_source",
@@ -2386,6 +4658,22 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "Meiko Electronics",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover --url); the English news list https://www.meiko-elec.com/english/news/ is almost all TDnet-copy PDFs and results links. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Mersen",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.mersen.com/en/group/news writes its release links as unquoted href=, which ir_pull does not read, and via jina returns only part of the list; next step: accept unquoted hrefs in ir_pull. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "MiCo",
    "source": "ir",
    "status": "no_source",
@@ -2398,6 +4686,14 @@
    "source": "ir",
    "status": "no_source",
    "why": "no RSS (ir_pull.py discover); the official site's news / IR board carries only statutory notices, awards, CSR or company events - no company releases (checked 2026-10-22; official homepage from DART hm_url / TWSE-TPEx openapi); filings / decks reach the map through DART, KIND or MOPS",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "MiniMax",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.minimax.io/news renders its list by script (no list in the page or its chunk, directly or via jina). Its announcements reach the map through HKEXnews (hkex.py). (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -2426,10 +4722,34 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "Musashi Seimitsu",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no workable feed: https://www.musashi.co.jp/ resets direct connections, only the homepage renders via jina (6 newest items) and the release pages print no date. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Nagase & Co.",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); the news list https://www.nagase.co.jp/english/newsrelease/ is a Nuxt app whose payload is JavaScript, returning no release list direct or via jina. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Neosem",
    "source": "ir",
    "status": "no_source",
    "why": "no RSS (ir_pull.py discover); the official site's news page only links or reprints third-party press articles - no company releases (checked 2026-10-22; official homepage from DART hm_url / TWSE-TPEx openapi); filings / decks reach the map through DART, KIND or MOPS",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Netweb Technologies India",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://netwebindia.com/press-release/ redirects to the homepage and the investor page lists only undated exchange-filing PDFs with generic names. (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -2442,12 +4762,60 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Nippon Chemical Industrial",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); the news list https://www.nippon-chem.co.jp/news/ loads through a POST-only call; jina returns only dates and categories, no titles or links. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Niterra",
+   "source": "ir",
+   "status": "no_source",
+   "why": "site down: https://www.niterragroup.com/ returns 503 (maintenance page) - retry. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2026-10-29"
+  },
+  {
+   "company": "Nitto Denko",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; https://www.nitto.com/jp/en/ failed to connect twice and via jina redirects to the Americas list, whose release pages are undated and list dates disagree with the URLs (fails the two-date check). Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Nomura Micro Science",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; the news page https://www.nomura-nms.co.jp/news/ carries only trade shows, media appearances, index inclusions and CSR, and /ir/news/ is empty. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Okamoto Machine Tool Works",
+   "source": "ir",
+   "status": "no_source",
+   "why": "site down: https://www.okamoto.co.jp/ returns 503 (suspended as a preventive security measure) - retry. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2026-10-29"
+  },
+  {
    "company": "Okins Electronics",
    "source": "ir",
    "status": "no_source",
    "why": "no RSS (ir_pull.py discover); the official site's news page only links or reprints third-party press articles - no company releases (checked 2026-10-22; official homepage from DART hm_url / TWSE-TPEx openapi); filings / decks reach the map through DART, KIND or MOPS",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
+  },
+  {
+   "company": "Osaka Organic Chemical Industry",
+   "source": "ir",
+   "status": "no_source",
+   "why": "site down: https://www.ooc.co.jp/ timed out on three direct tries and via jina - retry. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2026-10-29"
   },
   {
    "company": "PMT",
@@ -2546,10 +4914,34 @@
    "recheck": "2026-11-22"
   },
   {
+   "company": "SUNeVision",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); on https://www.sunevision.com/index.php/press-centre/press-release every link reads 'more details' and release pages carry no headline - no usable titles. Its announcements reach the map through HKEXnews (hkex.py). (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "Samwha Capacitor",
    "source": "ir",
    "status": "no_source",
    "why": "no RSS (ir_pull.py discover); the official site has no newsroom (press board empty or no news section) (checked 2026-10-22; official homepage from DART hm_url / TWSE-TPEx openapi); filings / decks reach the map through DART, KIND or MOPS",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Seikoh Giken",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); the news pages https://www.seikoh-giken.co.jp/news/ carry only inline trade-show reports with no release links, and the 2026 page is empty. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Siemens Healthineers",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.siemens-healthineers.com/press/releases is a React page that returns no release links directly or via jina. (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -2584,6 +4976,22 @@
    "why": "no RSS (ir_pull.py discover); the official site's news / IR board carries only statutory notices, awards, CSR or company events - no company releases (checked 2026-10-22; official homepage from DART hm_url / TWSE-TPEx openapi); filings / decks reach the map through DART, KIND or MOPS",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
+  },
+  {
+   "company": "Stella Chemifa",
+   "source": "ir",
+   "status": "no_source",
+   "why": "the company's Atom feed https://www.stella-chemifa.co.jp/news/atom.xml carries only TDnet copies (buyback progress, results, IR calendar) - no company releases; its decks reach the map through ir_events. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Sumitomo Chemical",
+   "source": "ir",
+   "status": "no_source",
+   "why": "site down: https://www.sumitomo-chem.co.jp/english/news/ returns 503 (maintenance from 2026-10-22 09:45) - retry. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2026-10-29"
   },
   {
    "company": "TEMC",
@@ -2634,10 +5042,58 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Thales",
+   "source": "ir",
+   "status": "no_source",
+   "why": "RSS https://www.thalesgroup.com/en/rss.xml is the company's own and correctly dated, but every release page returns an Imperva block (directly and via jina), so release bodies cannot be saved; next step: read the full text from the RSS <description> in ir_pull. Its calls are enriched through Perplexity (pplx.py). (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Time Interconnect Technology",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); no official newsroom found (timeinterconnect.com does not answer). Its announcements reach the map through HKEXnews (hkex.py). (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Tocalo",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.tocalo.co.jp/ja/news.html carries only index inclusions, trade shows and site notices, and its IR news is 決算短信 / securities-report copies. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Toyo Tanso",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.toyotanso.com/News/ carries only trade shows and product-site updates. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Toyobo",
+   "source": "ir",
+   "status": "no_source",
+   "why": "site down: every path of https://www.toyobo.co.jp/ and https://www.toyobo-global.com/ redirects to a maintenance page - retry. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2026-10-29"
+  },
+  {
    "company": "UniTest",
    "source": "ir",
    "status": "no_source",
    "why": "no RSS (ir_pull.py discover); the official site's news page only links or reprints third-party press articles - no company releases (checked 2026-10-22; official homepage from DART hm_url / TWSE-TPEx openapi); filings / decks reach the map through DART, KIND or MOPS",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Union Tool",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.uniontool.co.jp/news/ carries only price revisions, discontinuations, office openings and notices, and its IR news is TDnet copies. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -2698,6 +5154,22 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "XP Power",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://corporate.xppower.com/investors/rns-announcements loads a BrighterIR widget whose JSON needs an XHR header (empty directly and via jina). (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Xiaomi",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.mi.com/global/discover/newsroom/ is script-rendered (empty directly and via jina) and ir.mi.com/rss/news-releases.xml is stale (latest 2022). Its announcements reach the map through HKEXnews (hkex.py). (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
    "company": "YC",
    "source": "ir",
    "status": "no_source",
@@ -2714,6 +5186,22 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "YTL Power International",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.ytlpowerinternational.com/investor-relations/company-announcements/ is only a script-rendered Bursa Malaysia widget and the site has no newsroom; disclosures go to Bursa, which no map collector reads. (checked 2026-10-22)",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Yamaha Motor",
+   "source": "ir",
+   "status": "no_source",
+   "why": "site blocked: https://global.yamaha-motor.com/news/ and every release page return 503 (Incapsula), direct and via jina - retry. Its timely disclosures reach the map through TDnet / EDINET (checked 2026-10-22).",
+   "at": "2026-10-22",
+   "recheck": "2026-10-29"
+  },
+  {
    "company": "Yest",
    "source": "ir",
    "status": "no_source",
@@ -2726,6 +5214,14 @@
    "source": "ir",
    "status": "no_source",
    "why": "no RSS (ir_pull.py discover); the official site's news / IR board carries only statutory notices, awards, CSR or company events - no company releases (checked 2026-10-22; official homepage from DART hm_url / TWSE-TPEx openapi); filings / decks reach the map through DART, KIND or MOPS",
+   "at": "2026-10-22",
+   "recheck": "2027-01-20"
+  },
+  {
+   "company": "Zhipu AI",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); https://www.zhipuai.cn/en/news is a stale, unordered mix (latest item 2026-03-31, mostly 2024 posts) whose list and page dates disagree. Its announcements reach the map through HKEXnews (hkex.py). (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
   },
@@ -3215,6 +5711,16 @@
    "at": "2026-10-22 02:37",
    "market": "all",
    "text": "2026-10-22 relations backfill (BESI, Nanya, Lite-On, ABB, IQE, NScale, SK Siltron) found AI relationships not yet patched (sources saved in transcripts/non_transcript_sources/*_annual_2025.txt): BESI customer list names NVIDIA, JCET, Huatian, LG Innotek (shared chain, no edge) + Applied Materials hybrid-bonding lines; Nanya -> Formosa Advanced Technologies 3D TSV packaging, Nanya-Etron MemoLead JV (edge AI memory); Lite-On -> NVIDIA (800 VDC racks, RVL-listed manifolds); ABB -> NVIDIA (800V DC), ABB -> Kevlinx MV UPS; IQE -> Quintessent (AI photonics epi), IQE -> X-Fab 650V GaN; SK Siltron wafer customers Micron / Intel / TSMC (no edges) + SK Hynix figures. Patch them in a later run."
+  },
+  {
+   "at": "2026-10-22 04:46",
+   "market": "JP",
+   "text": "ir/feeds.json: four newsroom lists registered 2026-10-22 are year pages (Asahi Kasei .../news/2026, Dexerials .../en/news/2026/, NGK Insulators .../news/2026/, Meidensha 2026 list) - switch each feed to the new year's page in January 2027. Sites down on 10-22 (Sumitomo Chemical, Kanto Denka, Niterra, Toyobo, Okamoto, Osaka Organic, Yamaha Motor) are marked with recheck 10-29."
+  },
+  {
+   "at": "2026-10-22 05:19",
+   "market": "JP",
+   "text": "pplx.py: Perplexity's transcript of MinebeaMitsumi Q1 FY2027 (08-05-2026) is English speech recognition of a Japanese-language call - gibberish, closed with no entries (the quarter is on the node from the results briefing). Other Japanese-language calls on Perplexity may be the same; check a saved JP file's first lines before enriching."
   }
  ],
  "questions": [],
@@ -4787,6 +7293,15 @@
    "label": null,
    "at": "2026-10-22",
    "answer": "Claude decision 2026-10-22 (independent verifier): UMC added to hbm_memory.json at advanced_packaging / Wafer-Level Packaging (its existing interposer-capacitor role, next to TSMC) with edge UMC -> AP Memory; Ferrotec added to optical_networking.json at interconnect / Components with edge Ferrotec -> Innolight (TDnet: Innolight is one of the main customers of its TEC products). Fewest new placements under the skill section 6 rule.",
+   "answered": "2026-10-22",
+   "by": "claude"
+  },
+  {
+   "subject": "Anritsu",
+   "question": "Anritsu's release says Kioxia selected the MP1900A PCIe BERT to verify its PCIe 5.0/6.0 SSDs for AI workloads; Anritsu sits only in optical_networking. Second placement in nand_flash (equipment / Metrology / Inspection) with an Anritsu -> Kioxia edge?",
+   "label": "Anritsu press release: Anritsu PCIe Measurement Solution Selected for High-Speed (10-21-2026)",
+   "at": "2026-10-22",
+   "answer": "Yes (independent Opus verifier V3): the customer and the AI use are stated in the company's release; test-and-measurement vendors already sit in memory Metrology / Inspection (Keysight in hbm_memory; KLA, Neosem, JT in nand_flash); the two share no chain, so one placement on Kioxia's side follows the cross-chain rule. Borderline: a development / compliance tester, not production test.",
    "answered": "2026-10-22",
    "by": "claude"
   }

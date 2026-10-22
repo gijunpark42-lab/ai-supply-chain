@@ -1,0 +1,64 @@
+{
+ "source": "Anritsu press release: Anritsu PCIe Measurement Solution Selected for High-Speed (10-21-2026)",
+ "new_nodes": {
+  "Anritsu": {
+   "ticker": "6754.T",
+   "exchange": "TSE",
+   "country": "JP",
+   "why": "Existing node (optical_networking.json, equipment / Metrology / Inspection), proposed as a second placement in nand_flash.json (equipment / Metrology / Inspection) so the stated supplier relationship to Kioxia (already a NAND Flash player there) can be an edge (skill section 6, cross-chain relationships). Its PCIe BERT is used by Kioxia to verify the PCIe 5.0 / 6.0 interfaces of its enterprise SSDs for AI and cloud servers.",
+   "evidence": "its Signal Quality Analyzer-R MP1900A (hereafter, MP1900A), a PCIe measurement solution, has been selected by Kioxia Corporation (hereafter, Kioxia) ... for quality evaluation of the high-speed interfaces used in PCIe 5.0 and PCIe 6.0 SSDs. ... Kioxia uses the MP1900A in the development of PCIe 6.0 SSDs for compliance testing",
+   "approved": "opus verifier 2026-10-22: judgment call - existing node, second placement at nand_flash equipment / Metrology / Inspection (beside KLA, Neosem; Keysight precedent for memory high-speed interface characterization in hbm_memory) to carry Anritsu's own stated design win at Kioxia (MP1900A PCIe BERT for PCIe 5.0/6.0 enterprise SSDs, framed by the release for AI / cloud server storage); the two share no chain file (section 6)"
+  }
+ },
+ "chains": {
+  "components/optical_networking.json": {
+   "players": [
+    {
+     "company": "Anritsu",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "Optical transceiver test instruments: BERTWave MP2110A (400GE/800GE/1.6TE module manufacturing test), MP1900A Signal Quality Analyzer, MS9740B optical spectrum analyzer for CPO/LD evaluation",
+     "quarterly_data": [
+      {
+       "quarter": "Anritsu press release: Anritsu PCIe Measurement Solution Selected for High-Speed (10-21-2026)",
+       "signal": "Design win: Kioxia selected Anritsu's Signal Quality Analyzer-R MP1900A (a PCIe bit error rate tester) for quality evaluation of the high-speed interfaces used in its PCIe 5.0 and PCIe 6.0 SSDs. Kioxia uses the MP1900A in the development of PCIe 6.0 SSDs for compliance testing (FBER, Rx/Tx LEQ and link training evaluations) and for development and debugging (rare-error analysis with the Capture function, state-machine analysis with the Sequence Editor). The release ties this to faster PCIe interfaces in enterprise and data center SSDs as AI and cloud servers demand higher-performance storage.",
+       "figure": "no specific figure",
+       "counterparty": "Kioxia",
+       "counterparty_role": "customer (selected the MP1900A for PCIe 5.0 / 6.0 SSD interface verification)",
+       "topics": [],
+       "slot": "backlog_or_b2b"
+      }
+     ]
+    }
+   ]
+  },
+  "components/nand_flash.json": {
+   "players": [
+    {
+     "company": "Anritsu",
+     "layer": "equipment",
+     "sector": "Metrology / Inspection",
+     "product": "Signal Quality Analyzer-R MP1900A PCIe BERT for PCIe 5.0 / 6.0 SSD interface verification",
+     "quarterly_data": [],
+     "connects_to": [
+      {
+       "company": "Kioxia",
+       "relationship": "PCIe measurement equipment (MP1900A BERT) for enterprise SSD interface verification",
+       "contracts": [
+        {
+         "source": "Anritsu press release: Anritsu PCIe Measurement Solution Selected for High-Speed (10-21-2026)",
+         "signal": "Kioxia selected Anritsu's Signal Quality Analyzer-R MP1900A PCIe measurement solution for quality evaluation of the high-speed interfaces of its PCIe 5.0 and PCIe 6.0 SSDs, and uses it in PCIe 6.0 SSD development for compliance testing (FBER, Rx/Tx LEQ, link training) and debugging.",
+         "units": "no specific figure",
+         "value": "no specific figure",
+         "date_signed": "not stated",
+         "type": "design win (test equipment selection)",
+         "topics": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
