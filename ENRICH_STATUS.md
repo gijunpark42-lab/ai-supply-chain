@@ -1,6 +1,6 @@
 # Enrichment status board
 
-Generated 2026-10-22 09:29 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-22 16:02 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
@@ -272,7 +272,7 @@ The user delegated these judgments on 2026-10-19 ("질문은 니가 알아서 �
 | US DoD contract awards | `enrich us` | 2026-10-22 | 2026-10-21 | 0 | 84 | 80 |
 | China results-briefing Q&A | `enrich china` | 2026-10-22 | 2026-10-21 | 0 | 138 | 112 |
 | Company IR events / presentations | `enrich all` | 2026-10-21 | 2026-10-22 | 0 | 31 | 19 |
-| Perplexity Finance calls | `enrich all` | 2026-10-22 | 2026-10-22 | 0 | 28 | 27 |
+| Perplexity Finance calls | `enrich all` | 2026-10-22 | 2026-10-22 | 0 | 31 | 30 |
 | Pasted transcripts | `Transcript:<company>` | 2026-10-22 | 2026-10-22 | 0 | 656 | 570 |
 
 ## Coordinator notes (newest first)
