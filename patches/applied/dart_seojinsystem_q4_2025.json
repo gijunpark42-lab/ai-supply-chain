@@ -1,0 +1,87 @@
+{
+  "source": "Seojin System Q4 FY2025 (03-23-2026)",
+  "new_nodes": {
+    "Seojin System": {
+      "ticker": "178320",
+      "exchange": "KOSDAQ",
+      "country": "KR",
+      "why": "Its semiconductor-equipment business (wafer-transfer equipment and power-drive units for etch / deposition processes) was 27.3% of FY2025 revenue and 44.7% of H1 2026 revenue; its half-year report names Lam Research Manufacturing Korea among the customers whose future receivables back a securitization loan.",
+      "evidence": "Seojin System Q2 FY2026 (08-14-2026): the company entered a borrowing agreement securitizing future receivables arising from Lam Research Manufacturing Korea and others; products: wafer-transfer equipment for etch / deposition processes, power-drive units.",
+      "approved": "user pre-approved 2026-10-23 (direct user request in the nightly session)"
+    }
+  },
+  "chains": {
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Seojin System",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "product": "Wafer-transfer equipment and power-drive units for semiconductor etch / deposition tools (contract metal-platform manufacturer; also ESS enclosures and telecom equipment)",
+          "connects_to": [],
+          "quarterly_data": [
+            {
+              "quarter": "Seojin System Q4 FY2025 (03-23-2026)",
+              "signal": "FY2025 (annual report, consolidated): revenue KRW 1,066,331 million (FY2024 KRW 1,213,753 million); operating profit KRW 1,146 million (FY2024 KRW 108,701 million); net loss KRW 102,421 million (FY2024 net profit KRW 83,921 million). Management (MD&A): changes in US tariff policy during the year deferred orders from ESS-equipment customers, cutting revenue by KRW 147,422 million; higher foreign-currency translation losses from exchange-rate moves turned the net result to a loss.",
+              "figure": "FY2025 revenue KRW 1,066,331 million; operating profit KRW 1,146 million",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "Seojin System Q4 FY2025 (03-23-2026)",
+              "signal": "FY2025 revenue by business (KRW million): ESS equipment 397,788 (37.3%; FY2024 636,043), semiconductor equipment 291,277 (27.3%; FY2024 194,308) - wafer-transfer equipment for etch / deposition processes, power-drive units and the like, telecom equipment 131,588 (12.3%; 5G mobile equipment, data-center and satellite parts and antennas), EV and battery parts 71,764 (6.7%), other 173,914. Segment operating profit: semiconductor segment KRW 28,278,724 thousand (FY2024 KRW 11,536,526 thousand), EMS segment KRW 17,802,246 thousand (FY2024 KRW 123,224,576 thousand).",
+              "figure": "semiconductor equipment revenue KRW 291,277 million (FY2024 194,308); segment operating profit KRW 28,278,724 thousand",
+              "topics": []
+            },
+            {
+              "quarter": "Seojin System Q4 FY2025 (03-23-2026)",
+              "signal": "Customer concentration (FY2025, names withheld as trade secrets): Customer (A) KRW 315,993,551 thousand, 29.63% of revenue; Customer (B) KRW 276,934,860 thousand, 25.97%. By customer location: Korea 62.5%, US KRW 150,543,139 thousand (14.1%), Vietnam 9.5%. Orders are short-cycle (typically received 2 weeks to 2 months ahead), so no order backlog is disclosed.",
+              "figure": "Customer (A) 29.63%; Customer (B) 25.97%",
+              "topics": []
+            },
+            {
+              "quarter": "Seojin System Q4 FY2025 (03-23-2026)",
+              "signal": "ESS supply contracts (annual report, progress table, unit USD 100 thousand): counterparty Ace Engineering; contract disclosed 08-26-2025 total 883, supplied 797 by year-end, ends 03-31-2026; contract disclosed 11-26-2025 total 1,257, for finished goods delivered from the company's US plant, with supply to start once the US production facility operates, ends 08-14-2026; contract disclosed 12-24-2025 total 448, ends 06-09-2026. Terms: EXW from the Bac Ninh (Vietnam) plant, cash within 45 days of delivery.",
+              "figure": "ESS contracts 883 / 1,257 / 448 (USD 100 thousand)",
+              "topics": [],
+              "slot": "backlog_or_b2b",
+              "counterparty": "Ace Engineering",
+              "counterparty_role": "customer (ESS equipment)"
+            },
+            {
+              "quarter": "Seojin System Q4 FY2025 (03-23-2026)",
+              "signal": "Capacity build-out (FY2025): property, plant and equipment acquisitions of KRW 292,650,815 thousand, including construction in progress of KRW 163,118,163 thousand; management says non-current assets rose KRW 1,532 hundred million for production-capacity expansion, and inventories rose as customer orders resumed in the fourth quarter.",
+              "figure": "PP&E acquisitions KRW 292,650,815 thousand",
+              "topics": [],
+              "slot": "supply_status"
+            },
+            {
+              "quarter": "Seojin System Q4 FY2025 (03-23-2026)",
+              "signal": "Supplier: aluminum purchases in FY2025 were KRW 57,706 million, of which imports from ALCOA and others KRW 53,434 million; the company says it has no special relationship with its main raw-material suppliers.",
+              "figure": "aluminum imports (ALCOA and others) KRW 53,434 million",
+              "topics": [],
+              "counterparty": "Alcoa",
+              "counterparty_role": "supplier (aluminum)"
+            },
+            {
+              "quarter": "Seojin System Q4 FY2025 (03-23-2026)",
+              "signal": "Supplier: steel purchases in FY2025 were KRW 83,035 million, of which imports from POSCO VNPC and others KRW 66,628 million; for semiconductor parts the company uses designated suppliers, one module maker per module or part.",
+              "figure": "steel imports (POSCO VNPC and others) KRW 66,628 million",
+              "topics": [],
+              "counterparty": "POSCO VNPC",
+              "counterparty_role": "supplier (steel)"
+            },
+            {
+              "quarter": "Seojin System Q4 FY2025 (03-23-2026)",
+              "signal": "Customer: the company says that after training local managers and workers in Vietnam over several years it supplied telecom equipment to Samsung, and on that reference was designated a supplier of Samsung Electronics' wireless business division within a short period.",
+              "figure": "no specific figure",
+              "topics": [],
+              "counterparty": "Samsung",
+              "counterparty_role": "customer (telecom equipment)"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

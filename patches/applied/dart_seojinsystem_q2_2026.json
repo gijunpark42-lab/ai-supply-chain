@@ -1,0 +1,66 @@
+{
+  "source": "Seojin System Q2 FY2026 (08-14-2026)",
+  "new_nodes": {
+    "Seojin System": {
+      "ticker": "178320",
+      "exchange": "KOSDAQ",
+      "country": "KR",
+      "why": "Its semiconductor-equipment business (wafer-transfer equipment and power-drive units for etch / deposition processes) was 27.3% of FY2025 revenue and 44.7% of H1 2026 revenue; its half-year report names Lam Research Manufacturing Korea among the customers whose future receivables back a securitization loan.",
+      "evidence": "Seojin System Q2 FY2026 (08-14-2026): the company entered a borrowing agreement securitizing future receivables arising from Lam Research Manufacturing Korea and others; products: wafer-transfer equipment for etch / deposition processes, power-drive units.",
+      "approved": "user pre-approved 2026-10-23 (direct user request in the nightly session)"
+    }
+  },
+  "chains": {
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Seojin System",
+          "layer": "equipment",
+          "sector": "Deposition & Etch",
+          "product": "Wafer-transfer equipment and power-drive units for semiconductor etch / deposition tools (contract metal-platform manufacturer; also ESS enclosures and telecom equipment)",
+          "connects_to": [
+            {
+              "company": "Lam Research",
+              "relationship": "wafer-transfer equipment and power-drive units for etch / deposition tools (Seojin semiconductor-equipment business)",
+              "contracts": [
+                {
+                  "source": "Seojin System Q2 FY2026 (08-14-2026)",
+                  "signal": "Seojin System's half-year report names Lam Research Manufacturing Korea among the customers from which its future trade receivables arise (stated in a note on a receivables-backed borrowing, whose terms are financing and not recorded here); Seojin's semiconductor-equipment products are wafer-transfer equipment for etch / deposition processes and power-drive units.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "not stated",
+                  "type": "customer relationship (receivables from Lam Research Manufacturing Korea)",
+                  "topics": []
+                }
+              ]
+            }
+          ],
+          "quarterly_data": [
+            {
+              "quarter": "Seojin System Q2 FY2026 (08-14-2026)",
+              "signal": "H1 2026 (half-year report, consolidated): revenue KRW 690,352 million (2Q26 KRW 410,183,847,975); operating loss KRW 52,314 million (2Q26 operating loss KRW 19,357,186,932); net loss KRW 60,681 million. Semiconductor equipment revenue KRW 308,568 million (44.7% of revenue, above the FY2025 full-year KRW 291,277 million) with segment operating profit KRW 34,709,280 thousand, while the EMS segment lost KRW 52,317,296 thousand; ESS equipment KRW 206,686 million (29.9%), telecom equipment KRW 67,211 million.",
+              "figure": "H1 2026 revenue KRW 690,352 million; semiconductor equipment KRW 308,568 million",
+              "topics": [],
+              "slot": "revenue_growth"
+            },
+            {
+              "quarter": "Seojin System Q2 FY2026 (08-14-2026)",
+              "signal": "ESS supply contracts with Ace Engineering (half-year progress table, unit USD 100 thousand): three new contracts, disclosed 03-17-2026 (total 1,806 ends 12-31-2027), 04-28-2026 (total 819, ends 01-18-2027) and 05-18-2026 ('ESS and PCS', total 1,247, ends 12-31-2027), none supplied by 06-30-2026; the 11-26-2025 contract (total 1,257) had 375 supplied, with its end date now 04-30-2027; the 08-26-2025 (883) and 12-24-2025 (448) contracts were fully supplied.",
+              "figure": "new ESS contracts 1,806 / 819 / 1,247 (USD 100 thousand)",
+              "topics": [],
+              "slot": "backlog_or_b2b",
+              "counterparty": "Ace Engineering",
+              "counterparty_role": "customer (ESS equipment)"
+            },
+            {
+              "quarter": "Seojin System Q2 FY2026 (08-14-2026)",
+              "signal": "Customer concentration (H1 2026, names withheld): Customer (B) KRW 288,992,653 thousand, 41.9% of revenue; Customer (A) KRW 131,471,294 thousand, 19.0%. Sales to US customers KRW 102,694,104 thousand (14.9%).",
+              "figure": "Customer (B) 41.9%; Customer (A) 19.0%",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

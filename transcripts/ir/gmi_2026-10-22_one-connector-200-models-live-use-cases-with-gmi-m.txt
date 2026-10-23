@@ -1,0 +1,232 @@
+SOURCE: GMI official press release -- https://www.gmicloud.ai/en/blog/one-connector-200-models-live-use-cases-with-gmi-mcp
+TITLE: One Connector, 200+ Models: Live Use Cases with GMI MCP
+DATE: 10-22-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-22.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: GMI press release: One Connector, 200+ Models: Live Use Cases with GMI MCP (10-22-2026)
+
+---
+One Connector, 200+ Models: Live Use Cases with GMI MCP
+
+More Blog Posts
+
+More Blog Posts
+
+Product One Connector, 200+ Models: Live Use Cases with GMI MCP
+
+Connect GMI Cloud’s MCP server to Claude Code, Cursor, Codex or ChatGPT and run 200+ models from one prompt. Ten tools, three live jobs, pricing and setup.
+
+October 22, 2026
+
+One sentence typed into the coding tool you already use turned a product photo into a five-second ad clip, with the model chosen, the parameters read, the price quoted and approved, and the job polled to completion, without a dashboard, an API key in a file, or a line of integration code. That is the GMI MCP server, and it exposes ten tools. The video runs all ten through three jobs for an imaginary mug shop. This post is the reference the video points at: what each tool does, the rhythm every job follows, the two batching rules that save money, and how to connect.
+
+What MCP is, and what GMI's server publishes
+
+MCP, the Model Context Protocol, is an open standard for connecting a software client to outside tools and data. A provider runs a server that publishes a list of tools, each with a name, a description and a schema for its inputs. A compatible client reads that list at connection time, picks the tool a task needs, calls it with the required fields, and folds the result into its work. Before MCP, every model-to-service pairing was custom integration code: call the model, interpret its tool request, run the action, serialize the result, send it back. MCP replaces those one-off integrations with one shared contract.
+
+The client is whatever you already work in: Claude Code, Claude on the web or desktop, Cursor, the Codex CLI, ChatGPT, or any other MCP client. The provider in this case is GMI Cloud.
+
+GMI MCP server
+
+Endpoint
+
+https://mcp.gmicloud.ai/mcp
+
+Transport
+
+remote MCP over HTTP
+
+Sign-in
+
+OAuth in the browser; no API key in any file
+
+Read scopes
+
+models:read, generation:read, billing:read, profile:read
+
+Write scope
+
+generation:write, approved separately; needed to submit jobs and upload media
+
+Tools
+
+10
+
+The scope detail matters on the first connection. Some clients request read-only access by default, which lets you browse and price but not generate. If a submission comes back with insufficient scope: [generation:write generation:read] required, reconnect and make sure write access is on the approval screen.
+
+The ten tools
+
+Every tool name below appears on screen in the video as the client calls it.
+
+Tool
+
+What it does
+
+Where the video uses it
+
+search_models
+
+Find models by task, modality or provider
+
+Every workflow, first call
+
+get_model
+
+Read one model's real parameters, availability and pricing
+
+Every workflow, before any request is built
+
+upload_media
+
+Get an upload slot for your own input image, audio or video
+
+The mug photo, before the video job
+
+estimate_generation
+
+Price a job before submitting it
+
+Every workflow, before approval
+
+submit_generation
+
+Create a generation; spends the balance
+
+After approval, every workflow
+
+get_generation
+
+Check one request and collect its media once ready
+
+Polling the video job
+
+list_generations
+
+Your recent generation requests and their status
+
+Reviewing the batch
+
+get_account_summary
+
+Balance, plus token usage and cost for a period
+
+The spend question
+
+search_docs
+
+Search GMI's documentation and return sections with links
+
+The rate-limit question
+
+create_support_request
+
+File a support ticket against your organization
+
+The failed-generation ticket
+
+Six of the ten are the generation path. The other four are the parts of a provider relationship that usually live in a dashboard: what you have spent, what the docs say, and who to tell when something breaks.
+
+The rhythm every job follows
+
+Day to day the server follows one sequence, and you will see it in all three workflows below.
+
+search_models for the task.
+
+get_model to read the parameters: the field names, the accepted values, the defaults.
+
+upload_media if the model needs one of your files as a public URL.
+
+estimate_generation for a price.
+
+Approval from you.
+
+submit_generation, which returns a request ID.
+
+get_generation until the status is complete, for anything asynchronous like video.
+
+Three operating rules I set at the start of the video and kept through it. Read a model's parameters before preparing a request, because the schema is the only reliable description of what the model accepts. Quote every job and wait for approval before submitting it, because submission spends the balance. And treat a returned request ID as a successful submission, not a timeout: rendering happens on GMI's side and can take minutes, and the server hands back a tracking ID so the client can keep working.
+
+Three jobs for a mug shop
+
+For the video I played a small shop that sells ceramic mugs. Three jobs, each starting with one plain-language prompt. I ran them from Claude Code for the recording; the same prompts work unchanged from Cursor, the Codex CLI, ChatGPT, Claude on the desktop, or any other MCP client, because the tools and their schemas come from the server, not the client.
+
+A five-second ad clip from one product photo. The prompt: "I have a JPEG at Downloads/mug.jpg. Find me a GMI model that animates a photo into a short video." The client called search_models, then get_model, which reads each candidate's declaration: the name of the starting-image field, the accepted resolutions and the duration range. For the model it recommended, kling-3.0-turbo-i2v, that is a required first_frame image, 720p or 1080p, and 3 to 15 seconds with a default of 5. upload_media moved the photo to GMI storage and returned a URL. estimate_generation quoted $0.50 for five seconds at 720p on kling-3.0-turbo-i2v; I asked for HappyHorse 1.1 instead and the quote came back at $0.70. submit_generation returned a request ID, get_generation reported processing, and a few minutes later the same call returned the finished clip.
+
+Seven listing images from a CSV. The prompt: "Read products.csv in Downloads. For each row, generate one listing image on GMI using a fast, low-cost text-to-image model. Quote the full batch first and wait for my approval." The client searched the catalog, read four candidates (GPT Image 2.5, Hy Image 3.5, Gemini 3.1 Flash Image and Seedream), priced the batch on each, with the lowest quote at seven cents for all seven, and waited. I picked Gemini 3.1 Flash Image, which the catalog lists at $0.07 per image at the default resolution. The images came back in the order of the CSV rows and were saved by SKU.
+
+One narration, three languages. The prompt: "I have a mug narration script in Downloads. Find a GMI text-to-speech model with natural voices. Tell me what English, Japanese and Spanish would cost. Wait for my approval before generating." Same rhythm: search, read parameters, estimate, approve, submit. I took the lowest-cost option, inworld-tts-2-flash, and all three voices were ready in one pass.
+
+Job
+
+Tools called
+
+Models
+
+Quote
+
+Photo to 5 s video, 720p
+
+search, get_model, upload_media, estimate, submit, get_generation
+
+kling-3.0-turbo-i2v, then happyhorse-1.1-i2v
+
+$0.50, then $0.70
+
+7 listing images
+
+search, get_model, estimate, submit, list_generations
+
+gemini-3.1-flash-image, chosen from four
+
+from $0.07 for the batch on the cheapest candidate
+
+Narration in EN, JA, ES
+
+search, get_model, estimate, submit
+
+inworld-tts-2-flash
+
+lowest of the options shown
+
+The video is where you see the outputs. The point here is that the request shape never changed across image, video and audio: the same seven steps, the same approval gate, the same request ID coming back.
+
+The account, the docs and support, from the same prompt box
+
+Balance and spend. "What is our current balance on GMI, and what have we spent on text-model tokens this week, broken down by model?" get_account_summary returned the organization's balance in dollars and the token usage and cost for the period, ranked by the models with the most use. For my whole organization, everyone in the company, that was about $13,000 across 349,244 requests, text models only. Image, video and audio spend are not in that figure; ask for them separately, and treat the balance as a funding check rather than a live meter, because generation charges do not land on it immediately.
+
+Documentation. "How does GMI rate-limit inference requests, and how should I handle an HTTP 429?" search_docs returned the matching sections from docs.gmicloud.ai with their links, so the client answered from the current documentation instead of from whatever it remembered.
+
+Support. "A generation failed with an upstream-unavailable reference ID. Open a support request with the reference ID, model name and failure details." create_support_request filed a ticket carrying exactly the details support needs. Every call creates a new ticket, so file once.
+
+Two things to know before you batch
+
+Identical requests deduplicate. If the same model, prompt and parameters are submitted twice inside the dedupe window, you get the original job back instead of a second charge; the window is longer for video than for image. That protects you from an accidental double submit. It also means a deliberate second take of an identical request needs a new idempotency_nonce, or any change to the prompt or parameters, including the seed.
+
+An estimate is a price, not a validation. estimate_generation prices a request, but the generation service validates it at submission. A parameter that only the service can catch can still get a quote, and the submission can still return a request ID and then end as failed. That is why get_model comes first in every workflow: the schema is where the accepted values live, and reading it is the cheapest check there is.
+
+Try it on GMI Cloud
+
+Connect from the client you already use, sign in once in the browser, and approve write access when the screen offers it. The MCP server is the same catalog and the same queue, reached without copying the key anywhere. Try it out now.
+
+The question to answer
+
+Count the places you leave your editor to get a generation done: the catalog, the pricing page, the console for a key, the docs, the ticket form. Each one is a tool on this server now. Pick the job you run most often, type it as a sentence, and see how many of those tabs you still need.
+
+Ready to build? Get Started
+
+Grace Deng
+
+DevRel @ GMI Cloud
+
+Build AI Without Limits
+
+GMI Cloud helps you architect, deploy, optimize, and scale your AI strategies
+
+Contact Sales
+
+Ready to build?
+
+Explore powerful AI models and launch your project in just a few clicks.
+
+Get Started

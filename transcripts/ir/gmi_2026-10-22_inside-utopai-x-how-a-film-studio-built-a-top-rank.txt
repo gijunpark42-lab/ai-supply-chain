@@ -1,0 +1,124 @@
+SOURCE: GMI official press release -- https://www.gmicloud.ai/en/blog/inside-utopai-x-how-a-film-studio-built-a-top-ranked-video-model-on-gmi-cloud
+TITLE: Inside Utopai X: How a Film Studio Built a Top-Ranked Video Model on GMI Cloud
+DATE: 10-22-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-22.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: GMI press release: Inside Utopai X: How a Film Studio Built a Top-Ranked Video (10-22-2026)
+
+---
+Inside Utopai X: How a Film Studio Built a Top-Ranked Video Model on GMI Cloud
+
+More Blog Posts
+
+More Blog Posts
+
+Announcements Inside Utopai X: How a Film Studio Built a Top-Ranked Video Model on GMI Cloud
+
+Utopai Studios built and serves Utopai X, the second ranked text-to-video model with audio on the Artificial Analysis leaderboard, on GMI Cloud GPUs.
+
+October 22, 2026
+
+Utopai X, the video generation model from Utopai Studios, ranks second on the Artificial Analysis Text-to-Video Leaderboard With Audio, with an Elo score of 1,150. Utopai, a long-term GMI Cloud compute client, built the model on GMI Cloud and serves it from GMI Cloud today.
+
+On September 30, 2026, Utopai shipped a new version of PAI, its production intelligence platform for film and television, with Utopai X as the video layer inside it. One day earlier, the leaderboard result went public.
+
+Here is how the model runs on GMI Cloud, what the Utopai team built around it, and what the ranking means.
+
+Where GMI Cloud fits
+
+Utopai trains Utopai X on GMI Cloud and serves it from GMI Cloud inside PAI. Those are two different workloads, and video puts different pressure on each.
+
+Training a video model means moving large volumes of frames through a cluster for long, uninterrupted runs. Every production cycle at Utopai produces new approved takes and new feedback from directors and artists, and each of those cycles can trigger another round of post-training. That rhythm favors GPU capacity that a team can scale up for a run and release when the run ends, with fast interconnect between nodes so a multi-node job behaves like one machine.
+
+Serving is a different problem. Inside PAI, a filmmaker asks a Production Assistant for a shot and expects a take back fast enough to stay in the creative flow. Video generation produces far more output per request than a chat completion, and a studio team may fire many requests in parallel while comparing takes. Serving that well means GPU capacity that maintains predictable latency under varying demand.
+
+Training a checkpoint
+
+Serving inside PAI
+
+What moves through the GPUs
+
+Large batches of video frames over long runs
+
+One prompt in, one clip out, many in parallel
+
+What the workload needs
+
+Multi-node capacity with fast interconnect, scaled up for a run
+
+Dedicated capacity that holds latency steady under bursts
+
+What good looks like
+
+A run finishes without interruption and the new checkpoint beats the last one
+
+Predictable latency under varying demand
+
+When it runs
+
+After each production cycle brings new approved takes and feedback
+
+Every time a filmmaker asks a Production Assistant for a shot
+
+Running both on the same provider removes a handoff. A new checkpoint that finishes training can go straight into the serving stack without moving weights across clouds or re-provisioning hardware. For a team whose model improves with every production, that loop from feedback to training to serving is the product.
+
+"We use GMI Cloud to train and serve our new model," said Jie Yang, Co-Founder and CTO of Utopai Studios.
+
+GMI Cloud offers both halves of that loop: GPU clusters for training runs and GPU capacity for serving models in production.
+
+A studio that builds its own tools
+
+Utopai Studios makes films and television in Mountain View, California. Cecilia Shen and Jie Yang founded it in 2022, and the team now spans the Bay Area, Los Angeles, APAC and Germany. The studio writes, finances and produces its own projects, so every tool it builds gets tested on a real production first.
+
+"The most time-consuming part is that we need to generate lots of images and videos, and in this process we have to try again and again many, many times," Jie Yang said at GMI Signal.
+
+PAI, Production Assistive Intelligence, is the studio's answer. One workspace holds the screenplay, assets, shots, takes and versions. Production Assistants, the AI agents inside PAI, break down the script, propose shot plans and generate iterations. The filmmaker sets direction and makes every final call.
+
+Each piece maps to a step a production team already does by hand.
+
+Production step
+
+What PAI does
+
+Why it matters
+
+Script breakdown
+
+Splits the screenplay into scenes and shots
+
+Shot lists follow the script as pages change
+
+Assets
+
+Library of characters, locations and objects, every version kept
+
+An approved look can be restored
+
+Takes and review
+
+Takes compared side by side with version history
+
+Compare, pick, roll back
+
+Team approvals
+
+Review flows and sign-off tied to a specific version
+
+Everyone knows which cut is approved
+
+Post-production
+
+Exports to Adobe Premiere and DaVinci Resolve
+
+The edit pipeline stays intact
+
+Utopai X is the video model inside PAI. Utopai started from an existing video foundation model and post-trained it on what its own productions generate: screenplays, approved designs, shot plans and takes, plus the judgment of directors, cinematographers and artists on which takes work and why. Utopai describes the result as strong on reflections, caustics and spatial consistency within a single clip, so objects, lighting and geometry hold together across the frames of one shot. Continuity across shots is a separate problem, which PAI handles through its asset library and version history.
+
+Both are in use today on The Most Serious Fart , an animated feature written and directed by Mike Bender.
+
+What an Elo of 1,150 means
+
+Artificial Analysis ranks video models through blind human preference tests. A participant sees two clips generated from the same prompt, with the model names hidden, and picks the one they prefer. Each pick updates an Elo rating, the same system chess uses to rank players. A higher Elo means a model wins more head-to-head comparisons against the field.
+
+On the Text-to-Video Leaderboard With Audio, results dated September 29, Utopai X scored 1,150 and placed second globally, nine points behind the first place model. That makes it the highest-ranked model from a U.S.-based company on that board. The gap at the top sits inside the confidence intervals of both models, so the order can shift as more votes come in. The useful takeaway is that a model built by a production studio, tuned on production feedback, now competes with models from the largest labs.

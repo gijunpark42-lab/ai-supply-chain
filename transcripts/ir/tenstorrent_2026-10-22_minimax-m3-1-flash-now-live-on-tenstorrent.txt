@@ -1,0 +1,90 @@
+SOURCE: Tenstorrent official press release -- https://tenstorrent.com/newsroom/minimax-m31-flash-now-live-on-tenstorrent
+TITLE: MiniMax M3.1 Flash, Now Live on Tenstorrent
+DATE: 10-22-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-23.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Tenstorrent press release: MiniMax M3.1 Flash, Now Live on Tenstorrent (10-22-2026)
+
+---
+MiniMax M3.1 Flash, Now Live on Tenstorrent | Tenstorrent
+
+Skip to main content Some tracking technologies are important for the correct functioning of our websites and are always on. By clicking "Allow All" you are also directing us to use optional tracking technologies. Privacy Notice .
+
+Customize Allow All Only Necessary
+
+Back Announcements
+
+Open Source
+
+Newsroom
+
+MiniMax M3.1 Flash, Now Live on Tenstorrent
+
+Tenstorrent is now serving MiniMax M3.1 Flash on Cloud, with both prefill and decode running on Tenstorrent Galaxy®.
+
+Oct 22, 2026
+
+• Share
+
+MiniMax released the open weights for MiniMax M3.1 Flash today, and Tenstorrent is now serving it on Cloud , with both prefill and decode running on Tenstorrent Galaxy®.
+
+MiniMax M3.1 Flash runs agent tasks at 70% lower cost than M3, with strong results on coding, computer use, and cybersecurity.
+
+Benchmark results published by MiniMax.
+
+MiniMax M3.1 Flash is built to run agents in production:
+
+Lower cost per token vs M3: $0.15 per 1M input tokens, $0.60 per 1M output tokens, and $0.015 per 1M cached input tokens; 50% of M3’s price for input and output, and 25% for cached input.
+
+Strong benchmarks: Tops every model in MiniMax’s comparison on AutomationBench (62.8) and LOCA-Bench 256K (60.3), and ties Claude Opus 5 on BankerToolBench (76.2).
+
+Proven at scale: “Space Bunny Alpha,” the anonymous model that processed more than 200 trillion tokens, was an early version of MiniMax M3.1 Flash.
+
+Much of MiniMax M3.1 Flash’s speed comes from its architecture and quantization.
+
+MiniMax replaced global grouped-query attention with sparse attention and kept dense MLPs only in the first three layers. Each token reads only part of the context, which reduces compute and memory traffic, especially at long context.
+
+MiniMax was able to quantize much of the model to lower precision data formats while maintaining or improving on the capabilities of the unquantized M3 model. MLP weights, attention weights, indexer, and shared expert were all quantized to MXFP8 while routed expert weights are quantized to NVFP4.
+
+How we serve MiniMax M3.1 Flash on Tenstorrent
+
+We serve MiniMax M3.1 Flash on a supercluster of Tenstorrent Blackhole Galaxies, with Galaxies split by prefill and decode, so each system can be tuned for its own job:
+
+Prefill: processes agent prompts. High bandwidth between devices enables each prompt to spread across many chips without stalling on data movement.
+
+Decode: generates tokens on Galaxy systems independent of those used for prefill, so long prefills don’t stall users mid-response. Chips pass work along a pipeline over direct, low-latency Ethernet links. Weights and KV cache stay on-device in DRAM, while on-chip SRAM allows each step to execute fast.
+
+KV cache offload: keeps reused context close at hand. Each Blackhole Galaxy has 1 TB of DRAM and several terabytes of SSD, so context stays cached longer and returning agent turns do not recompute input they’ve already processed.
+
+Tenstorrent tunes on SemiAnalysis’s AgentX coding-agent traces, captured from real multi-turn sessions and subagent fan-out, rather than short chat benchmarks.
+
+Try now
+
+MiniMax M3.1 Flash is available on console.tenstorrent.com today. Explore it in the Playground or connect it directly to your agent harness.
+
+Announcements
+
+Newsroom
+
+Architecture
+
+Tenstorrent Releases Open Source Beta of the Open Chiplet Atlas® (OCA) Harness
+
+Oct 22, 2026
+
+Announcements
+
+Newsroom
+
+PFN and Tenstorrent Selected for NEDO Project on “xPU Design and Development Incorporating Photonics Electronics Integration Technology”
+
+Oct 21, 2026
+
+Announcements
+
+Newsroom
+
+Tenstorrent Announces a $1.5B Series E at a $6.2B valuation
+
+Oct 19, 2026

@@ -1,0 +1,64 @@
+{
+  "source": "Vina Tech DART supply contract (10-21-2026)",
+  "new_nodes": {
+    "Sanmina": {
+      "ticker": "SANM",
+      "exchange": "NASDAQ",
+      "country": "US",
+      "why": "Existing node (Server ODM in amd_mi450_helios.json) added to power_semiconductor.json as the buyer side of Vina Tech's data-center supercapacitor supply contracts (cross-chain rule, SKILL 2026-10-19).",
+      "evidence": "Vina Tech DART supply contracts (09-07-2026) and (10-21-2026): data-center supercapacitor supply contracts with counterparty SANMINA CORPORATION (electronics contract manufacturer), supply region India.",
+      "approved": "opus verifier 2026-10-23: existing node; Vina Tech's DART filings name SANMINA CORPORATION as buyer of data-center supercapacitors (Vina Tech ties supercap growth to AIDC), so one buyer placement at system_integration / Server ODM in power_semiconductor.json (cross-chain rule, SKILL 6)"
+    }
+  },
+  "chains": {
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "Sanmina",
+          "layer": "system_integration",
+          "sector": "Server ODM",
+          "product": "AI rack / system integration and electronics contract manufacturing (buyer of data-center supercapacitors)",
+          "connects_to": []
+        },
+        {
+          "company": "Vina Tech",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "product": "Supercapacitor cells (lead and snap-in type), modules and systems for AI data-center (AIDC) UPS and peak-power control",
+          "connects_to": [
+            {
+              "company": "Sanmina",
+              "relationship": "data-center supercapacitors supplied by Vina Tech (purchase orders)",
+              "contracts": [
+                {
+                  "source": "Vina Tech DART supply contract (10-21-2026)",
+                  "signal": "Vina Tech DART filing: data-center supercapacitor supply contract with SANMINA CORPORATION, KRW 119,474,738,573 (USD 89,965,917.6 at the PO quantities and unit prices), 145.30% of Vina Tech's FY2025 revenue; supply region India; term 2026-10-21 to 2027-12-23; no advance payment; produced through Vina Tech's overseas subsidiary.",
+                  "units": "data-center supercapacitors (PO quantities not stated)",
+                  "value": "KRW 119,474,738,573 (USD 89,965,917.6)",
+                  "date_signed": "2026-10-21",
+                  "type": "supply contract",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ],
+          "quarterly_data": [
+            {
+              "quarter": "Vina Tech DART supply contract (10-21-2026)",
+              "signal": "New order: data-center supercapacitor supply contract with SANMINA CORPORATION, KRW 119,474,738,573 (USD 89,965,917.6), 145.30% of FY2025 revenue; supply region India; 2026-10-21 to 2027-12-23; produced through the overseas subsidiary.",
+              "figure": "KRW 119,474,738,573; 145.30% of FY2025 revenue",
+              "topics": [
+                "power_cooling"
+              ],
+              "slot": "backlog_or_b2b",
+              "counterparty": "Sanmina",
+              "counterparty_role": "customer (data-center supercapacitors)"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

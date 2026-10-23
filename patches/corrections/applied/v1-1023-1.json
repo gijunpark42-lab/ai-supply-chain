@@ -1,0 +1,35 @@
+{
+  "reviewer": "v1-1023",
+  "items": [
+    {
+      "kind": "edge",
+      "company": "BESI",
+      "target": "Applied Materials",
+      "action": "set",
+      "set": {
+        "relationship": "partnership on hybrid bonding and thermo-compression (TC) bonding: automated line concepts for memory (HBM) and joint packaging process development at Applied's EPIC Center"
+      },
+      "chains": [
+        "components/hbm_memory.json"
+      ],
+      "reason": "One edge per pair: the BESI Q3 FY2026 call contract (EPIC Center first program, hybrid bonding and TC for a major U.S. customer) and the already-applied Applied Materials 10-01-2026 release contract (EPIC Center innovation partner, TCB scaling, die-on-wafer / panel platforms, CPO) describe the same partnership beyond HBM automated lines; the label is widened instead of a second edge (SKILL JOB 4).",
+      "evidence": "now in the EPIC Center, where the first program we will set up is both for hybrid bonding and TC for a major U.S. customer"
+    },
+    {
+      "kind": "quarterly_data",
+      "company": "Dover",
+      "label": "Dover Q3 FY2026 (10-22-2026)",
+      "signal_prefix": "Other segments in Q3 (CEO Richard J. Tobin): Engineered Products was down 2%",
+      "action": "set",
+      "set": {
+        "signal": "Other segments in Q3 (CEO Richard J. Tobin): Engineered Products was down 2% organically, with strong aerospace and defense component demand more than offset by lower European vehicle services volumes; margin stable. Imaging & Identification grew 2% organically, led by double-digit growth in serialization software, with margins up 400 basis points to 33% (the CEO called the year-to-date margin 'entirely sustainable'; a new plant in Poland was built this year and ink production rebuilding finishes in 2027). Pumps & Process Solutions grew 1% organically, with growth in AI and energy infrastructure, single-use biopharma and industrial pumps partly offset by lower polymer processing equipment volumes (quoting activity high); margin expanded to 34% on industrial pumps, precision components and a higher biopharma mix (the basis-point change is garbled in the call transcript; the filed figure is on the Dover IR presentation: Q3 2026 Earnings Presentation Slides (10-22-2026) entry).",
+        "figure": "Engineered Products down 2% organic; Imaging & Identification +2%, margin 33% (+400 bps); Pumps & Process Solutions +1%, margin 34%"
+      },
+      "chains": [
+        "components/power_cooling.json"
+      ],
+      "reason": "Call figure vs filed figure (SKILL section 6): the transcript reads '770 basis points to 34%', but the same-day deck prints Pumps & Process Solutions adjusted segment EBITDA margin 34%, +70 bps (33.9% vs 33.2%, page 15); the end level matches the filing and a doubled digit is a transcription error, so the call entry keeps its words but loses the number.",
+      "evidence": "Margin expanded 770 basis points to 34% on solid conversion in industrial pumps (call) | deck p7: Pumps & Process Solutions $569 +1% 34% +70 bps"
+    }
+  ]
+}

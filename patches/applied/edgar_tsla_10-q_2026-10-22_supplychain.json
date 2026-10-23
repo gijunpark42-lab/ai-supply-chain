@@ -1,0 +1,48 @@
+{
+  "source": "Tesla 10-Q (10-22-2026)",
+  "chains": {
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Tesla",
+          "layer": "compute_hardware",
+          "sector": "Custom AI ASIC (hyperscaler silicon)",
+          "product": "AI/automotive chip designer - Samsung Foundry contract-manufacturing customer (USD 16.5B, 2025-2033)",
+          "quarterly_data": [
+            {
+              "signal": "Tesla 10-Q: remaining performance obligations on contracts longer than one year were $10.73 billion at September 30, 2026, of which $4.80 billion is expected to be recognized in the next 12 months; deferred revenue from non-refundable customer prepayments was $3.30 billion ($2.04 billion at December 31, 2025). Tesla reversed $475 million of automotive regulatory credits revenue in Q3 for the contractual return of previously delivered credits, after governmental and regulatory actions restricted certain credit programs. Segment gross margin in Q3: automotive and services and other 18.0% (16.1%), energy generation and storage 33.1%; energy inventory rose to $4,448 million ($2,714 million at year-end). Revenue by sales location: United States $12,495 million ($14,598 million a year earlier), China $5,209 million, other international $10,342 million ($7,844 million). 2026 capex is expected to be 'in excess of $20 billion'.",
+              "figure": "RPO $10.73 billion ($4.80 billion next 12 months); $475 million regulatory-credit revenue reversal; US revenue $12,495 million vs $14,598 million",
+              "topics": [],
+              "quarter": "Tesla 10-Q (10-22-2026)"
+            },
+            {
+              "signal": "Tesla 10-Q: the board formed a special committee of disinterested directors to explore deepening Tesla's relationship with SpaceX, which could include a business combination; Tesla says there is no assurance any transaction will be consummated, and one would require the committee's recommendation and any necessary shareholder approval. Tesla holds less than 1% of SpaceX common stock from its $2.00 billion investment of March 2026.",
+              "figure": "no specific figure",
+              "topics": [],
+              "quarter": "Tesla 10-Q (10-22-2026)"
+            }
+          ],
+          "connects_to": [
+            {
+              "company": "SpaceX",
+              "relationship": "Megapack battery storage supplied for SpaceX AI data centers (training-run power smoothing); joint framework agreement covering Terafab and Digital Optimus",
+              "contracts": [
+                {
+                  "source": "Tesla 10-Q (10-22-2026)",
+                  "signal": "Tesla's 10-Q related-party note: Tesla recognized $221 million (Q3 2026) and $626 million (nine months) of revenue from SpaceX's purchases of Megapack products; accounts receivable from SpaceX were $729 million at September 30, 2026, including milestone billings and capacity reservations for Megapacks not yet delivered, and deferred revenue on these Megapack contracts was $648 million ($516 million current, $132 million long-term).",
+                  "units": "no specific figure",
+                  "value": "$221 million Q3 2026 revenue; $626 million nine months; $648 million deferred revenue",
+                  "date_signed": "not stated",
+                  "type": "10-Q related-party purchases",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
