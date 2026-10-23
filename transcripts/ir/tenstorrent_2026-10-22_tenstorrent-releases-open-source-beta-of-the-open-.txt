@@ -1,0 +1,80 @@
+SOURCE: Tenstorrent official press release -- https://tenstorrent.com/newsroom/tenstorrent-releases-open-source-beta-of-the-oca-harness
+TITLE: Tenstorrent Releases Open Source Beta of the Open Chiplet Atlas (OCA) Harness
+DATE: 10-22-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-23.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Tenstorrent press release: Tenstorrent Releases Open Source Beta of the Open Chiplet (10-22-2026)
+
+---
+Tenstorrent Releases Open Source Beta of the Open Chiplet Atlas® (OCA) Harness | Tenstorrent
+
+Skip to main content Some tracking technologies are important for the correct functioning of our websites and are always on. By clicking "Allow All" you are also directing us to use optional tracking technologies. Privacy Notice .
+
+Customize Allow All Only Necessary
+
+Back Announcements
+
+Newsroom
+
+Architecture
+
+Tenstorrent Releases Open Source Beta of the Open Chiplet Atlas® (OCA) Harness
+
+The OCA-compliant framework gives chiplet teams open, reusable infrastructure for security, boot, system management, debug and test, and die-to-die connectivity.
+
+Oct 22, 2026
+
+• Share
+
+Tenstorrent has released the open source beta of the Open Chiplet Atlas® (OCA) Harness. The Harness is a chiplet design framework that turns the OCA interoperability architecture into reusable, deployable implementations.
+
+The OCA Specification defines the rules that let chiplets from different vendors work together across the software, system, protocol, transport, and physical layers. The OCA Harness builds those rules into the infrastructure every chiplet needs: security, boot, system management, debug and test, and die-to-die integration. Chiplet teams that use the Harness can lower non-recurring engineering (NRE) costs and integration risk, and spend more time on the application logic that sets their chiplet apart.
+
+“The OCA architecture gives chiplet designers the freedom to build without depending on a single vendor,” said Wei-Han Lien, Chief CPU Architect and Senior Fellow at Tenstorrent. “The Harness gives teams a reference design that reduces integration complexity so they can focus on their core IP and launch custom silicon.”
+
+The beta includes the complete Harness RTL and includes three management subsystems::
+
+OCA Security Processor (SEP): serves as the chiplet’s root of trust, providing secure boot, measurement, key management, and lifecycle control.
+
+OCA System Management Controller (SMC): manages system bring-up, clocks, power, thermal, reset coordination, and telemetry, and implements the OCA-defined boot and configuration protocols that peer chiplets use.
+
+Debug and Test Ports (DTP): provide uniform cross-chiplet debug and test access, including JTAG and OCA cross-trigger support.
+
+The OCA System Management Unit (SMU) brings these subsystems together, and the OCA AoU implementation carries native AXI4 traffic over UCIe die-to-die links between chiplets. A C++/SystemC virtual platform also lets teams start firmware development before RTL simulation or silicon.
+
+BOS Semiconductors contributed the original AXI over UCIe RTL, and lowRISC helped open source the Harness. VNChip Labs and Signaloid are OCA ecosystem partners with contributions in progress.
+
+“At VNChip Labs, we are proud to contribute to OCA and help make advanced chiplet design more open and accessible,” said Quang Le, Co-Founder and CEO at VNChip Labs. “By providing a common, proven foundation, the OCA ecosystem can reduce development risk, accelerate time to silicon, and create a more level playing field for companies of all sizes.”
+
+“Signaloid provides a compute accelerator for computing with probability distributions, enabling speedups by an order of magnitude. By removing integration friction, the OCA Harness allows our accelerator IP to tap seamlessly into a thriving and open chiplet ecosystem,” said Phillip Stanley-Marbell, CEO and Founder at Signaloid. “This makes it easy for us to integrate across a wide variety of complete systems and SiPs, with lower NRE costs and faster time-to-market.”
+
+Tenstorrent designed the beta for early adopters, integrators, and contributors. The full release is targeted for January 2027.
+
+Visit the OCA Harness GitHub repository to get started.
+
+Announcements
+
+Open Source
+
+Newsroom
+
+MiniMax M3.1 Flash, Now Live on Tenstorrent
+
+Oct 22, 2026
+
+Announcements
+
+Newsroom
+
+PFN and Tenstorrent Selected for NEDO Project on “xPU Design and Development Incorporating Photonics Electronics Integration Technology”
+
+Oct 21, 2026
+
+Announcements
+
+Newsroom
+
+Tenstorrent Announces a $1.5B Series E at a $6.2B valuation
+
+Oct 19, 2026

@@ -74,6 +74,14 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "ASPEED",
+   "source": "call",
+   "status": "no_source",
+   "why": "not on Perplexity Finance (5274.TW, pplx.py fetch 2026-10-23), not on Investing.com or tw.py; its MOPS filings are enriched instead",
+   "at": "2026-10-23",
+   "recheck": "2026-11-23"
+  },
+  {
    "company": "ASRock",
    "source": "call",
    "status": "no_source",
@@ -754,6 +762,14 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Elite Material",
+   "source": "call",
+   "status": "no_source",
+   "why": "Perplexity Finance lists their results calls (newest: Elite Material 07-29, Kinsus 08-07, Nan Ya PCB 08-21, Han's CNC 10-20) but pplx.py fetch saved no transcript (checked 2026-10-23); not on Investing.com or tw.py; their MOPS / cninfo filings and decks are enriched instead",
+   "at": "2026-10-23",
+   "recheck": "2026-11-23"
+  },
+  {
    "company": "Enflame",
    "source": "call",
    "status": "no_source",
@@ -1266,6 +1282,14 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Han's CNC Technology",
+   "source": "call",
+   "status": "no_source",
+   "why": "Perplexity Finance lists their results calls (newest: Elite Material 07-29, Kinsus 08-07, Nan Ya PCB 08-21, Han's CNC 10-20) but pplx.py fetch saved no transcript (checked 2026-10-23); not on Investing.com or tw.py; their MOPS / cninfo filings and decks are enriched instead",
+   "at": "2026-10-23",
+   "recheck": "2026-11-23"
+  },
+  {
    "company": "Hana Materials",
    "source": "call",
    "status": "no_source",
@@ -1738,6 +1762,14 @@
    "recheck": "2027-01-20"
   },
   {
+   "company": "Kinsus",
+   "source": "call",
+   "status": "no_source",
+   "why": "Perplexity Finance lists their results calls (newest: Elite Material 07-29, Kinsus 08-07, Nan Ya PCB 08-21, Han's CNC 10-20) but pplx.py fetch saved no transcript (checked 2026-10-23); not on Investing.com or tw.py; their MOPS / cninfo filings and decks are enriched instead",
+   "at": "2026-10-23",
+   "recheck": "2026-11-23"
+  },
+  {
    "company": "Kinwong",
    "source": "call",
    "status": "no_source",
@@ -1792,6 +1824,14 @@
    "why": "no call transcript source: Perplexity Finance lists its results calls (010130.KS, latest 2026-08-06) but holds no transcript for them (pplx.py sync 2026-10-22: 'no transcript on Perplexity'; it looks again on 2026-11-13), Investing.com sync 2026-10-21 found none; no public call transcript exists for it (of Korean companies only Samsung posts its call script, kind.py); its DART filings / KIND IR decks are enriched instead (checked 2026-10-22)",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
+  },
+  {
+   "company": "Kostek Systems",
+   "source": "call",
+   "status": "no_source",
+   "why": "no listed ticker on Perplexity Finance (pplx.py fetch 2026-10-23: not a graph node with a listed ticker); KONEX company with no public call transcript; its DART filings are the source",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
   },
   {
    "company": "Kstar",
@@ -2280,6 +2320,14 @@
    "why": "no call transcript source: Perplexity Finance does not cover the symbol (pplx.py sync 2026-10-21: covered false), Investing.com sync 2026-10-21 found no transcript, not on tw.py's investor-conference video list; its MOPS decks / material information are enriched instead (checked 2026-10-22); recheck at the next results season",
    "at": "2026-10-22",
    "recheck": "2027-01-20"
+  },
+  {
+   "company": "Nan Ya PCB",
+   "source": "call",
+   "status": "no_source",
+   "why": "Perplexity Finance lists their results calls (newest: Elite Material 07-29, Kinsus 08-07, Nan Ya PCB 08-21, Han's CNC 10-20) but pplx.py fetch saved no transcript (checked 2026-10-23); not on Investing.com or tw.py; their MOPS / cninfo filings and decks are enriched instead",
+   "at": "2026-10-23",
+   "recheck": "2026-11-23"
   },
   {
    "company": "Nan Ya Plastics",
@@ -4010,6 +4058,22 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "Ardentec",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS (ir_pull.py discover); www.ardentec.com is a language-picker page whose paths lead back to it or 404, also through Jina - no news list (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
+   "company": "Auras Technology",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.auras.com.tw is JavaScript-built and its only news list (Events, read through Jina) holds trade-show notices with javascript-only links, no company releases (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
    "company": "Auros Technology",
    "source": "ir",
    "status": "no_source",
@@ -4050,6 +4114,30 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "Browave",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.browave.com/News holds 5 items since 2020 (exhibitions, catalogue, certificate, one 2025-03-25 release) with dates split as '2025' + '03/25' that ir_pull cannot parse; next step: a date parser for that layout (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
+   "company": "C Sun Manufacturing",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.csun.com.tw/recent-news holds exhibitions, events and links to third-party media articles only - no company releases (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
+   "company": "Celxpert Energy",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.celxpert.com.tw/news holds exhibition notices (latest 2025) and older product items only (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
    "company": "Chemtronics",
    "source": "ir",
    "status": "no_source",
@@ -4058,12 +4146,44 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "Chenming Electronic Tech",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.uneec.com/en/news: last company news 2018, the only 2026 item is a trade-show booth notice (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
    "company": "Cheryong Electric",
    "source": "ir",
    "status": "no_source",
    "why": "no RSS (ir_pull.py discover); the official homepage (DART company overview hm_url) links no news / press-release page in its HTML (script scan for news / press / PR / 보도 / 홍보 links found none) (checked 2026-10-21); company documents reach the map via DART / KIND",
    "at": "2026-10-21",
    "recheck": "2027-01-19"
+  },
+  {
+   "company": "Chung-Hsin Electric & Machinery",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.chem.com.tw news board carries awards, certificates, ESG and rankings; its one transaction item is a MOPS filing (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
+   "company": "Co-Tech Development",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; the press center at www.co-tech.com/tw/news/article is empty (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
+   "company": "Compeq Manufacturing",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.compeq.com.tw/news.php holds shift-schedule notices and plant environmental disclosures only (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
   },
   {
    "company": "D-Wave Quantum",
@@ -4130,6 +4250,14 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "Daxin Materials",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.daxinmat.com has no news section and links its material information to MOPS (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
    "company": "Dongjin Semichem",
    "source": "ir",
    "status": "no_source",
@@ -4152,6 +4280,14 @@
    "why": "no RSS (ir_pull.py discover); the official site's news / press page (homepage from DART company overview hm_url) only links or reprints third-party press articles, no company-issued releases (checked 2026-10-21); company documents reach the map via DART / KIND",
    "at": "2026-10-21",
    "recheck": "2027-01-19"
+  },
+  {
+   "company": "Dynapack International Technology",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.dynapack.com.tw has no news board, only a material-information page under shareholder services (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
   },
   {
    "company": "E2E Networks",
@@ -4178,12 +4314,52 @@
    "recheck": "2027-01-19"
   },
   {
+   "company": "EZconn",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.ezconn.com/en/news holds one item (2025-12-04 share-exchange material information) (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
+   "company": "East Tender Optoelectronics",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.east-tender.com has no news section (Products / About / Investors / ESG) (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
    "company": "Eaton",
    "source": "ir",
    "status": "no_source",
    "why": "no RSS feed: ir_pull.py discover, also with --url on the official IR press-release page, found no feed naming the company (checked 2026-10-21); its releases reach the map as SEC 8-K exhibits through edgar_pull.py",
    "at": "2026-10-21",
    "recheck": "2027-01-19"
+  },
+  {
+   "company": "Elite Advanced Laser",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.elaser.com.tw news is stale (latest item 2012) (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
+   "company": "Elite Material",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.emctw.com/en-global/investors_news is an English copy of its MOPS statutory announcements, no company releases (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
+  },
+  {
+   "company": "Eternal Materials",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.eternal-group.com/News (403 to scripts, read through Jina) holds trade-show and CSR items only (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
   },
   {
    "company": "Eugene Technology",
@@ -4208,6 +4384,14 @@
    "why": "no RSS (ir_pull.py discover); the official homepage (DART company overview hm_url) links no news / press-release page in its HTML (script scan for news / press / PR / 보도 / 홍보 links found none) (checked 2026-10-21); company documents reach the map via DART / KIND",
    "at": "2026-10-21",
    "recheck": "2027-01-19"
+  },
+  {
+   "company": "FOCI Fiber Optic Communications",
+   "source": "ir",
+   "status": "no_source",
+   "why": "no RSS; www.foci.com.tw/zh-tw/article-category holds 3 items (awards, a government R&D programme, an interview), latest 2025-05-06 (official site from TWSE / TPEx open data; checked 2026-10-23); its MOPS material information carries the company's filed releases",
+   "at": "2026-10-23",
+   "recheck": "2027-01-21"
   },
   {
    "company": "FST",
@@ -5721,6 +5905,21 @@
    "at": "2026-10-22 05:19",
    "market": "JP",
    "text": "pplx.py: Perplexity's transcript of MinebeaMitsumi Q1 FY2027 (08-05-2026) is English speech recognition of a Japanese-language call - gibberish, closed with no entries (the quarter is on the node from the results briefing). Other Japanese-language calls on Perplexity may be the same; check a saved JP file's first lines before enriching."
+  },
+  {
+   "at": "2026-10-23 01:06",
+   "market": "KR",
+   "text": "2026-10-23 nightly: kind.py sync --since 2026-03-01 (run to catch the new node Vina Tech's decks) saved 51 older decks of other Korean companies; by the user's instruction (2026-10-23: 'KIND는 9월거부터해') the 46 decks dated before 2026-09-01 were closed unenriched with why 'skipped: deck dated before 2026-09-01'; files stay in transcripts/kind/. Vina Tech's 05-20 / 08-26 decks are kept for its onboarding."
+  },
+  {
+   "at": "2026-10-23 03:20",
+   "market": "KR",
+   "text": "2026-10-23 nightly: a 3-month dart.py sync (run to catch Vina Tech's 10-21 contract) re-saved 210 filings because dart/sync_state.json 'seen' held only 113 rcept_nos. Kept and enriched: 62 Aug-Oct supply contracts the daily syncs had missed (companies added to the map later) + Mecaro Q3 prelim. NOT enriched, left in transcripts/dart/ (deleting was refused by the permission check; user to decide): 35 untracked artifacts - 14 Korea Zinc correction filings saved under wrong quarter names (koreazinc_q1_2023 .. q4_2025_dart.txt), seondoelectric_q4_2024_dart.txt, and 20 Aug Q2 prelims superseded by the Q2 periodic reports (dbhitek, dicorporation, duksanhimetal, hldihalla, kctech, koreazinc x2, lakematerials, lotteenergymaterials, lsecoenergy, lsmarinesolution, semcns, sktelecom x2, sstech, tlb, tokaicarbonkorea, winpac, wonikmaterials, wonikqnc _prelim_2026-08-*.txt). Code fix (uncommitted, for review): dart.py sync now pulls a NEW company's own supply contracts of the last 180 days once (state 'companies'); kind.py widens its window to 60 days the first sync after a new Korean company."
+  },
+  {
+   "at": "2026-10-23 03:20",
+   "market": "all",
+   "text": "2026-10-23 nightly (f3f8d6d3, enrich all 23:19-): pool 1 agent until ~02:00 (user active), then 4-6 after the user freed memory ('full on' until 14:09). Two clean builds (59 + 205 labels; verify 0 fail), all pre-verified by independent verifiers (V1, W2, W3). Queues emptied: IR releases 316 (first syncs of new feeds), IR-event decks 15, EDGAR 34, DART 1 + 62 missed contracts, cninfo 12, cnbrief 1, MOPS 5, TDnet 2, KIND (Sept+ only by user order; 46 pre-September decks closed unenriched), 3 Investing.com calls. New nodes on user request: Vina Tech, Seojin System, LS Materials. User limits tonight: relations backfill 10, gap fill 20. Uncommitted code for review: media_pull.py / pplx.py / cnbrief.py retry state writes on OneDrive locks (media_pull failed at 23:06 and once in-session; fixed and re-run OK), dart.py / kind.py new-company backfill. Three new IR feeds (CHPT, Compal, E&R Engineering) not synced yet - next ir_pull sync takes them."
   }
  ],
  "questions": [],
@@ -7303,6 +7502,114 @@
    "at": "2026-10-22",
    "answer": "Yes (independent Opus verifier V3): the customer and the AI use are stated in the company's release; test-and-measurement vendors already sit in memory Metrology / Inspection (Keysight in hbm_memory; KLA, Neosem, JT in nand_flash); the two share no chain, so one placement on Kioxia's side follows the cross-chain rule. Borderline: a development / compliance tester, not production test.",
    "answered": "2026-10-22",
+   "by": "claude"
+  },
+  {
+   "subject": "Lake Materials",
+   "question": "KIND deck p15 is a slide titled 'major customer status' (semiconductor logos) and p6 a timeline stating supply to Kioxia (Jul 2018) and Samsung (Aug 2018): customer list (edges) or logo wall (nothing)?",
+   "label": "Lake Materials IR presentation: KIND 19480 (10-23-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): a slide the company itself titles as its major customers is its own customer list (10-05 rule); ir_events.md's 'a logo wall is not a contract' bars deal terms, not an explicitly titled list (an untitled 'trusted by' wall still yields nothing). Edges with customer-list contracts: Lake Materials -> Samsung and -> SK Hynix (hbm_memory.json), -> Kioxia (nand_flash.json); TSMC, UMC, SMIC share no chain with Lake's precursor role, so they are named on Lake's node entry.",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "Bloom Energy -> Oracle warrant",
+   "question": "Bloom 10-Q: Oracle's warrant exercise (shares issued, $323.9M fair value, Customer Consideration Asset amortized against revenue) - commercial-tie fact or financing?",
+   "label": "Bloom Energy 10-Q (10-22-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): a commercial-tie fact (share-based consideration payable to a customer under the Oracle power partnership, amortized against revenue as Energy Servers are delivered), kept on the Bloom Energy -> Oracle edge as type 'strategic equity (share-based consideration payable to a customer's customer)' with shares issued, fair value and the asset balances; exercise price, warrant size and net-settlement mechanics stay out (security terms).",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "Dover Q3 call margin figure",
+   "question": "Call transcript says Pumps & Process Solutions margin +770 bps to 34%; the same-day deck prints 34%, +70 bps (33.9% vs 33.2%).",
+   "label": "Dover Q3 FY2026 (10-22-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): transcription error (end level matches, one digit doubled) - the call entry keeps its words but loses the number (correction v1-1023-1) and the deck entry carries +70 bps; no slot involved. TTM's call 111% vs deck 117% (90-day backlog) is NOT treated as an error (the call's own $1.3B vs $610M comparison fits, the deck is internally inconsistent); the deck's 2027 EPS range $8.25-8.75 was dropped because the release and call both state $8.10-8.90.",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "BESI -> Applied Materials edge",
+   "question": "Does the EPIC Center hybrid-bonding / TC program for a major U.S. customer fit the BESI -> Applied Materials edge (label: HBM automated lines)?",
+   "label": "BESI Q3 FY2026 (10-22-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): same partnership, so the contract stays on the edge and the label is widened through an 'edge' correction (v1-1023-1) to 'partnership on hybrid bonding and thermo-compression (TC) bonding: automated line concepts for memory (HBM) and joint packaging process development at Applied's EPIC Center'.",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "Seojin System -> Lam Research",
+   "question": "Seojin System's H1 2026 report names 'Lam Research Manufacturing Korea' among the customers whose future receivables back a securitization loan: a stated customer relationship, and does the subsidiary map to the Lam Research node?",
+   "label": "Seojin System Q2 FY2026 (08-14-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): yes - receivables the filer says arise from Lam are its own statement that Lam buys from it; the Korean manufacturing subsidiary maps to the Lam Research node (Applied Materials South East Asia precedent, 2026-10-21). Edge Seojin System -> Lam Research (foundry.json) kept, contract worded without the borrowing / trust / guarantee terms, date_signed 'not stated'. New nodes Vina Tech, Seojin System, LS Materials added on the user's direct request (2026-10-23).",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "Vina Tech Wanju lawsuit",
+   "question": "Vina Tech's FY2025 report discloses an unnamed contractor's claim for additional construction costs on its Wanju plant (KRW 443,300 thousand, unresolved, no provision, no court named): capture as a legal-proceedings fact?",
+   "label": "Vina Tech Q4 FY2025 (07-02-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): not captured - about 0.5% of FY2025 revenue with no liability booked, judged immaterial under the SKILL section 2 legal-proceedings rule (material proceedings only; boilerplate yields nothing).",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "X-Energy -> Amazon",
+   "question": "X-energy's prospectus and 10-Q name Amazon among its three customers (Xe-100 options > 5 GWe by 2039 for Amazon's data-center footprint, queue slots, ROFR, MFN pricing): AI-chain edge? And the two committed X-Energy / Amazon 'partner' relations rows?",
+   "label": "X-Energy prospectus (04-27-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): edge X-Energy -> Amazon in power_cooling.json (stated customer relationship in the data-center power chain, Talen -> Amazon precedent), contracts keep commercial terms and leave out investment / credit terms. The two committed partner rows (10-19 release, Q2 call: the same 5 GW Xe-100 collaboration) are removed once, since an 'other' row may not repeat an AI edge's relationship (section 6; 10-21 duplicate-row precedent); their facts go onto the edge as contracts. Talen (non-binding LOI) and KHNP (compact) stay relations rows.",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "Vina Tech supply contracts (Sanmina, AcBel Polytech)",
+   "question": "Vina Tech's DART supply contracts name SANMINA CORPORATION (09-07, 10-21) and ACBEL POLYTECH INC (10-19) as buyers of data-center supercapacitors; Vina Tech sits only in power_semiconductor.json, the buyers elsewhere. Cross-chain placements?",
+   "label": "Vina Tech DART supply contract (10-19-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): approved under the section 6 cross-chain rule - Sanmina gets one placement in power_semiconductor.json system_integration / Server ODM (beside Foxconn), AcBel Polytech one in power / Datacenter Power (beside Delta, Lite-On); edges Vina Tech -> Sanmina (KRW 13.3bn and KRW 119.5bn contracts) and Vina Tech -> AcBel Polytech (KRW 123.0bn, 149.60% of FY2025 revenue). Trading-halt notices are not contract facts.",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "NEC - Anthropic",
+   "question": "NEC's 09-02 release: NEC uses Claude internally and integrates Claude into NEC BluStellar Scenario (global partnership). NEC sits only in quantum_computing.json: add a placement in an Anthropic chain for an Anthropic -> NEC edge?",
+   "label": "NEC press release: NEC and Anthropic (09-02-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): no new placement - the Anthropic chains have no application-layer sector that fits an IT-services integrator ('AI-Native Vertical Apps' would misplace NEC) and a new sector is a structure change for the user; NEC keeps counterparty keys. NEC's submarine cables (I-2SEA, Petal for Meta / Microsoft) stay 'other' rows (general transoceanic capacity, no stated AI tie). Sales agencies 'via' which equipment is sold (Intekplus: ALKAID TECH, ACCUTECH) are distributors: counterparty keys only, no relations rows.",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "Pemtron customer slide; DART date-only corrections",
+   "question": "Pemtron's KIND deck p18 'existing global customers' (SK Hynix, Micron, Amkor, ASE, Hana Micron, Nepes, SFA, Huawei, Flex, Siemens ...): edges / rows? And do DART corrections that only move an end date fill backlog_or_b2b?",
+   "label": "Pemtron IR presentation: KIND 19283 (09-09-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): a titled customer list (Lake Materials ruling) - customer-list edges to SK Hynix, Micron, Amkor Technology, ASE Group, Hana Micron (all players in hbm_memory.json); Nepes / SFA (no shared chain, one logo) stay counterparty keys; the non-AI SMT / module-inspection customers are relations rows (scope other). DART corrections that only change dates or close a contract add no order and take no screener slot (8 slots removed).",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "Siemens / Skeleton Technologies",
+   "question": "Siemens' 10-14 release: it integrates and exclusively sells Skeleton's data-center supercapacitors worldwide and is a strategic investor; the two share no chain. Cross-chain placement + edge?",
+   "label": "Siemens press release (10-14-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier V1): yes - Siemens gets one placement in power_semiconductor.json power / Datacenter Power (the chain of the product supplied, where Skeleton, Vina Tech and LS Materials sit) and an edge Skeleton Technologies -> Siemens (integration + global data-center sales exclusivity; strategic investment, amount not stated, no security terms). Schneider Electric / NScale (four-party digital-twin software pilot) gets no placement: too thin, and power_cooling.json has no fitting sector for NScale; counterparty keys only. Prysmian's ELYSIS building-wire cables for an Amazon data center stay an 'other' row.",
+   "answered": "2026-10-23",
+   "by": "claude"
+  },
+  {
+   "subject": "Nidec auditor disclaimer and disposals",
+   "question": "Nidec's 09-30 release: PwC Japan's disclaimer of opinion on FY3/2026 statements and internal control, falsified inspection records, USD 94.1M underpaid tariffs - company fact or governance? And the Nidec Components / Tokuyama Cement share transfers?",
+   "label": "Nidec press release (09-30-2026)",
+   "at": "2026-10-23",
+   "answer": "Claude decision 2026-10-23 (independent Opus verifier W3): a disclaimer of opinion and the misconduct findings the company itself discloses are material company facts (kept, attributed as the auditor's basis as reproduced by Nidec, with Nidec's response); disposals recorded as what was sold, buyer, dates and stake before / after - never price or gain (Nidec Components to TCG2603 Co., Ltd.; Tokuyama Cement to Taiheiyo Cement). JV ownership links and marketing partner programmes are not relations rows.",
+   "answered": "2026-10-23",
    "by": "claude"
   }
  ]

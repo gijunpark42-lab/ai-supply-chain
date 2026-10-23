@@ -1,0 +1,51 @@
+{
+  "source": "Siemens press release: Siemens invests in Skeleton Technologies expanding its data (10-14-2026)",
+  "chains": {
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "Siemens",
+          "domain": "power",
+          "sector": "Datacenter Power",
+          "product": "electrical infrastructure for AI data centers incl. Skeleton supercapacitor systems (global data-center sales exclusivity)",
+          "connects_to": []
+        },
+        {
+          "company": "Skeleton Technologies",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "product": "curved-graphene supercapacitors and GrapheneGPU / GrapheneBBU systems for AI data-center peak shaving and backup",
+          "connects_to": [
+            {
+              "company": "Siemens",
+              "relationship": "supercapacitors integrated into Siemens' data-center electrical infrastructure portfolio (Siemens holds global data-center sales exclusivity)",
+              "contracts": [
+                {
+                  "source": "Siemens press release: Siemens invests in Skeleton Technologies expanding its data (10-14-2026)",
+                  "signal": "Siemens' release: Siemens is making a strategic investment in Skeleton Technologies (amount not stated; Siemens has been Skeleton's technology partner since 2022 and an investor since 2023) and will integrate Skeleton's supercapacitor technology into its electrical infrastructure portfolio, with global exclusivity to sell and scale Skeleton's products in the data center market, targeting the rapid power swings of AI workloads (Siemens says it is relied upon by nine of the top ten global data center providers); the transactions complete after customary formalities.",
+                  "units": "no specific figure",
+                  "value": "no specific figure",
+                  "date_signed": "10-14-2026 (announced)",
+                  "type": "strategic equity investment and exclusive data-center distribution partnership",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "new_nodes": {
+    "Siemens": {
+      "ticker": "SIE.DE",
+      "exchange": "XETRA",
+      "country": "DE",
+      "why": "Existing node (Datacenter Power in power_cooling.json / datacenter_construction_power.json) added once to power_semiconductor.json as the data-center channel for Skeleton Technologies' supercapacitors (cross-chain rule, SKILL 6).",
+      "evidence": "Siemens press release (10-14-2026): strategic investment in Skeleton Technologies and global exclusivity to sell and scale Skeleton's products in the data center market, integrating its supercapacitors into Siemens' electrical infrastructure portfolio.",
+      "approved": "opus verifier 2026-10-23: existing node; Siemens' own release states it integrates and exclusively sells Skeleton's data-center supercapacitors (AI-workload power swings), so one placement at power / Datacenter Power in power_semiconductor.json, where Skeleton sits, with the Skeleton -> Siemens edge"
+    }
+  }
+}

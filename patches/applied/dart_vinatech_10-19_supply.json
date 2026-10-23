@@ -1,0 +1,64 @@
+{
+  "source": "Vina Tech DART supply contract (10-19-2026)",
+  "new_nodes": {
+    "AcBel Polytech": {
+      "ticker": "6282",
+      "exchange": "TWSE",
+      "country": "TW",
+      "why": "Existing node (Datacenter Power in power_cooling.json) added to power_semiconductor.json as the buyer side of Vina Tech's data-center supercapacitor supply contract (cross-chain rule, SKILL 2026-10-19).",
+      "evidence": "Vina Tech DART supply contract (10-19-2026): data-center supercapacitor supply contract with counterparty ACBEL POLYTECH INC (power-supply manufacturer), KRW 123,010,501,824, supply region Taiwan.",
+      "approved": "opus verifier 2026-10-23: existing node (Datacenter Power in power_cooling.json); Vina Tech's DART filing names ACBEL POLYTECH INC (power-supply maker) as buyer of data-center supercapacitors, so one placement at power / Datacenter Power in power_semiconductor.json beside Delta / Lite-On (cross-chain rule, SKILL 6)"
+    }
+  },
+  "chains": {
+    "components/power_semiconductor.json": {
+      "players": [
+        {
+          "company": "AcBel Polytech",
+          "domain": "power",
+          "sector": "Datacenter Power",
+          "product": "AI server / data-center power supplies and rack power systems (buyer of data-center supercapacitors)",
+          "connects_to": []
+        },
+        {
+          "company": "Vina Tech",
+          "domain": "power",
+          "sector": "Power Semiconductors",
+          "product": "Supercapacitor cells (lead and snap-in type), modules and systems for AI data-center (AIDC) UPS and peak-power control",
+          "connects_to": [
+            {
+              "company": "AcBel Polytech",
+              "relationship": "data-center supercapacitors supplied by Vina Tech (purchase orders)",
+              "contracts": [
+                {
+                  "source": "Vina Tech DART supply contract (10-19-2026)",
+                  "signal": "Vina Tech DART filing: data-center supercapacitor supply contract with ACBEL POLYTECH INC (power-supply manufacturer; similar contracts in the past three years), KRW 123,010,501,824 (USD 91,634,760 at the PO quantities and unit prices), 149.60% of Vina Tech's FY2025 revenue; supply region Taiwan; term 2026-10-16 to 2028-02-01; no advance payment; produced through Vina Tech's overseas subsidiary.",
+                  "units": "data-center supercapacitors (PO quantities not stated)",
+                  "value": "KRW 123,010,501,824 (USD 91,634,760)",
+                  "date_signed": "2026-10-16",
+                  "type": "supply contract",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ],
+          "quarterly_data": [
+            {
+              "quarter": "Vina Tech DART supply contract (10-19-2026)",
+              "signal": "New order: data-center supercapacitor supply contract with ACBEL POLYTECH INC, KRW 123,010,501,824 (USD 91,634,760), 149.60% of FY2025 revenue; supply region Taiwan; 2026-10-16 to 2028-02-01; produced through the overseas subsidiary.",
+              "figure": "KRW 123,010,501,824; 149.60% of FY2025 revenue",
+              "topics": [
+                "power_cooling"
+              ],
+              "slot": "backlog_or_b2b",
+              "counterparty": "AcBel Polytech",
+              "counterparty_role": "customer (data-center supercapacitors)"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

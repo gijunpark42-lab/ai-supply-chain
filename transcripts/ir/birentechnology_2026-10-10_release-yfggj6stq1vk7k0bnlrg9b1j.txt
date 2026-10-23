@@ -1,0 +1,52 @@
+SOURCE: Biren Technology official press release -- https://www.birentech.com/news/yfggj6stq1vk7k0bnlrg9b1j/
+TITLE: Day0适配 | 壁仞科技高效完成阿里Qwen-Image-2.1图像生成模型推理验证  (original language; write entries in English)
+DATE: 10-10-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-22.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: Biren Technology press release: release yfggj6stq1vk7k0bnlrg9b1j (10-10-2026)
+
+---
+Day0适配 | 壁仞科技高效完成阿里Qwen-Image-2.1图像生成模型推理验证
+
+2026-10-10 16:28
+
+News
+
+9月20日，阿里巴巴千问团队宣布上线并开源旗下图像生成模型Qwen-Image-2.1。壁仞科技基于生成式AI推理框架Diffusers与成熟的BIRENSUPA™ 软件栈，在壁砺™166M上快速完成模型适配，率先向广大开发者及用户提供快速部署方案，以及高效稳定的体验。
+
+您的浏览器不支持视频标签。
+
+Qwen-Image-2.1基于壁砺™166M完成推理任务
+
+Qwen-Image-2.1：小模强效
+
+千问团队表示，Qwen-Image-2.1是通义千问（Qwen）系列中一个统一的文本到图像生成与图像编辑模型。其视觉生成组件仅包含70亿参数（32层单流DiT），在生成质量、推理效率和多功能性之间取得了良好平衡。
+
+根据官方介绍，本次发布具有四大关键改进：
+
+紧凑高效： 采用轻量级架构，结合混合粒度注意力机制和前缀 KV 缓存复用，在低计算成本下实现高质量图像生成。
+
+原生透明支持，统一生成与编辑： 可从文本生成普通或透明（RGBA）图像，编辑透明图层，并从照片中提取主体——全部功能集成于单一模型。
+
+多功能编辑： 支持最多10张参考图像，可通过圆形、手绘标注或独立遮罩指定局部编辑区域，并保留人物与产品的身份特征。
+
+逼真纹理与精致美学： 改进排版、人像光照及精细细节，呈现更具视觉吸引力的结果。
+
+在较小的模型规模下，Qwen-Image-2.1 依然具备出色的图像生成能力。下方的 Qwen-Image-Bench 公开评测对比展示了它与其他开源、闭源模型的表现。
+
+Qwen-Image-Bench 公开评测对比
+
+除了生成效果，Qwen-Image-2.1也着重优化了推理效率，在多图输入场景中尤其优势明显。这一优化来自混合粒度注意力结构。模型对文本和图像采用不同的处理策略：文本部分，包括系统前缀和编辑指令，采用Token级因果掩码；图像生成部分采用Chunk级掩码。同时，通过KV Cache复用机制，模型将输入图像与编辑指令作为静态上下文，在首步预计算并缓存，以提升推理效率、降低显存开销。
+
+Qwen-Image-2.1 混合粒度注意力结构
+
+全栈技术能力助推大模型落地
+
+本次Day0适配中，针对Qwen-Image-2.1的文本理解、图像生成，壁仞科技基于生成式AI推理框架Diffusers与成熟的BIRENSUPA™ 软件栈，在壁砺™166M上快速完成模型适配，打通了权重加载、服务启动、图像生成等关键链路，并完成功能与精度验证。
+
+同时，壁仞科技 自研全栈多智能体平台 SUPACODE™ 可自动解析并适配Qwen-Image-2.1的文本/图像编码器、去噪模块、图像解码器等关键模块，在此基础上快速打通推理全链路。
+
+BIRENSUPA™深度兼容主流AI框架，开箱性能优异，可显著降低开发者的模型部署与应用门槛。随着人工智能领域应用需求的快速增长，壁仞科技作为国内领先的通用智能计算解决方案提供商，持续引领国产AI生态建设。2026年1月以来，壁仞科技已成功支持数十款领先大模型的“Day0”级适配。依托高性能通用GPU产品与成熟软件生态，壁仞科技将加强与国产基础模型企业合作，以“国芯国模”协同发展为契机，共建国产AI生态，推动智能终端、AI智能体走向千行百业。
+
+最新推荐

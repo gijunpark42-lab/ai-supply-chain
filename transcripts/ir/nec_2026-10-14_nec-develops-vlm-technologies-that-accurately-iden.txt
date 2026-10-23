@@ -1,0 +1,62 @@
+SOURCE: NEC official press release -- https://www.nec.com/en/press/202610/global_20261014_01.html
+TITLE: NEC Develops VLM Technologies That Accurately Identify Small-Scale Damage in Disaster Site Images and Adapt to New Types of Damage
+DATE: 10-14-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-23.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: NEC press release: NEC Develops VLM Technologies That Accurately Identify (10-14-2026)
+
+---
+NEC Develops VLM Technologies That Accurately Identify Small-Scale Damage in Disaster Site Images and Adapt to New Types of Damage
+
+- Enabling Accurate Assessment of Diverse Disaster Conditions and Accelerating Rescue and Recovery Efforts -
+
+Tokyo, October 14, 2026 - NEC Corporation (NEC; TSE: 6701) has developed two new technologies for Vision-Language Models (VLMs), VLM-based Local Region Understanding (*1) and Continual Learning for VLMs (*2), which are expected to be utilized in rescue operations and recovery efforts by local governments and other organizations. VLM-based Local Region Understanding accurately identifies small-scale damage visible within images collected from disaster sites. Continual Learning for VLMs enables new types of damage information to be added as search criteria while maintaining the VLM’s original recognition capabilities. These technologies are the result of joint research with the Okatani Laboratory at Tohoku University in Japan.
+
+VLMs are expected to support rescue and recovery efforts by enabling users to search for large volumes of images using natural language and efficiently narrow down the images that match specific situations. NEC’s technologies not only reduce the likelihood of overlooking small-scale damage but also allow search criteria to be added later. In NEC’s verification, they reduced the time required to identify specific disaster conditions to less than an hour, which previously took approximately 7 hours by visual inspection (*3). Through these technologies, NEC aims to contribute to speeding up disaster response by local governments and other organizations, with practical implementation targeted for fiscal year 2027.
+
+Technology Overview
+
+Background
+
+In recent years, as natural disasters have become more severe and frequent, the importance of minimizing damage and making rapid decisions has increased. There are often tens of thousands of on-site images immediately after a disaster occurs, but it takes an enormous amount of effort and time for staff to visually inspect them. Against this backdrop, there are high expectations for VLMs that can identify relevant images based on textual queries to enable even small teams to quickly assess disaster situations.
+
+However, many types of damage critical to rescue and recovery decisions appear only as small details within images, occupying 10% or less of an image’s area, and conventional VLMs sometimes overlook them (*4). Furthermore, while VLMs excel at recognizing common objects and situations, they can struggle to identify previously unseen phenomena, such as region-specific events like landslides and flooding, or newly identified damage. Moreover, additional training can reduce the accuracy of previously recognized events (forgetting).
+
+To address these challenges, NEC developed VLM-based Local Region Understanding, which comprehends even the finest details of images, and Continual Learning for VLMs, which adds new information while retaining existing knowledge. These research findings were accepted as papers and presented at the international computer vision conferences "ECCV 2024" and "ECCV 2026."
+
+Value Proposition
+
+These technologies reduce the likelihood of overlooking small-scale damage visible in field images and cut the time required to assess specific damage conditions to less than an hour, which previously took personnel approximately 7 hours to complete visually. During the initial response phase immediately following a disaster, they accelerate assessment through text-based searches (e.g., "roads blocked by landslide debris"). When making recovery decisions, they help prioritize on-site inspections by sorting out images of damage to roads and buildings. Furthermore, search criteria can be continuously added to enable flexible responses to unforeseen disaster risks—such as flooding following an earthquake—and to local conditions.
+
+Features of This Technology
+
+1. High-precision detection of even the finest details in images, such as small areas and narrow regions
+
+NEC’s proprietary VLM-based Local Region Understanding incorporates region information of objects within an image into the VLM’s feature extraction process, enabling it to extract information by focusing not only on the entire image but also on small areas and narrow regions. As a result, NEC has confirmed that even small areas accounting for 10% or less of an image can be identified with the same level of accuracy that conventional VLMs achieve for areas accounting for about 30–40% of an image. This enables the technology to accurately identify even small-scale damage, such as partial structural damage to buildings or cracks in roads, and to generate detailed descriptions.
+
+Value provided by Feature 1
+
+How Feature 1 works
+
+2. New information can be added while maintaining the recognition capabilities of the existing VLM
+
+NEC’s proprietary Continual Learning for VLMs uses not only additional training data, but also a diverse range of descriptions generated by the VLM itself before additional training. By learning from both sources together, the system can recognize new events while minimizing any decline in the accuracy for previously recognized events. Since there is no need to prepare a large volume of historical training data, search criteria can be added repeatedly at a later stage. This allows images to be narrowed down using both newly learned disaster-related events and existing features such as mountains and rivers as clues; in NEC’s verification experiments, this reduced the number of images requiring final human verification from 5,035 to an average of 544 (about one-ninth), cutting the review time to less than an hour (*3).
+
+Value provided by Feature 2
+
+Overview of Feature 2
+
+Through these technologies, NEC will help local governments and other organizations quickly assess disaster situations. Going forward, in addition to ground-level site images, NEC will combine these technologies with the analysis of wide-area observation data, such as optical and synthetic aperture radar (SAR) satellite imagery, to support a multifaceted understanding of disaster conditions, and will advance research and development aimed at preventing disasters before they occur.
+
+***
+
+Notes
+
+(*1) A technology that incorporates region information of objects in an image into the VLM’s feature extraction process, enabling image understanding focused on small objects and limited regions. Presented at the European Conference on Computer Vision 2024 (ECCV 2024). [N. Sogi, T. Shibata, and M. Terao, "Object-aware query perturbation for cross-modal image-text retrieval," Proc. ECCV, pp. 447–464, 2024.]
+
+(*2) A technology that adds new knowledge while suppressing the forgetting of existing knowledge by taking into account, during training, descriptions generated by the VLM before additional training. Presented at the European Conference on Computer Vision 2026 (ECCV 2026). Its effectiveness in suppressing forgetting was confirmed in evaluations on public datasets. [N. Sogi, R. Ohkubo, T. Shibata, M. Terao, Y. Hosoya, and T. Okatani, "CaPCL: Caption-preserved continual learning for text-to-image retrieval," Proc. ECCV, 2026.]
+
+(*3) Based on NEC verification using 5,035 vehicle-mounted camera images extracted from archival footage of the Great East Japan Earthquake, covering 12 types of disaster-related events. Visually inspecting all images at 5 seconds per image takes approximately 7 hours. Applying these technologies narrows the images for each target event to an average of 544, reducing the time to approximately 45 minutes (less than an hour).
+
+(*4) Based on NEC verification. In the image dataset used, the target damage occupied 10% or less of the image area in approximately 60% of cases.

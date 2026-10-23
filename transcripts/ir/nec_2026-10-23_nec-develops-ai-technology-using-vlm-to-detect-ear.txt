@@ -1,0 +1,56 @@
+SOURCE: NEC official press release -- https://www.nec.com/en/press/202610/global_20261023_02.html
+TITLE: NEC Develops AI Technology Using VLM to Detect Early Signs of Disasters from Live Camera Footage
+DATE: 10-23-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-23.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: NEC press release: NEC Develops AI Technology Using VLM to Detect Early Signs (10-23-2026)
+
+---
+NEC Develops AI Technology Using VLM to Detect Early Signs of Disasters from Live Camera Footage: Press Releases | NEC
+
+Breadcrumb navigation
+
+NEC Develops AI Technology Using VLM to Detect Early Signs of Disasters from Live Camera Footage
+
+- Contributing to Enhanced Disaster Response Capabilities for River Flooding, Inundation, and Snow Accumulation -
+
+Tokyo, October 23, 2026 - NEC Corporation (NEC; TSE: 6701) has developed an AI technology that uses a vision-language model (VLM) to assign numerical values (scores) for on-site conditions from live camera footage monitoring roads and rivers, enabling the early detection of precursors to disasters such as river flooding, inundation, and snow accumulation. This technology can utilize existing live cameras operated by local governments, government agencies, and infrastructure operators, making it easy to deploy at disaster monitoring sites while streamlining monitoring operations and accelerating response decisions. NEC aims to put this technology into practical use during fiscal year 2027.
+
+Disaster precursor detection system using this technology
+
+Background
+
+As natural disasters intensify, sites such as roads and rivers are required to streamline on-site condition monitoring while detecting early signs of anomalies and disasters. Many such sites already monitor footage from live cameras, but it is difficult to continuously check the footage from numerous installed cameras manually and to avoid overlooking the subtle changes in on-site conditions that signal an approaching disaster. Image recognition AI is one option for automating this video analysis, but it requires collecting and annotating large volumes of training data for each disaster type and site, making it time-consuming and labor-intensive to deploy. VLM, a foundation model pre-trained on vast amounts of data that can understand video content without additional training, is therefore expected to enable automated analysis of live camera footage.
+
+However, when a general-purpose VLM is asked a text-based question (prompt) about on-site conditions — for example, whether an area is flooded — it can produce answers that diverge from the facts or are inconsistent. This makes it difficult to accurately capture the subtle changes that progress over time and detect disaster precursors. In addition, because a VLM’s answers are heavily influenced by the content of the prompt, accurately reflecting the different points to watch for at each site requires engineers with specialized knowledge to go through trial and error, which takes considerable time and effort. As a result, it has not been practical to rapidly apply this approach to a wide range of disasters — such as river flooding, inundation, and snow accumulation — and the diverse sites where they occur.
+
+Value Proposition
+
+This technology scores the progression of disaster-related conditions from live camera footage, enabling the early detection of disaster precursors and faster on-site confirmation and response decisions. This helps prevent damage and limit its spread.
+
+In addition, because this technology automatically generates prompts tailored to each site, it eliminates the trial and error otherwise required from engineers with specialized knowledge, reducing the burden of introducing and operating the system for new disasters and sites.
+
+Technology Features
+
+1. Detecting Disaster Precursors by Scoring On-Site Conditions as They Change Moment by Moment
+
+While a general-purpose VLM can describe on-site conditions in words, it does not output quantitative information such as degree or extent in its text responses, making it unable to capture subtle differences in on-site conditions. Rather than relying on the text of the answers a VLM generates, this technology uses NEC’s proprietary technology (*1) to analyze the likelihood values the VLM computes internally during text generation (*2), drawing out information that would otherwise be lost in the process of converting it into words, and finely scoring on-site conditions such as the extent of flooding or snow accumulation. This makes it possible to capture subtle changes and trends over time — previously difficult to detect — as continuous numerical values. Operators can also flexibly set precursor and danger thresholds suited to each site and type of disaster based on these scores.
+
+Precursor Detection through Scoring of Flood Conditions
+
+2. Accelerating On-Site Deployment through Automatic Generation of Site- and Disaster-Specific Prompts
+
+When this technology is deployed at a site, AI automatically generates a prompt suited to the disaster type being observed — such as flooding or snow accumulation — and to the composition of the scene captured by each camera. Using footage from the site, this prompt is generated through successive adjustments that keep the score continuous between temporally preceding and following images. In this process, for example, the areas of the image the VLM should focus on and the areas that can be disregarded are automatically identified for each site, and reflected in the prompt as information effective for scoring. By performing these processes automatically, fluctuations in the VLM’s score caused by minor differences between images are suppressed, enabling stable judgments. As a result, experts no longer need to design or adjust prompts for each camera’s installation environment or disaster type, supporting rapid deployment and efficient operation across diverse sites.
+
+Automatic Generation of Site-Specific Prompts without Expert Knowledge
+
+Through this technology, NEC will help local governments and infrastructure operators streamline their monitoring operations and contribute to greater safety and security in local communities.
+
+***
+
+Notes:
+
+(*1) NEC’s technology enables the recognition and quantification of subtle differences between moving images by comparing the sentence-generation likelihoods calculated by VLM when describing those images. Scheduled to be presented at the international conference "ACM Multimedia Asia 2026 (MMAsia 2026)." [C. Matsuhira, Y. Nakatani, and T. Inoshita, "Measuring the Likelihood Contrast in Vision Language Models for Enhancing Fine-Grained Action Difference Recognition," to appear in Proc. MMAsia, 2026.]
+
+(*2) For example, when the target disaster is flooding, this refers to the degree of likelihood that the VLM would answer that a given image shows flooding.

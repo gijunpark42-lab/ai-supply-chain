@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21",
+ "updated": "2026-10-22",
  "note": "Quarterly cash flow from SEC XBRL filings (10-Q, 10-K). 10-Q cash-flow figures are year-to-date, so discrete quarters are derived by differencing (Q2 = H1 - Q1, Q4 = full year - 9 months) unless a 3-month figure is tagged; a restated period shows the most recently filed value. capex = purchases of property and equipment; FCF = operating cash flow - capex; FCF after leases also subtracts principal payments on finance leases. period = calendar quarter of the period end; fiscal = the company's own label. Amazon capex is PaymentsToAcquireProductiveAssets (purchases of property and equipment before proceeds from sales and incentives, which Amazon nets in its own free-cash-flow figure). Nebius files an annual 20-F and furnishes quarterly results on 6-K without XBRL, so SEC XBRL has no quarterly cash-flow figures for it (annual only). IREN moved from IFRS (20-F/6-K) to US GAAP (10-K/10-Q) in fiscal 2025; only the US GAAP facts are used, so older IFRS quarters are not mixed in. No finance-lease principal payment figure (us-gaap FinanceLeasePrincipalPayments) for the latest quarter of: Oracle; FCF after leases is blank there. Earnings calendar: Alpha Vantage (US listings) and Yahoo Finance (all listings) for every public company in the graph, next 60 days; confirmed = the company's own investor-relations page lists the date, or Alpha Vantage and Yahoo Finance agree and Yahoo does not mark it as an estimate.",
  "companies": [
   {
@@ -361,6 +361,20 @@
    "ticker": "META",
    "quarters": [
     {
+     "period": "2026Q3",
+     "fiscal": "FY2026 Q3",
+     "end": "2026-09-30",
+     "capex_usd": 33942000000,
+     "ocf_usd": 32785000000,
+     "fcf_usd": -1157000000,
+     "lease_principal_usd": 964000000,
+     "fcf_after_leases_usd": -2121000000,
+     "form": "10-Q",
+     "filed": "2026-10-22",
+     "accn": "0001628280-26-066773",
+     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm"
+    },
+    {
      "period": "2026Q2",
      "fiscal": "FY2026 Q2",
      "end": "2026-06-30",
@@ -457,20 +471,6 @@
      "filed": "2026-01-29",
      "accn": "0001628280-26-003942",
      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/0001628280-26-003942-index.htm"
-    },
-    {
-     "period": "2024Q3",
-     "fiscal": "FY2024 Q3",
-     "end": "2024-09-30",
-     "capex_usd": 8258000000,
-     "ocf_usd": 24724000000,
-     "fcf_usd": 16466000000,
-     "lease_principal_usd": 944000000,
-     "fcf_after_leases_usd": 15522000000,
-     "form": "10-Q",
-     "filed": "2025-10-30",
-     "accn": "0001628280-25-047240",
-     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828025047240/0001628280-25-047240-index.htm"
     }
    ]
   },
@@ -836,189 +836,6 @@
  ],
  "calendar": [
   {
-   "id": "Element Solutions",
-   "ticker": "ESI",
-   "date": "2026-10-21",
-   "time": "amc",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/ESI"
-    }
-   ]
-  },
-  {
-   "id": "IBM",
-   "ticker": "IBM",
-   "date": "2026-10-21",
-   "time": "amc",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/IBM"
-    }
-   ]
-  },
-  {
-   "id": "LS Electric",
-   "ticker": "010120",
-   "date": "2026-10-21",
-   "time": "unknown",
-   "confirmed": false,
-   "sources": [
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/010120.KS"
-    }
-   ]
-  },
-  {
-   "id": "Lam Research",
-   "ticker": "LRCX",
-   "date": "2026-10-21",
-   "time": "amc",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/LRCX"
-    }
-   ]
-  },
-  {
-   "id": "Liberty Energy",
-   "ticker": "LBRT",
-   "date": "2026-10-21",
-   "time": "amc",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/LBRT"
-    }
-   ]
-  },
-  {
-   "id": "Medpace",
-   "ticker": "MEDP",
-   "date": "2026-10-21",
-   "time": "amc",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/MEDP"
-    }
-   ]
-  },
-  {
-   "id": "Meta",
-   "ticker": "META",
-   "date": "2026-10-21",
-   "time": "amc",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Company investor relations",
-     "url": "https://investor.atmeta.com/investor-events/event-details/2026/Q3-2026-Earnings-Call/default.aspx"
-    },
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/META"
-    }
-   ]
-  },
-  {
-   "id": "NextEra Energy",
-   "ticker": "NEE",
-   "date": "2026-10-21",
-   "time": "bmo",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/NEE"
-    }
-   ]
-  },
-  {
-   "id": "Tesla",
-   "ticker": "TSLA",
-   "date": "2026-10-21",
-   "time": "amc",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/TSLA"
-    }
-   ]
-  },
-  {
-   "id": "Texas Instruments",
-   "ticker": "TXN",
-   "date": "2026-10-21",
-   "time": "amc",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/TXN"
-    }
-   ]
-  },
-  {
-   "id": "WEG",
-   "ticker": "WEGE3.SA",
-   "date": "2026-10-21",
-   "time": "amc",
-   "confirmed": false,
-   "sources": [
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/WEGE3.SA"
-    }
-   ]
-  },
-  {
    "id": "Atlas Copco",
    "ticker": "ATCO-A.ST",
    "date": "2026-10-22",
@@ -1105,19 +922,6 @@
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/DOV"
-    }
-   ]
-  },
-  {
-   "id": "Hanmi Semiconductor",
-   "ticker": "042700",
-   "date": "2026-10-22",
-   "time": "unknown",
-   "confirmed": false,
-   "sources": [
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/042700.KS"
     }
    ]
   },
@@ -1242,6 +1046,19 @@
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/WDC"
+    }
+   ]
+  },
+  {
+   "id": "Hanmi Semiconductor",
+   "ticker": "042700",
+   "date": "2026-10-23",
+   "time": "unknown",
+   "confirmed": false,
+   "sources": [
+    {
+     "name": "Yahoo Finance",
+     "url": "https://finance.yahoo.com/quote/042700.KS"
     }
    ]
   },
@@ -1812,8 +1629,12 @@
    "ticker": "BELFB",
    "date": "2026-10-28",
    "time": "amc",
-   "confirmed": false,
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/BELFB"
@@ -1991,8 +1812,12 @@
    "ticker": "KLAC",
    "date": "2026-10-28",
    "time": "amc",
-   "confirmed": false,
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/KLAC"
@@ -3327,7 +3152,7 @@
    "id": "Adeia",
    "ticker": "ADEA",
    "date": "2026-11-02",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -3344,9 +3169,13 @@
    "id": "Advanced Energy",
    "ticker": "AEIS",
    "date": "2026-11-02",
-   "time": "unknown",
-   "confirmed": false,
+   "time": "amc",
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/AEIS"
@@ -3409,8 +3238,12 @@
    "ticker": "ETR",
    "date": "2026-11-02",
    "time": "bmo",
-   "confirmed": false,
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/ETR"
@@ -3421,7 +3254,7 @@
    "id": "Fabrinet",
    "ticker": "FN",
    "date": "2026-11-02",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -3455,9 +3288,13 @@
    "id": "Jazz Pharmaceuticals",
    "ticker": "JAZZ",
    "date": "2026-11-02",
-   "time": "unknown",
-   "confirmed": false,
+   "time": "amc",
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/JAZZ"
@@ -3525,8 +3362,12 @@
    "ticker": "TEM",
    "date": "2026-11-02",
    "time": "bmo",
-   "confirmed": false,
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/TEM"
@@ -3588,7 +3429,7 @@
    "id": "onsemi",
    "ticker": "ON",
    "date": "2026-11-02",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -3670,23 +3511,6 @@
    ]
   },
   {
-   "id": "Arteris",
-   "ticker": "AIP",
-   "date": "2026-11-03",
-   "time": "unknown",
-   "confirmed": true,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/AIP"
-    }
-   ]
-  },
-  {
    "id": "Astera Labs",
    "ticker": "ALAB",
    "date": "2026-11-03",
@@ -3700,23 +3524,6 @@
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/ALAB"
-    }
-   ]
-  },
-  {
-   "id": "Axcelis",
-   "ticker": "ACLS",
-   "date": "2026-11-03",
-   "time": "unknown",
-   "confirmed": false,
-   "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/ACLS"
     }
    ]
   },
@@ -3755,8 +3562,12 @@
    "ticker": "DOCN",
    "date": "2026-11-03",
    "time": "bmo",
-   "confirmed": false,
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/DOCN"
@@ -3921,25 +3732,16 @@
    "id": "Skyworks Solutions",
    "ticker": "SWKS",
    "date": "2026-11-03",
-   "time": "unknown",
-   "confirmed": false,
-   "sources": [
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/SWKS"
-    }
-   ]
-  },
-  {
-   "id": "SpaceX",
-   "ticker": "SPCX",
-   "date": "2026-11-03",
-   "time": "unknown",
-   "confirmed": false,
+   "time": "amc",
+   "confirmed": true,
    "sources": [
     {
      "name": "Alpha Vantage",
      "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
+    {
+     "name": "Yahoo Finance",
+     "url": "https://finance.yahoo.com/quote/SWKS"
     }
    ]
   },
@@ -4132,29 +3934,16 @@
    ]
   },
   {
-   "id": "EnerSys",
-   "ticker": "ENS",
+   "id": "Eversource",
+   "ticker": "ES",
    "date": "2026-11-04",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
      "name": "Alpha Vantage",
      "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
     },
-    {
-     "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/ENS"
-    }
-   ]
-  },
-  {
-   "id": "Eversource",
-   "ticker": "ES",
-   "date": "2026-11-04",
-   "time": "unknown",
-   "confirmed": false,
-   "sources": [
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/ES"
@@ -4357,7 +4146,7 @@
    "id": "Power Integrations",
    "ticker": "POWI",
    "date": "2026-11-04",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -4391,7 +4180,7 @@
    "id": "Qualcomm",
    "ticker": "QCOM",
    "date": "2026-11-04",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -4647,7 +4436,7 @@
    "id": "Wolfspeed",
    "ticker": "WOLF",
    "date": "2026-11-04",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -4712,8 +4501,12 @@
    "ticker": "ACMR",
    "date": "2026-11-05",
    "time": "bmo",
-   "confirmed": false,
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/ACMR"
@@ -4814,7 +4607,7 @@
    "id": "Applied Optoelectronics",
    "ticker": "AAOI",
    "date": "2026-11-05",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -4845,6 +4638,19 @@
    ]
   },
   {
+   "id": "Arteris",
+   "ticker": "AIP",
+   "date": "2026-11-05",
+   "time": "unknown",
+   "confirmed": false,
+   "sources": [
+    {
+     "name": "Yahoo Finance",
+     "url": "https://finance.yahoo.com/quote/AIP"
+    }
+   ]
+  },
+  {
    "id": "Asahi Kasei",
    "ticker": "3407.T",
    "date": "2026-11-05",
@@ -4854,6 +4660,19 @@
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/3407.T"
+    }
+   ]
+  },
+  {
+   "id": "Axcelis",
+   "ticker": "ACLS",
+   "date": "2026-11-05",
+   "time": "bmo",
+   "confirmed": false,
+   "sources": [
+    {
+     "name": "Yahoo Finance",
+     "url": "https://finance.yahoo.com/quote/ACLS"
     }
    ]
   },
@@ -4985,7 +4804,7 @@
    "id": "Diodes",
    "ticker": "DIOD",
    "date": "2026-11-05",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -5080,8 +4899,12 @@
    "ticker": "IREN",
    "date": "2026-11-05",
    "time": "unknown",
-   "confirmed": false,
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Company investor relations",
+     "url": "https://iren.com/investors"
+    },
     {
      "name": "Alpha Vantage",
      "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
@@ -5190,7 +5013,7 @@
    "id": "Microchip Technology",
    "ticker": "MCHP",
    "date": "2026-11-05",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -5311,12 +5134,8 @@
    "ticker": "ONTO",
    "date": "2026-11-05",
    "time": "unknown",
-   "confirmed": true,
+   "confirmed": false,
    "sources": [
-    {
-     "name": "Alpha Vantage",
-     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
-    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/ONTO"
@@ -5327,7 +5146,7 @@
    "id": "PDF Solutions",
    "ticker": "PDFS",
    "date": "2026-11-05",
-   "time": "unknown",
+   "time": "amc",
    "confirmed": true,
    "sources": [
     {
@@ -5387,9 +5206,13 @@
    "id": "Quantum-Si",
    "ticker": "QSI",
    "date": "2026-11-05",
-   "time": "unknown",
-   "confirmed": false,
+   "time": "amc",
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/QSI"
@@ -6067,9 +5890,13 @@
    "id": "Sanmina",
    "ticker": "SANM",
    "date": "2026-11-09",
-   "time": "unknown",
-   "confirmed": false,
+   "time": "amc",
+   "confirmed": true,
    "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/SANM"
@@ -6518,6 +6345,19 @@
    ]
   },
   {
+   "id": "EnerSys",
+   "ticker": "ENS",
+   "date": "2026-11-11",
+   "time": "unknown",
+   "confirmed": false,
+   "sources": [
+    {
+     "name": "Yahoo Finance",
+     "url": "https://finance.yahoo.com/quote/ENS"
+    }
+   ]
+  },
+  {
    "id": "Infleqtion",
    "ticker": "INFQ",
    "date": "2026-11-11",
@@ -6764,6 +6604,19 @@
     {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/FRMI"
+    }
+   ]
+  },
+  {
+   "id": "Forgent Power Solutions",
+   "ticker": "FPS",
+   "date": "2026-11-12",
+   "time": "bmo",
+   "confirmed": false,
+   "sources": [
+    {
+     "name": "Yahoo Finance",
+     "url": "https://finance.yahoo.com/quote/FPS"
     }
    ]
   },
@@ -7114,11 +6967,28 @@
    "ticker": "POET",
    "date": "2026-11-16",
    "time": "bmo",
+   "confirmed": true,
+   "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
+    {
+     "name": "Yahoo Finance",
+     "url": "https://finance.yahoo.com/quote/POET"
+    }
+   ]
+  },
+  {
+   "id": "X-Energy",
+   "ticker": "XE",
+   "date": "2026-11-16",
+   "time": "bmo",
    "confirmed": false,
    "sources": [
     {
      "name": "Yahoo Finance",
-     "url": "https://finance.yahoo.com/quote/POET"
+     "url": "https://finance.yahoo.com/quote/XE"
     }
    ]
   },
@@ -7753,8 +7623,25 @@
    "confirmed": false,
    "sources": [
     {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
+    },
+    {
      "name": "Yahoo Finance",
      "url": "https://finance.yahoo.com/quote/JBL"
+    }
+   ]
+  },
+  {
+   "id": "Micron",
+   "ticker": "MU",
+   "date": "2026-12-16",
+   "time": "unknown",
+   "confirmed": false,
+   "sources": [
+    {
+     "name": "Alpha Vantage",
+     "url": "https://www.alphavantage.co/documentation/#earnings-calendar"
     }
    ]
   }

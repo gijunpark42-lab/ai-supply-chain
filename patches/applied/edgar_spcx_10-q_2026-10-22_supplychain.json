@@ -1,0 +1,76 @@
+{
+  "source": "SpaceX 10-Q (10-22-2026)",
+  "chains": {
+    "components/neocloud.json": {
+      "players": [
+        {
+          "company": "SpaceX",
+          "layer": "cloud_infra",
+          "sector": "Neocloud (GPU-specialized)",
+          "product": "AI cloud compute capacity (Colossus and Colossus 2)",
+          "quarterly_data": [
+            {
+              "quarter": "SpaceX 10-Q (10-22-2026)",
+              "signal": "10-Q customer concentration (customers not named): Customer B accounted for 34.5% of consolidated revenue in Q3 2026 and 24.2% in the nine months (no percentage shown for the 2025 periods); Customer A 16.6% in Q3 2026 (23.9% in Q3 2025) and 17.3% in the nine months (21.6%); one customer held 27.7% of accounts receivable.",
+              "figure": "Customer B 34.5% of Q3 2026 revenue; Customer A 16.6%",
+              "topics": []
+            },
+            {
+              "quarter": "SpaceX 10-Q (10-22-2026)",
+              "signal": "10-Q backlog detail: backlog totaled $62,959 million at September 30, 2026, of which $17,520 million was deferred revenue; approximately 67% is expected to be recognized within one year, approximately 27% between one and three years and the remaining 6% thereafter.",
+              "figure": "backlog $62,959 million; 27% in one to three years; 6% thereafter",
+              "topics": []
+            },
+            {
+              "quarter": "SpaceX 10-Q (10-22-2026)",
+              "signal": "10-Q SI cloud-services terms: SI infrastructure revenue from cloud services is a fixed monthly services fee recognized ratably over the contract term, typically three years and terminable by either party upon 90 days' notice; SpaceX began offering cloud services to customers in the second quarter of 2026. SI segment Adjusted EBITDA was $4,953 million in Q3 2026 (nine months $5,490 million), and the nine-month SI capital expenditures were $39,995 million.",
+              "figure": "cloud contracts typically three years, terminable on 90 days' notice; SI segment Adjusted EBITDA $4,953 million",
+              "topics": []
+            },
+            {
+              "quarter": "SpaceX 10-Q (10-22-2026)",
+              "signal": "10-Q supply note: nine-month investing cash flows include $1,372 million of product rebates received for SpaceX's servers and networking equipment (suppliers not named); purchases of property, plant and equipment included in accounts payable and accrued expenses were $11,827 million at period end.",
+              "figure": "product rebates $1,372 million for servers and networking equipment",
+              "topics": []
+            },
+            {
+              "quarter": "SpaceX 10-Q (10-22-2026)",
+              "signal": "Legal proceedings (10-Q): on May 14, 2026 SpaceXAI LLC was named in a putative class action in the U.S. District Court for the Northern District of California alleging that Grok.com used tracking technologies owned by Google, Meta and TikTok in violation of the Electronic Communications Privacy Act, California's Invasion of Privacy Act, the California Constitution and common law, seeking class certification, injunctive relief and unspecified damages; SpaceXAI LLC moved to transfer the case to the Northern District of Texas (denied on August 13, 2026) and moved to dismiss on August 10, 2026, and says it intends to defend itself vigorously.",
+              "figure": "putative class action filed May 14, 2026 (N.D. Cal.); motion to dismiss filed August 10, 2026",
+              "topics": []
+            }
+          ]
+        }
+      ]
+    },
+    "manufacturing/foundry.json": {
+      "players": [
+        {
+          "company": "Tesla",
+          "layer": "compute_hardware",
+          "sector": "Custom AI ASIC (hyperscaler silicon)",
+          "product": "AI/automotive chip designer - Samsung Foundry contract-manufacturing customer (USD 16.5B, 2025-2033)",
+          "connects_to": [
+            {
+              "company": "SpaceX",
+              "relationship": "Megapack battery storage supplied for SpaceX AI data centers (training-run power smoothing); joint framework agreement covering Terafab and Digital Optimus",
+              "contracts": [
+                {
+                  "source": "SpaceX 10-Q (10-22-2026)",
+                  "signal": "SpaceX's 10-Q related-party note: SpaceX purchased $151 million (Q3 2026) and $480 million (nine months 2026) of Megapack products from Tesla, recorded in property, plant and equipment; as of December 31, 2025 it had purchased $506 million of Megapack products from Tesla.",
+                  "units": "Megapack products",
+                  "value": "$151 million (Q3 2026); $480 million (nine months 2026)",
+                  "date_signed": "not stated",
+                  "type": "10-Q related-party purchases",
+                  "topics": [
+                    "power_cooling"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

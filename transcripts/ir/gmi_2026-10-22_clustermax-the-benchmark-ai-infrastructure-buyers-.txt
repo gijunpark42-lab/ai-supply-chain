@@ -1,0 +1,224 @@
+SOURCE: GMI official press release -- https://www.gmicloud.ai/en/blog/clustermax-the-benchmark-ai-infrastructure-buyers-need
+TITLE: ClusterMAX: The Benchmark AI Infrastructure Buyers Need
+DATE: 10-22-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-22.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: GMI press release: ClusterMAX: The Benchmark AI Infrastructure Buyers Need (10-22-2026)
+
+---
+ClusterMAX: The Benchmark AI Infrastructure Buyers Need
+
+More Blog Posts
+
+More Blog Posts
+
+Announcements ClusterMAX: The Benchmark AI Infrastructure Buyers Need
+
+A technical look at how SemiAnalysis ClusterMAX evaluates managed GPU clouds and what GMI Cloud’s Silver rating means for infrastructure buyers.
+
+October 22, 2026
+
+The GPU cloud market spent years selling access: which accelerators are available, how many can be reserved, and at what hourly rate.
+
+That framing is now too narrow.
+
+For a production AI team, the unit of value is completed work. A cluster earns its place in the stack when training runs converge on schedule, inference services meet latency targets, checkpoints move at the required speed, and the platform responds cleanly when hardware needs attention. GPU model and price still matter, but they sit inside a much larger system.
+
+SemiAnalysis built ClusterMAX around that system. ClusterMAX rates managed GPU clouds across ten dimensions : security , lifecycle , orchestration, storage , networking , reliability , monitoring , pricing, partnerships, and availability . The assessment combines hands-on technical testing, documentation review, and customer feedback.
+
+ClusterMAX 3.0 reviewed 77 providers , tracked 323 across the wider market, and incorporated input from more than 200 neocloud users . Nine providers reached a Platinum, Gold, or Silver rating, and 19 earned a medallion rating once Bronze is included. GMI Cloud joined the Silver tier after moving up from Bronze.
+
+Figure 1: ClusterMAX 3.0 medallion rankings, with GMI Cloud in the Silver tier. Source: SemiAnalysis ClusterMAX 3.0, September 2026 .
+
+The ranking is useful. The methodology behind it is even more useful.
+
+The Real Buying Unit
+
+A GPU-hour measures access to a device. It says little about the engineering system around that device.
+
+Distributed AI workloads depend on synchronized execution across compute, memory, network fabric, storage, scheduling, and software. An H200 or B200 reaches its practical value only when those layers work together. A slow checkpoint path holds the job. An inconsistent collective adds stragglers. A manual recovery process consumes platform engineering time. A smooth cluster keeps the GPUs working on the model.
+
+This leads to a better procurement metric: useful work completed per dollar and per engineering hour.
+
+ClusterMAX calls attention to this distinction by testing managed clusters as integrated environments. The current scope covers provisioning, Slurm and Kubernetes, high-performance networking, shared and object storage, monitoring, security, support, and operational recovery. Public inference APIs and token-based Model-as-a-Service sit in a separate product category.
+
+That scope fits an important buyer profile: teams with serious compute requirements that want cloud economics and managed operations without building an internal fleet-management organization.
+
+A Production-Sized Test
+
+ClusterMAX 3.0 asked each provider for a 32-GPU environment. The requested configuration included four 8-GPU HGX nodes or eight 4-GPU NVL72 nodes, a high-bandwidth scale-out network, at least 10 TB of high-performance shared storage, at least 10 TB of S3-compatible object storage, and a monitoring dashboard. SemiAnalysis allocated five days for Slurm and five days for Kubernetes testing.
+
+The hardware target also moved forward. The 3.0 methodology centers on NVIDIA Blackwell systems such as B200, B300, GB200, and GB300, alongside AMD MI355X systems. That keeps the rating tied to the platforms buyers are evaluating for their next deployment cycle.
+
+A 32-GPU allocation is large enough to expose the coordination work that defines distributed AI. Single-device tests show local compute behavior. Multi-node tests show how the platform handles collectives, placement, shared data, scheduler state, and cluster-wide observability.
+
+Three Layers of Evidence
+
+ClusterMAX builds its technical assessment in three phases: audit, performance, and reliability.
+
+Phase
+
+Buyer question
+
+Evidence collected
+
+Audit
+
+Is the environment ready for production testing?
+
+Hardware inventory, software and firmware, GPU access, containers, scheduler configuration, networking, storage, monitoring, and security
+
+Performance
+
+Does the system deliver expected throughput across the stack?
+
+GPU compute, memory movement, collective communication, storage, lifecycle operations, training, and inference
+
+Reliability
+
+Does the platform sustain performance and execute recovery workflows?
+
+Burn-in, fabric endurance, storage endurance, scheduler churn, node events, health detection, draining, remediation, and return to service
+
+Each phase answers a different procurement question. Together, they provide a stronger view than peak throughput alone.
+
+Audit: establish readiness
+
+The first phase runs a fast configuration audit. It checks hardware, software, firmware, GPU access, container support, schedulers, networking, storage, health monitoring, and security. The tool reports pass, warning, fail, or skipped states for each applicable check.
+
+SemiAnalysis publishes this portion through the ClusterMAX command-line tool. Providers and customers can run the same baseline audit in their own environments, which gives the process a practical layer of reproducibility.
+
+That design choice pays off. Production readiness often begins with ordinary details: consistent driver versions, current container tooling, correct RDMA configuration, a working shared filesystem, and scheduler access that behaves as documented. The audit turns those details into explicit acceptance criteria.
+
+Performance: test the whole data path
+
+The performance phase starts at the GPU. ClusterMAX measures matrix multiplication across several precision formats, grouped GEMM behavior for mixture-of-experts workloads, memory bandwidth, host-to-device movement, device-to-device movement, and HPL-MxP performance. These tests show whether the node delivers the expected compute and memory behavior under realistic numerical formats.
+
+The network suite then measures MPI and NCCL or RCCL collectives across message sizes and node counts. It covers operations such as all-reduce, all-gather, reduce-scatter, and all-to-all, with PyTorch distributed tests and RDMA measurements added for a second view of the fabric.
+
+NVIDIA maintains NCCL Tests for this purpose. The suite checks the performance and correctness of collective operations, while NCCL supports communication across PCIe, NVLink, NVSwitch, InfiniBand, and TCP/IP transports.
+
+Storage receives the same depth. ClusterMAX runs fio, IOR, Elbencho, checkpoint save and load tests, and a data-generation workload. It varies client counts, block sizes, read and write patterns, direct and buffered I/O, and object sizes while tracking throughput, IOPS, and latency.
+
+The methodology also measures developer time. Package installation, container pulls, model downloads, framework imports, and vLLM startup are timed across available storage tiers. Those operations happen every day in an active cluster. A small delay repeated across every engineer and every environment becomes an operational cost.
+
+The phase closes with full workloads: Llama 3.1 8B pretraining with FSDP, mixture-of-experts training with expert parallelism, and single-node and multi-node inference runs across compute-bound, memory-bound, and communication-bound scenarios.
+
+That sequence matters. Microbenchmarks identify the component. Workload tests show the consequence.
+
+Reliability: measure the control loop
+
+ClusterMAX treats reliability as an active system.
+
+The test begins with an eight-hour burn-in that drives large matrix operations and all-to-all communication at the same time. SemiAnalysis tracks temperature, power, clocks, FLOPS, connectivity, latency, bandwidth, and kernel events throughout the run.
+
+Next come sustained fabric and storage tests. The suite loops large collective operations, measures frontend packet behavior, drives mixed file and object workloads, and tracks performance over time. Kubernetes testing adds repeated GPU pod creation and deletion, scheduling latency, CPU pod scaling, and persistent-volume lifecycle checks.
+
+ClusterMAX then exercises recovery. The team reboots nodes, injects GPU events through DCGM or kernel-level mechanisms, and observes how the platform detects the event, changes scheduler state, drains the node, performs remediation, and returns capacity to service.
+
+NVIDIA’s DCGM architecture supports this model. DCGM combines passive health monitoring , active diagnostics , alerts, and governance for data-center GPUs. NVIDIA recommends using passive telemetry and active diagnostics together because they provide distinct forms of operational evidence.
+
+This is the heart of the benchmark. Modern GPU hardware is only one part of fleet reliability. The provider’s control loop determines how quickly the platform sees an event, protects active workloads, routes new work, validates the node, and restores capacity.
+
+Why ClusterMAX Works
+
+ClusterMAX reflects how experienced infrastructure teams evaluate a cluster.
+
+It isolates components, then reconnects them through workloads. It applies sustained load after burst tests. It evaluates the default customer experience alongside the underlying hardware. It combines direct measurement with documentation and user feedback for areas such as delivery, support, pricing, and performance over time.
+
+The broad peer set adds context. Storage and network results depend on topology, allocation size, service tier, and configuration. Comparing many providers helps distinguish a platform characteristic from a one-off result. The rating remains relative, so Platinum and Gold represent providers setting the current technical standard, while Silver sits one tier below that bar. In our reading of the report, that places GMI Cloud among providers with solid managed-cluster capabilities and clear room to keep advancing.
+
+The criteria also evolve with the market. ClusterMAX 3.0 places more weight on Blackwell and Grace Blackwell, current security posture , automated health workflows, and modern orchestration. SemiAnalysis is also developing additional coverage for agentic workloads, CPU-intensive sandboxes, and reinforcement learning infrastructure.
+
+A static certification would age quickly in this market. A moving benchmark gives buyers a view of current operating maturity.
+
+What Silver Means for GMI
+
+GMI Cloud’s move from Bronze to Silver is the central result for our platform. SemiAnalysis put it plainly: "Our GMI experience was solid in every crucial way."
+
+SemiAnalysis reported compute performance up to specification, a clean burn-in, and a sturdy InfiniBand fabric. The 3.0 assessment also recognized material progress in shared storage, object storage, monitoring dashboards, health checks, scheduler response, and support operations.
+
+The rating captures work across the layer that surrounds the accelerator:
+
+High-performance compute delivered as expected under test
+
+InfiniBand fabric sustained the benchmark workload
+
+Shared storage supported Kubernetes RWX and Slurm workflows
+
+Object storage completed verification
+
+Monitoring exposed DCGM hardware, NVLink, and InfiniBand data
+
+Kubernetes health automation cordoned and restored nodes
+
+Slurm moved an affected node into drain state after an injected event
+
+Support alerts and engineering coordination were active during testing
+
+Buyers see that maturity as stronger visibility and a shorter path from infrastructure event to automated action.
+
+GMI Cloud is built as an AI-native infrastructure platform spanning serverless inference, dedicated GPU clusters, and bare-metal systems. The ClusterMAX rating applies specifically to the managed-cluster layer. GMI’s broader platform also provides REST APIs for container services, inference, and cluster management.
+
+The Silver result gives infrastructure teams a third-party data point for managed cluster evaluation. The next step for every buyer remains the same: run the target workload on the target configuration.
+
+A Better Procurement Process
+
+ClusterMAX works best as the front end of technical diligence.
+
+Start with the rating to create a shortlist. Use the published criteria to design acceptance tests. Run those tests on the region, GPU generation, node count, fabric, storage tier, and scheduler configuration planned for production. Then place the measured service levels into the commercial agreement.
+
+A focused acceptance plan should cover:
+
+Sustained compute clocks, memory bandwidth, thermals, and error telemetry
+
+NCCL collective bandwidth, latency, correctness, and run-to-run variance
+
+Checkpoint write and restore speed under concurrent load
+
+Slurm or Kubernetes placement, identity, quota, container, and storage workflows
+
+Health-event detection, node isolation, remediation, and return-to-service timing
+
+Customer access to GPU, NVLink, network, storage, job, and scheduler metrics
+
+Compliance evidence, tenant isolation, audit logs, and patch management
+
+Delivery dates, service levels, support response, capacity replacement, and data movement terms
+
+The workload should shape the weighting. Large distributed training places a premium on fabric consistency, checkpoint throughput, topology, and recovery automation. Replicated single-node inference puts more weight on request latency, scaling behavior, regional capacity, and serving economics.
+
+SemiAnalysis’ total cost analysis makes the same point. At equal GPU pricing, it estimated that a Gold-tier provider could produce 5% to 15% lower total cost than a Silver-tier provider for representative large training workloads because of goodput and operational differences. For fault-tolerant single-node inference, the modeled difference moved close to zero.
+
+Figure 2: Three-year cluster cost for a large LLM pretraining scenario, Gold tier versus Hyperscaler versus Silver tier. Source: SemiAnalysis Cluster TCO Calculator .
+
+Rankings shift with the workload. ClusterMAX supplies the evaluation framework, and the rest comes from the buyer’s own measurements.
+
+The New Standard
+
+The biggest contribution of ClusterMAX is a change in framing: AI infrastructure should be purchased as a production system.
+
+Peak FLOPS describe the accelerator. Goodput describes the platform.
+
+ClusterMAX connects those layers through a test program that starts with configuration, moves through compute and data paths, then finishes with sustained load and recovery. That mirrors the path a workload takes through a managed cluster.
+
+For GMI Cloud, Silver validates a meaningful stage of platform maturity. SemiAnalysis saw expected compute performance, clean sustained testing, strong fabric behavior, improved storage, richer monitoring, and automated health response.
+
+For buyers, the next steps are concrete. Ask how the cluster behaves as a whole. Measure completed work. Test recovery. Put the result in the contract. Talk to the GMI Cloud team about a Silver-rated managed cluster for your next deployment.
+
+Roan Weigert
+
+DevRel Lead @ GMI Cloud
+
+Build AI Without Limits
+
+GMI Cloud helps you architect, deploy, optimize, and scale your AI strategies
+
+Contact Sales
+
+Ready to build?
+
+Explore powerful AI models and launch your project in just a few clicks.
+
+Get Started

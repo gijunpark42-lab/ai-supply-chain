@@ -1,0 +1,66 @@
+SOURCE: GMI official press release -- https://www.gmicloud.ai/en/blog/agentbox-v2-built-for-agents-that-stay
+TITLE: Agentbox v2: built for agents that stay
+DATE: 10-22-2026  (release date)
+NOTE: Official company press release from the company's own IR feed -- NOT a transcript, no
+      management Q&A. Saved verbatim (site navigation removed) by ir_pull.py on 2026-10-22.
+      Product/event releases: 'first'/'leading' are company claims; demos are not shipping.
+# source label: GMI press release: Agentbox v2: built for agents that stay (10-22-2026)
+
+---
+Agentbox v2: built for agents that stay - GMI Cloud Blog
+
+More Blog Posts
+
+More Blog Posts
+
+Product Agentbox v2: built for agents that stay
+
+October 22, 2026
+
+Early access for Agentbox v2 is here. Agents can keep the same project files across multiple runs and pause compute while they wait. Storage for paused sandboxes is free during early access.
+
+An agent's work doesn't always end with its response. A user returns with feedback, a report needs another revision, or a coding task continues the next morning. The next run needs the files from the last one, but keeping the environment running through those gaps costs compute.
+
+Agents can still create a sandbox for a single task, collect the result, and delete it. V2 adds the option to keep a project workspace between runs.
+
+The agent pauses when it needs to wait
+
+When an agent is done for now, it can save its progress and pause the sandbox. Compute stops, and saved files stay available.
+
+When the next request arrives, your application resumes the sandbox so the agent can continue working from those files. The sandbox keeps the same ID, files, and configuration.
+
+Resume restarts the environment and reruns its startup command. It does not restore memory or continue running processes. Progress needed by the next run must be saved to files before pausing.
+
+The agent controls its workspace through code
+
+Create, execute, upload, download, pause, resume, and delete are available through the SDK. Agents can use these operations as tools while they work.
+
+sandbox.execute("pytest") # agent runs its task
+
+sandbox.pause() # done for now — compute stops, files stay
+
+# ...hours later, same sandbox, same files
+
+sandbox.resume()
+
+sandbox.execute("pytest") # picks up where it left off If the agent runs inside the sandbox it pauses, an external application must initiate the resume. V2 also provides a maximum runtime set at launch, optional idle auto-pause, and deletion from any sandbox state.
+
+Early access
+
+Use a fresh sandbox for a one-off task, or keep the project files for the next run. Agentbox v2 supports both.
+
+Compute is usage-based. Paused sandboxes consume no compute, and paused-sandbox storage is free during early access.
+
+→ Request early access
+
+Build AI Without Limits
+
+GMI Cloud helps you architect, deploy, optimize, and scale your AI strategies
+
+Contact Sales
+
+Ready to build?
+
+Explore powerful AI models and launch your project in just a few clicks.
+
+Get Started
