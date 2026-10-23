@@ -1,13 +1,13 @@
 # Enrichment status board
 
-Generated 2026-10-23 04:06 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
+Generated 2026-10-23 11:14 by `enrich_status.py`. Every `graph_build.py` run rebuilds it, and every enrich run ends by rebuilding it. Refresh by hand (seconds, no model tokens): `python -X utf8 enrich_status.py`
 
 Agents: read this first and trust it. Do not re-scan pipelines or the graph to find out what is done. Full name lists: `graph/enrich_status.json` → `board`. Record what no script can know with `python -X utf8 enrich_status.py mark …` / `note …` (coordinator only, see the end of this page).
 
 ## Run next
 
 1. **`enrich us`** — US call sync (av.py) last ran 1 days ago (2026-10-22); utility regulatory-filing sync (utility_filings.py) last ran 1 days ago (2026-10-22); DoD contract-award sync (dod_contracts.py) last ran 1 days ago (2026-10-22); 1 overdue for a call: Cerebras (last 2026-08-12)
-2. **`enrich taiwan`** — Investing.com call sync (investing.py) last ran 1 days ago (2026-10-22) — one sync serves Taiwan, Japan, Europe and China; Taiwan Chinese-call sync (tw.py) last ran 1 days ago (2026-10-22); MOPS sync (mops.py) last ran 1 days ago (2026-10-22)
+2. **`enrich taiwan`** — Taiwan Chinese-call sync (tw.py) last ran 1 days ago (2026-10-22); MOPS sync (mops.py) last ran 1 days ago (2026-10-22)
 
 Shared collectors (every market command runs them first when due): IR feeds synced 2026-10-23 (622 feeds); conference listing walked 2026-10-22 — due; Perplexity Finance calls (pplx.py, every market) synced 2026-10-23; IR events / presentations (ir_events.py, every company) synced 2026-10-22 — due, 0 waiting.
 Opus verification queue: 0 label(s) waiting (runs at 5+).
@@ -228,11 +228,11 @@ The user delegated these judgments on 2026-10-19 ("질문은 니가 알아서 �
 |---|---|---|---|---|---|---|---|---|
 | US — United States | 286 | 277 | 1 | 0 | 0 | 0 | 267 | us 2026-10-22, utility 2026-10-22, dod 2026-10-22 |
 | KR — Korea | 131 | 2 | 0 | 3 | 0 | 0 | 32 | dart 2026-10-23, kind 2026-10-23 |
-| TW — Taiwan | 135 | 26 | 0 | 0 | 0 | 0 | 54 | intl 2026-10-22, tw 2026-10-22, mops 2026-10-22 |
-| JP — Japan | 128 | 15 | 0 | 0 | 0 | 0 | 105 | intl 2026-10-22, tdnet 2026-10-23, edinet 2026-10-23 |
-| EU — Europe | 43 | 40 | 0 | 0 | 0 | 0 | 36 | intl 2026-10-22 |
-| CN — China / Hong Kong | 119 | 6 | 0 | 0 | 0 | 0 | 17 | intl 2026-10-22, cninfo 2026-10-23, cnreports 2026-10-23, hkex 2026-10-23, cnbrief 2026-10-23 |
-| other — Other listed | 19 | 11 | 0 | 0 | 0 | 0 | 11 | intl 2026-10-22 |
+| TW — Taiwan | 135 | 26 | 0 | 0 | 0 | 0 | 54 | intl 2026-10-23, tw 2026-10-22, mops 2026-10-22 |
+| JP — Japan | 128 | 15 | 0 | 0 | 0 | 0 | 105 | intl 2026-10-23, tdnet 2026-10-23, edinet 2026-10-23 |
+| EU — Europe | 43 | 40 | 0 | 0 | 0 | 0 | 36 | intl 2026-10-23 |
+| CN — China / Hong Kong | 119 | 6 | 0 | 0 | 0 | 0 | 17 | intl 2026-10-23, cninfo 2026-10-23, cnreports 2026-10-23, hkex 2026-10-23, cnbrief 2026-10-23 |
+| other — Other listed | 19 | 11 | 0 | 0 | 0 | 0 | 11 | intl 2026-10-23 |
 
 `Call current` = the latest own earnings call is within the company's usual gap + 3 weeks. `No own data` = not one entry from the company's own documents yet (new nodes land here). Marked companies (no source exists) are left out of Overdue / Never.
 
@@ -267,7 +267,7 @@ The user delegated these judgments on 2026-10-19 ("질문은 니가 알아서 �
 | US earnings calls | `enrich us calls` | 2026-10-22 | 2026-10-23 | 0 | 469 | 468 |
 | US SEC filings | `enrich edgar` | 2026-10-23 | 2026-10-23 | 0 | 2538 | 1004 |
 | Korea DART filings | `enrich dart` | 2026-10-23 | 2026-10-23 | 0 | 229 | 266 |
-| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-22 | 2026-10-23 | 0 | 84 | 84 |
+| Taiwan / Japan / Europe calls | `enrich intl` | 2026-10-23 | 2026-10-23 | 0 | 84 | 84 |
 | Taiwan Chinese 法說會 | `enrich tw` | 2026-10-22 | 2026-10-06 | 0 | 18 | 18 |
 | Investor conferences | `enrich conference` | 2026-10-22 | 2026-10-21 | 0 | 180 | 177 |
 | Company IR press releases | `enrich ir` | 2026-10-23 | 2026-10-23 | 0 | 2612 | 1131 |
@@ -283,7 +283,7 @@ The user delegated these judgments on 2026-10-19 ("질문은 니가 알아서 �
 | US DoD contract awards | `enrich us` | 2026-10-22 | 2026-10-21 | 0 | 84 | 80 |
 | China results-briefing Q&A | `enrich china` | 2026-10-23 | 2026-10-23 | 0 | 139 | 113 |
 | Company IR events / presentations | `enrich all` | 2026-10-22 | 2026-10-23 | 0 | 47 | 28 |
-| Perplexity Finance calls | `enrich all` | 2026-10-23 | 2026-10-22 | 0 | 31 | 30 |
+| Perplexity Finance calls | `enrich all` | 2026-10-23 | 2026-10-23 | 0 | 32 | 31 |
 | Pasted transcripts | `Transcript:<company>` | 2026-10-23 | 2026-10-23 | 0 | 659 | 571 |
 
 ## Coordinator notes (newest first)
