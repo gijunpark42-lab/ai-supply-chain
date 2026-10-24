@@ -1,6 +1,6 @@
 {
   "_about": "Officials of each graph company, for media_pull.py (user rule 2026-10-17: a news video counts only when an official of the company speaks on camera, named in the video title or description). Mined by media_roster.py, without any model, from documents under transcripts/: titled speaker lines of earnings calls and conference talks, 10-K executive-officer tables, and quote attributions in company press releases. Analysts, moderators, hosts, interpreters and bank / broker lines are dropped, and so is anyone whose title names none of the rule-2 roles (CEO, CFO, COO, CTO and other chief officers, president, founder, chair, head or GM of a named division / business / group, IR head). title = the newest such title; source = that document's source label | path. One person found at two companies is kept at the company of the newer document; a CEO / CFO succeeded by a newer one is left out. Companies: the 200 nodes with the most edges in graph/merged_graph.json plus every cloud_infra and ai_models node (an empty list = no verified official yet), then every other node with at least one official. Rebuild with `python -X utf8 media_roster.py`; never edit by hand (hand-checked fixes live in media_roster.py HAND_ADD, HAND_ALIASES, SAME_PERSON, HAND_DROP, BOTH_CURRENT; each HAND_ADD entry cites the company document that states the title).",
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "companies": {
     "TSMC": [
       {
@@ -704,22 +704,6 @@
         "source": "Dell Q2 FY2027 (09-01-2026) | transcripts/av/dell_q2_2027.txt"
       }
     ],
-    "Tokyo Electron": [
-      {
-        "name": "Toshiki Kawai",
-        "title": "president & CEO",
-        "aliases": [
-          "Tony Kawai"
-        ],
-        "source": "GlobalFoundries 6-K (10-14-2026) | transcripts/edgar/GFS_6-K_2026-10-14.txt"
-      },
-      {
-        "name": "Hiroshi Kawamoto",
-        "title": "Senior Vice President, General Manager, CFO, Division Officer of Finance Division",
-        "aliases": [],
-        "source": "Tokyo Electron Q1 FY2027 (07-31-2026) | transcripts/investing/tokyoelectron_q1_2027.txt"
-      }
-    ],
     "Lam Research": [
       {
         "name": "Tim Archer",
@@ -750,6 +734,22 @@
         "title": "Vice President of Investor Relations",
         "aliases": [],
         "source": "Lam Research Q1 FY2027 (10-21-2026) | transcripts/perplexity/lamresearch_q1_2027.txt"
+      }
+    ],
+    "Tokyo Electron": [
+      {
+        "name": "Toshiki Kawai",
+        "title": "president & CEO",
+        "aliases": [
+          "Tony Kawai"
+        ],
+        "source": "GlobalFoundries 6-K (10-14-2026) | transcripts/edgar/GFS_6-K_2026-10-14.txt"
+      },
+      {
+        "name": "Hiroshi Kawamoto",
+        "title": "Senior Vice President, General Manager, CFO, Division Officer of Finance Division",
+        "aliases": [],
+        "source": "Tokyo Electron Q1 FY2027 (07-31-2026) | transcripts/investing/tokyoelectron_q1_2027.txt"
       }
     ],
     "Marvell": [
@@ -1034,11 +1034,11 @@
     "Coherent": [
       {
         "name": "Jim Anderson",
-        "title": "CEO",
+        "title": "Chief Executive Officer",
         "aliases": [
           "James Anderson"
         ],
-        "source": "Coherent ECOC 2026 (09-21-2026) | transcripts/conferences/coherent_ecoc_2026-09-21.txt"
+        "source": "Coherent press release: Coherent Named One of TIME's America's Growth Leaders 2027 (10-22-2026) | transcripts/ir/coherent_2026-10-22_coherent-named-one-of-time-s-america-s-growth-lead.txt"
       },
       {
         "name": "Sherri Luther",
@@ -1072,26 +1072,6 @@
       }
     ],
     "JSR Corporation": [],
-    "SpaceX": [
-      {
-        "name": "Elon Musk",
-        "title": "CEO, CTO and Chairman",
-        "aliases": [],
-        "source": "Tesla 10-K (04-30-2026) | transcripts/edgar/TSLA_10-K_2026-04-30_supplychain.txt ('Chief Executive Officer, Chief Technical Officer and Chairman of Space Exploration Technologies Corporation'); he speaks for SpaceX on SpaceX Q2 FY2026 (08-04-2026) | transcripts/av/spacex_q2_2026.txt"
-      },
-      {
-        "name": "Bret Johnsen",
-        "title": "CFO",
-        "aliases": [],
-        "source": "SpaceX Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026) | transcripts/conferences/spacex_goldmansachscommunacopiatechnologyconfer_2026-09-10.txt"
-      },
-      {
-        "name": "Andrea Williams",
-        "title": "Head of Investor Relations",
-        "aliases": [],
-        "source": "SpaceX Q3 FY2026 (10-20-2026) | transcripts/av/spacex_q3_2026.txt"
-      }
-    ],
     "Kioxia": [
       {
         "name": "Hiroo Ota",
@@ -1122,6 +1102,26 @@
         "title": "Head of Corporate Communication Division",
         "aliases": [],
         "source": "Kioxia Q1 FY2027 (07-31-2026) | transcripts/investing/kioxia_q1_2027.txt"
+      }
+    ],
+    "SpaceX": [
+      {
+        "name": "Elon Musk",
+        "title": "CEO, CTO and Chairman",
+        "aliases": [],
+        "source": "Tesla 10-K (04-30-2026) | transcripts/edgar/TSLA_10-K_2026-04-30_supplychain.txt ('Chief Executive Officer, Chief Technical Officer and Chairman of Space Exploration Technologies Corporation'); he speaks for SpaceX on SpaceX Q2 FY2026 (08-04-2026) | transcripts/av/spacex_q2_2026.txt"
+      },
+      {
+        "name": "Bret Johnsen",
+        "title": "CFO",
+        "aliases": [],
+        "source": "SpaceX Goldman Sachs Communacopia + Technology Conference 2026 (09-10-2026) | transcripts/conferences/spacex_goldmansachscommunacopiatechnologyconfer_2026-09-10.txt"
+      },
+      {
+        "name": "Andrea Williams",
+        "title": "Head of Investor Relations",
+        "aliases": [],
+        "source": "SpaceX Q3 FY2026 (10-20-2026) | transcripts/av/spacex_q3_2026.txt"
       }
     ],
     "Infineon": [
@@ -1224,7 +1224,7 @@
         "name": "Ophir Nave",
         "title": "Chief Operating Officer",
         "aliases": [],
-        "source": "Nebius 6-K (07-17-2026) | transcripts/edgar/NBIS_6-K_2026-07-17.txt"
+        "source": "Nebius 6-K (10-22-2026) | transcripts/edgar/NBIS_6-K_2026-10-22.txt"
       },
       {
         "name": "Danila Shtan",
@@ -1903,6 +1903,12 @@
         "title": "Chief Financial Officer",
         "aliases": [],
         "source": "NScale company page: About (10-21-2026) | transcripts/non_transcript_sources/nscale_about_page_2026-10-21.txt (leadership section, line 42: Alice Takhtajan, Chief Financial Officer)"
+      },
+      {
+        "name": "David Power",
+        "title": "Chief Technology Officer",
+        "aliases": [],
+        "source": "Schneider Electric press release: Schneider Electric, Nscale and Start Campus Bring the (10-22-2026) | transcripts/ir/schneiderelectric_2026-10-22_schneider-electric-nscale-and-start-campus-bring-t.txt"
       }
     ],
     "Quantinuum": [
@@ -2000,15 +2006,15 @@
     "Bloom Energy": [
       {
         "name": "KR Sridhar",
-        "title": "Founder, Chairman and CEO",
+        "title": "Founder, Chairman and Chief Executive Officer",
         "aliases": [],
-        "source": "Bloom Energy press release: Bloom Energy's 800V DC-Native Power Can Cut Billions from (09-16-2026) | transcripts/ir/bloomenergy_2026-09-16_bloom-energy-s-800v-dc-native-power-can-cut-billio.txt"
+        "source": "Bloom Energy 8-K (10-22-2026) | transcripts/edgar/BE_8-K_2026-10-22.txt"
       },
       {
         "name": "Simon Edwards",
         "title": "Chief Financial Officer",
         "aliases": [],
-        "source": "Bloom Energy 8-K (07-28-2026) | transcripts/edgar/BE_8-K_2026-07-28.txt"
+        "source": "Bloom Energy 8-K (10-22-2026) | transcripts/edgar/BE_8-K_2026-10-22.txt"
       },
       {
         "name": "Aman Joshi",
@@ -2055,6 +2061,14 @@
         "source": "Corning Q2 FY2026 (07-28-2026) | transcripts/av/corning_q2_2026.txt"
       }
     ],
+    "Crusoe": [
+      {
+        "name": "Cully Cavness",
+        "title": "Co-founder, President, and Chief Strategy Officer",
+        "aliases": [],
+        "source": "Crusoe press release: Crusoe Partners with Araico on AI Cloud in Paraguay (10-22-2026) | transcripts/ir/crusoe_2026-10-22_crusoe-partners-with-araico-on-ai-cloud-in-paragua.txt"
+      }
+    ],
     "Entergy": [
       {
         "name": "Drew Marsh",
@@ -2095,6 +2109,12 @@
           "Scott L. Strazik"
         ],
         "source": "GE Vernova press release: GE Vernova to Double the Number of MIT Interns and (10-06-2026) | transcripts/ir/gevernova_2026-10-06_ge-vernova-to-double-the-number-of-mit-interns-and.txt"
+      },
+      {
+        "name": "Kristin Carvell",
+        "title": "President, GE Vernova Foundation and Chief Communications Officer",
+        "aliases": [],
+        "source": "GE Vernova press release: GE Vernova Foundation Marks Milestone as First (10-22-2026) | transcripts/ir/gevernova_2026-10-22_ge-vernova-foundation-marks-milestone-as-first-sta.txt"
       },
       {
         "name": "Yannick Kieffel",
@@ -2263,9 +2283,9 @@
     "BESI": [
       {
         "name": "Richard Blickman",
-        "title": "CEO and Chairman of the Board of Management",
+        "title": "Chief Executive Officer",
         "aliases": [],
-        "source": "Applied Materials press release: Applied Materials and Besi Expand Strategic Partnership to (10-01-2026) | transcripts/ir/appliedmaterials_2026-10-01_applied-materials-and-besi-expand-strategic-partne.txt"
+        "source": "BESI Q3 FY2026 (10-22-2026) | transcripts/investing/besi_q3_2026.txt"
       }
     ],
     "Cipher Digital": [
@@ -2410,7 +2430,7 @@
         "name": "Mike Slessor",
         "title": "Chief Executive Officer",
         "aliases": [],
-        "source": "FormFactor 8-K (10-13-2026) | transcripts/edgar/FORM_8-K_2026-10-13.txt"
+        "source": "FormFactor press release: FormFactor Opens Farmers Branch Manufacturing Facility to (10-22-2026) | transcripts/ir/formfactor_2026-10-22_formfactor-opens-farmers-branch-manufacturing-faci.txt"
       }
     ],
     "Hut 8": [
@@ -2493,6 +2513,38 @@
         "title": "Executive Vice President and General Manager of the Imaging Sub-Group",
         "aliases": [],
         "source": "STMicroelectronics press release: STMicroelectronics introduces automotive image sensor to (09-14-2026) | transcripts/ir/stmicroelectronics_2026-09-14_stmicroelectronics-introduces-automotive-image-sen.txt"
+      }
+    ],
+    "Siemens": [
+      {
+        "name": "Michael Peter",
+        "title": "CEO",
+        "aliases": [],
+        "source": "Siemens press release: Siemens and Infrabel expand strategic partnership to (09-24-2026) | transcripts/ir/siemens_2026-09-24_siemens-and-infrabel-expand-strategic-partnership-.txt"
+      },
+      {
+        "name": "Roland Busch",
+        "title": "President and CEO",
+        "aliases": [],
+        "source": "Siemens press release: Siemens and NVIDIA are advancing Industrial AI (10-22-2026) | transcripts/ir/siemens_2026-10-22_siemens-and-nvidia-are-advancing-industrial-ai.txt"
+      },
+      {
+        "name": "Markus Grabmeier",
+        "title": "President of Electrical Products",
+        "aliases": [],
+        "source": "Siemens press release: Siemens invests in Skeleton Technologies expanding its data (10-14-2026) | transcripts/ir/siemens_2026-10-14_siemens-invests-in-skeleton-technologies-expanding.txt"
+      },
+      {
+        "name": "Veronika Bienert",
+        "title": "CFO",
+        "aliases": [],
+        "source": "Siemens Q3 FY2026 (08-06-2026) | transcripts/investing/siemens_q3_2026.txt"
+      },
+      {
+        "name": "Tobias Atzler",
+        "title": "Head of Investor Relations",
+        "aliases": [],
+        "source": "Siemens Q3 FY2026 (08-06-2026) | transcripts/investing/siemens_q3_2026.txt"
       }
     ],
     "TDK": [
@@ -2926,32 +2978,6 @@
         "source": "SharonAI Q2 FY2026 (08-06-2026) | transcripts/av/sharonai_q2_2026.txt"
       }
     ],
-    "Siemens": [
-      {
-        "name": "Roland Busch",
-        "title": "President and CEO",
-        "aliases": [],
-        "source": "Siemens press release: Siemens and NVIDIA are advancing Industrial AI (10-22-2026) | transcripts/ir/siemens_2026-10-22_siemens-and-nvidia-are-advancing-industrial-ai.txt"
-      },
-      {
-        "name": "Markus Grabmeier",
-        "title": "President of Electrical Products",
-        "aliases": [],
-        "source": "Skeleton Technologies press release: Skeleton Technologies secures strategic investment led by (10-14-2026) | transcripts/ir/skeletontechnologies_2026-10-14_skeleton-technologies-secures-strategic-investment.txt"
-      },
-      {
-        "name": "Veronika Bienert",
-        "title": "CFO",
-        "aliases": [],
-        "source": "Siemens Q3 FY2026 (08-06-2026) | transcripts/investing/siemens_q3_2026.txt"
-      },
-      {
-        "name": "Tobias Atzler",
-        "title": "Head of Investor Relations",
-        "aliases": [],
-        "source": "Siemens Q3 FY2026 (08-06-2026) | transcripts/investing/siemens_q3_2026.txt"
-      }
-    ],
     "Viavi": [
       {
         "name": "Oleg Khaykin",
@@ -2996,6 +3022,12 @@
         "title": "Founder and Chairman",
         "aliases": [],
         "source": "Yageo IR presentation: MOPS 232720260813E001 (08-17-2026) | transcripts/mops/yageo_2026-08-17_deck_232720260813E001.txt (Leadership slide, lines 426-428: PIERRE CHEN, Founder & Chairman)"
+      },
+      {
+        "name": "General Manager",
+        "title": "Chairman",
+        "aliases": [],
+        "source": "Yageo annual report: 2025 Annual Report (05-27-2026) | transcripts/non_transcript_sources/yageo_annual_2025.txt"
       }
     ],
     "3M": [
@@ -3202,14 +3234,6 @@
         "source": "Credo Q1 FY2027 (09-01-2026) | transcripts/av/credo_q1_2027.txt"
       }
     ],
-    "Crusoe": [
-      {
-        "name": "Cully Cavness",
-        "title": "Co-founder, President, and Chief Strategy Officer",
-        "aliases": [],
-        "source": "Crusoe press release: Crusoe Spark Liquid: 3.5MW modular AI factory (10-21-2026) | transcripts/ir/crusoe_2026-10-21_crusoe-spark-liquid-3-5mw-modular-ai-factory.txt"
-      }
-    ],
     "DB HiTek": [
       {
         "name": "Cho Ki-seok",
@@ -3322,6 +3346,22 @@
         "title": "Chairman",
         "aliases": [],
         "source": "Han's CNC Technology annual report: 2025 Annual Report (03-31-2026) | transcripts/cninfo_reports/hanscnctechnology_2026-03-31_report_1225057160.txt (directors and officers table, line 2631: Yang Chaohui, Chairman)"
+      }
+    ],
+    "Hana Micron": [
+      {
+        "name": "Lee Dong-cheol",
+        "title": "President and CEO",
+        "aliases": [
+          "Lee Dong-chul"
+        ],
+        "source": "Hana Micron Q2 FY2026 (08-14-2026) | transcripts/dart/hanamicron_q2_2026_dart.txt (executive table, line 6354: Lee Dong-cheol, President and CEO)"
+      },
+      {
+        "name": "Kim Dong-hyun",
+        "title": "Executive Vice President and COO",
+        "aliases": [],
+        "source": "Hana Micron Q2 FY2026 (08-14-2026) | transcripts/dart/hanamicron_q2_2026_dart.txt (executive table, line 6355: Kim Dong-hyun, Executive Vice President and COO)"
       }
     ],
     "IQE": [
@@ -3915,22 +3955,6 @@
         "source": "Equinix press release: Equinix Unveils Equinix Fabric One, Redefining How (09-02-2026) | transcripts/ir/equinix_2026-09-02_equinix-unveils-equinix-fabric-one-redefining-how-.txt"
       }
     ],
-    "Hana Micron": [
-      {
-        "name": "Lee Dong-cheol",
-        "title": "President and CEO",
-        "aliases": [
-          "Lee Dong-chul"
-        ],
-        "source": "Hana Micron Q2 FY2026 (08-14-2026) | transcripts/dart/hanamicron_q2_2026_dart.txt (executive table, line 6354: Lee Dong-cheol, President and CEO)"
-      },
-      {
-        "name": "Kim Dong-hyun",
-        "title": "Executive Vice President and COO",
-        "aliases": [],
-        "source": "Hana Micron Q2 FY2026 (08-14-2026) | transcripts/dart/hanamicron_q2_2026_dart.txt (executive table, line 6355: Kim Dong-hyun, Executive Vice President and COO)"
-      }
-    ],
     "JCET": [
       {
         "name": "Zheng Li",
@@ -4050,6 +4074,7 @@
         "source": "POSCO Q2 FY2026 (08-14-2026) | transcripts/dart/posco_q2_2026_dart.txt (executive table, line 8021: Kim Seung-jun, Head of Finance and IR)"
       }
     ],
+    "Pemtron": [],
     "Powertech Technology": [
       {
         "name": "Huck Shen",
@@ -4071,7 +4096,7 @@
         "name": "Luc Seraphin",
         "title": "president and chief executive officer",
         "aliases": [],
-        "source": "Rambus 8-K (08-05-2026) | transcripts/edgar/RMBS_8-K_2026-08-05.txt"
+        "source": "Rambus press release: Rambus and ChipAgents Collaborate to Accelerate Chip Design (10-22-2026) | transcripts/ir/rambus_2026-10-22_rambus-and-chipagents-collaborate-to-accelerate-ch.txt"
       },
       {
         "name": "John Allen",
@@ -4105,9 +4130,9 @@
       },
       {
         "name": "Simon Blake-Wilson",
-        "title": "SVP and general manager of Silicon IP",
+        "title": "senior vice president and general manager of Silicon IP",
         "aliases": [],
-        "source": "Rambus press release: Rambus Enhances Enterprise-Grade Security for Data Center (09-14-2026) | transcripts/ir/rambus_2026-09-14_rambus-enhances-enterprise-grade-security-for-data.txt"
+        "source": "Rambus press release: Rambus and ChipAgents Collaborate to Accelerate Chip Design (10-22-2026) | transcripts/ir/rambus_2026-10-22_rambus-and-chipagents-collaborate-to-accelerate-ch.txt"
       }
     ],
     "SPIL": [
@@ -4401,7 +4426,7 @@
         "name": "Mark Kokes",
         "title": "chief revenue officer",
         "aliases": [],
-        "source": "Adeia press release: Adeia Renews IP License Agreement with Spectrum (10-05-2026) | transcripts/ir/adeia_2026-10-05_adeia-renews-ip-license-agreement-with-spectrum.txt"
+        "source": "Adeia press release: Adeia Enters into Multi-Year IP License Renewal with TCL (10-22-2026) | transcripts/ir/adeia_2026-10-22_adeia-enters-into-multi-year-ip-license-renewal-wi.txt"
       },
       {
         "name": "Chris Chaney",
@@ -4756,16 +4781,6 @@
         "title": "Chief Financial Officer",
         "aliases": [],
         "source": "Horizon Quantum Q2 FY2026 (08-04-2026) | transcripts/av/horizonquantum_q2_2026.txt"
-      }
-    ],
-    "ISTE": [
-      {
-        "name": "Cho Chang-hyun",
-        "title": "President, CEO and Board Chair",
-        "aliases": [
-          "Jo Chang-hyeon"
-        ],
-        "source": "ISTE Q2 FY2026 (08-13-2026) | transcripts/dart/iste_q2_2026_dart.txt (executive table, line 5152: Cho Chang-hyun, President, CEO and Board Chair)"
       }
     ],
     "Schrödinger": [
@@ -5479,9 +5494,9 @@
     "MindWalk": [
       {
         "name": "Jennifer Bath",
-        "title": "President and Chief Executive Officer",
+        "title": "Chief Executive Officer and President",
         "aliases": [],
-        "source": "MindWalk 6-K (10-21-2026) | transcripts/edgar/HYFT_6-K_2026-10-21.txt"
+        "source": "MindWalk 6-K (10-22-2026) | transcripts/edgar/HYFT_6-K_2026-10-22.txt"
       },
       {
         "name": "Scott Areglado",
@@ -5511,7 +5526,7 @@
         "aliases": [
           "Mike Maniscalco"
         ],
-        "source": "QumulusAI press release: QumulusAI Puts $71.9 Million Blackwell Agreement into (10-15-2026) | transcripts/ir/qumulusai_2026-10-15_qumulusai-puts-71-9-million-blackwell-agreement-in.txt"
+        "source": "QumulusAI press release: QumulusAI Expands Closed Lease Financing With TFC to $123.6 (10-22-2026) | transcripts/ir/qumulusai_2026-10-22_qumulusai-expands-closed-lease-financing-with-tfc-.txt"
       },
       {
         "name": "Scott Krosnowski",
@@ -5643,7 +5658,7 @@
         "name": "Birgitte Rønø",
         "title": "CSO and COO",
         "aliases": [],
-        "source": "Evaxion Biotech 6-K (10-19-2026) | transcripts/edgar/EVAX_6-K_2026-10-19.txt"
+        "source": "Evaxion Biotech press release: Evaxion announces 89% vaccine target precision and (10-23-2026) | transcripts/ir/evaxionbiotech_2026-10-23_evaxion-announces-89-vaccine-target-precision-and-.txt"
       }
     ],
     "Iron Mountain": [
@@ -5764,6 +5779,16 @@
         "title": "Co-founder, Executive Director and Chairman",
         "aliases": [],
         "source": "Zhipu AI annual report: 2025 Annual Report (04-19-2026) | transcripts/hkex/zhipuai_2026-04-19_2026041900085.txt (line 268: Dr. Liu Debing, our co-founder, executive Director, chairman of the Board; line 1764)"
+      }
+    ],
+    "ISTE": [
+      {
+        "name": "Cho Chang-hyun",
+        "title": "President, CEO and Board Chair",
+        "aliases": [
+          "Jo Chang-hyeon"
+        ],
+        "source": "ISTE Q2 FY2026 (08-13-2026) | transcripts/dart/iste_q2_2026_dart.txt (executive table, line 5152: Cho Chang-hyun, President, CEO and Board Chair)"
       }
     ],
     "Illumina": [
@@ -5892,6 +5917,12 @@
         "source": "Lattice Semiconductor Technology Leadership Forum 2026 (08-11-2026) | transcripts/conferences/latticesemiconductor_technologyleadershipforum_2026-08-11.txt"
       },
       {
+        "name": "Jeff Richardson",
+        "title": "Chairman of the Board",
+        "aliases": [],
+        "source": "Lattice Semiconductor 8-K (10-22-2026) | transcripts/edgar/LSCC_8-K_2026-10-22.txt"
+      },
+      {
         "name": "Sanjoy Maity",
         "title": "Senior Vice President and General Manager of the AMI business unit",
         "aliases": [],
@@ -5945,7 +5976,7 @@
         "name": "Stéphane Bancel",
         "title": "Chief Executive Officer",
         "aliases": [],
-        "source": "Moderna 8-K (09-30-2026) | transcripts/edgar/MRNA_8-K_2026-09-30.txt"
+        "source": "Merck & Co. press release: Merck and Moderna Will Present Results From Landmark Phase (10-22-2026) | transcripts/ir/merckco_2026-10-22_merck-and-moderna-will-present-results-from-landma.txt"
       },
       {
         "name": "Stephen Hoge",
@@ -6448,7 +6479,7 @@
         "name": "Olaf Berlien",
         "title": "President and CEO",
         "aliases": [],
-        "source": "INNIO press release: INNIO and Aggreko Extend Strategic Partnership Through (10-08-2026) | transcripts/ir/innio_2026-10-08_innio-and-aggreko-extend-strategic-partnership-thr.txt"
+        "source": "INNIO press release: Follow-on Order Brings Orders from INNIO Data Center (10-22-2026) | transcripts/ir/innio_2026-10-22_follow-on-order-brings-orders-from-innio-data-cent.txt"
       },
       {
         "name": "Roger George",
@@ -6643,6 +6674,20 @@
         "source": "SCREEN Holdings Q4 FY2026 (06-16-2026) | transcripts/investing/screenholdings_q4_2026.txt"
       }
     ],
+    "Sanmina": [
+      {
+        "name": "Jure Sola",
+        "title": "Chairman and Chief Executive Officer",
+        "aliases": [],
+        "source": "Sanmina 8-K (09-15-2026) | transcripts/edgar/SANM_8-K_2026-09-15.txt"
+      },
+      {
+        "name": "Jon Faust",
+        "title": "Executive Vice President and Chief Financial Officer",
+        "aliases": [],
+        "source": "Sanmina Q3 FY2026 (07-27-2026) | transcripts/av/sanmina_q3_2026.txt"
+      }
+    ],
     "Sivers Semiconductors": [
       {
         "name": "Vickram Vathulya",
@@ -6758,6 +6803,14 @@
         "source": "VAST Data press release: DeepL Selects VAST to Build AI Data Foundation for (10-20-2026) | transcripts/ir/vastdata_2026-10-20_deepl-selects-vast-to-build-ai-data-foundation-for.txt"
       }
     ],
+    "WEKA": [
+      {
+        "name": "Liran Zvibel",
+        "title": "co-founder and CEO",
+        "aliases": [],
+        "source": "WEKA press release: Smartbird and WEKA Partner on Sovereign AI Cloud (10-22-2026) | transcripts/ir/weka_2026-10-22_smartbird-and-weka-partner-on-sovereign-ai-cloud.txt"
+      }
+    ],
     "Wiwynn": [
       {
         "name": "William Lin",
@@ -6770,6 +6823,28 @@
         "title": "Chair and Chief Strategy Officer",
         "aliases": [],
         "source": "Wiwynn press release: Wiwynn Strengthens Global Supply Chain Resilience with (09-15-2026) | transcripts/ir/wiwynn_2026-09-15_wiwynn-strengthens-global-supply-chain-resilience-.txt"
+      }
+    ],
+    "X-Energy": [
+      {
+        "name": "J. Clay Sell",
+        "title": "CEO",
+        "aliases": [
+          "Clay Sell"
+        ],
+        "source": "American Electric Power press release: AEP Partners with Amazon and X-energy to Explore Advanced (10-19-2026) | transcripts/ir/americanelectricpower_2026-10-19_aep-partners-with-amazon-and-x-energy-to-explore-a.txt"
+      },
+      {
+        "name": "Daniel Gross",
+        "title": "Chief Financial Officer",
+        "aliases": [],
+        "source": "X-Energy Q2 FY2026 (08-13-2026) | transcripts/av/xenergy_q2_2026.txt"
+      },
+      {
+        "name": "Patricia Gil",
+        "title": "Director of Investor Relations",
+        "aliases": [],
+        "source": "X-Energy Q2 FY2026 (08-13-2026) | transcripts/av/xenergy_q2_2026.txt"
       }
     ],
     "ASMPT": [
@@ -6808,6 +6883,14 @@
         "title": "CFO",
         "aliases": [],
         "source": "transcripts/accelerators/alchip_q1_2026.txt"
+      }
+    ],
+    "Alfa Laval": [
+      {
+        "name": "Thomas Møller",
+        "title": "President of the Energy Division",
+        "aliases": [],
+        "source": "Alfa Laval press release: Alfa Laval selected by Saipem to supply heat transfer (09-14-2026) | transcripts/ir/alfalaval_2026-09-14_alfa-laval-selected-by-saipem-to-supply-heat-trans.txt"
       }
     ],
     "Amphenol": [
@@ -7084,9 +7167,9 @@
     "IQM Quantum Computers": [
       {
         "name": "Jan Goetz",
-        "title": "CEO and co-founder",
+        "title": "CEO and Co-founder",
         "aliases": [],
-        "source": "IQM Quantum Computers press release: Bechtle expands DLR quantum computing resources with IQM (10-20-2026) | transcripts/ir/iqmquantumcomputers_2026-10-20_bechtle-expands-dlr-quantum-computing-resources-wi.txt"
+        "source": "IQM Quantum Computers press release: Telefnica and IQM to provide the Community of Madrid with (10-23-2026) | transcripts/ir/iqmquantumcomputers_2026-10-23_telefnica-and-iqm-to-provide-the-community-of-madr.txt"
       },
       {
         "name": "Jan Kürschner",
@@ -7144,7 +7227,7 @@
         "name": "Kishore Seendripu",
         "title": "Chairman and Chief Executive Officer",
         "aliases": [],
-        "source": "MaxLinear 8-K (07-23-2026) | transcripts/edgar/MXL_8-K_2026-07-23.txt"
+        "source": "MaxLinear 8-K (10-22-2026) | transcripts/edgar/MXL_8-K_2026-10-22.txt"
       },
       {
         "name": "Steve Litchfield",
@@ -7339,6 +7422,12 @@
         "source": "Renesas Q2 FY2026 (07-31-2026) | transcripts/investing/renesas_q2_2026.txt"
       },
       {
+        "name": "Aish Dubey",
+        "title": "Vice President and Head of the HPC SoC Division",
+        "aliases": [],
+        "source": "Inventec press release: SDV Development Accelerates Toward Platform-Based (10-22-2026) | transcripts/ir/inventec_2026-10-22_sdv-development-accelerates-toward-platform-based-.txt"
+      },
+      {
         "name": "Jason Kim",
         "title": "Vice President and General Manager of the Core Analog Division",
         "aliases": [],
@@ -7399,20 +7488,6 @@
         "title": "CFO",
         "aliases": [],
         "source": "SUSS MicroTec press release: Order book reaches record of 473.7 million, providing (08-06-2026) | transcripts/ir/sussmicrotec_2026-08-06_order-book-reaches-record-of-473-7-million-providi.txt"
-      }
-    ],
-    "Sanmina": [
-      {
-        "name": "Jure Sola",
-        "title": "Chairman and Chief Executive Officer",
-        "aliases": [],
-        "source": "Sanmina 8-K (09-15-2026) | transcripts/edgar/SANM_8-K_2026-09-15.txt"
-      },
-      {
-        "name": "Jon Faust",
-        "title": "Executive Vice President and Chief Financial Officer",
-        "aliases": [],
-        "source": "Sanmina Q3 FY2026 (07-27-2026) | transcripts/av/sanmina_q3_2026.txt"
       }
     ],
     "Sanofi": [
@@ -7534,9 +7609,9 @@
     "TTM Technologies": [
       {
         "name": "Edwin Roks",
-        "title": "President and Chief Executive Officer",
+        "title": "CEO",
         "aliases": [],
-        "source": "TTM Technologies Q3 FY2026 (10-22-2026) | transcripts/perplexity/ttmtechnologies_q3_2026.txt"
+        "source": "TTM Technologies 8-K (10-22-2026) | transcripts/edgar/TTMI_8-K_2026-10-22.txt"
       },
       {
         "name": "Cathy Gridley",
@@ -7681,6 +7756,12 @@
         "source": "Wärtsilä Q2 FY2026 (07-21-2026) | transcripts/investing/wrtsil_q2_2026.txt"
       },
       {
+        "name": "Anders Lindberg",
+        "title": "President of Wärtsilä Energy and Executive Vice President",
+        "aliases": [],
+        "source": "Wärtsilä press release: Wrtsil and TGES to evaluate power solutions to support (09-17-2026) | transcripts/ir/wrtsil_2026-09-17_wrtsil-and-tges-to-evaluate-power-solutions-to-sup.txt"
+      },
+      {
         "name": "Arjen Berends",
         "title": "Chief Financial Officer",
         "aliases": [],
@@ -7691,28 +7772,6 @@
         "title": "Head of Investor Relations",
         "aliases": [],
         "source": "Wärtsilä Q2 FY2026 (07-21-2026) | transcripts/investing/wrtsil_q2_2026.txt"
-      }
-    ],
-    "X-Energy": [
-      {
-        "name": "J. Clay Sell",
-        "title": "CEO",
-        "aliases": [
-          "Clay Sell"
-        ],
-        "source": "American Electric Power press release: AEP Partners with Amazon and X-energy to Explore Advanced (10-19-2026) | transcripts/ir/americanelectricpower_2026-10-19_aep-partners-with-amazon-and-x-energy-to-explore-a.txt"
-      },
-      {
-        "name": "Daniel Gross",
-        "title": "Chief Financial Officer",
-        "aliases": [],
-        "source": "X-Energy Q2 FY2026 (08-13-2026) | transcripts/av/xenergy_q2_2026.txt"
-      },
-      {
-        "name": "Patricia Gil",
-        "title": "Director of Investor Relations",
-        "aliases": [],
-        "source": "X-Energy Q2 FY2026 (08-13-2026) | transcripts/av/xenergy_q2_2026.txt"
       }
     ],
     "X-Fab": [
@@ -7856,6 +7915,14 @@
         "source": "AST SpaceMobile Q2 FY2026 (08-10-2026) | transcripts/av/astspacemobile_q2_2026.txt"
       }
     ],
+    "AcBel Polytech": [
+      {
+        "name": "Jerry Hsu",
+        "title": "Chairman and President",
+        "aliases": [],
+        "source": "AcBel Polytech press release: Acbel Delivers Record Q1 Revenue; Scales Strategic Layout (05-11-2026) | transcripts/non_transcript_sources/acbel_polytech_release_2026-05-11.txt"
+      }
+    ],
     "Air Products": [
       {
         "name": "Eduardo Menezes",
@@ -7882,6 +7949,12 @@
         "title": "President, Research and Development",
         "aliases": [],
         "source": "Amgen Q2 FY2026 (08-04-2026) | transcripts/av/amgen_q2_2026.txt"
+      },
+      {
+        "name": "Scott Heimlich",
+        "title": "president of the Amgen Foundation and executive director of philanthropy",
+        "aliases": [],
+        "source": "Amgen press release: AMGEN FOUNDATION TOPS $75 MILLION IN HANDS-ON BIOTECHNOLOGY (10-22-2026) | transcripts/ir/amgen_2026-10-22_amgen-foundation-tops-75-million-in-hands-on-biote.txt"
       },
       {
         "name": "Peter Griffith",
@@ -8353,6 +8426,12 @@
     ],
     "L3Harris": [
       {
+        "name": "Sam Mehta",
+        "title": "President and Chief Executive Officer",
+        "aliases": [],
+        "source": "L3Harris 8-K (10-22-2026) | transcripts/edgar/LHX_8-K_2026-10-22.txt"
+      },
+      {
         "name": "Chris Aebli",
         "title": "President, Communications & Spectrum Dominance",
         "aliases": [],
@@ -8503,6 +8582,14 @@
         "source": "Mitsubishi Electric TDnet: Strategic Alliance with Hon Hai Precision Industry for (10-19-2026) | transcripts/tdnet/mitsubishielectric_2026-10-19_e140120261016552540.txt"
       }
     ],
+    "Mitsui & Co.": [
+      {
+        "name": "Yoichiro Endo",
+        "title": "Chief Operating Officer, Wellness Business Unit",
+        "aliases": [],
+        "source": "Mitsui & Co. press release: Asia-US Clinical Data Collaboration Built on IHH's Clinical (09-11-2026) | transcripts/ir/mitsuico_2026-09-11_asia-us-clinical-data-collaboration-built-on-ihh-s.txt"
+      }
+    ],
     "Monarch Quantum": [
       {
         "name": "Timothy Day",
@@ -8511,6 +8598,14 @@
           "Tim Day"
         ],
         "source": "Monarch Quantum press release: Monarch Quantum Supports Infleqtion's Next Phase of NASA's (10-19-2026) | transcripts/ir/monarchquantum_2026-10-19_monarch-quantum-supports-infleqtion-s-next-phase-o.txt"
+      }
+    ],
+    "NEC": [
+      {
+        "name": "Takayuki Morita",
+        "title": "President and CEO",
+        "aliases": [],
+        "source": "NEC press release: NEC Transfers Overseas Network Equipment Resale Business (08-05-2026) | transcripts/ir/nec_2026-08-05_nec-transfers-overseas-network-equipment-resale-bu.txt"
       }
     ],
     "NXP Semiconductors": [
@@ -8784,6 +8879,18 @@
         "title": "CEO",
         "aliases": [],
         "source": "Prysmian press release: Prysmian completes Atkore acquisition to accelerate growth (10-19-2026) | transcripts/ir/prysmian_2026-10-19_prysmian-completes-atkore-acquisition-to-accelerat.txt"
+      },
+      {
+        "name": "Alberto Boffelli",
+        "title": "Chief Operating Officer",
+        "aliases": [],
+        "source": "Prysmian press release: Prysmian and Aurubis deepen strategic partnership with (09-23-2026) | transcripts/ir/prysmian_2026-09-23_prysmian-and-aurubis-deepen-strategic-partnership-.txt"
+      },
+      {
+        "name": "Srinivas Siripurapu",
+        "title": "Chief Sustainability, R&D, and Innovation Officer",
+        "aliases": [],
+        "source": "Prysmian press release: Breakthrough low-carbon aluminum cables reduce the carbon (09-18-2026) | transcripts/ir/prysmian_2026-09-18_breakthrough-low-carbon-aluminum-cables-reduce-the.txt"
       }
     ],
     "PsiQuantum": [
@@ -8868,6 +8975,14 @@
         "title": "Head of Investor Relations",
         "aliases": [],
         "source": "Siemens Healthineers Q3 FY2026 (07-31-2026) | transcripts/investing/siemenshealthineers_q3_2026.txt"
+      }
+    ],
+    "Skeleton Technologies": [
+      {
+        "name": "Taavi Madiberk",
+        "title": "CEO and co-founder",
+        "aliases": [],
+        "source": "Siemens press release: Siemens invests in Skeleton Technologies expanding its data (10-14-2026) | transcripts/ir/siemens_2026-10-14_siemens-invests-in-skeleton-technologies-expanding.txt"
       }
     ],
     "Socionext": [
@@ -9177,7 +9292,7 @@
         "name": "Adam Steensberg",
         "title": "President and Chief Executive Officer",
         "aliases": [],
-        "source": "Zealand Pharma Q2 FY2026 (08-13-2026) | transcripts/investing/zealandpharma_q2_2026.txt"
+        "source": "Zealand Pharma press release: Zealand Pharma announces opening of new Research Hub in (10-01-2026) | transcripts/ir/zealandpharma_2026-10-01_zealand-pharma-announces-opening-of-new-research-h.txt"
       },
       {
         "name": "Henriette Wennicke",
@@ -9207,9 +9322,9 @@
     "ZuriQ": [
       {
         "name": "Pavel Hrmo",
-        "title": "co-founder and CEO",
+        "title": "CEO",
         "aliases": [],
-        "source": "Infineon press release: Infineon and ZuriQ deepen partnership to advance scalable (10-07-2026) | transcripts/ir/infineon_2026-10-07_infineon-and-zuriq-deepen-partnership-to-advance-s.txt"
+        "source": "ZuriQ press release: Advancing Electrode Control with Rhonexum (10-22-2026) | transcripts/ir/zuriq_2026-10-22_advancing-electrode-control-with-rhonexum.txt"
       }
     ],
     "5N Plus": [
@@ -9272,14 +9387,6 @@
         "title": "CEO",
         "aliases": [],
         "source": "Aalberts Q2 FY2026 (07-23-2026) | transcripts/investing/aalberts_q2_2026.txt"
-      }
-    ],
-    "AcBel Polytech": [
-      {
-        "name": "Jerry Hsu",
-        "title": "Chairman and President",
-        "aliases": [],
-        "source": "AcBel Polytech press release: Acbel Delivers Record Q1 Revenue; Scales Strategic Layout (05-11-2026) | transcripts/non_transcript_sources/acbel_polytech_release_2026-05-11.txt"
       }
     ],
     "Acuity": [
@@ -9421,7 +9528,7 @@
         "name": "Peter Kinnart",
         "title": "CFO",
         "aliases": [],
-        "source": "Atlas Copco Q2 FY2026 (07-16-2026) | transcripts/investing/atlascopco_q2_2026.txt"
+        "source": "Atlas Copco Q3 FY2026 (10-22-2026) | transcripts/investing/atlascopco_q3_2026.txt"
       }
     ],
     "Axcelis": [
@@ -9538,7 +9645,7 @@
         "aliases": [
           "Brian E. Lane"
         ],
-        "source": "Comfort Systems USA Q2 FY2026 (07-24-2026) | transcripts/av/comfortsystemsusa_q2_2026.txt"
+        "source": "Comfort Systems USA Q3 FY2026 (10-23-2026) | transcripts/perplexity/comfortsystemsusa_q3_2026.txt"
       },
       {
         "name": "Trent McKenna",
@@ -9546,7 +9653,7 @@
         "aliases": [
           "Trent T. McKenna"
         ],
-        "source": "Comfort Systems USA Q2 FY2026 (07-24-2026) | transcripts/av/comfortsystemsusa_q2_2026.txt"
+        "source": "Comfort Systems USA Q3 FY2026 (10-23-2026) | transcripts/perplexity/comfortsystemsusa_q3_2026.txt"
       },
       {
         "name": "Bill George",
@@ -9554,7 +9661,7 @@
         "aliases": [
           "William George"
         ],
-        "source": "Comfort Systems USA Q2 FY2026 (07-24-2026) | transcripts/av/comfortsystemsusa_q2_2026.txt"
+        "source": "Comfort Systems USA Q3 FY2026 (10-23-2026) | transcripts/perplexity/comfortsystemsusa_q3_2026.txt"
       },
       {
         "name": "Julie Shaeff",
@@ -9562,7 +9669,7 @@
         "aliases": [
           "Julie S. Shaeff"
         ],
-        "source": "Comfort Systems USA Q2 FY2026 (07-24-2026) | transcripts/av/comfortsystemsusa_q2_2026.txt"
+        "source": "Comfort Systems USA Q3 FY2026 (10-23-2026) | transcripts/perplexity/comfortsystemsusa_q3_2026.txt"
       }
     ],
     "Compal Electronics": [
@@ -9865,7 +9972,7 @@
         "name": "Gary Niederpruem",
         "title": "Chief Executive Officer",
         "aliases": [],
-        "source": "Forgent Power Solutions 8-K (09-15-2026) | transcripts/edgar/FPS_8-K_2026-09-15.txt"
+        "source": "Forgent Power Solutions press release: Forgent Announces CFO Transition (10-22-2026) | transcripts/ir/forgentpowersolutions_2026-10-22_forgent-announces-cfo-transition.txt"
       },
       {
         "name": "Ryan Fiedler",
@@ -9917,9 +10024,9 @@
     "Hammond Power Solutions": [
       {
         "name": "Adrian Thomas",
-        "title": "Chief Executive Officer",
+        "title": "CEO",
         "aliases": [],
-        "source": "Hammond Power Solutions Q2 FY2026 (07-31-2026) | transcripts/perplexity/hammondpowersolutions_q2_2026.txt"
+        "source": "Hammond Power Solutions press release: Hammond Power Solutions Included in 2026 TSX30 Ranking (09-09-2026) | transcripts/ir/hammondpowersolutions_2026-09-09_hammond-power-solutions-included-in-2026-tsx30-ran.txt"
       },
       {
         "name": "Richard Vollering",
@@ -9964,6 +10071,12 @@
         "title": "Chief Financial Officer (CFO)",
         "aliases": [],
         "source": "Huber+Suhner Q2 FY2026 (08-18-2026) | transcripts/investing/hubersuhner_q2_2026.txt"
+      },
+      {
+        "name": "Drew Nixon",
+        "title": "COO Transportation segment",
+        "aliases": [],
+        "source": "Huber+Suhner press release: HUBER+SUHNER to expand rail communications offering by (09-25-2026) | transcripts/ir/hubersuhner_2026-09-25_huber-suhner-to-expand-rail-communications-offerin.txt"
       }
     ],
     "IBM": [
@@ -9986,6 +10099,12 @@
         "title": "Senior Vice President and Chair, EMEA and APAC",
         "aliases": [],
         "source": "IBM press release: IBM Study: Eight in Ten EMEA Enterprises Escalate AI (10-14-2026) | transcripts/ir/ibm_2026-10-14_ibm-study-eight-in-ten-emea-enterprises-escalate-a.txt"
+      },
+      {
+        "name": "Jonathan Adashek",
+        "title": "Senior Vice President, Chief Global Affairs Officer",
+        "aliases": [],
+        "source": "IBM press release: IBM and Scuderia Ferrari HP Expand AI-Powered Fan (10-22-2026) | transcripts/ir/ibm_2026-10-22_ibm-and-scuderia-ferrari-hp-expand-ai-powered-fan-.txt"
       },
       {
         "name": "Olympia McNerney",
@@ -10052,6 +10171,12 @@
         "title": "Head of Investor Relations / CFO",
         "aliases": [],
         "source": "Jenoptik Q2 FY2026 (08-12-2026) | transcripts/investing/jenoptik_q2_2026.txt"
+      },
+      {
+        "name": "Ralf Kuschnereit",
+        "title": "Chief Technology Officer and Chief Operating Officer",
+        "aliases": [],
+        "source": "Jenoptik press release: Significant increase in orders and earnings in first half (08-12-2026) | transcripts/ir/jenoptik_2026-08-12_significant-increase-in-orders-and-earnings-in-fir.txt"
       }
     ],
     "Johnson Controls": [
@@ -10571,8 +10696,16 @@
       {
         "name": "Tufan Erginbilgiç",
         "title": "CEO",
+        "aliases": [
+          "Tufan Erginbilgic"
+        ],
+        "source": "Rolls-Royce press release: Rolls-Royce invests 300 million in UK manufacturing and (09-28-2026) | transcripts/ir/rollsroyce_2026-09-28_rolls-royce-invests-300-million-in-uk-manufacturin.txt"
+      },
+      {
+        "name": "Ewen McDonald",
+        "title": "Chief Customer Officer",
         "aliases": [],
-        "source": "Rolls-Royce Jefferies Global Industrials Conference 2026 (09-09-2026) | transcripts/conferences/rollsroyce_jefferiesglobalindustrialsconference_2026-09-09.txt"
+        "source": "Rolls-Royce press release: Rolls-Royce welcomes Avolon order for 70 Trent 7000 engines (10-13-2026) | transcripts/ir/rollsroyce_2026-10-13_rolls-royce-welcomes-avolon-order-for-70-trent-700.txt"
       }
     ],
     "SENKO Advanced Components": [
@@ -10605,6 +10738,20 @@
         "source": "SPX Technologies Q2 FY2026 (07-30-2026) | transcripts/av/spxtechnologies_q2_2026.txt"
       }
     ],
+    "STL Technology": [
+      {
+        "name": "Rahul Puti",
+        "title": "CEO, ONB",
+        "aliases": [],
+        "source": "Sterlite Technologies press release: STL takes a major leap towards Decarbonisation; enabling (08-27-2026) | transcripts/ir/sterlitetechnologies_2026-08-27_stl-takes-a-major-leap-towards-decarbonisation-ena.txt"
+      },
+      {
+        "name": "Badri Gomatam",
+        "title": "CTO",
+        "aliases": [],
+        "source": "Sterlite Technologies press release: STL strengthens its Neuralis portfolio with Pre-Terminated (09-24-2026) | transcripts/ir/sterlitetechnologies_2026-09-24_stl-strengthens-its-neuralis-portfolio-with-pre-te.txt"
+      }
+    ],
     "Seagate": [
       {
         "name": "Dave Mosley",
@@ -10623,14 +10770,6 @@
         "title": "Senior Vice President, Investor Relations",
         "aliases": [],
         "source": "Seagate Q2 FY2026 (01-27-2026) | transcripts/av/seagate_q2_2026.txt"
-      }
-    ],
-    "Skeleton Technologies": [
-      {
-        "name": "Taavi Madiberk",
-        "title": "CEO",
-        "aliases": [],
-        "source": "Skeleton Technologies press release: Skeleton Technologies secures strategic investment led by (10-14-2026) | transcripts/ir/skeletontechnologies_2026-10-14_skeleton-technologies-secures-strategic-investment.txt"
       }
     ],
     "Skyworks Solutions": [
@@ -10764,7 +10903,7 @@
         "name": "Nat Rothschild",
         "title": "Chief Executive Officer",
         "aliases": [],
-        "source": "Volex Q4 FY2026 (06-26-2026) | transcripts/investing/volex_q4_2026.txt"
+        "source": "Volex press release: Admission to Trading (07-24-2026) | transcripts/ir/volex_2026-07-24_admission-to-trading.txt"
       },
       {
         "name": "Jon Boaden",
@@ -10775,10 +10914,16 @@
     ],
     "WEG": [
       {
-        "name": "André Menegueti Salgueiro",
-        "title": "Finance and Investor Relations Officer",
+        "name": "André Luís Rodrigues",
+        "title": "Chief Financial and Administrative Officer",
         "aliases": [],
-        "source": "WEG Q2 FY2026 (07-23-2026) | transcripts/investing/weg_q2_2026.txt"
+        "source": "WEG Q3 FY2026 (10-22-2026) | transcripts/investing/weg_q3_2026.txt"
+      },
+      {
+        "name": "André Menegueti Salgueiro",
+        "title": "Finance and Investor Relations Director",
+        "aliases": [],
+        "source": "WEG Q3 FY2026 (10-22-2026) | transcripts/investing/weg_q3_2026.txt"
       }
     ],
     "Western Digital": [
